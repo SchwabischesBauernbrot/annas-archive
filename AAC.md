@@ -6,7 +6,7 @@ One-time scraped datasets should ideally follow our AAC conventions. Follow this
 
 Give us a single .jsonl file, which should be in the AAC format.
 
-* Here is an example: https://software.annas-archive.se/AnnaArchivist/annas-archive/-/blob/main/aacid_small/annas_archive_meta__aacid__zlib3_records__20230808T014342Z--20240322T220922Z.jsonl?ref_type=heads
+* Here is are examples: https://software.annas-archive.se/AnnaArchivist/annas-archive/-/tree/main/aacid_small
 * And here is the documentation: https://annas-archive.org/blog/annas-archive-containers.html
 
 Essentially just wrap every line in `{"aacid":..,"metadata":<your original json>}`. Your original JSON should have the ID of the record as its first field. If you have fields of multiple types (e.g. "groups" and "books"), then you can prefix the ID with the type, e.g. "group_001" and "book_789".
