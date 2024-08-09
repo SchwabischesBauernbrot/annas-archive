@@ -143,7 +143,9 @@ To set up mariapersistreplica and mariabackup, check out `mariapersistreplica-co
 ## Scraping
 
 Scraping of new datasets is not in scope for this repo, but we nonetheless have a guide here: [SCRAPING.md](SCRAPING.md).
-    
+
+One-time scraped datasets should ideally follow our AAC conventions. Follow this guide to provide us with files that we can easily release: [AAC.md](AAC.md).
+
 ## Contributing
 
 To report bugs or suggest new ideas, please file an ["issue"](https://software.annas-archive.se/AnnaArchivist/annas-archive/-/issues).

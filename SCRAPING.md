@@ -1,10 +1,11 @@
 # Anna’s guide to scrapers
-
-We have private infrastructure for running scrapers. Our scrapers are not open source because we don’t want to share with our targets how we scrape them.
+ We have private infrastructure for running scrapers. Our scrapers are not open source because we don’t want to share with our targets how we scrape them.
 
 If you’re going to write a scraper, it would be helpful to us if you use the same basic setup, so we can more easily plug your code into our system.
 
 This is a very rough initial guide. We would love for someone to make an example scraper based off this, and which can actually be easily run and adapted.
+
+We sometimes also ask for one-time scrapes. In that case it's less necessary to set up this structure, just make sure that the final file follow this structure: [AAC.md](AAC.md).
 
 ## Overview
 
