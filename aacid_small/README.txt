@@ -4,7 +4,9 @@ To run `t2sz` in Docker:
 * docker exec -it web bash
 * cd aacid_small
 
-# zlib3 record example of multiple values
-- aacid__zlib3_records__20231227T231118Z__27250246__STBmGCz4dhuv7YGUqsjR6B
-- aacid__zlib3_records__20231227T231759Z__27250246__a8epYayzCprrFEUAPmC7rU
-- aacid__zlib3_records__20231229T221647Z__27250246__YMatFAMyFq3amAiKgZLpeY
+# zlib3
+- Record with file: 22433983
+- Record with multiple values: 27250246
+- DMCA record: 28406459
+- Spam record: 28403296
+- Chinese collection record: 29212943

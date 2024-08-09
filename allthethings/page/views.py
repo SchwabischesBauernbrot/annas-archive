@@ -1084,6 +1084,14 @@ def get_zlib_book_dicts(session, key, values):
         zlib_book_dicts.append(add_comments_to_dict(zlib_book_dict, zlib_book_dict_comments))
     return zlib_book_dicts
 
+# +----------+--------------------------------------------------------------------------------+
+# | count(*) | json_extract(finished_data,'$.metadata.annabookinfo.response.deleted_comment') |
+# +----------+--------------------------------------------------------------------------------+
+# | 15989365 | ""                                                                             |
+# |   414566 | "DMCA"                                                                         |
+# |    10222 | "bad file"                                                                     |
+# |   367890 | "spam"                                                                         |
+# +----------+--------------------------------------------------------------------------------+
 def get_aac_zlib3_book_dicts(session, key, values):
     if len(values) == 0:
         return []
