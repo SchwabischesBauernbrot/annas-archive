@@ -15,7 +15,7 @@
 
   <ul class="mb-4">
     {% for url in ipfs_urls %}
-      <li>- <a href="{{ url }}">{{ gettext('page.md5.box.download.ipfs_gateway', num=loop.index) }}</a> {% if loop.index == 1 %}{{ gettext('page.md5.box.download.ipfs_gateway_extra')}}{% endif %}</li>
+      <li>- <a rel="noopener noreferrer nofollow" href="{{ url.url }}">{{ gettext('page.md5.box.download.ipfs_gateway', num=loop.index) }}</a> [{{ url.from }}] {% if loop.index == 1 %}{{ gettext('page.md5.box.download.ipfs_gateway_extra')}}{% endif %}</li>
     {% endfor %}
   </ul>
 

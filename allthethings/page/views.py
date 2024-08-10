@@ -491,6 +491,7 @@ def get_stats_data():
             'journals': {'count': 0, 'filesize': 0, 'aa_count': 0, 'torrent_count': 0},
             'lgli': {'count': 0, 'filesize': 0, 'aa_count': 0, 'torrent_count': 0},
             'zlib': {'count': 0, 'filesize': 0, 'aa_count': 0, 'torrent_count': 0},
+            'zlibzh': {'count': 0, 'filesize': 0, 'aa_count': 0, 'torrent_count': 0},
             'ia': {'count': 0, 'filesize': 0, 'aa_count': 0, 'torrent_count': 0},
             'duxiu': {'count': 0, 'filesize': 0, 'aa_count': 0, 'torrent_count': 0},
             'upload': {'count': 0, 'filesize': 0, 'aa_count': 0, 'torrent_count': 0},
@@ -499,7 +500,7 @@ def get_stats_data():
             stats_by_group[bucket['key']] = {
                 'count': bucket['doc_count'],
                 'filesize': bucket['search_filesize']['value'],
-                'aa_count': bucket['search_access_types']['buckets'][0]['doc_count'],
+                'aa_count': bucket['search_access_types']['buckets'][0]['doc_count'] if len(bucket['search_access_types']['buckets']) > 0 else 0,
                 'torrent_count': bucket['search_bulk_torrents']['buckets'][0]['doc_count'] if len(bucket['search_bulk_torrents']['buckets']) > 0 else 0,
             }
         stats_by_group['journals'] = {
@@ -518,6 +519,10 @@ def get_stats_data():
         stats_by_group['total']['count'] += stats_data_esaux['responses'][4]['hits']['total']['value']
         stats_by_group['ia']['filesize'] += stats_data_esaux['responses'][4]['aggregations']['total_filesize']['value']
         stats_by_group['total']['filesize'] += stats_data_esaux['responses'][4]['aggregations']['total_filesize']['value']
+        stats_by_group['total']['count'] -= stats_by_group['zlibzh']['count']
+        stats_by_group['total']['filesize'] -= stats_by_group['zlibzh']['filesize']
+        stats_by_group['total']['aa_count'] -= stats_by_group['zlibzh']['aa_count']
+        stats_by_group['total']['torrent_count'] -= stats_by_group['zlibzh']['torrent_count']
 
     return {
         'stats_by_group': stats_by_group,
@@ -1084,14 +1089,6 @@ def get_zlib_book_dicts(session, key, values):
         zlib_book_dicts.append(add_comments_to_dict(zlib_book_dict, zlib_book_dict_comments))
     return zlib_book_dicts
 
-# +----------+--------------------------------------------------------------------------------+
-# | count(*) | json_extract(finished_data,'$.metadata.annabookinfo.response.deleted_comment') |
-# +----------+--------------------------------------------------------------------------------+
-# | 15989365 | ""                                                                             |
-# |   414566 | "DMCA"                                                                         |
-# |    10222 | "bad file"                                                                     |
-# |   367890 | "spam"                                                                         |
-# +----------+--------------------------------------------------------------------------------+
 def get_aac_zlib3_book_dicts(session, key, values):
     if len(values) == 0:
         return []
@@ -1152,7 +1149,7 @@ def get_aac_zlib3_book_dicts(session, key, values):
 
     aac_zlib3_book_dicts = []
     for zlib_book in aac_zlib3_books:
-        aac_zlib3_book_dict = zlib_book['record']['metadata']
+        aac_zlib3_book_dict = { **zlib_book['record']['metadata'] }
         if 'file' in zlib_book:
             aac_zlib3_book_dict['md5'] = zlib_book['file']['metadata']['md5']
             if 'filesize' in zlib_book['file']['metadata']:
@@ -1165,6 +1162,15 @@ def get_aac_zlib3_book_dicts(session, key, values):
             aac_zlib3_book_dict['file_aacid'] = None
             aac_zlib3_book_dict['file_data_folder'] = None
         aac_zlib3_book_dict['record_aacid'] = zlib_book['record']['aacid']
+
+        if 'annabookinfo' in aac_zlib3_book_dict and len(aac_zlib3_book_dict['annabookinfo']['errors']) == 0:
+            aac_zlib3_book_dict['ipfs_cid'] = aac_zlib3_book_dict['annabookinfo']['response']['ipfs_cid']
+            aac_zlib3_book_dict['ipfs_cid_blake2b'] = aac_zlib3_book_dict['annabookinfo']['response']['ipfs_cid_blake2b']
+            aac_zlib3_book_dict['storage'] = aac_zlib3_book_dict['annabookinfo']['response']['storage']
+            if aac_zlib3_book_dict['annabookinfo']['response']['identifier'] != '':
+                aac_zlib3_book_dict['isbns'].append(aac_zlib3_book_dict['annabookinfo']['response']['identifier'])
+            aac_zlib3_book_dict['deleted_comment'] = aac_zlib3_book_dict['annabookinfo']['response']['deleted_comment']
+
         if 'description' not in aac_zlib3_book_dict:
             print(f'WARNING WARNING! missing description in aac_zlib3_book_dict: {aac_zlib3_book_dict=} {zlib_book=}')
             print('------------------')
@@ -3794,8 +3800,9 @@ def aarecord_score_base(aarecord):
         # For now demote non-books quite a bit, since they can drown out books.
         # People can filter for them directly.
         score -= 70.0
-    if aarecord_sources(aarecord) == ['upload']:
+    if aarecord_sources(aarecord) == ['upload','zlibzh']:
         # Demote upload-only results below the demotion above, since there's some garbage in there.
+        # Similarly demote zlibzh since we don't have direct download for them, and Zlib downloads are annoying because the require login.
         score -= 100.0
     if len(aarecord['file_unified_data'].get('stripped_description_best') or '') > 0:
         score += 3.0
@@ -3814,7 +3821,8 @@ def aarecord_sources(aarecord):
         *(['ol']        if (aarecord_id_split[0] == 'ol' and len(aarecord['ol'] or []) > 0) else []),
         *(['scihub']    if len(aarecord['scihub_doi']) > 0 else []),
         *(['upload']    if aarecord.get('aac_upload') is not None else []),
-        *(['zlib']      if aarecord['aac_zlib3_book'] is not None else []),
+        *(['zlibzh']    if (aarecord['aac_zlib3_book'] is not None) and ((aarecord['aac_zlib3_book'].get('storage') or '') == 'chinese') else []),
+        *(['zlib']      if (aarecord['aac_zlib3_book'] is not None) and ((aarecord['aac_zlib3_book'].get('storage') or '') != 'chinese') else []),
         *(['zlib']      if aarecord['zlib_book'] is not None else []),
     ]))
 
@@ -4048,10 +4056,14 @@ def get_aarecords_mysql(session, aarecord_ids):
             aarecord['duxius_nontransitive_meta_only'] = (aarecord['duxius_nontransitive_meta_only'] + duxiu_all)
 
         aarecord['ipfs_infos'] = []
-        if aarecord['lgrsnf_book'] and len(aarecord['lgrsnf_book'].get('ipfs_cid') or '') > 0:
-            aarecord['ipfs_infos'].append({ 'ipfs_cid': aarecord['lgrsnf_book']['ipfs_cid'].lower(), 'from': 'lgrsnf' })
-        if aarecord['lgrsfic_book'] and len(aarecord['lgrsfic_book'].get('ipfs_cid') or '') > 0:
-            aarecord['ipfs_infos'].append({ 'ipfs_cid': aarecord['lgrsfic_book']['ipfs_cid'].lower(), 'from': 'lgrsfic' })
+        if aarecord['lgrsnf_book'] and ((aarecord['lgrsnf_book'].get('ipfs_cid') or '') != ''):
+            aarecord['ipfs_infos'].append({ 'ipfs_cid': aarecord['lgrsnf_book']['ipfs_cid'], 'from': 'lgrsnf' })
+        if aarecord['lgrsfic_book'] and ((aarecord['lgrsfic_book'].get('ipfs_cid') or '') != ''):
+            aarecord['ipfs_infos'].append({ 'ipfs_cid': aarecord['lgrsfic_book']['ipfs_cid'], 'from': 'lgrsfic' })
+        if aarecord['aac_zlib3_book'] and ((aarecord['aac_zlib3_book'].get('ipfs_cid') or '') != ''):
+            aarecord['ipfs_infos'].append({ 'ipfs_cid': aarecord['aac_zlib3_book']['ipfs_cid'], 'from': 'zlib_ipfs_cid' })
+        if aarecord['aac_zlib3_book'] and ((aarecord['aac_zlib3_book'].get('ipfs_cid_blake2b') or '') != ''):
+            aarecord['ipfs_infos'].append({ 'ipfs_cid': aarecord['aac_zlib3_book']['ipfs_cid_blake2b'], 'from': 'zlib_ipfs_cid_blake2b' })
 
         original_filename_multiple = [
             *[allthethings.utils.prefix_filepath('lgrsnf', filepath) for filepath in filter(len, [((aarecord['lgrsnf_book'] or {}).get('locator') or '').strip()])],
@@ -4537,8 +4549,6 @@ def get_aarecords_mysql(session, aarecord_ids):
             aarecord['file_unified_data']['problems'].append({ 'type': 'lgli_visible', 'descr': ((aarecord['lgli_file'] or {}).get('visible') or ''), 'better_md5': ((aarecord['lgli_file'] or {}).get('generic') or '').lower() })
         if ((aarecord['lgli_file'] or {}).get('broken') or '') in [1, "1", "y", "Y"]:
             aarecord['file_unified_data']['problems'].append({ 'type': 'lgli_broken', 'descr': ((aarecord['lgli_file'] or {}).get('broken') or ''), 'better_md5': ((aarecord['lgli_file'] or {}).get('generic') or '').lower() })
-        if (aarecord['zlib_book'] and (aarecord['zlib_book']['in_libgen'] or False) == False and (aarecord['zlib_book']['pilimi_torrent'] or '') == ''):
-            aarecord['file_unified_data']['problems'].append({ 'type': 'zlib_missing', 'descr': '', 'better_md5': '' })
         if len(((aarecord['duxiu'] or {}).get('aa_duxiu_derived') or {}).get('problems_infos') or []) > 0:
             for duxiu_problem_info in (((aarecord['duxiu'] or {}).get('aa_duxiu_derived') or {}).get('problems_infos') or []):
                 if duxiu_problem_info['duxiu_problem_type'] == 'pdg_broken_files':
@@ -4554,10 +4564,20 @@ def get_aarecords_mysql(session, aarecord_ids):
                     aarecord['file_unified_data']['problems'].append({ 'type': 'upload_exiftool_failed', 'descr': '', 'better_md5': '' })
                 else:
                     raise Exception(f"Unknown upload_problem_type: {upload_problem_info=}")
-        # TODO: Reindex and use "removal reason" properly, and do some statistics to remove spurious removal reasons.
-        # For now we only mark it as a problem on the basis of aac_zlib3 if there is no libgen record.
-        if (((aarecord['aac_zlib3_book'] or {}).get('removed') or 0) == 1) and (aarecord['lgrsnf_book'] is None) and (aarecord['lgrsfic_book'] is None) and (aarecord['lgli_file'] is None):
-            aarecord['file_unified_data']['problems'].append({ 'type': 'zlib_missing', 'descr': '', 'better_md5': '' })
+
+        zlib_deleted_comment = ((aarecord['aac_zlib3_book'] or {}).get('deleted_comment') or '').lower()
+        if zlib_deleted_comment == '':
+            pass
+        elif zlib_deleted_comment == 'dmca':
+            # Only mark it if we can't serve the file.
+            if ((aarecord['aac_zlib3_book'].get('file_aacid') or '') == '') and (len((aarecord['zlib_book'] or {}).get('pilimi_torrent') or '') == '') and (aarecord['lgli_file'] is None) and (aarecord['lgrsfic_book'] is None) and (aarecord['lgrsnf_book'] is None):
+                aarecord['file_unified_data']['problems'].append({ 'type': 'zlib_missing', 'descr': '', 'better_md5': '' })
+        elif zlib_deleted_comment == 'spam':
+            aarecord['file_unified_data']['problems'].append({ 'type': 'zlib_spam', 'descr': '', 'better_md5': '' })
+        elif zlib_deleted_comment == 'bad file':
+            aarecord['file_unified_data']['problems'].append({ 'type': 'zlib_bad_file', 'descr': '', 'better_md5': '' })
+        else:
+            raise Exception(f"Unexpected {zlib_deleted_comment=} for {aarecord=}")
 
         aarecord['file_unified_data']['content_type'] = None
         if (aarecord['file_unified_data']['content_type'] is None) and (aarecord['lgli_file'] is not None):
@@ -4645,8 +4665,9 @@ def get_aarecords_mysql(session, aarecord_ids):
                 'file_data_folder': aarecord['aac_zlib3_book']['file_data_folder'],
                 'record_aacid': aarecord['aac_zlib3_book']['record_aacid'],
                 'file_aacid': aarecord['aac_zlib3_book']['file_aacid'],
-                'removed': (aarecord['aac_zlib3_book'].get('removed') or 0),
+                'deleted_comment': (aarecord['aac_zlib3_book'].get('deleted_comment') or 0),
                 'cover_path': (aarecord['aac_zlib3_book'].get('cover_path') or ''),
+                'storage': (aarecord['aac_zlib3_book'].get('storage') or ''),
             }
         if aarecord['ia_record'] is not None:
             aarecord['ia_record'] = {
@@ -4821,6 +4842,8 @@ def get_md5_problem_type_mapping():
         "lgli_visible":           gettext("common.md5_problem_type_mapping.lgli_visible"),
         "lgli_broken":            gettext("common.md5_problem_type_mapping.lgli_broken"),
         "zlib_missing":           gettext("common.md5_problem_type_mapping.zlib_missing"),
+        "zlib_spam":              "Marked as “spam” in Z-Library", # TODO:TRANSLATE
+        "zlib_bad_file":          "Marked as “bad file” in Z-Library", # TODO:TRANSLATE
         "duxiu_pdg_broken_files": gettext("common.md5_problem_type_mapping.duxiu_pdg_broken_files"),
         "upload_exiftool_failed": gettext("common.md5_problem_type_mapping.upload_exiftool_failed"),
     }
@@ -4857,6 +4880,7 @@ def get_record_sources_mapping(display_lang):
             "lgrs": gettext("common.record_sources_mapping.lgrs"),
             "lgli": gettext("common.record_sources_mapping.lgli"),
             "zlib": gettext("common.record_sources_mapping.zlib"),
+            "zlibzh": "Z-Library Chinese", # TODO:TRANSLATE
             "ia": gettext("common.record_sources_mapping.ia"),
             "isbndb": gettext("common.record_sources_mapping.isbndb"),
             "ol": gettext("common.record_sources_mapping.ol"),
@@ -5182,25 +5206,26 @@ def get_additional_for_aarecord(aarecord):
     if (len(aarecord.get('ipfs_infos') or []) > 0) and (aarecord_id_split[0] == 'md5'):
         # additional['download_urls'].append((gettext('page.md5.box.download.ipfs_gateway', num=1), f"https://ipfs.eth.aragon.network/ipfs/{aarecord['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={additional['filename_without_annas_archive']}", gettext('page.md5.box.download.ipfs_gateway_extra')))
 
-        additional['ipfs_urls'].append(f"https://cf-ipfs.com/ipfs/{aarecord['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={additional['filename_without_annas_archive']}")
-        additional['ipfs_urls'].append(f"https://ipfs.eth.aragon.network/ipfs/{aarecord['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={additional['filename_without_annas_archive']}")
-        additional['ipfs_urls'].append(f"https://zerolend.myfilebase.com/ipfs/{aarecord['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={additional['filename_without_annas_archive']}")
-        additional['ipfs_urls'].append(f"https://ccgateway.infura-ipfs.io/ipfs/{aarecord['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={additional['filename_without_annas_archive']}")
-        additional['ipfs_urls'].append(f"https://knownorigin.mypinata.cloud/ipfs/{aarecord['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={additional['filename_without_annas_archive']}")
-        additional['ipfs_urls'].append(f"https://storry.tv/ipfs/{aarecord['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={additional['filename_without_annas_archive']}")
-        additional['ipfs_urls'].append(f"https://ipfs-stg.fleek.co/ipfs/{aarecord['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={additional['filename_without_annas_archive']}")
-        additional['ipfs_urls'].append(f"https://cloudflare-ipfs.com/ipfs/{aarecord['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={additional['filename_without_annas_archive']}")
-        additional['ipfs_urls'].append(f"https://ipfs.io/ipfs/{aarecord['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={additional['filename_without_annas_archive']}")
-        additional['ipfs_urls'].append(f"https://snapshot.4everland.link/ipfs/{aarecord['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={additional['filename_without_annas_archive']}")
-        additional['ipfs_urls'].append(f"https://gateway.pinata.cloud/ipfs/{aarecord['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={additional['filename_without_annas_archive']}")
-        additional['ipfs_urls'].append(f"https://dweb.link/ipfs/{aarecord['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={additional['filename_without_annas_archive']}")
-        additional['ipfs_urls'].append(f"https://gw3.io/ipfs/{aarecord['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={additional['filename_without_annas_archive']}")
-        additional['ipfs_urls'].append(f"https://public.w3ipfs.aioz.network/ipfs/{aarecord['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={additional['filename_without_annas_archive']}")
-        additional['ipfs_urls'].append(f"https://ipfsgw.com/ipfs/{aarecord['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={additional['filename_without_annas_archive']}")
-        additional['ipfs_urls'].append(f"https://magic.decentralized-content.com/ipfs/{aarecord['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={additional['filename_without_annas_archive']}")
-        additional['ipfs_urls'].append(f"https://ipfs.raribleuserdata.com/ipfs/{aarecord['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={additional['filename_without_annas_archive']}")
-        additional['ipfs_urls'].append(f"https://www.gstop-content.com/ipfs/{aarecord['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={additional['filename_without_annas_archive']}")
-        additional['ipfs_urls'].append(f"https://atomichub-ipfs.com/ipfs/{aarecord['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={additional['filename_without_annas_archive']}")
+        for ipfs_info in aarecord['ipfs_infos']:
+            additional['ipfs_urls'].append({ "url": f"https://cf-ipfs.com/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "url": f"https://ipfs.eth.aragon.network/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "url": f"https://zerolend.myfilebase.com/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "url": f"https://ccgateway.infura-ipfs.io/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "url": f"https://knownorigin.mypinata.cloud/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "url": f"https://storry.tv/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "url": f"https://ipfs-stg.fleek.co/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "url": f"https://cloudflare-ipfs.com/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "url": f"https://ipfs.io/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "url": f"https://snapshot.4everland.link/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "url": f"https://gateway.pinata.cloud/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "url": f"https://dweb.link/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "url": f"https://gw3.io/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "url": f"https://public.w3ipfs.aioz.network/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "url": f"https://ipfsgw.com/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "url": f"https://magic.decentralized-content.com/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "url": f"https://ipfs.raribleuserdata.com/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "url": f"https://www.gstop-content.com/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "url": f"https://atomichub-ipfs.com/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
 
         additional['download_urls'].append(("IPFS", f"/ipfs_downloads/{aarecord_id_split[1]}", ""))
     if aarecord.get('zlib_book') is not None and len(aarecord['zlib_book']['pilimi_torrent'] or '') > 0:

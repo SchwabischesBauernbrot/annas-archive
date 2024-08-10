@@ -964,7 +964,7 @@ UNIFIED_IDENTIFIERS = {
     "lgli_magz_id": { "label": "Libgen.li magz_id", "description": "Repository ID for the 'magz' repository in Libgen.li. Directly taken from the 'magz_id' field in the 'files' table. Corresponds to the 'thousands folder' torrents.", "website": "/datasets/libgen_li" },
     "filepath": { "label": "Filepath", "description": "Original filepath in source library." },
     "server_path": { "label": "Server Path", "description": "Path on Anna’s Archive partner servers." },
-    "aacid": { "label": "AACID", "website": "/blog/annas-archive-containers.html", "description": "Anna’s Archive Container identifier." },
+    "aacid": { "label": "AacId", "website": "/blog/annas-archive-containers.html", "description": "Anna’s Archive Container identifier." },
     **{LGLI_IDENTIFIERS_MAPPING.get(key, key): value for key, value in LGLI_IDENTIFIERS.items()},
     # Plus more added below!
 }
