@@ -1167,7 +1167,7 @@ def get_aac_zlib3_book_dicts(session, key, values):
             aac_zlib3_book_dict['ipfs_cid'] = aac_zlib3_book_dict['annabookinfo']['response']['ipfs_cid']
             aac_zlib3_book_dict['ipfs_cid_blake2b'] = aac_zlib3_book_dict['annabookinfo']['response']['ipfs_cid_blake2b']
             aac_zlib3_book_dict['storage'] = aac_zlib3_book_dict['annabookinfo']['response']['storage']
-            if aac_zlib3_book_dict['annabookinfo']['response']['identifier'] != '':
+            if (aac_zlib3_book_dict['annabookinfo']['response']['identifier'] is not None) and (aac_zlib3_book_dict['annabookinfo']['response']['identifier'] != ''):
                 aac_zlib3_book_dict['isbns'].append(aac_zlib3_book_dict['annabookinfo']['response']['identifier'])
             aac_zlib3_book_dict['deleted_comment'] = aac_zlib3_book_dict['annabookinfo']['response']['deleted_comment']
 

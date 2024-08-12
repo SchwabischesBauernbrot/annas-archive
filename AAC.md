@@ -2,6 +2,8 @@
 
 One-time scraped datasets should ideally follow our AAC conventions. Follow this guide to provide us with files that we can easily release.
 
+IMPORTANT: Please ALSO store the original files (HTML, XML, JSON) and zip them, so we can refer to them if necessary.
+
 ## AAC format
 
 Give us a single .jsonl file, which should be in the AAC format.
