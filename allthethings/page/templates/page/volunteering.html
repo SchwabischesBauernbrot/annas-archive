@@ -1,3 +1,5 @@
+{% import 'macros/shared_links.j2' as a %}
+{% import 'macros/helpers.j2' as h %}
 {% extends "layouts/index.html" %}
 
 {% block title %}{{ gettext('page.volunteering.title') }}{% endblock %}
@@ -10,26 +12,26 @@
   </p>
 
   <ul class="list-inside mb-4">
-    <li class="list-disc">{{ gettext('page.volunteering.intro.light') }}</li>
-    <li class="list-disc">{{ gettext('page.volunteering.intro.heavy') }}</li>
+    <li class="list-disc">{{ gettext('page.volunteering.intro.light', label=(h.bold|xmlattr), bold=(h.bold|xmlattr)) }}</li>
+    <li class="list-disc">{{ gettext('page.volunteering.intro.heavy', label=(h.bold|xmlattr), bold=(h.bold|xmlattr)) }}</li>
   </ul>
 
   <p class="mb-4">
-    {{ gettext('page.volunteering.intro.text2', a_donate=(' href="/donate"' | safe), a_torrents=(' href="/torrents"' | safe), a_uploading=(' href="/faq#upload"' | safe), a_help=(' href="/faq#help"' | safe)) }}
+    {{ gettext('page.volunteering.intro.text2', a_donate=(a.donate|xmlattr), a_torrents=(a.torrents|xmlattr), a_uploading=(a.faqs_upload|xmlattr), a_help=(a.faqs_help|xmlattr)) }}
   </p>
 
   <p class="mb-4">
-    {{ gettext('page.volunteering.intro.text3', a_contact=(' href="/contact"' | safe), a_llm=(' href="/llm"' | safe)) }}
+    {{ gettext('page.volunteering.intro.text3', a_contact=(a.contact|xmlattr), a_llm=(a.llm|xmlattr), bold=(h.bold|xmlattr)) }}
   </p>
 
   <h3 class="group mt-8 mb-1 text-xl font-bold" id="light">{{ gettext('page.volunteering.section.light.heading') }} <a href="#light" class="custom-a invisible group-hover:visible text-gray-400 hover:text-gray-500 font-normal text-sm align-[2px]">§</a></h3>
 
   <p class="mb-4">
-    {{ gettext('page.volunteering.section.light.text1', a_telegram=(' href="https://t.me/+GNQxkFPt1xkzY2Zk"' | safe)) }}
+    {{ gettext('page.volunteering.section.light.text1', a_telegram=(a.telegram_volunteers|xmlattr)) }}
   </p>
 
   <p class="mb-4">
-    {{ gettext('page.volunteering.section.light.text2', a_contact=(' href="/contact"' | safe)) }}
+    {{ gettext('page.volunteering.section.light.text2', a_contact=(a.contact|xmlattr)) }}
   </p>
 
   <table class="mb-4 w-full">
@@ -38,11 +40,11 @@
       <th class="align-bottom px-4 py-1 ">{{ gettext('page.volunteering.table.header.milestone') }}</th>
     </tr>
     <tr class="even:bg-[#f2f2f2]">
-      <td class="p-4">{{ gettext('page.volunteering.table.open_library.task', a_metadata=(' href="/metadata"' | safe)) }}</td>
+      <td class="p-4">{{ gettext('page.volunteering.table.open_library.task', a_metadata=(a.metadata|xmlattr)) }}</td>
       <td class="p-4">{{ gettext('page.volunteering.table.open_library.milestone') }}</td>
     </tr>
     <tr class="even:bg-[#f2f2f2]">
-      <td class="p-4">{{ gettext('page.volunteering.table.translate.task', a_translate=(' href="https://translate.annas-archive.se/"' | safe)) }}</td>
+      <td class="p-4">{{ gettext('page.volunteering.table.translate.task', a_translate=(a.annas_translations|xmlattr)) }}</td>
       <td class="p-4">{{ gettext('page.volunteering.table.translate.milestone') }}</td>
     </tr>
     <tr class="even:bg-[#f2f2f2]">
@@ -59,7 +61,7 @@
     </tr>
     <!-- TODO: fixing file or formatting issues? -->
     <tr class="even:bg-[#f2f2f2]">
-      <td class="p-4">{{ gettext('page.volunteering.table.misc.task', a_telegram=(' href="https://t.me/+GNQxkFPt1xkzY2Zk"' | safe)) }}</td>
+      <td class="p-4">{{ gettext('page.volunteering.table.misc.task', a_telegram=(a.telegram_volunteers|xmlattr)) }}</td>
       <td class="p-4">{{ gettext('page.volunteering.table.misc.milestone') }}</td>
     </tr>
   </table>
@@ -87,11 +89,11 @@
   </p>
 
   <p class="mb-4">
-    {{ gettext('page.volunteering.section.bounties.text6') }}
+    {{ gettext('page.volunteering.section.bounties.text6', bold=(h.bold|xmlattr)) }}
   </p>
 
   <p class="mb-4">
-    {{ gettext('page.volunteering.section.bounties.text7', a_gitlab=(' href="https://software.annas-archive.se/AnnaArchivist/annas-archive/-/issues/"' | safe)) }}
+    {{ gettext('page.volunteering.section.bounties.text7', a_gitlab=(a.gitlab_issues|xmlattr)) }}
   </p>
 
   <div class="overflow-hidden h-[1500px]">
