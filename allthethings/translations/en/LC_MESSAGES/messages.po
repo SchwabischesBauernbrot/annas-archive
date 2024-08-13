@@ -2342,6 +2342,16 @@ msgid "page.faq.slow.text3"
 msgstr "We also have <a %(a_verification)s>browser verification</a> for our slow downloads, because otherwise bots and scrapers will abuse them, making things even slower for legitimate users."
 
 #: allthethings/page/templates/page/faq.html:129
+#: allthethings/page/templates/page/faq.html:119
+#: allthethings/page/templates/page/faq.html:115
+msgid "page.faq.slow.text4"
+msgstr "Note that, when using the Tor Browser, you might need to adjust your security settings. On the lowest of the options, called “Standard”, the Cloudflare turnstile challenge succeeds. On the higher options, called “Safer” and “Safest”, the challenge fails."
+
+#: allthethings/page/templates/page/faq.html:119
+msgid "page.faq.slow.text5"
+msgstr "For large files sometimes slow downloads can break in the middle. We recommend using a download manager (such as JDownloader) to automatically resume large downloads."
+
+#: allthethings/page/templates/page/faq.html:122
 msgid "page.donate.faq.title"
 msgstr "Donation FAQ"
 
@@ -2350,6 +2360,12 @@ msgid "page.donate.faq.renew"
 msgstr "<div %(div_question)s>Do memberships automatically renew?</div> Memberships <strong>do not</strong> automatically renew. You can join for as long or short as you want."
 
 #: allthethings/page/templates/page/faq.html:142
+#: allthethings/page/templates/page/faq.html:132
+#: allthethings/page/templates/page/faq.html:129
+msgid "page.donate.faq.membership"
+msgstr "<div %(div_question)s>Can I upgrade my membership or get multiple memberships?</div>"
+
+#: allthethings/page/templates/page/faq.html:134
 msgid "page.donate.faq.text_other_payment1"
 msgstr "<div %(div_question)s>Do you have other payment methods?</div> Currently not. A lot of people don’t want archives like this to exist, so we have to be careful. If you can help us set up other (more convenient) payment methods safely, please get in touch at %(email)s."
 
