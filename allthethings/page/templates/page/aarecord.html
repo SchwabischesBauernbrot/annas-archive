@@ -224,10 +224,11 @@
 
     {% if (aarecord.additional.fast_partner_urls | length) > 0 %}
       <div class="mb-4">
-        <div class="js-fast-download-no-member-header">{{ gettext('page.md5.box.download.header_fast_no_member', a_membership=(' href="/donate"' | safe)) }}</div>
-        <div class="hidden js-fast-download-member-header-remaining">{{ gettext('page.md5.box.download.header_fast_member', remaining='XXXXXX') }}</div>
-        <div class="hidden js-fast-download-member-header-no-remaining">{{ gettext('page.md5.box.download.header_fast_member_no_remaining_new') }}</div>
-        <div class="hidden js-fast-download-member-header-valid-for">{{ gettext('page.md5.box.download.header_fast_member_valid_for') }}</div>
+        <h3 class="mt-4 mb-1 text-xl font-bold">{{ gettext('page.md5.box.download.header_fast_only') }}</h3>
+        <p class="mb-1 js-fast-download-no-member-header">{{ gettext('page.md5.box.download.header_fast_no_member', a_membership=(' href="/donate"' | safe)) }}</p>
+        <p class="mb-1 hidden js-fast-download-member-header-remaining">{{ gettext('page.md5.box.download.header_fast_member', remaining='XXXXXX') }}</p>
+        <p class="mb-1 hidden js-fast-download-member-header-no-remaining">{{ gettext('page.md5.box.download.header_fast_member_no_remaining_new') }}</p>
+        <p class="mb-1 hidden js-fast-download-member-header-valid-for">{{ gettext('page.md5.box.download.header_fast_member_valid_for') }}</p>
 
         <ul class="list-inside mb-4 ml-1">
           {% for label, url, extra in aarecord.additional.fast_partner_urls %}
@@ -239,20 +240,23 @@
     {% endif %}
 
     {% if (aarecord.additional.slow_partner_urls | length) > 0 %}
-      <div><span class="font-bold">{{ gettext('page.md5.box.download.header_slow_only') }}</span> {{ gettext('page.md5.box.download.trusted_partners') }} {{ gettext('page.md5.box.download.slow_faq', a_slow=(' href="/faq#slow"' | safe)) }} {{ gettext("common.md5.servers.browser_verification_unlimited", a_browser=' href="/browser_verification" ' | safe) }}</div>
-      <ul class="list-inside mb-4 ml-1">
-        {% for label, url, extra in aarecord.additional.slow_partner_urls %}
-          {% if label %}
-            <li class="list-disc">{{ gettext('page.md5.box.download.option', num=loop.index, link=(("<a href='" + url + "'" + 'rel="noopener noreferrer nofollow" ' + (' target="_blank" ' if (not url.startswith("/")) else '') + ' class="js-download-link">' + label + '</a>') | safe), extra=(extra | safe)) }}</li>
-          {% else %}
-            <li class="list-disc">{{ extra | safe }}</li>
-          {% endif %}
-        {% endfor %}
-      </ul>
+      <div class="mb-4">
+        <h3 class="mt-4 mb-1 text-xl font-bold">{{ gettext('page.md5.box.download.header_slow_only') }}</h3>
+        <p class="mb-1">{{ gettext('page.md5.box.download.trusted_partners') }} {{ gettext('page.md5.box.download.slow_faq', a_slow=(' href="/faq#slow"' | safe)) }} {{ gettext("common.md5.servers.browser_verification_unlimited", a_browser=' href="/browser_verification" ' | safe) }}</p>
+        <ul class="list-inside mb-4 ml-1">
+          {% for label, url, extra in aarecord.additional.slow_partner_urls %}
+            {% if label %}
+              <li class="list-disc">{{ gettext('page.md5.box.download.option', num=loop.index, link=(("<a href='" + url + "'" + 'rel="noopener noreferrer nofollow" ' + (' target="_blank" ' if (not url.startswith("/")) else '') + ' class="js-download-link">' + label + '</a>') | safe), extra=(extra | safe)) }}</li>
+            {% else %}
+              <li class="list-disc">{{ extra | safe }}</li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
     {% endif %}
 
     {% if aarecord_id_split[0] in ['md5','doi'] %}
-      <div>
+      <div class="mb-4 pt-4 border-dashed border-t">
         <ul class="list-inside mb-4 ml-1">
           <li class="list-disc">{{ gettext('page.md5.box.download.convert', a_cloudconvert=(' href="https://cloudconvert.com/epub-to-pdf" rel="noopener noreferrer nofollow"' | safe)) }}</li>
           <li class="list-disc">{{ gettext('page.md5.box.download.kindle', a_kindle=(' href="https://www.amazon.com/sendtokindle" rel="noopener noreferrer nofollow"' | safe), a_kobosend=(' href="https://send.djazz.se/" rel="noopener noreferrer nofollow"' | safe)) }}</li>
