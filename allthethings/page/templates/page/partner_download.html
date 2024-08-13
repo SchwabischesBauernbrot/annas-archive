@@ -34,7 +34,14 @@
       <li>- {{ gettext('page.partner_download.li2') }}</li>
       <li>- {{ gettext('page.partner_download.li3') }}</li>
       <li>- {{ gettext('page.partner_download.li4') }}</li>
-      <li><label class="cursor-pointer"><input class="js-partner-reload mr-1" type="checkbox" maxlength="200"> Automatically refresh page. If you miss the download window, the timer restarts, so automatic refreshing is recommended.</label></li>
+      <li>
+        <label class="cursor-pointer">
+          <input class="js-partner-reload mr-1" type="checkbox" maxlength="200">
+          <!-- TODO:TRANSLATE -->
+          Automatically refresh page.
+          If you miss the download window, the timer restarts, so automatic refreshing is recommended.
+        </label>
+      </li>
     </ul>
     <script>
       (function() {
@@ -50,7 +57,7 @@
             window.localStorage.partner_reload = "1";
             partnerTimeout = setTimeout(function() {
               window.location.assign(window.location.href);;
-            }, 5000);
+            }, 30000);
           } else {
             window.localStorage.partner_reload = "0";
             clearTimeout(partnerTimeout);
@@ -61,7 +68,7 @@
         });
 
         if (window.localStorage.partner_reload !== "0" && window.localStorage.partner_reload !== "1") {
-          window.localStorage.partner_reload = "1";
+          window.localStorage.partner_reload = "0";
         }
         setPartnerReload(window.localStorage.partner_reload === "1");
       })();
