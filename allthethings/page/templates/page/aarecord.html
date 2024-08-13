@@ -421,7 +421,7 @@
     <div id="md5-panel-stats" role="tabpanel" tabindex="0" aria-labelledby="md5-tab-stats" hidden>
       <div lang="en">
         <p class="mb-4">
-          {{ gettext('page.md5.text.stats.total_downloads') }}: <span class="js-md5-stats-total-downloads"><span class="mb-[-3px] text-xl text-[#555] inline-block icon-[svg-spinners--ring-resize]"></span></span><br>
+          {{ gettext('page.md5.text.stats.total_downloads', total=('<span class="js-md5-stats-total-downloads"><span class="mb-[-3px] text-xl text-[#555] inline-block icon-[svg-spinners--ring-resize]"></span></span>' | safe)) }}<br>
           <div class="js-md5-stats-downloads-chart h-[200px]"></div>
         </p>
         <script>
