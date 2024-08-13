@@ -4,8 +4,7 @@
 
 {% macro stats_row(label, dict, updated, mirrored_note) -%}
   <td class="p-2 align-top">{{ label }}</td>
-  {# TODO: use number formatting to pick "file" or "files" base on the plurality of dict.count #}
-  <td class="p-2 align-top">{{ dict.count | numberformat }} {{ gettext('page.datasets.files') }}<br>{{ dict.filesize | filesizeformat }}</td>
+  <td class="p-2 align-top">{{ ngettext('page.datasets.file', 'page.datasets.files', dict.count, count=(dict.count|numberformat)) }}<br>{{ dict.filesize | filesizeformat }}</td>
   <td class="p-2 align-top whitespace-nowrap">{{ (dict.aa_count/(dict.count+1)*100.0) | decimalformat }}% / {{ (dict.torrent_count/(dict.count+1)*100.0) | decimalformat }}%{% if mirrored_note %}<div class="text-sm text-gray-500 whitespace-normal font-normal">{{ mirrored_note | safe }}</div>{% endif %}</td>
   <td class="p-2 align-top whitespace-nowrap">{{ updated }}</td>
 {%- endmacro %}
