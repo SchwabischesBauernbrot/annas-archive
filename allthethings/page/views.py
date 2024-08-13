@@ -5565,6 +5565,14 @@ def md5_fast_download(md5_input, path_index, domain_index):
 def compute_download_speed(targeted_seconds, filesize, minimum, maximum):
     return min(maximum, max(minimum, int(filesize/1000/targeted_seconds)))
 
+@cachetools.cached(cache=cachetools.TTLCache(maxsize=50000, ttl=30*60), lock=threading.Lock())
+def get_daily_download_count_from_ip(data_pseudo_ipv4):
+    with Session(mariapersist_engine) as mariapersist_session:
+        data_hour_since_epoch = int(time.time() / 3600)
+        cursor = mariapersist_session.connection().connection.cursor(pymysql.cursors.DictCursor)
+        cursor.execute('SELECT SUM(count) AS count FROM mariapersist_slow_download_access_pseudo_ipv4_hourly WHERE pseudo_ipv4 = %(pseudo_ipv4)s AND hour_since_epoch > %(hour_since_epoch)s LIMIT 1', { "pseudo_ipv4": data_pseudo_ipv4, "hour_since_epoch": data_hour_since_epoch-24 })
+        return ((cursor.fetchone() or {}).get('count') or 0)
+
 @page.get("/slow_download/<string:md5_input>/<int:path_index>/<int:domain_index>")
 @page.post("/slow_download/<string:md5_input>/<int:path_index>/<int:domain_index>")
 @allthethings.utils.no_cache()
@@ -5598,80 +5606,78 @@ def md5_slow_download(md5_input, path_index, domain_index):
 
     data_pseudo_ipv4 = allthethings.utils.pseudo_ipv4_bytes(request.remote_addr)
     account_id = allthethings.utils.get_account_id(request.cookies)
-    data_hour_since_epoch = int(time.time() / 3600)
 
-    with Session(engine) as session:
-        with Session(mariapersist_engine) as mariapersist_session:
-            aarecords = get_aarecords_elasticsearch([f"md5:{canonical_md5}"])
-            if aarecords is None:
-                return render_template("page/aarecord_issue.html", header_active="search"), 500
-            if len(aarecords) == 0:
-                return render_template("page/aarecord_not_found.html", header_active="search", not_found_field=md5_input), 404
-            aarecord = aarecords[0]
-            try:
-                domain_slow = allthethings.utils.SLOW_DOWNLOAD_DOMAINS[domain_index]
-                domain_slowest = allthethings.utils.SLOWEST_DOWNLOAD_DOMAINS[domain_index]
-                path_info = aarecord['additional']['partner_url_paths'][path_index]
-            except:
-                return redirect(f"/md5/{md5_input}", code=302)
+    aarecords = get_aarecords_elasticsearch([f"md5:{canonical_md5}"])
+    if aarecords is None:
+        return render_template("page/aarecord_issue.html", header_active="search"), 500
+    if len(aarecords) == 0:
+        return render_template("page/aarecord_not_found.html", header_active="search", not_found_field=md5_input), 404
+    aarecord = aarecords[0]
+    try:
+        domain_slow = allthethings.utils.SLOW_DOWNLOAD_DOMAINS[domain_index]
+        domain_slowest = allthethings.utils.SLOWEST_DOWNLOAD_DOMAINS[domain_index]
+        path_info = aarecord['additional']['partner_url_paths'][path_index]
+    except:
+        return redirect(f"/md5/{md5_input}", code=302)
 
-            cursor = mariapersist_session.connection().connection.cursor(pymysql.cursors.DictCursor)
-            cursor.execute('SELECT SUM(count) AS count FROM mariapersist_slow_download_access_pseudo_ipv4_hourly WHERE pseudo_ipv4 = %(pseudo_ipv4)s AND hour_since_epoch > %(hour_since_epoch)s LIMIT 1', { "pseudo_ipv4": data_pseudo_ipv4, "hour_since_epoch": data_hour_since_epoch-24 })
-            daily_download_count_from_ip = ((cursor.fetchone() or {}).get('count') or 0)
-            # minimum = 10
-            # maximum = 100
-            # minimum = 100
-            # maximum = 300
-            # targeted_seconds_multiplier = 1.0
-            warning = False
-            # These waitlist_max_wait_time_seconds values must be multiples, under the current modulo scheme.
-            # Also WAITLIST_DOWNLOAD_WINDOW_SECONDS gets subtracted from it.
-            waitlist_max_wait_time_seconds = 15*60
-            domain = domain_slow
-            if daily_download_count_from_ip >= 50:
-                # targeted_seconds_multiplier = 2.0
-                # minimum = 20
-                # maximum = 100
-                waitlist_max_wait_time_seconds *= 2
-                # warning = True
-                domain = domain_slowest
-            elif daily_download_count_from_ip >= 20:
-                domain = domain_slowest
+    daily_download_count_from_ip = get_daily_download_count_from_ip(data_pseudo_ipv4)
 
-            if allthethings.utils.SLOW_DOWNLOAD_DOMAINS_SLIGHTLY_FASTER[domain_index]:
-                WAITLIST_DOWNLOAD_WINDOW_SECONDS = 2*60
-                hashed_md5_bytes = int.from_bytes(hashlib.sha256(bytes.fromhex(canonical_md5) + HASHED_DOWNLOADS_SECRET_KEY).digest(), byteorder='big')
-                seconds_since_epoch = int(time.time())
-                wait_seconds = ((hashed_md5_bytes-seconds_since_epoch) % waitlist_max_wait_time_seconds) - WAITLIST_DOWNLOAD_WINDOW_SECONDS
-                if wait_seconds > 1:
-                    return render_template(
-                        "page/partner_download.html",
-                        header_active="search",
-                        wait_seconds=wait_seconds,
-                        canonical_md5=canonical_md5,
-                        daily_download_count_from_ip=daily_download_count_from_ip,
-                    )
+    # minimum = 10
+    # maximum = 100
+    # minimum = 100
+    # maximum = 300
+    # targeted_seconds_multiplier = 1.0
+    warning = False
+    # These waitlist_max_wait_time_seconds values must be multiples, under the current modulo scheme.
+    # Also WAITLIST_DOWNLOAD_WINDOW_SECONDS gets subtracted from it.
+    waitlist_max_wait_time_seconds = 15*60
+    domain = domain_slow
+    if daily_download_count_from_ip >= 50:
+        # targeted_seconds_multiplier = 2.0
+        # minimum = 20
+        # maximum = 100
+        waitlist_max_wait_time_seconds *= 2
+        # warning = True
+        domain = domain_slowest
+    elif daily_download_count_from_ip >= 20:
+        domain = domain_slowest
 
-            # speed = compute_download_speed(path_info['targeted_seconds']*targeted_seconds_multiplier, aarecord['file_unified_data']['filesize_best'], minimum, maximum)
-            speed = 10000
-
-            url = 'https://' + domain + '/' + allthethings.utils.make_anon_download_uri(True, speed, path_info['path'], aarecord['additional']['filename'], domain)
-
-            data_md5 = bytes.fromhex(canonical_md5)
-            mariapersist_session.connection().execute(text('INSERT IGNORE INTO mariapersist_slow_download_access (md5, ip, account_id, pseudo_ipv4) VALUES (:md5, :ip, :account_id, :pseudo_ipv4)').bindparams(md5=data_md5, ip=data_ip, account_id=account_id, pseudo_ipv4=data_pseudo_ipv4))
-            mariapersist_session.commit()
-            mariapersist_session.connection().execute(text('INSERT INTO mariapersist_slow_download_access_pseudo_ipv4_hourly (pseudo_ipv4, hour_since_epoch, count) VALUES (:pseudo_ipv4, :hour_since_epoch, 1) ON DUPLICATE KEY UPDATE count = count + 1').bindparams(hour_since_epoch=data_hour_since_epoch, pseudo_ipv4=data_pseudo_ipv4))
-            mariapersist_session.commit()
-
+    if allthethings.utils.SLOW_DOWNLOAD_DOMAINS_SLIGHTLY_FASTER[domain_index]:
+        WAITLIST_DOWNLOAD_WINDOW_SECONDS = 2*60
+        hashed_md5_bytes = int.from_bytes(hashlib.sha1(bytes.fromhex(canonical_md5) + HASHED_DOWNLOADS_SECRET_KEY).digest(), byteorder='big')
+        seconds_since_epoch = int(time.time())
+        wait_seconds = ((hashed_md5_bytes-seconds_since_epoch) % waitlist_max_wait_time_seconds) - WAITLIST_DOWNLOAD_WINDOW_SECONDS
+        if wait_seconds > 1:
             return render_template(
                 "page/partner_download.html",
                 header_active="search",
-                url=url,
-                warning=warning,
+                wait_seconds=wait_seconds,
                 canonical_md5=canonical_md5,
                 daily_download_count_from_ip=daily_download_count_from_ip,
-                # pseudo_ipv4=f"{data_pseudo_ipv4[0]}.{data_pseudo_ipv4[1]}.{data_pseudo_ipv4[2]}.{data_pseudo_ipv4[3]}",
             )
+
+    # speed = compute_download_speed(path_info['targeted_seconds']*targeted_seconds_multiplier, aarecord['file_unified_data']['filesize_best'], minimum, maximum)
+    speed = 10000
+
+    url = 'https://' + domain + '/' + allthethings.utils.make_anon_download_uri(True, speed, path_info['path'], aarecord['additional']['filename'], domain)
+
+    data_md5 = bytes.fromhex(canonical_md5)
+    with Session(mariapersist_engine) as mariapersist_session:
+        mariapersist_session.connection().execute(text('INSERT IGNORE INTO mariapersist_slow_download_access (md5, ip, account_id, pseudo_ipv4) VALUES (:md5, :ip, :account_id, :pseudo_ipv4)').bindparams(md5=data_md5, ip=data_ip, account_id=account_id, pseudo_ipv4=data_pseudo_ipv4))
+        mariapersist_session.commit()
+        data_hour_since_epoch = int(time.time() / 3600)
+        mariapersist_session.connection().execute(text('INSERT INTO mariapersist_slow_download_access_pseudo_ipv4_hourly (pseudo_ipv4, hour_since_epoch, count) VALUES (:pseudo_ipv4, :hour_since_epoch, 1) ON DUPLICATE KEY UPDATE count = count + 1').bindparams(hour_since_epoch=data_hour_since_epoch, pseudo_ipv4=data_pseudo_ipv4))
+        mariapersist_session.commit()
+
+    return render_template(
+        "page/partner_download.html",
+        header_active="search",
+        url=url,
+        warning=warning,
+        canonical_md5=canonical_md5,
+        daily_download_count_from_ip=daily_download_count_from_ip,
+        # pseudo_ipv4=f"{data_pseudo_ipv4[0]}.{data_pseudo_ipv4[1]}.{data_pseudo_ipv4[2]}.{data_pseudo_ipv4[3]}",
+    )
 
 @page.get("/ipfs_downloads/<string:md5_input>")
 @allthethings.utils.no_cache()
