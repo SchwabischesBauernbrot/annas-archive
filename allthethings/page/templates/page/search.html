@@ -324,7 +324,7 @@
           {% elif search_dict.search_index_short == 'meta' %}
             <div class="mb-4 p-6 overflow-hidden bg-black/5 break-words rounded">
               <p class="mb-4">
-                {{ gettext('page.search.results.these_are_records') }}
+                {{ gettext('page.search.results.these_are_records', classname=(' class="italic"' | safe)) }}
               </p>
 
               <p class="mb-4">
@@ -355,7 +355,7 @@
               {% if search_dict.had_es_timeout %}
                 ❌ {{ gettext('page.search.too_inaccurate', a_reload=('href="javascript:location.reload()"' | safe)) }}
               {% else %}
-                {{ gettext('page.search.results.none') }}
+                {{ gettext('page.search.results.none', classname=(' class="font-bold"' | safe)) }}
               {% endif %}
             </div>
 
