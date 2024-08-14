@@ -71,7 +71,7 @@
 
     {% if (aarecords | length) > 0 %}
       <div class="font-bold mt-4">
-        {{ gettext('page.codes.records_starting_with', prefix_label=prefix_label, count=("{}{}".format((aarecords | length), "+" if hit_max_aarecords else ""))) }}
+        {{ ngettext('page.codes.record_starting_with', 'page.codes.records_starting_with', (aarecords | length), prefix_label=prefix_label, count=("{}{}".format((aarecords | length), "+" if hit_max_aarecords else ""))) }}
       </div>
 
       {% from 'macros/aarecord_list.html' import aarecord_list %}
