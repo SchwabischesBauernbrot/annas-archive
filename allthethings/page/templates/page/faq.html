@@ -1,4 +1,6 @@
 {% extends "layouts/index.html" %}
+{% import 'macros/shared_links.j2' as a %}
+{% import 'macros/helpers.j2' as h %}
 
 {% block title %}{{ gettext('page.faq.title') }}{% endblock %}
 
@@ -88,13 +90,13 @@
 
   <ol class="list-inside mb-4">
     {{ gettext('page.about.help.text') | replace('https://annas-software.org', 'https://software.annas-archive.se') }}
-    <li>{{ gettext('page.about.help.text6', a_security=('href="/faq#security"' | safe)) }}</li>
+    <li>{{ gettext('page.about.help.text6', a_security=(a.faqs_security | xmlattr)) }}</li>
     <li>{{ gettext('page.about.help.text7') }}</li>
     <li>{{ gettext('page.about.help.text8') }}</li>
-    <li>{{ gettext('page.about.help.text9', a_upload=('href="/faq#upload"' | safe)) }}</li>
+    <li>{{ gettext('page.about.help.text9', a_upload=(a.faqs_upload | xmlattr)) }}</li>
     <li>{{ gettext('page.about.help.text10') }}</li>
     <li>{{ gettext('page.about.help.text11') }}</li>
-    <li>12. {{ gettext('page.faq.help.mirrors', a_mirrors=(' href="https://software.annas-archive.se/AnnaArchivist/annas-archive/-/issues/188" ' | safe)) }}</li>
+    <li>12. {{ gettext('page.faq.help.mirrors', a_mirrors=(a.gitlab_issue_mirrors | xmlattr)) }}</li>
   </ol>
 
   <p class="mb-4">
@@ -113,7 +115,7 @@
   </p>
 
   <p class="mb-4">
-    {{ gettext('page.faq.slow.text3', a_verification=(' href="/browser_verification"' | safe)) }}
+    {{ gettext('page.faq.slow.text3', a_verification=(a.browser_verification | xmlattr)) }}
   </p>
 
   <p class="mb-4">
@@ -127,28 +129,28 @@
   <h3 class="group mt-4 mb-1 text-xl font-bold" id="donate">{{ gettext('page.donate.faq.title') }} <a href="#donate" class="custom-a invisible group-hover:visible text-gray-400 hover:text-gray-500 font-normal text-sm align-[2px]">§</a></h3>
 
   <div class="mb-4">
-    {{ gettext('page.donate.faq.renew', div_question=(' class="font-bold" ' | safe)) }}
+    {{ gettext('page.donate.faq.renew', div_question=(h.bold | xmlattr)) }}
   </div>
 
   <div class="mb-4">
-    {{ gettext('page.donate.faq.membership', div_question=(' class="font-bold" ' | safe)) }}
+    {{ gettext('page.donate.faq.membership', div_question=(h.bold | xmlattr)) }}
     {{ gettext('page.account.logged_in.membership_multiple') }}
   </div>
 
   <div class="mb-4">
-    {{ gettext('page.donate.faq.text_other_payment1', div_question=(' class="font-bold" ' | safe), email=(('<a href="/contact">' | safe + gettext('page.contact.title') + '</a>' | safe) | safe)) }}
+    {{ gettext('page.donate.faq.text_other_payment1', div_question=(h.bold | xmlattr), email=(a.contact_page_link | safe)) }}
   </div>
 
   <div class="mb-4">
-    {{ gettext('page.donate.faq.spend', div_question=(' class="font-bold" ' | safe)) }}
+    {{ gettext('page.donate.faq.spend', div_question=(h.bold | xmlattr)) }}
   </div>
 
   <div class="mb-4">
-    {{ gettext('page.donate.faq.text_large_donation', div_question=(' class="font-bold" ' | safe), email=(('<a href="/contact">' | safe + gettext('page.contact.title') + '</a>' | safe) | safe)) }}
+    {{ gettext('page.donate.faq.text_large_donation', div_question=(h.bold | xmlattr), email=(a.contact_page_link | safe)) }}
   </div>
 
   <div class="mb-4">
-    {{ gettext('page.donate.faq.non_member_donation', div_question=(' class="font-bold" ' | safe), address=('<span class="text-xs break-all"> 8C1Tdvfhj6wHHPtvMHyAmn3jgt9vF9qSdKCYFy8U9ioB2Z16tEhjLSaB8qMSfzsnQeSrbohpYAiMgcW1acmmvCHQ4YGmZip</span>' | safe)) }}
+    {{ gettext('page.donate.faq.non_member_donation', div_question=(h.bold | xmlattr), address=('<span class="text-xs break-all"> 8C1Tdvfhj6wHHPtvMHyAmn3jgt9vF9qSdKCYFy8U9ioB2Z16tEhjLSaB8qMSfzsnQeSrbohpYAiMgcW1acmmvCHQ4YGmZip</span>' | safe)) }}
   </div>
 
   <h3 class="group mt-4 mb-1 text-xl font-bold" id="upload">{{ gettext('page.faq.upload.title') }} <a href="#upload" class="custom-a invisible group-hover:visible text-gray-400 hover:text-gray-500 font-normal text-sm align-[2px]">§</a></h3>
@@ -164,11 +166,11 @@
   </p>
 
   <p class="mb-4">
-    {{ gettext('page.upload.zlib.text2', a_stc_nexus=(' href="https://www.reddit.com/r/science_nexus/" rel="noopener noreferrer" target="_blank"' | safe), a_telegram=(' href="https://t.me/nexus_aaron"' | safe)) }}
+    {{ gettext('page.upload.zlib.text2', a_stc_nexus=(a.reddit_science_nexus | xmlattr), a_telegram=(a.nexus_telegram | xmlattr)) }}
   </p>
 
   <p class="mb-4">
-    {{ gettext('page.upload.large.text', a_email=(('<a href="/contact">' | safe + gettext('page.contact.title') + '</a>' | safe) | safe)) }}
+    {{ gettext('page.upload.large.text', a_email=(a.contact_page_link | safe)) }}
   </p>
 
   <h3 class="group mt-4 mb-1 text-xl font-bold" id="request">{{ gettext('page.faq.request.title') }} <a href="#request" class="custom-a invisible group-hover:visible text-gray-400 hover:text-gray-500 font-normal text-sm align-[2px]">§</a></h3>
@@ -233,7 +235,7 @@
   <p class="mb-4">
     <strong>{{ gettext('page.faq.torrents.q2') }}</strong>
     <br>
-    {{ gettext('page.faq.torrents.a2', a_llm=(' href="/llm"' | safe)) }}
+    {{ gettext('page.faq.torrents.a2', a_llm=(a.llm | xmlattr)) }}
   </p>
 
   <p class="mb-4">
@@ -267,7 +269,7 @@
   <h3 class="group mt-4 mb-1 text-xl font-bold" id="security">{{ gettext('page.faq.security.title') }} <a href="#security" class="custom-a invisible group-hover:visible text-gray-400 hover:text-gray-500 font-normal text-sm align-[2px]">§</a></h3>
 
   <p class="mb-4">
-    {{ gettext('page.faq.security.text1', a_contact=(' href="/contact"' | safe)) }}
+    {{ gettext('page.faq.security.text1', a_contact=(a.contact | xmlattr)) }}
   </p>
 
   <p class="mb-4">
