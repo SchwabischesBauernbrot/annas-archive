@@ -100,8 +100,7 @@
   </ol>
 
   <p class="mb-4">
-    <!-- TODO:TRANSLATE -->
-    For more extensive information on how to volunteer, see our <a href="/volunteering">Volunteering & Bounties</a> page.
+    {{ gettext('page.about.help.volunteer', a_volunteering=(a.volunteering | xmlattr)) }}
   </p>
 
   <h3 class="group mt-4 mb-1 text-xl font-bold" id="slow">{{ gettext('page.faq.slow.title') }} <a href="#slow" class="custom-a invisible group-hover:visible text-gray-400 hover:text-gray-500 font-normal text-sm align-[2px]">§</a></h3>
