@@ -79,7 +79,7 @@
 
       <div class="text-sm mt-2"><a href='/search?q="{{ prefix_label }}"'>{{ gettext('page.codes.search_archive', term=prefix_label) }}</a></div>
       {% if code_item.info.url and ('%s' in code_item.info.url) %}
-        <div class="text-sm"><a href="{{ code_item.info.url | replace('%s', code_item.value) }}">{{ gettext('page.codes.url_link', url=(code_item.info.url | replace('%s', code_item.value))) }} ”</a></div>
+        <div class="text-sm"><a href="{{ code_item.info.url | replace('%s', code_item.value) }}">{{ gettext('page.codes.url_link', url=(code_item.info.url | replace('%s', code_item.value))) }}</a></div>
       {% endif %}
     {% endif %}
 
