@@ -1,8 +1,9 @@
 {% extends "layouts/index.html" %}
+{% import 'macros/shared_links.j2' as a %}
 
 {% block body %}
   <h2 class="mt-12 mb-1 text-3xl font-bold">{{ gettext('page.aarecord_issue.title') }}</h2>
   <p class="mb-4">
-    {{ gettext('page.aarecord_issue.text', a_contact=(' href="/contact" | safe')) }}
+    {{ gettext('page.aarecord_issue.text', a_contact=(a.contact | xmlattr)) }}
   </p>
 {% endblock %}
