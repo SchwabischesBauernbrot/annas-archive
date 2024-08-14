@@ -4842,8 +4842,8 @@ def get_md5_problem_type_mapping():
         "lgli_visible":           gettext("common.md5_problem_type_mapping.lgli_visible"),
         "lgli_broken":            gettext("common.md5_problem_type_mapping.lgli_broken"),
         "zlib_missing":           gettext("common.md5_problem_type_mapping.zlib_missing"),
-        "zlib_spam":              "Marked as “spam” in Z-Library", # TODO:TRANSLATE
-        "zlib_bad_file":          "Marked as “bad file” in Z-Library", # TODO:TRANSLATE
+        "zlib_spam":              gettext("common.md5_problem_type_mapping.zlib_spam"),
+        "zlib_bad_file":          gettext("common.md5_problem_type_mapping.zlib_bad_file"),
         "duxiu_pdg_broken_files": gettext("common.md5_problem_type_mapping.duxiu_pdg_broken_files"),
         "upload_exiftool_failed": gettext("common.md5_problem_type_mapping.upload_exiftool_failed"),
     }
@@ -4880,7 +4880,7 @@ def get_record_sources_mapping(display_lang):
             "lgrs": gettext("common.record_sources_mapping.lgrs"),
             "lgli": gettext("common.record_sources_mapping.lgli"),
             "zlib": gettext("common.record_sources_mapping.zlib"),
-            "zlibzh": "Z-Library Chinese", # TODO:TRANSLATE
+            "zlibzh": gettext("common.record_sources_mapping.zlibzh"),
             "ia": gettext("common.record_sources_mapping.ia"),
             "isbndb": gettext("common.record_sources_mapping.isbndb"),
             "ol": gettext("common.record_sources_mapping.ol"),
