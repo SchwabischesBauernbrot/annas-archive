@@ -7,126 +7,120 @@
 {% block body %}
   {% from 'macros/copy_button.html' import copy_button %}
 
-  {% if gettext('common.english_only') != 'Text below continues in English.' %}
-    <p class="mb-4 font-bold">{{ gettext('common.english_only') }}</p>
+  <h2 class="mt-4 mb-1 text-3xl font-bold">{{ gettext('page.codes.heading') }}</h2>
+
+  {% if prefix_label == '' %}
+    <div class="mt-4">
+      {{ gettext('page.codes.intro') }}
+    </div>
+    
+    <div class="mt-4 text-sm text-gray-500">
+      {{ gettext('page.codes.why_cloudflare', a_donate=(a.donate | xmlattr)) }}
+    </div>
+    
+    <div class="mt-4 pb-2 text-sm text-gray-500">
+      {{ gettext(
+        'page.codes.dont_scrape', 
+        a_import=(a.anna_data_imports | xmlattr),
+        a_download=(a.torrents_derived_metadata | xmlattr),
+        a_software=(a.annas_software | xmlattr),
+        a_json_file=(a.example_metadata_record | xmlattr),
+      ) }}
+    </div>
   {% endif %}
 
-  <div lang="en">
-    <h2 class="mt-4 mb-1 text-3xl font-bold">{{ gettext('page.codes.heading') }}</h2>
+  <form action="/member_codes" method="get" class="mt-4">
+    <input name="prefix" value="{{ prefix_label }}" placeholder="{{ gettext('page.codes.prefix') }}" class="js-slash-focus grow bg-black/6.7 px-2 py-1 mr-2 rounded text-sm">
+    <button class="px-4 py-1 bg-[#0195ff] text-white rounded hover:bg-blue-600 text-sm" type="submit">{{ gettext('common.form.go') }}</button>
+    <a href="/member_codes" class="custom-a mr-2 bg-[#777] hover:bg-[#999] text-white py-1 px-3 rounded text-sm">{{ gettext('common.form.reset') }}</a>
+  </form>
 
-    {% if prefix_label == '' %}
-      <div class="mt-4">
-        {{ gettext('page.codes.intro') }}
-      </div>
-      
-      <div class="mt-4 text-sm text-gray-500">
-        {{ gettext('page.codes.why_cloudflare', a_donate=(a.donate | xmlattr)) }}
-      </div>
-      
-      <div class="mt-4 pb-2 text-sm text-gray-500">
-        {{ gettext(
-          'page.codes.dont_scrape', 
-          a_import=(a.anna_data_imports | xmlattr),
-          a_download=(a.torrents_derived_metadata | xmlattr),
-          a_software=(a.annas_software | xmlattr),
-          a_json_file=(a.example_metadata_record | xmlattr),
-        ) }}
-      </div>
-    {% endif %}
+  {% if bad_unicode %}
+    <div class="font-bold italic mt-4">
+      {{ gettext('page.codes.bad_unicode') }}
+    </div>
+  {% endif %}
 
-    <form action="/member_codes" method="get" class="mt-4">
-      <input name="prefix" value="{{ prefix_label }}" placeholder="{{ gettext('page.codes.prefix') }}" class="js-slash-focus grow bg-black/6.7 px-2 py-1 mr-2 rounded text-sm">
-      <button class="px-4 py-1 bg-[#0195ff] text-white rounded hover:bg-blue-600 text-sm" type="submit">{{ gettext('common.form.go') }}</button>
-      <a href="/member_codes" class="custom-a mr-2 bg-[#777] hover:bg-[#999] text-white py-1 px-3 rounded text-sm">{{ gettext('common.form.reset') }}</a>
-    </form>
-
-    {% if bad_unicode %}
-      <div class="font-bold italic mt-4">
-        {{ gettext('page.codes.bad_unicode') }}
-      </div>
-    {% endif %}
-
-    {% if code_item and ((code_item.info | length) > 0) %}
-      <div class="mt-4">
-        <div class="font-bold">{{ gettext('page.codes.known_code_prefix', key=code_item.key) }}</div>
-        <table>
-          <tr class=""><td class="pr-8 py-2">{{ gettext('page.codes.code_prefix') }}</td><td><a href="/member_codes?prefix={{ code_item.key }}:"><q>{{ code_item.key }}</q></a></td></tr>
-          <tr class=""><td class="pr-8 py-2">{{ gettext('page.codes.code_label') }}</td><td>{{ code_item.info.label }}</td></tr>
-          {% if code_item.info.description %}
-          <tr class=""><td class="pr-8 py-2">{{ gettext('page.codes.code_description') }}</td><td class="py-2">{{ code_item.info.description }}</td></tr>
-          {% endif %}
-          {% if code_item.info.url %}
-            {% if '%s' in code_item.info.url %}
-              <tr class=""><td class="pr-8 py-2">{{ gettext('page.codes.code_url') }}</td><td class="py-2">{{ code_item.info.url }} <div class="text-sm text-gray-500">{{ pgettext('the %s should not be changed', 'page.codes.s_substitution') }}</div></td></tr>
-            {% else %}
-              <tr class=""><td class="pr-8 py-2">{{ gettext('page.codes.generic_url') }}</td><td class="py-2"><a href="{{ code_item.info.url }}" rel="noopener noreferrer nofollow">{{ code_item.info.url }}</a></td></tr>
-            {% endif %}
-          {% endif %}
-          {% if code_item.info.website %}
-          <tr class=""><td class="pr-8 py-2">{{ gettext('page.codes.code_website') }}</td><td class="py-2"><a href="{{ code_item.info.website }}" rel="noopener noreferrer nofollow">{{ code_item.info.website }}</a></td></tr>
-          {% endif %}
-        </table>
-      </div>
-    {% endif %}
-
-    {% if (aarecords | length) > 0 %}
-      <div class="font-bold mt-4">
-        {{ ngettext('page.codes.record_starting_with', 'page.codes.records_starting_with', (aarecords | length), prefix_label=prefix_label, count=("{}{}".format((aarecords | length), "+" if hit_max_aarecords else ""))) }}
-      </div>
-
-      {% from 'macros/aarecord_list.html' import aarecord_list %}
-      {{ aarecord_list(aarecords) }}
-
-      <div class="text-sm mt-2"><a {{ dict(href='/search?q="{}"'.format(prefix_label)) | xmlattr }}>{{ gettext('page.codes.search_archive', term=prefix_label) }}</a></div>
-      {% if code_item.info.url and ('%s' in code_item.info.url) %}
-        <div class="text-sm"><a href="{{ code_item.info.url | replace('%s', code_item.value) }}">{{ gettext('page.codes.url_link', url=(code_item.info.url | replace('%s', code_item.value))) }}</a></div>
-      {% endif %}
-    {% endif %}
-
-    {% if (prefix_rows | length) > 0 %}
-      {% if prefix_label != '' %}
-        <div class="font-bold mt-4">
-          {{ gettext('page.codes.codes_starting_with', prefix_label=prefix_label) }}
-        </div>
-      {% endif %}
-
+  {% if code_item and ((code_item.info | length) > 0) %}
+    <div class="mt-4">
+      <div class="font-bold">{{ gettext('page.codes.known_code_prefix', key=code_item.key) }}</div>
       <table>
-        <tr>
-          <td></td>
-          <td></td>
-          <td class="text-sm text-gray-500 px-4">{{ gettext('page.codes.records_prefix') }}</td>
-          <td class="text-sm text-gray-500 px-4">{{ gettext('page.codes.records_codes') }}</td>
-        </tr>
-        {% macro prefix_row_render(prefix_row) %}
-          <tr>
-            <td class="break-all"><a href="{{ prefix_row.link }}">{{ prefix_row.label }}</a></td>
-            <td class="text-sm text-gray-500 pl-4">
-              {% if prefix_row.code_item %}{{ prefix_row.code_item.info.label }}{% endif %}
-            </td>
-            <td class="text-sm text-gray-500 px-4">{{ prefix_row.records | numberformat }}</td>
-            <td class="text-sm text-gray-500 px-4">{{ (prefix_row.codes or 1) | numberformat }}</td>
-          </tr>
-        {% endmacro %}
-
-        {% if prefix_label == '' %}
-          {% for prefix_row in prefix_rows %}
-            {% if prefix_row.records >= 10000 %}
-              {{ prefix_row_render(prefix_row) }}
-            {% endif %}
-          {% endfor %}
-
-          <tr><td colspan="100" class="pt-4 text-sm text-gray-500">{{ gettext('page.codes.fewer_than', count=(10000 | numberformat)) }}</td></tr>
-          {% for prefix_row in prefix_rows %}
-            {% if prefix_row.records < 10000 %}
-              {{ prefix_row_render(prefix_row) }}
-            {% endif %}
-          {% endfor %}
-        {% else %}
-          {% for prefix_row in prefix_rows %}
-            {{ prefix_row_render(prefix_row) }}
-          {% endfor %}
+        <tr class=""><td class="pr-8 py-2">{{ gettext('page.codes.code_prefix') }}</td><td><a href="/member_codes?prefix={{ code_item.key }}:"><q>{{ code_item.key }}</q></a></td></tr>
+        <tr class=""><td class="pr-8 py-2">{{ gettext('page.codes.code_label') }}</td><td>{{ code_item.info.label }}</td></tr>
+        {% if code_item.info.description %}
+        <tr class=""><td class="pr-8 py-2">{{ gettext('page.codes.code_description') }}</td><td class="py-2">{{ code_item.info.description }}</td></tr>
+        {% endif %}
+        {% if code_item.info.url %}
+          {% if '%s' in code_item.info.url %}
+            <tr class=""><td class="pr-8 py-2">{{ gettext('page.codes.code_url') }}</td><td class="py-2">{{ code_item.info.url }} <div class="text-sm text-gray-500">{{ pgettext('the %s should not be changed', 'page.codes.s_substitution') }}</div></td></tr>
+          {% else %}
+            <tr class=""><td class="pr-8 py-2">{{ gettext('page.codes.generic_url') }}</td><td class="py-2"><a href="{{ code_item.info.url }}" rel="noopener noreferrer nofollow">{{ code_item.info.url }}</a></td></tr>
+          {% endif %}
+        {% endif %}
+        {% if code_item.info.website %}
+        <tr class=""><td class="pr-8 py-2">{{ gettext('page.codes.code_website') }}</td><td class="py-2"><a href="{{ code_item.info.website }}" rel="noopener noreferrer nofollow">{{ code_item.info.website }}</a></td></tr>
         {% endif %}
       </table>
+    </div>
+  {% endif %}
+
+  {% if (aarecords | length) > 0 %}
+    <div class="font-bold mt-4">
+      {{ ngettext('page.codes.record_starting_with', 'page.codes.records_starting_with', (aarecords | length), prefix_label=prefix_label, count=("{}{}".format((aarecords | length), "+" if hit_max_aarecords else ""))) }}
+    </div>
+
+    {% from 'macros/aarecord_list.html' import aarecord_list %}
+    {{ aarecord_list(aarecords) }}
+
+    <div class="text-sm mt-2"><a {{ dict(href='/search?q="{}"'.format(prefix_label)) | xmlattr }}>{{ gettext('page.codes.search_archive', term=prefix_label) }}</a></div>
+    {% if code_item.info.url and ('%s' in code_item.info.url) %}
+      <div class="text-sm"><a href="{{ code_item.info.url | replace('%s', code_item.value) }}">{{ gettext('page.codes.url_link', url=(code_item.info.url | replace('%s', code_item.value))) }}</a></div>
     {% endif %}
-  </div>
+  {% endif %}
+
+  {% if (prefix_rows | length) > 0 %}
+    {% if prefix_label != '' %}
+      <div class="font-bold mt-4">
+        {{ gettext('page.codes.codes_starting_with', prefix_label=prefix_label) }}
+      </div>
+    {% endif %}
+
+    <table>
+      <tr>
+        <td></td>
+        <td></td>
+        <td class="text-sm text-gray-500 px-4">{{ gettext('page.codes.records_prefix') }}</td>
+        <td class="text-sm text-gray-500 px-4">{{ gettext('page.codes.records_codes') }}</td>
+      </tr>
+      {% macro prefix_row_render(prefix_row) %}
+        <tr>
+          <td class="break-all"><a href="{{ prefix_row.link }}">{{ prefix_row.label }}</a></td>
+          <td class="text-sm text-gray-500 pl-4">
+            {% if prefix_row.code_item %}{{ prefix_row.code_item.info.label }}{% endif %}
+          </td>
+          <td class="text-sm text-gray-500 px-4">{{ prefix_row.records | numberformat }}</td>
+          <td class="text-sm text-gray-500 px-4">{{ (prefix_row.codes or 1) | numberformat }}</td>
+        </tr>
+      {% endmacro %}
+
+      {% if prefix_label == '' %}
+        {% for prefix_row in prefix_rows %}
+          {% if prefix_row.records >= 10000 %}
+            {{ prefix_row_render(prefix_row) }}
+          {% endif %}
+        {% endfor %}
+
+        <tr><td colspan="100" class="pt-4 text-sm text-gray-500">{{ gettext('page.codes.fewer_than', count=(10000 | numberformat)) }}</td></tr>
+        {% for prefix_row in prefix_rows %}
+          {% if prefix_row.records < 10000 %}
+            {{ prefix_row_render(prefix_row) }}
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        {% for prefix_row in prefix_rows %}
+          {{ prefix_row_render(prefix_row) }}
+        {% endfor %}
+      {% endif %}
+    </table>
+  {% endif %}
 {% endblock %}
