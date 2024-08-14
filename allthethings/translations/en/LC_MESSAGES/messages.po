@@ -2156,6 +2156,46 @@ msgstr "If you get caught in an infinite loop, we recommend installing <a %(a_pr
 msgid "page.login.text3"
 msgstr "It may also help to turn off ad blockers and other browser extensions."
 
+#: allthethings/page/templates/page/codes.html:5
+msgid "page.codes.title"
+msgstr "Codes"
+
+#: allthethings/page/templates/page/codes.html:15
+msgid "page.codes.heading"
+msgstr "Codes Explorer"
+
+#: allthethings/page/templates/page/codes.html:19
+msgid "page.codes.intro"
+msgstr "Explore the codes that records are tagged with, by prefix. The “records” column shows the number of records tagged with codes with the given prefix, as seen in the search engine (including metadata-only records). The “codes” column shows how many actual codes have a given prefix."
+
+#: allthethings/page/templates/page/codes.html:23
+msgid "page.codes.why_cloudflare"
+msgstr "This page can take a while to generate, which is why it requires a Cloudflare captcha. <a %(a_donate)s>Members</a> can skip the captcha."
+
+#: allthethings/page/templates/page/codes.html:27
+msgid "page.codes.dont_scrape"
+msgstr "Please do not scrape these pages. Instead we recommend <a %(a_import)s>generating</a> or <a %(a_download)s>downloading</a> our ElasticSearch and MariaDB databases, and running our <a %(a_software)s>open source code</a>. The raw data can be manually explored through JSON files such as <a %(a_json_file)s>this one</a>."
+
+#: allthethings/page/templates/page/codes.html:38
+msgid "page.codes.prefix"
+msgstr "Prefix"
+
+#: allthethings/page/templates/page/codes.html:39
+msgid "common.form.go"
+msgstr "Go"
+
+#: allthethings/page/templates/page/codes.html:40
+msgid "common.form.reset"
+msgstr "Reset"
+
+#: allthethings/page/templates/page/codes.html:45
+msgid "page.codes.bad_unicode"
+msgstr "Warning: code has incorrect Unicode characters in it, and might behave incorrectly in various situations. The raw binary can be decoded from the base64 representation in the URL."
+
+#: allthethings/page/templates/page/codes.html:51
+msgid "page.codes.known_code_prefix"
+msgstr "Known code prefix “%(key)s”"
+
 #: allthethings/page/templates/page/contact.html:9
 msgid "page.contact.dmca.form"
 msgstr "For DMCA / copyright claims, use <a %(a_copyright)s>this form</a>."
