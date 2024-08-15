@@ -13,14 +13,12 @@
     {% from 'macros/aarecord_list.html' import aarecord_list %}
 
     {% if aarecords_downloaded_last_18h | length > 0 %}
-      <!-- TODOT:TRANSLATE -->
-      <h3 class="text-xl font-bold">Last 18 hours</h3>
+      <h3 class="text-xl font-bold">{{ gettext('page.downloaded.last_18_hours') }}</h3>
       {{ aarecord_list(aarecords_downloaded_last_18h) }}
     {% endif %}
     {% if aarecords_downloaded_later | length > 0 %}
       {% if aarecords_downloaded_last_18h | length > 0 %}
-        <!-- TODOT:TRANSLATE -->
-        <h3 class="text-xl font-bold">Earlier</h3>
+        <h3 class="text-xl font-bold">{{ gettext('page.downloaded.earlier') }}</h3>
       {% endif %}
       {{ aarecord_list(aarecords_downloaded_later) }}
     {% endif %}

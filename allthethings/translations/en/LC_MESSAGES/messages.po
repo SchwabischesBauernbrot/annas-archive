@@ -1138,6 +1138,14 @@ msgstr "Downloaded files are not publicly shown."
 msgid "page.downloaded.no_files"
 msgstr "No files downloaded yet."
 
+#: allthethings/account/templates/account/downloaded.html:16
+msgid "page.downloaded.last_18_hours"
+msgstr "Last 18 hours"
+
+#: allthethings/account/templates/account/downloaded.html:21
+msgid "page.downloaded.earlier"
+msgstr "Earlier"
+
 #: allthethings/account/templates/account/index.html:5
 #: allthethings/account/templates/account/index.html:15
 msgid "page.account.logged_in.title"
@@ -1404,6 +1412,12 @@ msgstr "Marked broken in Libgen.li"
 #: allthethings/page/views.py:4844
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "Missing from Z-Library"
+
+msgid "common.md5_problem_type_mapping.zlib_spam"
+msgstr "Marked as “spam” in Z-Library"
+
+msgid "common.md5_problem_type_mapping.zlib_bad_file"
+msgstr "Marked as “bad file” in Z-Library"
 
 #: allthethings/page/views.py:4847
 msgid "common.md5_problem_type_mapping.duxiu_pdg_broken_files"
@@ -2142,6 +2156,105 @@ msgstr "If you get caught in an infinite loop, we recommend installing <a %(a_pr
 msgid "page.login.text3"
 msgstr "It may also help to turn off ad blockers and other browser extensions."
 
+#: allthethings/page/templates/page/codes.html:5
+msgid "page.codes.title"
+msgstr "Codes"
+
+#: allthethings/page/templates/page/codes.html:15
+msgid "page.codes.heading"
+msgstr "Codes Explorer"
+
+#: allthethings/page/templates/page/codes.html:19
+msgid "page.codes.intro"
+msgstr "Explore the codes that records are tagged with, by prefix. The “records” column shows the number of records tagged with codes with the given prefix, as seen in the search engine (including metadata-only records). The “codes” column shows how many actual codes have a given prefix."
+
+#: allthethings/page/templates/page/codes.html:23
+msgid "page.codes.why_cloudflare"
+msgstr "This page can take a while to generate, which is why it requires a Cloudflare captcha. <a %(a_donate)s>Members</a> can skip the captcha."
+
+#: allthethings/page/templates/page/codes.html:27
+msgid "page.codes.dont_scrape"
+msgstr "Please do not scrape these pages. Instead we recommend <a %(a_import)s>generating</a> or <a %(a_download)s>downloading</a> our ElasticSearch and MariaDB databases, and running our <a %(a_software)s>open source code</a>. The raw data can be manually explored through JSON files such as <a %(a_json_file)s>this one</a>."
+
+#: allthethings/page/templates/page/codes.html:38
+msgid "page.codes.prefix"
+msgstr "Prefix"
+
+#: allthethings/page/templates/page/codes.html:39
+msgid "common.form.go"
+msgstr "Go"
+
+#: allthethings/page/templates/page/codes.html:40
+msgid "common.form.reset"
+msgstr "Reset"
+
+#: allthethings/page/templates/page/codes.html:45
+msgid "page.codes.bad_unicode"
+msgstr "Warning: code has incorrect Unicode characters in it, and might behave incorrectly in various situations. The raw binary can be decoded from the base64 representation in the URL."
+
+#: allthethings/page/templates/page/codes.html:51
+msgid "page.codes.known_code_prefix"
+msgstr "Known code prefix “%(key)s”"
+
+#: allthethings/page/templates/page/codes.html:53
+msgid "page.codes.code_prefix"
+msgstr "Prefix"
+
+#: allthethings/page/templates/page/codes.html:54
+msgid "page.codes.code_label"
+msgstr "Label"
+
+#: allthethings/page/templates/page/codes.html:56
+msgid "page.codes.code_description"
+msgstr "Description"
+
+#: allthethings/page/templates/page/codes.html:60
+msgid "page.codes.code_url"
+msgstr "URL for a specific code"
+
+#: allthethings/page/templates/page/codes.html:60
+msgctxt "the %s should not be changed"
+msgid "page.codes.s_substitution"
+msgstr "“%%s” will be substituted with the code’s value"
+
+#: allthethings/page/templates/page/codes.html:62
+msgid "page.codes.generic_url"
+msgstr "Generic URL"
+
+#: allthethings/page/templates/page/codes.html:66
+msgid "page.codes.code_website"
+msgstr "Website"
+
+#: allthethings/page/templates/page/codes.html:74
+msgid "page.codes.record_starting_with"
+msgid_plural "page.codes.records_starting_with"
+msgstr[0] "%(count)s record matching “%(prefix_label)s”"
+msgstr[1] "%(count)s records matching “%(prefix_label)s”"
+
+#: allthethings/page/templates/page/codes.html:80
+msgid "page.codes.search_archive"
+msgstr "Search Anna’s Archive for “%(term)s”"
+
+#: allthethings/page/templates/page/codes.html:82
+msgid "page.codes.url_link"
+msgstr "URL for specific code: “%(url)s”"
+
+#: allthethings/page/templates/page/codes.html:89
+msgid "page.codes.codes_starting_with"
+msgstr "Codes starting with “%(prefix_label)s”"
+
+#: allthethings/page/templates/page/codes.html:97
+msgid "page.codes.records_prefix"
+msgstr "records"
+
+#: allthethings/page/templates/page/codes.html:98
+msgid "page.codes.records_codes"
+msgstr "codes"
+
+#: allthethings/page/templates/page/codes.html:118
+msgid "page.codes.fewer_than"
+msgstr "Fewer than %(count)s records"
+
 #: allthethings/page/templates/page/contact.html:9
 msgid "page.contact.dmca.form"
 msgstr "For DMCA / copyright claims, use <a %(a_copyright)s>this form</a>."
@@ -2477,6 +2590,10 @@ msgid "page.faq.help.mirrors"
 msgstr "We would love for people to set up <a %(a_mirrors)s>mirrors</a>, and we will financially support this."
 
 #: allthethings/page/templates/page/faq.html:105
+msgid "page.about.help.volunteer"
+msgstr "For more extensive information on how to volunteer, see our <a %(a_volunteering)s>Volunteering & Bounties</a> page."
+
+#: allthethings/page/templates/page/faq.html:107
 msgid "page.faq.slow.title"
 msgstr "Why are the slow downloads so slow?"
 
@@ -3209,6 +3326,8 @@ msgid "page.partner_download.li4"
 msgstr "Thanks for waiting, this keeps the website accessible for free for everyone! 😊"
 
 #: allthethings/page/templates/page/partner_download.html:80
+msgid "page.partner_download.automatic_refreshing"
+msgstr "Automatically refresh page. If you miss the download window, the timer will restart, so automatic refreshing is recommended."
 msgid "page.partner_download.url"
 msgstr "📚 Use the following URL to download: <a %(a_download)s>Download now</a>."
 

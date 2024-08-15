@@ -1,13 +1,25 @@
 {% set _external = {'rel': 'noopener noreferrer nofollow'} %}
-{% set _blank = {'target': '_blank'} %}
 
 {% set donate = {'href': '/donate'} %}
 {% set metadata = {'href': '/metadata'} %}
 {% set torrents = {'href': '/torrents'} %}
+{% set torrents_derived_metadata = {'href': '/torrents#aa_derived_mirror_metadata'} %}
 {% set contact = {'href': '/contact'} %}
+{% set browser_verification = {'href': '/browser_verification'} %}
+{% set volunteering = {'href': '/volunteering'} %}
 {% set llm = {'href': '/llm'} %}
 {% set faqs_upload = {'href': '/faq#upload'} %}
 {% set faqs_help = {'href': '/faq#help'} %}
-{% set telegram_volunteers = dict(href='https://t.me/+GNQxkFPt1xkzY2Zk', **_external) %}
+{% set faqs_security = {'href': '/faq#security'} %}
+{% set anna_data_imports = {'href': 'https://software.annas-archive.se/AnnaArchivist/annas-archive/-/blob/main/data-imports/README.md'} %}
 {% set annas_translations = {'href': 'https://translate.annas-archive.se/'} %}
+{% set annas_software = {'href': 'https://software.annas-archive.se/'} %}
 {% set gitlab_issues = {'href': 'https://software.annas-archive.se/AnnaArchivist/annas-archive/-/issues/'} %}
+{% set gitlab_issue_mirrors = {'href': 'https://software.annas-archive.se/AnnaArchivist/annas-archive/-/issues/188'} %}
+{% set example_metadata_record = {'href': '/db/aarecord/md5:8336332bf5877e3adbfb60ac70720cd5.json'} %}
+
+{% set reddit_science_nexus = dict(href='https://www.reddit.com/r/science_nexus/', target='_blank', **_external) %}
+{% set nexus_telegram = dict(href='https://t.me/nexus_aaron', **_external) %}
+{% set telegram_volunteers = dict(href='https://t.me/+GNQxkFPt1xkzY2Zk', **_external) %}
+
+{% set contact_page_link = (('<a href="/contact">' | safe) + gettext('page.contact.title') + ('</a>' | safe)) %}
