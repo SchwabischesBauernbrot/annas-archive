@@ -370,10 +370,6 @@ msgstr "$5000 ашыу иғәнәләр өсөн беҙгә тура бәйлә�
 #: allthethings/account/templates/account/index.html:36
 #: allthethings/page/templates/page/contact.html:3
 #: allthethings/page/templates/page/contact.html:6
-#: allthethings/page/templates/page/faq.html:84
-#: allthethings/page/templates/page/faq.html:139
-#: allthethings/page/templates/page/faq.html:147
-#: allthethings/page/templates/page/faq.html:171
 #: allthethings/page/templates/page/home.html:77
 #: allthethings/page/templates/page/home.html:82
 #: allthethings/page/templates/page/home.html:90
@@ -1387,6 +1383,14 @@ msgstr "Күсереп алынған файлдар йәмәғәтселекк�
 msgid "page.downloaded.no_files"
 msgstr "Әлегә файлдар күсереп алынмаған."
 
+#: allthethings/account/templates/account/downloaded.html:16
+msgid "page.downloaded.last_18_hours"
+msgstr ""
+
+#: allthethings/account/templates/account/downloaded.html:21
+msgid "page.downloaded.earlier"
+msgstr ""
+
 #: allthethings/account/templates/account/index.html:5
 #: allthethings/account/templates/account/index.html:15
 #, fuzzy
@@ -1462,7 +1466,7 @@ msgid "page.account.logged_in.membership_upgrade"
 msgstr "Әгәр ағзалығығыҙҙы юғарыраҡ кимәлгә күтәрергә теләһәгеҙ, Анна менән %(email)s бәйләнешкә сығығыҙ."
 
 #: allthethings/account/templates/account/index.html:37
-#: allthethings/page/templates/page/faq.html:135
+#: allthethings/page/templates/page/faq.html:136
 #, fuzzy
 msgid "page.account.logged_in.membership_multiple"
 msgstr "Бер нисә ағзалыҡты берләштерә алаһығыҙ (24 сәғәт эсендә тиҙ йөкләүҙәр бергә ҡушыласаҡ)."
@@ -1717,6 +1721,14 @@ msgstr "Libgen.li сайтында бозылган дип билгеләнгә�
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "Z-Library сайтында юк"
 
+#: allthethings/page/views.py:4845
+msgid "common.md5_problem_type_mapping.zlib_spam"
+msgstr ""
+
+#: allthethings/page/views.py:4846
+msgid "common.md5_problem_type_mapping.zlib_bad_file"
+msgstr ""
+
 #: allthethings/page/views.py:4847
 #, fuzzy
 msgid "common.md5_problem_type_mapping.duxiu_pdg_broken_files"
@@ -1807,26 +1819,31 @@ msgstr "Метаданные өйрәнеү"
 msgid "common.access_types_mapping.torrents_available"
 msgstr "Торренттарҙа бар"
 
-#: allthethings/page/templates/page/datasets.html:52
-#: allthethings/page/templates/page/datasets.html:88
+#: allthethings/page/templates/page/datasets.html:51
+#: allthethings/page/templates/page/datasets.html:87
 #: allthethings/page/views.py:4880
 #, fuzzy
 msgid "common.record_sources_mapping.lgrs"
 msgstr "Libgen.rs"
 
-#: allthethings/page/templates/page/datasets.html:54
-#: allthethings/page/templates/page/datasets.html:109
+#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:108
 #: allthethings/page/views.py:4881
 #, fuzzy
 msgid "common.record_sources_mapping.lgli"
 msgstr "Libgen.li"
 
-#: allthethings/page/templates/page/datasets.html:55
-#: allthethings/page/templates/page/datasets.html:121
+#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:120
 #: allthethings/page/views.py:4882
 #, fuzzy
 msgid "common.record_sources_mapping.zlib"
 msgstr "Z-Library"
+
+#: allthethings/page/templates/page/datasets.html:55
+#: allthethings/page/views.py:4883
+msgid "common.record_sources_mapping.zlibzh"
+msgstr ""
 
 #: allthethings/page/views.py:4884
 #, fuzzy
@@ -1843,7 +1860,7 @@ msgstr "ISBNdb"
 msgid "common.record_sources_mapping.ol"
 msgstr "OpenLibrary"
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 #: allthethings/page/views.py:4887
 #, fuzzy
 msgid "common.record_sources_mapping.scihub"
@@ -1854,15 +1871,15 @@ msgstr "Sci-Hub"
 msgid "common.record_sources_mapping.oclc"
 msgstr "OCLC (WorldCat)"
 
-#: allthethings/page/templates/page/datasets.html:58
-#: allthethings/page/templates/page/datasets.html:142
+#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:141
 #: allthethings/page/views.py:4889
 #, fuzzy
 msgid "common.record_sources_mapping.duxiu"
 msgstr "DuXiu 读秀"
 
-#: allthethings/page/templates/page/datasets.html:59
-#: allthethings/page/templates/page/datasets.html:155
+#: allthethings/page/templates/page/datasets.html:58
+#: allthethings/page/templates/page/datasets.html:154
 #: allthethings/page/views.py:4890
 #, fuzzy
 msgid "common.record_sources_mapping.uploads"
@@ -2517,8 +2534,6 @@ msgstr "Нимәлер дөрөҫ булманы. Битте яңыртып, ҡ�
 
 #: allthethings/page/templates/page/aarecord.html:406
 #: allthethings/page/templates/page/aarecord.html:407
-#: allthethings/page/templates/page/codes.html:8
-#: allthethings/page/templates/page/codes.html:9
 #: allthethings/page/templates/page/copyright.html:6
 #: allthethings/page/templates/page/copyright.html:7
 #: allthethings/page/templates/page/datasets.html:13
@@ -2574,12 +2589,12 @@ msgstr "Был файл <a %(a_ia)s>IA-ның Контролдә тотолға�
 msgid "page.md5.text.file_info.text1"
 msgstr "Был файл тураһында мәғлүмәт өсөн уның <a %(a_href)s>JSON файлын</a> ҡарағыҙ."
 
-#: allthethings/page/templates/page/aarecord_issue.html:4
+#: allthethings/page/templates/page/aarecord_issue.html:5
 #, fuzzy
 msgid "page.aarecord_issue.title"
 msgstr "🔥 Был битте тейәүҙә проблема"
 
-#: allthethings/page/templates/page/aarecord_issue.html:6
+#: allthethings/page/templates/page/aarecord_issue.html:7
 #, fuzzy
 msgid "page.aarecord_issue.text"
 msgstr "Зинһар, яңыртығыҙ һәм ҡабатлап ҡарағыҙ. Мәсъәлә бер нисә сәғәт дауам итһә, <a %(a_contact)s>беҙҙең менән бәйләнешкә сығығыҙ</a>."
@@ -2622,6 +2637,105 @@ msgstr "Әгәр ҙә һеҙ сикһеҙ циклға эләкһәгеҙ, <a %(
 #, fuzzy
 msgid "page.login.text3"
 msgstr "Реклама блокировкаларын һәм башҡа браузер киңәйтеүҙәрен һүндереү ҙә ярҙам итә ала."
+
+#: allthethings/page/templates/page/codes.html:5
+msgid "page.codes.title"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:10
+msgid "page.codes.heading"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:14
+msgid "page.codes.intro"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:18
+msgid "page.codes.why_cloudflare"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:22
+msgid "page.codes.dont_scrape"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:33
+msgid "page.codes.prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:34
+msgid "common.form.go"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:35
+msgid "common.form.reset"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:40
+msgid "page.codes.bad_unicode"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:46
+msgid "page.codes.known_code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:48
+msgid "page.codes.code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:49
+msgid "page.codes.code_label"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:51
+msgid "page.codes.code_description"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgid "page.codes.code_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgctxt "the %s should not be changed"
+msgid "page.codes.s_substitution"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:57
+msgid "page.codes.generic_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:61
+msgid "page.codes.code_website"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:69
+msgid "page.codes.record_starting_with"
+msgid_plural "page.codes.records_starting_with"
+msgstr[0] ""
+msgstr[1] ""
+
+#: allthethings/page/templates/page/codes.html:75
+msgid "page.codes.search_archive"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:77
+msgid "page.codes.url_link"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:84
+msgid "page.codes.codes_starting_with"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:92
+msgid "page.codes.records_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:93
+msgid "page.codes.records_codes"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:113
+msgid "page.codes.fewer_than"
+msgstr ""
 
 #: allthethings/page/templates/page/contact.html:9
 #, fuzzy
@@ -2723,144 +2837,140 @@ msgstr ""
 msgid "page.datasets.overview.last_updated.header"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:52
+#: allthethings/page/templates/page/datasets.html:51
 msgid "common.record_sources_mapping.lgrs.nonfiction_and_fiction"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "common.record_sources_mapping.scihub.via_lgli_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_1"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_2"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "common.record_sources.mapping.lgli.excluding_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "page.datasets.lgli_fiction_is_behind"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:56
-msgid "common.record_sources_mapping.zlibzh"
-msgstr ""
-
-#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:55
 msgid "page.datasets.zlibzh.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
-#: allthethings/page/templates/page/datasets.html:130
+#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:129
 msgid "common.record_sources_mapping.iacdl"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:56
 msgid "page.datasets.iacdl.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.total"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.excluding_duplicates"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:64
+#: allthethings/page/templates/page/datasets.html:63
 msgid "page.datasets.overview.text4"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:68
+#: allthethings/page/templates/page/datasets.html:67
 msgid "page.datasets.overview.text5"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:71
+#: allthethings/page/templates/page/datasets.html:70
 msgid "page.datasets.source_libraries.title"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:74
+#: allthethings/page/templates/page/datasets.html:73
 #, fuzzy
 msgid "page.datasets.source_libraries.text1"
 msgstr "Кейбер сығанаҡ китапханалар үҙҙәренең мәғлүмәттәрен торренттар аша күмәкләп уртаҡлашыуҙы хуплай, ә икенселәре үҙ коллекцияларын еңел генә уртаҡлашмай. Һуңғы осраҡта, Аннаның Архивы уларҙың коллекцияларын скрапинг ярҙамында йыйып, уларҙы ҡулланыуға тәҡдим итә (ҡарағыҙ беҙҙең <a %(a_torrents)s>Торренттар</a> битен). Шулай уҡ аралаш осраҡтар ҙа бар, мәҫәлән, сығанаҡ китапханалар уртаҡлашырға әҙер, ләкин уларҙың ресурстары етмәй. Был осраҡтарҙа ла беҙ ярҙам итергә тырышабыҙ."
 
-#: allthethings/page/templates/page/datasets.html:78
+#: allthethings/page/templates/page/datasets.html:77
 #, fuzzy
 msgid "page.datasets.source_libraries.text2"
 msgstr "Түбәндә беҙ төрлө сығанаҡ китапханалар менән нисек эш итеүебеҙ тураһында дөйөм күҙәтеү бирелгән."
 
-#: allthethings/page/templates/page/datasets.html:83
+#: allthethings/page/templates/page/datasets.html:82
 #, fuzzy
 msgid "page.datasets.sources.source.header"
 msgstr "Сығанаҡ"
 
-#: allthethings/page/templates/page/datasets.html:84
+#: allthethings/page/templates/page/datasets.html:83
 #, fuzzy
 msgid "page.datasets.sources.metadata.header"
 msgstr "Метадата"
 
-#: allthethings/page/templates/page/datasets.html:85
+#: allthethings/page/templates/page/datasets.html:84
 #, fuzzy
 msgid "page.datasets.sources.files.header"
 msgstr "Файлдар"
 
-#: allthethings/page/templates/page/datasets.html:98
+#: allthethings/page/templates/page/datasets.html:97
 #, fuzzy
 msgid "common.record_sources_mapping.scihub_scimag"
 msgstr "Sci-Hub / Libgen “scimag”"
 
-#: allthethings/page/templates/page/datasets.html:162
+#: allthethings/page/templates/page/datasets.html:161
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.title"
 msgstr "Тик метадата сығанаҡтары"
 
-#: allthethings/page/templates/page/datasets.html:165
+#: allthethings/page/templates/page/datasets.html:164
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text1"
 msgstr "Беҙ шулай уҡ коллекциябыҙҙы тик метадата сығанаҡтары менән байытабыҙ, уларҙы файлдарға тура килтерә алабыҙ, мәҫәлән, ISBN номерҙары йәки башҡа баҫыуҙар ярҙамында. Түбәндә уларҙың дөйөм күҙәтеүе бирелгән. Тағы ла, ҡайһы бер сығанаҡтар тулыһынса асыҡ, ә икенселәре өсөн беҙ уларҙы скрапинг ярҙамында алабыҙ."
 
-#: allthethings/page/templates/page/datasets.html:169
-#: allthethings/page/templates/page/faq.html:186
+#: allthethings/page/templates/page/datasets.html:168
+#: allthethings/page/templates/page/faq.html:187
 #: allthethings/page/templates/page/search.html:294
 #, fuzzy
 msgid "page.faq.metadata.inspiration1"
 msgstr "Метадата йыйыу өсөн беҙҙең илһам сығанағы Аарон Свартцтың “бер ваҡытта ла баҫылған һәр китап өсөн бер веб-бит” маҡсаты булды, ул <a %(a_openlib)s>Open Library</a> булдырҙы."
 
-#: allthethings/page/templates/page/datasets.html:170
-#: allthethings/page/templates/page/faq.html:187
+#: allthethings/page/templates/page/datasets.html:169
+#: allthethings/page/templates/page/faq.html:188
 #: allthethings/page/templates/page/search.html:295
 #, fuzzy
 msgid "page.faq.metadata.inspiration2"
 msgstr "Ул проект яҡшы эшләне, ләкин беҙҙең уникаль позициябыҙ улар ала алмаған метадатаны алырға мөмкинлек бирә."
 
-#: allthethings/page/templates/page/datasets.html:171
-#: allthethings/page/templates/page/faq.html:188
+#: allthethings/page/templates/page/datasets.html:170
+#: allthethings/page/templates/page/faq.html:189
 #: allthethings/page/templates/page/search.html:296
 #, fuzzy
 msgid "page.faq.metadata.inspiration3"
 msgstr "Тағы бер илһам сығанағы беҙҙең <a %(a_blog)s>донъяла нисә китап барлығын</a> белеү теләге булды, шуның өсөн беҙ һаҡлап ҡалырға тейеш китаптар һанын иҫәпләй алабыҙ."
 
-#: allthethings/page/templates/page/datasets.html:175
+#: allthethings/page/templates/page/datasets.html:174
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text2"
 msgstr "Метадата эҙләүҙә, беҙ оригиналь яҙмаларҙы күрһәтеүебеҙҙе иҫегеҙҙә тотоғоҙ. Беҙ яҙмаларҙы берләштермәйбеҙ."
 
-#: allthethings/page/templates/page/datasets.html:216
+#: allthethings/page/templates/page/datasets.html:215
 #, fuzzy
 msgid "page.datasets.unified_database.title"
 msgstr "Берләштерелгән база"
 
-#: allthethings/page/templates/page/datasets.html:219
+#: allthethings/page/templates/page/datasets.html:218
 #, fuzzy
 msgid "page.datasets.unified_database.text1"
 msgstr "Беҙ бөтә юғарыла күрһәтелгән сығанаҡтарҙы берләштерелгән базаға берләштерәбеҙ, ул был веб-сайтты хеҙмәтләндереү өсөн ҡулланыла. Был берләштерелгән база туранан-тура ҡулланыуға асыҡ түгел, ләкин Аннаның Архивы тулыһынса асыҡ сығанаҡлы булғанлыҡтан, уны <a %(a_generated)s>генерациялау</a> йәки <a %(a_downloaded)s>ElasticSearch һәм MariaDB базалары</a> итеп йөкләп алыу еңел. Был биттәге скрипттар автоматик рәүештә юғарыла күрһәтелгән сығанаҡтарҙан бөтә кәрәкле метадатаны йөкләп аласаҡ."
 
-#: allthethings/page/templates/page/datasets.html:227
+#: allthethings/page/templates/page/datasets.html:226
 #, fuzzy
 msgid "page.datasets.unified_database.text2"
 msgstr "Әгәр һеҙ был скрипттарҙы локаль рәүештә эшләтеп ҡарағансы, беҙҙең мәғлүмәттәрҙе өйрәнергә теләһәгеҙ, беҙҙең JSON файлдарына ҡарай алаһығыҙ, улар артабан башҡа JSON файлдарына һылтанма бирә. <a %(a_json)s>Был файл</a> яҡшы башланғыс нөктәһе булып тора."
@@ -2901,473 +3011,477 @@ msgstr "ISBN веб-сайты"
 msgid "page.datasets/isbn_ranges.isbn_metadata"
 msgstr "Метадата"
 
-#: allthethings/page/templates/page/faq.html:3
-#: allthethings/page/templates/page/faq.html:6
+#: allthethings/page/templates/page/faq.html:5
+#: allthethings/page/templates/page/faq.html:8
 #, fuzzy
 msgid "page.faq.title"
 msgstr "Йыш бирелгән һорауҙар (FAQ)"
 
-#: allthethings/page/templates/page/faq.html:8
+#: allthethings/page/templates/page/faq.html:10
 #, fuzzy
 msgid "page.faq.what_is.title"
 msgstr "Аннаның Архивы нимә ул?"
 
-#: allthethings/page/templates/page/faq.html:11
+#: allthethings/page/templates/page/faq.html:13
 #, fuzzy
 msgid "page.home.intro.text1"
 msgstr "<span %(span_anna)s>Аннаның Архивы</span> ике маҡсатлы коммерцияға ҡарамаған проект:"
 
-#: allthethings/page/templates/page/faq.html:15
+#: allthethings/page/templates/page/faq.html:17
 #, fuzzy
 msgid "page.home.intro.text2"
 msgstr "<li><strong>Һаҡлау:</strong> Кешелек белеме һәм мәҙәниәтен һаҡлау.</li><li><strong>Асыҡлыҡ:</strong> Был белем һәм мәҙәниәтте бөтә донъяға таратыу.</li>"
 
-#: allthethings/page/templates/page/faq.html:19
+#: allthethings/page/templates/page/faq.html:21
 #, fuzzy
 msgid "page.home.intro.open_source"
 msgstr "Бөтә <a %(a_code)s>кодтарыбыҙ</a> һәм <a %(a_datasets)s>мәғлүмәттәребеҙ</a> тулыһынса асыҡ сығанаҡлы."
 
-#: allthethings/page/templates/page/faq.html:23
+#: allthethings/page/templates/page/faq.html:25
 #, fuzzy
 msgid "page.home.preservation.header"
 msgstr "Һаҡлау"
 
-#: allthethings/page/templates/page/faq.html:25
+#: allthethings/page/templates/page/faq.html:27
 #, fuzzy
 msgid "page.home.preservation.text1"
 msgstr "Беҙ китаптарҙы, мәҡәләләрҙе, комикстарҙы, журналдарҙы һәм башҡа материалдарҙы төрлө <a href=\"https://en.wikipedia.org/wiki/Shadow_library\">күңелһеҙ китапханаларҙан</a>, рәсми китапханаларҙан һәм башҡа коллекцияларҙан бер урынға йыйып һаҡлайбыҙ. Был мәғлүмәттәрҙе мәңгелеккә һаҡлау өсөн уларҙы күпләп күсереп алыуҙы еңеләйтәбеҙ — торренттар ҡулланып — донъя буйлап күп нөсхәләр булдырабыҙ. Ҡайһы бер күңелһеҙ китапханалар үҙҙәре үк был эште башҡара (мәҫәлән, Sci-Hub, Library Genesis), ә Аннаның Архивы күпләп таратыуҙы тәҡдим итмәгән китапханаларҙы “азат итә” (мәҫәлән, Z-Library) йәки бөтөнләй күңелһеҙ китапханалар булмағандарын (мәҫәлән, Internet Archive, DuXiu)."
 
-#: allthethings/page/templates/page/faq.html:27
+#: allthethings/page/templates/page/faq.html:29
 #, fuzzy
 msgid "page.home.preservation.text2"
 msgstr "Был киң таратыу, асыҡ сығанаҡлы код менән бергә, беҙҙең веб-сайтты юҡҡа сығарыуҙан һаҡлай һәм кешелек белеме һәм мәҙәниәтен оҙайлы һаҡлауҙы тәьмин итә. <a href=\"/datasets\">мәғлүмәттәребеҙ тураһында</a> күберәк белегеҙ."
 
-#: allthethings/page/templates/page/faq.html:41
+#: allthethings/page/templates/page/faq.html:43
 #, fuzzy
 msgid "page.home.preservation.label"
 msgstr "Беҙ донъяның китаптарының яҡынса <a href=\"https://annas-blog.org/blog-isbndb-dump-how-many-books-are-preserved-forever.html\">5%% процентын һаҡлағанбыҙ тип иҫәпләйбеҙ.</a>"
 
-#: allthethings/page/templates/page/faq.html:46
+#: allthethings/page/templates/page/faq.html:48
 #, fuzzy
 msgid "page.home.access.header"
 msgstr "Асыҡлыҡ"
 
-#: allthethings/page/templates/page/faq.html:48
+#: allthethings/page/templates/page/faq.html:50
 #, fuzzy
 msgid "page.home.access.text"
 msgstr "Беҙҙең коллекцияларҙы һәр кемгә еңел һәм бушлай ҡулланыу мөмкинлеген биреү өсөн партнерҙар менән эшләйбеҙ. Беҙ һәр кемдең кешелек аҡылына хоҡуғы бар тип иҫәпләйбеҙ. Һәм <a %(a_search)s>авторҙар иҫәбенә түгел</a>."
 
-#: allthethings/page/templates/page/faq.html:52
+#: allthethings/page/templates/page/faq.html:54
 #, fuzzy
 msgid "page.home.access.label"
 msgstr "Һуңғы 30 көндә сәғәт һайын күсереп алыуҙар. Сәғәтлек уртаса: %(hourly)s. Көндәлек уртаса: %(daily)s."
 
-#: allthethings/page/templates/page/faq.html:80
+#: allthethings/page/templates/page/faq.html:82
 #, fuzzy
 msgid "page.about.text2"
 msgstr "Беҙ мәғлүмәт ағымының ирекле булыуына һәм белем һәм мәҙәниәтте һаҡлауға ныҡлы ышанабыҙ. Был эҙләү системаһы менән беҙ гиганттарҙың иңенә баҫабыҙ. Күңелһеҙ китапханаларҙы булдырған кешеләрҙең ауыр хеҙмәтен тәрән хөрмәт итәбеҙ һәм был эҙләү системаһы уларҙың ҡулланыу даирәһен киңәйтер тип өмөтләнәбеҙ."
 
-#: allthethings/page/templates/page/faq.html:84
+#: allthethings/page/templates/page/faq.html:86
 #, fuzzy
 msgid "page.about.text3"
 msgstr "Прогресс тураһында яңыртыуҙарҙы белеп тороу өсөн Аннаны <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a> йәки <a href=\"https://t.me/annasarchiveorg\">Telegram</a> аша күҙәтегеҙ. Һорауҙар һәм фекерҙәр өсөн Аннаға %(email)s адресы буйынса мөрәжәғәт итегеҙ."
 
-#: allthethings/page/templates/page/faq.html:87
+#: allthethings/page/templates/page/faq.html:89
 #, fuzzy
 msgid "page.faq.help.title"
 msgstr "Нисек ярҙам итә алам?"
 
-#: allthethings/page/templates/page/faq.html:90
+#: allthethings/page/templates/page/faq.html:92
 #, fuzzy
 msgid "page.about.help.text"
 msgstr "<li>1. Беҙҙе <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a> йәки <a href=\"https://t.me/annasarchiveorg\">Telegram</a> аша күҙәтегеҙ.</li><li>2. Аннаның Архивы тураһында Twitter, Reddit, Tiktok, Instagram, урындағы кафе йәки китапханала, йәки ҡайҙа ғына барһағыҙ ҙа һөйләгеҙ! Беҙ ҡапҡасыларға ышанмайбыҙ — беҙҙе юҡҡа сығарһалар, бөтә кодтарыбыҙ һәм мәғлүмәттәребеҙ тулыһынса асыҡ сығанаҡлы булғанлыҡтан, беҙ башҡа урында яңынан ҡалҡып сығырбыҙ.</li><li>3. Мөмкин булһа, <a href=\"/donate\">иғәнә</a> яһағыҙ.</li><li>4. Веб-сайтыбыҙҙы төрлө телдәргә <a href=\"https://translate.annas-software.org/\">тәржемә итешегеҙ</a>.</li><li>5. Әгәр һеҙ программалаусы булһағыҙ, беҙҙең <a href=\"https://annas-software.org/\">асыҡ сығанаҡҡа</a> өлөш индерегеҙ, йәки беҙҙең <a href=\"/datasets\">торренттарҙы</a> таратығыҙ.</li>"
 
-#: allthethings/page/templates/page/faq.html:91
+#: allthethings/page/templates/page/faq.html:93
 #, fuzzy
 msgid "page.about.help.text6"
 msgstr "6. Әгәр һеҙ хәүефһеҙлек тикшеренеүсеһе булһағыҙ, һеҙҙең һәләттәрегеҙҙе һөжүм һәм һаҡланыу өсөн ҡуллана алабыҙ. <a %(a_security)s>Хәүефһеҙлек</a> битен ҡарағыҙ."
 
-#: allthethings/page/templates/page/faq.html:92
+#: allthethings/page/templates/page/faq.html:94
 #, fuzzy
 msgid "page.about.help.text7"
 msgstr "7. Аноним сауҙагәрҙәр өсөн түләүҙәр буйынса эксперттар эҙләйбеҙ. Донаттарҙы уңайлыраҡ итеү өсөн ярҙам итә алаһығыҙмы? PayPal, WeChat, бүләк карталары. Кемде булһа ла белһәгеҙ, беҙгә мөрәжәғәт итегеҙ."
 
-#: allthethings/page/templates/page/faq.html:93
+#: allthethings/page/templates/page/faq.html:95
 #, fuzzy
 msgid "page.about.help.text8"
 msgstr "8. Беҙ һәр ваҡыт күберәк сервер ҡеүәте эҙләйбеҙ."
 
-#: allthethings/page/templates/page/faq.html:94
+#: allthethings/page/templates/page/faq.html:96
 #, fuzzy
 msgid "page.about.help.text9"
 msgstr "9. Файлдарҙағы хаталарҙы хәбәр итеп, комментарийҙар ҡалдырып һәм был веб-сайтта исемлектәр төҙөп ярҙам итә алаһығыҙ. Шулай уҡ <a %(a_upload)s>күберәк китаптарҙы йөкләп</a>, йәки булған китаптарҙың файл хаталарын йәки форматтарын төҙәтеп ярҙам итә алаһығыҙ."
 
-#: allthethings/page/templates/page/faq.html:95
+#: allthethings/page/templates/page/faq.html:97
 #, fuzzy
 msgid "page.about.help.text10"
 msgstr "10. Аннаның Архивы өсөн Википедия битен үҙ телегеҙҙә булдырығыҙ йәки ярҙам итегеҙ."
 
-#: allthethings/page/templates/page/faq.html:96
+#: allthethings/page/templates/page/faq.html:98
 #, fuzzy
 msgid "page.about.help.text11"
 msgstr "11. Беҙ бәләкәй, зауыҡлы рекламалар урынлаштырырға теләйбеҙ. Әгәр һеҙ Аннаның Архивында реклама урынлаштырырға теләһәгеҙ, зинһар, беҙгә хәбәр итегеҙ."
 
-#: allthethings/page/templates/page/faq.html:97
+#: allthethings/page/templates/page/faq.html:99
 #, fuzzy
 msgid "page.faq.help.mirrors"
 msgstr "Беҙ кешеләрҙең <a %(a_mirrors)s>күҙгөләр</a> булдырыуын теләр инек, һәм беҙ быны финанс яҡтан хуплаясаҡбыҙ."
 
-#: allthethings/page/templates/page/faq.html:105
+#: allthethings/page/templates/page/faq.html:103
+msgid "page.about.help.volunteer"
+msgstr ""
+
+#: allthethings/page/templates/page/faq.html:106
 #, fuzzy
 msgid "page.faq.slow.title"
 msgstr "Ни өсөн әкрен күсереп алыуҙар шул тиклем әкрен?"
 
-#: allthethings/page/templates/page/faq.html:108
+#: allthethings/page/templates/page/faq.html:109
 #, fuzzy
 msgid "page.faq.slow.text1"
 msgstr "Беҙ бөтә донъяға юғары тиҙлектәге йөкләүҙәр биреү өсөн етерлек ресурстарға эйә түгелбеҙ, нисек кенә теләһәк тә. Әгәр бай берәй хәйриәсе быны беҙгә тәьмин итергә теләһә, был ғәжәйеп булыр ине, ләкин шул ваҡытҡа тиклем, беҙ ҡулдан килгәнде эшләйбеҙ. Беҙ донорҙар ярҙамында саҡ-саҡ йәшәп килгән коммерцияға ҡарамаған проект."
 
-#: allthethings/page/templates/page/faq.html:112
+#: allthethings/page/templates/page/faq.html:113
 #, fuzzy
 msgid "page.faq.slow.text2"
 msgstr "Шуның өсөн беҙ партнерҙарыбыҙ менән бушлай йөкләүҙәр өсөн ике система индерҙек: әкрен йөкләүҙәр менән уртаҡ серверҙар, һәм көтөү исемлеге менән бер аҙ тиҙерәк серверҙар (бер үк ваҡытта йөкләүселәр һанын кәметеү өсөн)."
 
-#: allthethings/page/templates/page/faq.html:116
+#: allthethings/page/templates/page/faq.html:117
 #, fuzzy
 msgid "page.faq.slow.text3"
 msgstr "Беҙ шулай уҡ әкрен йөкләүҙәр өсөн <a %(a_verification)s>браузер тикшереүе</a> индерҙек, сөнки башҡа осраҡта боттар һәм скреперҙар уларҙы файҙаланыр ине, был ысын ҡулланыусылар өсөн эште тағы ла әкренәйтер ине."
 
-#: allthethings/page/templates/page/faq.html:120
+#: allthethings/page/templates/page/faq.html:121
 #, fuzzy
 msgid "page.faq.slow.text4"
 msgstr "Tor браузерын ҡулланғанда, хәүефһеҙлек көйләүҙәрен көйләү кәрәк булыуы мөмкин. Иң түбән вариантта, “Стандарт” тип аталған, Cloudflare turnstile һынауы уңышлы үтә. Юғары варианттарҙа, “Хәүефһеҙерәк” һәм “Иң хәүефһеҙ”, һынау уңышһыҙ үтә."
 
-#: allthethings/page/templates/page/faq.html:124
+#: allthethings/page/templates/page/faq.html:125
 #, fuzzy
 msgid "page.faq.slow.text5"
 msgstr "Зур файлдар өсөн ҡайһы саҡта әкрен тиҙлектәге күсереп алыуҙар уртала өҙөлә ала. Беҙ JDownloader кеүек күсереп алыу менеджерын ҡулланыуҙы тәҡдим итәбеҙ, ул ҙур күсереп алыуҙарҙы автоматик рәүештә яңынан башлай ала."
 
-#: allthethings/page/templates/page/faq.html:127
+#: allthethings/page/templates/page/faq.html:128
 #, fuzzy
 msgid "page.donate.faq.title"
 msgstr "Иғәнә буйынса йыш бирелгән һорауҙар"
 
-#: allthethings/page/templates/page/faq.html:130
+#: allthethings/page/templates/page/faq.html:131
 #, fuzzy
 msgid "page.donate.faq.renew"
 msgstr "<div %(div_question)s>Әғзалыҡ автоматик рәүештә яңыртыламы?</div> Әғзалыҡ <strong>автоматик рәүештә яңыртылмай</strong>. Һеҙ теләгәнсә оҙаҡ йәки ҡыҫҡа ваҡытҡа ҡушыла алаһығыҙ."
 
-#: allthethings/page/templates/page/faq.html:134
+#: allthethings/page/templates/page/faq.html:135
 #, fuzzy
 msgid "page.donate.faq.membership"
 msgstr "<div %(div_question)s>Мин ағзалыҡты яңырта аламмы йәки бер нисә ағзалыҡ ала аламмы?</div>"
 
-#: allthethings/page/templates/page/faq.html:139
+#: allthethings/page/templates/page/faq.html:140
 #, fuzzy
 msgid "page.donate.faq.text_other_payment1"
 msgstr "<div %(div_question)s>Башҡа түләү ысулдары бармы?</div> Әлегә юҡ. Күп кешеләр бындай архивтарҙың булыуын теләмәй, шуға күрә беҙ һаҡ булырға тейешбеҙ. Әгәр һеҙ беҙгә башҡа (күберәк уңайлы) түләү ысулдарын хәүефһеҙ рәүештә булдырырға ярҙам итә алаһығыҙ икән, зинһар, %(email)s адресы буйынса беҙгә мөрәжәғәт итегеҙ."
 
-#: allthethings/page/templates/page/faq.html:143
+#: allthethings/page/templates/page/faq.html:144
 #, fuzzy
 msgid "page.donate.faq.spend"
 msgstr "<div %(div_question)s>Иғәнәләрҙе нимәгә сарыф итәһегеҙ?</div> 100%% донъяның белем һәм мәҙәниәтен һаҡлауға һәм уларҙы ҡулланыуға биреүгә китә. Әлеге ваҡытта беҙ уны күбеһенсә серверҙарға, һаҡлауға һәм киңлеккә сарыф итәбеҙ. Бер ниндәй ҙә аҡса шәхсән берәй команда ағзаһына китмәй."
 
-#: allthethings/page/templates/page/faq.html:147
+#: allthethings/page/templates/page/faq.html:148
 #, fuzzy
 msgid "page.donate.faq.text_large_donation"
 msgstr "<div %(div_question)s>Мин ҙур иғәнә яһай аламмы?</div> Был ғәжәйеп булыр ине! Бер нисә мең долларҙан ашыу иғәнәләр өсөн, зинһар, %(email)s адресы буйынса беҙгә тура мөрәжәғәт итегеҙ."
 
-#: allthethings/page/templates/page/faq.html:151
+#: allthethings/page/templates/page/faq.html:152
 #, fuzzy
 msgid "page.donate.faq.non_member_donation"
 msgstr "<div %(div_question)s>Мин әғза булмайынса иғәнә яһай аламмы?</div> Әлбиттә. Беҙ теләһә ниндәй күләмдәге иғәнәләрҙе был Monero (XMR) адресы буйынса ҡабул итәбеҙ: %(address)s."
 
-#: allthethings/page/templates/page/faq.html:154
+#: allthethings/page/templates/page/faq.html:155
 #, fuzzy
 msgid "page.faq.upload.title"
 msgstr "Мин яңы китаптарҙы нисек йөкләй алам?"
 
-#: allthethings/page/templates/page/faq.html:157
+#: allthethings/page/templates/page/faq.html:158
 #, fuzzy
 msgid "page.upload.text1"
 msgstr "Әлегә, беҙ яңы китаптарҙы Library Genesis форктарына йөкләргә тәҡдим итәбеҙ. Бына <a %(a_guide)s>ҡулланма</a>. Иғтибар итегеҙ, был сайтта индексацияланған ике форк та ошо уҡ йөкләү системаһынан файҙалана."
 
-#: allthethings/page/templates/page/faq.html:158
+#: allthethings/page/templates/page/faq.html:159
 #, fuzzy
 msgid "common.libgen.email"
 msgstr "Әгәр һеҙҙең электрон почта адресығыҙ Libgen форумдарында эшләмәй икән, беҙ <a %(a_mail)s>Proton Mail</a> (бушлай) ҡулланыуҙы тәҡдим итәбеҙ. Шулай уҡ һеҙҙең аккаунтты активлаштырыу өсөн <a %(a_manual)s>ҡулдан һорау</a> яһай алаһығыҙ."
 
-#: allthethings/page/templates/page/faq.html:159
+#: allthethings/page/templates/page/faq.html:160
 #, fuzzy
 msgid "page.faq.mhut_upload"
 msgstr "Иғтибар итегеҙ, mhut.org ҡайһы бер IP диапазондарын блоклай, шуға күрә VPN кәрәк булыуы мөмкин."
 
-#: allthethings/page/templates/page/faq.html:163
+#: allthethings/page/templates/page/faq.html:164
 #, fuzzy
 msgid "page.upload.zlib.text1"
 msgstr "Альтернатива булараҡ, һеҙ уларҙы Z-Library-ға <a %(a_upload)s>бында</a> йөкләй алаһығыҙ."
 
-#: allthethings/page/templates/page/faq.html:167
+#: allthethings/page/templates/page/faq.html:168
 #, fuzzy
 msgid "page.upload.zlib.text2"
 msgstr "Академик мәҡәләләрҙе йөкләү өсөн, зинһар, (Library Genesis-тан тыш) <a %(a_stc_nexus)s>STC Nexus</a>-ҡа ла йөкләгеҙ. Улар яңы мәҡәләләр өсөн иң яҡшы күләгә китапханаһы. Беҙ уларҙы әлегә интеграцияламағанбыҙ, ләкин бер мәлдә был эште башҡарасаҡбыҙ. Һеҙ уларҙың <a %(a_telegram)s>Telegram-дағы йөкләү ботын</a> ҡуллана алаһығыҙ, йәки был ысул менән йөкләргә файлығыҙ күп булһа, уларҙың пинләнгән хәбәрендә күрһәтелгән адресҡа мөрәжәғәт итә алаһығыҙ."
 
-#: allthethings/page/templates/page/faq.html:171
+#: allthethings/page/templates/page/faq.html:172
 #, fuzzy
 msgid "page.upload.large.text"
 msgstr "Зур йөкләүҙәр өсөн (10,000 файлдан ашыу) Libgen йәки Z-Library ҡабул итмәһә, зинһар, %(a_email)s адресы буйынса беҙгә мөрәжәғәт итегеҙ."
 
-#: allthethings/page/templates/page/faq.html:174
+#: allthethings/page/templates/page/faq.html:175
 #, fuzzy
 msgid "page.faq.request.title"
 msgstr "Мин китаптарҙы нисек һорай алам?"
 
-#: allthethings/page/templates/page/faq.html:177
+#: allthethings/page/templates/page/faq.html:178
 #, fuzzy
 msgid "page.request.cannot_accomodate"
 msgstr "Әлеге ваҡытта, беҙ китап һорауҙарын ҡабул итә алмайбыҙ."
 
-#: allthethings/page/templates/page/faq.html:178
+#: allthethings/page/templates/page/faq.html:179
 #, fuzzy
 msgid "page.request.forums"
 msgstr "Зинһар, үҙегеҙҙең һорауҙарығыҙҙы Z-Library йәки Libgen форумдарына ебәрегеҙ."
 
-#: allthethings/page/templates/page/faq.html:179
+#: allthethings/page/templates/page/faq.html:180
 #, fuzzy
 msgid "page.request.dont_email"
 msgstr "Беҙгә китап һорауҙарығыҙҙы электрон почта аша ебәрмәгеҙ."
 
-#: allthethings/page/templates/page/faq.html:182
+#: allthethings/page/templates/page/faq.html:183
 #, fuzzy
 msgid "page.faq.metadata.title"
 msgstr "Һеҙ метадата йыяһығыҙмы?"
 
-#: allthethings/page/templates/page/faq.html:185
+#: allthethings/page/templates/page/faq.html:186
 #, fuzzy
 msgid "page.faq.metadata.indeed"
 msgstr "Эйе, беҙ йыябыҙ."
 
-#: allthethings/page/templates/page/faq.html:191
+#: allthethings/page/templates/page/faq.html:192
 #, fuzzy
 msgid "page.faq.1984.title"
 msgstr "Мин Джордж Оруэллдың \"1984\" китабын күсереп алдым, полиция минең ишеккә килерме?"
 
-#: allthethings/page/templates/page/faq.html:194
+#: allthethings/page/templates/page/faq.html:195
 #, fuzzy
 msgid "page.faq.1984.text"
 msgstr "Бик борсолмағыҙ, беҙҙең менән бәйле сайттарҙан күп кеше күсереп ала, һәм проблемаларға эләгеү бик һирәк осрай. Әммә хәүефһеҙ булыу өсөн VPN (түленгән) йәки <a %(a_tor)s>Tor</a> (бушлай) ҡулланыуҙы тәҡдим итәбеҙ."
 
-#: allthethings/page/templates/page/faq.html:197
+#: allthethings/page/templates/page/faq.html:198
 #, fuzzy
 msgid "page.faq.save_search.title"
 msgstr "Эҙләү көйләүҙәрен нисек һаҡларға?"
 
-#: allthethings/page/templates/page/faq.html:200
+#: allthethings/page/templates/page/faq.html:201
 #, fuzzy
 msgid "page.faq.save_search.text1"
 msgstr "Үҙегеҙгә оҡшаған көйләүҙәрҙе һайлағыҙ, эҙләү ҡумтаһын буш ҡалдырығыҙ, \"Эҙләү\" төймәһенә баҫығыҙ, һәм битте браузерығыҙҙың закладка функцияһы ярҙамында һаҡлағыҙ."
 
-#: allthethings/page/templates/page/faq.html:203
+#: allthethings/page/templates/page/faq.html:204
 #, fuzzy
 msgid "page.faq.mobile.title"
 msgstr "Һеҙҙең мобиль ҡушымтағыҙ бармы?"
 
-#: allthethings/page/templates/page/faq.html:206
+#: allthethings/page/templates/page/faq.html:207
 #, fuzzy
 msgid "page.faq.mobile.text1"
 msgstr "Беҙҙең рәсми мобиль ҡушымта юҡ, әммә был сайтты ҡушымта итеп ҡуйырға мөмкин."
 
-#: allthethings/page/templates/page/faq.html:207
+#: allthethings/page/templates/page/faq.html:208
 #, fuzzy
 msgid "page.faq.mobile.android"
 msgstr "<strong>Android:</strong> Өҫкө уң яҡтағы өс нөктәле менюға баҫығыҙ, һәм \"Өй экранына өҫтәргә\" һайлағыҙ."
 
-#: allthethings/page/templates/page/faq.html:208
+#: allthethings/page/templates/page/faq.html:209
 #, fuzzy
 msgid "page.faq.mobile.ios"
 msgstr "<strong>iOS:</strong> Түбәндәге \"Уртаҡлашыу\" төймәһенә баҫығыҙ, һәм \"Өй экранына өҫтәргә\" һайлағыҙ."
 
-#: allthethings/page/templates/page/faq.html:211
+#: allthethings/page/templates/page/faq.html:212
 #, fuzzy
 msgid "page.faq.api.title"
 msgstr "Һеҙҙең API бармы?"
 
-#: allthethings/page/templates/page/faq.html:214
+#: allthethings/page/templates/page/faq.html:215
 #, fuzzy
 msgid "page.faq.api.text1"
 msgstr "Беҙҙең ағзалар өсөн тиҙ күсереп алыу URL-адресын алыу өсөн бер тотороҡло JSON API бар: <a %(a_fast_download)s>/dyn/api/fast_download.json</a> (JSON эсендә документация)."
 
-#: allthethings/page/templates/page/faq.html:218
+#: allthethings/page/templates/page/faq.html:219
 #, fuzzy
 msgid "page.faq.api.text2"
 msgstr "Башҡа ҡулланыу осраҡтары өсөн, мәҫәлән, бөтә файлдарыбыҙҙы ҡарап сығыу, махсус эҙләү төҙөү һәм башҡалар өсөн, беҙ <a %(a_generate)s>генерациялауҙы</a> йәки <a %(a_download)s>ElasticSearch һәм MariaDB базаларын күсереп алыуҙы</a> тәҡдим итәбеҙ. Сығанаҡ мәғлүмәттәрҙе ҡулдан <a %(a_explore)s>JSON файлдары аша</a> өйрәнергә мөмкин."
 
-#: allthethings/page/templates/page/faq.html:222
+#: allthethings/page/templates/page/faq.html:223
 #, fuzzy
 msgid "page.faq.api.text3"
 msgstr "Беҙҙең сығанаҡ торренты исемлеген <a %(a_torrents)s>JSON</a> форматында күсереп алырға мөмкин."
 
-#: allthethings/page/templates/page/faq.html:225
+#: allthethings/page/templates/page/faq.html:226
 #, fuzzy
 msgid "page.faq.torrents.title"
 msgstr "Торренттар буйынса йыш бирелгән һорауҙар"
 
-#: allthethings/page/templates/page/faq.html:228
+#: allthethings/page/templates/page/faq.html:229
 #, fuzzy
 msgid "page.faq.torrents.q1"
 msgstr "Мин ярҙам итергә теләйем, ләкин миндә күп диск урыны юҡ."
 
-#: allthethings/page/templates/page/faq.html:230
+#: allthethings/page/templates/page/faq.html:231
 #, fuzzy
 msgid "page.faq.torrents.a1"
 msgstr "<a %(a_list)s>Торрент исемлеге генераторын</a> ҡулланып, үҙегеҙҙең һаҡлау урыны сиктәрендә иң кәрәкле торренты исемлеген төҙөгөҙ."
 
-#: allthethings/page/templates/page/faq.html:234
+#: allthethings/page/templates/page/faq.html:235
 #, fuzzy
 msgid "page.faq.torrents.q2"
 msgstr "Торренттар бик әкрен; мәғлүмәтте тура һеҙҙән күсереп ала аламмы?"
 
-#: allthethings/page/templates/page/faq.html:236
+#: allthethings/page/templates/page/faq.html:237
 #, fuzzy
 msgid "page.faq.torrents.a2"
 msgstr "Эйе, <a %(a_llm)s>LLM мәғлүмәттәре</a> битен ҡарағыҙ."
 
-#: allthethings/page/templates/page/faq.html:240
+#: allthethings/page/templates/page/faq.html:241
 #, fuzzy
 msgid "page.faq.torrents.q3"
 msgstr "Мин файлдарҙың бер өлөшөн генә, мәҫәлән, билдәле бер тел йәки тема буйынса ғына күсереп ала аламмы?"
 
-#: allthethings/page/templates/page/faq.html:242
+#: allthethings/page/templates/page/faq.html:243
 #, fuzzy
 msgid "page.faq.torrents.a3"
 msgstr "Күпселек торренттарҙа файлдар туранан-тура бар, тимәк, һеҙ торрент клиенттарына кәрәкле файлдарҙы ғына күсереп алырға күрһәтмә бирә алаһығыҙ. Ҡайһы файлдарҙы күсереп алырға кәрәклеген билдәләү өсөн, беҙҙең метадата <a %(a_generate)s>генерациялай</a> алаһығыҙ, йәки беҙҙең ElasticSearch һәм MariaDB базаларын <a %(a_download)s>күсереп ала</a> алаһығыҙ. Ҡыҙғанысҡа ҡаршы, ҡайһы бер торрент коллекцияларының төп директорияһында .zip йәки .tar файлдары бар, был осраҡта һеҙ айырым файлдарҙы һайлап алыр алдынан бөтә торрентты күсереп алырға кәрәк."
 
-#: allthethings/page/templates/page/faq.html:246
+#: allthethings/page/templates/page/faq.html:247
 #, fuzzy
 msgid "page.faq.torrents.q4"
 msgstr "Торренттарҙа дубликаттарҙы нисек эшкәртәһегеҙ?"
 
-#: allthethings/page/templates/page/faq.html:248
+#: allthethings/page/templates/page/faq.html:249
 #, fuzzy
 msgid "page.faq.torrents.a4"
 msgstr "Беҙ был исемлектәге торренттар араһында минималь дубликаттар йәки ҡабатланыуҙар булмаҫҡа тырышабыҙ, ләкин был һәр ваҡыт мөмкин түгел, һәм сығанаҡ китапханаларҙың сәйәсәттәренә ныҡ бәйле. Үҙ торренттарын сығарған китапханалар өсөн, был беҙҙең ҡулда түгел. Анна архивы тарафынан сығарылған торренттар өсөн, беҙ дубликаттарҙы тик MD5 хэш нигеҙендә генә эшкәртәбеҙ, тимәк, бер үк китаптың төрлө версиялары дубликатланмай."
 
-#: allthethings/page/templates/page/faq.html:252
+#: allthethings/page/templates/page/faq.html:253
 #, fuzzy
 msgid "page.faq.torrents.q5"
 msgstr "Торрент исемлеген JSON форматында ала аламмы?"
 
-#: allthethings/page/templates/page/faq.html:254
+#: allthethings/page/templates/page/faq.html:255
 #, fuzzy
 msgid "page.faq.torrents.a5"
 msgstr "Эйе."
 
-#: allthethings/page/templates/page/faq.html:258
+#: allthethings/page/templates/page/faq.html:259
 #, fuzzy
 msgid "page.faq.torrents.q6"
 msgstr "Мин торренттарҙа PDF йәки EPUB файлдарын күрмәйем, тик бинар файлдар ғына бар? Нимә эшләргә?"
 
-#: allthethings/page/templates/page/faq.html:260
+#: allthethings/page/templates/page/faq.html:261
 #, fuzzy
 msgid "page.faq.torrents.a6"
 msgstr "Былар ысынлап та PDF һәм EPUB файлдары, уларҙың күп торренттарҙа киңәйтеүе генә юҡ. Торрент файлдары өсөн метадата таба алған ике урын бар, шул иҫәптән файл төрҙәре/киңәйтеүҙәре:"
 
-#: allthethings/page/templates/page/faq.html:262
+#: allthethings/page/templates/page/faq.html:263
 #, fuzzy
 msgid "page.faq.torrents.a6.li1"
 msgstr "1. Һәр коллекция йәки сығарылыштың үҙ метадатаһы бар. Мәҫәлән, <a %(a_libgen_nonfic)s>Libgen.rs торренттары</a>ның Libgen.rs сайтында урынлаштырылған метадата базаһы бар. Беҙ ғәҙәттә һәр коллекцияның <a %(a_datasets)s>мәғлүмәттәр битенән</a> тейешле метадата ресурстарына һылтанмалар бирәбеҙ."
 
-#: allthethings/page/templates/page/faq.html:264
+#: allthethings/page/templates/page/faq.html:265
 #, fuzzy
 msgid "page.faq.torrents.a6.li2"
 msgstr "2. Беҙҙең ElasticSearch һәм MariaDB базаларын <a %(a_generate)s>генерациялауҙы</a> йәки <a %(a_download)s>күсереп алыуҙы</a> тәҡдим итәбеҙ. Был базаларҙа Анна архивындағы һәр яҙма өсөн уның торрент файлдарына (әгәр бар икән) тура килгән маппинг бар, ElasticSearch JSON-да “torrent_paths” аҫтында."
 
-#: allthethings/page/templates/page/faq.html:267
+#: allthethings/page/templates/page/faq.html:268
 #, fuzzy
 msgid "page.faq.security.title"
 msgstr "Һеҙҙең яуаплы асыҡлау программаһы бармы?"
 
-#: allthethings/page/templates/page/faq.html:270
+#: allthethings/page/templates/page/faq.html:271
 #, fuzzy
 msgid "page.faq.security.text1"
 msgstr "Беҙ хәүефһеҙлек тикшеренеүселәрен беҙҙең системаларҙағы етешһеҙлектәрҙе эҙләргә саҡырабыҙ. Беҙ яуаплы асыҡлауҙың ҙур яҡлыларыбыҙ. Беҙҙең менән <a %(a_contact)s>бында</a> бәйләнешкә инегеҙ."
 
-#: allthethings/page/templates/page/faq.html:274
+#: allthethings/page/templates/page/faq.html:275
 #, fuzzy
 msgid "page.faq.security.text2"
 msgstr "Беҙ хәҙерге ваҡытта хаталар өсөн бүләктәр бирә алмайбыҙ, тик беҙҙең анонимлыҡты <a %(a_link)s>компрометациялау мөмкинлегенә</a> эйә булған етешһеҙлектәр өсөн $10k-50k диапазонында бүләктәр тәҡдим итәбеҙ. Киләсәктә хаталар өсөн киңерәк бүләкләү мөмкинлеген тәҡдим итергә теләйбеҙ! Иғтибар итегеҙ, социаль инженерия һөжүмдәре программаға инмәй."
 
-#: allthethings/page/templates/page/faq.html:278
+#: allthethings/page/templates/page/faq.html:279
 #, fuzzy
 msgid "page.faq.security.text3"
 msgstr "Әгәр һеҙ һөжүм итеү хәүефһеҙлегендә ҡыҙыҡһынаһығыҙ һәм донъяның белем һәм мәҙәниәтен архивларға ярҙам итергә теләһәгеҙ, беҙҙең менән бәйләнешкә инегеҙ. Һеҙ ярҙам итә алған күп ысулдар бар."
 
-#: allthethings/page/templates/page/faq.html:281
+#: allthethings/page/templates/page/faq.html:282
 #, fuzzy
 msgid "page.faq.resources.title"
 msgstr "Анна архивы тураһында күберәк ресурстар бармы?"
 
-#: allthethings/page/templates/page/faq.html:284
+#: allthethings/page/templates/page/faq.html:285
 #, fuzzy
 msgid "page.faq.resources.annas_blog"
 msgstr "<a %(a_blog)s>Анна блогы</a>, <a %(a_reddit_u)s>Reddit</a>, <a %(a_reddit_r)s>Subreddit</a> — даими яңыртыуҙар"
 
-#: allthethings/page/templates/page/faq.html:285
+#: allthethings/page/templates/page/faq.html:286
 #, fuzzy
 msgid "page.faq.resources.annas_software"
 msgstr "<a %(a_software)s>Анна программаһы</a> — беҙҙең асыҡ сығанаҡ коды"
 
-#: allthethings/page/templates/page/faq.html:286
+#: allthethings/page/templates/page/faq.html:287
 #, fuzzy
 msgid "page.faq.resources.translate"
 msgstr "<a %(a_translate)s>Анна программаһында тәржемә</a> — беҙҙең тәржемә системаһы"
 
-#: allthethings/page/templates/page/faq.html:287
+#: allthethings/page/templates/page/faq.html:288
 #, fuzzy
 msgid "page.faq.resources.datasets"
 msgstr "<a %(a_datasets)s>Datasets</a> — мәғлүмәттәр тураһында"
 
-#: allthethings/page/templates/page/faq.html:288
+#: allthethings/page/templates/page/faq.html:289
 #, fuzzy
 msgid "page.faq.resources.domains"
 msgstr "<a %(a_li)s>.li</a>, <a %(a_se)s>.se</a>, <a %(a_org)s>.org</a> — альтернатив домендар"
 
-#: allthethings/page/templates/page/faq.html:289
+#: allthethings/page/templates/page/faq.html:290
 #, fuzzy
 msgid "page.faq.resources.wikipedia"
 msgstr "<a %(a_wikipedia)s>Wikipedia</a> — беҙ тураһында күберәк мәғлүмәт (был битте яңыртыуҙа ярҙам итегеҙ, йәки үҙ телегеҙҙә яңынан булдырығыҙ!)"
 
-#: allthethings/page/templates/page/faq.html:292
+#: allthethings/page/templates/page/faq.html:293
 #, fuzzy
 msgid "page.faq.copyright.title"
 msgstr "Мин авторлыҡ хоҡуҡтарын боҙоу тураһында нисек хәбәр итә алам?"
 
-#: allthethings/page/templates/page/faq.html:295
+#: allthethings/page/templates/page/faq.html:296
 #, fuzzy
 msgid "page.faq.copyright.text1"
 msgstr "Беҙ бында авторлыҡ хоҡуҡтары һаҡланған материалдарҙы урынлаштырмайбыҙ. Беҙ эҙләү системаһы булып торабыҙ һәм шуға күрә тик асыҡтан-асыҡ булған метадата ғына индексациялайбыҙ. Был тышҡы сығанаҡтарҙан йөкләгәндә, һеҙҙең юрисдикцияла нимә рөхсәт ителгәнен тикшерергә тәҡдим итәбеҙ. Беҙ башҡалар тарафынан урынлаштырылған контент өсөн яуаплы түгелбеҙ."
 
-#: allthethings/page/templates/page/faq.html:299
+#: allthethings/page/templates/page/faq.html:300
 #, fuzzy
 msgid "page.faq.copyright.text2"
 msgstr "Әгәр һеҙ бында күргәнегеҙ тураһында ялыуҙарығыҙ булһа, иң яҡшыһы - төп сайт менән бәйләнешкә инеү. Беҙ уларҙың үҙгәрештәрен даими рәүештә базаға индереп торабыҙ. Әгәр һеҙ ысынлап та беҙ яуап бирергә тейешле дөрөҫ DMCA ялыуығыҙ бар тип уйлаһағыҙ, зинһар, <a %(a_copyright)s>DMCA / Авторлыҡ хоҡуҡтары ялыу формаһын</a> тултырығыҙ. Беҙ һеҙҙең ялыуҙарығыҙҙы етди ҡабул итәбеҙ һәм мөмкин тиклем тиҙерәк яуап бирәсәкбеҙ."
 
-#: allthethings/page/templates/page/faq.html:302
+#: allthethings/page/templates/page/faq.html:303
 #, fuzzy
 msgid "page.faq.hate.title"
 msgstr "Мин һеҙҙең был проектты нисек алып барыуығыҙҙы яратмайым!"
 
-#: allthethings/page/templates/page/faq.html:305
+#: allthethings/page/templates/page/faq.html:306
 #, fuzzy
 msgid "page.faq.hate.text1"
 msgstr "Беҙ шулай уҡ бөтә код һәм мәғлүмәттәребеҙҙең тулыһынса асыҡ сығанаҡлы булыуын иҫегеҙгә төшөрөргә теләйбеҙ. Беҙҙең кеүек проекттар өсөн был уникаль — беҙ шулай уҡ тулыһынса асыҡ сығанаҡлы булған ошондай ҙур каталоглы башҡа проекттарҙы белмәйбеҙ. Беҙ проектты насар алып барабыҙ тип уйлаған һәр кемдең беҙҙең код һәм мәғлүмәттәрҙе алып, үҙҙәренең күләгә китапханаһын булдырыуын бик хуплайбыҙ! Беҙ быны асыуҙан йәки башҡа нәмәнән әйтмәйбеҙ — беҙ ысынлап та был бик шәп булыр ине тип уйлайбыҙ, сөнки был барыһы өсөн дә стандартты күтәрер ине һәм кешелек мираҫын яҡшыраҡ һаҡлар ине."
 
-#: allthethings/page/templates/page/faq.html:308
+#: allthethings/page/templates/page/faq.html:309
 #, fuzzy
 msgid "page.faq.favorite.title"
 msgstr "Һеҙҙең яратҡан китаптарығыҙ ниндәй?"
 
-#: allthethings/page/templates/page/faq.html:311
+#: allthethings/page/templates/page/faq.html:312
 #, fuzzy
 msgid "page.faq.favorite.text1"
 msgstr "Бына күләгә китапханалары һәм цифрлы һаҡлау донъяһы өсөн айырыуса әһәмиәтле булған ҡайһы бер китаптар:"
@@ -3549,13 +3663,13 @@ msgid "page.md5.box.download.ipfs_gateway_extra"
 msgstr "(IPFS менән бер нисә тапҡыр һынап ҡарарға кәрәк булыуы мөмкин)"
 
 #: allthethings/page/templates/page/ipfs_downloads.html:23
-#: allthethings/page/templates/page/partner_download.html:93
+#: allthethings/page/templates/page/partner_download.html:91
 #, fuzzy
 msgid "page.partner_download.faster_downloads"
 msgstr "🚀 Тиҙерәк күсереп алыуҙар һәм браузер тикшереүҙәрен урап үтеү өсөн, <a %(a_membership)s>ағза булығыҙ</a>."
 
 #: allthethings/page/templates/page/ipfs_downloads.html:27
-#: allthethings/page/templates/page/partner_download.html:97
+#: allthethings/page/templates/page/partner_download.html:95
 #, fuzzy
 msgid "page.partner_download.bulk_mirroring"
 msgstr "📡 Беҙҙең коллекцияны күсереп алыу өсөн, <a %(a_datasets)s>Datasets</a> һәм <a %(a_torrents)s>Torrents</a> биттәрен ҡарағыҙ."
@@ -3909,27 +4023,31 @@ msgstr "Күсереп алыу һылтанмаһы бер нисә сәғәт�
 msgid "page.partner_download.li4"
 msgstr "Көтөп торғанығыҙ өсөн рәхмәт, был сайтты бөтә кешегә бушлай ҡулланыу мөмкинлеген бирә! 😊"
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:40
+msgid "page.partner_download.automatic_refreshing"
+msgstr ""
+
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.url"
 msgstr "📚 Күсереп алыу өсөн түбәндәге URL-ды ҡулланығыҙ: <a %(a_download)s>Хәҙер күсереп алырға</a>."
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.download_now"
 msgstr "Хәҙер күсереп алырға"
 
-#: allthethings/page/templates/page/partner_download.html:86
+#: allthethings/page/templates/page/partner_download.html:84
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads"
 msgstr "Иғтибар: Һуңғы 24 сәғәттә һеҙҙең IP-адрестан күп күсереп алыуҙар булған. Күсереп алыуҙар ғәҙәттәгегә ҡарағанда әкренерәк булыуы мөмкин."
 
-#: allthethings/page/templates/page/partner_download.html:87
+#: allthethings/page/templates/page/partner_download.html:85
 #, fuzzy
 msgid "page.partner_download.downloads_last_24_hours"
 msgstr "Һуңғы 24 сәғәттә һеҙҙең IP-адрестан күсереп алыуҙар: %(count)s."
 
-#: allthethings/page/templates/page/partner_download.html:88
+#: allthethings/page/templates/page/partner_download.html:86
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads2"
 msgstr "Әгәр VPN, уртаҡ интернет тоташтырыу, йәки провайдер IP-адрестарҙы уртаҡлашһа, был иҫкәртеү шуға бәйле булыуы мөмкин."

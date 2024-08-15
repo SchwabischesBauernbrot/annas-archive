@@ -361,10 +361,6 @@ msgstr "Pre dary nad $5000 nás prosím kontaktujte priamo na %(email)s."
 #: allthethings/account/templates/account/index.html:36
 #: allthethings/page/templates/page/contact.html:3
 #: allthethings/page/templates/page/contact.html:6
-#: allthethings/page/templates/page/faq.html:84
-#: allthethings/page/templates/page/faq.html:139
-#: allthethings/page/templates/page/faq.html:147
-#: allthethings/page/templates/page/faq.html:171
 #: allthethings/page/templates/page/home.html:77
 #: allthethings/page/templates/page/home.html:82
 #: allthethings/page/templates/page/home.html:90
@@ -1366,6 +1362,14 @@ msgstr "Stiahnuté súbory nie sú verejne zobrazené."
 msgid "page.downloaded.no_files"
 msgstr "Zatiaľ neboli stiahnuté žiadne súbory."
 
+#: allthethings/account/templates/account/downloaded.html:16
+msgid "page.downloaded.last_18_hours"
+msgstr ""
+
+#: allthethings/account/templates/account/downloaded.html:21
+msgid "page.downloaded.earlier"
+msgstr ""
+
 #: allthethings/account/templates/account/index.html:5
 #: allthethings/account/templates/account/index.html:15
 #, fuzzy
@@ -1441,7 +1445,7 @@ msgid "page.account.logged_in.membership_upgrade"
 msgstr "Kontaktujte Annu na %(email)s, ak máte záujem o vylepšenie členstva na vyššiu úroveň."
 
 #: allthethings/account/templates/account/index.html:37
-#: allthethings/page/templates/page/faq.html:135
+#: allthethings/page/templates/page/faq.html:136
 #, fuzzy
 msgid "page.account.logged_in.membership_multiple"
 msgstr "Môžete kombinovať viacero členstiev (rýchle sťahovania za 24 hodín sa spočítajú)."
@@ -1694,6 +1698,14 @@ msgstr "Označené ako nefunkčné na Libgen.li"
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "Chýba na Z-Library"
 
+#: allthethings/page/views.py:4845
+msgid "common.md5_problem_type_mapping.zlib_spam"
+msgstr ""
+
+#: allthethings/page/views.py:4846
+msgid "common.md5_problem_type_mapping.zlib_bad_file"
+msgstr ""
+
 #: allthethings/page/views.py:4847
 #, fuzzy
 msgid "common.md5_problem_type_mapping.duxiu_pdg_broken_files"
@@ -1777,26 +1789,31 @@ msgstr "Preskúmať metadáta"
 msgid "common.access_types_mapping.torrents_available"
 msgstr "Obsiahnuté v torrentoch"
 
-#: allthethings/page/templates/page/datasets.html:52
-#: allthethings/page/templates/page/datasets.html:88
+#: allthethings/page/templates/page/datasets.html:51
+#: allthethings/page/templates/page/datasets.html:87
 #: allthethings/page/views.py:4880
 #, fuzzy
 msgid "common.record_sources_mapping.lgrs"
 msgstr "Libgen.rs"
 
-#: allthethings/page/templates/page/datasets.html:54
-#: allthethings/page/templates/page/datasets.html:109
+#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:108
 #: allthethings/page/views.py:4881
 #, fuzzy
 msgid "common.record_sources_mapping.lgli"
 msgstr "Libgen.li"
 
-#: allthethings/page/templates/page/datasets.html:55
-#: allthethings/page/templates/page/datasets.html:121
+#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:120
 #: allthethings/page/views.py:4882
 #, fuzzy
 msgid "common.record_sources_mapping.zlib"
 msgstr "Z-Library"
+
+#: allthethings/page/templates/page/datasets.html:55
+#: allthethings/page/views.py:4883
+msgid "common.record_sources_mapping.zlibzh"
+msgstr ""
 
 #: allthethings/page/views.py:4884
 #, fuzzy
@@ -1811,7 +1828,7 @@ msgstr "ISBNdb"
 msgid "common.record_sources_mapping.ol"
 msgstr "OpenLibrary"
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 #: allthethings/page/views.py:4887
 msgid "common.record_sources_mapping.scihub"
 msgstr "Sci-Hub"
@@ -1821,15 +1838,15 @@ msgstr "Sci-Hub"
 msgid "common.record_sources_mapping.oclc"
 msgstr "OCLC (WorldCat)"
 
-#: allthethings/page/templates/page/datasets.html:58
-#: allthethings/page/templates/page/datasets.html:142
+#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:141
 #: allthethings/page/views.py:4889
 #, fuzzy
 msgid "common.record_sources_mapping.duxiu"
 msgstr "DuXiu 读秀"
 
-#: allthethings/page/templates/page/datasets.html:59
-#: allthethings/page/templates/page/datasets.html:155
+#: allthethings/page/templates/page/datasets.html:58
+#: allthethings/page/templates/page/datasets.html:154
 #: allthethings/page/views.py:4890
 #, fuzzy
 msgid "common.record_sources_mapping.uploads"
@@ -2477,8 +2494,6 @@ msgstr "Niečo sa pokazilo. Prosím, obnovte stránku a skúste to znova."
 
 #: allthethings/page/templates/page/aarecord.html:406
 #: allthethings/page/templates/page/aarecord.html:407
-#: allthethings/page/templates/page/codes.html:8
-#: allthethings/page/templates/page/codes.html:9
 #: allthethings/page/templates/page/copyright.html:6
 #: allthethings/page/templates/page/copyright.html:7
 #: allthethings/page/templates/page/datasets.html:13
@@ -2533,12 +2548,12 @@ msgstr "Toto je súbor spravovaný knižnicou <a %(a_ia)s>IA’s Controlled Digi
 msgid "page.md5.text.file_info.text1"
 msgstr "Pre informácie o tomto konkrétnom súbore si pozrite jeho <a %(a_href)s>JSON súbor</a>."
 
-#: allthethings/page/templates/page/aarecord_issue.html:4
+#: allthethings/page/templates/page/aarecord_issue.html:5
 #, fuzzy
 msgid "page.aarecord_issue.title"
 msgstr "🔥 Problém s načítaním tejto stránky"
 
-#: allthethings/page/templates/page/aarecord_issue.html:6
+#: allthethings/page/templates/page/aarecord_issue.html:7
 #, fuzzy
 msgid "page.aarecord_issue.text"
 msgstr "Prosím, obnovte stránku a skúste to znova. <a %(a_contact)s>Kontaktujte nás</a>, ak problém pretrváva niekoľko hodín."
@@ -2579,6 +2594,106 @@ msgstr "Ak sa ocitnete v nekonečnej slučke, odporúčame nainštalovať <a %(a
 #, fuzzy
 msgid "page.login.text3"
 msgstr "Môže tiež pomôcť vypnúť blokátory reklám a iné rozšírenia prehliadača."
+
+#: allthethings/page/templates/page/codes.html:5
+msgid "page.codes.title"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:10
+msgid "page.codes.heading"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:14
+msgid "page.codes.intro"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:18
+msgid "page.codes.why_cloudflare"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:22
+msgid "page.codes.dont_scrape"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:33
+msgid "page.codes.prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:34
+msgid "common.form.go"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:35
+msgid "common.form.reset"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:40
+msgid "page.codes.bad_unicode"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:46
+msgid "page.codes.known_code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:48
+msgid "page.codes.code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:49
+msgid "page.codes.code_label"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:51
+msgid "page.codes.code_description"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgid "page.codes.code_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgctxt "the %s should not be changed"
+msgid "page.codes.s_substitution"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:57
+msgid "page.codes.generic_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:61
+msgid "page.codes.code_website"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:69
+msgid "page.codes.record_starting_with"
+msgid_plural "page.codes.records_starting_with"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: allthethings/page/templates/page/codes.html:75
+msgid "page.codes.search_archive"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:77
+msgid "page.codes.url_link"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:84
+msgid "page.codes.codes_starting_with"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:92
+msgid "page.codes.records_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:93
+msgid "page.codes.records_codes"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:113
+msgid "page.codes.fewer_than"
+msgstr ""
 
 #: allthethings/page/templates/page/contact.html:9
 #, fuzzy
@@ -2681,144 +2796,140 @@ msgstr ""
 msgid "page.datasets.overview.last_updated.header"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:52
+#: allthethings/page/templates/page/datasets.html:51
 msgid "common.record_sources_mapping.lgrs.nonfiction_and_fiction"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "common.record_sources_mapping.scihub.via_lgli_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_1"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_2"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "common.record_sources.mapping.lgli.excluding_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "page.datasets.lgli_fiction_is_behind"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:56
-msgid "common.record_sources_mapping.zlibzh"
-msgstr ""
-
-#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:55
 msgid "page.datasets.zlibzh.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
-#: allthethings/page/templates/page/datasets.html:130
+#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:129
 msgid "common.record_sources_mapping.iacdl"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:56
 msgid "page.datasets.iacdl.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.total"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.excluding_duplicates"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:64
+#: allthethings/page/templates/page/datasets.html:63
 msgid "page.datasets.overview.text4"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:68
+#: allthethings/page/templates/page/datasets.html:67
 msgid "page.datasets.overview.text5"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:71
+#: allthethings/page/templates/page/datasets.html:70
 msgid "page.datasets.source_libraries.title"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:74
+#: allthethings/page/templates/page/datasets.html:73
 #, fuzzy
 msgid "page.datasets.source_libraries.text1"
 msgstr "Niektoré zdrojové knižnice podporujú hromadné zdieľanie svojich dát prostredníctvom torrentov, zatiaľ čo iné nezdieľajú svoju zbierku tak ľahko. V druhom prípade sa Anna’s Archive snaží zoškrabať ich zbierky a sprístupniť ich (pozrite si našu stránku <a %(a_torrents)s>Torrenty</a>). Existujú aj medzistavy, napríklad keď sú zdrojové knižnice ochotné zdieľať, ale nemajú na to prostriedky. V týchto prípadoch sa tiež snažíme pomôcť."
 
-#: allthethings/page/templates/page/datasets.html:78
+#: allthethings/page/templates/page/datasets.html:77
 #, fuzzy
 msgid "page.datasets.source_libraries.text2"
 msgstr "Nižšie je prehľad toho, ako komunikujeme s rôznymi zdrojovými knižnicami."
 
-#: allthethings/page/templates/page/datasets.html:83
+#: allthethings/page/templates/page/datasets.html:82
 #, fuzzy
 msgid "page.datasets.sources.source.header"
 msgstr "Zdroj"
 
-#: allthethings/page/templates/page/datasets.html:84
+#: allthethings/page/templates/page/datasets.html:83
 #, fuzzy
 msgid "page.datasets.sources.metadata.header"
 msgstr "Metadáta"
 
-#: allthethings/page/templates/page/datasets.html:85
+#: allthethings/page/templates/page/datasets.html:84
 #, fuzzy
 msgid "page.datasets.sources.files.header"
 msgstr "Súbory"
 
-#: allthethings/page/templates/page/datasets.html:98
+#: allthethings/page/templates/page/datasets.html:97
 #, fuzzy
 msgid "common.record_sources_mapping.scihub_scimag"
 msgstr "Sci-Hub / Libgen „scimag“"
 
-#: allthethings/page/templates/page/datasets.html:162
+#: allthethings/page/templates/page/datasets.html:161
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.title"
 msgstr "Zdroje iba s metadátami"
 
-#: allthethings/page/templates/page/datasets.html:165
+#: allthethings/page/templates/page/datasets.html:164
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text1"
 msgstr "Tiež obohacujeme našu zbierku o zdroje iba s metadátami, ktoré môžeme priradiť k súborom, napr. pomocou ISBN čísel alebo iných polí. Nižšie je prehľad týchto zdrojov. Opäť, niektoré z týchto zdrojov sú úplne otvorené, zatiaľ čo iné musíme zoškrabať."
 
-#: allthethings/page/templates/page/datasets.html:169
-#: allthethings/page/templates/page/faq.html:186
+#: allthethings/page/templates/page/datasets.html:168
+#: allthethings/page/templates/page/faq.html:187
 #: allthethings/page/templates/page/search.html:294
 #, fuzzy
 msgid "page.faq.metadata.inspiration1"
 msgstr "Našou inšpiráciou pre zbieranie metadát je cieľ Aarona Swartza „jedna webová stránka pre každú knihu, ktorá bola kedy publikovaná“, pre ktorý vytvoril <a %(a_openlib)s>Open Library</a>."
 
-#: allthethings/page/templates/page/datasets.html:170
-#: allthethings/page/templates/page/faq.html:187
+#: allthethings/page/templates/page/datasets.html:169
+#: allthethings/page/templates/page/faq.html:188
 #: allthethings/page/templates/page/search.html:295
 #, fuzzy
 msgid "page.faq.metadata.inspiration2"
 msgstr "Tento projekt sa darí dobre, ale naša jedinečná pozícia nám umožňuje získať metadáta, ktoré oni nemôžu."
 
-#: allthethings/page/templates/page/datasets.html:171
-#: allthethings/page/templates/page/faq.html:188
+#: allthethings/page/templates/page/datasets.html:170
+#: allthethings/page/templates/page/faq.html:189
 #: allthethings/page/templates/page/search.html:296
 #, fuzzy
 msgid "page.faq.metadata.inspiration3"
 msgstr "Ďalšou inšpiráciou bola naša túžba vedieť <a %(a_blog)s>koľko kníh je na svete</a>, aby sme mohli vypočítať, koľko kníh nám ešte zostáva zachrániť."
 
-#: allthethings/page/templates/page/datasets.html:175
+#: allthethings/page/templates/page/datasets.html:174
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text2"
 msgstr "Všimnite si, že pri vyhľadávaní v metadátach zobrazujeme pôvodné záznamy. Nevykonávame žiadne zlúčenie záznamov."
 
-#: allthethings/page/templates/page/datasets.html:216
+#: allthethings/page/templates/page/datasets.html:215
 #, fuzzy
 msgid "page.datasets.unified_database.title"
 msgstr "Zjednotená databáza"
 
-#: allthethings/page/templates/page/datasets.html:219
+#: allthethings/page/templates/page/datasets.html:218
 #, fuzzy
 msgid "page.datasets.unified_database.text1"
 msgstr "Kombinujeme všetky vyššie uvedené zdroje do jednej zjednotenej databázy, ktorú používame na prevádzku tejto webovej stránky. Táto zjednotená databáza nie je priamo dostupná, ale keďže Anna’s Archive je úplne open source, môže byť pomerne ľahko <a %(a_generated)s>vygenerovaná</a> alebo <a %(a_downloaded)s>stiahnutá</a> ako databázy ElasticSearch a MariaDB. Skripty na tejto stránke automaticky stiahnu všetky potrebné metadáta z vyššie uvedených zdrojov."
 
-#: allthethings/page/templates/page/datasets.html:227
+#: allthethings/page/templates/page/datasets.html:226
 #, fuzzy
 msgid "page.datasets.unified_database.text2"
 msgstr "Ak by ste chceli preskúmať naše dáta pred spustením týchto skriptov lokálne, môžete sa pozrieť na naše JSON súbory, ktoré odkazujú na ďalšie JSON súbory. <a %(a_json)s>Tento súbor</a> je dobrým východiskovým bodom."
@@ -2859,470 +2970,474 @@ msgstr "Webová stránka ISBN"
 msgid "page.datasets/isbn_ranges.isbn_metadata"
 msgstr "Metadáta"
 
-#: allthethings/page/templates/page/faq.html:3
-#: allthethings/page/templates/page/faq.html:6
+#: allthethings/page/templates/page/faq.html:5
+#: allthethings/page/templates/page/faq.html:8
 #, fuzzy
 msgid "page.faq.title"
 msgstr "Často kladené otázky (FAQ)"
 
-#: allthethings/page/templates/page/faq.html:8
+#: allthethings/page/templates/page/faq.html:10
 #, fuzzy
 msgid "page.faq.what_is.title"
 msgstr "Čo je Annin Archív?"
 
-#: allthethings/page/templates/page/faq.html:11
+#: allthethings/page/templates/page/faq.html:13
 #, fuzzy
 msgid "page.home.intro.text1"
 msgstr "<span %(span_anna)s>Annin Archív</span> je neziskový projekt s dvoma cieľmi:"
 
-#: allthethings/page/templates/page/faq.html:15
+#: allthethings/page/templates/page/faq.html:17
 #, fuzzy
 msgid "page.home.intro.text2"
 msgstr "<li><strong>Uchovávanie:</strong> Zálohovanie všetkých vedomostí a kultúry ľudstva.</li><li><strong>Prístup:</strong> Sprístupnenie týchto vedomostí a kultúry komukoľvek na svete.</li>"
 
-#: allthethings/page/templates/page/faq.html:19
+#: allthethings/page/templates/page/faq.html:21
 #, fuzzy
 msgid "page.home.intro.open_source"
 msgstr "Všetok náš <a %(a_code)s>kód</a> a <a %(a_datasets)s>dáta</a> sú úplne open source."
 
-#: allthethings/page/templates/page/faq.html:23
+#: allthethings/page/templates/page/faq.html:25
 #, fuzzy
 msgid "page.home.preservation.header"
 msgstr "Zachovanie"
 
-#: allthethings/page/templates/page/faq.html:25
+#: allthethings/page/templates/page/faq.html:27
 #, fuzzy
 msgid "page.home.preservation.text1"
 msgstr "Zachovávame knihy, články, komiksy, časopisy a ďalšie materiály tým, že tieto materiály zhromažďujeme z rôznych <a href=\"https://en.wikipedia.org/wiki/Shadow_library\">tieňových knižníc</a>, oficiálnych knižníc a iných zbierok na jednom mieste. Všetky tieto údaje sú zachované navždy tým, že ich je možné jednoducho hromadne kopírovať — pomocou torrentov — čo vedie k mnohým kópiám po celom svete. Niektoré tieňové knižnice to už robia samy (napr. Sci-Hub, Library Genesis), zatiaľ čo Annin archív „oslobodzuje“ iné knižnice, ktoré neponúkajú hromadnú distribúciu (napr. Z-Library) alebo nie sú vôbec tieňovými knižnicami (napr. Internet Archive, DuXiu)."
 
-#: allthethings/page/templates/page/faq.html:27
+#: allthethings/page/templates/page/faq.html:29
 #, fuzzy
 msgid "page.home.preservation.text2"
 msgstr "Táto široká distribúcia, v kombinácii s open-source kódom, robí našu webovú stránku odolnou voči odstráneniu a zabezpečuje dlhodobé uchovanie vedomostí a kultúry ľudstva. Zistite viac o <a href=\"/datasets\">našich datasets</a>."
 
-#: allthethings/page/templates/page/faq.html:41
+#: allthethings/page/templates/page/faq.html:43
 #, fuzzy
 msgid "page.home.preservation.label"
 msgstr "Odhadujeme, že sme zachovali približne <a href=\"https://annas-blog.org/blog-isbndb-dump-how-many-books-are-preserved-forever.html\">5%% svetových kníh</a>."
 
-#: allthethings/page/templates/page/faq.html:46
+#: allthethings/page/templates/page/faq.html:48
 #, fuzzy
 msgid "page.home.access.header"
 msgstr "Prístup"
 
-#: allthethings/page/templates/page/faq.html:48
+#: allthethings/page/templates/page/faq.html:50
 #, fuzzy
 msgid "page.home.access.text"
 msgstr "Spolupracujeme s partnermi, aby sme naše zbierky sprístupnili ľahko a bezplatne komukoľvek. Veríme, že každý má právo na kolektívnu múdrosť ľudstva. A <a %(a_search)s>nie na úkor autorov</a>."
 
-#: allthethings/page/templates/page/faq.html:52
+#: allthethings/page/templates/page/faq.html:54
 #, fuzzy
 msgid "page.home.access.label"
 msgstr "Hodinové sťahovania za posledných 30 dní. Hodinový priemer: %(hourly)s. Denný priemer: %(daily)s."
 
-#: allthethings/page/templates/page/faq.html:80
+#: allthethings/page/templates/page/faq.html:82
 msgid "page.about.text2"
 msgstr "Pevne veríme vo voľný tok informácií a v zachovanie vedomostí a kultúry. S týmto vyhľadávačom staviame na pleciach gigantov. Hlboko rešpektujeme tvrdú prácu ľudí, ktorí vytvorili rôzne tieňové knižnice, a dúfame, že tento vyhľadávač rozšíri ich dosah."
 
-#: allthethings/page/templates/page/faq.html:84
+#: allthethings/page/templates/page/faq.html:86
 #, fuzzy
 msgid "page.about.text3"
 msgstr "Ak chcete byť informovaní o našom pokroku, sledujte Annu na <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a> alebo <a href=\"https://t.me/annasarchiveorg\">Telegram</a>. Pre otázky a spätnú väzbu kontaktujte Annu na %(email)s."
 
-#: allthethings/page/templates/page/faq.html:87
+#: allthethings/page/templates/page/faq.html:89
 #, fuzzy
 msgid "page.faq.help.title"
 msgstr "Ako môžem pomôcť?"
 
-#: allthethings/page/templates/page/faq.html:90
+#: allthethings/page/templates/page/faq.html:92
 #, fuzzy
 msgid "page.about.help.text"
 msgstr "<li>1. Sledujte nás na <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a> alebo <a href=\"https://t.me/annasarchiveorg\">Telegram</a>.</li><li>2. Šírte informácie o Anninom archíve na Twitteri, Reddit, Tiktok, Instagrame, vo vašej miestnej kaviarni alebo knižnici, alebo kdekoľvek idete! Neveríme v bránenie prístupu — ak nás zrušia, jednoducho sa objavíme inde, pretože všetok náš kód a údaje sú úplne open source.</li><li>3. Ak môžete, zvážte <a href=\"/donate\">darovanie</a>.</li><li>4. Pomôžte <a href=\"https://translate.annas-software.org/\">preložiť</a> našu webovú stránku do rôznych jazykov.</li><li>5. Ak ste softvérový inžinier, zvážte prispievanie do nášho <a href=\"https://annas-software.org/\">open source</a> alebo seedovanie našich <a href=\"/datasets\">torrentov</a>.</li>"
 
-#: allthethings/page/templates/page/faq.html:91
+#: allthethings/page/templates/page/faq.html:93
 #, fuzzy
 msgid "page.about.help.text6"
 msgstr "6. Ak ste bezpečnostný výskumník, môžeme využiť vaše schopnosti na útok aj obranu. Pozrite si našu stránku <a %(a_security)s>Bezpečnosť</a>."
 
-#: allthethings/page/templates/page/faq.html:92
+#: allthethings/page/templates/page/faq.html:94
 #, fuzzy
 msgid "page.about.help.text7"
 msgstr "7. Hľadáme odborníkov na platby pre anonymných obchodníkov. Môžete nám pomôcť pridať viac pohodlných spôsobov darovania? PayPal, WeChat, darčekové karty. Ak niekoho poznáte, prosím, kontaktujte nás."
 
-#: allthethings/page/templates/page/faq.html:93
+#: allthethings/page/templates/page/faq.html:95
 #, fuzzy
 msgid "page.about.help.text8"
 msgstr "8. Vždy hľadáme viac serverovej kapacity."
 
-#: allthethings/page/templates/page/faq.html:94
+#: allthethings/page/templates/page/faq.html:96
 #, fuzzy
 msgid "page.about.help.text9"
 msgstr "9. Môžete pomôcť nahlasovaním problémov so súbormi, zanechávaním komentárov a vytváraním zoznamov priamo na tejto webovej stránke. Môžete tiež pomôcť <a %(a_upload)s>nahrávaním ďalších kníh</a> alebo opravovaním problémov so súbormi alebo formátovaním existujúcich kníh."
 
-#: allthethings/page/templates/page/faq.html:95
+#: allthethings/page/templates/page/faq.html:97
 #, fuzzy
 msgid "page.about.help.text10"
 msgstr "10. Vytvorte alebo pomôžte udržiavať stránku Wikipédie pre Annin Archív vo vašom jazyku."
 
-#: allthethings/page/templates/page/faq.html:96
+#: allthethings/page/templates/page/faq.html:98
 #, fuzzy
 msgid "page.about.help.text11"
 msgstr "11. Hľadáme malé, vkusné reklamy. Ak by ste chceli inzerovať na Anninom archíve, dajte nám vedieť."
 
-#: allthethings/page/templates/page/faq.html:97
+#: allthethings/page/templates/page/faq.html:99
 #, fuzzy
 msgid "page.faq.help.mirrors"
 msgstr "Radi by sme, aby ľudia nastavili <a %(a_mirrors)s>zrkadlá</a>, a finančne to podporíme."
 
-#: allthethings/page/templates/page/faq.html:105
+#: allthethings/page/templates/page/faq.html:103
+msgid "page.about.help.volunteer"
+msgstr ""
+
+#: allthethings/page/templates/page/faq.html:106
 #, fuzzy
 msgid "page.faq.slow.title"
 msgstr "Prečo sú pomalé sťahovania také pomalé?"
 
-#: allthethings/page/templates/page/faq.html:108
+#: allthethings/page/templates/page/faq.html:109
 #, fuzzy
 msgid "page.faq.slow.text1"
 msgstr "Doslova nemáme dostatok zdrojov na to, aby sme každému na svete poskytli vysokorýchlostné sťahovanie, akokoľvek by sme to chceli. Ak by sa našiel bohatý dobrodinec, ktorý by nám to poskytol, bolo by to úžasné, ale do tej doby sa snažíme, ako najlepšie vieme. Sme neziskový projekt, ktorý sa sotva udrží prostredníctvom darov."
 
-#: allthethings/page/templates/page/faq.html:112
+#: allthethings/page/templates/page/faq.html:113
 #, fuzzy
 msgid "page.faq.slow.text2"
 msgstr "Preto sme implementovali dva systémy pre bezplatné sťahovanie s našimi partnermi: zdieľané servery s pomalým sťahovaním a o niečo rýchlejšie servery s čakacím zoznamom (na zníženie počtu ľudí sťahujúcich súčasne)."
 
-#: allthethings/page/templates/page/faq.html:116
+#: allthethings/page/templates/page/faq.html:117
 #, fuzzy
 msgid "page.faq.slow.text3"
 msgstr "Máme tiež <a %(a_verification)s>overenie prehliadača</a> pre naše pomalé sťahovania, pretože inak by ich zneužívali boti a scrapers, čo by ešte viac spomalilo sťahovanie pre legitímnych používateľov."
 
-#: allthethings/page/templates/page/faq.html:120
+#: allthethings/page/templates/page/faq.html:121
 #, fuzzy
 msgid "page.faq.slow.text4"
 msgstr "Všimnite si, že pri používaní prehliadača Tor možno budete musieť upraviť svoje bezpečnostné nastavenia. Pri najnižšej z možností, nazvanej „Štandard“, výzva Cloudflare turnstile uspeje. Pri vyšších možnostiach, nazvaných „Bezpečnejšie“ a „Najbezpečnejšie“, výzva zlyhá."
 
-#: allthethings/page/templates/page/faq.html:124
+#: allthethings/page/templates/page/faq.html:125
 #, fuzzy
 msgid "page.faq.slow.text5"
 msgstr "Pre veľké súbory sa niekedy môže stať, že sťahovanie sa preruší uprostred. Odporúčame používať správcu sťahovania (napríklad JDownloader), ktorý automaticky obnoví veľké sťahovania."
 
-#: allthethings/page/templates/page/faq.html:127
+#: allthethings/page/templates/page/faq.html:128
 #, fuzzy
 msgid "page.donate.faq.title"
 msgstr "FAQ o daroch"
 
-#: allthethings/page/templates/page/faq.html:130
+#: allthethings/page/templates/page/faq.html:131
 #, fuzzy
 msgid "page.donate.faq.renew"
 msgstr "<div %(div_question)s>Obnovujú sa členstvá automaticky?</div> Členstvá sa <strong>neobnovujú</strong> automaticky. Môžete sa pripojiť na tak dlho alebo krátko, ako chcete."
 
-#: allthethings/page/templates/page/faq.html:134
+#: allthethings/page/templates/page/faq.html:135
 #, fuzzy
 msgid "page.donate.faq.membership"
 msgstr "<div %(div_question)s>Môžem si vylepšiť členstvo alebo získať viacero členstiev?</div>"
 
-#: allthethings/page/templates/page/faq.html:139
+#: allthethings/page/templates/page/faq.html:140
 msgid "page.donate.faq.text_other_payment1"
 msgstr "<div %(div_question)s>Podporujete iné spôsoby platby?</div> Momentálne nie. Mnoho ľudí si nepraje, aby archívy ako je tento existovali, takže musíme byť opatrní. Ak nám môžete pomôcť bezpečne nastaviť iné (pohodlnejšie) spôsoby platby, kontaktujte nás na %(email)s."
 
-#: allthethings/page/templates/page/faq.html:143
+#: allthethings/page/templates/page/faq.html:144
 #, fuzzy
 msgid "page.donate.faq.spend"
 msgstr "<div %(div_question)s>Na čo míňate dary?</div> 100%% ide na uchovávanie a sprístupňovanie svetových vedomostí a kultúry. V súčasnosti ich väčšinou míňame na servery, úložisko a šírku pásma. Žiadne peniaze nejdú priamo členom tímu."
 
-#: allthethings/page/templates/page/faq.html:147
+#: allthethings/page/templates/page/faq.html:148
 msgid "page.donate.faq.text_large_donation"
 msgstr "<div %(div_question)s>Môžem vám darovať väčšie množstvo peňaní?</div> To by bolo úžasné! Ak chcete darovať viac ako niekoľko tisíc dolárov, kontaktujte nás priamo na %(email)s."
 
-#: allthethings/page/templates/page/faq.html:151
+#: allthethings/page/templates/page/faq.html:152
 #, fuzzy
 msgid "page.donate.faq.non_member_donation"
 msgstr "<div %(div_question)s>Môžem darovať bez toho, aby som sa stal členom?</div> Samozrejme. Prijímame dary v akejkoľvek výške na túto adresu Monero (XMR): %(address)s."
 
-#: allthethings/page/templates/page/faq.html:154
+#: allthethings/page/templates/page/faq.html:155
 #, fuzzy
 msgid "page.faq.upload.title"
 msgstr "Ako môžem nahrať nové knihy?"
 
-#: allthethings/page/templates/page/faq.html:157
+#: allthethings/page/templates/page/faq.html:158
 #, fuzzy
 msgid "page.upload.text1"
 msgstr "Zatiaľ odporúčame nahrávať nové knihy do forkov Library Genesis. Tu je <a %(a_guide)s>užitočný sprievodca</a>. Upozorňujeme, že oba forky, ktoré indexujeme na tejto webovej stránke, čerpajú z tohto istého nahrávacieho systému."
 
-#: allthethings/page/templates/page/faq.html:158
+#: allthethings/page/templates/page/faq.html:159
 #, fuzzy
 msgid "common.libgen.email"
 msgstr "Ak vaša e-mailová adresa nefunguje na fórach Libgen, odporúčame použiť <a %(a_mail)s>Proton Mail</a> (zadarmo). Môžete tiež <a %(a_manual)s>manuálne požiadať</a> o aktiváciu vášho účtu."
 
-#: allthethings/page/templates/page/faq.html:159
+#: allthethings/page/templates/page/faq.html:160
 #, fuzzy
 msgid "page.faq.mhut_upload"
 msgstr "Upozorňujeme, že mhut.org blokuje určité rozsahy IP, takže môže byť potrebné použiť VPN."
 
-#: allthethings/page/templates/page/faq.html:163
+#: allthethings/page/templates/page/faq.html:164
 #, fuzzy
 msgid "page.upload.zlib.text1"
 msgstr "Alternatívne ich môžete nahrať na Z-Library <a %(a_upload)s>tu</a>."
 
-#: allthethings/page/templates/page/faq.html:167
+#: allthethings/page/templates/page/faq.html:168
 #, fuzzy
 msgid "page.upload.zlib.text2"
 msgstr "Na nahrávanie akademických prác, prosím, okrem Library Genesis nahrajte aj na <a %(a_stc_nexus)s>STC Nexus</a>. Sú najlepšou tieňovou knižnicou pre nové práce. Zatiaľ sme ich neintegrovali, ale v určitom momente to urobíme. Môžete použiť ich <a %(a_telegram)s>upload bota na Telegrame</a> alebo kontaktovať adresu uvedenú v ich pripnutej správe, ak máte príliš veľa súborov na nahranie týmto spôsobom."
 
-#: allthethings/page/templates/page/faq.html:171
+#: allthethings/page/templates/page/faq.html:172
 #, fuzzy
 msgid "page.upload.large.text"
 msgstr "Pre veľké nahrávky (viac ako 10 000 súborov), ktoré nie sú akceptované Libgen alebo Z-Library, nás prosím kontaktujte na %(a_email)s."
 
-#: allthethings/page/templates/page/faq.html:174
+#: allthethings/page/templates/page/faq.html:175
 #, fuzzy
 msgid "page.faq.request.title"
 msgstr "Ako môžem požiadať o knihy?"
 
-#: allthethings/page/templates/page/faq.html:177
+#: allthethings/page/templates/page/faq.html:178
 #, fuzzy
 msgid "page.request.cannot_accomodate"
 msgstr "Momentálne nemôžeme vyhovieť žiadostiam o knihy."
 
-#: allthethings/page/templates/page/faq.html:178
+#: allthethings/page/templates/page/faq.html:179
 #, fuzzy
 msgid "page.request.forums"
 msgstr "Prosím, podávajte svoje požiadavky na fórach Z-Library alebo Libgen."
 
-#: allthethings/page/templates/page/faq.html:179
+#: allthethings/page/templates/page/faq.html:180
 #, fuzzy
 msgid "page.request.dont_email"
 msgstr "Neposielajte nám emaily s požiadavkami na knihy."
 
-#: allthethings/page/templates/page/faq.html:182
+#: allthethings/page/templates/page/faq.html:183
 #, fuzzy
 msgid "page.faq.metadata.title"
 msgstr "Zbierate metadáta?"
 
-#: allthethings/page/templates/page/faq.html:185
+#: allthethings/page/templates/page/faq.html:186
 #, fuzzy
 msgid "page.faq.metadata.indeed"
 msgstr "Áno, máme."
 
-#: allthethings/page/templates/page/faq.html:191
+#: allthethings/page/templates/page/faq.html:192
 #, fuzzy
 msgid "page.faq.1984.title"
 msgstr "Stiahol som si 1984 od Georgea Orwella, prídu mi policajti domov?"
 
-#: allthethings/page/templates/page/faq.html:194
+#: allthethings/page/templates/page/faq.html:195
 #, fuzzy
 msgid "page.faq.1984.text"
 msgstr "Nerobte si príliš veľké starosti, mnoho ľudí sťahuje z webových stránok, na ktoré odkazujeme, a je veľmi zriedkavé dostať sa do problémov. Avšak, aby ste boli v bezpečí, odporúčame používať VPN (platené) alebo <a %(a_tor)s>Tor</a> (zadarmo)."
 
-#: allthethings/page/templates/page/faq.html:197
+#: allthethings/page/templates/page/faq.html:198
 #, fuzzy
 msgid "page.faq.save_search.title"
 msgstr "Ako si uložím nastavenia vyhľadávania?"
 
-#: allthethings/page/templates/page/faq.html:200
+#: allthethings/page/templates/page/faq.html:201
 #, fuzzy
 msgid "page.faq.save_search.text1"
 msgstr "Vyberte nastavenia, ktoré sa vám páčia, nechajte vyhľadávacie pole prázdne, kliknite na „Hľadať“ a potom si stránku uložte pomocou funkcie záložiek vo vašom prehliadači."
 
-#: allthethings/page/templates/page/faq.html:203
+#: allthethings/page/templates/page/faq.html:204
 #, fuzzy
 msgid "page.faq.mobile.title"
 msgstr "Máte mobilnú aplikáciu?"
 
-#: allthethings/page/templates/page/faq.html:206
+#: allthethings/page/templates/page/faq.html:207
 #, fuzzy
 msgid "page.faq.mobile.text1"
 msgstr "Nemáme oficiálnu mobilnú aplikáciu, ale môžete si nainštalovať túto webovú stránku ako aplikáciu."
 
-#: allthethings/page/templates/page/faq.html:207
+#: allthethings/page/templates/page/faq.html:208
 #, fuzzy
 msgid "page.faq.mobile.android"
 msgstr "<strong>Android:</strong> Kliknite na trojbodkové menu v pravom hornom rohu a vyberte „Pridať na domovskú obrazovku“."
 
-#: allthethings/page/templates/page/faq.html:208
+#: allthethings/page/templates/page/faq.html:209
 #, fuzzy
 msgid "page.faq.mobile.ios"
 msgstr "<strong>iOS:</strong> Kliknite na tlačidlo „Zdieľať“ v spodnej časti a vyberte „Pridať na plochu“."
 
-#: allthethings/page/templates/page/faq.html:211
+#: allthethings/page/templates/page/faq.html:212
 #, fuzzy
 msgid "page.faq.api.title"
 msgstr "Máte API?"
 
-#: allthethings/page/templates/page/faq.html:214
+#: allthethings/page/templates/page/faq.html:215
 #, fuzzy
 msgid "page.faq.api.text1"
 msgstr "Máme jednu stabilnú JSON API pre členov, na získanie rýchlej URL na stiahnutie: <a %(a_fast_download)s>/dyn/api/fast_download.json</a> (dokumentácia v rámci samotného JSON)."
 
-#: allthethings/page/templates/page/faq.html:218
+#: allthethings/page/templates/page/faq.html:219
 #, fuzzy
 msgid "page.faq.api.text2"
 msgstr "Pre iné prípady použitia, ako je iterácia cez všetky naše súbory, vytváranie vlastného vyhľadávania a podobne, odporúčame <a %(a_generate)s>generovať</a> alebo <a %(a_download)s>sťahovať</a> naše databázy ElasticSearch a MariaDB. Surové dáta je možné manuálne preskúmať <a %(a_explore)s>cez JSON súbory</a>."
 
-#: allthethings/page/templates/page/faq.html:222
+#: allthethings/page/templates/page/faq.html:223
 #, fuzzy
 msgid "page.faq.api.text3"
 msgstr "Náš zoznam surových torrentov je možné stiahnuť aj ako <a %(a_torrents)s>JSON</a>."
 
-#: allthethings/page/templates/page/faq.html:225
+#: allthethings/page/templates/page/faq.html:226
 #, fuzzy
 msgid "page.faq.torrents.title"
 msgstr "Torrenty FAQ"
 
-#: allthethings/page/templates/page/faq.html:228
+#: allthethings/page/templates/page/faq.html:229
 #, fuzzy
 msgid "page.faq.torrents.q1"
 msgstr "Chcel by som pomôcť so seedovaním, ale nemám veľa miesta na disku."
 
-#: allthethings/page/templates/page/faq.html:230
+#: allthethings/page/templates/page/faq.html:231
 #, fuzzy
 msgid "page.faq.torrents.a1"
 msgstr "Použite <a %(a_list)s>generátor zoznamu torrentov</a> na vytvorenie zoznamu torrentov, ktoré najviac potrebujú seedovanie, v rámci vašich limitov úložného priestoru."
 
-#: allthethings/page/templates/page/faq.html:234
+#: allthethings/page/templates/page/faq.html:235
 #, fuzzy
 msgid "page.faq.torrents.q2"
 msgstr "Torrenty sú príliš pomalé; môžem si dáta stiahnuť priamo od vás?"
 
-#: allthethings/page/templates/page/faq.html:236
+#: allthethings/page/templates/page/faq.html:237
 #, fuzzy
 msgid "page.faq.torrents.a2"
 msgstr "Áno, pozrite si stránku <a %(a_llm)s>LLM data</a>."
 
-#: allthethings/page/templates/page/faq.html:240
+#: allthethings/page/templates/page/faq.html:241
 #, fuzzy
 msgid "page.faq.torrents.q3"
 msgstr "Môžem si stiahnuť iba podmnožinu súborov, napríklad iba konkrétny jazyk alebo tému?"
 
-#: allthethings/page/templates/page/faq.html:242
+#: allthethings/page/templates/page/faq.html:243
 #, fuzzy
 msgid "page.faq.torrents.a3"
 msgstr "Väčšina torrentov obsahuje súbory priamo, čo znamená, že môžete torrent klientom nariadiť, aby stiahli iba požadované súbory. Na určenie, ktoré súbory stiahnuť, môžete <a %(a_generate)s>vygenerovať</a> naše metadáta alebo <a %(a_download)s>stiahnuť</a> naše ElasticSearch a MariaDB databázy. Bohužiaľ, niektoré torrentové kolekcie obsahujú .zip alebo .tar súbory v koreňovom adresári, v takom prípade musíte stiahnuť celý torrent, aby ste mohli vybrať jednotlivé súbory."
 
-#: allthethings/page/templates/page/faq.html:246
+#: allthethings/page/templates/page/faq.html:247
 #, fuzzy
 msgid "page.faq.torrents.q4"
 msgstr "Ako riešite duplikáty v torrentech?"
 
-#: allthethings/page/templates/page/faq.html:248
+#: allthethings/page/templates/page/faq.html:249
 #, fuzzy
 msgid "page.faq.torrents.a4"
 msgstr "Snažíme sa minimalizovať duplicitu alebo prekrývanie medzi torrentmi v tomto zozname, ale to nie je vždy možné dosiahnuť a závisí to veľa od politík zdrojových knižníc. Pre knižnice, ktoré vydávajú svoje vlastné torrenty, to nie je v našich rukách. Pre torrenty vydané Anniným Archívom deduplikujeme iba na základe MD5 hash, čo znamená, že rôzne verzie tej istej knihy nie sú deduplikované."
 
-#: allthethings/page/templates/page/faq.html:252
+#: allthethings/page/templates/page/faq.html:253
 #, fuzzy
 msgid "page.faq.torrents.q5"
 msgstr "Môžem získať zoznam torrentov ako JSON?"
 
-#: allthethings/page/templates/page/faq.html:254
+#: allthethings/page/templates/page/faq.html:255
 #, fuzzy
 msgid "page.faq.torrents.a5"
 msgstr "Áno."
 
-#: allthethings/page/templates/page/faq.html:258
+#: allthethings/page/templates/page/faq.html:259
 #, fuzzy
 msgid "page.faq.torrents.q6"
 msgstr "Nevidím v torrentech PDF alebo EPUB, iba binárne súbory? Čo mám robiť?"
 
-#: allthethings/page/templates/page/faq.html:260
+#: allthethings/page/templates/page/faq.html:261
 #, fuzzy
 msgid "page.faq.torrents.a6"
 msgstr "Tieto súbory sú v skutočnosti PDF a EPUB, len nemajú príponu v mnohých našich torrentech. Existujú dve miesta, kde môžete nájsť metadáta pre torrentové súbory, vrátane typov/prípon súborov:"
 
-#: allthethings/page/templates/page/faq.html:262
+#: allthethings/page/templates/page/faq.html:263
 #, fuzzy
 msgid "page.faq.torrents.a6.li1"
 msgstr "1. Každá kolekcia alebo vydanie má svoje vlastné metadáta. Napríklad <a %(a_libgen_nonfic)s>Libgen.rs torrenty</a> majú zodpovedajúcu metadátovú databázu hostovanú na webovej stránke Libgen.rs. Zvyčajne odkazujeme na relevantné metadátové zdroje z každej stránky <a %(a_datasets)s>datasetu</a> kolekcie."
 
-#: allthethings/page/templates/page/faq.html:264
+#: allthethings/page/templates/page/faq.html:265
 #, fuzzy
 msgid "page.faq.torrents.a6.li2"
 msgstr "2. Odporúčame <a %(a_generate)s>vygenerovať</a> alebo <a %(a_download)s>stiahnuť</a> naše ElasticSearch a MariaDB databázy. Tie obsahujú mapovanie pre každý záznam v Anninom Archíve na jeho zodpovedajúce torrentové súbory (ak sú dostupné), pod \"torrent_paths\" v ElasticSearch JSON."
 
-#: allthethings/page/templates/page/faq.html:267
+#: allthethings/page/templates/page/faq.html:268
 #, fuzzy
 msgid "page.faq.security.title"
 msgstr "Máte program zodpovedného zverejňovania?"
 
-#: allthethings/page/templates/page/faq.html:270
+#: allthethings/page/templates/page/faq.html:271
 #, fuzzy
 msgid "page.faq.security.text1"
 msgstr "Vítame bezpečnostných výskumníkov, aby hľadali zraniteľnosti v našich systémoch. Sme veľkými zástancami zodpovedného zverejňovania. Kontaktujte nás <a %(a_contact)s>tu</a>."
 
-#: allthethings/page/templates/page/faq.html:274
+#: allthethings/page/templates/page/faq.html:275
 #, fuzzy
 msgid "page.faq.security.text2"
 msgstr "Momentálne nie sme schopní udeľovať odmeny za chyby, okrem zraniteľností, ktoré majú <a %(a_link)s>potenciál ohroziť našu anonymitu</a>, za ktoré ponúkame odmeny v rozmedzí 10 000 až 50 000 dolárov. Radi by sme v budúcnosti ponúkli širší rozsah odmien za chyby! Upozorňujeme, že sociálne inžinierske útoky sú mimo rozsah."
 
-#: allthethings/page/templates/page/faq.html:278
+#: allthethings/page/templates/page/faq.html:279
 #, fuzzy
 msgid "page.faq.security.text3"
 msgstr "Ak máte záujem o ofenzívnu bezpečnosť a chcete pomôcť archivovať svetové vedomosti a kultúru, určite nás kontaktujte. Existuje mnoho spôsobov, ako môžete pomôcť."
 
-#: allthethings/page/templates/page/faq.html:281
+#: allthethings/page/templates/page/faq.html:282
 #, fuzzy
 msgid "page.faq.resources.title"
 msgstr "Existujú ďalšie zdroje o Anninom Archíve?"
 
-#: allthethings/page/templates/page/faq.html:284
+#: allthethings/page/templates/page/faq.html:285
 #, fuzzy
 msgid "page.faq.resources.annas_blog"
 msgstr "<a %(a_blog)s>Annin Blog</a>, <a %(a_reddit_u)s>Reddit</a>, <a %(a_reddit_r)s>Subreddit</a> — pravidelné aktualizácie"
 
-#: allthethings/page/templates/page/faq.html:285
+#: allthethings/page/templates/page/faq.html:286
 #, fuzzy
 msgid "page.faq.resources.annas_software"
 msgstr "<a %(a_software)s>Annin Softvér</a> — náš open source kód"
 
-#: allthethings/page/templates/page/faq.html:286
+#: allthethings/page/templates/page/faq.html:287
 #, fuzzy
 msgid "page.faq.resources.translate"
 msgstr "<a %(a_translate)s>Prekladať na Anninom Softvéri</a> — náš prekladový systém"
 
-#: allthethings/page/templates/page/faq.html:287
+#: allthethings/page/templates/page/faq.html:288
 #, fuzzy
 msgid "page.faq.resources.datasets"
 msgstr "<a %(a_datasets)s>Datasety</a> — o dátach"
 
-#: allthethings/page/templates/page/faq.html:288
+#: allthethings/page/templates/page/faq.html:289
 #, fuzzy
 msgid "page.faq.resources.domains"
 msgstr "<a %(a_li)s>.li</a>, <a %(a_se)s>.se</a>, <a %(a_org)s>.org</a> — alternatívne domény"
 
-#: allthethings/page/templates/page/faq.html:289
+#: allthethings/page/templates/page/faq.html:290
 #, fuzzy
 msgid "page.faq.resources.wikipedia"
 msgstr "<a %(a_wikipedia)s>Wikipedia</a> — viac o nás (prosím, pomôžte udržiavať túto stránku aktuálnu, alebo vytvorte jednu vo svojom jazyku!)"
 
-#: allthethings/page/templates/page/faq.html:292
+#: allthethings/page/templates/page/faq.html:293
 #, fuzzy
 msgid "page.faq.copyright.title"
 msgstr "Ako nahlásiť porušenie autorských práv?"
 
-#: allthethings/page/templates/page/faq.html:295
+#: allthethings/page/templates/page/faq.html:296
 #, fuzzy
 msgid "page.faq.copyright.text1"
 msgstr "Nehostíme tu žiadne materiály chránené autorskými právami. Sme vyhľadávač a ako taký indexujeme iba metadáta, ktoré sú už verejne dostupné. Pri sťahovaní z týchto externých zdrojov odporúčame skontrolovať zákony vo vašej jurisdikcii, čo je povolené. Nie sme zodpovední za obsah hostovaný inými."
 
-#: allthethings/page/templates/page/faq.html:299
+#: allthethings/page/templates/page/faq.html:300
 #, fuzzy
 msgid "page.faq.copyright.text2"
 msgstr "Ak máte sťažnosti na to, čo tu vidíte, najlepšie je kontaktovať pôvodnú webovú stránku. Pravidelne sťahujeme ich zmeny do našej databázy. Ak si naozaj myslíte, že máte platnú sťažnosť podľa DMCA, na ktorú by sme mali reagovať, vyplňte prosím <a %(a_copyright)s>formulár DMCA / Nárok na autorské práva</a>. Vaše sťažnosti berieme vážne a ozveme sa vám čo najskôr."
 
-#: allthethings/page/templates/page/faq.html:302
+#: allthethings/page/templates/page/faq.html:303
 #, fuzzy
 msgid "page.faq.hate.title"
 msgstr "Nenávidím, ako vediete tento projekt!"
 
-#: allthethings/page/templates/page/faq.html:305
+#: allthethings/page/templates/page/faq.html:306
 #, fuzzy
 msgid "page.faq.hate.text1"
 msgstr "Chceli by sme tiež pripomenúť všetkým, že všetok náš kód a dáta sú úplne open source. To je jedinečné pre projekty ako je náš — nevieme o žiadnom inom projekte s podobne masívnym katalógom, ktorý by bol tiež úplne open source. Veľmi radi privítame každého, kto si myslí, že náš projekt vedeme zle, aby si vzal náš kód a dáta a založil si vlastnú tieňovú knižnicu! Nehovoríme to zo zlosti alebo niečoho podobného — úprimne si myslíme, že by to bolo úžasné, pretože by to zvýšilo latku pre všetkých a lepšie zachovalo dedičstvo ľudstva."
 
-#: allthethings/page/templates/page/faq.html:308
+#: allthethings/page/templates/page/faq.html:309
 #, fuzzy
 msgid "page.faq.favorite.title"
 msgstr "Aké sú vaše obľúbené knihy?"
 
-#: allthethings/page/templates/page/faq.html:311
+#: allthethings/page/templates/page/faq.html:312
 #, fuzzy
 msgid "page.faq.favorite.text1"
 msgstr "Tu sú niektoré knihy, ktoré majú zvláštny význam pre svet tieňových knižníc a digitálnej ochrany:"
@@ -3503,13 +3618,13 @@ msgid "page.md5.box.download.ipfs_gateway_extra"
 msgstr "(pre IPFS je niekedy potrebné vyskúšať stiahnutie viackrát)"
 
 #: allthethings/page/templates/page/ipfs_downloads.html:23
-#: allthethings/page/templates/page/partner_download.html:93
+#: allthethings/page/templates/page/partner_download.html:91
 #, fuzzy
 msgid "page.partner_download.faster_downloads"
 msgstr "🚀 Ak chcete rýchlejšie sťahovanie a preskočiť kontroly prehliadača, <a %(a_membership)s>staňte sa členom</a>."
 
 #: allthethings/page/templates/page/ipfs_downloads.html:27
-#: allthethings/page/templates/page/partner_download.html:97
+#: allthethings/page/templates/page/partner_download.html:95
 #, fuzzy
 msgid "page.partner_download.bulk_mirroring"
 msgstr "📡 Pre hromadné zrkadlenie našej zbierky si pozrite stránky <a %(a_datasets)s>Datasets</a> a <a %(a_torrents)s>Torrents</a>."
@@ -3863,27 +3978,31 @@ msgstr "Akonáhle získate odkaz na stiahnutie, je platný niekoľko hodín."
 msgid "page.partner_download.li4"
 msgstr "Ďakujeme, že ste počkali, týmto udržiavate webovú stránku prístupnú zadarmo pre všetkých! 😊"
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:40
+msgid "page.partner_download.automatic_refreshing"
+msgstr ""
+
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.url"
 msgstr "📚 Použite nasledujúcu URL na stiahnutie: <a %(a_download)s>Stiahnuť teraz</a>."
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.download_now"
 msgstr "Stiahnuť teraz"
 
-#: allthethings/page/templates/page/partner_download.html:86
+#: allthethings/page/templates/page/partner_download.html:84
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads"
 msgstr "Upozornenie: za posledných 24 hodín bolo z vašej IP adresy stiahnutých veľa súborov. Sťahovanie môže byť pomalšie ako obvykle."
 
-#: allthethings/page/templates/page/partner_download.html:87
+#: allthethings/page/templates/page/partner_download.html:85
 #, fuzzy
 msgid "page.partner_download.downloads_last_24_hours"
 msgstr "Stiahnutia z vašej IP adresy za posledných 24 hodín: %(count)s."
 
-#: allthethings/page/templates/page/partner_download.html:88
+#: allthethings/page/templates/page/partner_download.html:86
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads2"
 msgstr "Ak používate VPN, zdieľané internetové pripojenie alebo váš ISP zdieľa IP adresy, toto varovanie môže byť kvôli tomu."

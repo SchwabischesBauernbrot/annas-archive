@@ -370,10 +370,6 @@ msgstr "Pro donationibus supra $5000 quaeso directe nos continge ad %(email)s."
 #: allthethings/account/templates/account/index.html:36
 #: allthethings/page/templates/page/contact.html:3
 #: allthethings/page/templates/page/contact.html:6
-#: allthethings/page/templates/page/faq.html:84
-#: allthethings/page/templates/page/faq.html:139
-#: allthethings/page/templates/page/faq.html:147
-#: allthethings/page/templates/page/faq.html:171
 #: allthethings/page/templates/page/home.html:77
 #: allthethings/page/templates/page/home.html:82
 #: allthethings/page/templates/page/home.html:90
@@ -1387,6 +1383,14 @@ msgstr "Files recepti publice non ostenduntur."
 msgid "page.downloaded.no_files"
 msgstr "Nondum files recepti."
 
+#: allthethings/account/templates/account/downloaded.html:16
+msgid "page.downloaded.last_18_hours"
+msgstr ""
+
+#: allthethings/account/templates/account/downloaded.html:21
+msgid "page.downloaded.earlier"
+msgstr ""
+
 #: allthethings/account/templates/account/index.html:5
 #: allthethings/account/templates/account/index.html:15
 #, fuzzy
@@ -1462,7 +1466,7 @@ msgid "page.account.logged_in.membership_upgrade"
 msgstr "Contactum habe cum Anna apud %(email)s si interesse habes ut sodalitatem tuam ad gradum superiorem promoveas."
 
 #: allthethings/account/templates/account/index.html:37
-#: allthethings/page/templates/page/faq.html:135
+#: allthethings/page/templates/page/faq.html:136
 #, fuzzy
 msgid "page.account.logged_in.membership_multiple"
 msgstr "Potes plures sodalitates coniungere (celeres descensiones per 24 horas simul addentur)."
@@ -1717,6 +1721,14 @@ msgstr "Segnato come rotto in Libgen.li"
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "Assente da Z-Library"
 
+#: allthethings/page/views.py:4845
+msgid "common.md5_problem_type_mapping.zlib_spam"
+msgstr ""
+
+#: allthethings/page/views.py:4846
+msgid "common.md5_problem_type_mapping.zlib_bad_file"
+msgstr ""
+
 #: allthethings/page/views.py:4847
 #, fuzzy
 msgid "common.md5_problem_type_mapping.duxiu_pdg_broken_files"
@@ -1807,26 +1819,31 @@ msgstr "Explora metadata"
 msgid "common.access_types_mapping.torrents_available"
 msgstr "Contentum in torrentibus"
 
-#: allthethings/page/templates/page/datasets.html:52
-#: allthethings/page/templates/page/datasets.html:88
+#: allthethings/page/templates/page/datasets.html:51
+#: allthethings/page/templates/page/datasets.html:87
 #: allthethings/page/views.py:4880
 #, fuzzy
 msgid "common.record_sources_mapping.lgrs"
 msgstr "Libgen.rs"
 
-#: allthethings/page/templates/page/datasets.html:54
-#: allthethings/page/templates/page/datasets.html:109
+#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:108
 #: allthethings/page/views.py:4881
 #, fuzzy
 msgid "common.record_sources_mapping.lgli"
 msgstr "Libgen.li"
 
-#: allthethings/page/templates/page/datasets.html:55
-#: allthethings/page/templates/page/datasets.html:121
+#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:120
 #: allthethings/page/views.py:4882
 #, fuzzy
 msgid "common.record_sources_mapping.zlib"
 msgstr "Z-Library"
+
+#: allthethings/page/templates/page/datasets.html:55
+#: allthethings/page/views.py:4883
+msgid "common.record_sources_mapping.zlibzh"
+msgstr ""
 
 #: allthethings/page/views.py:4884
 #, fuzzy
@@ -1843,7 +1860,7 @@ msgstr "ISBNdb"
 msgid "common.record_sources_mapping.ol"
 msgstr "OpenLibrary"
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 #: allthethings/page/views.py:4887
 #, fuzzy
 msgid "common.record_sources_mapping.scihub"
@@ -1854,15 +1871,15 @@ msgstr "Sci-Hub"
 msgid "common.record_sources_mapping.oclc"
 msgstr "OCLC (WorldCat)"
 
-#: allthethings/page/templates/page/datasets.html:58
-#: allthethings/page/templates/page/datasets.html:142
+#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:141
 #: allthethings/page/views.py:4889
 #, fuzzy
 msgid "common.record_sources_mapping.duxiu"
 msgstr "DuXiu 读秀"
 
-#: allthethings/page/templates/page/datasets.html:59
-#: allthethings/page/templates/page/datasets.html:155
+#: allthethings/page/templates/page/datasets.html:58
+#: allthethings/page/templates/page/datasets.html:154
 #: allthethings/page/views.py:4890
 #, fuzzy
 msgid "common.record_sources_mapping.uploads"
@@ -2517,8 +2534,6 @@ msgstr "Aliquid erravit. Paginae reload fac et iterum conare."
 
 #: allthethings/page/templates/page/aarecord.html:406
 #: allthethings/page/templates/page/aarecord.html:407
-#: allthethings/page/templates/page/codes.html:8
-#: allthethings/page/templates/page/codes.html:9
 #: allthethings/page/templates/page/copyright.html:6
 #: allthethings/page/templates/page/copyright.html:7
 #: allthethings/page/templates/page/datasets.html:13
@@ -2574,12 +2589,12 @@ msgstr "Hoc est archivum a <a %(a_ia)s>IA’s Controlled Digital Lending</a> bib
 msgid "page.md5.text.file_info.text1"
 msgstr "Pro informatione de hoc particulari archivo, inspice eius <a %(a_href)s>archivum JSON</a>."
 
-#: allthethings/page/templates/page/aarecord_issue.html:4
+#: allthethings/page/templates/page/aarecord_issue.html:5
 #, fuzzy
 msgid "page.aarecord_issue.title"
 msgstr "🔥 Quaestio paginae huius onus"
 
-#: allthethings/page/templates/page/aarecord_issue.html:6
+#: allthethings/page/templates/page/aarecord_issue.html:7
 #, fuzzy
 msgid "page.aarecord_issue.text"
 msgstr "Quaeso refricare ut iterum coneris. <a %(a_contact)s>Nobis contactum</a> si quaestio per plures horas perseverat."
@@ -2622,6 +2637,105 @@ msgstr "Si in infinitum circulum capieris, commendamus <a %(a_privacypass)s>Priv
 #, fuzzy
 msgid "page.login.text3"
 msgstr "Etiam adiuvare potest ad blockers et alias extensiones navigatri exstinguere."
+
+#: allthethings/page/templates/page/codes.html:5
+msgid "page.codes.title"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:10
+msgid "page.codes.heading"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:14
+msgid "page.codes.intro"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:18
+msgid "page.codes.why_cloudflare"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:22
+msgid "page.codes.dont_scrape"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:33
+msgid "page.codes.prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:34
+msgid "common.form.go"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:35
+msgid "common.form.reset"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:40
+msgid "page.codes.bad_unicode"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:46
+msgid "page.codes.known_code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:48
+msgid "page.codes.code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:49
+msgid "page.codes.code_label"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:51
+msgid "page.codes.code_description"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgid "page.codes.code_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgctxt "the %s should not be changed"
+msgid "page.codes.s_substitution"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:57
+msgid "page.codes.generic_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:61
+msgid "page.codes.code_website"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:69
+msgid "page.codes.record_starting_with"
+msgid_plural "page.codes.records_starting_with"
+msgstr[0] ""
+msgstr[1] ""
+
+#: allthethings/page/templates/page/codes.html:75
+msgid "page.codes.search_archive"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:77
+msgid "page.codes.url_link"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:84
+msgid "page.codes.codes_starting_with"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:92
+msgid "page.codes.records_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:93
+msgid "page.codes.records_codes"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:113
+msgid "page.codes.fewer_than"
+msgstr ""
 
 #: allthethings/page/templates/page/contact.html:9
 #, fuzzy
@@ -2723,144 +2837,140 @@ msgstr ""
 msgid "page.datasets.overview.last_updated.header"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:52
+#: allthethings/page/templates/page/datasets.html:51
 msgid "common.record_sources_mapping.lgrs.nonfiction_and_fiction"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "common.record_sources_mapping.scihub.via_lgli_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_1"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_2"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "common.record_sources.mapping.lgli.excluding_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "page.datasets.lgli_fiction_is_behind"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:56
-msgid "common.record_sources_mapping.zlibzh"
-msgstr ""
-
-#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:55
 msgid "page.datasets.zlibzh.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
-#: allthethings/page/templates/page/datasets.html:130
+#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:129
 msgid "common.record_sources_mapping.iacdl"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:56
 msgid "page.datasets.iacdl.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.total"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.excluding_duplicates"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:64
+#: allthethings/page/templates/page/datasets.html:63
 msgid "page.datasets.overview.text4"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:68
+#: allthethings/page/templates/page/datasets.html:67
 msgid "page.datasets.overview.text5"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:71
+#: allthethings/page/templates/page/datasets.html:70
 msgid "page.datasets.source_libraries.title"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:74
+#: allthethings/page/templates/page/datasets.html:73
 #, fuzzy
 msgid "page.datasets.source_libraries.text1"
 msgstr "Nonnullae bibliothecae fontes promovent communicationem massam suorum datorum per torrentes, dum aliae non facile communicant collectionem suam. In hoc casu, Archivum Annae conatur colligere collectiones eorum, et eas praebere (vide paginam nostram <a %(a_torrents)s>Torrentes</a>). Sunt etiam casus intermediarii, exempli gratia, ubi bibliothecae fontes sunt paratae communicare, sed non habent facultates ad id faciendum. In his casibus, nos quoque conamur adiuvare."
 
-#: allthethings/page/templates/page/datasets.html:78
+#: allthethings/page/templates/page/datasets.html:77
 #, fuzzy
 msgid "page.datasets.source_libraries.text2"
 msgstr "Infra est synopsis quomodo interfaciemus cum diversis bibliothecis fontibus."
 
-#: allthethings/page/templates/page/datasets.html:83
+#: allthethings/page/templates/page/datasets.html:82
 #, fuzzy
 msgid "page.datasets.sources.source.header"
 msgstr "Fons"
 
-#: allthethings/page/templates/page/datasets.html:84
+#: allthethings/page/templates/page/datasets.html:83
 #, fuzzy
 msgid "page.datasets.sources.metadata.header"
 msgstr "Metadata"
 
-#: allthethings/page/templates/page/datasets.html:85
+#: allthethings/page/templates/page/datasets.html:84
 #, fuzzy
 msgid "page.datasets.sources.files.header"
 msgstr "Files"
 
-#: allthethings/page/templates/page/datasets.html:98
+#: allthethings/page/templates/page/datasets.html:97
 #, fuzzy
 msgid "common.record_sources_mapping.scihub_scimag"
 msgstr "Sci-Hub / Libgen “scimag”"
 
-#: allthethings/page/templates/page/datasets.html:162
+#: allthethings/page/templates/page/datasets.html:161
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.title"
 msgstr "Fontes metadata tantum"
 
-#: allthethings/page/templates/page/datasets.html:165
+#: allthethings/page/templates/page/datasets.html:164
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text1"
 msgstr "Nos quoque locupletamus collectionem nostram cum fontibus metadata tantum, quos possumus coniungere ad files, e.g. utendo numeris ISBN vel aliis campis. Infra est synopsis eorum. Iterum, nonnulli ex his fontibus sunt omnino aperti, dum alii colligendi sunt."
 
-#: allthethings/page/templates/page/datasets.html:169
-#: allthethings/page/templates/page/faq.html:186
+#: allthethings/page/templates/page/datasets.html:168
+#: allthethings/page/templates/page/faq.html:187
 #: allthethings/page/templates/page/search.html:294
 #, fuzzy
 msgid "page.faq.metadata.inspiration1"
 msgstr "Inspiratio nostra ad metadata colligenda est propositum Aaronis Swartz de “una pagina interretiali pro omni libro umquam edito”, pro quo creavit <a %(a_openlib)s>Open Library</a>."
 
-#: allthethings/page/templates/page/datasets.html:170
-#: allthethings/page/templates/page/faq.html:187
+#: allthethings/page/templates/page/datasets.html:169
+#: allthethings/page/templates/page/faq.html:188
 #: allthethings/page/templates/page/search.html:295
 #, fuzzy
 msgid "page.faq.metadata.inspiration2"
 msgstr "Illa projectio bene successit, sed nostra singularis positio nobis permittit ut metadata accipiamus quae illi non possunt."
 
-#: allthethings/page/templates/page/datasets.html:171
-#: allthethings/page/templates/page/faq.html:188
+#: allthethings/page/templates/page/datasets.html:170
+#: allthethings/page/templates/page/faq.html:189
 #: allthethings/page/templates/page/search.html:296
 #, fuzzy
 msgid "page.faq.metadata.inspiration3"
 msgstr "Alia inspiratio fuit desiderium nostrum scire <a %(a_blog)s>quot libri in mundo sint</a>, ut computare possimus quot libros adhuc servare debeamus."
 
-#: allthethings/page/templates/page/datasets.html:175
+#: allthethings/page/templates/page/datasets.html:174
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text2"
 msgstr "Nota quod in quaerendo metadata, ostendimus records originales. Non facimus ullam coniunctionem recordorum."
 
-#: allthethings/page/templates/page/datasets.html:216
+#: allthethings/page/templates/page/datasets.html:215
 #, fuzzy
 msgid "page.datasets.unified_database.title"
 msgstr "Database unificata"
 
-#: allthethings/page/templates/page/datasets.html:219
+#: allthethings/page/templates/page/datasets.html:218
 #, fuzzy
 msgid "page.datasets.unified_database.text1"
 msgstr "Coniungimus omnes fontes supra in unam database unificatam quam utimur ad servandum hunc locum. Haec database unificata non est directe praesto, sed cum Archivum Annae sit omnino aperta fons, potest satis facile <a %(a_generated)s>generari</a> vel <a %(a_downloaded)s>downloadari</a> ut databases ElasticSearch et MariaDB. Scripturae in illa pagina automatice downloadabunt omnia metadata necessaria ex fontibus supra memoratis."
 
-#: allthethings/page/templates/page/datasets.html:227
+#: allthethings/page/templates/page/datasets.html:226
 #, fuzzy
 msgid "page.datasets.unified_database.text2"
 msgstr "Si vis explorare data nostra antequam illa scriptura localiter curras, potes inspicere files JSON nostros, qui ulterius coniungunt ad alios files JSON. <a %(a_json)s>Hic file</a> est bonum initium."
@@ -2901,473 +3011,477 @@ msgstr "Situs ISBN"
 msgid "page.datasets/isbn_ranges.isbn_metadata"
 msgstr "Metadata"
 
-#: allthethings/page/templates/page/faq.html:3
-#: allthethings/page/templates/page/faq.html:6
+#: allthethings/page/templates/page/faq.html:5
+#: allthethings/page/templates/page/faq.html:8
 #, fuzzy
 msgid "page.faq.title"
 msgstr "Frequenter Interrogationes (FAQ)"
 
-#: allthethings/page/templates/page/faq.html:8
+#: allthethings/page/templates/page/faq.html:10
 #, fuzzy
 msgid "page.faq.what_is.title"
 msgstr "Quid est Archivum Annae?"
 
-#: allthethings/page/templates/page/faq.html:11
+#: allthethings/page/templates/page/faq.html:13
 #, fuzzy
 msgid "page.home.intro.text1"
 msgstr "<span %(span_anna)s>Archivum Annae</span> est consilium non-lucrativum cum duobus propositis:"
 
-#: allthethings/page/templates/page/faq.html:15
+#: allthethings/page/templates/page/faq.html:17
 #, fuzzy
 msgid "page.home.intro.text2"
 msgstr "<li><strong>Conservatio:</strong> Omnem scientiam et culturam humanitatis servare.</li><li><strong>Accessus:</strong> Hanc scientiam et culturam omnibus in mundo praebere.</li>"
 
-#: allthethings/page/templates/page/faq.html:19
+#: allthethings/page/templates/page/faq.html:21
 #, fuzzy
 msgid "page.home.intro.open_source"
 msgstr "Omnis noster <a %(a_code)s>codex</a> et <a %(a_datasets)s>data</a> sunt omnino aperta fons."
 
-#: allthethings/page/templates/page/faq.html:23
+#: allthethings/page/templates/page/faq.html:25
 #, fuzzy
 msgid "page.home.preservation.header"
 msgstr "Conservatio"
 
-#: allthethings/page/templates/page/faq.html:25
+#: allthethings/page/templates/page/faq.html:27
 #, fuzzy
 msgid "page.home.preservation.text1"
 msgstr "Libros, chartas, comoedias, ephemerides, et plura conservamus, haec materia ex variis <a href=\"https://en.wikipedia.org/wiki/Shadow_library\">bibliothecis umbrae</a>, bibliothecis officialibus, et aliis collectionibus in unum locum colligendo. Omnia haec data in perpetuum conservantur, facili duplicandi modo in mole — per torrentes — resultans in multis exemplis circum orbem terrarum. Quaedam bibliothecae umbrae hoc iam faciunt (e.g. Sci-Hub, Library Genesis), dum Archivum Annae alias bibliothecas \"liberat\" quae distributionem molem non offerunt (e.g. Z-Library) aut omnino non sunt bibliothecae umbrae (e.g. Internet Archive, DuXiu)."
 
-#: allthethings/page/templates/page/faq.html:27
+#: allthethings/page/templates/page/faq.html:29
 #, fuzzy
 msgid "page.home.preservation.text2"
 msgstr "Haec lata distributio, cum codice aperto fonte coniuncta, nostrum locum interretialem ad deiectiones resilientem facit, et longam temporis conservationem scientiae et culturae humanitatis praestat. Plura de <a href=\"/datasets\">nostris datasetis</a> disce."
 
-#: allthethings/page/templates/page/faq.html:41
+#: allthethings/page/templates/page/faq.html:43
 #, fuzzy
 msgid "page.home.preservation.label"
 msgstr "Existimamus nos circiter <a href=\"https://annas-blog.org/blog-isbndb-dump-how-many-books-are-preserved-forever.html\">5%% librorum mundi conservasse</a>."
 
-#: allthethings/page/templates/page/faq.html:46
+#: allthethings/page/templates/page/faq.html:48
 #, fuzzy
 msgid "page.home.access.header"
 msgstr "Accessus"
 
-#: allthethings/page/templates/page/faq.html:48
+#: allthethings/page/templates/page/faq.html:50
 #, fuzzy
 msgid "page.home.access.text"
 msgstr "Cum sociis laboramus ut nostrae collectiones facile et libere omnibus praesto sint. Credimus omnes ius habere ad sapientiam collectivam humanitatis. Et <a %(a_search)s>non ad detrimentum auctorum</a>."
 
-#: allthethings/page/templates/page/faq.html:52
+#: allthethings/page/templates/page/faq.html:54
 #, fuzzy
 msgid "page.home.access.label"
 msgstr "Horae downloadationes in ultimis 30 diebus. Horae mediocris: %(hourly)s. Diurnus mediocris: %(daily)s."
 
-#: allthethings/page/templates/page/faq.html:80
+#: allthethings/page/templates/page/faq.html:82
 #, fuzzy
 msgid "page.about.text2"
 msgstr "Valde credimus in liberum fluxum informationis, et conservationem scientiae et culturae. Cum hoc motore quaerendi, in humeris gigantum aedificamus. Profunde laboramus hominum qui varias bibliothecas umbrae creaverunt, et speramus hunc motorem quaerendi eorum amplitudinem dilaturum esse."
 
-#: allthethings/page/templates/page/faq.html:84
+#: allthethings/page/templates/page/faq.html:86
 #, fuzzy
 msgid "page.about.text3"
 msgstr "Ut de nostro progressu certiores fiatis, sequimini Annam in <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a> aut <a href=\"https://t.me/annasarchiveorg\">Telegram</a>. Pro quaestionibus et responsionibus, quaeso contactate Annam apud %(email)s."
 
-#: allthethings/page/templates/page/faq.html:87
+#: allthethings/page/templates/page/faq.html:89
 #, fuzzy
 msgid "page.faq.help.title"
 msgstr "Quomodo adiuvare possum?"
 
-#: allthethings/page/templates/page/faq.html:90
+#: allthethings/page/templates/page/faq.html:92
 #, fuzzy
 msgid "page.about.help.text"
 msgstr "<li>1. Sequimini nos in <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a>, aut <a href=\"https://t.me/annasarchiveorg\">Telegram</a>.</li><li>2. Nuntiate de Archivo Annae in Twitter, Reddit, Tiktok, Instagram, apud tuum localem cafe aut bibliothecam, aut ubicumque vadis! Non credimus in custodiam portarum — si deicimur, alibi statim resurget, cum omnis noster codex et data omnino aperta fons sint.</li><li>3. Si potes, considera <a href=\"/donate\">donationem</a>.</li><li>4. Adiuvate <a href=\"https://translate.annas-software.org/\">translationem</a> nostri situs interretialis in diversas linguas.</li><li>5. Si es ingeniarius software, considera contribuere ad nostrum <a href=\"https://annas-software.org/\">apertum fontem</a>, aut seminare nostros <a href=\"/datasets\">torrentes</a>.</li>"
 
-#: allthethings/page/templates/page/faq.html:91
+#: allthethings/page/templates/page/faq.html:93
 #, fuzzy
 msgid "page.about.help.text6"
 msgstr "6. Si es investigator securitatis, possumus tuis artibus uti et pro offensione et defensione. Vide nostram <a %(a_security)s>Securitatem</a> paginam."
 
-#: allthethings/page/templates/page/faq.html:92
+#: allthethings/page/templates/page/faq.html:94
 #, fuzzy
 msgid "page.about.help.text7"
 msgstr "7. Quaerimus peritos in solutionibus pro mercatoribus anonymis. Potesne adiuvare nos addere modos donationis magis commodos? PayPal, WeChat, chartae doni. Si aliquem nosti, quaeso contacta nos."
 
-#: allthethings/page/templates/page/faq.html:93
+#: allthethings/page/templates/page/faq.html:95
 #, fuzzy
 msgid "page.about.help.text8"
 msgstr "Semper quaerimus maiorem capacitatem servientis."
 
-#: allthethings/page/templates/page/faq.html:94
+#: allthethings/page/templates/page/faq.html:96
 #, fuzzy
 msgid "page.about.help.text9"
 msgstr "Potes adiuvare nuntiando problemata fasciculorum, relinquendo commentarios, et creandi indices in hoc ipso situ. Potes etiam adiuvare <a %(a_upload)s>plures libros caricando</a>, vel corrigendo problemata fasciculorum vel formata librorum existentium."
 
-#: allthethings/page/templates/page/faq.html:95
+#: allthethings/page/templates/page/faq.html:97
 #, fuzzy
 msgid "page.about.help.text10"
 msgstr "Crea vel adiuvare ad conservandum paginam Vicipaediae pro Archivum Annae in tua lingua."
 
-#: allthethings/page/templates/page/faq.html:96
+#: allthethings/page/templates/page/faq.html:98
 #, fuzzy
 msgid "page.about.help.text11"
 msgstr "Quaerimus parvas, elegantes praeconia ponere. Si vis praeconium ponere in Archivum Annae, quaeso nos certiores fac."
 
-#: allthethings/page/templates/page/faq.html:97
+#: allthethings/page/templates/page/faq.html:99
 #, fuzzy
 msgid "page.faq.help.mirrors"
 msgstr "Cupimus ut homines <a %(a_mirrors)s>specula</a> constituant, et nos hoc pecuniarie sustinebimus."
 
-#: allthethings/page/templates/page/faq.html:105
+#: allthethings/page/templates/page/faq.html:103
+msgid "page.about.help.volunteer"
+msgstr ""
+
+#: allthethings/page/templates/page/faq.html:106
 #, fuzzy
 msgid "page.faq.slow.title"
 msgstr "Cur downloads tam lentus sunt?"
 
-#: allthethings/page/templates/page/faq.html:108
+#: allthethings/page/templates/page/faq.html:109
 #, fuzzy
 msgid "page.faq.slow.text1"
 msgstr "Literatim non habemus satis opes ut omnibus in mundo celeres descensiones praebeamus, quantumvis velimus. Si dives benefactor vellet hoc nobis praebere, id esset incredibile, sed usque ad tunc, conamur optime. Sumus non-lucrativus projectus qui vix se sustentare potest per donationes."
 
-#: allthethings/page/templates/page/faq.html:112
+#: allthethings/page/templates/page/faq.html:113
 #, fuzzy
 msgid "page.faq.slow.text2"
 msgstr "Hoc est cur duas systemata pro gratuitis descensionibus cum sociis nostris implementavimus: servientes communes cum tardis descensionibus, et paulo celeriores servientes cum exspectatione (ut numerum hominum simul descendentium minuant)."
 
-#: allthethings/page/templates/page/faq.html:116
+#: allthethings/page/templates/page/faq.html:117
 #, fuzzy
 msgid "page.faq.slow.text3"
 msgstr "Habemus etiam <a %(a_verification)s>verificationem navigatoris</a> pro tardis descensionibus, quia aliter bots et scrapers abutentur eis, facientes res etiam tardiores pro legitimis usoribus."
 
-#: allthethings/page/templates/page/faq.html:120
+#: allthethings/page/templates/page/faq.html:121
 #, fuzzy
 msgid "page.faq.slow.text4"
 msgstr "Nota quod, cum utendo Tor Navigatro, fortasse debes accommodare tuas securitatis optiones. In infima optionum, quae vocatur “Standard”, provocatio Cloudflare turnstile succedit. In superioribus optionibus, quae vocantur “Safer” et “Safest”, provocatio deficit."
 
-#: allthethings/page/templates/page/faq.html:124
+#: allthethings/page/templates/page/faq.html:125
 #, fuzzy
 msgid "page.faq.slow.text5"
 msgstr "Ad magnas tabellas interdum tardae descensiones in medio frangere possunt. Suademus utendi administratore descensionis (ut JDownloader) ad magnas descensiones automatice resumendas."
 
-#: allthethings/page/templates/page/faq.html:127
+#: allthethings/page/templates/page/faq.html:128
 #, fuzzy
 msgid "page.donate.faq.title"
 msgstr "Donationes FAQ"
 
-#: allthethings/page/templates/page/faq.html:130
+#: allthethings/page/templates/page/faq.html:131
 #, fuzzy
 msgid "page.donate.faq.renew"
 msgstr "<div %(div_question)s>Num sodalitia automatice renovantur?</div> Sodalitia <strong>non</strong> automatice renovantur. Potes iungere quamdiu vel quam brevi tempore vis."
 
-#: allthethings/page/templates/page/faq.html:134
+#: allthethings/page/templates/page/faq.html:135
 #, fuzzy
 msgid "page.donate.faq.membership"
 msgstr "<div %(div_question)s>Possumne meam sodalitatem augere aut plures sodalitates obtinere?</div>"
 
-#: allthethings/page/templates/page/faq.html:139
+#: allthethings/page/templates/page/faq.html:140
 #, fuzzy
 msgid "page.donate.faq.text_other_payment1"
 msgstr "<div %(div_question)s>Habesne alias solutiones solutionis?</div> Nunc non. Multi homines nolunt ut talia archiva exsistant, itaque cauti esse debemus. Si potes adiuvare nos ad alias (commodiores) solutiones solutionis tuto constituendas, quaeso contacta nos ad %(email)s."
 
-#: allthethings/page/templates/page/faq.html:143
+#: allthethings/page/templates/page/faq.html:144
 #, fuzzy
 msgid "page.donate.faq.spend"
 msgstr "<div %(div_question)s>Quid facitis cum donationibus?</div> 100%% ad conservandum et faciendum accessibilem mundi scientiam et culturam. Nunc maxime expendimus in servientibus, repono, et latitudine. Nullus pecunia ad aliquos sodales personaliter it."
 
-#: allthethings/page/templates/page/faq.html:147
+#: allthethings/page/templates/page/faq.html:148
 #, fuzzy
 msgid "page.donate.faq.text_large_donation"
 msgstr "<div %(div_question)s>Possumne magnam donationem facere?</div> Id esset mirabile! Pro donationibus supra pauca milia dollariorum, quaeso directe contacta nos ad %(email)s."
 
-#: allthethings/page/templates/page/faq.html:151
+#: allthethings/page/templates/page/faq.html:152
 #, fuzzy
 msgid "page.donate.faq.non_member_donation"
 msgstr "<div %(div_question)s>Possumne donationem facere sine sodalitate fieri?</div> Certe. Acceptamus donationes cuiuslibet quantitatis ad hunc Monero (XMR) locum: %(address)s."
 
-#: allthethings/page/templates/page/faq.html:154
+#: allthethings/page/templates/page/faq.html:155
 #, fuzzy
 msgid "page.faq.upload.title"
 msgstr "Quomodo novos libros carico?"
 
-#: allthethings/page/templates/page/faq.html:157
+#: allthethings/page/templates/page/faq.html:158
 #, fuzzy
 msgid "page.upload.text1"
 msgstr "Nunc, suademus novos libros caricare ad Library Genesis forcas. Hic est <a %(a_guide)s>utilis dux</a>. Nota quod ambae forcae quas indicamus in hoc situ ex eodem systemate caricandi trahunt."
 
-#: allthethings/page/templates/page/faq.html:158
+#: allthethings/page/templates/page/faq.html:159
 #, fuzzy
 msgid "common.libgen.email"
 msgstr "Si inscriptio tua electronica non operatur in foris Libgen, suademus utaris <a %(a_mail)s>Proton Mail</a> (gratis). Potes etiam <a %(a_manual)s>manu petere</a> ut ratio tua activetur."
 
-#: allthethings/page/templates/page/faq.html:159
+#: allthethings/page/templates/page/faq.html:160
 #, fuzzy
 msgid "page.faq.mhut_upload"
 msgstr "Nota quod mhut.org certas IP intervalla obstruit, itaque VPN necessarius esse potest."
 
-#: allthethings/page/templates/page/faq.html:163
+#: allthethings/page/templates/page/faq.html:164
 #, fuzzy
 msgid "page.upload.zlib.text1"
 msgstr "Aliter, potes eas ad Z-Library <a %(a_upload)s>hic</a> mittere."
 
-#: allthethings/page/templates/page/faq.html:167
+#: allthethings/page/templates/page/faq.html:168
 #, fuzzy
 msgid "page.upload.zlib.text2"
 msgstr "Ad chartas academicas onerandas, quaeso etiam (praeter Library Genesis) onera ad <a %(a_stc_nexus)s>STC Nexus</a>. Optimae sunt bibliothecae umbrae pro novis chartis. Nondum eas integravimus, sed aliquando faciemus. Potes uti eorum <a %(a_telegram)s>bot onera in Telegram</a>, aut contactare inscriptionem in eorum nuntio affixo si nimis multa documenta habes ut hoc modo oneres."
 
-#: allthethings/page/templates/page/faq.html:171
+#: allthethings/page/templates/page/faq.html:172
 #, fuzzy
 msgid "page.upload.large.text"
 msgstr "Pro magnis oneribus (super 10,000 documenta) quae non accipiuntur a Libgen aut Z-Library, quaeso contactate nos apud %(a_email)s."
 
-#: allthethings/page/templates/page/faq.html:174
+#: allthethings/page/templates/page/faq.html:175
 #, fuzzy
 msgid "page.faq.request.title"
 msgstr "Quomodo libros peto?"
 
-#: allthethings/page/templates/page/faq.html:177
+#: allthethings/page/templates/page/faq.html:178
 #, fuzzy
 msgid "page.request.cannot_accomodate"
 msgstr "Hoc tempore, non possumus petitiones librorum accommodare."
 
-#: allthethings/page/templates/page/faq.html:178
+#: allthethings/page/templates/page/faq.html:179
 #, fuzzy
 msgid "page.request.forums"
 msgstr "Rogationes tuas fac in foris Z-Library vel Libgen."
 
-#: allthethings/page/templates/page/faq.html:179
+#: allthethings/page/templates/page/faq.html:180
 #, fuzzy
 msgid "page.request.dont_email"
 msgstr "Noli nobis per epistulam electronicae libros tuos rogare."
 
-#: allthethings/page/templates/page/faq.html:182
+#: allthethings/page/templates/page/faq.html:183
 #, fuzzy
 msgid "page.faq.metadata.title"
 msgstr "Metadatasne colligis?"
 
-#: allthethings/page/templates/page/faq.html:185
+#: allthethings/page/templates/page/faq.html:186
 #, fuzzy
 msgid "page.faq.metadata.indeed"
 msgstr "Certe colligimus."
 
-#: allthethings/page/templates/page/faq.html:191
+#: allthethings/page/templates/page/faq.html:192
 #, fuzzy
 msgid "page.faq.1984.title"
 msgstr "Librum \"1984\" a Georgio Orwell delevi, venientne vigiles ad ianuam meam?"
 
-#: allthethings/page/templates/page/faq.html:194
+#: allthethings/page/templates/page/faq.html:195
 #, fuzzy
 msgid "page.faq.1984.text"
 msgstr "Noli nimis sollicitus esse, multi homines ex paginis a nobis coniunctis deponunt, et rarissime in difficultates incidunt. Tamen, ut tutus maneas, commendamus ut VPN (solutum) vel <a %(a_tor)s>Tor</a> (gratuitum) utaris."
 
-#: allthethings/page/templates/page/faq.html:197
+#: allthethings/page/templates/page/faq.html:198
 #, fuzzy
 msgid "page.faq.save_search.title"
 msgstr "Quomodo optiones quaestionis meae servo?"
 
-#: allthethings/page/templates/page/faq.html:200
+#: allthethings/page/templates/page/faq.html:201
 #, fuzzy
 msgid "page.faq.save_search.text1"
 msgstr "Optiones quas vis elige, cistam quaestionis vacuam serva, \"Quaere\" preme, et deinde paginam utens notae navigatri tui nota."
 
-#: allthethings/page/templates/page/faq.html:203
+#: allthethings/page/templates/page/faq.html:204
 #, fuzzy
 msgid "page.faq.mobile.title"
 msgstr "Habesne applicationem mobilem?"
 
-#: allthethings/page/templates/page/faq.html:206
+#: allthethings/page/templates/page/faq.html:207
 #, fuzzy
 msgid "page.faq.mobile.text1"
 msgstr "Applicationem mobilem officialem non habemus, sed hanc paginam ut applicationem instituere potes."
 
-#: allthethings/page/templates/page/faq.html:207
+#: allthethings/page/templates/page/faq.html:208
 #, fuzzy
 msgid "page.faq.mobile.android"
 msgstr "<strong>Android:</strong> Menu trium punctorum in summo dextro angulo preme, et \"Adde ad Domum\" elige."
 
-#: allthethings/page/templates/page/faq.html:208
+#: allthethings/page/templates/page/faq.html:209
 #, fuzzy
 msgid "page.faq.mobile.ios"
 msgstr "<strong>iOS:</strong> \"Communica\" puga in imo preme, et \"Adde ad Domum\" elige."
 
-#: allthethings/page/templates/page/faq.html:211
+#: allthethings/page/templates/page/faq.html:212
 #, fuzzy
 msgid "page.faq.api.title"
 msgstr "Habesne API?"
 
-#: allthethings/page/templates/page/faq.html:214
+#: allthethings/page/templates/page/faq.html:215
 #, fuzzy
 msgid "page.faq.api.text1"
 msgstr "Habemus unum stabilem JSON API pro membris, ad URL celerem deponendi: <a %(a_fast_download)s>/dyn/api/fast_download.json</a> (documentatio intra JSON ipsum)."
 
-#: allthethings/page/templates/page/faq.html:218
+#: allthethings/page/templates/page/faq.html:219
 #, fuzzy
 msgid "page.faq.api.text2"
 msgstr "Pro aliis usibus, ut per omnes fasciculos nostros iterandum, quaestionem customatam aedificandum, et cetera, commendamus <a %(a_generate)s>generare</a> vel <a %(a_download)s>deponere</a> nostras databases ElasticSearch et MariaDB. Data rudia manualiter explorari possunt <a %(a_explore)s>per fasciculos JSON</a>."
 
-#: allthethings/page/templates/page/faq.html:222
+#: allthethings/page/templates/page/faq.html:223
 #, fuzzy
 msgid "page.faq.api.text3"
 msgstr "Nostra lista torrentium rudium deponi potest ut <a %(a_torrents)s>JSON</a> quoque."
 
-#: allthethings/page/templates/page/faq.html:225
+#: allthethings/page/templates/page/faq.html:226
 #, fuzzy
 msgid "page.faq.torrents.title"
 msgstr "Torrents FAQ"
 
-#: allthethings/page/templates/page/faq.html:228
+#: allthethings/page/templates/page/faq.html:229
 #, fuzzy
 msgid "page.faq.torrents.q1"
 msgstr "Volo adiuvare seminare, sed non multum spatii disci habeo."
 
-#: allthethings/page/templates/page/faq.html:230
+#: allthethings/page/templates/page/faq.html:231
 #, fuzzy
 msgid "page.faq.torrents.a1"
 msgstr "Utere <a %(a_list)s>generatore lista torrentium</a> ut listam torrentium generes quae maxime indigent torrentibus, intra limites spatii tui."
 
-#: allthethings/page/templates/page/faq.html:234
+#: allthethings/page/templates/page/faq.html:235
 #, fuzzy
 msgid "page.faq.torrents.q2"
 msgstr "Torrentes nimis lentes sunt; possumne data directe a te deponere?"
 
-#: allthethings/page/templates/page/faq.html:236
+#: allthethings/page/templates/page/faq.html:237
 #, fuzzy
 msgid "page.faq.torrents.a2"
 msgstr "Ita, vide paginam <a %(a_llm)s>LLM data</a>."
 
-#: allthethings/page/templates/page/faq.html:240
+#: allthethings/page/templates/page/faq.html:241
 #, fuzzy
 msgid "page.faq.torrents.q3"
 msgstr "Possumne tantum subset fasciculorum, sicut tantum linguam vel argumentum particulare, deponere?"
 
-#: allthethings/page/templates/page/faq.html:242
+#: allthethings/page/templates/page/faq.html:243
 #, fuzzy
 msgid "page.faq.torrents.a3"
 msgstr "Plurimi torrentes fasciculos directe continent, quod significat te posse clientibus torrentium praecipere ut tantum necessarios fasciculos deponant. Ut determinare quos fasciculos deponere, potes <a %(a_generate)s>generare</a> metadata nostra, vel <a %(a_download)s>deponere</a> databases nostras ElasticSearch et MariaDB. Infeliciter, nonnullae collectiones torrentium .zip vel .tar fasciculos in radice continent, quo in casu totum torrentem deponere debes antequam singulos fasciculos seligere possis."
 
-#: allthethings/page/templates/page/faq.html:246
+#: allthethings/page/templates/page/faq.html:247
 #, fuzzy
 msgid "page.faq.torrents.q4"
 msgstr "Quomodo duplicata in torrentibus tractatis?"
 
-#: allthethings/page/templates/page/faq.html:248
+#: allthethings/page/templates/page/faq.html:249
 #, fuzzy
 msgid "page.faq.torrents.a4"
 msgstr "Conamur minimam duplicationem vel superpositionem inter torrentes in hoc indice servare, sed hoc non semper effici potest, et valde dependet a consiliis bibliothecarum fontium. Pro bibliothecis quae suos torrentes emittunt, extra potestatem nostram est. Pro torrentibus a Archivo Annae emissis, deduplicamus tantum secundum MD5 hash, quod significat diversas versiones eiusdem libri non deduplicari."
 
-#: allthethings/page/templates/page/faq.html:252
+#: allthethings/page/templates/page/faq.html:253
 #, fuzzy
 msgid "page.faq.torrents.q5"
 msgstr "Possumne indicem torrentium ut JSON accipere?"
 
-#: allthethings/page/templates/page/faq.html:254
+#: allthethings/page/templates/page/faq.html:255
 #, fuzzy
 msgid "page.faq.torrents.a5"
 msgstr "Ita."
 
-#: allthethings/page/templates/page/faq.html:258
+#: allthethings/page/templates/page/faq.html:259
 #, fuzzy
 msgid "page.faq.torrents.q6"
 msgstr "Non video PDFs vel EPUBs in torrentibus, tantum binarios fasciculos? Quid faciam?"
 
-#: allthethings/page/templates/page/faq.html:260
+#: allthethings/page/templates/page/faq.html:261
 #, fuzzy
 msgid "page.faq.torrents.a6"
 msgstr "Hi re vera sunt PDFs et EPUBs, tantum extensionem non habent in multis torrentibus nostris. Duo loca sunt ubi metadata pro torrentium fasciculis invenire potes, inclusis generibus/extensionibus fasciculorum:"
 
-#: allthethings/page/templates/page/faq.html:262
+#: allthethings/page/templates/page/faq.html:263
 #, fuzzy
 msgid "page.faq.torrents.a6.li1"
 msgstr "1. Quaelibet collectio vel emissio suam metadata habet. Exempli gratia, <a %(a_libgen_nonfic)s>Libgen.rs torrentes</a> habent correspondens metadata database in situ Libgen.rs hospitatum. Typice ad pertinentes metadata fontes ex quaque collectionis <a %(a_datasets)s>pagina dataset</a> coniungimus."
 
-#: allthethings/page/templates/page/faq.html:264
+#: allthethings/page/templates/page/faq.html:265
 #, fuzzy
 msgid "page.faq.torrents.a6.li2"
 msgstr "2. Commendamus <a %(a_generate)s>generare</a> vel <a %(a_download)s>deponere</a> databases nostras ElasticSearch et MariaDB. Hae continent mappam pro quolibet recordo in Archivo Annae ad suos correspondentes torrentium fasciculos (si praesto sunt), sub “torrent_paths” in JSON ElasticSearch."
 
-#: allthethings/page/templates/page/faq.html:267
+#: allthethings/page/templates/page/faq.html:268
 #, fuzzy
 msgid "page.faq.security.title"
 msgstr "Habesne programmatum responsabilem divulgationis?"
 
-#: allthethings/page/templates/page/faq.html:270
+#: allthethings/page/templates/page/faq.html:271
 #, fuzzy
 msgid "page.faq.security.text1"
 msgstr "Gratum habemus investigatores securitatis vulnerabilitates in systematibus nostris quaerere. Magni fautores responsalis divulgationis sumus. Continge nos <a %(a_contact)s>hic</a>."
 
-#: allthethings/page/templates/page/faq.html:274
+#: allthethings/page/templates/page/faq.html:275
 #, fuzzy
 msgid "page.faq.security.text2"
 msgstr "Nunc non possumus praemia pro bugis offerre, nisi pro vulnerabilitatibus quae <a %(a_link)s>potentiam ad anonymitatem nostram compromittendam</a> habent, pro quibus praemia in $10k-50k range offerimus. Vellemus latiorem ambitum pro bugis praemiis in futuro offerre! Nota quod impetus socialis machinationis extra ambitum sunt."
 
-#: allthethings/page/templates/page/faq.html:278
+#: allthethings/page/templates/page/faq.html:279
 #, fuzzy
 msgid "page.faq.security.text3"
 msgstr "Si securitatem offensivam curas, et vis adiuvare ad archivandum scientiam et culturam mundi, certus esto nos contingere. Multae viae sunt quibus adiuvare potes."
 
-#: allthethings/page/templates/page/faq.html:281
+#: allthethings/page/templates/page/faq.html:282
 #, fuzzy
 msgid "page.faq.resources.title"
 msgstr "Suntne plura subsidia de Archivo Annae?"
 
-#: allthethings/page/templates/page/faq.html:284
+#: allthethings/page/templates/page/faq.html:285
 #, fuzzy
 msgid "page.faq.resources.annas_blog"
 msgstr "<a %(a_blog)s>Blog Annae</a>, <a %(a_reddit_u)s>Reddit</a>, <a %(a_reddit_r)s>Subreddit</a> — regularia nuntia"
 
-#: allthethings/page/templates/page/faq.html:285
+#: allthethings/page/templates/page/faq.html:286
 #, fuzzy
 msgid "page.faq.resources.annas_software"
 msgstr "<a %(a_software)s>Software Annae</a> — nostrum apertum fontem codicem"
 
-#: allthethings/page/templates/page/faq.html:286
+#: allthethings/page/templates/page/faq.html:287
 #, fuzzy
 msgid "page.faq.resources.translate"
 msgstr "<a %(a_translate)s>Translate on Software Annae</a> — nostrum systema translationis"
 
-#: allthethings/page/templates/page/faq.html:287
+#: allthethings/page/templates/page/faq.html:288
 #, fuzzy
 msgid "page.faq.resources.datasets"
 msgstr "<a %(a_datasets)s>Datasets</a> — de data"
 
-#: allthethings/page/templates/page/faq.html:288
+#: allthethings/page/templates/page/faq.html:289
 #, fuzzy
 msgid "page.faq.resources.domains"
 msgstr "<a %(a_li)s>.li</a>, <a %(a_se)s>.se</a>, <a %(a_org)s>.org</a> — dominiis alternativis"
 
-#: allthethings/page/templates/page/faq.html:289
+#: allthethings/page/templates/page/faq.html:290
 #, fuzzy
 msgid "page.faq.resources.wikipedia"
 msgstr "<a %(a_wikipedia)s>Wikipedia</a> — plura de nobis (quaesumus adiuvate ut hanc paginam renovetis, aut creetis unam pro vestra lingua!)"
 
-#: allthethings/page/templates/page/faq.html:292
+#: allthethings/page/templates/page/faq.html:293
 #, fuzzy
 msgid "page.faq.copyright.title"
 msgstr "Quomodo referam de violatione iuris auctoris?"
 
-#: allthethings/page/templates/page/faq.html:295
+#: allthethings/page/templates/page/faq.html:296
 #, fuzzy
 msgid "page.faq.copyright.text1"
 msgstr "Nulla opera iuribus auctoris tuta hic hospitamus. Nos sumus machina quaerendi, et sic tantum indicem metadata quae iam publice praesto sunt. Cum ex his fontibus externis detrahitis, suademus ut leges in vestra iurisdictione consulatis respectu quid liceat. Non sumus responsabiles pro contentis ab aliis hospitatis."
 
-#: allthethings/page/templates/page/faq.html:299
+#: allthethings/page/templates/page/faq.html:300
 #, fuzzy
 msgid "page.faq.copyright.text2"
 msgstr "Si querelas habetis de eo quod hic videtis, optima optio est contactare originale website. Regulariter mutationes eorum in nostram datorum basem trahimus. Si vere putatis vos habere validam querelam DMCA quam respondere debemus, quaesumus implete <a %(a_copyright)s>formam querelae DMCA / Iuris auctoris</a>. Querelas vestras serio accipimus, et quam primum respondebimus."
 
-#: allthethings/page/templates/page/faq.html:302
+#: allthethings/page/templates/page/faq.html:303
 #, fuzzy
 msgid "page.faq.hate.title"
 msgstr "Odio quomodo hoc propositum agitis!"
 
-#: allthethings/page/templates/page/faq.html:305
+#: allthethings/page/templates/page/faq.html:306
 #, fuzzy
 msgid "page.faq.hate.text1"
 msgstr "Etiam omnes monere volumus quod totus noster codex et data sunt omnino aperta fonte. Hoc unicum est pro propositis sicut nostrum — nescimus ullum aliud propositum cum simili catalogo magno quod etiam plene aperta fonte sit. Valde gratum habemus quemlibet qui putat nos male agere nostrum propositum ut codicem et data nostra capiat et suam bibliothecam umbram constituat! Non dicimus hoc ex ira aut aliquid — vere putamus hoc fore mirabile quia elevaret omnes, et melius conservaret legatum humanitatis."
 
-#: allthethings/page/templates/page/faq.html:308
+#: allthethings/page/templates/page/faq.html:309
 #, fuzzy
 msgid "page.faq.favorite.title"
 msgstr "Qui sunt libri tui dilecti?"
 
-#: allthethings/page/templates/page/faq.html:311
+#: allthethings/page/templates/page/faq.html:312
 #, fuzzy
 msgid "page.faq.favorite.text1"
 msgstr "Hic sunt nonnulli libri qui specialem significationem habent mundo bibliothecarum umbrarum et digitalis conservationis:"
@@ -3549,13 +3663,13 @@ msgid "page.md5.box.download.ipfs_gateway_extra"
 msgstr "(forsitan necesse erit pluries conari cum IPFS)"
 
 #: allthethings/page/templates/page/ipfs_downloads.html:23
-#: allthethings/page/templates/page/partner_download.html:93
+#: allthethings/page/templates/page/partner_download.html:91
 #, fuzzy
 msgid "page.partner_download.faster_downloads"
 msgstr "🚀 Ad celerius deponenda et ad probationes navigatoris praetereundas, <a %(a_membership)s>socius fies</a>."
 
 #: allthethings/page/templates/page/ipfs_downloads.html:27
-#: allthethings/page/templates/page/partner_download.html:97
+#: allthethings/page/templates/page/partner_download.html:95
 #, fuzzy
 msgid "page.partner_download.bulk_mirroring"
 msgstr "📡 Ad speculandum molem collectionis nostrae, inspice <a %(a_datasets)s>Datasets</a> et <a %(a_torrents)s>Torrentes</a> paginas."
@@ -3909,27 +4023,31 @@ msgstr "Cum nexum descensionis obtines, is valet per plures horas."
 msgid "page.partner_download.li4"
 msgstr "Gratias quod exspectas, hoc situm omnibus gratis accessibilem servat! 😊"
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:40
+msgid "page.partner_download.automatic_refreshing"
+msgstr ""
+
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.url"
 msgstr "📚 Utere sequenti URL ad deponendum: <a %(a_download)s>Nunc deponere</a>."
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.download_now"
 msgstr "Nunc deponere"
 
-#: allthethings/page/templates/page/partner_download.html:86
+#: allthethings/page/templates/page/partner_download.html:84
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads"
 msgstr "Monitio: multa deponenda ex IP tua in ultimis 24 horis fuerunt. Descensiones tardiores esse possunt quam solitum."
 
-#: allthethings/page/templates/page/partner_download.html:87
+#: allthethings/page/templates/page/partner_download.html:85
 #, fuzzy
 msgid "page.partner_download.downloads_last_24_hours"
 msgstr "Descensiones ex IP tua in ultimis 24 horis: %(count)s."
 
-#: allthethings/page/templates/page/partner_download.html:88
+#: allthethings/page/templates/page/partner_download.html:86
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads2"
 msgstr "Si VPN uteris, nexum interretialem communem, vel ISP tuus IPs communicat, haec monitio ex eo fieri potest."

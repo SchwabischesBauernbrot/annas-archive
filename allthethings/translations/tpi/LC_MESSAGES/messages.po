@@ -370,10 +370,6 @@ msgstr "Long ol donation i go antap long $5000 plis kontakim mipela direk long %
 #: allthethings/account/templates/account/index.html:36
 #: allthethings/page/templates/page/contact.html:3
 #: allthethings/page/templates/page/contact.html:6
-#: allthethings/page/templates/page/faq.html:84
-#: allthethings/page/templates/page/faq.html:139
-#: allthethings/page/templates/page/faq.html:147
-#: allthethings/page/templates/page/faq.html:171
 #: allthethings/page/templates/page/home.html:77
 #: allthethings/page/templates/page/home.html:82
 #: allthethings/page/templates/page/home.html:90
@@ -1387,6 +1383,14 @@ msgstr "Ol fael yu daunlodim i no soim long ol manmeri."
 msgid "page.downloaded.no_files"
 msgstr "Nogat fael daunlod yet."
 
+#: allthethings/account/templates/account/downloaded.html:16
+msgid "page.downloaded.last_18_hours"
+msgstr ""
+
+#: allthethings/account/templates/account/downloaded.html:21
+msgid "page.downloaded.earlier"
+msgstr ""
+
 #: allthethings/account/templates/account/index.html:5
 #: allthethings/account/templates/account/index.html:15
 #, fuzzy
@@ -1462,7 +1466,7 @@ msgid "page.account.logged_in.membership_upgrade"
 msgstr "Kontakim Anna long %(email)s sapos yu laik apgreidim membership bilong yu long nambawan level."
 
 #: allthethings/account/templates/account/index.html:37
-#: allthethings/page/templates/page/faq.html:135
+#: allthethings/page/templates/page/faq.html:136
 #, fuzzy
 msgid "page.account.logged_in.membership_multiple"
 msgstr "Yu inap bungim planti membership (kwik download long 24 aua bai bung wantaim)."
@@ -1717,6 +1721,14 @@ msgstr "Makim bruk long Libgen.li"
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "I no stap long Z-Library"
 
+#: allthethings/page/views.py:4845
+msgid "common.md5_problem_type_mapping.zlib_spam"
+msgstr ""
+
+#: allthethings/page/views.py:4846
+msgid "common.md5_problem_type_mapping.zlib_bad_file"
+msgstr ""
+
 #: allthethings/page/views.py:4847
 #, fuzzy
 msgid "common.md5_problem_type_mapping.duxiu_pdg_broken_files"
@@ -1807,26 +1819,31 @@ msgstr "Lukluk long metadata"
 msgid "common.access_types_mapping.torrents_available"
 msgstr "I stap long torrents"
 
-#: allthethings/page/templates/page/datasets.html:52
-#: allthethings/page/templates/page/datasets.html:88
+#: allthethings/page/templates/page/datasets.html:51
+#: allthethings/page/templates/page/datasets.html:87
 #: allthethings/page/views.py:4880
 #, fuzzy
 msgid "common.record_sources_mapping.lgrs"
 msgstr "Libgen.rs"
 
-#: allthethings/page/templates/page/datasets.html:54
-#: allthethings/page/templates/page/datasets.html:109
+#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:108
 #: allthethings/page/views.py:4881
 #, fuzzy
 msgid "common.record_sources_mapping.lgli"
 msgstr "Libgen.li"
 
-#: allthethings/page/templates/page/datasets.html:55
-#: allthethings/page/templates/page/datasets.html:121
+#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:120
 #: allthethings/page/views.py:4882
 #, fuzzy
 msgid "common.record_sources_mapping.zlib"
 msgstr "Z-Library"
+
+#: allthethings/page/templates/page/datasets.html:55
+#: allthethings/page/views.py:4883
+msgid "common.record_sources_mapping.zlibzh"
+msgstr ""
 
 #: allthethings/page/views.py:4884
 #, fuzzy
@@ -1843,7 +1860,7 @@ msgstr "ISBNdb"
 msgid "common.record_sources_mapping.ol"
 msgstr "OpenLibrary"
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 #: allthethings/page/views.py:4887
 #, fuzzy
 msgid "common.record_sources_mapping.scihub"
@@ -1854,15 +1871,15 @@ msgstr "Sci-Hub"
 msgid "common.record_sources_mapping.oclc"
 msgstr "OCLC (WorldCat)"
 
-#: allthethings/page/templates/page/datasets.html:58
-#: allthethings/page/templates/page/datasets.html:142
+#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:141
 #: allthethings/page/views.py:4889
 #, fuzzy
 msgid "common.record_sources_mapping.duxiu"
 msgstr "DuXiu 读秀"
 
-#: allthethings/page/templates/page/datasets.html:59
-#: allthethings/page/templates/page/datasets.html:155
+#: allthethings/page/templates/page/datasets.html:58
+#: allthethings/page/templates/page/datasets.html:154
 #: allthethings/page/views.py:4890
 #, fuzzy
 msgid "common.record_sources_mapping.uploads"
@@ -2517,8 +2534,6 @@ msgstr "Sampela samting i go rong. Plis reloadim peij na traim gen."
 
 #: allthethings/page/templates/page/aarecord.html:406
 #: allthethings/page/templates/page/aarecord.html:407
-#: allthethings/page/templates/page/codes.html:8
-#: allthethings/page/templates/page/codes.html:9
 #: allthethings/page/templates/page/copyright.html:6
 #: allthethings/page/templates/page/copyright.html:7
 #: allthethings/page/templates/page/datasets.html:13
@@ -2574,12 +2589,12 @@ msgstr "Dispela em wanpela file we <a %(a_ia)s>IA’s Controlled Digital Lending
 msgid "page.md5.text.file_info.text1"
 msgstr "Long save long dispela file stret, lukim <a %(a_href)s>JSON file</a>."
 
-#: allthethings/page/templates/page/aarecord_issue.html:4
+#: allthethings/page/templates/page/aarecord_issue.html:5
 #, fuzzy
 msgid "page.aarecord_issue.title"
 msgstr "🔥 I gat wanpela hevi long loadim dispela peij"
 
-#: allthethings/page/templates/page/aarecord_issue.html:6
+#: allthethings/page/templates/page/aarecord_issue.html:7
 #, fuzzy
 msgid "page.aarecord_issue.text"
 msgstr "Plis refresh na traim gen. <a %(a_contact)s>Kontakim mipela</a> sapos dispela hevi i stap long planti aua."
@@ -2622,6 +2637,105 @@ msgstr "Sapos yu kisim wanpela loop i no pinis, mipela i rekomendim yu long inst
 #, fuzzy
 msgid "page.login.text3"
 msgstr "Em inap helpim tu long ofim ad blokas na arapela brousa ekstensen."
+
+#: allthethings/page/templates/page/codes.html:5
+msgid "page.codes.title"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:10
+msgid "page.codes.heading"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:14
+msgid "page.codes.intro"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:18
+msgid "page.codes.why_cloudflare"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:22
+msgid "page.codes.dont_scrape"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:33
+msgid "page.codes.prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:34
+msgid "common.form.go"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:35
+msgid "common.form.reset"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:40
+msgid "page.codes.bad_unicode"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:46
+msgid "page.codes.known_code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:48
+msgid "page.codes.code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:49
+msgid "page.codes.code_label"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:51
+msgid "page.codes.code_description"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgid "page.codes.code_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgctxt "the %s should not be changed"
+msgid "page.codes.s_substitution"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:57
+msgid "page.codes.generic_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:61
+msgid "page.codes.code_website"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:69
+msgid "page.codes.record_starting_with"
+msgid_plural "page.codes.records_starting_with"
+msgstr[0] ""
+msgstr[1] ""
+
+#: allthethings/page/templates/page/codes.html:75
+msgid "page.codes.search_archive"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:77
+msgid "page.codes.url_link"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:84
+msgid "page.codes.codes_starting_with"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:92
+msgid "page.codes.records_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:93
+msgid "page.codes.records_codes"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:113
+msgid "page.codes.fewer_than"
+msgstr ""
 
 #: allthethings/page/templates/page/contact.html:9
 #, fuzzy
@@ -2723,144 +2837,140 @@ msgstr ""
 msgid "page.datasets.overview.last_updated.header"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:52
+#: allthethings/page/templates/page/datasets.html:51
 msgid "common.record_sources_mapping.lgrs.nonfiction_and_fiction"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "common.record_sources_mapping.scihub.via_lgli_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_1"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_2"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "common.record_sources.mapping.lgli.excluding_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "page.datasets.lgli_fiction_is_behind"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:56
-msgid "common.record_sources_mapping.zlibzh"
-msgstr ""
-
-#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:55
 msgid "page.datasets.zlibzh.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
-#: allthethings/page/templates/page/datasets.html:130
+#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:129
 msgid "common.record_sources_mapping.iacdl"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:56
 msgid "page.datasets.iacdl.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.total"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.excluding_duplicates"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:64
+#: allthethings/page/templates/page/datasets.html:63
 msgid "page.datasets.overview.text4"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:68
+#: allthethings/page/templates/page/datasets.html:67
 msgid "page.datasets.overview.text5"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:71
+#: allthethings/page/templates/page/datasets.html:70
 msgid "page.datasets.source_libraries.title"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:74
+#: allthethings/page/templates/page/datasets.html:73
 #, fuzzy
 msgid "page.datasets.source_libraries.text1"
 msgstr "Sampela buk naispela laibrari i save putim ol data bilong ol long torrent, tasol sampela narapela i no save redi long putim ol buk bilong ol. Long dispela hap, Anna’s Archive i traim long kisim ol buk bilong ol na mekim ol i stap (lukim <a %(a_torrents)s>Torrents</a> peij bilong mipela). I gat tu ol narapela kain situesen, olsem, sampela laibrari i laik putim ol buk, tasol ol i no gat ol risos long mekim olsem. Long dispela hap, mipela tu i traim long helpim ol."
 
-#: allthethings/page/templates/page/datasets.html:78
+#: allthethings/page/templates/page/datasets.html:77
 #, fuzzy
 msgid "page.datasets.source_libraries.text2"
 msgstr "Aninit i stap wanpela lukluk long hau mipela i wok wantaim ol narapela laibrari."
 
-#: allthethings/page/templates/page/datasets.html:83
+#: allthethings/page/templates/page/datasets.html:82
 #, fuzzy
 msgid "page.datasets.sources.source.header"
 msgstr "Sos"
 
-#: allthethings/page/templates/page/datasets.html:84
+#: allthethings/page/templates/page/datasets.html:83
 #, fuzzy
 msgid "page.datasets.sources.metadata.header"
 msgstr "Metadata"
 
-#: allthethings/page/templates/page/datasets.html:85
+#: allthethings/page/templates/page/datasets.html:84
 #, fuzzy
 msgid "page.datasets.sources.files.header"
 msgstr "Ol Fael"
 
-#: allthethings/page/templates/page/datasets.html:98
+#: allthethings/page/templates/page/datasets.html:97
 #, fuzzy
 msgid "common.record_sources_mapping.scihub_scimag"
 msgstr "Sci-Hub / Libgen “scimag”"
 
-#: allthethings/page/templates/page/datasets.html:162
+#: allthethings/page/templates/page/datasets.html:161
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.title"
 msgstr "Ol sos bilong metadata tasol"
 
-#: allthethings/page/templates/page/datasets.html:165
+#: allthethings/page/templates/page/datasets.html:164
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text1"
 msgstr "Mipela tu i save putim ol metadata tasol long koleksen bilong mipela, we mipela inap painim ol fael, olsem long yusim ISBN namba o narapela filed. Aninit i stap wanpela lukluk bilong ol dispela. Gen, sampela bilong ol dispela sos i op, tasol sampela narapela mipela i mas kisim ol."
 
-#: allthethings/page/templates/page/datasets.html:169
-#: allthethings/page/templates/page/faq.html:186
+#: allthethings/page/templates/page/datasets.html:168
+#: allthethings/page/templates/page/faq.html:187
 #: allthethings/page/templates/page/search.html:294
 #, fuzzy
 msgid "page.faq.metadata.inspiration1"
 msgstr "Inspiresen bilong mipela long bungim metadata em Aaron Swartz’ gol bilong “wanpela web peij bilong olgeta buk i bin kamap”, em i wokim <a %(a_openlib)s>Open Library</a>."
 
-#: allthethings/page/templates/page/datasets.html:170
-#: allthethings/page/templates/page/faq.html:187
+#: allthethings/page/templates/page/datasets.html:169
+#: allthethings/page/templates/page/faq.html:188
 #: allthethings/page/templates/page/search.html:295
 #, fuzzy
 msgid "page.faq.metadata.inspiration2"
 msgstr "Dispela projek i wok gut, tasol posisen bilong mipela i save kisim metadata ol i no inap."
 
-#: allthethings/page/templates/page/datasets.html:171
-#: allthethings/page/templates/page/faq.html:188
+#: allthethings/page/templates/page/datasets.html:170
+#: allthethings/page/templates/page/faq.html:189
 #: allthethings/page/templates/page/search.html:296
 #, fuzzy
 msgid "page.faq.metadata.inspiration3"
 msgstr "Narapela inspiresen em laik bilong mipela long save <a %(a_blog)s>hamas buk i stap long wol</a>, olsem mipela inap kauntim hamas buk i stap yet long seivim."
 
-#: allthethings/page/templates/page/datasets.html:175
+#: allthethings/page/templates/page/datasets.html:174
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text2"
 msgstr "Noken lus tingim long metadata sejen, mipela i soim ol orijinal rekod. Mipela i no mekim wanpela join bilong ol rekod."
 
-#: allthethings/page/templates/page/datasets.html:216
+#: allthethings/page/templates/page/datasets.html:215
 #, fuzzy
 msgid "page.datasets.unified_database.title"
 msgstr "Wanpela database"
 
-#: allthethings/page/templates/page/datasets.html:219
+#: allthethings/page/templates/page/datasets.html:218
 #, fuzzy
 msgid "page.datasets.unified_database.text1"
 msgstr "Mipela i joinim olgeta sos antap long wanpela database we mipela i yusim long sapotim dispela website. Dispela wanpela database i no stap redi, tasol bikos Anna’s Archive i op so, em inap isi <a %(a_generated)s>mekim</a> o <a %(a_downloaded)s>daunlod</a> olsem ElasticSearch na MariaDB database. Ol skrip long dispela peij bai daunlod olgeta metadata long ol sos mipela i tokaut antap."
 
-#: allthethings/page/templates/page/datasets.html:227
+#: allthethings/page/templates/page/datasets.html:226
 #, fuzzy
 msgid "page.datasets.unified_database.text2"
 msgstr "Sapos yu laik lukluk long data bilong mipela bipo yu ranim ol skrip long ples bilong yu, yu ken lukim ol JSON fael bilong mipela, we i link i go long narapela JSON fael. <a %(a_json)s>Dispela fael</a> em i gutpela stat poin."
@@ -2901,473 +3011,477 @@ msgstr "ISBN website"
 msgid "page.datasets/isbn_ranges.isbn_metadata"
 msgstr "Metadata"
 
-#: allthethings/page/templates/page/faq.html:3
-#: allthethings/page/templates/page/faq.html:6
+#: allthethings/page/templates/page/faq.html:5
+#: allthethings/page/templates/page/faq.html:8
 #, fuzzy
 msgid "page.faq.title"
 msgstr "Olsem Wanem Olsem Wanem (FAQ)"
 
-#: allthethings/page/templates/page/faq.html:8
+#: allthethings/page/templates/page/faq.html:10
 #, fuzzy
 msgid "page.faq.what_is.title"
 msgstr "Wanem samting em “Anna’s Archive”?"
 
-#: allthethings/page/templates/page/faq.html:11
+#: allthethings/page/templates/page/faq.html:13
 #, fuzzy
 msgid "page.home.intro.text1"
 msgstr "<span %(span_anna)s>Anna’s Archive</span> em wanpela projek bilong helpim ol manmeri wantaim tupela as tingting:"
 
-#: allthethings/page/templates/page/faq.html:15
+#: allthethings/page/templates/page/faq.html:17
 #, fuzzy
 msgid "page.home.intro.text2"
 msgstr "<li><strong>Preservation:</strong> Lukautim olgeta save na kastom bilong ol manmeri.</li><li><strong>Access:</strong> Mekim dispela save na kastom i stap long olgeta manmeri long graun.</li>"
 
-#: allthethings/page/templates/page/faq.html:19
+#: allthethings/page/templates/page/faq.html:21
 #, fuzzy
 msgid "page.home.intro.open_source"
 msgstr "Olgeta <a %(a_code)s>kod</a> na <a %(a_datasets)s>data</a> bilong mipela i stap open source olgeta."
 
-#: allthethings/page/templates/page/faq.html:23
+#: allthethings/page/templates/page/faq.html:25
 #, fuzzy
 msgid "page.home.preservation.header"
 msgstr "Preservation"
 
-#: allthethings/page/templates/page/faq.html:25
+#: allthethings/page/templates/page/faq.html:27
 #, fuzzy
 msgid "page.home.preservation.text1"
 msgstr "Mipela i lukautim ol buk, pepa, komik, magasin, na planti moa, long kisim ol dispela samting long ol narapela <a href=\"https://en.wikipedia.org/wiki/Shadow_library\">shadow libraries</a>, ofisel libraries, na ol narapela koleksen na bungim olgeta long wanpela hap. Olgeta dispela data bai stap oltaim long mekim isi long kopim long bikpela namba — yusim torrents — na mekim planti kopi i stap long olgeta hap bilong graun. Sampela shadow libraries i mekim pinis dispela yet (e.g. Sci-Hub, Library Genesis), tasol Anna’s Archive i “liberates” ol narapela libraries husat i no givim bikpela distribusen (e.g. Z-Library) o i no shadow libraries olgeta (e.g. Internet Archive, DuXiu)."
 
-#: allthethings/page/templates/page/faq.html:27
+#: allthethings/page/templates/page/faq.html:29
 #, fuzzy
 msgid "page.home.preservation.text2"
 msgstr "Dispela bikpela distribusen, wantaim open-source kod, i mekim website bilong mipela i strong long ol takedowns, na lukautim longpela taim bilong save na kastom bilong ol manmeri. Lanem moa long <a href=\"/datasets\">datasets bilong mipela</a>."
 
-#: allthethings/page/templates/page/faq.html:41
+#: allthethings/page/templates/page/faq.html:43
 #, fuzzy
 msgid "page.home.preservation.label"
 msgstr "Mipela i ting mipela i lukautim klostu <a href=\"https://annas-blog.org/blog-isbndb-dump-how-many-books-are-preserved-forever.html\">5%% bilong ol buk long graun</a>."
 
-#: allthethings/page/templates/page/faq.html:46
+#: allthethings/page/templates/page/faq.html:48
 #, fuzzy
 msgid "page.home.access.header"
 msgstr "Access"
 
-#: allthethings/page/templates/page/faq.html:48
+#: allthethings/page/templates/page/faq.html:50
 #, fuzzy
 msgid "page.home.access.text"
 msgstr "Mipela i wok wantaim ol patna long mekim ol koleksen bilong mipela i isi na fri long olgeta manmeri. Mipela i bilip olsem olgeta manmeri i gat rait long save bilong olgeta manmeri. Na <a %(a_search)s>i no long kot bilong ol raita</a>."
 
-#: allthethings/page/templates/page/faq.html:52
+#: allthethings/page/templates/page/faq.html:54
 #, fuzzy
 msgid "page.home.access.label"
 msgstr "Olgeta daunlod long las 30 de. Avaris long aua: %(hourly)s. Avaris long de: %(daily)s."
 
-#: allthethings/page/templates/page/faq.html:80
+#: allthethings/page/templates/page/faq.html:82
 #, fuzzy
 msgid "page.about.text2"
 msgstr "Mipela i strong bilip long fri flou bilong infomesen, na lukautim save na kastom. Wantaim dispela search engine, mipela i wok long sol bilong ol giant. Mipela i gat bikpela rispek long hatwok bilong ol manmeri husat i bin wokim ol narapela shadow libraries, na mipela i hop olsem dispela search engine bai mekim reach bilong ol i bikpela moa."
 
-#: allthethings/page/templates/page/faq.html:84
+#: allthethings/page/templates/page/faq.html:86
 #, fuzzy
 msgid "page.about.text3"
 msgstr "Long stap apdet long progres bilong mipela, bihainim Anna long <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a> o <a href=\"https://t.me/annasarchiveorg\">Telegram</a>. Long ol askim na feedback plis kontakim Anna long %(email)s."
 
-#: allthethings/page/templates/page/faq.html:87
+#: allthethings/page/templates/page/faq.html:89
 #, fuzzy
 msgid "page.faq.help.title"
 msgstr "Olsem wanem mi inap helpim?"
 
-#: allthethings/page/templates/page/faq.html:90
+#: allthethings/page/templates/page/faq.html:92
 #, fuzzy
 msgid "page.about.help.text"
 msgstr "<li>1. Bihainim mipela long <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a>, o <a href=\"https://t.me/annasarchiveorg\">Telegram</a>.</li><li>2. Tokaut long Anna’s Archive long Twitter, Reddit, Tiktok, Instagram, long lokal kafe o laibrari, o we yu go! Mipela i no bilip long gatekeeping — sapos ol i rausim mipela, mipela bai kamap gen long narapela hap, bikos olgeta kod na data bilong mipela i open source olgeta.</li><li>3. Sapos yu inap, tingim <a href=\"/donate\">donating</a>.</li><li>4. Helpim <a href=\"https://translate.annas-software.org/\">translet</a> website bilong mipela long ol narapela tokples.</li><li>5. Sapos yu wanpela software engineer, tingim long kontribiut long <a href=\"https://annas-software.org/\">open source</a>, o seeding ol <a href=\"/datasets\">torrents</a>.</li>"
 
-#: allthethings/page/templates/page/faq.html:91
+#: allthethings/page/templates/page/faq.html:93
 #, fuzzy
 msgid "page.about.help.text6"
 msgstr "6. Sapos yu wanpela security researcher, mipela inap yusim skill bilong yu long ofens na difens. Lukim <a %(a_security)s>Security</a> pej bilong mipela."
 
-#: allthethings/page/templates/page/faq.html:92
+#: allthethings/page/templates/page/faq.html:94
 #, fuzzy
 msgid "page.about.help.text7"
 msgstr "7. Mipela i lukautim ol eksper long payments bilong anonymous merchants. Yu inap helpim mipela long addim moa isi rot bilong donet? PayPal, WeChat, gift cards. Sapos yu save long wanpela, plis kontakim mipela."
 
-#: allthethings/page/templates/page/faq.html:93
+#: allthethings/page/templates/page/faq.html:95
 #, fuzzy
 msgid "page.about.help.text8"
 msgstr "8. Mipela i save lukautim moa server kapasiti."
 
-#: allthethings/page/templates/page/faq.html:94
+#: allthethings/page/templates/page/faq.html:96
 #, fuzzy
 msgid "page.about.help.text9"
 msgstr "9. Yu inap helpim long ripotim ol file issues, lusim koments, na wokim ol lis long dispela website. Yu inap tu helpim long <a %(a_upload)s>uploadim moa buk</a>, o stretim ol file issues o formatting bilong ol buk i stap pinis."
 
-#: allthethings/page/templates/page/faq.html:95
+#: allthethings/page/templates/page/faq.html:97
 #, fuzzy
 msgid "page.about.help.text10"
 msgstr "10. Yu ken wokim o helpim long Wikipedia pej bilong Anna’s Archive long tokples bilong yu."
 
-#: allthethings/page/templates/page/faq.html:96
+#: allthethings/page/templates/page/faq.html:98
 #, fuzzy
 msgid "page.about.help.text11"
 msgstr "11. Mipela laik putim liklik, nais advaetismen. Sapos yu laik advaetais long Anna’s Archive, plis tokim mipela."
 
-#: allthethings/page/templates/page/faq.html:97
+#: allthethings/page/templates/page/faq.html:99
 #, fuzzy
 msgid "page.faq.help.mirrors"
 msgstr "Mipela bai amamas sapos ol pipol inap setim <a %(a_mirrors)s>mirrors</a>, na mipela bai sapotim long mani."
 
-#: allthethings/page/templates/page/faq.html:105
+#: allthethings/page/templates/page/faq.html:103
+msgid "page.about.help.volunteer"
+msgstr ""
+
+#: allthethings/page/templates/page/faq.html:106
 #, fuzzy
 msgid "page.faq.slow.title"
 msgstr "Bilong wanem ol download i go slow tumas?"
 
-#: allthethings/page/templates/page/faq.html:108
+#: allthethings/page/templates/page/faq.html:109
 #, fuzzy
 msgid "page.faq.slow.text1"
 msgstr "Mipela tru i no gat inap risos long givim olgeta manmeri long wol kwik daunlod, maski mipela laikim tumas. Sapos wanpela raitman i laik kamap na givim dispela long mipela, em bai nambawan tru, tasol inap nau, mipela traim bes bilong mipela. Mipela wanpela non-profit projek we i save stap tasol long donesen."
 
-#: allthethings/page/templates/page/faq.html:112
+#: allthethings/page/templates/page/faq.html:113
 #, fuzzy
 msgid "page.faq.slow.text2"
 msgstr "Dispela em as na mipela putim tupela sistem bilong fri daunlod, wantaim ol patna bilong mipela: ol serba we i daunlod isi, na ol liklik kwik serba wantaim wetlist (long rediusim namba bilong ol pipol i daunlod wantaim)."
 
-#: allthethings/page/templates/page/faq.html:116
+#: allthethings/page/templates/page/faq.html:117
 #, fuzzy
 msgid "page.faq.slow.text3"
 msgstr "Mipela tu gat <a %(a_verification)s>browser verification</a> bilong ol isi daunlod, bikos sapos nogat, ol bots na scrapers bai yusim nogut, na mekim samting i moa isi long ol rait yusa."
 
-#: allthethings/page/templates/page/faq.html:120
+#: allthethings/page/templates/page/faq.html:121
 #, fuzzy
 msgid "page.faq.slow.text4"
 msgstr "Noken lus tingim, taim yu yusim Tor Brausa, yu mas senisim ol sekuriti seting bilong yu. Long loas opisen, em i kolim “Standard”, Cloudflare turnstile challenge i wok. Long hai opisen, em i kolim “Safer” na “Safest”, challenge i no wok."
 
-#: allthethings/page/templates/page/faq.html:124
+#: allthethings/page/templates/page/faq.html:125
 #, fuzzy
 msgid "page.faq.slow.text5"
 msgstr "Sapos yu daunlodim bikpela fail, sampela taim daunlod i ken bruk long namel. Mipela i rikumendim yu long yusim daunlod manija (olsem JDownloader) bilong wokim gen bikpela daunlod."
 
-#: allthethings/page/templates/page/faq.html:127
+#: allthethings/page/templates/page/faq.html:128
 #, fuzzy
 msgid "page.donate.faq.title"
 msgstr "Donation FAQ"
 
-#: allthethings/page/templates/page/faq.html:130
+#: allthethings/page/templates/page/faq.html:131
 #, fuzzy
 msgid "page.donate.faq.renew"
 msgstr "<div %(div_question)s>Ol membership i save renew wantaim?</div> Membership <strong>i no</strong> save renew wantaim. Yu ken join longpela taim o sotpela taim olsem yu laik."
 
-#: allthethings/page/templates/page/faq.html:134
+#: allthethings/page/templates/page/faq.html:135
 #, fuzzy
 msgid "page.donate.faq.membership"
 msgstr "<div %(div_question)s>Mi inap apgreitim membasip bilong mi o kisim planti membasip?</div>"
 
-#: allthethings/page/templates/page/faq.html:139
+#: allthethings/page/templates/page/faq.html:140
 #, fuzzy
 msgid "page.donate.faq.text_other_payment1"
 msgstr "<div %(div_question)s>Yu gat narapela rot bilong peim?</div> Nau nogat. Planti pipol i no laik ol kain archive olsem i stap, olsem na mipela mas lukaut. Sapos yu ken helpim mipela setim narapela (moa isi) rot bilong peim long seif wei, plis kontakim mipela long %(email)s."
 
-#: allthethings/page/templates/page/faq.html:143
+#: allthethings/page/templates/page/faq.html:144
 #, fuzzy
 msgid "page.donate.faq.spend"
 msgstr "<div %(div_question)s>Wanem samting yu save yusim donesen long en?</div> 100%% i go long lukautim na mekim save na kalja bilong wol i stap. Nau mipela save yusim bikpela hap long serba, stoa, na bandwidth. No gat mani i go long wanpela memba bilong tim."
 
-#: allthethings/page/templates/page/faq.html:147
+#: allthethings/page/templates/page/faq.html:148
 #, fuzzy
 msgid "page.donate.faq.text_large_donation"
 msgstr "<div %(div_question)s>Mi ken mekim bikpela donesen?</div> Dispela bai nambawan tru! Long donesen i winim sampela tausen dola, plis kontakim mipela stret long %(email)s."
 
-#: allthethings/page/templates/page/faq.html:151
+#: allthethings/page/templates/page/faq.html:152
 #, fuzzy
 msgid "page.donate.faq.non_member_donation"
 msgstr "<div %(div_question)s>Mi ken mekim donesen nating kamap memba?</div> Tru tumas. Mipela kisim donesen bilong olgeta kain mani long dispela Monero (XMR) adres: %(address)s."
 
-#: allthethings/page/templates/page/faq.html:154
+#: allthethings/page/templates/page/faq.html:155
 #, fuzzy
 msgid "page.faq.upload.title"
 msgstr "Olsem wanem mi ken uploadim ol nupela buk?"
 
-#: allthethings/page/templates/page/faq.html:157
+#: allthethings/page/templates/page/faq.html:158
 #, fuzzy
 msgid "page.upload.text1"
 msgstr "Nau, mipela tingim yu uploadim ol nupela buk long Library Genesis forks. Hia em wanpela <a %(a_guide)s>gutpela gaim</a>. Tingim olsem tupela fork we mipela indeks long dispela website i pulim long dispela wankain upload sistem."
 
-#: allthethings/page/templates/page/faq.html:158
+#: allthethings/page/templates/page/faq.html:159
 #, fuzzy
 msgid "common.libgen.email"
 msgstr "Sapos email adres bilong yu i no wok long Libgen forums, mipela rekomendim yusim <a %(a_mail)s>Proton Mail</a> (fri). Yu ken tu <a %(a_manual)s>askim man</a> long aktivetim akaun bilong yu."
 
-#: allthethings/page/templates/page/faq.html:159
+#: allthethings/page/templates/page/faq.html:160
 #, fuzzy
 msgid "page.faq.mhut_upload"
 msgstr "Tingim olsem mhut.org i blokim sampela IP ranges, olsem na VPN inap nidim."
 
-#: allthethings/page/templates/page/faq.html:163
+#: allthethings/page/templates/page/faq.html:164
 #, fuzzy
 msgid "page.upload.zlib.text1"
 msgstr "Narapela rot, yu ken uploadim ol long Z-Library <a %(a_upload)s>long hia</a>."
 
-#: allthethings/page/templates/page/faq.html:167
+#: allthethings/page/templates/page/faq.html:168
 #, fuzzy
 msgid "page.upload.zlib.text2"
 msgstr "Long uploadim akademik pepa, plis tu (long hap bilong Library Genesis) uploadim long <a %(a_stc_nexus)s>STC Nexus</a>. Ol i nambawan shadow library bilong nupela pepa. Mipela i no yet integratim ol, tasol mipela bai long wanpela taim. Yu ken yusim ol <a %(a_telegram)s>upload bot long Telegram</a>, o kontakim adres i stap long pin mesis sapos yu gat planti fail long uploadim long dispela rot."
 
-#: allthethings/page/templates/page/faq.html:171
+#: allthethings/page/templates/page/faq.html:172
 #, fuzzy
 msgid "page.upload.large.text"
 msgstr "Long bikpela uploads (winim 10,000 fail) we i no kisim long Libgen o Z-Library, plis kontakim mipela long %(a_email)s."
 
-#: allthethings/page/templates/page/faq.html:174
+#: allthethings/page/templates/page/faq.html:175
 #, fuzzy
 msgid "page.faq.request.title"
 msgstr "Olsem wanem mi ken askim buk?"
 
-#: allthethings/page/templates/page/faq.html:177
+#: allthethings/page/templates/page/faq.html:178
 #, fuzzy
 msgid "page.request.cannot_accomodate"
 msgstr "Long dispela taim, mipela i no inap kisim ol buk we yu askim."
 
-#: allthethings/page/templates/page/faq.html:178
+#: allthethings/page/templates/page/faq.html:179
 #, fuzzy
 msgid "page.request.forums"
 msgstr "Plis mekim ol askim bilong yu long Z-Library o Libgen forums."
 
-#: allthethings/page/templates/page/faq.html:179
+#: allthethings/page/templates/page/faq.html:180
 #, fuzzy
 msgid "page.request.dont_email"
 msgstr "No ken emailim mipela ol askim bilong buk."
 
-#: allthethings/page/templates/page/faq.html:182
+#: allthethings/page/templates/page/faq.html:183
 #, fuzzy
 msgid "page.faq.metadata.title"
 msgstr "Yu save bungim ol metadata?"
 
-#: allthethings/page/templates/page/faq.html:185
+#: allthethings/page/templates/page/faq.html:186
 #, fuzzy
 msgid "page.faq.metadata.indeed"
 msgstr "Yes, mipela save bungim."
 
-#: allthethings/page/templates/page/faq.html:191
+#: allthethings/page/templates/page/faq.html:192
 #, fuzzy
 msgid "page.faq.1984.title"
 msgstr "Mi daunlodim 1984 bilong George Orwell, ol polis bai kam long haus bilong mi?"
 
-#: allthethings/page/templates/page/faq.html:194
+#: allthethings/page/templates/page/faq.html:195
 #, fuzzy
 msgid "page.faq.1984.text"
 msgstr "No wari tumas, planti manmeri save daunlodim long ol websait we mipela linkim, na i rabis tru long kisim trabel. Tasol, long stap sef, mipela rekomendim yu long yusim VPN (peid), o <a %(a_tor)s>Tor</a> (fri)."
 
-#: allthethings/page/templates/page/faq.html:197
+#: allthethings/page/templates/page/faq.html:198
 #, fuzzy
 msgid "page.faq.save_search.title"
 msgstr "Bai mi save olsem wanem long sevim ol seting bilong searc?"
 
-#: allthethings/page/templates/page/faq.html:200
+#: allthethings/page/templates/page/faq.html:201
 #, fuzzy
 msgid "page.faq.save_search.text1"
 msgstr "Selesim ol seting yu laikim, lusim searc bokis i stap nating, klik “Search”, na bookmarkim peij yusim bookmark featur bilong browser bilong yu."
 
-#: allthethings/page/templates/page/faq.html:203
+#: allthethings/page/templates/page/faq.html:204
 #, fuzzy
 msgid "page.faq.mobile.title"
 msgstr "Yu gat wanpela mobile app?"
 
-#: allthethings/page/templates/page/faq.html:206
+#: allthethings/page/templates/page/faq.html:207
 #, fuzzy
 msgid "page.faq.mobile.text1"
 msgstr "Mipela i no gat ofisel mobile app, tasol yu inap instolim dispela websait olsem app."
 
-#: allthethings/page/templates/page/faq.html:207
+#: allthethings/page/templates/page/faq.html:208
 #, fuzzy
 msgid "page.faq.mobile.android"
 msgstr "<strong>Android:</strong> Klikim tri-dot menu long top raet, na selekt “Add to Home Screen”."
 
-#: allthethings/page/templates/page/faq.html:208
+#: allthethings/page/templates/page/faq.html:209
 #, fuzzy
 msgid "page.faq.mobile.ios"
 msgstr "<strong>iOS:</strong> Klikim “Share” button long daun, na selekt “Add to Home Screen”."
 
-#: allthethings/page/templates/page/faq.html:211
+#: allthethings/page/templates/page/faq.html:212
 #, fuzzy
 msgid "page.faq.api.title"
 msgstr "Yu gat wanpela API?"
 
-#: allthethings/page/templates/page/faq.html:214
+#: allthethings/page/templates/page/faq.html:215
 #, fuzzy
 msgid "page.faq.api.text1"
 msgstr "Mipela gat wanpela stapel JSON API bilong ol memba, bilong kisim kwik daunlod URL: <a %(a_fast_download)s>/dyn/api/fast_download.json</a> (dokumentesen insait long JSON yet)."
 
-#: allthethings/page/templates/page/faq.html:218
+#: allthethings/page/templates/page/faq.html:219
 #, fuzzy
 msgid "page.faq.api.text2"
 msgstr "Long ol narapela yus, olsem iterating long olgeta fael bilong mipela, wokim custom searc, na olsem, mipela rekomendim <a %(a_generate)s>generating</a> o <a %(a_download)s>daunlodim</a> ol ElasticSearch na MariaDB databases bilong mipela. Ol raw data inap maniman eksplor <a %(a_explore)s>long ol JSON fael</a>."
 
-#: allthethings/page/templates/page/faq.html:222
+#: allthethings/page/templates/page/faq.html:223
 #, fuzzy
 msgid "page.faq.api.text3"
 msgstr "Ol raw torrents list bilong mipela inap daunlod olsem <a %(a_torrents)s>JSON</a> tu."
 
-#: allthethings/page/templates/page/faq.html:225
+#: allthethings/page/templates/page/faq.html:226
 #, fuzzy
 msgid "page.faq.torrents.title"
 msgstr "Torrents FAQ"
 
-#: allthethings/page/templates/page/faq.html:228
+#: allthethings/page/templates/page/faq.html:229
 #, fuzzy
 msgid "page.faq.torrents.q1"
 msgstr "Mi laik helpim long seed, tasol mi no gat planti disk spais."
 
-#: allthethings/page/templates/page/faq.html:230
+#: allthethings/page/templates/page/faq.html:231
 #, fuzzy
 msgid "page.faq.torrents.a1"
 msgstr "Yusim <a %(a_list)s>torrent list generator</a> long wokim wanpela list bilong ol torrents we i nidim torrenting moa, insait long ol limit bilong storage spais bilong yu."
 
-#: allthethings/page/templates/page/faq.html:234
+#: allthethings/page/templates/page/faq.html:235
 #, fuzzy
 msgid "page.faq.torrents.q2"
 msgstr "Olsem wanem, ol torrents i tu slou; mi inap daunlod ol data stret long yu?"
 
-#: allthethings/page/templates/page/faq.html:236
+#: allthethings/page/templates/page/faq.html:237
 #, fuzzy
 msgid "page.faq.torrents.a2"
 msgstr "Yes, lukim <a %(a_llm)s>LLM data</a> pej."
 
-#: allthethings/page/templates/page/faq.html:240
+#: allthethings/page/templates/page/faq.html:241
 #, fuzzy
 msgid "page.faq.torrents.q3"
 msgstr "Mi inap daunlod wanpela hap tasol bilong ol fael, olsem wanpela tokples o topik tasol?"
 
-#: allthethings/page/templates/page/faq.html:242
+#: allthethings/page/templates/page/faq.html:243
 #, fuzzy
 msgid "page.faq.torrents.a3"
 msgstr "Planti torrents i gat ol fael stret, we yu inap tokim ol torrent klien long daunlodim ol fael yu nidim tasol. Long save long wanem fael long daunlod, yu inap <a %(a_generate)s>mekim</a> metadata bilong mipela, o <a %(a_download)s>daunlod</a> ElasticSearch na MariaDB databases bilong mipela. Sori tumas, sampela torrent koleksens i gat .zip o .tar fael long rot, we yu mas daunlod olgeta torrent pastaim bipo yu inap makim ol fael wan wan."
 
-#: allthethings/page/templates/page/faq.html:246
+#: allthethings/page/templates/page/faq.html:247
 #, fuzzy
 msgid "page.faq.torrents.q4"
 msgstr "Olsem wanem yu mekim long ol dubliket long ol torrents?"
 
-#: allthethings/page/templates/page/faq.html:248
+#: allthethings/page/templates/page/faq.html:249
 #, fuzzy
 msgid "page.faq.torrents.a4"
 msgstr "Mipela traim long holim liklik dubliket o ovaplap namel long ol torrents long dispela lis, tasol dispela i no inap oltaim, na i dipen tumas long ol polisi bilong ol laibrari we mipela kisim ol fael. Long ol laibrari we ol i putim ol torrents bilong ol yet, dispela i no long han bilong mipela. Long ol torrents we Anna’s Archive i putim, mipela i mekim dubliket tasol long MD5 hash, we i min olsem ol defren vesens bilong sem buk i no kamap dubliket."
 
-#: allthethings/page/templates/page/faq.html:252
+#: allthethings/page/templates/page/faq.html:253
 #, fuzzy
 msgid "page.faq.torrents.q5"
 msgstr "Mi inap kisim lis bilong torrents olsem JSON?"
 
-#: allthethings/page/templates/page/faq.html:254
+#: allthethings/page/templates/page/faq.html:255
 #, fuzzy
 msgid "page.faq.torrents.a5"
 msgstr "Yes."
 
-#: allthethings/page/templates/page/faq.html:258
+#: allthethings/page/templates/page/faq.html:259
 #, fuzzy
 msgid "page.faq.torrents.q6"
 msgstr "Mi no lukim ol PDFs o EPUBs long ol torrents, ol i binari fael tasol? Bai mi mekim wanem?"
 
-#: allthethings/page/templates/page/faq.html:260
+#: allthethings/page/templates/page/faq.html:261
 #, fuzzy
 msgid "page.faq.torrents.a6"
 msgstr "Ol dispela i tru PDFs na EPUBs, ol i no gat ekstensen long planti bilong ol torrents bilong mipela. I gat tupela ples we yu inap painim metadata bilong ol torrent fael, inkluding ol fael taips/ekstensens:"
 
-#: allthethings/page/templates/page/faq.html:262
+#: allthethings/page/templates/page/faq.html:263
 #, fuzzy
 msgid "page.faq.torrents.a6.li1"
 msgstr "1. Wan wan koleksen o rilisim i gat metadata bilong em yet. Olsem, <a %(a_libgen_nonfic)s>Libgen.rs torrents</a> i gat wanpela metadata database long Libgen.rs website. Mipela i save linkim long ol relevan metadata risos long wan wan koleksen’s <a %(a_datasets)s>dataset pej</a>."
 
-#: allthethings/page/templates/page/faq.html:264
+#: allthethings/page/templates/page/faq.html:265
 #, fuzzy
 msgid "page.faq.torrents.a6.li2"
 msgstr "2. Mipela i rekomendim <a %(a_generate)s>mekim</a> o <a %(a_download)s>daunlod</a> ElasticSearch na MariaDB databases bilong mipela. Ol dispela i gat wanpela maping bilong wan wan rikod long Anna’s Archive i go long ol torrent fael bilong em (sapos i stap), aninit long “torrent_paths” long ElasticSearch JSON."
 
-#: allthethings/page/templates/page/faq.html:267
+#: allthethings/page/templates/page/faq.html:268
 #, fuzzy
 msgid "page.faq.security.title"
 msgstr "Yu gat wanpela risponsibol disklosa program?"
 
-#: allthethings/page/templates/page/faq.html:270
+#: allthethings/page/templates/page/faq.html:271
 #, fuzzy
 msgid "page.faq.security.text1"
 msgstr "Mipela welkamim ol sekuriti risetjas long painim ol wiknes long sistem bilong mipela. Mipela i bikpela sapota bilong risponsibol disklosa. Kontakim mipela <a %(a_contact)s>hia</a>."
 
-#: allthethings/page/templates/page/faq.html:274
+#: allthethings/page/templates/page/faq.html:275
 #, fuzzy
 msgid "page.faq.security.text2"
 msgstr "Nau mipela i no inap givim bug bounties, ekscept long ol wiknes we i gat <a %(a_link)s>potensel long bagarapim anonimiti bilong mipela</a>, we mipela i ofaim bounties long $10k-50k renj. Mipela laik ofaim moa skop long bug bounties long bihain! Plis notis olsem social engineering ataks i aut long skop."
 
-#: allthethings/page/templates/page/faq.html:278
+#: allthethings/page/templates/page/faq.html:279
 #, fuzzy
 msgid "page.faq.security.text3"
 msgstr "Sapos yu intres long ofensiv sekuriti, na yu laik helpim long arkaivim save na kalja bilong wol, mas kontakim mipela. I gat planti rot we yu inap helpim."
 
-#: allthethings/page/templates/page/faq.html:281
+#: allthethings/page/templates/page/faq.html:282
 #, fuzzy
 msgid "page.faq.resources.title"
 msgstr "I gat moa risos long Anna’s Archive?"
 
-#: allthethings/page/templates/page/faq.html:284
+#: allthethings/page/templates/page/faq.html:285
 #, fuzzy
 msgid "page.faq.resources.annas_blog"
 msgstr "<a %(a_blog)s>Anna’s Blog</a>, <a %(a_reddit_u)s>Reddit</a>, <a %(a_reddit_r)s>Subreddit</a> — ol regila apdeits"
 
-#: allthethings/page/templates/page/faq.html:285
+#: allthethings/page/templates/page/faq.html:286
 #, fuzzy
 msgid "page.faq.resources.annas_software"
 msgstr "<a %(a_software)s>Anna’s Software</a> — open sos kod bilong mipela"
 
-#: allthethings/page/templates/page/faq.html:286
+#: allthethings/page/templates/page/faq.html:287
 #, fuzzy
 msgid "page.faq.resources.translate"
 msgstr "<a %(a_translate)s>Translate on Anna’s Software</a> — translesen sistem bilong mipela"
 
-#: allthethings/page/templates/page/faq.html:287
+#: allthethings/page/templates/page/faq.html:288
 #, fuzzy
 msgid "page.faq.resources.datasets"
 msgstr "<a %(a_datasets)s>Datasets</a> — long ol data"
 
-#: allthethings/page/templates/page/faq.html:288
+#: allthethings/page/templates/page/faq.html:289
 #, fuzzy
 msgid "page.faq.resources.domains"
 msgstr "<a %(a_li)s>.li</a>, <a %(a_se)s>.se</a>, <a %(a_org)s>.org</a> — ol narapela domains"
 
-#: allthethings/page/templates/page/faq.html:289
+#: allthethings/page/templates/page/faq.html:290
 #, fuzzy
 msgid "page.faq.resources.wikipedia"
 msgstr "<a %(a_wikipedia)s>Wikipedia</a> — moa long mipela (plis helpim long mekim dispela pes i stap orait, o wokim wanpela long tokples bilong yu yet!)"
 
-#: allthethings/page/templates/page/faq.html:292
+#: allthethings/page/templates/page/faq.html:293
 #, fuzzy
 msgid "page.faq.copyright.title"
 msgstr "Bai mi ripotim olsem mi lukim wanpela samting i brukim copyright olsem wanem?"
 
-#: allthethings/page/templates/page/faq.html:295
+#: allthethings/page/templates/page/faq.html:296
 #, fuzzy
 msgid "page.faq.copyright.text1"
 msgstr "Mipela i no holim wanpela copyright materials long hia. Mipela i wanpela search engine, na olsem mipela i indeksim tasol metadata we i stap pinis long public. Taim yu daunlodim long ol dispela external sources, mipela i ting yu mas lukim ol lo bilong ples yu long wanem samting i orait. Mipela i no gat wok long ol samting ol arapela i hostim."
 
-#: allthethings/page/templates/page/faq.html:299
+#: allthethings/page/templates/page/faq.html:300
 #, fuzzy
 msgid "page.faq.copyright.text2"
 msgstr "Sapos yu gat ol toktok long wanem yu lukim long hia, nambawan samting yu ken mekim em long kontakim orijinal website. Mipela i save pulim ol senis bilong ol long database bilong mipela. Sapos yu tru tru ting yu gat wanpela valid DMCA toktok mipela mas bekim, plis pulimapim <a %(a_copyright)s>DMCA / Copyright claim form</a>. Mipela i tingim ol toktok bilong yu, na bai mipela bekim kwiktaim."
 
-#: allthethings/page/templates/page/faq.html:302
+#: allthethings/page/templates/page/faq.html:303
 #, fuzzy
 msgid "page.faq.hate.title"
 msgstr "Mi no laikim olsem yu wokim dispela projek!"
 
-#: allthethings/page/templates/page/faq.html:305
+#: allthethings/page/templates/page/faq.html:306
 #, fuzzy
 msgid "page.faq.hate.text1"
 msgstr "Mipela tu laik tingim olgeta manmeri olsem olgeta kod na data bilong mipela i open source olgeta. Dispela i narapela kain long ol projek olsem bilong mipela — mipela i no save long wanpela narapela projek i gat bikpela katalog olsem na i open source olgeta. Mipela i welkamim tru olgeta husat i ting mipela i no wokim gut projek bilong mipela long kisim kod na data bilong mipela na setimap ol yet shadow library bilong ol! Mipela i no tok olsem long kros o samting — mipela tru tru ting dispela bai i orait tru bikos bai i mekim olgeta samting i kamap gutpela moa, na gutpela long preserim legasi bilong ol manmeri."
 
-#: allthethings/page/templates/page/faq.html:308
+#: allthethings/page/templates/page/faq.html:309
 #, fuzzy
 msgid "page.faq.favorite.title"
 msgstr "Olsem wanem ol buk yu laikim tru?"
 
-#: allthethings/page/templates/page/faq.html:311
+#: allthethings/page/templates/page/faq.html:312
 #, fuzzy
 msgid "page.faq.favorite.text1"
 msgstr "Hia sampela buk i gat bikpela as long world bilong shadow libraries na digital preservation:"
@@ -3549,13 +3663,13 @@ msgid "page.md5.box.download.ipfs_gateway_extra"
 msgstr "(yu inap traim planti taim wantaim IPFS)"
 
 #: allthethings/page/templates/page/ipfs_downloads.html:23
-#: allthethings/page/templates/page/partner_download.html:93
+#: allthethings/page/templates/page/partner_download.html:91
 #, fuzzy
 msgid "page.partner_download.faster_downloads"
 msgstr "🚀 Sapos yu laik daunlod kwikta na no ken go pas long brausa sek, <a %(a_membership)s>kamap memba</a>."
 
 #: allthethings/page/templates/page/ipfs_downloads.html:27
-#: allthethings/page/templates/page/partner_download.html:97
+#: allthethings/page/templates/page/partner_download.html:95
 #, fuzzy
 msgid "page.partner_download.bulk_mirroring"
 msgstr "📡 Sapos yu laik kisim planti buk long wanpela taim, lukim <a %(a_datasets)s>Datasets</a> na <a %(a_torrents)s>Torrents</a> peij."
@@ -3925,27 +4039,31 @@ msgstr "Taim yu kisim daunlod link, em i orait long sampela aua."
 msgid "page.partner_download.li4"
 msgstr "Tenk yu long wet, dispela i mekim website i fri long olgeta manmeri! 😊"
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:40
+msgid "page.partner_download.automatic_refreshing"
+msgstr ""
+
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.url"
 msgstr "📚 Yusim dispela URL long daunlod: <a %(a_download)s>Daunlod nau</a>."
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.download_now"
 msgstr "Daunlod nau"
 
-#: allthethings/page/templates/page/partner_download.html:86
+#: allthethings/page/templates/page/partner_download.html:84
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads"
 msgstr "Waning: i gat planti daunlod long IP adres bilong yu long las 24 aua. Daunlod i ken isi isi."
 
-#: allthethings/page/templates/page/partner_download.html:87
+#: allthethings/page/templates/page/partner_download.html:85
 #, fuzzy
 msgid "page.partner_download.downloads_last_24_hours"
 msgstr "Daunlod long IP adres bilong yu long las 24 aua: %(count)s."
 
-#: allthethings/page/templates/page/partner_download.html:88
+#: allthethings/page/templates/page/partner_download.html:86
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads2"
 msgstr "Sapos yu yusim VPN, serim internet koneksen, o ISP bilong yu i serim IPs, dispela waning i ken kamap long dispela as."

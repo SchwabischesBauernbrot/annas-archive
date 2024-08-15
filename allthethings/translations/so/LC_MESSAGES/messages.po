@@ -370,10 +370,6 @@ msgstr "Deeqaha ka badan $5000 fadlan si toos ah noola soo xiriir %(email)s."
 #: allthethings/account/templates/account/index.html:36
 #: allthethings/page/templates/page/contact.html:3
 #: allthethings/page/templates/page/contact.html:6
-#: allthethings/page/templates/page/faq.html:84
-#: allthethings/page/templates/page/faq.html:139
-#: allthethings/page/templates/page/faq.html:147
-#: allthethings/page/templates/page/faq.html:171
 #: allthethings/page/templates/page/home.html:77
 #: allthethings/page/templates/page/home.html:82
 #: allthethings/page/templates/page/home.html:90
@@ -1387,6 +1383,14 @@ msgstr "Faylasha la soo dejiyay lama soo bandhigo si guud."
 msgid "page.downloaded.no_files"
 msgstr "Faylasha weli lama soo dejin."
 
+#: allthethings/account/templates/account/downloaded.html:16
+msgid "page.downloaded.last_18_hours"
+msgstr ""
+
+#: allthethings/account/templates/account/downloaded.html:21
+msgid "page.downloaded.earlier"
+msgstr ""
+
 #: allthethings/account/templates/account/index.html:5
 #: allthethings/account/templates/account/index.html:15
 #, fuzzy
@@ -1462,7 +1466,7 @@ msgid "page.account.logged_in.membership_upgrade"
 msgstr "La xiriir Anna %(email)s haddii aad xiisaynayso inaad xubinimadaada u beddesho heer sare."
 
 #: allthethings/account/templates/account/index.html:37
-#: allthethings/page/templates/page/faq.html:135
+#: allthethings/page/templates/page/faq.html:136
 #, fuzzy
 msgid "page.account.logged_in.membership_multiple"
 msgstr "Waxaad isku dari kartaa xubinnimooyin badan (degsiyada degdega ah ee 24-kii saacba waa la isku dari doonaa)."
@@ -1717,6 +1721,14 @@ msgstr "Calaamadeysan in uu jaban yahay Libgen.li"
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "Ka maqan Z-Library"
 
+#: allthethings/page/views.py:4845
+msgid "common.md5_problem_type_mapping.zlib_spam"
+msgstr ""
+
+#: allthethings/page/views.py:4846
+msgid "common.md5_problem_type_mapping.zlib_bad_file"
+msgstr ""
+
 #: allthethings/page/views.py:4847
 #, fuzzy
 msgid "common.md5_problem_type_mapping.duxiu_pdg_broken_files"
@@ -1807,26 +1819,31 @@ msgstr "Baadh metadata"
 msgid "common.access_types_mapping.torrents_available"
 msgstr "Ku jira torrents"
 
-#: allthethings/page/templates/page/datasets.html:52
-#: allthethings/page/templates/page/datasets.html:88
+#: allthethings/page/templates/page/datasets.html:51
+#: allthethings/page/templates/page/datasets.html:87
 #: allthethings/page/views.py:4880
 #, fuzzy
 msgid "common.record_sources_mapping.lgrs"
 msgstr "Libgen.rs"
 
-#: allthethings/page/templates/page/datasets.html:54
-#: allthethings/page/templates/page/datasets.html:109
+#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:108
 #: allthethings/page/views.py:4881
 #, fuzzy
 msgid "common.record_sources_mapping.lgli"
 msgstr "Libgen.li"
 
-#: allthethings/page/templates/page/datasets.html:55
-#: allthethings/page/templates/page/datasets.html:121
+#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:120
 #: allthethings/page/views.py:4882
 #, fuzzy
 msgid "common.record_sources_mapping.zlib"
 msgstr "Z-Library"
+
+#: allthethings/page/templates/page/datasets.html:55
+#: allthethings/page/views.py:4883
+msgid "common.record_sources_mapping.zlibzh"
+msgstr ""
 
 #: allthethings/page/views.py:4884
 #, fuzzy
@@ -1843,7 +1860,7 @@ msgstr "ISBNdb"
 msgid "common.record_sources_mapping.ol"
 msgstr "OpenLibrary"
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 #: allthethings/page/views.py:4887
 #, fuzzy
 msgid "common.record_sources_mapping.scihub"
@@ -1854,15 +1871,15 @@ msgstr "Sci-Hub"
 msgid "common.record_sources_mapping.oclc"
 msgstr "OCLC (WorldCat)"
 
-#: allthethings/page/templates/page/datasets.html:58
-#: allthethings/page/templates/page/datasets.html:142
+#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:141
 #: allthethings/page/views.py:4889
 #, fuzzy
 msgid "common.record_sources_mapping.duxiu"
 msgstr "DuXiu DuXiu"
 
-#: allthethings/page/templates/page/datasets.html:59
-#: allthethings/page/templates/page/datasets.html:155
+#: allthethings/page/templates/page/datasets.html:58
+#: allthethings/page/templates/page/datasets.html:154
 #: allthethings/page/views.py:4890
 #, fuzzy
 msgid "common.record_sources_mapping.uploads"
@@ -2517,8 +2534,6 @@ msgstr "Waxbaa qaldamay. Fadlan dib u cusbooneysii bogga oo isku day mar kale."
 
 #: allthethings/page/templates/page/aarecord.html:406
 #: allthethings/page/templates/page/aarecord.html:407
-#: allthethings/page/templates/page/codes.html:8
-#: allthethings/page/templates/page/codes.html:9
 #: allthethings/page/templates/page/copyright.html:6
 #: allthethings/page/templates/page/copyright.html:7
 #: allthethings/page/templates/page/datasets.html:13
@@ -2574,12 +2589,12 @@ msgstr "Kani waa fayl ay maamusho <a %(a_ia)s>IA’s Controlled Digital Lending<
 msgid "page.md5.text.file_info.text1"
 msgstr "Macluumaad ku saabsan faylkan gaar ah, eeg <a %(a_href)s>faylka JSON</a>."
 
-#: allthethings/page/templates/page/aarecord_issue.html:4
+#: allthethings/page/templates/page/aarecord_issue.html:5
 #, fuzzy
 msgid "page.aarecord_issue.title"
 msgstr "🔥 Dhibaato ku jirta boggan oo la rarayo"
 
-#: allthethings/page/templates/page/aarecord_issue.html:6
+#: allthethings/page/templates/page/aarecord_issue.html:7
 #, fuzzy
 msgid "page.aarecord_issue.text"
 msgstr "Fadlan cusbooneysii si aad mar kale isku daydo. <a %(a_contact)s>Nala soo xiriir</a> haddii dhibaatadu sii socoto saacado badan."
@@ -2622,6 +2637,105 @@ msgstr "Haddii aad ku xayiranto wareeg aan dhammaad lahayn, waxaan kugula taline
 #, fuzzy
 msgid "page.login.text3"
 msgstr "Waxa kale oo laga yaabaa inay caawiso in la damiyo xayaysiisyada iyo kordhinta biraawsarka kale."
+
+#: allthethings/page/templates/page/codes.html:5
+msgid "page.codes.title"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:10
+msgid "page.codes.heading"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:14
+msgid "page.codes.intro"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:18
+msgid "page.codes.why_cloudflare"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:22
+msgid "page.codes.dont_scrape"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:33
+msgid "page.codes.prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:34
+msgid "common.form.go"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:35
+msgid "common.form.reset"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:40
+msgid "page.codes.bad_unicode"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:46
+msgid "page.codes.known_code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:48
+msgid "page.codes.code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:49
+msgid "page.codes.code_label"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:51
+msgid "page.codes.code_description"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgid "page.codes.code_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgctxt "the %s should not be changed"
+msgid "page.codes.s_substitution"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:57
+msgid "page.codes.generic_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:61
+msgid "page.codes.code_website"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:69
+msgid "page.codes.record_starting_with"
+msgid_plural "page.codes.records_starting_with"
+msgstr[0] ""
+msgstr[1] ""
+
+#: allthethings/page/templates/page/codes.html:75
+msgid "page.codes.search_archive"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:77
+msgid "page.codes.url_link"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:84
+msgid "page.codes.codes_starting_with"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:92
+msgid "page.codes.records_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:93
+msgid "page.codes.records_codes"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:113
+msgid "page.codes.fewer_than"
+msgstr ""
 
 #: allthethings/page/templates/page/contact.html:9
 #, fuzzy
@@ -2723,144 +2837,140 @@ msgstr ""
 msgid "page.datasets.overview.last_updated.header"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:52
+#: allthethings/page/templates/page/datasets.html:51
 msgid "common.record_sources_mapping.lgrs.nonfiction_and_fiction"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "common.record_sources_mapping.scihub.via_lgli_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_1"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_2"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "common.record_sources.mapping.lgli.excluding_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "page.datasets.lgli_fiction_is_behind"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:56
-msgid "common.record_sources_mapping.zlibzh"
-msgstr ""
-
-#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:55
 msgid "page.datasets.zlibzh.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
-#: allthethings/page/templates/page/datasets.html:130
+#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:129
 msgid "common.record_sources_mapping.iacdl"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:56
 msgid "page.datasets.iacdl.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.total"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.excluding_duplicates"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:64
+#: allthethings/page/templates/page/datasets.html:63
 msgid "page.datasets.overview.text4"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:68
+#: allthethings/page/templates/page/datasets.html:67
 msgid "page.datasets.overview.text5"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:71
+#: allthethings/page/templates/page/datasets.html:70
 msgid "page.datasets.source_libraries.title"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:74
+#: allthethings/page/templates/page/datasets.html:73
 #, fuzzy
 msgid "page.datasets.source_libraries.text1"
 msgstr "Maktabadaha qaar waxay dhiirrigeliyaan wadaagga xogtooda si ballaaran iyada oo loo marayo torrents, halka kuwa kalena aysan si fudud u wadaagin ururintooda. Xaaladda dambe, Kaydka Anna waxay isku daydaa inay ka soo ururiso ururintooda, oo ay ka dhigto mid la heli karo (eeg boggayaga <a %(a_torrents)s>Torrents</a>). Waxaa sidoo kale jira xaalado dhexdhexaad ah, tusaale ahaan, halkaas oo maktabadaha isha ay diyaar u yihiin inay wadaagaan, laakiin aysan haysan agab ku filan oo ay ku sameeyaan. Xaaladahaas, waxaan sidoo kale isku daynaa inaan caawino."
 
-#: allthethings/page/templates/page/datasets.html:78
+#: allthethings/page/templates/page/datasets.html:77
 #, fuzzy
 msgid "page.datasets.source_libraries.text2"
 msgstr "Hoos waxaa ku yaal dulmar ku saabsan sida aan ula macaamilno maktabadaha isha kala duwan."
 
-#: allthethings/page/templates/page/datasets.html:83
+#: allthethings/page/templates/page/datasets.html:82
 #, fuzzy
 msgid "page.datasets.sources.source.header"
 msgstr "Isha"
 
-#: allthethings/page/templates/page/datasets.html:84
+#: allthethings/page/templates/page/datasets.html:83
 #, fuzzy
 msgid "page.datasets.sources.metadata.header"
 msgstr "Xogta Metadata"
 
-#: allthethings/page/templates/page/datasets.html:85
+#: allthethings/page/templates/page/datasets.html:84
 #, fuzzy
 msgid "page.datasets.sources.files.header"
 msgstr "Faylasha"
 
-#: allthethings/page/templates/page/datasets.html:98
+#: allthethings/page/templates/page/datasets.html:97
 #, fuzzy
 msgid "common.record_sources_mapping.scihub_scimag"
 msgstr "Sci-Hub / Libgen “scimag”"
 
-#: allthethings/page/templates/page/datasets.html:162
+#: allthethings/page/templates/page/datasets.html:161
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.title"
 msgstr "Isha Metadata oo keliya"
 
-#: allthethings/page/templates/page/datasets.html:165
+#: allthethings/page/templates/page/datasets.html:164
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text1"
 msgstr "Waxaan sidoo kale kobcinnaa ururintayada iyada oo la adeegsanayo isha Metadata oo keliya, taas oo aan ku waafajin karno faylasha, tusaale ahaan, annagoo adeegsanayna lambarada ISBN ama meelaha kale. Hoos waxaa ku yaal dulmar ku saabsan kuwaas. Mar kale, qaar ka mid ah ishaas waa si buuxda u furan yihiin, halka kuwa kalena aan ka soo ururinno."
 
-#: allthethings/page/templates/page/datasets.html:169
-#: allthethings/page/templates/page/faq.html:186
+#: allthethings/page/templates/page/datasets.html:168
+#: allthethings/page/templates/page/faq.html:187
 #: allthethings/page/templates/page/search.html:294
 #, fuzzy
 msgid "page.faq.metadata.inspiration1"
 msgstr "Dhiirigelintayada ururinta metadata waa yoolka Aaron Swartz ee “hal bog oo web ah buug kasta oo la daabacay”, kaas oo uu u sameeyay <a %(a_openlib)s>Open Library</a>."
 
-#: allthethings/page/templates/page/datasets.html:170
-#: allthethings/page/templates/page/faq.html:187
+#: allthethings/page/templates/page/datasets.html:169
+#: allthethings/page/templates/page/faq.html:188
 #: allthethings/page/templates/page/search.html:295
 #, fuzzy
 msgid "page.faq.metadata.inspiration2"
 msgstr "Mashruucaas si fiican ayuu u qabtay, laakiin booskeena gaarka ah wuxuu noo ogolaanayaa inaan helno metadata aysan heli karin."
 
-#: allthethings/page/templates/page/datasets.html:171
-#: allthethings/page/templates/page/faq.html:188
+#: allthethings/page/templates/page/datasets.html:170
+#: allthethings/page/templates/page/faq.html:189
 #: allthethings/page/templates/page/search.html:296
 #, fuzzy
 msgid "page.faq.metadata.inspiration3"
 msgstr "Dhiirigelin kale waxay ahayd rabitaankeena inaan ogaano <a %(a_blog)s>inta buug ee adduunka ku yaal</a>, si aan u xisaabino inta buug ee weli noo harsan in la badbaadiyo."
 
-#: allthethings/page/templates/page/datasets.html:175
+#: allthethings/page/templates/page/datasets.html:174
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text2"
 msgstr "Ogsoonow in raadinta Metadata, aan tusno diiwaannada asalka ah. Ma sameyno wax isku darka diiwaannada."
 
-#: allthethings/page/templates/page/datasets.html:216
+#: allthethings/page/templates/page/datasets.html:215
 #, fuzzy
 msgid "page.datasets.unified_database.title"
 msgstr "Keydka mideysan"
 
-#: allthethings/page/templates/page/datasets.html:219
+#: allthethings/page/templates/page/datasets.html:218
 #, fuzzy
 msgid "page.datasets.unified_database.text1"
 msgstr "Waxaan isku darnaa dhammaan isha kor ku xusan hal keyd mideysan oo aan u adeegsanayno boggan. Keydkan mideysan si toos ah looma heli karo, laakiin maadaama Kaydka Anna uu yahay mid si buuxda u furan, waxaa si fudud loo <a %(a_generated)s>sameyn karaa</a> ama <a %(a_downloaded)s>lagu soo dejisan karaa</a> sida keydka ElasticSearch iyo MariaDB. Scriptyada boggaas waxay si toos ah u soo dejin doonaan dhammaan xogta Metadata ee laga soo xigtay isha kor ku xusan."
 
-#: allthethings/page/templates/page/datasets.html:227
+#: allthethings/page/templates/page/datasets.html:226
 #, fuzzy
 msgid "page.datasets.unified_database.text2"
 msgstr "Haddii aad jeclaan lahayd inaad sahamiso xogtayada ka hor intaadan si toos ah u socodsiin scriptyadaas, waxaad eegi kartaa faylashayada JSON, kuwaas oo sii xiriirinaya faylal kale oo JSON ah. <a %(a_json)s>Faylkan</a> waa meel wanaagsan oo laga bilaabo."
@@ -2901,473 +3011,477 @@ msgstr "Bogga ISBN"
 msgid "page.datasets/isbn_ranges.isbn_metadata"
 msgstr "Xogta Metadata"
 
-#: allthethings/page/templates/page/faq.html:3
-#: allthethings/page/templates/page/faq.html:6
+#: allthethings/page/templates/page/faq.html:5
+#: allthethings/page/templates/page/faq.html:8
 #, fuzzy
 msgid "page.faq.title"
 msgstr "Su'aalaha Inta Badan La Isweydiiyo (FAQ)"
 
-#: allthethings/page/templates/page/faq.html:8
+#: allthethings/page/templates/page/faq.html:10
 #, fuzzy
 msgid "page.faq.what_is.title"
 msgstr "Waa maxay Kaydka Anna?"
 
-#: allthethings/page/templates/page/faq.html:11
+#: allthethings/page/templates/page/faq.html:13
 #, fuzzy
 msgid "page.home.intro.text1"
 msgstr "<span %(span_anna)s>Kaydka Anna</span> waa mashruuc aan faa'iido doon ahayn oo leh laba ujeedo:"
 
-#: allthethings/page/templates/page/faq.html:15
+#: allthethings/page/templates/page/faq.html:17
 #, fuzzy
 msgid "page.home.intro.text2"
 msgstr "<li><strong>Ilaalinta:</strong> Kaydinta dhammaan aqoonta iyo dhaqanka aadanaha.</li><li><strong>Helitaanka:</strong> Ka dhigista aqoontan iyo dhaqankan mid qof walba oo adduunka jooga heli karo.</li>"
 
-#: allthethings/page/templates/page/faq.html:19
+#: allthethings/page/templates/page/faq.html:21
 #, fuzzy
 msgid "page.home.intro.open_source"
 msgstr "Dhammaan <a %(a_code)s>koodhka</a> iyo <a %(a_datasets)s>xogta</a> waa il furan gebi ahaanba."
 
-#: allthethings/page/templates/page/faq.html:23
+#: allthethings/page/templates/page/faq.html:25
 #, fuzzy
 msgid "page.home.preservation.header"
 msgstr "Ilaalinta"
 
-#: allthethings/page/templates/page/faq.html:25
+#: allthethings/page/templates/page/faq.html:27
 #, fuzzy
 msgid "page.home.preservation.text1"
 msgstr "Waxaan ilaalinaa buugaagta, waraaqaha, majaajilada, joornaalada, iyo waxyaabo kale, annagoo keenayna agabkan meelo kala duwan oo <a href=\"https://en.wikipedia.org/wiki/Shadow_library\">maktabadaha hooska ah</a>, maktabadaha rasmiga ah, iyo ururinta kale oo dhan hal meel. Dhammaan xogtan waxaa si joogto ah loo ilaalinayaa iyadoo la fududeynayo in si ballaaran loo nuqulo — iyadoo la adeegsanayo torrents — taasoo keenta nuqulo badan oo adduunka oo dhan ah. Qaar ka mid ah maktabadaha hooska ah ayaa horey u sameeya tan (tusaale ahaan Sci-Hub, Library Genesis), halka Kaydka Anna uu “xoreeyo” maktabadaha kale ee aan bixin nuqulo ballaaran (tusaale ahaan Z-Library) ama aan ahayn maktabadaha hooska ah (tusaale ahaan Internet Archive, DuXiu)."
 
-#: allthethings/page/templates/page/faq.html:27
+#: allthethings/page/templates/page/faq.html:29
 #, fuzzy
 msgid "page.home.preservation.text2"
 msgstr "Faafinta ballaaran ee tan, oo ay weheliso koodhka il furan, waxay ka dhigeysaa boggayaga mid adkaysi u leh in la tirtiro, waxayna hubisaa ilaalinta muddada dheer ee aqoonta iyo dhaqanka aadanaha. Wax badan ka baro <a href=\"/datasets\">datasets-keena</a>."
 
-#: allthethings/page/templates/page/faq.html:41
+#: allthethings/page/templates/page/faq.html:43
 #, fuzzy
 msgid "page.home.preservation.label"
 msgstr "Waxaan qiyaasaynaa inaan ilaalinay qiyaastii <a href=\"https://annas-blog.org/blog-isbndb-dump-how-many-books-are-preserved-forever.html\">5%% buugaagta adduunka</a>."
 
-#: allthethings/page/templates/page/faq.html:46
+#: allthethings/page/templates/page/faq.html:48
 #, fuzzy
 msgid "page.home.access.header"
 msgstr "Helitaanka"
 
-#: allthethings/page/templates/page/faq.html:48
+#: allthethings/page/templates/page/faq.html:50
 #, fuzzy
 msgid "page.home.access.text"
 msgstr "Waxaan la shaqeynaa la-hawlgalayaal si aan u fududeyno oo aan u siino qof walba si bilaash ah. Waxaan aaminsanahay in qof walba uu xaq u leeyahay xigmadda wadajirka ah ee aadanaha. Iyo <a %(a_search)s>aan ku bixin kharashka qorayaasha</a>."
 
-#: allthethings/page/templates/page/faq.html:52
+#: allthethings/page/templates/page/faq.html:54
 #, fuzzy
 msgid "page.home.access.label"
 msgstr "Soo dejinta saacadlaha ah 30-kii maalmood ee la soo dhaafay. Celceliska saacadlaha: %(hourly)s. Celceliska maalinlaha: %(daily)s."
 
-#: allthethings/page/templates/page/faq.html:80
+#: allthethings/page/templates/page/faq.html:82
 #, fuzzy
 msgid "page.about.text2"
 msgstr "Waxaan si adag u aaminsanahay socodka xorta ah ee macluumaadka, iyo ilaalinta aqoonta iyo dhaqanka. Mashiinkan raadinta, waxaan ku dhiseynaa garbaha halyeeyada. Waxaan si qoto dheer u ixtiraameynaa shaqada adag ee dadka sameeyay maktabadaha hooska ah ee kala duwan, waxaanan rajeyneynaa in mashiinkan raadinta uu ballaariyo gaadhistooda."
 
-#: allthethings/page/templates/page/faq.html:84
+#: allthethings/page/templates/page/faq.html:86
 #, fuzzy
 msgid "page.about.text3"
 msgstr "Si aad ula socoto horumarkayaga, raac Anna <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a> ama <a href=\"https://t.me/annasarchiveorg\">Telegram</a>. Wixii su'aalo iyo jawaab celin ah fadlan la xiriir Anna %(email)s."
 
-#: allthethings/page/templates/page/faq.html:87
+#: allthethings/page/templates/page/faq.html:89
 #, fuzzy
 msgid "page.faq.help.title"
 msgstr "Sideen ku caawin karaa?"
 
-#: allthethings/page/templates/page/faq.html:90
+#: allthethings/page/templates/page/faq.html:92
 #, fuzzy
 msgid "page.about.help.text"
 msgstr "<li>1. Nagu raac <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a>, ama <a href=\"https://t.me/annasarchiveorg\">Telegram</a>.</li><li>2. Faafi warka ku saabsan Kaydka Anna Twitter, Reddit, Tiktok, Instagram, makhaayadda deegaankaaga ama maktabadda, ama meel kasta oo aad tagto! Ma aaminsanin in la xakameeyo — haddii nala tirtiro waxaan si fudud uga soo muuqan doonaa meel kale, maadaama dhammaan koodhka iyo xogta ay gebi ahaanba il furan yihiin.</li><li>3. Haddii aad awooddo, tixgeli <a href=\"/donate\">deeq bixinta</a>.</li><li>4. Ka caawi <a href=\"https://translate.annas-software.org/\">turjumida</a> boggayaga luqado kala duwan.</li><li>5. Haddii aad tahay injineer software, tixgeli inaad ka qayb qaadato <a href=\"https://annas-software.org/\">il furan</a>, ama abuurista <a href=\"/datasets\">torrents</a>.</li>"
 
-#: allthethings/page/templates/page/faq.html:91
+#: allthethings/page/templates/page/faq.html:93
 #, fuzzy
 msgid "page.about.help.text6"
 msgstr "6. Haddii aad tahay cilmi-baadhe amniga, waxaan u baahanahay xirfadahaaga labadaba weerar iyo difaac. Fiiri boggayaga <a %(a_security)s>Amniga</a>."
 
-#: allthethings/page/templates/page/faq.html:92
+#: allthethings/page/templates/page/faq.html:94
 #, fuzzy
 msgid "page.about.help.text7"
 msgstr "7. Waxaan raadinaynaa khubaro ku takhasustay lacag bixinta ganacsatada qarsoon. Ma naga caawin kartaa inaan ku darno habab badan oo ku habboon oo deeqaha lagu bixiyo? PayPal, WeChat, kaararka hadiyadda. Haddii aad taqaanid qof, fadlan nala soo xiriir."
 
-#: allthethings/page/templates/page/faq.html:93
+#: allthethings/page/templates/page/faq.html:95
 #, fuzzy
 msgid "page.about.help.text8"
 msgstr "8. Waxaan had iyo jeer raadinaynaa awood server oo dheeraad ah."
 
-#: allthethings/page/templates/page/faq.html:94
+#: allthethings/page/templates/page/faq.html:96
 #, fuzzy
 msgid "page.about.help.text9"
 msgstr "9. Waxaad ku caawin kartaa adigoo soo sheega dhibaatooyinka faylka, ka tagista faallooyinka, iyo abuurista liisaska boggan. Waxaad sidoo kale ku caawin kartaa <a %(a_upload)s>soo gelinta buugaag badan</a>, ama hagaajinta dhibaatooyinka faylka ama qaabeynta buugaagta jira."
 
-#: allthethings/page/templates/page/faq.html:95
+#: allthethings/page/templates/page/faq.html:97
 #, fuzzy
 msgid "page.about.help.text10"
 msgstr "10. Abuur ama ka caawi dayactirka bogga Wikipedia ee Kaydka Anna luqaddaada."
 
-#: allthethings/page/templates/page/faq.html:96
+#: allthethings/page/templates/page/faq.html:98
 #, fuzzy
 msgid "page.about.help.text11"
 msgstr "Waxaan raadineynaa inaan dhigno xayaysiisyo yaryar oo dhadhan fiican leh. Haddii aad rabto inaad xayaysiiso Anna’s Archive, fadlan nala soo socodsii."
 
-#: allthethings/page/templates/page/faq.html:97
+#: allthethings/page/templates/page/faq.html:99
 #, fuzzy
 msgid "page.faq.help.mirrors"
 msgstr "Waxaan jeclaan lahayn in dadku sameeyaan <a %(a_mirrors)s>muraayadaha</a>, waxaana taageeri doonaa dhaqaale ahaan."
 
-#: allthethings/page/templates/page/faq.html:105
+#: allthethings/page/templates/page/faq.html:103
+msgid "page.about.help.volunteer"
+msgstr ""
+
+#: allthethings/page/templates/page/faq.html:106
 #, fuzzy
 msgid "page.faq.slow.title"
 msgstr "Maxay yihiin sababaha soo dejinta gaabiska ah u gaabiska ah?"
 
-#: allthethings/page/templates/page/faq.html:108
+#: allthethings/page/templates/page/faq.html:109
 #, fuzzy
 msgid "page.faq.slow.text1"
 msgstr "Si dhab ah uma hayno kheyraad ku filan si aan qof walba oo adduunka ah ugu siino soo dejin xawaare sare leh, sida aan jeclaan lahayn. Haddii qof maalqabeen ah uu doonayo inuu naga caawiyo tan, taasi waxay noqon lahayd wax cajiib ah, laakiin ilaa markaas, waxaan isku dayeynaa sida ugu fiican. Waxaan nahay mashruuc aan faa'iido doon ahayn oo si dhib yar isku haysta deeqaha."
 
-#: allthethings/page/templates/page/faq.html:112
+#: allthethings/page/templates/page/faq.html:113
 #, fuzzy
 msgid "page.faq.slow.text2"
 msgstr "Tani waa sababta aan u hirgelinay laba nidaam oo soo dejin bilaash ah, oo aan la leenahay la-hawlgalayaashayada: server-yada la wadaago oo leh soo dejin gaabis ah, iyo server-yada wax yar ka dheereeya oo leh liiska sugitaanka (si loo yareeyo tirada dadka isla waqtigaas soo dejinaya)."
 
-#: allthethings/page/templates/page/faq.html:116
+#: allthethings/page/templates/page/faq.html:117
 #, fuzzy
 msgid "page.faq.slow.text3"
 msgstr "Waxaan sidoo kale leenahay <a %(a_verification)s>hubinta biraawsarka</a> ee soo dejinta gaabiska ah, sababtoo ah haddii kale bots iyo scrapers ayaa ku xadgudbi doona, taasoo ka dhigaysa waxyaabaha xitaa gaabis u ah isticmaaleyaasha saxda ah."
 
-#: allthethings/page/templates/page/faq.html:120
+#: allthethings/page/templates/page/faq.html:121
 #, fuzzy
 msgid "page.faq.slow.text4"
 msgstr "Ogsoonow, markaad isticmaalayso Tor Browser, waxaa laga yaabaa inaad u baahato inaad hagaajiso dejinta amnigaaga. Xulashada ugu hooseysa, oo loo yaqaan “Standard”, caqabadda Cloudflare turnstile way guuleysataa. Xulashooyinka sare, oo loo yaqaan “Safer” iyo “Safest”, caqabadda way guuldareysataa."
 
-#: allthethings/page/templates/page/faq.html:124
+#: allthethings/page/templates/page/faq.html:125
 #, fuzzy
 msgid "page.faq.slow.text5"
 msgstr "Mararka waaweyn mararka qaar soo dejinta gaabiska ah waxay ku jabi karaan bartamaha. Waxaan kugula talineynaa inaad isticmaasho maareeyaha soo dejinta (sida JDownloader) si aad si otomaatig ah dib ugu bilowdo soo dejinta waaweyn."
 
-#: allthethings/page/templates/page/faq.html:127
+#: allthethings/page/templates/page/faq.html:128
 #, fuzzy
 msgid "page.donate.faq.title"
 msgstr "Su'aalaha Deeqaha"
 
-#: allthethings/page/templates/page/faq.html:130
+#: allthethings/page/templates/page/faq.html:131
 #, fuzzy
 msgid "page.donate.faq.renew"
 msgstr "<div %(div_question)s>Xubinimada si toos ah ma cusboonaysiiyaan?</div> Xubinimada <strong>ma</strong> cusboonaysiiyaan si toos ah. Waxaad ku biiri kartaa inta aad rabto ama gaaban."
 
-#: allthethings/page/templates/page/faq.html:134
+#: allthethings/page/templates/page/faq.html:135
 #, fuzzy
 msgid "page.donate.faq.membership"
 msgstr "<div %(div_question)s>Ma kor u qaadi karaa xubinnimadayda ama ma heli karaa xubinnimooyin badan?</div>"
 
-#: allthethings/page/templates/page/faq.html:139
+#: allthethings/page/templates/page/faq.html:140
 #, fuzzy
 msgid "page.donate.faq.text_other_payment1"
 msgstr "<div %(div_question)s>Ma haysaa habab kale oo lacag bixin ah?</div> Hadda ma hayno. Dad badan ma doonayaan in kaydad sidan oo kale ah ay jiraan, sidaas darteed waa inaan taxaddarnaa. Haddii aad naga caawin karto inaan si ammaan ah u dejino habab kale (oo ku habboon) oo lacag bixin ah, fadlan nala soo xiriir %(email)s."
 
-#: allthethings/page/templates/page/faq.html:143
+#: allthethings/page/templates/page/faq.html:144
 #, fuzzy
 msgid "page.donate.faq.spend"
 msgstr "<div %(div_question)s>Maxaad ku bixisaa deeqaha?</div> 100%% waxaa loo isticmaalaa ilaalinta iyo ka dhigista aqoonta iyo dhaqanka adduunka mid la heli karo. Hadda waxaan inta badan ku bixinnaa server-yada, kaydinta, iyo bandwidth. Lacag ma tagto xubnaha kooxda shaqsi ahaan."
 
-#: allthethings/page/templates/page/faq.html:147
+#: allthethings/page/templates/page/faq.html:148
 #, fuzzy
 msgid "page.donate.faq.text_large_donation"
 msgstr "<div %(div_question)s>Ma sameyn karaa deeq weyn?</div> Taasi waxay noqon lahayd wax cajiib ah! Wixii deeqo ah oo ka badan dhowr kun oo doolar, fadlan si toos ah nala soo xiriir %(email)s."
 
-#: allthethings/page/templates/page/faq.html:151
+#: allthethings/page/templates/page/faq.html:152
 #, fuzzy
 msgid "page.donate.faq.non_member_donation"
 msgstr "<div %(div_question)s>Ma sameyn karaa deeq anigoo aan xubin noqon?</div> Dabcan. Waxaan aqbalnaa deeqo kasta oo lacag ah cinwaankan Monero (XMR): %(address)s."
 
-#: allthethings/page/templates/page/faq.html:154
+#: allthethings/page/templates/page/faq.html:155
 #, fuzzy
 msgid "page.faq.upload.title"
 msgstr "Sideen u soo geliyaa buugaag cusub?"
 
-#: allthethings/page/templates/page/faq.html:157
+#: allthethings/page/templates/page/faq.html:158
 #, fuzzy
 msgid "page.upload.text1"
 msgstr "Hadda, waxaan kugula talineynaa inaad buugaag cusub ku soo geliso faracyada Library Genesis. Halkan waxaa ku yaal <a %(a_guide)s>hagis ku habboon</a>. Ogow in labada farac ee aan ku index-gareyno boggan ay ka soo jiidaan isla nidaamka soo gelinta."
 
-#: allthethings/page/templates/page/faq.html:158
+#: allthethings/page/templates/page/faq.html:159
 #, fuzzy
 msgid "common.libgen.email"
 msgstr "Haddii cinwaanka email-kaaga uusan ka shaqeynaynin forums-ka Libgen, waxaan kugula talineynaa inaad isticmaasho <a %(a_mail)s>Proton Mail</a> (bilaash). Waxaad sidoo kale <a %(a_manual)s>si gacanta ah u codsan kartaa</a> in akoonkaaga la hawlgeliyo."
 
-#: allthethings/page/templates/page/faq.html:159
+#: allthethings/page/templates/page/faq.html:160
 #, fuzzy
 msgid "page.faq.mhut_upload"
 msgstr "Ogsoonow in mhut.org ay xannibto qaar ka mid ah IP ranges, sidaas darteed waxaa laga yaabaa inaad u baahato VPN."
 
-#: allthethings/page/templates/page/faq.html:163
+#: allthethings/page/templates/page/faq.html:164
 #, fuzzy
 msgid "page.upload.zlib.text1"
 msgstr "Sidoo kale, waxaad ku soo gelin kartaa Z-Library <a %(a_upload)s>halkan</a>."
 
-#: allthethings/page/templates/page/faq.html:167
+#: allthethings/page/templates/page/faq.html:168
 #, fuzzy
 msgid "page.upload.zlib.text2"
 msgstr "Si aad u soo geliso waraaqaha tacliinta, fadlan sidoo kale (marka laga reebo Library Genesis) ku soo geli <a %(a_stc_nexus)s>STC Nexus</a>. Waxay yihiin kaydka ugu fiican ee waraaqaha cusub. Weli ma aanan isku darin, laakiin mar uun waan sameyn doonaa. Waxaad isticmaali kartaa <a %(a_telegram)s>bot-kooda soo gelinta ee Telegram</a>, ama la xiriir cinwaanka ku qoran farriintooda la dhejiyay haddii aad haysato faylal badan oo aad sidan ku soo gelin karto."
 
-#: allthethings/page/templates/page/faq.html:171
+#: allthethings/page/templates/page/faq.html:172
 #, fuzzy
 msgid "page.upload.large.text"
 msgstr "Wixii soo gelin weyn (in ka badan 10,000 faylal) oo aan la aqbalin Libgen ama Z-Library, fadlan nala soo xiriir %(a_email)s."
 
-#: allthethings/page/templates/page/faq.html:174
+#: allthethings/page/templates/page/faq.html:175
 #, fuzzy
 msgid "page.faq.request.title"
 msgstr "Sideen u codsadaa buugaag?"
 
-#: allthethings/page/templates/page/faq.html:177
+#: allthethings/page/templates/page/faq.html:178
 #, fuzzy
 msgid "page.request.cannot_accomodate"
 msgstr "Waqtigan xaadirka ah, ma awoodno inaan buugaag codsiyo."
 
-#: allthethings/page/templates/page/faq.html:178
+#: allthethings/page/templates/page/faq.html:179
 #, fuzzy
 msgid "page.request.forums"
 msgstr "Fadlan codsiyadaaga ka samee Z-Library ama Libgen forums."
 
-#: allthethings/page/templates/page/faq.html:179
+#: allthethings/page/templates/page/faq.html:180
 #, fuzzy
 msgid "page.request.dont_email"
 msgstr "Ha noo soo dirin codsiyada buugaaga email ahaan."
 
-#: allthethings/page/templates/page/faq.html:182
+#: allthethings/page/templates/page/faq.html:183
 #, fuzzy
 msgid "page.faq.metadata.title"
 msgstr "Ma ururisaa metadata?"
 
-#: allthethings/page/templates/page/faq.html:185
+#: allthethings/page/templates/page/faq.html:186
 #, fuzzy
 msgid "page.faq.metadata.indeed"
 msgstr "Haa, waan ururinaa."
 
-#: allthethings/page/templates/page/faq.html:191
+#: allthethings/page/templates/page/faq.html:192
 #, fuzzy
 msgid "page.faq.1984.title"
 msgstr "Waxaan soo dejiyey 1984 oo uu qoray George Orwell, booliisku ma ii iman doonaan guriga?"
 
-#: allthethings/page/templates/page/faq.html:194
+#: allthethings/page/templates/page/faq.html:195
 #, fuzzy
 msgid "page.faq.1984.text"
 msgstr "Ha ka welwelin, waxaa jira dad badan oo ka soo dejinaya boggaga aan ku xirinay, waana arrin aad u dhif ah in dhibaato lagala kulmo. Si kastaba ha ahaatee, si aad u badbaado waxaan kugula talineynaa inaad isticmaasho VPN (lacag leh), ama <a %(a_tor)s>Tor</a> (bilaash)."
 
-#: allthethings/page/templates/page/faq.html:197
+#: allthethings/page/templates/page/faq.html:198
 #, fuzzy
 msgid "page.faq.save_search.title"
 msgstr "Sideen u keydiyaa dejinta raadinta?"
 
-#: allthethings/page/templates/page/faq.html:200
+#: allthethings/page/templates/page/faq.html:201
 #, fuzzy
 msgid "page.faq.save_search.text1"
 msgstr "Xulo dejinta aad jeceshahay, ka dhig sanduuqa raadinta mid madhan, guji “Raadi”, ka dibna calaamadee bogga adoo isticmaalaya astaanta calaamadaynta ee biraawsarkaaga."
 
-#: allthethings/page/templates/page/faq.html:203
+#: allthethings/page/templates/page/faq.html:204
 #, fuzzy
 msgid "page.faq.mobile.title"
 msgstr "Ma haysaa app mobile ah?"
 
-#: allthethings/page/templates/page/faq.html:206
+#: allthethings/page/templates/page/faq.html:207
 #, fuzzy
 msgid "page.faq.mobile.text1"
 msgstr "Ma hayno app mobile rasmi ah, laakiin waxaad ku rakibi kartaa boggan sida app."
 
-#: allthethings/page/templates/page/faq.html:207
+#: allthethings/page/templates/page/faq.html:208
 #, fuzzy
 msgid "page.faq.mobile.android"
 msgstr "<strong>Android:</strong> Guji menu-ka saddexda dhibic ee ku yaal geeska sare midig, ka dibna dooro “Ku dar Shaashadda Guriga”."
 
-#: allthethings/page/templates/page/faq.html:208
+#: allthethings/page/templates/page/faq.html:209
 #, fuzzy
 msgid "page.faq.mobile.ios"
 msgstr "<strong>iOS:</strong> Guji badhanka “Wadaag” ee hoose, ka dibna dooro “Ku dar Shaashadda Guriga”."
 
-#: allthethings/page/templates/page/faq.html:211
+#: allthethings/page/templates/page/faq.html:212
 #, fuzzy
 msgid "page.faq.api.title"
 msgstr "Ma haysaa API?"
 
-#: allthethings/page/templates/page/faq.html:214
+#: allthethings/page/templates/page/faq.html:215
 #, fuzzy
 msgid "page.faq.api.text1"
 msgstr "Waxaan haynaa hal API JSON oo xasilloon oo loogu talagalay xubnaha, si loo helo URL degdeg ah oo soo dejin ah: <a %(a_fast_download)s>/dyn/api/fast_download.json</a> (dukumentiga ku jira JSON laftiisa)."
 
-#: allthethings/page/templates/page/faq.html:218
+#: allthethings/page/templates/page/faq.html:219
 #, fuzzy
 msgid "page.faq.api.text2"
 msgstr "Isticmaalka kale, sida ku celcelinta dhammaan faylasha aan hayno, dhisidda raadinta gaarka ah, iyo wixii la mid ah, waxaan kugula talineynaa <a %(a_generate)s>soo saarista</a> ama <a %(a_download)s>soo dejinta</a> xogta ElasticSearch iyo MariaDB. Xogta saafiga ah waxaa si gacanta ah loo baari karaa <a %(a_explore)s>iyadoo loo marayo faylasha JSON</a>."
 
-#: allthethings/page/templates/page/faq.html:222
+#: allthethings/page/templates/page/faq.html:223
 #, fuzzy
 msgid "page.faq.api.text3"
 msgstr "Liiska torrents-ka saafiga ah waxaa sidoo kale lagu soo dejisan karaa <a %(a_torrents)s>JSON</a>."
 
-#: allthethings/page/templates/page/faq.html:225
+#: allthethings/page/templates/page/faq.html:226
 #, fuzzy
 msgid "page.faq.torrents.title"
 msgstr "Torrents FAQ"
 
-#: allthethings/page/templates/page/faq.html:228
+#: allthethings/page/templates/page/faq.html:229
 #, fuzzy
 msgid "page.faq.torrents.q1"
 msgstr "Waxaan jeclaan lahaa inaan caawiyo seed-ka, laakiin ma haysto meel badan oo disk ah."
 
-#: allthethings/page/templates/page/faq.html:230
+#: allthethings/page/templates/page/faq.html:231
 #, fuzzy
 msgid "page.faq.torrents.a1"
 msgstr "Isticmaal <a %(a_list)s>abuuraha liiska torrent</a> si aad u abuurto liis torrents ah oo aad ugu baahan tahay inaad seed-ka sameyso, iyadoo la raacayo xaddidaadahaaga kaydinta."
 
-#: allthethings/page/templates/page/faq.html:234
+#: allthethings/page/templates/page/faq.html:235
 #, fuzzy
 msgid "page.faq.torrents.q2"
 msgstr "Torrents-ka waa kuwo aad u gaabis ah; ma ka soo dejisan karaa xogta si toos ah adinka?"
 
-#: allthethings/page/templates/page/faq.html:236
+#: allthethings/page/templates/page/faq.html:237
 #, fuzzy
 msgid "page.faq.torrents.a2"
 msgstr "Haa, eeg <a %(a_llm)s>bogga xogta LLM</a>."
 
-#: allthethings/page/templates/page/faq.html:240
+#: allthethings/page/templates/page/faq.html:241
 #, fuzzy
 msgid "page.faq.torrents.q3"
 msgstr "Ma soo dejisan karaa qayb ka mid ah faylasha, sida kaliya luqad ama mowduuc gaar ah?"
 
-#: allthethings/page/templates/page/faq.html:242
+#: allthethings/page/templates/page/faq.html:243
 #, fuzzy
 msgid "page.faq.torrents.a3"
 msgstr "Inta badan torrents-ka waxay si toos ah u haystaan faylasha, taasoo la micno ah inaad ku amri karto macaamiisha torrent-ka inay soo dejistaan faylasha loo baahan yahay oo kaliya. Si aad u go'aamiso faylasha aad soo dejisanayso, waxaad <a %(a_generate)s>soo saari kartaa</a> xogtayada metadata, ama <a %(a_download)s>soo dejisan kartaa</a> xogtayada ElasticSearch iyo MariaDB. Nasiib darro, tiro ka mid ah ururinta torrent-ka waxay ku jiraan faylasha .zip ama .tar ee xididka, taasoo la micno ah inaad u baahan tahay inaad soo dejiso torrent-ka oo dhan ka hor intaadan dooran faylasha gaarka ah."
 
-#: allthethings/page/templates/page/faq.html:246
+#: allthethings/page/templates/page/faq.html:247
 #, fuzzy
 msgid "page.faq.torrents.q4"
 msgstr "Sidee ayaad u maareysaan nuqulada ku jira torrents-ka?"
 
-#: allthethings/page/templates/page/faq.html:248
+#: allthethings/page/templates/page/faq.html:249
 #, fuzzy
 msgid "page.faq.torrents.a4"
 msgstr "Waxaan isku daynaa inaan yareyno nuqulada ama is-dulsaarka u dhexeeya torrents-ka liiskan, laakiin mar walba lama gaari karo, waxayna si weyn ugu xiran tahay siyaasadaha maktabadaha ilaha. Maktabadaha soo saara torrents-kooda, ma awoodno inaan wax ka qabanno. Torrents-ka ay soo saarto Kaydka Anna, waxaan ku nuqul tirnaa oo kaliya MD5 hash, taasoo la micno ah in noocyada kala duwan ee isla buugga aysan noqon kuwo la nuqul tiray."
 
-#: allthethings/page/templates/page/faq.html:252
+#: allthethings/page/templates/page/faq.html:253
 #, fuzzy
 msgid "page.faq.torrents.q5"
 msgstr "Ma heli karaa liiska torrent-ka sida JSON?"
 
-#: allthethings/page/templates/page/faq.html:254
+#: allthethings/page/templates/page/faq.html:255
 #, fuzzy
 msgid "page.faq.torrents.a5"
 msgstr "Haa."
 
-#: allthethings/page/templates/page/faq.html:258
+#: allthethings/page/templates/page/faq.html:259
 #, fuzzy
 msgid "page.faq.torrents.q6"
 msgstr "Ma arko PDFs ama EPUBs ku jira torrents-ka, kaliya faylasha binary? Maxaan sameeyaa?"
 
-#: allthethings/page/templates/page/faq.html:260
+#: allthethings/page/templates/page/faq.html:261
 #, fuzzy
 msgid "page.faq.torrents.a6"
 msgstr "Kuwani dhab ahaantii waa PDFs iyo EPUBs, kaliya ma laha kordhin badan oo ku jira torrents-kayaga. Waxaa jira laba meelood oo aad ka heli karto metadata ee faylasha torrent-ka, oo ay ku jiraan noocyada faylasha/kordhinta:"
 
-#: allthethings/page/templates/page/faq.html:262
+#: allthethings/page/templates/page/faq.html:263
 #, fuzzy
 msgid "page.faq.torrents.a6.li1"
 msgstr "1. Ururinta kasta ama sii deynta waxay leedahay metadata u gaar ah. Tusaale ahaan, <a %(a_libgen_nonfic)s>Libgen.rs torrents</a> waxay leeyihiin xogta metadata ee ku habboon oo lagu martigeliyay bogga Libgen.rs. Waxaan caadi ahaan ku xirinaynaa ilaha metadata ee ku habboon bogga <a %(a_datasets)s>dataset-ka ururinta kasta</a>."
 
-#: allthethings/page/templates/page/faq.html:264
+#: allthethings/page/templates/page/faq.html:265
 #, fuzzy
 msgid "page.faq.torrents.a6.li2"
 msgstr "2. Waxaan kugula talineynaa <a %(a_generate)s>soo saarista</a> ama <a %(a_download)s>soo dejinta</a> xogtayada ElasticSearch iyo MariaDB. Kuwani waxay ka kooban yihiin khariidad u ah diiwaan kasta oo ku jira Kaydka Anna ilaa faylasha torrent-ka ee ku habboon (haddii la heli karo), hoosta \"torrent_paths\" ee ElasticSearch JSON."
 
-#: allthethings/page/templates/page/faq.html:267
+#: allthethings/page/templates/page/faq.html:268
 #, fuzzy
 msgid "page.faq.security.title"
 msgstr "Ma haysaan barnaamijka mas'uuliyadda daah-furnaanta?"
 
-#: allthethings/page/templates/page/faq.html:270
+#: allthethings/page/templates/page/faq.html:271
 #, fuzzy
 msgid "page.faq.security.text1"
 msgstr "Waxaan soo dhaweyneynaa cilmi-baarayaasha amniga inay baaraan nuglaanta nidaamyadayada. Waxaan nahay taageerayaal weyn oo daah-furnaanta mas'uuliyadda. Nala soo xiriir <a %(a_contact)s>halkan</a>."
 
-#: allthethings/page/templates/page/faq.html:274
+#: allthethings/page/templates/page/faq.html:275
 #, fuzzy
 msgid "page.faq.security.text2"
 msgstr "Waqtigan xaadirka ah ma awoodno inaan bixino abaalmarinno bug bounties, marka laga reebo nuglaanta leh <a %(a_link)s>suurtagalnimada inay khatar galiyaan qarsoodidayada</a>, kuwaas oo aan ku bixino abaalmarinno u dhexeeya $10k-50k. Waxaan jeclaan lahayn inaan ballaarino baaxadda bug bounties mustaqbalka! Fadlan ogow in weerarada injineernimada bulshada aysan ku jirin baaxadda."
 
-#: allthethings/page/templates/page/faq.html:278
+#: allthethings/page/templates/page/faq.html:279
 #, fuzzy
 msgid "page.faq.security.text3"
 msgstr "Haddii aad xiisaynayso amniga weerarka, oo aad rabto inaad ka caawiso kaydinta aqoonta iyo dhaqanka adduunka, hubi inaad nala soo xiriirto. Waxaa jira siyaabo badan oo aad ku caawin karto."
 
-#: allthethings/page/templates/page/faq.html:281
+#: allthethings/page/templates/page/faq.html:282
 #, fuzzy
 msgid "page.faq.resources.title"
 msgstr "Ma jiraan ilo dheeraad ah oo ku saabsan Kaydka Anna?"
 
-#: allthethings/page/templates/page/faq.html:284
+#: allthethings/page/templates/page/faq.html:285
 #, fuzzy
 msgid "page.faq.resources.annas_blog"
 msgstr "<a %(a_blog)s>Blog-ka Anna</a>, <a %(a_reddit_u)s>Reddit</a>, <a %(a_reddit_r)s>Subreddit</a> — cusboonaysiinta joogtada ah"
 
-#: allthethings/page/templates/page/faq.html:285
+#: allthethings/page/templates/page/faq.html:286
 #, fuzzy
 msgid "page.faq.resources.annas_software"
 msgstr "<a %(a_software)s>Software-ka Anna</a> — koodhka furan ee aan isticmaalno"
 
-#: allthethings/page/templates/page/faq.html:286
+#: allthethings/page/templates/page/faq.html:287
 #, fuzzy
 msgid "page.faq.resources.translate"
 msgstr "<a %(a_translate)s>Tarjumida Software-ka Anna</a> — nidaamkayaga tarjumaadda"
 
-#: allthethings/page/templates/page/faq.html:287
+#: allthethings/page/templates/page/faq.html:288
 #, fuzzy
 msgid "page.faq.resources.datasets"
 msgstr "<a %(a_datasets)s>Datasets</a> — ku saabsan xogta"
 
-#: allthethings/page/templates/page/faq.html:288
+#: allthethings/page/templates/page/faq.html:289
 #, fuzzy
 msgid "page.faq.resources.domains"
 msgstr "<a %(a_li)s>.li</a>, <a %(a_se)s>.se</a>, <a %(a_org)s>.org</a> — boggagyo kale duwan"
 
-#: allthethings/page/templates/page/faq.html:289
+#: allthethings/page/templates/page/faq.html:290
 #, fuzzy
 msgid "page.faq.resources.wikipedia"
 msgstr "<a %(a_wikipedia)s>Wikipedia</a> — wax badan oo naga saabsan (fadlan ka caawi inaad cusboonaysiiso boggan, ama mid u samee luqaddaada!)"
 
-#: allthethings/page/templates/page/faq.html:292
+#: allthethings/page/templates/page/faq.html:293
 #, fuzzy
 msgid "page.faq.copyright.title"
 msgstr "Sideen u soo sheegi karaa xadgudubka xuquuqda daabacaadda?"
 
-#: allthethings/page/templates/page/faq.html:295
+#: allthethings/page/templates/page/faq.html:296
 #, fuzzy
 msgid "page.faq.copyright.text1"
 msgstr "Halkan kuma martigelinno waxyaabo xuquuqda daabacaadda leh. Waxaan nahay mashiinka raadinta, sidaas darteed waxaan kaliya diiwaangelinnaa xogta metadata ee horeyba loo heli karo. Markaad ka soo dejisaneyso ilo dibadda ah, waxaan kugula talineynaa inaad hubiso sharcigaaga deegaanka ee ku saabsan waxa la oggol yahay. Annagu mas'uul kama nihin waxyaabaha ay martigeliyaan kuwa kale."
 
-#: allthethings/page/templates/page/faq.html:299
+#: allthethings/page/templates/page/faq.html:300
 #, fuzzy
 msgid "page.faq.copyright.text2"
 msgstr "Haddii aad cabasho ka qabto waxa aad halkan ku aragto, waxa ugu fiican ee aad sameyn karto waa inaad la xiriirto bogga asalka ah. Waxaan si joogto ah u soo jiidnaa isbeddeladooda xogtayada. Haddii aad dhab ahaan u maleyneyso inaad leedahay cabasho DMCA oo sax ah oo aan ka jawaabi karno, fadlan buuxi <a %(a_copyright)s>foomka cabashada DMCA / Xuquuqda daabacaadda</a>. Waxaan si dhab ah u qaadnaa cabashooyinkaaga, waxaana kuugu soo jawaabi doonaa sida ugu dhaqsaha badan."
 
-#: allthethings/page/templates/page/faq.html:302
+#: allthethings/page/templates/page/faq.html:303
 #, fuzzy
 msgid "page.faq.hate.title"
 msgstr "Waan necbahay sida aad mashruucan u wadaan!"
 
-#: allthethings/page/templates/page/faq.html:305
+#: allthethings/page/templates/page/faq.html:306
 #, fuzzy
 msgid "page.faq.hate.text1"
 msgstr "Waxaan sidoo kale rabnaa inaan xusuusino qof walba in dhammaan koodhka iyo xogtayadu ay si buuxda u furan yihiin. Tani waa mid gaar ah oo ku saabsan mashaariicda sida tan oo kale — ma naqaan mashruuc kale oo leh buuggaag aad u ballaaran oo sidoo kale si buuxda u furan. Waxaan si weyn u soo dhaweyneynaa qof kasta oo u maleynaya inaan si xun u maamulno mashruucan inuu qaato koodhka iyo xogtayada oo uu sameeyo maktabad hoos u socota! Ma nihin kuwa ka hadlaya xanaaq ama wax kale — si dhab ah ayaan u maleyneynaa in tani ay noqon doonto wax cajiib ah maadaama ay kor u qaadi doonto heerka qof walba, oo ay si fiican u ilaalin doonto dhaxalka aadanaha."
 
-#: allthethings/page/templates/page/faq.html:308
+#: allthethings/page/templates/page/faq.html:309
 #, fuzzy
 msgid "page.faq.favorite.title"
 msgstr "Waa maxay buugaagta aad ugu jeceshahay?"
 
-#: allthethings/page/templates/page/faq.html:311
+#: allthethings/page/templates/page/faq.html:312
 #, fuzzy
 msgid "page.faq.favorite.text1"
 msgstr "Halkan waxaa ku yaal buugaag leh muhiimad gaar ah oo ku saabsan adduunka maktabadaha hooska iyo ilaalinta dijitaalka:"
@@ -3549,13 +3663,13 @@ msgid "page.md5.box.download.ipfs_gateway_extra"
 msgstr "(waxaa laga yaabaa inaad isku daydo dhowr jeer oo IPFS ah)"
 
 #: allthethings/page/templates/page/ipfs_downloads.html:23
-#: allthethings/page/templates/page/partner_download.html:93
+#: allthethings/page/templates/page/partner_download.html:91
 #, fuzzy
 msgid "page.partner_download.faster_downloads"
 msgstr "🚀 Si aad u hesho soo dejin degdeg ah oo aad uga boodo hubinta biraawsarka, <a %(a_membership)s>noqo xubin</a>."
 
 #: allthethings/page/templates/page/ipfs_downloads.html:27
-#: allthethings/page/templates/page/partner_download.html:97
+#: allthethings/page/templates/page/partner_download.html:95
 #, fuzzy
 msgid "page.partner_download.bulk_mirroring"
 msgstr "📡 Si aad u sameysid nuqul ballaaran oo ururintayada ah, eeg bogagga <a %(a_datasets)s>Datasets</a> iyo <a %(a_torrents)s>Torrents</a>."
@@ -3909,27 +4023,31 @@ msgstr "Markaad hesho xiriir soo dejin ah wuxuu ansax yahay saacado badan."
 msgid "page.partner_download.li4"
 msgstr "Waad ku mahadsan tahay sugitaanka, tani waxay ka dhigeysaa bogga mid bilaash ah oo qof walba heli karo! 😊"
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:40
+msgid "page.partner_download.automatic_refreshing"
+msgstr ""
+
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.url"
 msgstr "📚 Isticmaal URL-kan soo socda si aad u soo dejiso: <a %(a_download)s>Soo dejiso hadda</a>."
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.download_now"
 msgstr "Soo dejiso hadda"
 
-#: allthethings/page/templates/page/partner_download.html:86
+#: allthethings/page/templates/page/partner_download.html:84
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads"
 msgstr "Digniin: waxaa jiray soo dejin badan oo ka timid cinwaankaaga IP-ga 24-kii saac ee la soo dhaafay. Soo dejintu waxay noqon kartaa mid ka gaabis badan sidii caadiga ahayd."
 
-#: allthethings/page/templates/page/partner_download.html:87
+#: allthethings/page/templates/page/partner_download.html:85
 #, fuzzy
 msgid "page.partner_download.downloads_last_24_hours"
 msgstr "Soo dejinta cinwaankaaga IP-ga 24-kii saac ee la soo dhaafay: %(count)s."
 
-#: allthethings/page/templates/page/partner_download.html:88
+#: allthethings/page/templates/page/partner_download.html:86
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads2"
 msgstr "Haddii aad isticmaaleyso VPN, isku xirka internet-ka wadaaga, ama ISP-gaagu wadaago IP-yada, digniintan waxaa laga yaabaa inay sabab u tahay taas."

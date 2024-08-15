@@ -6,3 +6,9 @@ set -Eeuxo pipefail
 pybabel extract --omit-header -F babel.cfg -o messages.pot .
 pybabel update --no-wrap --omit-header -i messages.pot -d allthethings/translations --no-fuzzy-matching
 pybabel compile -f -d allthethings/translations
+pybabel extract --omit-header -F babel.cfg -o messages.pot .
+pybabel update --no-wrap --omit-header -i messages.pot -d allthethings/translations --no-fuzzy-matching
+pybabel compile -f -d allthethings/translations
+pybabel extract --omit-header -F babel.cfg -o messages.pot .
+pybabel update --no-wrap --omit-header -i messages.pot -d allthethings/translations --no-fuzzy-matching
+pybabel compile -f -d allthethings/translations

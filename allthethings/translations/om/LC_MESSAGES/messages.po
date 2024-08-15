@@ -370,10 +370,6 @@ msgstr "Gargaarsa $5000 ol ta’eef nu qunnamaa karaa %(email)s."
 #: allthethings/account/templates/account/index.html:36
 #: allthethings/page/templates/page/contact.html:3
 #: allthethings/page/templates/page/contact.html:6
-#: allthethings/page/templates/page/faq.html:84
-#: allthethings/page/templates/page/faq.html:139
-#: allthethings/page/templates/page/faq.html:147
-#: allthethings/page/templates/page/faq.html:171
 #: allthethings/page/templates/page/home.html:77
 #: allthethings/page/templates/page/home.html:82
 #: allthethings/page/templates/page/home.html:90
@@ -1387,6 +1383,14 @@ msgstr "Faayiloota buufaman hin mul’atan."
 msgid "page.downloaded.no_files"
 msgstr "Faayila buufame hin jiru."
 
+#: allthethings/account/templates/account/downloaded.html:16
+msgid "page.downloaded.last_18_hours"
+msgstr ""
+
+#: allthethings/account/templates/account/downloaded.html:21
+msgid "page.downloaded.earlier"
+msgstr ""
+
 #: allthethings/account/templates/account/index.html:5
 #: allthethings/account/templates/account/index.html:15
 #, fuzzy
@@ -1462,7 +1466,7 @@ msgid "page.account.logged_in.membership_upgrade"
 msgstr "Miseensummaa sadarkaa ol’aanaa ol-kaasuuf Anna %(email)s quunnamaa."
 
 #: allthethings/account/templates/account/index.html:37
-#: allthethings/page/templates/page/faq.html:135
+#: allthethings/page/templates/page/faq.html:136
 #, fuzzy
 msgid "page.account.logged_in.membership_multiple"
 msgstr "Miseensummaa hedduu walitti makuu dandeessa (buufata saffisaa sa’aatii 24 keessatti walitti ida’ama)."
@@ -1717,6 +1721,14 @@ msgstr "Libgen.li keessatti caccabuu mallatteeffame"
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "Z-Library irraa dhabame"
 
+#: allthethings/page/views.py:4845
+msgid "common.md5_problem_type_mapping.zlib_spam"
+msgstr ""
+
+#: allthethings/page/views.py:4846
+msgid "common.md5_problem_type_mapping.zlib_bad_file"
+msgstr ""
+
 #: allthethings/page/views.py:4847
 #, fuzzy
 msgid "common.md5_problem_type_mapping.duxiu_pdg_broken_files"
@@ -1807,26 +1819,31 @@ msgstr "Meetaadaataa qoradhu"
 msgid "common.access_types_mapping.torrents_available"
 msgstr "Torrents keessatti argama"
 
-#: allthethings/page/templates/page/datasets.html:52
-#: allthethings/page/templates/page/datasets.html:88
+#: allthethings/page/templates/page/datasets.html:51
+#: allthethings/page/templates/page/datasets.html:87
 #: allthethings/page/views.py:4880
 #, fuzzy
 msgid "common.record_sources_mapping.lgrs"
 msgstr "Libgen.rs"
 
-#: allthethings/page/templates/page/datasets.html:54
-#: allthethings/page/templates/page/datasets.html:109
+#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:108
 #: allthethings/page/views.py:4881
 #, fuzzy
 msgid "common.record_sources_mapping.lgli"
 msgstr "Libgen.li"
 
-#: allthethings/page/templates/page/datasets.html:55
-#: allthethings/page/templates/page/datasets.html:121
+#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:120
 #: allthethings/page/views.py:4882
 #, fuzzy
 msgid "common.record_sources_mapping.zlib"
 msgstr "Z-Library"
+
+#: allthethings/page/templates/page/datasets.html:55
+#: allthethings/page/views.py:4883
+msgid "common.record_sources_mapping.zlibzh"
+msgstr ""
 
 #: allthethings/page/views.py:4884
 #, fuzzy
@@ -1843,7 +1860,7 @@ msgstr "ISBNdb"
 msgid "common.record_sources_mapping.ol"
 msgstr "OpenLibrary"
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 #: allthethings/page/views.py:4887
 #, fuzzy
 msgid "common.record_sources_mapping.scihub"
@@ -1854,15 +1871,15 @@ msgstr "Sci-Hub"
 msgid "common.record_sources_mapping.oclc"
 msgstr "OCLC (WorldCat)"
 
-#: allthethings/page/templates/page/datasets.html:58
-#: allthethings/page/templates/page/datasets.html:142
+#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:141
 #: allthethings/page/views.py:4889
 #, fuzzy
 msgid "common.record_sources_mapping.duxiu"
 msgstr "DuXiu 读秀"
 
-#: allthethings/page/templates/page/datasets.html:59
-#: allthethings/page/templates/page/datasets.html:155
+#: allthethings/page/templates/page/datasets.html:58
+#: allthethings/page/templates/page/datasets.html:154
 #: allthethings/page/views.py:4890
 #, fuzzy
 msgid "common.record_sources_mapping.uploads"
@@ -2517,8 +2534,6 @@ msgstr "Dogoggorri tokko ta'eera. Fuula irra deebi'ii fe'iitii yaali."
 
 #: allthethings/page/templates/page/aarecord.html:406
 #: allthethings/page/templates/page/aarecord.html:407
-#: allthethings/page/templates/page/codes.html:8
-#: allthethings/page/templates/page/codes.html:9
 #: allthethings/page/templates/page/copyright.html:6
 #: allthethings/page/templates/page/copyright.html:7
 #: allthethings/page/templates/page/datasets.html:13
@@ -2574,12 +2589,12 @@ msgstr "Kun faayilii kan <a %(a_ia)s>IA’s Controlled Digital Lending</a> makta
 msgid "page.md5.text.file_info.text1"
 msgstr "Waa'ee faayilii kanaa addaa, <a %(a_href)s>faayilii JSON</a> isaa ilaali."
 
-#: allthethings/page/templates/page/aarecord_issue.html:4
+#: allthethings/page/templates/page/aarecord_issue.html:5
 #, fuzzy
 msgid "page.aarecord_issue.title"
 msgstr "🔥 Rakkoo fuula kana fe'uu keessatti"
 
-#: allthethings/page/templates/page/aarecord_issue.html:6
+#: allthethings/page/templates/page/aarecord_issue.html:7
 #, fuzzy
 msgid "page.aarecord_issue.text"
 msgstr "Mee deebisanii yaalaa. <a %(a_contact)s>Nu quunnamaa</a> yoo rakkoon kun sa'aa hedduu turuu itti fufe."
@@ -2622,6 +2637,105 @@ msgstr "Yoo marsaa xumura hin qabne keessa qabamtan, <a %(a_privacypass)s>Privac
 #, fuzzy
 msgid "page.login.text3"
 msgstr "Ad blockers fi mijeessaa biraa cufuu dandeessuu ni gargaara."
+
+#: allthethings/page/templates/page/codes.html:5
+msgid "page.codes.title"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:10
+msgid "page.codes.heading"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:14
+msgid "page.codes.intro"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:18
+msgid "page.codes.why_cloudflare"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:22
+msgid "page.codes.dont_scrape"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:33
+msgid "page.codes.prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:34
+msgid "common.form.go"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:35
+msgid "common.form.reset"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:40
+msgid "page.codes.bad_unicode"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:46
+msgid "page.codes.known_code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:48
+msgid "page.codes.code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:49
+msgid "page.codes.code_label"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:51
+msgid "page.codes.code_description"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgid "page.codes.code_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgctxt "the %s should not be changed"
+msgid "page.codes.s_substitution"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:57
+msgid "page.codes.generic_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:61
+msgid "page.codes.code_website"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:69
+msgid "page.codes.record_starting_with"
+msgid_plural "page.codes.records_starting_with"
+msgstr[0] ""
+msgstr[1] ""
+
+#: allthethings/page/templates/page/codes.html:75
+msgid "page.codes.search_archive"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:77
+msgid "page.codes.url_link"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:84
+msgid "page.codes.codes_starting_with"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:92
+msgid "page.codes.records_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:93
+msgid "page.codes.records_codes"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:113
+msgid "page.codes.fewer_than"
+msgstr ""
 
 #: allthethings/page/templates/page/contact.html:9
 #, fuzzy
@@ -2723,144 +2837,140 @@ msgstr ""
 msgid "page.datasets.overview.last_updated.header"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:52
+#: allthethings/page/templates/page/datasets.html:51
 msgid "common.record_sources_mapping.lgrs.nonfiction_and_fiction"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "common.record_sources_mapping.scihub.via_lgli_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_1"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_2"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "common.record_sources.mapping.lgli.excluding_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "page.datasets.lgli_fiction_is_behind"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:56
-msgid "common.record_sources_mapping.zlibzh"
-msgstr ""
-
-#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:55
 msgid "page.datasets.zlibzh.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
-#: allthethings/page/templates/page/datasets.html:130
+#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:129
 msgid "common.record_sources_mapping.iacdl"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:56
 msgid "page.datasets.iacdl.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.total"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.excluding_duplicates"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:64
+#: allthethings/page/templates/page/datasets.html:63
 msgid "page.datasets.overview.text4"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:68
+#: allthethings/page/templates/page/datasets.html:67
 msgid "page.datasets.overview.text5"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:71
+#: allthethings/page/templates/page/datasets.html:70
 msgid "page.datasets.source_libraries.title"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:74
+#: allthethings/page/templates/page/datasets.html:73
 #, fuzzy
 msgid "page.datasets.source_libraries.text1"
 msgstr "Maqaa bu'uuraalee tokko tokkoo dataa isaanii baay'inaan karaa torrentiin qooduu ni jajjabeessu, bu'uuraaleen biroo garuu kuusaa isaanii salphatti hin qoodan. Haaluma kanaan, Kuusaa Annaa kuusaa isaanii qubachiisuuf ni yaala, akkasumas ni dhiheessa (fuula <a %(a_torrents)s>Torrents</a> ilaalaa). Haalota giddu-galeessaa keessattis ni jira, fakkeenyaaf, bu'uuraaleen tokko tokko qooduu ni barbaadu, garuu qabeenya gahaa hin qaban. Haalota kana keessattiis, nuunis gargaarsa ni goona."
 
-#: allthethings/page/templates/page/datasets.html:78
+#: allthethings/page/templates/page/datasets.html:77
 #, fuzzy
 msgid "page.datasets.source_libraries.text2"
 msgstr "Gadii keessatti, akkamitti bu'uuraalee adda addaa waliin walitti dhufeenya qabnu ilaalchisee gabaasa tokko argitu."
 
-#: allthethings/page/templates/page/datasets.html:83
+#: allthethings/page/templates/page/datasets.html:82
 #, fuzzy
 msgid "page.datasets.sources.source.header"
 msgstr "Bu'uura"
 
-#: allthethings/page/templates/page/datasets.html:84
+#: allthethings/page/templates/page/datasets.html:83
 #, fuzzy
 msgid "page.datasets.sources.metadata.header"
 msgstr "Meetaadaataa"
 
-#: allthethings/page/templates/page/datasets.html:85
+#: allthethings/page/templates/page/datasets.html:84
 #, fuzzy
 msgid "page.datasets.sources.files.header"
 msgstr "Faayiloota"
 
-#: allthethings/page/templates/page/datasets.html:98
+#: allthethings/page/templates/page/datasets.html:97
 #, fuzzy
 msgid "common.record_sources_mapping.scihub_scimag"
 msgstr "Sci-Hub / Libgen “scimag”"
 
-#: allthethings/page/templates/page/datasets.html:162
+#: allthethings/page/templates/page/datasets.html:161
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.title"
 msgstr "Bu'uuraalee meetaadaataa qofa"
 
-#: allthethings/page/templates/page/datasets.html:165
+#: allthethings/page/templates/page/datasets.html:164
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text1"
 msgstr "Kuusaa keenya bu'uuraalee meetaadaataa qofa waliinis ni badhaasina, kanneen faayiloota waliin walitti hidhuu dandeenyu, fakkeenyaaf lakkoofsa ISBN ykn dirree biroo fayyadamuun. Gadii keessatti, bu'uuraalee kana ilaalchisee gabaasa tokko argitu. Ammas, bu'uuraaleen tokko tokko guutummaatti banaa ta'uu danda'u, kanneen biroo garuu qubachiisuuf ni yaalla."
 
-#: allthethings/page/templates/page/datasets.html:169
-#: allthethings/page/templates/page/faq.html:186
+#: allthethings/page/templates/page/datasets.html:168
+#: allthethings/page/templates/page/faq.html:187
 #: allthethings/page/templates/page/search.html:294
 #, fuzzy
 msgid "page.faq.metadata.inspiration1"
 msgstr "Kaayyoo keenya metadata walitti qabuu keessatti kan nuuf ta'e kaayyoo Aaron Swartz kan “fuula web tokko kitaaba hundumaa maxxanfameef” kan inni <a %(a_openlib)s>Open Library</a> uumeef."
 
-#: allthethings/page/templates/page/datasets.html:170
-#: allthethings/page/templates/page/faq.html:187
+#: allthethings/page/templates/page/datasets.html:169
+#: allthethings/page/templates/page/faq.html:188
 #: allthethings/page/templates/page/search.html:295
 #, fuzzy
 msgid "page.faq.metadata.inspiration2"
 msgstr "Projektiin kun milkaa'aa ta'ee jira, garuu iddoo addaa keenya metadata argachuu danda'uu nuuf kenna."
 
-#: allthethings/page/templates/page/datasets.html:171
-#: allthethings/page/templates/page/faq.html:188
+#: allthethings/page/templates/page/datasets.html:170
+#: allthethings/page/templates/page/faq.html:189
 #: allthethings/page/templates/page/search.html:296
 #, fuzzy
 msgid "page.faq.metadata.inspiration3"
 msgstr "Sababii biraa kan nu kakaasee kitaabni meeqa akka addunyaa irratti jiru beekuu barbaaduu keenya ture, akkasumas meeqa akka nu hafe kitaabota baraaruuf lakkaa’uu dandeenyu."
 
-#: allthethings/page/templates/page/datasets.html:175
+#: allthethings/page/templates/page/datasets.html:174
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text2"
 msgstr "Meetaadaataa barbaacha keessatti, galmee duraanii agarsiifna. Galmee walitti makuu hin goonu."
 
-#: allthethings/page/templates/page/datasets.html:216
+#: allthethings/page/templates/page/datasets.html:215
 #, fuzzy
 msgid "page.datasets.unified_database.title"
 msgstr "Kuusaa walitti fufaa"
 
-#: allthethings/page/templates/page/datasets.html:219
+#: allthethings/page/templates/page/datasets.html:218
 #, fuzzy
 msgid "page.datasets.unified_database.text1"
 msgstr "Bu'uuraalee armaan olitti caqafaman hunda kuusaa walitti fufaa tokko keessatti walitti makna, kanneen weebsaayitii kana tajaajiluuf fayyadamnu. Kuusaan walitti fufaa kun si'a tokkoon hin dhihaatu, garuu Kuusaa Annaa guutummaatti banaa waan ta'eef, salphatti <a %(a_generated)s>hojjechuu</a> ykn <a %(a_downloaded)s>buufachuu</a> akka danda'amu ni danda'ama akka kuusaa ElasticSearch fi MariaDB. Sikiriptiin fuula sana irratti argaman meetaadaataa barbaachisaa hunda bu'uuraalee armaan olitti caqafaman irraa si'a tokkoon buusu."
 
-#: allthethings/page/templates/page/datasets.html:227
+#: allthethings/page/templates/page/datasets.html:226
 #, fuzzy
 msgid "page.datasets.unified_database.text2"
 msgstr "Meetaadaataa keenya si'a tokkoon hojjechuu dura, JSON faayiloota keenya ilaaluuf, kanneen JSON faayiloota biroo waliin walitti hidhan ilaalu dandeessa. <a %(a_json)s>Faayila kana</a> jalqabaaf gaarii dha."
@@ -2901,473 +3011,477 @@ msgstr "Weebsaayitii ISBN"
 msgid "page.datasets/isbn_ranges.isbn_metadata"
 msgstr "Meetaadaataa"
 
-#: allthethings/page/templates/page/faq.html:3
-#: allthethings/page/templates/page/faq.html:6
+#: allthethings/page/templates/page/faq.html:5
+#: allthethings/page/templates/page/faq.html:8
 #, fuzzy
 msgid "page.faq.title"
 msgstr "Gaaffilee yeroo baay’ee gaafataman (FAQ)"
 
-#: allthethings/page/templates/page/faq.html:8
+#: allthethings/page/templates/page/faq.html:10
 #, fuzzy
 msgid "page.faq.what_is.title"
 msgstr "Anna’s Archive maali?"
 
-#: allthethings/page/templates/page/faq.html:11
+#: allthethings/page/templates/page/faq.html:13
 #, fuzzy
 msgid "page.home.intro.text1"
 msgstr "<span %(span_anna)s>Anna’s Archive</span> hojii tola ooltummaa kan kaayyoo lama qabu dha:"
 
-#: allthethings/page/templates/page/faq.html:15
+#: allthethings/page/templates/page/faq.html:17
 #, fuzzy
 msgid "page.home.intro.text2"
 msgstr "<li><strong>Ittigaafatamummaa:</strong> Beekumsa fi aadaa namoomaa hunda duubatti deebi'anii olkaa'uu.</li><li><strong>Galii:</strong> Beekumsa fi aadaa kana namni kamiyyuu addunyaa irratti argachuu danda'u taasisuu.</li>"
 
-#: allthethings/page/templates/page/faq.html:19
+#: allthethings/page/templates/page/faq.html:21
 #, fuzzy
 msgid "page.home.intro.open_source"
 msgstr "<a %(a_code)s>Koodii</a> fi <a %(a_datasets)s>dhiyeessa</a> keenya hundi sirna banaa dha."
 
-#: allthethings/page/templates/page/faq.html:23
+#: allthethings/page/templates/page/faq.html:25
 #, fuzzy
 msgid "page.home.preservation.header"
 msgstr "Ittigaafatamummaa"
 
-#: allthethings/page/templates/page/faq.html:25
+#: allthethings/page/templates/page/faq.html:27
 #, fuzzy
 msgid "page.home.preservation.text1"
 msgstr "Kitaabota, barruulee, koomiksii, magaazinii fi kanneen biroo olkaa'uu, meeshaalee kana gara <X97X>maktaba dukkanaa</X168X>, maktaba seera qabeessa, fi walitti qabama biroo gara iddoo tokkootti fiduu dhaan. Dhiyeessa kana hunda yeroo hundaa olkaa'uu fi baay'inaan walitti qabuu dandeessisuun - toriintii fayyadamuun - addunyaa guutuu keessatti kophii baay'ee uumuu dhaan. Maktaba dukkanaa tokko tokko duraanuu kana ofii isaanii hojjechaa jiru (fakkeenyaaf Sci-Hub, Library Genesis), yeroo <span [X6X]>Anna’s Archive</span> maktaba biroo kanneen baay'inaan dhiyeessuu hin dandeenye (fakkeenyaaf Z-Library) ykn maktaba dukkanaa hin taane (fakkeenyaaf Internet Archive, DuXiu) \"bilisoomsu\"."
 
-#: allthethings/page/templates/page/faq.html:27
+#: allthethings/page/templates/page/faq.html:29
 #, fuzzy
 msgid "page.home.preservation.text2"
 msgstr "Dhiyeessa bal'aa kana, koodii banaa waliin walitti fiduun, marsariitii keenya akka hin buqqaane taasisa, fi beekumsa fi aadaa namoomaa yeroo dheeraa olkaa'uu mirkaneessa. Dhiyeessa keenya irratti bal'inaan baradhu <a href=\"/datasets\">datasets keenya</a>."
 
-#: allthethings/page/templates/page/faq.html:41
+#: allthethings/page/templates/page/faq.html:43
 #, fuzzy
 msgid "page.home.preservation.label"
 msgstr "Kitaabota addunyaa keessaa %5 olkaa'uu dandeenye jedhee tilmaama."
 
-#: allthethings/page/templates/page/faq.html:46
+#: allthethings/page/templates/page/faq.html:48
 #, fuzzy
 msgid "page.home.access.header"
 msgstr "Galii"
 
-#: allthethings/page/templates/page/faq.html:48
+#: allthethings/page/templates/page/faq.html:50
 #, fuzzy
 msgid "page.home.access.text"
 msgstr "Hojii waliin hojjechuu dhaan walitti qabama keenya namni kamiyyuu salphatti fi bilisaan argachuu danda'u taasisuu. Namni kamiyyuu beekumsa waloo namoomaa argachuu mirga qaba jedhee amanna. <a %(a_search)s>Miseensota hin miidhuun</a>."
 
-#: allthethings/page/templates/page/faq.html:52
+#: allthethings/page/templates/page/faq.html:54
 #, fuzzy
 msgid "page.home.access.label"
 msgstr "Bu'aa buufata sa'aa 30 darban keessatti. Bu'aa sa'aa giddugaleessa: %(hourly)s. Bu'aa guyyaa giddugaleessa: %(daily)s."
 
-#: allthethings/page/templates/page/faq.html:80
+#: allthethings/page/templates/page/faq.html:82
 #, fuzzy
 msgid "page.about.text2"
 msgstr "Beekumsa fi aadaa olkaa'uu fi wal jijjiiruu bilisaa irratti amantaa cimaa qabna. Meeshaa barbaachisaa kanaan, hojiilee namoota duraan hojjetan irratti ijaarree. Hojii cimaa namoota maktaba dukkanaa uumaniif kabaja guddaa qabna, fi meeshaa barbaachisaa kanaan bal'ina isaanii babal'isuuf abdii qabna."
 
-#: allthethings/page/templates/page/faq.html:84
+#: allthethings/page/templates/page/faq.html:86
 #, fuzzy
 msgid "page.about.text3"
 msgstr "Guddina keenya irratti odeeffannoo argachuuf, Anna <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a> ykn <a href=\"https://t.me/annasarchiveorg\">Telegram</a> irratti hordofaa. Gaaffii fi yaadaaf Anna %(email)s quunnamaa."
 
-#: allthethings/page/templates/page/faq.html:87
+#: allthethings/page/templates/page/faq.html:89
 #, fuzzy
 msgid "page.faq.help.title"
 msgstr "Akkaataa itti gargaaru dandeessu?"
 
-#: allthethings/page/templates/page/faq.html:90
+#: allthethings/page/templates/page/faq.html:92
 #, fuzzy
 msgid "page.about.help.text"
 msgstr "<li>1. Nu <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a>, ykn <a href=\"https://t.me/annasarchiveorg\">Telegram</a> irratti hordofaa.</li><li>2. Odeeffannoo Anna’s Archive irratti Twitter, Reddit, Tiktok, Instagram, mana bunaa ykn maktaba naannoo keessanitti, ykn iddoo kamiyyuu deemtu beeksisaa! Eeyyama kennuu hin amannu - yoo nu buqqisan iddoo biraatti deebinee ni mul'anna, sababiin isaas koodii fi dhiyeessa keenya hundi sirna banaa dha.</li><li>3. Yoo dandeessan, <a href=\"/donate\">gargaarsa maallaqaa</a> gochuu yaadaa.</li><li>4. Marsariitii keenya gara afaanota gara garaatti <a href=\"https://translate.annas-software.org/\">hiikuu</a> gargaaraa.</li><li>5. Yoo injinara sirna taatan, sirna banaa keenya irratti gumaachuu ykn toriintii keenya <a href=\"/datasets\">seedii gochuu yaadaa.</li>"
 
-#: allthethings/page/templates/page/faq.html:91
+#: allthethings/page/templates/page/faq.html:93
 #, fuzzy
 msgid "page.about.help.text6"
 msgstr "6. Yoo qorataa nageenyaa taatan, dandeettii keessan badii fi ittisaaf fayyadamuu dandeenya. Fuula <a %(a_security)s>Nageenyaa</a> ilaalaa."
 
-#: allthethings/page/templates/page/faq.html:92
+#: allthethings/page/templates/page/faq.html:94
 #, fuzzy
 msgid "page.about.help.text7"
 msgstr "7. Ogeeyyii kaffaltii daldaltoota icciitii barbaachisaa. Maallaqa gargaarsa kennuuf karaa salphaa dabaluu keessatti nu gargaaruu dandeessu? PayPal, WeChat, kaardii kennaa. Namni beektan yoo jiraate, nu quunnamaa."
 
-#: allthethings/page/templates/page/faq.html:93
+#: allthethings/page/templates/page/faq.html:95
 #, fuzzy
 msgid "page.about.help.text8"
 msgstr "8. Yeroo hunda dandeettii seerverii dabalataa barbaachisaa jirra."
 
-#: allthethings/page/templates/page/faq.html:94
+#: allthethings/page/templates/page/faq.html:96
 #, fuzzy
 msgid "page.about.help.text9"
 msgstr "9. Atiin gargaaran fayilii rakkoo qaban gabaasuun, yaada kennuun, fi tarreewwan uumuun. Akkasumas <a %(a_upload)s>kitaabota dabalataa olkaa'uun</a>, yookaan rakkoo fayilii fi sirna kitaabota jiran fooyyessuun gargaaruu dandeessu."
 
-#: allthethings/page/templates/page/faq.html:95
+#: allthethings/page/templates/page/faq.html:97
 #, fuzzy
 msgid "page.about.help.text10"
 msgstr "10. Fuula Wikipediaa Anna’s Archive afaan keessanitti uumuun yookaan tiksuun gargaaruu dandeessu."
 
-#: allthethings/page/templates/page/faq.html:96
+#: allthethings/page/templates/page/faq.html:98
 #, fuzzy
 msgid "page.about.help.text11"
 msgstr "11. Iddoo xixiqqoo, beekkamaa ta'anitti beeksisni kaa'uu barbaadna. Yoo Anna’s Archive irratti beeksisuu barbaaddan, nu beeksisaa."
 
-#: allthethings/page/templates/page/faq.html:97
+#: allthethings/page/templates/page/faq.html:99
 #, fuzzy
 msgid "page.faq.help.mirrors"
 msgstr "Namoonni <a %(a_mirrors)s>mirroorota</a> dhaabuun akka nu gargaaran ni jaalanna, fi maallaqaafis ni deeggara."
 
-#: allthethings/page/templates/page/faq.html:105
+#: allthethings/page/templates/page/faq.html:103
+msgid "page.about.help.volunteer"
+msgstr ""
+
+#: allthethings/page/templates/page/faq.html:106
 #, fuzzy
 msgid "page.faq.slow.title"
 msgstr "Maaliif buufata buusuun suuta?"
 
-#: allthethings/page/templates/page/faq.html:108
+#: allthethings/page/templates/page/faq.html:109
 #, fuzzy
 msgid "page.faq.slow.text1"
 msgstr "Addunyaa guutuu keessatti namoota hundaaf download saffisaa kennuuf qabeenya gahaa hin qabnu, akkasumas ni barbaadna. Yoo nama duree nuuf deeggaree kana nuuf kennuuf jiraate, dinqisiifannaa ta'a, garuu hanga yeroo sanatti, carraa keenya ni goona. Proojektii bu'aa hin barbaadne kan gargaarsa kennaa qofaan of jiraachisuudha."
 
-#: allthethings/page/templates/page/faq.html:112
+#: allthethings/page/templates/page/faq.html:113
 #, fuzzy
 msgid "page.faq.slow.text2"
 msgstr "Kanaafuu, qindoomina lama download bilisaa gochuuf hojjanne, michoota keenya waliin: seerveroota qooddaman kan download suuta ta'an, fi seerveroota saffisaan xiqqoo kan namaa xiqqeessuuf (akka namoonni yeroo tokko tokkotti download hin goone)."
 
-#: allthethings/page/templates/page/faq.html:116
+#: allthethings/page/templates/page/faq.html:117
 #, fuzzy
 msgid "page.faq.slow.text3"
 msgstr "Akkasumas <a %(a_verification)s>mirkaneessa brauzaarii</a> download suutaaf qabna, sababiin isaas bots fi scrapers isaan miidhu, dhugaa fayyadamtootaaf suuta taasisu."
 
-#: allthethings/page/templates/page/faq.html:120
+#: allthethings/page/templates/page/faq.html:121
 #, fuzzy
 msgid "page.faq.slow.text4"
 msgstr "Hubadhaa, yeroo Tor Browser fayyadamtan, sirna nageenya keessan sirreessuu dandeessu. Filannoo gadi aanaa, kan “Standard” jedhamu irratti, carraa Cloudflare ni milkaa’a. Filannoo ol’aanaa, kan “Safer” fi “Safest” jedhaman irratti, carraa ni kufa."
 
-#: allthethings/page/templates/page/faq.html:124
+#: allthethings/page/templates/page/faq.html:125
 #, fuzzy
 msgid "page.faq.slow.text5"
 msgstr "Yeroo hedduu, buufataawwan gurguddaa buufachuuf yeroo dheeraa fudhatu, buufanni addaan cituu danda’a. Kanaafuu, buufataawwan gurguddaa itti fufsiisuuf download manager (akka JDownloader) fayyadamuu ni gorsina."
 
-#: allthethings/page/templates/page/faq.html:127
+#: allthethings/page/templates/page/faq.html:128
 #, fuzzy
 msgid "page.donate.faq.title"
 msgstr "Gaaffii fi Deebii Kennaa"
 
-#: allthethings/page/templates/page/faq.html:130
+#: allthethings/page/templates/page/faq.html:131
 #, fuzzy
 msgid "page.donate.faq.renew"
 msgstr "<div %(div_question)s>Miseensummaan ofiin of haaromsa?</div> Miseensummaan <strong>hin haaromfamu</strong>. Yeroo barbaaddanitti yookaan yeroo gabaabaa yookaan dheeraa ta'etti hirmaachuu dandeessu."
 
-#: allthethings/page/templates/page/faq.html:134
+#: allthethings/page/templates/page/faq.html:135
 #, fuzzy
 msgid "page.donate.faq.membership"
 msgstr "<div %(div_question)s>Maamiltoota koo ol-kaasuu ykn maamiltoota baay’ee argachuu nan danda'aa?</div>"
 
-#: allthethings/page/templates/page/faq.html:139
+#: allthethings/page/templates/page/faq.html:140
 #, fuzzy
 msgid "page.donate.faq.text_other_payment1"
 msgstr "<div %(div_question)s>Mala kaffaltii biroo qabduu?</div> Ammaaf hin qabnu. Namoonni baay'een arkiivii akkanaa akka hin jiraanne barbaadu, kanaaf of eeggachuu qabna. Yoo mala kaffaltii biroo (kan salphaa) sirnaan nuuf qindeessuu dandeessu, nu quunnamaa %(email)s."
 
-#: allthethings/page/templates/page/faq.html:143
+#: allthethings/page/templates/page/faq.html:144
 #, fuzzy
 msgid "page.donate.faq.spend"
 msgstr "<div %(div_question)s>Kennaa maaliif oolcha?</div> 100%% beekumsa fi aadaa addunyaa tiksuuf fi akka argamu gochuuf oola. Ammaaf seerveroota, kuusaa, fi baandwiitii irratti baay'ee oola. Maallaqni miseensota garee kamiyyuu irratti hin oolu."
 
-#: allthethings/page/templates/page/faq.html:147
+#: allthethings/page/templates/page/faq.html:148
 #, fuzzy
 msgid "page.donate.faq.text_large_donation"
 msgstr "<div %(div_question)s>Kennaa guddaa gochuu danda'aa?</div> Dinquu dha! Kennaa kuma dhibba tokkoo ol ta'eef, nu quunnamaa %(email)s."
 
-#: allthethings/page/templates/page/faq.html:151
+#: allthethings/page/templates/page/faq.html:152
 #, fuzzy
 msgid "page.donate.faq.non_member_donation"
 msgstr "<div %(div_question)s>Miseensa ta'uu malee kennaa gochuu danda'aa?</div> Eeyyee. Kennaa maallaqaa kamiyyuu fudhanna, kanaafis Monero (XMR) kana irratti: %(address)s."
 
-#: allthethings/page/templates/page/faq.html:154
+#: allthethings/page/templates/page/faq.html:155
 #, fuzzy
 msgid "page.faq.upload.title"
 msgstr "Kitaabota haaraa olkaa'uu akkamitti danda'aa?"
 
-#: allthethings/page/templates/page/faq.html:157
+#: allthethings/page/templates/page/faq.html:158
 #, fuzzy
 msgid "page.upload.text1"
 msgstr "Ammaaf, kitaabota haaraa Library Genesis forks irratti olkaa'uu ni gorsa. Asitti <a %(a_guide)s>gorsa salphaa</a> argattu. Forks lamaanuu kan asitti tarreeffaman sirna olkaa'uu kana irraa fudhatu."
 
-#: allthethings/page/templates/page/faq.html:158
+#: allthethings/page/templates/page/faq.html:159
 #, fuzzy
 msgid "common.libgen.email"
 msgstr "E-mail keessan forum Libgen irratti hin hojjanne yoo ta'e, <a %(a_mail)s>Proton Mail</a> (bilisaa) fayyadamuu ni gorsa. Akkasumas <a %(a_manual)s>manually account keessan</a> akka hojjatu gaafachuu dandeessu."
 
-#: allthethings/page/templates/page/faq.html:159
+#: allthethings/page/templates/page/faq.html:160
 #, fuzzy
 msgid "page.faq.mhut_upload"
 msgstr "Mhut.org IP range muraasa uggura, kanaaf VPN barbaachisuu danda'a."
 
-#: allthethings/page/templates/page/faq.html:163
+#: allthethings/page/templates/page/faq.html:164
 #, fuzzy
 msgid "page.upload.zlib.text1"
 msgstr "Yookaan, Z-Library irratti <a %(a_upload)s>asitti</a> olkaa'uu dandeessu."
 
-#: allthethings/page/templates/page/faq.html:167
+#: allthethings/page/templates/page/faq.html:168
 #, fuzzy
 msgid "page.upload.zlib.text2"
 msgstr "Barreeffamoota saayinsii olkaa'uuf, (Library Genesis dabalatee) STC Nexus irratti olkaa'uu dandeessu. Isaan barreeffamoota haaraaaf arkiivii gaarii dha. Ammaaf isaan hin qindeessine, garuu yeroo tokko ni goona. <a %(a_telegram)s>upload bot Telegram</a> isaanii fayyadamuu dandeessu, yookaan fayilii baay'ee yoo qabaattan, teessoo isaanii ergaa."
 
-#: allthethings/page/templates/page/faq.html:171
+#: allthethings/page/templates/page/faq.html:172
 #, fuzzy
 msgid "page.upload.large.text"
 msgstr "Olkaa'uu guddaa (fayilii 10,000 ol) kan Libgen yookaan Z-Library hin fudhanneef, nu quunnamaa %(a_email)s."
 
-#: allthethings/page/templates/page/faq.html:174
+#: allthethings/page/templates/page/faq.html:175
 #, fuzzy
 msgid "page.faq.request.title"
 msgstr "Kita akkamitti kitaabota gaafachuu danda'aa?"
 
-#: allthethings/page/templates/page/faq.html:177
+#: allthethings/page/templates/page/faq.html:178
 #, fuzzy
 msgid "page.request.cannot_accomodate"
 msgstr "Ammaaf, gaafii kitaabaa guutuuf hin dandeenyu."
 
-#: allthethings/page/templates/page/faq.html:178
+#: allthethings/page/templates/page/faq.html:179
 #, fuzzy
 msgid "page.request.forums"
 msgstr "Gaafilee keessan Z-Library yookiin Libgen forums irratti dhiyeessaa."
 
-#: allthethings/page/templates/page/faq.html:179
+#: allthethings/page/templates/page/faq.html:180
 #, fuzzy
 msgid "page.request.dont_email"
 msgstr "Gaafilee kitaabaa nuuf email hin erginaa."
 
-#: allthethings/page/templates/page/faq.html:182
+#: allthethings/page/templates/page/faq.html:183
 #, fuzzy
 msgid "page.faq.metadata.title"
 msgstr "Meta data walitti qabduu?"
 
-#: allthethings/page/templates/page/faq.html:185
+#: allthethings/page/templates/page/faq.html:186
 #, fuzzy
 msgid "page.faq.metadata.indeed"
 msgstr "Eeyyen, ni qabna."
 
-#: allthethings/page/templates/page/faq.html:191
+#: allthethings/page/templates/page/faq.html:192
 #, fuzzy
 msgid "page.faq.1984.title"
 msgstr "1984 kan George Orwell jedhu buufadheera, poolisiin balbala koo irrattii dhufa?"
 
-#: allthethings/page/templates/page/faq.html:194
+#: allthethings/page/templates/page/faq.html:195
 #, fuzzy
 msgid "page.faq.1984.text"
 msgstr "Yaaddoo hin qabinaa, namoonni baay'een marsariitiiwwan nu waliin hidhata qaban irraa buufachaa jiru, rakkoo keessa seenuun baay'ee hin mul'atu. Garuu, nagaa ta'uuf VPN (kan kaffaltii) yookiin <a %(a_tor)s>Tor</a> (kan bilisaa) fayyadamuu ni gorsa."
 
-#: allthethings/page/templates/page/faq.html:197
+#: allthethings/page/templates/page/faq.html:198
 #, fuzzy
 msgid "page.faq.save_search.title"
 msgstr "Sirna barbaachisummaa koo akkamitti olkaa'uu danda'aa?"
 
-#: allthethings/page/templates/page/faq.html:200
+#: allthethings/page/templates/page/faq.html:201
 #, fuzzy
 msgid "page.faq.save_search.text1"
 msgstr "Sirna barbaachisummaa barbaaddu filadhu, sanduuqa barbaachisummaa duwwaa dhiisi, “Search” tuqi, booda fuula sana browser keetiin bookmark godhi."
 
-#: allthethings/page/templates/page/faq.html:203
+#: allthethings/page/templates/page/faq.html:204
 #, fuzzy
 msgid "page.faq.mobile.title"
 msgstr "Appa moobaayila qabduu?"
 
-#: allthethings/page/templates/page/faq.html:206
+#: allthethings/page/templates/page/faq.html:207
 #, fuzzy
 msgid "page.faq.mobile.text1"
 msgstr "Appa moobaayila sirrii hin qabnu, garuu marsariitii kana appa godhachuu dandeessa."
 
-#: allthethings/page/templates/page/faq.html:207
+#: allthethings/page/templates/page/faq.html:208
 #, fuzzy
 msgid "page.faq.mobile.android"
 msgstr "<strong>Android:</strong> Menuu sadii gubbaa mirga jiru tuqi, “Add to Home Screen” filadhu."
 
-#: allthethings/page/templates/page/faq.html:208
+#: allthethings/page/templates/page/faq.html:209
 #, fuzzy
 msgid "page.faq.mobile.ios"
 msgstr "<strong>iOS:</strong> “Share” kan gadii jiru tuqi, “Add to Home Screen” filadhu."
 
-#: allthethings/page/templates/page/faq.html:211
+#: allthethings/page/templates/page/faq.html:212
 #, fuzzy
 msgid "page.faq.api.title"
 msgstr "API qabduu?"
 
-#: allthethings/page/templates/page/faq.html:214
+#: allthethings/page/templates/page/faq.html:215
 #, fuzzy
 msgid "page.faq.api.text1"
 msgstr "API JSON sirrii miseensotaaf, URL buufata saffisaa argachuuf qabna: <a %(a_fast_download)s>/dyn/api/fast_download.json</a> (documentation JSON keessatti argama)."
 
-#: allthethings/page/templates/page/faq.html:218
+#: allthethings/page/templates/page/faq.html:219
 #, fuzzy
 msgid "page.faq.api.text2"
 msgstr "Kaayyoo biroo, akka faayiloota keenya mara irra deemu, barbaachisummaa addaa ijaaruu fi kkf, <a %(a_generate)s>hojjechuu</a> yookiin <a %(a_download)s>buufachuu</a> ElasticSearch fi MariaDB database keenya ni gorsa. Daataan sirrii JSON faayiloota keessatti <a %(a_explore)s>ilaaluu</a> danda'ama."
 
-#: allthethings/page/templates/page/faq.html:222
+#: allthethings/page/templates/page/faq.html:223
 #, fuzzy
 msgid "page.faq.api.text3"
 msgstr "Tarree torrents sirrii keenya <a %(a_torrents)s>JSON</a> ta'ee buufachuu ni danda'ama."
 
-#: allthethings/page/templates/page/faq.html:225
+#: allthethings/page/templates/page/faq.html:226
 #, fuzzy
 msgid "page.faq.torrents.title"
 msgstr "Torrents FAQ"
 
-#: allthethings/page/templates/page/faq.html:228
+#: allthethings/page/templates/page/faq.html:229
 #, fuzzy
 msgid "page.faq.torrents.q1"
 msgstr "Gargaarsa seeding gochuu barbaada, garuu iddoo disk xiqqoo qaba."
 
-#: allthethings/page/templates/page/faq.html:230
+#: allthethings/page/templates/page/faq.html:231
 #, fuzzy
 msgid "page.faq.torrents.a1"
 msgstr "<a %(a_list)s>fayyadamuu torrentii</a> fayyadamiitii, galmee torrentii baay'ee barbaachisan, daangaa kuusaa keessan keessatti, uumuuf."
 
-#: allthethings/page/templates/page/faq.html:234
+#: allthethings/page/templates/page/faq.html:235
 #, fuzzy
 msgid "page.faq.torrents.q2"
 msgstr "Torrentiin suuta deemu; odeeffannoo sirraa kallattiin buufachuu danda'aa?"
 
-#: allthethings/page/templates/page/faq.html:236
+#: allthethings/page/templates/page/faq.html:237
 #, fuzzy
 msgid "page.faq.torrents.a2"
 msgstr "Eeyyee, fuula <a %(a_llm)s>odeeffannoo LLM</a> ilaalaa."
 
-#: allthethings/page/templates/page/faq.html:240
+#: allthethings/page/templates/page/faq.html:241
 #, fuzzy
 msgid "page.faq.torrents.q3"
 msgstr "Kutaa qofa faayiloota, akka afaan tokkoo yookaan mata-duree tokkoo qofa buufachuu danda'aa?"
 
-#: allthethings/page/templates/page/faq.html:242
+#: allthethings/page/templates/page/faq.html:243
 #, fuzzy
 msgid "page.faq.torrents.a3"
 msgstr "Torrentiin baay'een faayiloota kallattiin qabatu, kanaafuu torrentii fayyadamtoonni faayiloota barbaachisan qofa akka buufatan ajajuu dandeessu. Faayiloota buufachuu qabdan murteessuuf, metadata keenya <a %(a_generate)s>uumuuf</a> yookaan ElasticSearch fi MariaDB database keenya <a %(a_download)s>buufachuu</a> dandeessu. Haa ta'u malee, torrentii tokko tokkoo keessatti faayiloota .zip yookaan .tar bu'uura irratti qabatu, kanaafuu faayiloota dhuunfaa filachuuf dura torrentii guutuu buufachuu qabdu."
 
-#: allthethings/page/templates/page/faq.html:246
+#: allthethings/page/templates/page/faq.html:247
 #, fuzzy
 msgid "page.faq.torrents.q4"
 msgstr "Torrentiin keessatti faayiloota wal fakkaatan akkamitti to'atta?"
 
-#: allthethings/page/templates/page/faq.html:248
+#: allthethings/page/templates/page/faq.html:249
 #, fuzzy
 msgid "page.faq.torrents.a4"
 msgstr "Galmee torrentii kana keessatti faayiloota wal fakkaatan yookaan walitti dhufeenya xiqqeessuuf yaalla, garuu kun yeroo hunda milkaa'uu hin danda'u, fi siyaasaa mana kitaabaa madda irratti hirkata. Mana kitaabaa torrentii ofii isaanii baasan irratti, harkaa keenya ala. Torrentii Anna’s Archive irraa baasan irratti, MD5 hash irratti hunda'uun qofa wal fakkaatan to'anna, kana jechuun kitaabota gosa tokkoo garagaraa wal fakkaatan hin to'annu."
 
-#: allthethings/page/templates/page/faq.html:252
+#: allthethings/page/templates/page/faq.html:253
 #, fuzzy
 msgid "page.faq.torrents.q5"
 msgstr "Galmee torrentii JSON ta'ee argachuu danda'aa?"
 
-#: allthethings/page/templates/page/faq.html:254
+#: allthethings/page/templates/page/faq.html:255
 #, fuzzy
 msgid "page.faq.torrents.a5"
 msgstr "Eeyyee."
 
-#: allthethings/page/templates/page/faq.html:258
+#: allthethings/page/templates/page/faq.html:259
 #, fuzzy
 msgid "page.faq.torrents.q6"
 msgstr "Torrentii keessatti PDF yookaan EPUB hin agarre, faayiloota binary qofa? Maal gochuu qaba?"
 
-#: allthethings/page/templates/page/faq.html:260
+#: allthethings/page/templates/page/faq.html:261
 #, fuzzy
 msgid "page.faq.torrents.a6"
 msgstr "Kunis dhugumatti PDF fi EPUB dha, garuu torrentii keenya baay'ee keessatti extension hin qaban. Faayiloota torrentii keessatti metadata argachuu dandeessu, faayiloota gosa/extension dabalatee:"
 
-#: allthethings/page/templates/page/faq.html:262
+#: allthethings/page/templates/page/faq.html:263
 #, fuzzy
 msgid "page.faq.torrents.a6.li1"
 msgstr "1. Walitti qabama yookaan baafama tokko tokko metadata ofii isaa qaba. Fakkeenyaaf, <a %(a_libgen_nonfic)s>Libgen.rs torrentii</a> website Libgen.rs irratti metadata database walitti qabama qaba. Walitti qabama tokko tokko irraa <a %(a_datasets)s>fuula dataset</a> irraa metadata madda barbaachisaa walitti qabama."
 
-#: allthethings/page/templates/page/faq.html:264
+#: allthethings/page/templates/page/faq.html:265
 #, fuzzy
 msgid "page.faq.torrents.a6.li2"
 msgstr "2. ElasticSearch fi MariaDB database keenya <a %(a_generate)s>uumuuf</a> yookaan <a %(a_download)s>buufachuu</a> gorsa. Kunis galmee tokko tokko Anna’s Archive keessatti torrentii faayiloota walitti qabama (yoo jiraate), “torrent_paths” keessatti ElasticSearch JSON jalatti."
 
-#: allthethings/page/templates/page/faq.html:267
+#: allthethings/page/templates/page/faq.html:268
 #, fuzzy
 msgid "page.faq.security.title"
 msgstr "Sagantaa ifaajee itti gaafatamummaa qabdu qabduu?"
 
-#: allthethings/page/templates/page/faq.html:270
+#: allthethings/page/templates/page/faq.html:271
 #, fuzzy
 msgid "page.faq.security.text1"
 msgstr "Qorattoota nageenyaa akka sirna keenya keessatti hanqina barbaadan ni simanna. Ifaajee itti gaafatamummaa guddisuu ni jajjabeessina. Nu qunnamaa <a %(a_contact)s>as</a>."
 
-#: allthethings/page/templates/page/faq.html:274
+#: allthethings/page/templates/page/faq.html:275
 #, fuzzy
 msgid "page.faq.security.text2"
 msgstr "Ammaaf hanqina hanqina nageenyaa, kan <a %(a_link)s>safuu keenya cabsuu danda'u</a> qofaaf badhaasa kennina, kan $10k-50k tti. Fuulduratti hanqina nageenyaa bal'inaan badhaasa kennuuf ni barbaanna! Hubadhaa, weerara social engineering keessaa hin hammatamu."
 
-#: allthethings/page/templates/page/faq.html:278
+#: allthethings/page/templates/page/faq.html:279
 #, fuzzy
 msgid "page.faq.security.text3"
 msgstr "Nageenya weerara irratti xiinxaluuf, fi beekumsa fi aadaa addunyaa kuusuu barbaaduuf, nu qunnamaa. Fakkaattiin hedduun ittiin gargaartuu jiru."
 
-#: allthethings/page/templates/page/faq.html:281
+#: allthethings/page/templates/page/faq.html:282
 #, fuzzy
 msgid "page.faq.resources.title"
 msgstr "Odeeffannoo dabalataa Anna’s Archive irratti argamuu danda'aa?"
 
-#: allthethings/page/templates/page/faq.html:284
+#: allthethings/page/templates/page/faq.html:285
 #, fuzzy
 msgid "page.faq.resources.annas_blog"
 msgstr "<a %(a_blog)s>Blogii Anna</a>, <a %(a_reddit_u)s>Reddit</a>, <a %(a_reddit_r)s>Subreddit</a> — haala yeroo yerootti"
 
-#: allthethings/page/templates/page/faq.html:285
+#: allthethings/page/templates/page/faq.html:286
 #, fuzzy
 msgid "page.faq.resources.annas_software"
 msgstr "<a %(a_software)s>Software Anna</a> — koodii keenya open source"
 
-#: allthethings/page/templates/page/faq.html:286
+#: allthethings/page/templates/page/faq.html:287
 #, fuzzy
 msgid "page.faq.resources.translate"
 msgstr "<a %(a_translate)s>Hiika irratti Anna’s Software</a> — sirna hiikaa keenya"
 
-#: allthethings/page/templates/page/faq.html:287
+#: allthethings/page/templates/page/faq.html:288
 #, fuzzy
 msgid "page.faq.resources.datasets"
 msgstr "<a %(a_datasets)s>Datasets</a> — waa'ee odeeffannoo"
 
-#: allthethings/page/templates/page/faq.html:288
+#: allthethings/page/templates/page/faq.html:289
 #, fuzzy
 msgid "page.faq.resources.domains"
 msgstr "<a %(a_li)s>.li</a>, <a %(a_se)s>.se</a>, <a %(a_org)s>.org</a> — maqaa marsariitii biroo"
 
-#: allthethings/page/templates/page/faq.html:289
+#: allthethings/page/templates/page/faq.html:290
 #, fuzzy
 msgid "page.faq.resources.wikipedia"
 msgstr "<a %(a_wikipedia)s>Wikipedia</a> — waa'ee keenya dabalata (bakka kana haaromsuuf nu gargaaraa, yookaan afaan keessaniif tokko uumaa!)"
 
-#: allthethings/page/templates/page/faq.html:292
+#: allthethings/page/templates/page/faq.html:293
 #, fuzzy
 msgid "page.faq.copyright.title"
 msgstr "Haala kamiin miidhaa mirga abbaa qabeenyaa gabaasuu danda'a?"
 
-#: allthethings/page/templates/page/faq.html:295
+#: allthethings/page/templates/page/faq.html:296
 #, fuzzy
 msgid "page.faq.copyright.text1"
 msgstr "Asitti qabeenya mirga abbaa qabeenyaa hin qubannu. Maqaa qabeenyaa kanneen duraan banaa ta'anii qofa ni tarreessina. Yeroo qabeenya kana banuu, seera naannoo keessan ilaaluun maal akka eeyyamamu ilaaluuf ni gorsina. Qabeenya namoota biroo qubatan irratti itti gaafatamummaa hin qabnu."
 
-#: allthethings/page/templates/page/faq.html:299
+#: allthethings/page/templates/page/faq.html:300
 #, fuzzy
 msgid "page.faq.copyright.text2"
 msgstr "Yoo komii qabdan waa'ee wanta asitti argitan, filannoo keessan gaariin marsariitii duraanii qunnamuu dha. Jijjiirraa isaanii gara galmee keenyaatti yeroo yerootti ni galchinaa. Yoo dhugumaan komii DMCA qabdan kan deebii kennuu qabnu, <a %(a_copyright)s>foormii komii DMCA / mirga abbaa qabeenyaa</a> guutaa. Komii keessan sirriitti ni ilaalla, akkasumas saffisaan deebii ni kennina."
 
-#: allthethings/page/templates/page/faq.html:302
+#: allthethings/page/templates/page/faq.html:303
 #, fuzzy
 msgid "page.faq.hate.title"
 msgstr "Akka pirojektii kana geggeessitan nan jibba!"
 
-#: allthethings/page/templates/page/faq.html:305
+#: allthethings/page/templates/page/faq.html:306
 #, fuzzy
 msgid "page.faq.hate.text1"
 msgstr "Hundi keenya akka yaadachiisuu barbaadnu, koodii fi odeeffannoon keenya hundi guutummaatti banaa dha. Kun pirojektoota akka keenyaa keessatti adda. Pirojektii galmee guddaa akkanaa guutummaatti banaa ta'e hin beeknu. Namni akka pirojektii keenya sirrii hin geggeessine yaadu kamiyyuu koodii fi odeeffannoo keenya fudhatee galmee isaa ijaaruu akka danda'u ni simanna! Kun akka aarii irraa miti — dhugumaan waan gaarii ta'uu ni yaadna, kunis sadarkaa hundaa olkaasuu fi dhaala namoomaa sirriitti eeguuf."
 
-#: allthethings/page/templates/page/faq.html:308
+#: allthethings/page/templates/page/faq.html:309
 #, fuzzy
 msgid "page.faq.favorite.title"
 msgstr "Kitaabota jaalatamoo keessan maali?"
 
-#: allthethings/page/templates/page/faq.html:311
+#: allthethings/page/templates/page/faq.html:312
 #, fuzzy
 msgid "page.faq.favorite.text1"
 msgstr "Kitaabota galmee dukkanaa fi eeggumsa dijitaalaa addunyaaf hiika addaa qaban kunooti:"
@@ -3549,13 +3663,13 @@ msgid "page.md5.box.download.ipfs_gateway_extra"
 msgstr "(ni malaan baay'ee irra deddeebi'aa gochuu dandeessa IPFS fayyadamuun)"
 
 #: allthethings/page/templates/page/ipfs_downloads.html:23
-#: allthethings/page/templates/page/partner_download.html:93
+#: allthethings/page/templates/page/partner_download.html:91
 #, fuzzy
 msgid "page.partner_download.faster_downloads"
 msgstr "🚀 Gara bu'uuratti buufata saffisaa argachuuf fi sakatta'iinsa braawzarri hin barbaachifneef, <a %(a_membership)s>miseensa ta'i</a>."
 
 #: allthethings/page/templates/page/ipfs_downloads.html:27
-#: allthethings/page/templates/page/partner_download.html:97
+#: allthethings/page/templates/page/partner_download.html:95
 #, fuzzy
 msgid "page.partner_download.bulk_mirroring"
 msgstr "📡 Qabiyyee keenya guutuu walitti qabsiisuuf, fuula <a %(a_datasets)s>Datasets</a> fi <a %(a_torrents)s>Torrents</a> ilaali."
@@ -3909,27 +4023,31 @@ msgstr "Yoo linkii buufata argatte, sa'aatii hedduu tura."
 msgid "page.partner_download.li4"
 msgstr "Galatoomi eeggachaa, kun marsaalee bilisaan namoota hundaaf akka tajaajilu taasisa! 😊"
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:40
+msgid "page.partner_download.automatic_refreshing"
+msgstr ""
+
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.url"
 msgstr "📚 URL armaan gadii fayyadami buufachuuf: <a %(a_download)s>Amma buufadhu</a>."
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.download_now"
 msgstr "Amma buufadhu"
 
-#: allthethings/page/templates/page/partner_download.html:86
+#: allthethings/page/templates/page/partner_download.html:84
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads"
 msgstr "Akeekkachiisa: Sa'aatii 24 darban keessatti IP kee irraa buufata baay'ee ta'aniiru. Buufata suuta ta'uu danda'a."
 
-#: allthethings/page/templates/page/partner_download.html:87
+#: allthethings/page/templates/page/partner_download.html:85
 #, fuzzy
 msgid "page.partner_download.downloads_last_24_hours"
 msgstr "Buufata IP kee irraa sa'aatii 24 darban keessatti: %(count)s."
 
-#: allthethings/page/templates/page/partner_download.html:88
+#: allthethings/page/templates/page/partner_download.html:86
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads2"
 msgstr "VPN, walitti hidhamiinsa interneetii qooddamee, ykn ISP kee IP qooddame yoo fayyadamtu, akeekkachiisni kun sababa kanaan ta'uu danda'a."

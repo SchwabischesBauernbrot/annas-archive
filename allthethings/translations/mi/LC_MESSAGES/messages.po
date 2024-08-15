@@ -370,10 +370,6 @@ msgstr "Mō ngā koha neke atu i te $5000 tēnā whakapā mai ki a mātou i %(em
 #: allthethings/account/templates/account/index.html:36
 #: allthethings/page/templates/page/contact.html:3
 #: allthethings/page/templates/page/contact.html:6
-#: allthethings/page/templates/page/faq.html:84
-#: allthethings/page/templates/page/faq.html:139
-#: allthethings/page/templates/page/faq.html:147
-#: allthethings/page/templates/page/faq.html:171
 #: allthethings/page/templates/page/home.html:77
 #: allthethings/page/templates/page/home.html:82
 #: allthethings/page/templates/page/home.html:90
@@ -1387,6 +1383,14 @@ msgstr "Kāore e whakaaturia ana ngā kōnae kua tikiakea ki te marea."
 msgid "page.downloaded.no_files"
 msgstr "Kāore anō kia tikiakea he kōnae."
 
+#: allthethings/account/templates/account/downloaded.html:16
+msgid "page.downloaded.last_18_hours"
+msgstr ""
+
+#: allthethings/account/templates/account/downloaded.html:21
+msgid "page.downloaded.earlier"
+msgstr ""
+
 #: allthethings/account/templates/account/index.html:5
 #: allthethings/account/templates/account/index.html:15
 #, fuzzy
@@ -1462,7 +1466,7 @@ msgid "page.account.logged_in.membership_upgrade"
 msgstr "Whakapā atu ki a Anna i %(email)s mēnā kei te hiahia koe ki te whakahōu i tō mema ki tētahi taumata teitei ake."
 
 #: allthethings/account/templates/account/index.html:37
-#: allthethings/page/templates/page/faq.html:135
+#: allthethings/page/templates/page/faq.html:136
 #, fuzzy
 msgid "page.account.logged_in.membership_multiple"
 msgstr "Ka taea e koe te whakakotahi i ngā mema maha (ka tāpirihia ngā tikiake tere mō ia 24 hāora)."
@@ -1717,6 +1721,14 @@ msgstr "Kua tohua he hapa i Libgen.li"
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "Kei te ngaro i Z-Library"
 
+#: allthethings/page/views.py:4845
+msgid "common.md5_problem_type_mapping.zlib_spam"
+msgstr ""
+
+#: allthethings/page/views.py:4846
+msgid "common.md5_problem_type_mapping.zlib_bad_file"
+msgstr ""
+
 #: allthethings/page/views.py:4847
 #, fuzzy
 msgid "common.md5_problem_type_mapping.duxiu_pdg_broken_files"
@@ -1807,26 +1819,31 @@ msgstr "Tūhura raraunga"
 msgid "common.access_types_mapping.torrents_available"
 msgstr "Kei roto i ngā toroa"
 
-#: allthethings/page/templates/page/datasets.html:52
-#: allthethings/page/templates/page/datasets.html:88
+#: allthethings/page/templates/page/datasets.html:51
+#: allthethings/page/templates/page/datasets.html:87
 #: allthethings/page/views.py:4880
 #, fuzzy
 msgid "common.record_sources_mapping.lgrs"
 msgstr "Libgen.rs"
 
-#: allthethings/page/templates/page/datasets.html:54
-#: allthethings/page/templates/page/datasets.html:109
+#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:108
 #: allthethings/page/views.py:4881
 #, fuzzy
 msgid "common.record_sources_mapping.lgli"
 msgstr "Libgen.li"
 
-#: allthethings/page/templates/page/datasets.html:55
-#: allthethings/page/templates/page/datasets.html:121
+#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:120
 #: allthethings/page/views.py:4882
 #, fuzzy
 msgid "common.record_sources_mapping.zlib"
 msgstr "Z-Library"
+
+#: allthethings/page/templates/page/datasets.html:55
+#: allthethings/page/views.py:4883
+msgid "common.record_sources_mapping.zlibzh"
+msgstr ""
 
 #: allthethings/page/views.py:4884
 #, fuzzy
@@ -1843,7 +1860,7 @@ msgstr "ISBNdb"
 msgid "common.record_sources_mapping.ol"
 msgstr "OpenLibrary"
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 #: allthethings/page/views.py:4887
 #, fuzzy
 msgid "common.record_sources_mapping.scihub"
@@ -1854,15 +1871,15 @@ msgstr "Sci-Hub"
 msgid "common.record_sources_mapping.oclc"
 msgstr "OCLC (WorldCat)"
 
-#: allthethings/page/templates/page/datasets.html:58
-#: allthethings/page/templates/page/datasets.html:142
+#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:141
 #: allthethings/page/views.py:4889
 #, fuzzy
 msgid "common.record_sources_mapping.duxiu"
 msgstr "DuXiu 读秀"
 
-#: allthethings/page/templates/page/datasets.html:59
-#: allthethings/page/templates/page/datasets.html:155
+#: allthethings/page/templates/page/datasets.html:58
+#: allthethings/page/templates/page/datasets.html:154
 #: allthethings/page/views.py:4890
 #, fuzzy
 msgid "common.record_sources_mapping.uploads"
@@ -2517,8 +2534,6 @@ msgstr "I hapa tētahi mea. Tēnā, whakahouhia te whārangi ka ngana anō."
 
 #: allthethings/page/templates/page/aarecord.html:406
 #: allthethings/page/templates/page/aarecord.html:407
-#: allthethings/page/templates/page/codes.html:8
-#: allthethings/page/templates/page/codes.html:9
 #: allthethings/page/templates/page/copyright.html:6
 #: allthethings/page/templates/page/copyright.html:7
 #: allthethings/page/templates/page/datasets.html:13
@@ -2574,12 +2589,12 @@ msgstr "He kōnae tēnei e whakahaerehia ana e te <a %(a_ia)s>IA’s Controlled 
 msgid "page.md5.text.file_info.text1"
 msgstr "Mō ngā pārongo mō tēnei kōnae motuhake, tirohia tana <a %(a_href)s>kōnae JSON</a>."
 
-#: allthethings/page/templates/page/aarecord_issue.html:4
+#: allthethings/page/templates/page/aarecord_issue.html:5
 #, fuzzy
 msgid "page.aarecord_issue.title"
 msgstr "🔥 Raru te uta i tēnei whārangi"
 
-#: allthethings/page/templates/page/aarecord_issue.html:6
+#: allthethings/page/templates/page/aarecord_issue.html:7
 #, fuzzy
 msgid "page.aarecord_issue.text"
 msgstr "Tēnā koa, whakamātauria anō. <a %(a_contact)s>Whakapā mai</a> mēnā ka pērā tonu te raru mō ngā hāora maha."
@@ -2622,6 +2637,105 @@ msgstr "Mēnā ka mau koe ki tētahi koropiko mutunga kore, e taunaki ana mātou
 #, fuzzy
 msgid "page.login.text3"
 msgstr "Tērā pea ka āwhina hoki te whakaweto i ngā aukati pānuitanga me ētahi atu toronga pūtirotiro."
+
+#: allthethings/page/templates/page/codes.html:5
+msgid "page.codes.title"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:10
+msgid "page.codes.heading"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:14
+msgid "page.codes.intro"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:18
+msgid "page.codes.why_cloudflare"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:22
+msgid "page.codes.dont_scrape"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:33
+msgid "page.codes.prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:34
+msgid "common.form.go"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:35
+msgid "common.form.reset"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:40
+msgid "page.codes.bad_unicode"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:46
+msgid "page.codes.known_code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:48
+msgid "page.codes.code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:49
+msgid "page.codes.code_label"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:51
+msgid "page.codes.code_description"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgid "page.codes.code_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgctxt "the %s should not be changed"
+msgid "page.codes.s_substitution"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:57
+msgid "page.codes.generic_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:61
+msgid "page.codes.code_website"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:69
+msgid "page.codes.record_starting_with"
+msgid_plural "page.codes.records_starting_with"
+msgstr[0] ""
+msgstr[1] ""
+
+#: allthethings/page/templates/page/codes.html:75
+msgid "page.codes.search_archive"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:77
+msgid "page.codes.url_link"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:84
+msgid "page.codes.codes_starting_with"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:92
+msgid "page.codes.records_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:93
+msgid "page.codes.records_codes"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:113
+msgid "page.codes.fewer_than"
+msgstr ""
 
 #: allthethings/page/templates/page/contact.html:9
 #, fuzzy
@@ -2723,144 +2837,140 @@ msgstr ""
 msgid "page.datasets.overview.last_updated.header"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:52
+#: allthethings/page/templates/page/datasets.html:51
 msgid "common.record_sources_mapping.lgrs.nonfiction_and_fiction"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "common.record_sources_mapping.scihub.via_lgli_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_1"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_2"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "common.record_sources.mapping.lgli.excluding_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "page.datasets.lgli_fiction_is_behind"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:56
-msgid "common.record_sources_mapping.zlibzh"
-msgstr ""
-
-#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:55
 msgid "page.datasets.zlibzh.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
-#: allthethings/page/templates/page/datasets.html:130
+#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:129
 msgid "common.record_sources_mapping.iacdl"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:56
 msgid "page.datasets.iacdl.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.total"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.excluding_duplicates"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:64
+#: allthethings/page/templates/page/datasets.html:63
 msgid "page.datasets.overview.text4"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:68
+#: allthethings/page/templates/page/datasets.html:67
 msgid "page.datasets.overview.text5"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:71
+#: allthethings/page/templates/page/datasets.html:70
 msgid "page.datasets.source_libraries.title"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:74
+#: allthethings/page/templates/page/datasets.html:73
 #, fuzzy
 msgid "page.datasets.source_libraries.text1"
 msgstr "Kei te whakatairanga ētahi whare pukapuka puna i te tohatoha nui o ā rātou raraunga mā ngā toroa, ā, kāore ētahi atu e pai ki te tohatoha i ā rātou kohinga. I te wā pēnei, ka ngana te Kohinga a Anna ki te keri i ā rātou kohinga, ā, ka whakatakoto hei wātea (tirohia tā mātou whārangi <a %(a_torrents)s>Torrents</a>). Kei reira anō hoki ngā āhuatanga waenga, hei tauira, kei reira ngā whare pukapuka puna e pai ana ki te tohatoha, engari kāore i a rātou ngā rauemi hei mahi pēnei. I ngā wā pēnei, ka ngana hoki mātou ki te āwhina."
 
-#: allthethings/page/templates/page/datasets.html:78
+#: allthethings/page/templates/page/datasets.html:77
 #, fuzzy
 msgid "page.datasets.source_libraries.text2"
 msgstr "Kei raro nei he tirohanga whānui mō te āhua o tā mātou hononga ki ngā whare pukapuka puna rerekē."
 
-#: allthethings/page/templates/page/datasets.html:83
+#: allthethings/page/templates/page/datasets.html:82
 #, fuzzy
 msgid "page.datasets.sources.source.header"
 msgstr "Puna"
 
-#: allthethings/page/templates/page/datasets.html:84
+#: allthethings/page/templates/page/datasets.html:83
 #, fuzzy
 msgid "page.datasets.sources.metadata.header"
 msgstr "Raraunga Matua"
 
-#: allthethings/page/templates/page/datasets.html:85
+#: allthethings/page/templates/page/datasets.html:84
 #, fuzzy
 msgid "page.datasets.sources.files.header"
 msgstr "Kōnae"
 
-#: allthethings/page/templates/page/datasets.html:98
+#: allthethings/page/templates/page/datasets.html:97
 #, fuzzy
 msgid "common.record_sources_mapping.scihub_scimag"
 msgstr "Sci-Hub / Libgen “scimag”"
 
-#: allthethings/page/templates/page/datasets.html:162
+#: allthethings/page/templates/page/datasets.html:161
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.title"
 msgstr "Ngā puna raraunga matua anake"
 
-#: allthethings/page/templates/page/datasets.html:165
+#: allthethings/page/templates/page/datasets.html:164
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text1"
 msgstr "Ka whakarangatira hoki mātou i tā mātou kohinga ki ngā puna raraunga matua anake, ka taea e mātou te hono ki ngā kōnae, hei tauira mā te whakamahi i ngā tau ISBN, i ētahi atu rānei āpure. Kei raro nei he tirohanga whānui mō ēnei. Anō, ko ētahi o ēnei puna he tino tuwhera, ā, mō ētahi atu me keri e mātou."
 
-#: allthethings/page/templates/page/datasets.html:169
-#: allthethings/page/templates/page/faq.html:186
+#: allthethings/page/templates/page/datasets.html:168
+#: allthethings/page/templates/page/faq.html:187
 #: allthethings/page/templates/page/search.html:294
 #, fuzzy
 msgid "page.faq.metadata.inspiration1"
 msgstr "Ko tā mātou whakahihiri mō te kohikohi raraunga ko te whāinga a Aaron Swartz o te “kotahi whārangi tukutuku mō ia pukapuka kua whakaputaina”, nāna i hanga te <a %(a_openlib)s>Open Library</a>."
 
-#: allthethings/page/templates/page/datasets.html:170
-#: allthethings/page/templates/page/faq.html:187
+#: allthethings/page/templates/page/datasets.html:169
+#: allthethings/page/templates/page/faq.html:188
 #: allthethings/page/templates/page/search.html:295
 #, fuzzy
 msgid "page.faq.metadata.inspiration2"
 msgstr "Kua pai te haere o taua kaupapa, engari ko tō mātou tūranga ahurei ka āhei mātou ki te tiki raraunga kāore e taea e rātou."
 
-#: allthethings/page/templates/page/datasets.html:171
-#: allthethings/page/templates/page/faq.html:188
+#: allthethings/page/templates/page/datasets.html:170
+#: allthethings/page/templates/page/faq.html:189
 #: allthethings/page/templates/page/search.html:296
 #, fuzzy
 msgid "page.faq.metadata.inspiration3"
 msgstr "Ko tētahi atu whakahihiri ko tō mātou hiahia ki te mōhio <a %(a_blog)s>e hia ngā pukapuka kei te ao</a>, kia taea ai e mātou te tatau e hia ngā pukapuka kei te toe hei whakaora."
 
-#: allthethings/page/templates/page/datasets.html:175
+#: allthethings/page/templates/page/datasets.html:174
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text2"
 msgstr "Me mōhio koe i roto i te rapu raraunga matua, ka whakaatu mātou i ngā rekoata taketake. Kāore mātou e mahi whakakotahi i ngā rekoata."
 
-#: allthethings/page/templates/page/datasets.html:216
+#: allthethings/page/templates/page/datasets.html:215
 #, fuzzy
 msgid "page.datasets.unified_database.title"
 msgstr "Pātengi raraunga kotahi"
 
-#: allthethings/page/templates/page/datasets.html:219
+#: allthethings/page/templates/page/datasets.html:218
 #, fuzzy
 msgid "page.datasets.unified_database.text1"
 msgstr "Ka whakakotahi mātou i ngā puna katoa i runga ake nei ki roto i tētahi pātengi raraunga kotahi e whakamahia ana e mātou hei hāpai i tēnei paetukutuku. Kāore tēnei pātengi raraunga kotahi e wātea ana i te tika, engari nā te mea he tino tuwhera te Kohinga a Anna, ka taea te <a %(a_generated)s>hanga</a> me te <a %(a_downloaded)s>tikiake</a> hei pātengi raraunga ElasticSearch me MariaDB. Ka tikiake aunoa ngā tuhinga i runga i taua whārangi i ngā raraunga matua katoa mai i ngā puna kua whakahuatia i runga ake nei."
 
-#: allthethings/page/templates/page/datasets.html:227
+#: allthethings/page/templates/page/datasets.html:226
 #, fuzzy
 msgid "page.datasets.unified_database.text2"
 msgstr "Mēnā kei te hiahia koe ki te tūhura i ā mātou raraunga i mua i te whakahaere i aua tuhinga i tō rohe, ka taea e koe te tirotiro i ā mātou kōnae JSON, e hono atu ana ki ētahi atu kōnae JSON. <a %(a_json)s>Ko tēnei kōnae</a> he tīmatanga pai."
@@ -2901,473 +3011,477 @@ msgstr "Paetukutuku ISBN"
 msgid "page.datasets/isbn_ranges.isbn_metadata"
 msgstr "Raraunga Matua"
 
-#: allthethings/page/templates/page/faq.html:3
-#: allthethings/page/templates/page/faq.html:6
+#: allthethings/page/templates/page/faq.html:5
+#: allthethings/page/templates/page/faq.html:8
 #, fuzzy
 msgid "page.faq.title"
 msgstr "Ngā Pātai Auau (FAQ)"
 
-#: allthethings/page/templates/page/faq.html:8
+#: allthethings/page/templates/page/faq.html:10
 #, fuzzy
 msgid "page.faq.what_is.title"
 msgstr "He aha te Anna’s Archive?"
 
-#: allthethings/page/templates/page/faq.html:11
+#: allthethings/page/templates/page/faq.html:13
 #, fuzzy
 msgid "page.home.intro.text1"
 msgstr "<span %(span_anna)s>Anna’s Archive</span> he kaupapa kore-pānga whai hua e rua ngā whāinga:"
 
-#: allthethings/page/templates/page/faq.html:15
+#: allthethings/page/templates/page/faq.html:17
 #, fuzzy
 msgid "page.home.intro.text2"
 msgstr "<li><strong>Te Tiaki:</strong> Te tārua i ngā mōhiotanga me ngā ahurea katoa o te tangata.</li><li><strong>Te Whakauru:</strong> Te tuku i ēnei mōhiotanga me ngā ahurea kia wātea ki te katoa o te ao.</li>"
 
-#: allthethings/page/templates/page/faq.html:19
+#: allthethings/page/templates/page/faq.html:21
 #, fuzzy
 msgid "page.home.intro.open_source"
 msgstr "Ko ā mātou <a %(a_code)s>waehere</a> me <a %(a_datasets)s>raraunga</a> he puna tuwhera katoa."
 
-#: allthethings/page/templates/page/faq.html:23
+#: allthethings/page/templates/page/faq.html:25
 #, fuzzy
 msgid "page.home.preservation.header"
 msgstr "Te Tiaki"
 
-#: allthethings/page/templates/page/faq.html:25
+#: allthethings/page/templates/page/faq.html:27
 #, fuzzy
 msgid "page.home.preservation.text1"
 msgstr "Ka tiakina e mātou ngā pukapuka, pepa, kōmeke, maheni, me ētahi atu, mā te kohikohi i ēnei taonga mai i ngā <a href=\"https://en.wikipedia.org/wiki/Shadow_library\">whare pukapuka huna</a>, whare pukapuka mana, me ētahi atu kohinga ki te wāhi kotahi. Ka tiakina tēnei raraunga mō ake tonu atu mā te māmā o te tārua i te nuinga — mā ngā torohū — ka puta he maha ngā tārua huri noa i te ao. Ko ētahi whare pukapuka huna kei te mahi kē i tēnei (hei tauira, Sci-Hub, Library Genesis), ā, ko Anna’s Archive ka “whakawātea” i ētahi atu whare pukapuka kāore e tuku tārua nui (hei tauira, Z-Library) kāore rānei i te whare pukapuka huna (hei tauira, Internet Archive, DuXiu)."
 
-#: allthethings/page/templates/page/faq.html:27
+#: allthethings/page/templates/page/faq.html:29
 #, fuzzy
 msgid "page.home.preservation.text2"
 msgstr "Ko tēnei tohatoha whānui, me te waehere puna tuwhera, ka whakapakari i tō mātou paetukutuku ki ngā tangohanga, ā, ka whakarite i te tiakitanga roa o ngā mōhiotanga me ngā ahurea o te tangata. Ako atu anō mō <a href=\"/datasets\">ā mātou raraunga</a>."
 
-#: allthethings/page/templates/page/faq.html:41
+#: allthethings/page/templates/page/faq.html:43
 #, fuzzy
 msgid "page.home.preservation.label"
 msgstr "E whakatau ana mātou kua tiakina e mātou tata ki te <a href=\"https://annas-blog.org/blog-isbndb-dump-how-many-books-are-preserved-forever.html\">5%% o ngā pukapuka o te ao</a>."
 
-#: allthethings/page/templates/page/faq.html:46
+#: allthethings/page/templates/page/faq.html:48
 #, fuzzy
 msgid "page.home.access.header"
 msgstr "Te Whakauru"
 
-#: allthethings/page/templates/page/faq.html:48
+#: allthethings/page/templates/page/faq.html:50
 #, fuzzy
 msgid "page.home.access.text"
 msgstr "Ka mahi tahi mātou me ngā hoa mahi kia māmā, kia wātea hoki ā mātou kohinga ki te katoa. E whakapono ana mātou he tika tō te katoa ki ngā mātauranga o te tangata. Ā <a %(a_search)s>ehara i te mea hei utu mō ngā kaituhi</a>."
 
-#: allthethings/page/templates/page/faq.html:52
+#: allthethings/page/templates/page/faq.html:54
 #, fuzzy
 msgid "page.home.access.label"
 msgstr "Ngā tikiake ia haora i ngā rā 30 kua hipa. Toharite ia haora: %(hourly)s. Toharite ia rā: %(daily)s."
 
-#: allthethings/page/templates/page/faq.html:80
+#: allthethings/page/templates/page/faq.html:82
 #, fuzzy
 msgid "page.about.text2"
 msgstr "E tino whakapono ana mātou ki te rere noa o ngā mōhiohio, me te tiaki i ngā mōhiotanga me ngā ahurea. Mā tēnei mīhini rapu, ka hangaia e mātou i runga i ngā pokohiwi o ngā tāngata nunui. E tino whakanui ana mātou i te mahi uaua a ngā tāngata i hanga i ngā whare pukapuka huna, ā, ko te tūmanako ka whānui ake te toro atu o tēnei mīhini rapu."
 
-#: allthethings/page/templates/page/faq.html:84
+#: allthethings/page/templates/page/faq.html:86
 #, fuzzy
 msgid "page.about.text3"
 msgstr "Kia noho mōhio ki ā mātou ahunga whakamua, whai i a Anna i runga i <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a> rānei <a href=\"https://t.me/annasarchiveorg\">Telegram</a>. Mō ngā pātai me ngā urupare tēnā whakapā atu ki a Anna i %(email)s."
 
-#: allthethings/page/templates/page/faq.html:87
+#: allthethings/page/templates/page/faq.html:89
 #, fuzzy
 msgid "page.faq.help.title"
 msgstr "Me pēhea taku āwhina?"
 
-#: allthethings/page/templates/page/faq.html:90
+#: allthethings/page/templates/page/faq.html:92
 #, fuzzy
 msgid "page.about.help.text"
 msgstr "<li>1. Whai mai i a mātou i runga i <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a>, rānei <a href=\"https://t.me/annasarchiveorg\">Telegram</a>.</li><li>2. Whakapāho i te rongo mō Anna’s Archive i runga i Twitter, Reddit, Tiktok, Instagram, i tōu kawhe, whare pukapuka rānei, i ngā wāhi katoa e haere ana koe! Kāore mātou e whakapono ki te aukati — mēnā ka tangohia mātou, ka puta anō mātou ki wāhi kē, nā te mea ko ā mātou waehere me ngā raraunga he puna tuwhera katoa.</li><li>3. Mēnā ka taea e koe, whakaarohia te <a href=\"/donate\">takoha</a>.</li><li>4. Āwhina ki te <a href=\"https://translate.annas-software.org/\">whakamāori</a> i tō mātou paetukutuku ki ngā reo rerekē.</li><li>5. Mēnā he kaipūkaha rorohiko koe, whakaarohia te takoha ki tō mātou <a href=\"https://annas-software.org/\">puna tuwhera</a>, rānei te tohatoha i ā mātou <a href=\"/datasets\">torohū</a>.</li>"
 
-#: allthethings/page/templates/page/faq.html:91
+#: allthethings/page/templates/page/faq.html:93
 #, fuzzy
 msgid "page.about.help.text6"
 msgstr "6. Mēnā he kairangahau haumaru koe, ka taea e koe te āwhina i a mātou mō te whakaeke me te ārai. Tirohia tō mātou <a %(a_security)s>Haumaru</a> whārangi."
 
-#: allthethings/page/templates/page/faq.html:92
+#: allthethings/page/templates/page/faq.html:94
 #, fuzzy
 msgid "page.about.help.text7"
 msgstr "7. Kei te rapu mātou i ngā tohunga mō ngā utu mō ngā kaihokohoko ingoamuna. Ka taea e koe te āwhina i a mātou ki te tāpiri i ngā huarahi utu māmā ake? PayPal, WeChat, kāri koha. Mēnā e mōhio ana koe ki tētahi, tēnā whakapā mai."
 
-#: allthethings/page/templates/page/faq.html:93
+#: allthethings/page/templates/page/faq.html:95
 #, fuzzy
 msgid "page.about.help.text8"
 msgstr "8. Kei te rapu tonu mātou i te kaha tūmau anō."
 
-#: allthethings/page/templates/page/faq.html:94
+#: allthethings/page/templates/page/faq.html:96
 #, fuzzy
 msgid "page.about.help.text9"
 msgstr "9. Ka taea e koe te āwhina mā te rīpoata i ngā take kōnae, te waiho kōrero, me te hanga rārangi i runga i tēnei paetukutuku. Ka taea hoki e koe te āwhina mā te <a %(a_upload)s>tukuake atu i ngā pukapuka anō</a>, rānei te whakatika i ngā take kōnae, te whakatakotoranga rānei o ngā pukapuka o nāianei."
 
-#: allthethings/page/templates/page/faq.html:95
+#: allthethings/page/templates/page/faq.html:97
 #, fuzzy
 msgid "page.about.help.text10"
 msgstr "10. Waihanga, āwhina rānei ki te tiaki i te whārangi Wikipedia mō Anna’s Archive i tōu reo."
 
-#: allthethings/page/templates/page/faq.html:96
+#: allthethings/page/templates/page/faq.html:98
 #, fuzzy
 msgid "page.about.help.text11"
 msgstr "Kei te rapu mātou ki te whakanoho pānuitanga iti, ātaahua. Mēnā kei te hiahia koe ki te pānui i runga i te Pūranga a Anna, tēnā koa whakamōhio mai."
 
-#: allthethings/page/templates/page/faq.html:97
+#: allthethings/page/templates/page/faq.html:99
 #, fuzzy
 msgid "page.faq.help.mirrors"
 msgstr "E hiahia ana mātou kia whakatūria e te tangata <a %(a_mirrors)s>ngā whakaata</a>, ā, ka tautoko ā-pūtea mātou i tēnei."
 
-#: allthethings/page/templates/page/faq.html:105
+#: allthethings/page/templates/page/faq.html:103
+msgid "page.about.help.volunteer"
+msgstr ""
+
+#: allthethings/page/templates/page/faq.html:106
 #, fuzzy
 msgid "page.faq.slow.title"
 msgstr "He aha i pōturi ai ngā tikiake pōturi?"
 
-#: allthethings/page/templates/page/faq.html:108
+#: allthethings/page/templates/page/faq.html:109
 #, fuzzy
 msgid "page.faq.slow.text1"
 msgstr "Kāore rawa mātou e whai rauemi nui hei tuku tere-tere ki te katoa o te ao, ahakoa e hiahia ana mātou. Mēnā he kaitautoko whai rawa e hiahia ana ki te āwhina i a mātou, he mea whakamīharo tērā, engari mō tēnei wā, kei te whakapau kaha mātou. He kaupapa kore-pānga pūtea mātou e tata kore nei e ora i ngā takoha."
 
-#: allthethings/page/templates/page/faq.html:112
+#: allthethings/page/templates/page/faq.html:113
 #, fuzzy
 msgid "page.faq.slow.text2"
 msgstr "Koinei te take i whakatinanahia e mātou ngā pūnaha e rua mō ngā tikiake kore utu, me ā mātou hoa: ngā tūmau tiritiri me ngā tikiake pōturi, me ngā tūmau tere ake me te rārangi tatari (hei whakaiti i te tokomaha o te hunga e tikiake ana i te wā kotahi)."
 
-#: allthethings/page/templates/page/faq.html:116
+#: allthethings/page/templates/page/faq.html:117
 #, fuzzy
 msgid "page.faq.slow.text3"
 msgstr "Kei a mātou hoki te <a %(a_verification)s>whakamana pūtirotiro</a> mō ā mātou tikiake pōturi, nā te mea ki te kore, ka whakamahia e ngā karetao me ngā kairapu, ka pōturi ake ai mō ngā kaiwhakamahi tika."
 
-#: allthethings/page/templates/page/faq.html:120
+#: allthethings/page/templates/page/faq.html:121
 #, fuzzy
 msgid "page.faq.slow.text4"
 msgstr "Me mōhio koe, i te wā e whakamahi ana i te Tor Browser, me whakatika pea koe i ō tautuhinga haumaru. I te taumata iti rawa, e kīia nei ko “Standard”, ka angitū te wero Cloudflare turnstile. I ngā taumata teitei ake, e kīia nei ko “Safer” me “Safest”, ka rahua te wero."
 
-#: allthethings/page/templates/page/faq.html:124
+#: allthethings/page/templates/page/faq.html:125
 #, fuzzy
 msgid "page.faq.slow.text5"
 msgstr "Mō ngā kōnae nui, i ētahi wā ka pakaru ngā tikiake puhoi i waenganui. Ka tūtohu mātou kia whakamahi i tētahi kaiwhakahaere tikiake (pērā i a JDownloader) hei tīmata anō aunoa i ngā tikiake nui."
 
-#: allthethings/page/templates/page/faq.html:127
+#: allthethings/page/templates/page/faq.html:128
 #, fuzzy
 msgid "page.donate.faq.title"
 msgstr "Ngā Pātai Auau mō ngā Takoha"
 
-#: allthethings/page/templates/page/faq.html:130
+#: allthethings/page/templates/page/faq.html:131
 #, fuzzy
 msgid "page.donate.faq.renew"
 msgstr "<div %(div_question)s>Ka whakahou aunoa ngā mema?</div> Kāore ngā mema e <strong>whakahou aunoa</strong>. Ka taea e koe te hono mō te wā roa, te wā poto rānei e hiahia ana koe."
 
-#: allthethings/page/templates/page/faq.html:134
+#: allthethings/page/templates/page/faq.html:135
 #, fuzzy
 msgid "page.donate.faq.membership"
 msgstr "<div %(div_question)s>Ka taea e au te whakahou i taku mema, te whiwhi rānei i ngā mema maha?</div>"
 
-#: allthethings/page/templates/page/faq.html:139
+#: allthethings/page/templates/page/faq.html:140
 #, fuzzy
 msgid "page.donate.faq.text_other_payment1"
 msgstr "<div %(div_question)s>Kei a koutou ētahi atu tikanga utu?</div> I tēnei wā kāore. He tokomaha te hunga kāore e hiahia kia tū ngā pūranga pēnei, nō reira me tūpato mātou. Mēnā ka taea e koe te āwhina i a mātou ki te whakatū i ētahi atu tikanga utu (he māmā ake) me te haumaru, tēnā koa whakapā mai ki %(email)s."
 
-#: allthethings/page/templates/page/faq.html:143
+#: allthethings/page/templates/page/faq.html:144
 #, fuzzy
 msgid "page.donate.faq.spend"
 msgstr "<div %(div_question)s>He aha ngā mea ka whakapaua e koutou ngā takoha?</div> 100%% ka haere ki te tiaki me te whakatakoto i te mātauranga me te ahurea o te ao kia wātea. I tēnei wā ka whakapaua te nuinga ki ngā tūmau, te rokiroki, me te whanui. Kāore he moni e haere ana ki ngā mema o te rōpū."
 
-#: allthethings/page/templates/page/faq.html:147
+#: allthethings/page/templates/page/faq.html:148
 #, fuzzy
 msgid "page.donate.faq.text_large_donation"
 msgstr "<div %(div_question)s>Ka taea e au te tuku takoha nui?</div> He mea whakamīharo tērā! Mō ngā takoha neke atu i te torutoru mano tāra, tēnā koa whakapā mai ki a mātou i %(email)s."
 
-#: allthethings/page/templates/page/faq.html:151
+#: allthethings/page/templates/page/faq.html:152
 #, fuzzy
 msgid "page.donate.faq.non_member_donation"
 msgstr "<div %(div_question)s>Ka taea e au te tuku takoha me te kore e noho hei mema?</div> Āe rānei. Ka whakaae mātou ki ngā takoha ahakoa te nui ki tēnei wāhitau Monero (XMR): %(address)s."
 
-#: allthethings/page/templates/page/faq.html:154
+#: allthethings/page/templates/page/faq.html:155
 #, fuzzy
 msgid "page.faq.upload.title"
 msgstr "Me pēhea taku tuku pukapuka hou?"
 
-#: allthethings/page/templates/page/faq.html:157
+#: allthethings/page/templates/page/faq.html:158
 #, fuzzy
 msgid "page.upload.text1"
 msgstr "Mō tēnei wā, e taunaki ana mātou kia tuku pukapuka hou ki ngā peka o Library Genesis. Anei he <a %(a_guide)s>arotahi whaihua</a>. Kia mōhio ai, ko ngā peka e rua e tātaritia ana e mātou i tēnei paetukutuku ka kumea mai i tēnei pūnaha tuku kotahi."
 
-#: allthethings/page/templates/page/faq.html:158
+#: allthethings/page/templates/page/faq.html:159
 #, fuzzy
 msgid "common.libgen.email"
 msgstr "Mēnā kāore tō wāhitau īmēra e mahi i runga i ngā huinga o Libgen, e taunaki ana mātou ki te whakamahi <a %(a_mail)s>Proton Mail</a> (kore utu). Ka taea hoki e koe te <a %(a_manual)s>tono ā-ringa</a> kia whakahohehia tō pūkete."
 
-#: allthethings/page/templates/page/faq.html:159
+#: allthethings/page/templates/page/faq.html:160
 #, fuzzy
 msgid "page.faq.mhut_upload"
 msgstr "Kia mōhio ai, ka aukati a mhut.org i ētahi rārangi IP, nō reira tērā pea me whakamahi VPN."
 
-#: allthethings/page/templates/page/faq.html:163
+#: allthethings/page/templates/page/faq.html:164
 #, fuzzy
 msgid "page.upload.zlib.text1"
 msgstr "Hei kōwhiringa kē, ka taea e koe te tuku atu ki Z-Library <a %(a_upload)s>i konei</a>."
 
-#: allthethings/page/templates/page/faq.html:167
+#: allthethings/page/templates/page/faq.html:168
 #, fuzzy
 msgid "page.upload.zlib.text2"
 msgstr "Hei tuku pepa mātauranga, tēnā koa (i tua atu i te Library Genesis) tuku atu ki <a %(a_stc_nexus)s>STC Nexus</a>. Ko rātou te pūranga atarangi pai rawa mō ngā pepa hou. Kāore anō mātou kia whakauru i a rātou, engari ka mahi mātou i tētahi wā. Ka taea e koe te whakamahi i tā rātou <a %(a_telegram)s>karetao tuku i runga i te Telegram</a>, me te whakapā atu ki te wāhitau kua whakarārangitia i tā rātou karere piri mēnā he maha rawa ngā kōnae hei tuku mā tēnei ara."
 
-#: allthethings/page/templates/page/faq.html:171
+#: allthethings/page/templates/page/faq.html:172
 #, fuzzy
 msgid "page.upload.large.text"
 msgstr "Mō ngā tuku nui (neke atu i te 10,000 kōnae) kāore e whakaaetia e Libgen, Z-Library rānei, tēnā koa whakapā mai ki a mātou i %(a_email)s."
 
-#: allthethings/page/templates/page/faq.html:174
+#: allthethings/page/templates/page/faq.html:175
 #, fuzzy
 msgid "page.faq.request.title"
 msgstr "Me pēhea taku tono pukapuka?"
 
-#: allthethings/page/templates/page/faq.html:177
+#: allthethings/page/templates/page/faq.html:178
 #, fuzzy
 msgid "page.request.cannot_accomodate"
 msgstr "I tēnei wā, kāore mātou e taea te whakaae ki ngā tono pukapuka."
 
-#: allthethings/page/templates/page/faq.html:178
+#: allthethings/page/templates/page/faq.html:179
 #, fuzzy
 msgid "page.request.forums"
 msgstr "Tēnā koa tonoa ō tono pukapuka ki ngā huinga o Z-Library, Libgen rānei."
 
-#: allthethings/page/templates/page/faq.html:179
+#: allthethings/page/templates/page/faq.html:180
 #, fuzzy
 msgid "page.request.dont_email"
 msgstr "Kaua e īmēra mai i ō tono pukapuka."
 
-#: allthethings/page/templates/page/faq.html:182
+#: allthethings/page/templates/page/faq.html:183
 #, fuzzy
 msgid "page.faq.metadata.title"
 msgstr "Kei te kohikohi kōrero metadata koutou?"
 
-#: allthethings/page/templates/page/faq.html:185
+#: allthethings/page/templates/page/faq.html:186
 #, fuzzy
 msgid "page.faq.metadata.indeed"
 msgstr "Āe, kei te kohikohi mātou."
 
-#: allthethings/page/templates/page/faq.html:191
+#: allthethings/page/templates/page/faq.html:192
 #, fuzzy
 msgid "page.faq.1984.title"
 msgstr "I tikiake au i te pukapuka 1984 nā George Orwell, ka tae mai ngā pirihimana ki taku tatau?"
 
-#: allthethings/page/templates/page/faq.html:194
+#: allthethings/page/templates/page/faq.html:195
 #, fuzzy
 msgid "page.faq.1984.text"
 msgstr "Kaua e āwangawanga rawa, he maha ngā tāngata e tikiake ana mai i ngā paetukutuku e hono ana ki a mātou, ā, he tino onge te raru. Heoi anō, kia noho haumaru, ka tūtohu mātou kia whakamahi i tētahi VPN (utu), i te <a %(a_tor)s>Tor</a> rānei (kore utu)."
 
-#: allthethings/page/templates/page/faq.html:197
+#: allthethings/page/templates/page/faq.html:198
 #, fuzzy
 msgid "page.faq.save_search.title"
 msgstr "Me pēhea taku tiaki i ngā tautuhinga rapu?"
 
-#: allthethings/page/templates/page/faq.html:200
+#: allthethings/page/templates/page/faq.html:201
 #, fuzzy
 msgid "page.faq.save_search.text1"
 msgstr "Tīpakohia ngā tautuhinga e pai ana ki a koe, waiho te pouaka rapu kia wātea, pāwhiria te “Rapu”, ā, ka tāpui i te whārangi mā te āhuatanga tāpui a tō pūtirotiro."
 
-#: allthethings/page/templates/page/faq.html:203
+#: allthethings/page/templates/page/faq.html:204
 #, fuzzy
 msgid "page.faq.mobile.title"
 msgstr "Kei a koutou tētahi taupānga pūkoro?"
 
-#: allthethings/page/templates/page/faq.html:206
+#: allthethings/page/templates/page/faq.html:207
 #, fuzzy
 msgid "page.faq.mobile.text1"
 msgstr "Kāore he taupānga pūkoro whaimana a mātou, engari ka taea e koe te tāuta i tēnei paetukutuku hei taupānga."
 
-#: allthethings/page/templates/page/faq.html:207
+#: allthethings/page/templates/page/faq.html:208
 #, fuzzy
 msgid "page.faq.mobile.android"
 msgstr "<strong>Android:</strong> Pāwhiria te tahua ira-toru kei te tihi matau, ā, tīpakohia te “Tāpiri ki te Mata Kāinga”."
 
-#: allthethings/page/templates/page/faq.html:208
+#: allthethings/page/templates/page/faq.html:209
 #, fuzzy
 msgid "page.faq.mobile.ios"
 msgstr "<strong>iOS:</strong> Pāwhiria te pātene “Tiritiri” kei raro, ā, tīpakohia te “Tāpiri ki te Mata Kāinga”."
 
-#: allthethings/page/templates/page/faq.html:211
+#: allthethings/page/templates/page/faq.html:212
 #, fuzzy
 msgid "page.faq.api.title"
 msgstr "Kei a koutou tētahi API?"
 
-#: allthethings/page/templates/page/faq.html:214
+#: allthethings/page/templates/page/faq.html:215
 #, fuzzy
 msgid "page.faq.api.text1"
 msgstr "Kei a mātou tētahi API JSON pūmau mō ngā mema, mō te tiki i tētahi URL tikiake tere: <a %(a_fast_download)s>/dyn/api/fast_download.json</a> (he whakamārama kei roto i te JSON anake)."
 
-#: allthethings/page/templates/page/faq.html:218
+#: allthethings/page/templates/page/faq.html:219
 #, fuzzy
 msgid "page.faq.api.text2"
 msgstr "Mō ētahi atu whakamahinga, pērā i te huri haere i ā mātou kōnae katoa, te hanga rapu ritenga, me ērā atu, ka tūtohu mātou kia <a %(a_generate)s>whakaputa</a> rānei, <a %(a_download)s>tikiake</a> rānei i ā mātou pātengi raraunga ElasticSearch me MariaDB. Ka taea te tūhura ā-ringa i ngā raraunga mata <a %(a_explore)s>mā ngā kōnae JSON</a>."
 
-#: allthethings/page/templates/page/faq.html:222
+#: allthethings/page/templates/page/faq.html:223
 #, fuzzy
 msgid "page.faq.api.text3"
 msgstr "Ka taea te tikiake i tā mātou rārangi kōnae raw hei <a %(a_torrents)s>JSON</a> hoki."
 
-#: allthethings/page/templates/page/faq.html:225
+#: allthethings/page/templates/page/faq.html:226
 #, fuzzy
 msgid "page.faq.torrents.title"
 msgstr "Ngā Pātai Auau mō ngā Kōnae Torrent"
 
-#: allthethings/page/templates/page/faq.html:228
+#: allthethings/page/templates/page/faq.html:229
 #, fuzzy
 msgid "page.faq.torrents.q1"
 msgstr "E hiahia ana au ki te āwhina i te tohatoha, engari kāore au i te nui o te mokowā kōpae."
 
-#: allthethings/page/templates/page/faq.html:230
+#: allthethings/page/templates/page/faq.html:231
 #, fuzzy
 msgid "page.faq.torrents.a1"
 msgstr "Whakamahia te <a %(a_list)s>pūwhakanao rārangi kōnae torrent</a> hei whakaputa i tētahi rārangi kōnae torrent e tino hiahiatia ana te tohatoha, i roto i ōu rohe mokowā rokiroki."
 
-#: allthethings/page/templates/page/faq.html:234
+#: allthethings/page/templates/page/faq.html:235
 #, fuzzy
 msgid "page.faq.torrents.q2"
 msgstr "He puhoi rawa ngā kōnae torrent; ka taea e au te tikiake tika i ngā raraunga mai i a koutou?"
 
-#: allthethings/page/templates/page/faq.html:236
+#: allthethings/page/templates/page/faq.html:237
 #, fuzzy
 msgid "page.faq.torrents.a2"
 msgstr "Āe, tirohia te whārangi <a %(a_llm)s>raraunga LLM</a>."
 
-#: allthethings/page/templates/page/faq.html:240
+#: allthethings/page/templates/page/faq.html:241
 #, fuzzy
 msgid "page.faq.torrents.q3"
 msgstr "Ka taea e au te tikiake i tētahi wāhanga anake o ngā kōnae, pērā i tētahi reo motuhake, kaupapa rānei?"
 
-#: allthethings/page/templates/page/faq.html:242
+#: allthethings/page/templates/page/faq.html:243
 #, fuzzy
 msgid "page.faq.torrents.a3"
 msgstr "Ko te nuinga o ngā toroa he kōnae tika, arā, ka taea e koe te whakahau i ngā kiritaki toroa kia tikiake anake i ngā kōnae e hiahiatia ana. Hei whakatau ko ēhea kōnae hei tikiake, ka taea e koe te <a %(a_generate)s>whakaputa</a> i ā mātou raraunga, rānei te <a %(a_download)s>tikiake</a> i ā mātou pātengi raraunga ElasticSearch me MariaDB. Heoi anō, he maha ngā kohinga toroa kei roto he kōnae .zip, .tar rānei i te pakiaka, ā, me tikiake e koe te toroa katoa i mua i te āhei ki te kōwhiri i ngā kōnae takitahi."
 
-#: allthethings/page/templates/page/faq.html:246
+#: allthethings/page/templates/page/faq.html:247
 #, fuzzy
 msgid "page.faq.torrents.q4"
 msgstr "Me pēhea e whakahaere ai koe i ngā tārua i roto i ngā toroa?"
 
-#: allthethings/page/templates/page/faq.html:248
+#: allthethings/page/templates/page/faq.html:249
 #, fuzzy
 msgid "page.faq.torrents.a4"
 msgstr "Ka ngana mātou ki te pupuri i te iti rawa o ngā tārua, o ngā tukinga rānei i waenga i ngā toroa i tēnei rārangi, engari kāore e taea te whakatutuki i ngā wā katoa, ā, kei te tino whakawhirinaki ki ngā kaupapa here a ngā whare pukapuka pūtake. Mō ngā whare pukapuka e whakaputa ana i ā rātou ake toroa, kāore i a mātou te mana. Mō ngā toroa i tukuna e Anna’s Archive, ka whakakore tārua mātou mā te whakamahi i te hash MD5 anake, arā, kāore e whakakorea ngā putanga rerekē o te pukapuka kotahi."
 
-#: allthethings/page/templates/page/faq.html:252
+#: allthethings/page/templates/page/faq.html:253
 #, fuzzy
 msgid "page.faq.torrents.q5"
 msgstr "Ka taea e au te tiki i te rārangi toroa hei JSON?"
 
-#: allthethings/page/templates/page/faq.html:254
+#: allthethings/page/templates/page/faq.html:255
 #, fuzzy
 msgid "page.faq.torrents.a5"
 msgstr "Āe."
 
-#: allthethings/page/templates/page/faq.html:258
+#: allthethings/page/templates/page/faq.html:259
 #, fuzzy
 msgid "page.faq.torrents.q6"
 msgstr "Kāore au e kite i ngā PDF, EPUB rānei i roto i ngā toroa, he kōnae rorohiko anake? Me aha au?"
 
-#: allthethings/page/templates/page/faq.html:260
+#: allthethings/page/templates/page/faq.html:261
 #, fuzzy
 msgid "page.faq.torrents.a6"
 msgstr "He PDF, he EPUB ēnei, kāore noa iho he toronga i roto i te maha o ā mātou toroa. E rua ngā wāhi ka kitea e koe ngā raraunga mō ngā kōnae toroa, tae atu ki ngā momo kōnae/toronga:"
 
-#: allthethings/page/templates/page/faq.html:262
+#: allthethings/page/templates/page/faq.html:263
 #, fuzzy
 msgid "page.faq.torrents.a6.li1"
 msgstr "1. Kei ia kohinga, tukunga rānei tōna ake raraunga. Hei tauira, kei ngā <a %(a_libgen_nonfic)s>toroa Libgen.rs</a> he pātengi raraunga raraunga e puritia ana i te paetukutuku Libgen.rs. Ka hono mātou ki ngā rauemi raraunga hāngai mai i ia whārangi <a %(a_datasets)s>raraunga kohinga</a>."
 
-#: allthethings/page/templates/page/faq.html:264
+#: allthethings/page/templates/page/faq.html:265
 #, fuzzy
 msgid "page.faq.torrents.a6.li2"
 msgstr "2. Ka tūtohu mātou kia <a %(a_generate)s>whakaputa</a>, kia <a %(a_download)s>tikiake</a> rānei i ā mātou pātengi raraunga ElasticSearch me MariaDB. Kei roto ēnei he mapi mō ia rekoata i Anna’s Archive ki ōna ake kōnae toroa (mēnā kei te wātea), i raro i te “torrent_paths” i te ElasticSearch JSON."
 
-#: allthethings/page/templates/page/faq.html:267
+#: allthethings/page/templates/page/faq.html:268
 #, fuzzy
 msgid "page.faq.security.title"
 msgstr "He hōtaka whakakite haepapa tā koutou?"
 
-#: allthethings/page/templates/page/faq.html:270
+#: allthethings/page/templates/page/faq.html:271
 #, fuzzy
 msgid "page.faq.security.text1"
 msgstr "E pōwhiri ana mātou i ngā kairangahau haumaru ki te rapu i ngā whakaraeraetanga i roto i ā mātou pūnaha. He tino tautoko mātou i te whakakite haepapa. Whakapā mai <a %(a_contact)s>i konei</a>."
 
-#: allthethings/page/templates/page/faq.html:274
+#: allthethings/page/templates/page/faq.html:275
 #, fuzzy
 msgid "page.faq.security.text2"
 msgstr "I tēnei wā kāore mātou e taea te tuku utu mō ngā pepeha, haunga ngā whakaraeraetanga e <a %(a_link)s>āhei ana ki te whakaraerae i tō mātou noho muna</a>, e tuku utu ana mātou i te $10k-50k. E hiahia ana mātou ki te tuku whānui ake mō ngā utu pepeha ā muri ake nei! Kia mōhio mai, kāore ngā whakaeke hangarau pāpori i roto i te whānuitanga."
 
-#: allthethings/page/templates/page/faq.html:278
+#: allthethings/page/templates/page/faq.html:279
 #, fuzzy
 msgid "page.faq.security.text3"
 msgstr "Mēnā kei te hiahia koe ki te haumaru whakaeke, ā, e hiahia ana koe ki te āwhina ki te puranga i te mātauranga me te ahurea o te ao, kia whakapā mai. He maha ngā huarahi e taea ai e koe te āwhina."
 
-#: allthethings/page/templates/page/faq.html:281
+#: allthethings/page/templates/page/faq.html:282
 #, fuzzy
 msgid "page.faq.resources.title"
 msgstr "He nui ake ngā rauemi mō Anna’s Archive?"
 
-#: allthethings/page/templates/page/faq.html:284
+#: allthethings/page/templates/page/faq.html:285
 #, fuzzy
 msgid "page.faq.resources.annas_blog"
 msgstr "<a %(a_blog)s>Rangitaki a Anna</a>, <a %(a_reddit_u)s>Reddit</a>, <a %(a_reddit_r)s>Subreddit</a> — whakahōunga auau"
 
-#: allthethings/page/templates/page/faq.html:285
+#: allthethings/page/templates/page/faq.html:286
 #, fuzzy
 msgid "page.faq.resources.annas_software"
 msgstr "<a %(a_software)s>Pūmanawa a Anna</a> — tō mātou waehere puna tuwhera"
 
-#: allthethings/page/templates/page/faq.html:286
+#: allthethings/page/templates/page/faq.html:287
 #, fuzzy
 msgid "page.faq.resources.translate"
 msgstr "<a %(a_translate)s>Whakamāori i runga Pūmanawa a Anna</a> — tō mātou pūnaha whakamāori"
 
-#: allthethings/page/templates/page/faq.html:287
+#: allthethings/page/templates/page/faq.html:288
 #, fuzzy
 msgid "page.faq.resources.datasets"
 msgstr "<a %(a_datasets)s>Raraunga</a> — mō ngā raraunga"
 
-#: allthethings/page/templates/page/faq.html:288
+#: allthethings/page/templates/page/faq.html:289
 #, fuzzy
 msgid "page.faq.resources.domains"
 msgstr "<a %(a_li)s>.li</a>, <a %(a_se)s>.se</a>, <a %(a_org)s>.org</a> — ngā wāhi kē atu"
 
-#: allthethings/page/templates/page/faq.html:289
+#: allthethings/page/templates/page/faq.html:290
 #, fuzzy
 msgid "page.faq.resources.wikipedia"
 msgstr "<a %(a_wikipedia)s>Wikipedia</a> — ētahi atu mō mātou (tēnā koa āwhinatia kia whakahoutia tēnei whārangi, ā, waihangatia tētahi mō tōu ake reo!)"
 
-#: allthethings/page/templates/page/faq.html:292
+#: allthethings/page/templates/page/faq.html:293
 #, fuzzy
 msgid "page.faq.copyright.title"
 msgstr "Me pēhea taku pūrongo mō te takahi mana pupuri?"
 
-#: allthethings/page/templates/page/faq.html:295
+#: allthethings/page/templates/page/faq.html:296
 #, fuzzy
 msgid "page.faq.copyright.text1"
 msgstr "Kāore mātou e manaaki ana i ngā rauemi mana pupuri i konei. He pūkaha rapu mātou, ā, ko tā mātou he rārangi noa i ngā raraunga kua wātea kē ki te marea. Ina tikiake mai i ēnei puna o waho, e taunaki ana mātou kia tirohia ngā ture i tōu rohe e pā ana ki ngā mea e whakaaetia ana. Kāore mātou e whai haepapa mō ngā ihirangi e manaakihia ana e ētahi atu."
 
-#: allthethings/page/templates/page/faq.html:299
+#: allthethings/page/templates/page/faq.html:300
 #, fuzzy
 msgid "page.faq.copyright.text2"
 msgstr "Mēnā he amuamu āu mō ngā mea e kite ana koe i konei, ko te mea pai rawa atu māu ko te whakapā atu ki te paetukutuku taketake. Ka whakahou mātou i ā rātou panonitanga ki roto i tā mātou pātengi raraunga i ia wā. Mēnā e tino whakapono ana koe he amuamu DMCA tika tāu e tika ana kia whakautua e mātou, tēnā koa whakakīa te <a %(a_copyright)s>puka amuamu DMCA / Mana pupuri</a>. Ka aro mātou ki ōu amuamu, ā, ka whakahoki kōrero atu mātou i te wā e taea ai."
 
-#: allthethings/page/templates/page/faq.html:302
+#: allthethings/page/templates/page/faq.html:303
 #, fuzzy
 msgid "page.faq.hate.title"
 msgstr "Kei te riri au ki te whakahaere a koutou i tēnei kaupapa!"
 
-#: allthethings/page/templates/page/faq.html:305
+#: allthethings/page/templates/page/faq.html:306
 #, fuzzy
 msgid "page.faq.hate.text1"
 msgstr "E hiahia ana hoki mātou ki te whakamaumahara ki te katoa ko ā mātou waehere me ngā raraunga katoa he tino puna tuwhera. He ahurei tēnei mō ngā kaupapa pēnei i tā mātou — kāore mātou e mōhio ki tētahi atu kaupapa he rārangi nui pēnei, ā, he puna tuwhera katoa hoki. E tino pōwhiritia ana e mātou te hunga e whakaaro ana kāore mātou e whakahaere tika ana i tā mātou kaupapa kia tango i ā mātou waehere me ngā raraunga, ā, kia whakatū i tā rātou ake whare pukapuka marumaru! Kāore mātou e kī ana i tēnei nā te riri, nā te aha rānei — e whakapono ana mātou he mea whakamīharo tēnei nā te mea ka hiki ake te pae mō te katoa, ā, ka pai ake te tiaki i te taonga tuku iho a te tangata."
 
-#: allthethings/page/templates/page/faq.html:308
+#: allthethings/page/templates/page/faq.html:309
 #, fuzzy
 msgid "page.faq.favorite.title"
 msgstr "He aha ōu pukapuka tino pai?"
 
-#: allthethings/page/templates/page/faq.html:311
+#: allthethings/page/templates/page/faq.html:312
 #, fuzzy
 msgid "page.faq.favorite.text1"
 msgstr "Anei ētahi pukapuka e whai tikanga nui ana ki te ao o ngā whare pukapuka marumaru me te tiaki raraunga matihiko:"
@@ -3549,13 +3663,13 @@ msgid "page.md5.box.download.ipfs_gateway_extra"
 msgstr "(ka hiahia pea koe ki te whakamātau i ngā wā maha me IPFS)"
 
 #: allthethings/page/templates/page/ipfs_downloads.html:23
-#: allthethings/page/templates/page/partner_download.html:93
+#: allthethings/page/templates/page/partner_download.html:91
 #, fuzzy
 msgid "page.partner_download.faster_downloads"
 msgstr "🚀 Kia tere ake te tikiake me te karo i ngā manatoko pūtirotiro, <a %(a_membership)s>whakauru hei mema</a>."
 
 #: allthethings/page/templates/page/ipfs_downloads.html:27
-#: allthethings/page/templates/page/partner_download.html:97
+#: allthethings/page/templates/page/partner_download.html:95
 #, fuzzy
 msgid "page.partner_download.bulk_mirroring"
 msgstr "📡 Mō te tāruatanga nui o tā mātou kohinga, tirohia te whārangi <a %(a_datasets)s>Datasets</a> me te whārangi <a %(a_torrents)s>Torrents</a>."
@@ -3909,27 +4023,31 @@ msgstr "Ka whiwhi koe i tētahi hononga tikiake, ka whaimana mō ngā haora maha
 msgid "page.partner_download.li4"
 msgstr "Ngā mihi mō te tatari, ka āwhina tēnei kia wātea te paetukutuku mō te kore utu ki te katoa! 😊"
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:40
+msgid "page.partner_download.automatic_refreshing"
+msgstr ""
+
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.url"
 msgstr "📚 Whakamahia te URL e whai ake nei ki te tikiake: <a %(a_download)s>Tikiake ināianei</a>."
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.download_now"
 msgstr "Tikiake ināianei"
 
-#: allthethings/page/templates/page/partner_download.html:86
+#: allthethings/page/templates/page/partner_download.html:84
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads"
 msgstr "Whakatūpato: he maha ngā tikiake mai i tō wāhitau IP i roto i ngā haora 24 kua hipa. Tērā pea ka pōturi ake ngā tikiake i te tikanga."
 
-#: allthethings/page/templates/page/partner_download.html:87
+#: allthethings/page/templates/page/partner_download.html:85
 #, fuzzy
 msgid "page.partner_download.downloads_last_24_hours"
 msgstr "Ngā tikiake mai i tō wāhitau IP i roto i ngā haora 24 kua hipa: %(count)s."
 
-#: allthethings/page/templates/page/partner_download.html:88
+#: allthethings/page/templates/page/partner_download.html:86
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads2"
 msgstr "Mēnā kei te whakamahi koe i tētahi VPN, hononga ipurangi tiritahi, kei te tiritiri rānei tō ISP i ngā wāhitau IP, tērā pea nā tēnei te whakatūpato."

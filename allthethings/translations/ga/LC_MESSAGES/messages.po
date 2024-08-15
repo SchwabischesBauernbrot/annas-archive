@@ -370,10 +370,6 @@ msgstr "Le haghaidh síntiúis os cionn $5000 téigh i dteagmháil linn go díre
 #: allthethings/account/templates/account/index.html:36
 #: allthethings/page/templates/page/contact.html:3
 #: allthethings/page/templates/page/contact.html:6
-#: allthethings/page/templates/page/faq.html:84
-#: allthethings/page/templates/page/faq.html:139
-#: allthethings/page/templates/page/faq.html:147
-#: allthethings/page/templates/page/faq.html:171
 #: allthethings/page/templates/page/home.html:77
 #: allthethings/page/templates/page/home.html:82
 #: allthethings/page/templates/page/home.html:90
@@ -1387,6 +1383,14 @@ msgstr "Ní thaispeántar comhaid íoslódáilte go poiblí."
 msgid "page.downloaded.no_files"
 msgstr "Níl aon chomhaid íoslódáilte fós."
 
+#: allthethings/account/templates/account/downloaded.html:16
+msgid "page.downloaded.last_18_hours"
+msgstr ""
+
+#: allthethings/account/templates/account/downloaded.html:21
+msgid "page.downloaded.earlier"
+msgstr ""
+
 #: allthethings/account/templates/account/index.html:5
 #: allthethings/account/templates/account/index.html:15
 #, fuzzy
@@ -1462,7 +1466,7 @@ msgid "page.account.logged_in.membership_upgrade"
 msgstr "Déan teagmháil le hAnna ag %(email)s má tá suim agat do bhallraíocht a uasghrádú go leibhéal níos airde."
 
 #: allthethings/account/templates/account/index.html:37
-#: allthethings/page/templates/page/faq.html:135
+#: allthethings/page/templates/page/faq.html:136
 #, fuzzy
 msgid "page.account.logged_in.membership_multiple"
 msgstr "Is féidir leat ilbhallraíochtaí a chomhcheangal (cuirfear íoslódálacha tapa in aghaidh 24 uair an chloig le chéile)."
@@ -1717,6 +1721,14 @@ msgstr "Marcáilte briste i Libgen.li"
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "Ar iarraidh ó Z-Library"
 
+#: allthethings/page/views.py:4845
+msgid "common.md5_problem_type_mapping.zlib_spam"
+msgstr ""
+
+#: allthethings/page/views.py:4846
+msgid "common.md5_problem_type_mapping.zlib_bad_file"
+msgstr ""
+
 #: allthethings/page/views.py:4847
 #, fuzzy
 msgid "common.md5_problem_type_mapping.duxiu_pdg_broken_files"
@@ -1807,26 +1819,31 @@ msgstr "Fiosraigh meiteashonraí"
 msgid "common.access_types_mapping.torrents_available"
 msgstr "San áireamh i dtorranna"
 
-#: allthethings/page/templates/page/datasets.html:52
-#: allthethings/page/templates/page/datasets.html:88
+#: allthethings/page/templates/page/datasets.html:51
+#: allthethings/page/templates/page/datasets.html:87
 #: allthethings/page/views.py:4880
 #, fuzzy
 msgid "common.record_sources_mapping.lgrs"
 msgstr "Libgen.rs"
 
-#: allthethings/page/templates/page/datasets.html:54
-#: allthethings/page/templates/page/datasets.html:109
+#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:108
 #: allthethings/page/views.py:4881
 #, fuzzy
 msgid "common.record_sources_mapping.lgli"
 msgstr "Libgen.li"
 
-#: allthethings/page/templates/page/datasets.html:55
-#: allthethings/page/templates/page/datasets.html:121
+#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:120
 #: allthethings/page/views.py:4882
 #, fuzzy
 msgid "common.record_sources_mapping.zlib"
 msgstr "Z-Library"
+
+#: allthethings/page/templates/page/datasets.html:55
+#: allthethings/page/views.py:4883
+msgid "common.record_sources_mapping.zlibzh"
+msgstr ""
 
 #: allthethings/page/views.py:4884
 #, fuzzy
@@ -1843,7 +1860,7 @@ msgstr "ISBNdb"
 msgid "common.record_sources_mapping.ol"
 msgstr "OpenLibrary"
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 #: allthethings/page/views.py:4887
 #, fuzzy
 msgid "common.record_sources_mapping.scihub"
@@ -1854,15 +1871,15 @@ msgstr "Sci-Hub"
 msgid "common.record_sources_mapping.oclc"
 msgstr "OCLC (WorldCat)"
 
-#: allthethings/page/templates/page/datasets.html:58
-#: allthethings/page/templates/page/datasets.html:142
+#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:141
 #: allthethings/page/views.py:4889
 #, fuzzy
 msgid "common.record_sources_mapping.duxiu"
 msgstr "DuXiu 读秀"
 
-#: allthethings/page/templates/page/datasets.html:59
-#: allthethings/page/templates/page/datasets.html:155
+#: allthethings/page/templates/page/datasets.html:58
+#: allthethings/page/templates/page/datasets.html:154
 #: allthethings/page/views.py:4890
 #, fuzzy
 msgid "common.record_sources_mapping.uploads"
@@ -2517,8 +2534,6 @@ msgstr "Chuaigh rud éigin mícheart. Athlódáil an leathanach agus déan iarra
 
 #: allthethings/page/templates/page/aarecord.html:406
 #: allthethings/page/templates/page/aarecord.html:407
-#: allthethings/page/templates/page/codes.html:8
-#: allthethings/page/templates/page/codes.html:9
 #: allthethings/page/templates/page/copyright.html:6
 #: allthethings/page/templates/page/copyright.html:7
 #: allthethings/page/templates/page/datasets.html:13
@@ -2574,12 +2589,12 @@ msgstr "Is comhad é seo atá á bhainistiú ag leabharlann <a %(a_ia)s>IAS’s 
 msgid "page.md5.text.file_info.text1"
 msgstr "Le haghaidh faisnéise faoi an comhad áirithe seo, féach ar a <a %(a_href)s>comhad JSON</a>."
 
-#: allthethings/page/templates/page/aarecord_issue.html:4
+#: allthethings/page/templates/page/aarecord_issue.html:5
 #, fuzzy
 msgid "page.aarecord_issue.title"
 msgstr "🔥 Fadhb ag luchtú an leathanaigh seo"
 
-#: allthethings/page/templates/page/aarecord_issue.html:6
+#: allthethings/page/templates/page/aarecord_issue.html:7
 #, fuzzy
 msgid "page.aarecord_issue.text"
 msgstr "Athnuaigh chun triail a bhaint as arís. <a %(a_contact)s>Déan teagmháil linn</a> má leanann an fhadhb ar feadh roinnt uaireanta."
@@ -2622,6 +2637,108 @@ msgstr "Má fhaigheann tú tú féin i lúb gan deireadh, molaimid <a %(a_privac
 #, fuzzy
 msgid "page.login.text3"
 msgstr "D’fhéadfadh sé cabhrú freisin fógraí blocála agus síntí brabhsálaí eile a mhúchadh."
+
+#: allthethings/page/templates/page/codes.html:5
+msgid "page.codes.title"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:10
+msgid "page.codes.heading"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:14
+msgid "page.codes.intro"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:18
+msgid "page.codes.why_cloudflare"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:22
+msgid "page.codes.dont_scrape"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:33
+msgid "page.codes.prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:34
+msgid "common.form.go"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:35
+msgid "common.form.reset"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:40
+msgid "page.codes.bad_unicode"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:46
+msgid "page.codes.known_code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:48
+msgid "page.codes.code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:49
+msgid "page.codes.code_label"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:51
+msgid "page.codes.code_description"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgid "page.codes.code_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgctxt "the %s should not be changed"
+msgid "page.codes.s_substitution"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:57
+msgid "page.codes.generic_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:61
+msgid "page.codes.code_website"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:69
+msgid "page.codes.record_starting_with"
+msgid_plural "page.codes.records_starting_with"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+
+#: allthethings/page/templates/page/codes.html:75
+msgid "page.codes.search_archive"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:77
+msgid "page.codes.url_link"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:84
+msgid "page.codes.codes_starting_with"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:92
+msgid "page.codes.records_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:93
+msgid "page.codes.records_codes"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:113
+msgid "page.codes.fewer_than"
+msgstr ""
 
 #: allthethings/page/templates/page/contact.html:9
 #, fuzzy
@@ -2726,144 +2843,140 @@ msgstr ""
 msgid "page.datasets.overview.last_updated.header"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:52
+#: allthethings/page/templates/page/datasets.html:51
 msgid "common.record_sources_mapping.lgrs.nonfiction_and_fiction"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "common.record_sources_mapping.scihub.via_lgli_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_1"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_2"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "common.record_sources.mapping.lgli.excluding_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "page.datasets.lgli_fiction_is_behind"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:56
-msgid "common.record_sources_mapping.zlibzh"
-msgstr ""
-
-#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:55
 msgid "page.datasets.zlibzh.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
-#: allthethings/page/templates/page/datasets.html:130
+#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:129
 msgid "common.record_sources_mapping.iacdl"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:56
 msgid "page.datasets.iacdl.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.total"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.excluding_duplicates"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:64
+#: allthethings/page/templates/page/datasets.html:63
 msgid "page.datasets.overview.text4"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:68
+#: allthethings/page/templates/page/datasets.html:67
 msgid "page.datasets.overview.text5"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:71
+#: allthethings/page/templates/page/datasets.html:70
 msgid "page.datasets.source_libraries.title"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:74
+#: allthethings/page/templates/page/datasets.html:73
 #, fuzzy
 msgid "page.datasets.source_libraries.text1"
 msgstr "Tugann roinnt leabharlanna foinseacha chun cinn an roinn mórchóir dá gcuid sonraí trí thorrents, agus ní roinneann daoine eile a mbailiúchán go héasca. Sa chás deireanach, déanann Cartlann Anna iarracht a mbailiúcháin a scrabhadh, agus iad a chur ar fáil (féach ar ár leathanach <a %(a_torrents)s>Torrents</a>). Tá cásanna idir eatarthu freisin, mar shampla, nuair atá leabharlanna foinseacha sásta a roinnt, ach nach bhfuil na hacmhainní acu chun é sin a dhéanamh. Sna cásanna sin, déanaimid iarracht cabhrú freisin."
 
-#: allthethings/page/templates/page/datasets.html:78
+#: allthethings/page/templates/page/datasets.html:77
 #, fuzzy
 msgid "page.datasets.source_libraries.text2"
 msgstr "Thíos tá forbhreathnú ar conas a idirghníomhaímid leis na leabharlanna foinseacha éagsúla."
 
-#: allthethings/page/templates/page/datasets.html:83
+#: allthethings/page/templates/page/datasets.html:82
 #, fuzzy
 msgid "page.datasets.sources.source.header"
 msgstr "Foinse"
 
-#: allthethings/page/templates/page/datasets.html:84
+#: allthethings/page/templates/page/datasets.html:83
 #, fuzzy
 msgid "page.datasets.sources.metadata.header"
 msgstr "Meiteashonraí"
 
-#: allthethings/page/templates/page/datasets.html:85
+#: allthethings/page/templates/page/datasets.html:84
 #, fuzzy
 msgid "page.datasets.sources.files.header"
 msgstr "Comhaid"
 
-#: allthethings/page/templates/page/datasets.html:98
+#: allthethings/page/templates/page/datasets.html:97
 #, fuzzy
 msgid "common.record_sources_mapping.scihub_scimag"
 msgstr "Sci-Hub / Libgen “scimag”"
 
-#: allthethings/page/templates/page/datasets.html:162
+#: allthethings/page/templates/page/datasets.html:161
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.title"
 msgstr "Foirgnimh meiteashonraí amháin"
 
-#: allthethings/page/templates/page/datasets.html:165
+#: allthethings/page/templates/page/datasets.html:164
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text1"
 msgstr "Enrímid ár mbailiúchán freisin le foinsí meiteashonraí amháin, ar féidir linn a mheaitseáil le comhaid, m.sh. ag úsáid uimhreacha ISBN nó réimsí eile. Thíos tá forbhreathnú ar na foinsí sin. Arís, tá cuid de na foinsí seo go hiomlán oscailte, agus i gcásanna eile caithfimid iad a scrabhadh."
 
-#: allthethings/page/templates/page/datasets.html:169
-#: allthethings/page/templates/page/faq.html:186
+#: allthethings/page/templates/page/datasets.html:168
+#: allthethings/page/templates/page/faq.html:187
 #: allthethings/page/templates/page/search.html:294
 #, fuzzy
 msgid "page.faq.metadata.inspiration1"
 msgstr "Is é ár n-inspioráid chun meiteashonraí a bhailiú ná sprioc Aaron Swartz de “leathanach gréasáin amháin do gach leabhar a foilsíodh riamh”, ar chruthaigh sé <a %(a_openlib)s>Open Library</a> dó."
 
-#: allthethings/page/templates/page/datasets.html:170
-#: allthethings/page/templates/page/faq.html:187
+#: allthethings/page/templates/page/datasets.html:169
+#: allthethings/page/templates/page/faq.html:188
 #: allthethings/page/templates/page/search.html:295
 #, fuzzy
 msgid "page.faq.metadata.inspiration2"
 msgstr "D’éirigh go maith leis an tionscadal sin, ach tugann ár suíomh uathúil deis dúinn meiteashonraí a fháil nach féidir leo."
 
-#: allthethings/page/templates/page/datasets.html:171
-#: allthethings/page/templates/page/faq.html:188
+#: allthethings/page/templates/page/datasets.html:170
+#: allthethings/page/templates/page/faq.html:189
 #: allthethings/page/templates/page/search.html:296
 #, fuzzy
 msgid "page.faq.metadata.inspiration3"
 msgstr "Ba inspioráid eile dúinn ár mian a fháil amach <a %(a_blog)s>cé mhéad leabhar atá ar domhan</a>, ionas gur féidir linn ríomh cé mhéad leabhar atá fágtha againn le sábháil."
 
-#: allthethings/page/templates/page/datasets.html:175
+#: allthethings/page/templates/page/datasets.html:174
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text2"
 msgstr "Tabhair faoi deara go léirímid na taifid bhunaidh i gcuardach meiteashonraí. Ní dhéanaimid aon chumasc ar thaifid."
 
-#: allthethings/page/templates/page/datasets.html:216
+#: allthethings/page/templates/page/datasets.html:215
 #, fuzzy
 msgid "page.datasets.unified_database.title"
 msgstr "Bunachar sonraí aontaithe"
 
-#: allthethings/page/templates/page/datasets.html:219
+#: allthethings/page/templates/page/datasets.html:218
 #, fuzzy
 msgid "page.datasets.unified_database.text1"
 msgstr "Comhcheanglaímid na foinsí thuas go léir i mbunachar sonraí aontaithe amháin a úsáidimid chun an suíomh gréasáin seo a sheirbheáil. Níl an bunachar sonraí aontaithe seo ar fáil go díreach, ach ós rud é go bhfuil Cartlann Anna go hiomlán foinse oscailte, is féidir é a <a %(a_generated)s>ghiniúint</a> nó a <a %(a_downloaded)s>íoslódáil</a> go héasca mar bhunachair sonraí ElasticSearch agus MariaDB. Íoslódálfaidh na scripteanna ar an leathanach sin go huathoibríoch na meiteashonraí riachtanacha go léir ó na foinsí a luaitear thuas."
 
-#: allthethings/page/templates/page/datasets.html:227
+#: allthethings/page/templates/page/datasets.html:226
 #, fuzzy
 msgid "page.datasets.unified_database.text2"
 msgstr "Má tá suim agat ár sonraí a iniúchadh sula ritheann tú na scripteanna sin go háitiúil, is féidir leat féachaint ar ár gcomhaid JSON, a nascann tuilleadh le comhaid JSON eile. <a %(a_json)s>Tá an comhad seo</a> ina phointe tosaigh maith."
@@ -2904,473 +3017,477 @@ msgstr "Suíomh Gréasáin ISBN"
 msgid "page.datasets/isbn_ranges.isbn_metadata"
 msgstr "Meiteashonraí"
 
-#: allthethings/page/templates/page/faq.html:3
-#: allthethings/page/templates/page/faq.html:6
+#: allthethings/page/templates/page/faq.html:5
+#: allthethings/page/templates/page/faq.html:8
 #, fuzzy
 msgid "page.faq.title"
 msgstr "Ceisteanna Coitianta (FAQ)"
 
-#: allthethings/page/templates/page/faq.html:8
+#: allthethings/page/templates/page/faq.html:10
 #, fuzzy
 msgid "page.faq.what_is.title"
 msgstr "Cad é Cartlann Anna?"
 
-#: allthethings/page/templates/page/faq.html:11
+#: allthethings/page/templates/page/faq.html:13
 #, fuzzy
 msgid "page.home.intro.text1"
 msgstr "<span %(span_anna)s>Cartlann Anna</span> is tionscadal neamhbhrabúis é le dhá chuspóir:"
 
-#: allthethings/page/templates/page/faq.html:15
+#: allthethings/page/templates/page/faq.html:17
 #, fuzzy
 msgid "page.home.intro.text2"
 msgstr "<li><strong>Caomhnú:</strong> Tacaíocht a thabhairt do gach eolas agus cultúr an chine daonna.</li><li><strong>Rochtain:</strong> An t-eolas agus an cultúr seo a chur ar fáil do dhuine ar bith ar domhan.</li>"
 
-#: allthethings/page/templates/page/faq.html:19
+#: allthethings/page/templates/page/faq.html:21
 #, fuzzy
 msgid "page.home.intro.open_source"
 msgstr "Tá ár <a %(a_code)s>gcód</a> agus <a %(a_datasets)s>sonraí</a> go hiomlán foinse oscailte."
 
-#: allthethings/page/templates/page/faq.html:23
+#: allthethings/page/templates/page/faq.html:25
 #, fuzzy
 msgid "page.home.preservation.header"
 msgstr "Caomhnú"
 
-#: allthethings/page/templates/page/faq.html:25
+#: allthethings/page/templates/page/faq.html:27
 #, fuzzy
 msgid "page.home.preservation.text1"
 msgstr "Caomhnaímid leabhair, páipéir, greannáin, irisí, agus níos mó, trí na hábhair seo a thabhairt ó leabharlanna scáth éagsúla <a href=\"https://en.wikipedia.org/wiki/Shadow_library\">, leabharlanna oifigiúla, agus bailiúcháin eile le chéile in aon áit amháin. Caomhnaítear na sonraí seo go deo trí é a dhéanamh éasca é a dhúbailt i mórchóir — ag úsáid torrentaí — rud a chruthaíonn go leor cóipeanna ar fud an domhain. Déanann roinnt leabharlanna scáth é seo cheana féin (m.sh. Sci-Hub, Library Genesis), agus “liberálann” Cartlann Anna leabharlanna eile nach dtugann dáileadh mórchóir (m.sh. Z-Library) nó nach leabharlanna scáth iad ar chor ar bith (m.sh. Internet Archive, DuXiu)."
 
-#: allthethings/page/templates/page/faq.html:27
+#: allthethings/page/templates/page/faq.html:29
 #, fuzzy
 msgid "page.home.preservation.text2"
 msgstr "Déanann an dáileadh leathan seo, in éineacht le cód foinse oscailte, ár suíomh gréasáin athléimneach do thógálacha anuas, agus cinntíonn sé caomhnú fadtéarmach eolais agus cultúir an chine daonna. Foghlaim níos mó faoi <a href=\"/datasets\">ár sraith sonraí</a>."
 
-#: allthethings/page/templates/page/faq.html:41
+#: allthethings/page/templates/page/faq.html:43
 #, fuzzy
 msgid "page.home.preservation.label"
 msgstr "Measaimid go bhfuil thart ar <a href=\"https://annas-blog.org/blog-isbndb-dump-how-many-books-are-preserved-forever.html\">5%% de leabhair an domhain caomhnaithe againn</a>."
 
-#: allthethings/page/templates/page/faq.html:46
+#: allthethings/page/templates/page/faq.html:48
 #, fuzzy
 msgid "page.home.access.header"
 msgstr "Rochtain"
 
-#: allthethings/page/templates/page/faq.html:48
+#: allthethings/page/templates/page/faq.html:50
 #, fuzzy
 msgid "page.home.access.text"
 msgstr "Oibrímid le comhpháirtithe chun ár mbailiúcháin a dhéanamh inrochtana go héasca agus saor in aisce do dhuine ar bith. Creidimid go bhfuil ceart ag gach duine ar eagna chomhchoiteann an chine daonna. Agus <a %(a_search)s>gan dochar d’údair</a>."
 
-#: allthethings/page/templates/page/faq.html:52
+#: allthethings/page/templates/page/faq.html:54
 #, fuzzy
 msgid "page.home.access.label"
 msgstr "Íoslódálacha in aghaidh na huaire le 30 lá anuas. Meán in aghaidh na huaire: %(hourly)s. Meán laethúil: %(daily)s."
 
-#: allthethings/page/templates/page/faq.html:80
+#: allthethings/page/templates/page/faq.html:82
 #, fuzzy
 msgid "page.about.text2"
 msgstr "Creidimid go láidir i sreabhadh saor faisnéise, agus i gcaomhnú eolais agus cultúir. Leis an inneall cuardaigh seo, táimid ag tógáil ar ghuaillí fathach. Tá meas mór againn ar an obair chrua a rinne na daoine a chruthaigh na leabharlanna scáth éagsúla, agus tá súil againn go leathnóidh an t-inneall cuardaigh seo a raon."
 
-#: allthethings/page/templates/page/faq.html:84
+#: allthethings/page/templates/page/faq.html:86
 #, fuzzy
 msgid "page.about.text3"
 msgstr "Chun fanacht ar an eolas faoi ár ndul chun cinn, lean Anna ar <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a> nó <a href=\"https://t.me/annasarchiveorg\">Telegram</a>. Le haghaidh ceisteanna agus aiseolais déan teagmháil le Anna ag %(email)s."
 
-#: allthethings/page/templates/page/faq.html:87
+#: allthethings/page/templates/page/faq.html:89
 #, fuzzy
 msgid "page.faq.help.title"
 msgstr "Conas is féidir liom cabhrú?"
 
-#: allthethings/page/templates/page/faq.html:90
+#: allthethings/page/templates/page/faq.html:92
 #, fuzzy
 msgid "page.about.help.text"
 msgstr "<li>1. Lean muid ar <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a>, nó <a href=\"https://t.me/annasarchiveorg\">Telegram</a>.</li><li>2. Scaip an scéal faoi Chartlann Anna ar Twitter, Reddit, Tiktok, Instagram, ag do chaifé nó leabharlann áitiúil, nó cibé áit a théann tú! Ní chreidimid i gcoimeád geataí — má chuirtear síos muid, éireoidh muid suas arís in áit eile, ós rud é go bhfuil ár gcód agus ár sonraí go hiomlán foinse oscailte.</li><li>3. Má tá tú in ann, smaoinigh ar <a href=\"/donate\">bronntanas a thabhairt</a>.</li><li>4. Cabhraigh linn <a href=\"https://translate.annas-software.org/\">ár suíomh gréasáin a aistriú</a> go teangacha éagsúla.</li><li>5. Má tá tú i do innealtóir bogearraí, smaoinigh ar rannchuidiú lenár <a href=\"https://annas-software.org/\">foinse oscailte</a>, nó ár <a href=\"/datasets\">torrents</a> a shíolú.</li>"
 
-#: allthethings/page/templates/page/faq.html:91
+#: allthethings/page/templates/page/faq.html:93
 #, fuzzy
 msgid "page.about.help.text6"
 msgstr "6. Má tá tú i do thaighdeoir slándála, is féidir linn do scileanna a úsáid don ionsaí agus don chosaint. Féach ar ár leathanach <a %(a_security)s>Slándála</a>."
 
-#: allthethings/page/templates/page/faq.html:92
+#: allthethings/page/templates/page/faq.html:94
 #, fuzzy
 msgid "page.about.help.text7"
 msgstr "7. Táimid ag lorg saineolaithe i gcórais íocaíochta do cheannaithe anaithnid. An féidir leat cabhrú linn bealaí níos áisiúla a chur leis chun bronntanais a dhéanamh? PayPal, WeChat, cártaí bronntanais. Má tá aithne agat ar dhuine ar bith, déan teagmháil linn."
 
-#: allthethings/page/templates/page/faq.html:93
+#: allthethings/page/templates/page/faq.html:95
 #, fuzzy
 msgid "page.about.help.text8"
 msgstr "8. Táimid i gcónaí ag lorg níos mó acmhainne freastalaí."
 
-#: allthethings/page/templates/page/faq.html:94
+#: allthethings/page/templates/page/faq.html:96
 #, fuzzy
 msgid "page.about.help.text9"
 msgstr "9. Is féidir leat cabhrú trí thuairisciú ar shaincheisteanna comhaid, tuairimí a fhágáil, agus liostaí a chruthú ar an suíomh gréasáin seo. Is féidir leat cabhrú freisin trí <a %(a_upload)s>tuilleadh leabhar a uaslódáil</a>, nó saincheisteanna comhaid nó formáidithe leabhar atá ann cheana a shocrú."
 
-#: allthethings/page/templates/page/faq.html:95
+#: allthethings/page/templates/page/faq.html:97
 #, fuzzy
 msgid "page.about.help.text10"
 msgstr "10. Cruthaigh nó cabhraigh le cothabháil a dhéanamh ar an leathanach Vicipéide do Chartlann Anna i do theanga."
 
-#: allthethings/page/templates/page/faq.html:96
+#: allthethings/page/templates/page/faq.html:98
 #, fuzzy
 msgid "page.about.help.text11"
 msgstr "11. Táimid ag lorg bealaí beaga, blasta chun fógraí a chur. Más mian leat fógraíocht a dhéanamh ar Chartlann Anna, cuir in iúl dúinn."
 
-#: allthethings/page/templates/page/faq.html:97
+#: allthethings/page/templates/page/faq.html:99
 #, fuzzy
 msgid "page.faq.help.mirrors"
 msgstr "Ba bhreá linn go gcuirfeadh daoine <a %(a_mirrors)s>scátháin</a> ar bun, agus tabharfaimid tacaíocht airgeadais dó seo."
 
-#: allthethings/page/templates/page/faq.html:105
+#: allthethings/page/templates/page/faq.html:103
+msgid "page.about.help.volunteer"
+msgstr ""
+
+#: allthethings/page/templates/page/faq.html:106
 #, fuzzy
 msgid "page.faq.slow.title"
 msgstr "Cén fáth a bhfuil na híoslódálacha mall chomh mall?"
 
-#: allthethings/page/templates/page/faq.html:108
+#: allthethings/page/templates/page/faq.html:109
 #, fuzzy
 msgid "page.faq.slow.text1"
 msgstr "Níl go leor acmhainní againn go litriúil chun íoslódálacha ardluais a thabhairt do gach duine ar domhan, cé gur mhaith linn. Dá mbeadh maoinitheoir saibhir sásta é seo a chur ar fáil dúinn, bheadh sé sin iontach, ach go dtí sin, táimid ag déanamh ár ndícheall. Is tionscadal neamhbhrabúis muid nach féidir leis féin a chothú ach trí bhronntanais."
 
-#: allthethings/page/templates/page/faq.html:112
+#: allthethings/page/templates/page/faq.html:113
 #, fuzzy
 msgid "page.faq.slow.text2"
 msgstr "Sin é an fáth gur chuir muid dhá chóras i bhfeidhm le haghaidh íoslódálacha saor in aisce, lenár gcomhpháirtithe: freastalaithe comhroinnte le híoslódálacha mall, agus freastalaithe beagán níos tapúla le liosta feithimh (chun líon na ndaoine atá ag íoslódáil ag an am céanna a laghdú)."
 
-#: allthethings/page/templates/page/faq.html:116
+#: allthethings/page/templates/page/faq.html:117
 #, fuzzy
 msgid "page.faq.slow.text3"
 msgstr "Tá <a %(a_verification)s>fíorú brabhsálaí</a> againn freisin le haghaidh ár n-íoslódálacha mall, mar murach sin, mí-úsáidfidh róbónna agus scríobairí iad, rud a dhéanfaidh rudaí níos moille fós do na húsáideoirí dlisteanacha."
 
-#: allthethings/page/templates/page/faq.html:120
+#: allthethings/page/templates/page/faq.html:121
 #, fuzzy
 msgid "page.faq.slow.text4"
 msgstr "Tabhair faoi deara, agus an Brabhsálaí Tor á úsáid agat, b’fhéidir go mbeidh ort do shocruithe slándála a choigeartú. Ar an rogha is ísle, ar a dtugtar “Caighdeánach”, éiríonn leis an dúshlán turnstile Cloudflare. Ar na roghanna níos airde, ar a dtugtar “Níos Sábháilte” agus “Is Sábháilte”, teipeann ar an dúshlán."
 
-#: allthethings/page/templates/page/faq.html:124
+#: allthethings/page/templates/page/faq.html:125
 #, fuzzy
 msgid "page.faq.slow.text5"
 msgstr "Uaireanta, is féidir le híoslódálacha móra briseadh i lár an phróisis mar gheall ar luas mall. Molaimid bainisteoir íoslódála (cosúil le JDownloader) a úsáid chun íoslódálacha móra a atosú go huathoibríoch."
 
-#: allthethings/page/templates/page/faq.html:127
+#: allthethings/page/templates/page/faq.html:128
 #, fuzzy
 msgid "page.donate.faq.title"
 msgstr "CC Bronntanais"
 
-#: allthethings/page/templates/page/faq.html:130
+#: allthethings/page/templates/page/faq.html:131
 #, fuzzy
 msgid "page.donate.faq.renew"
 msgstr "<div %(div_question)s>An ndéanann ballraíochtaí athnuachan go huathoibríoch?</div> Ní dhéanann ballraíochtaí <strong>athnuachan go huathoibríoch</strong>. Is féidir leat a bheith páirteach chomh fada nó chomh gearr agus is mian leat."
 
-#: allthethings/page/templates/page/faq.html:134
+#: allthethings/page/templates/page/faq.html:135
 #, fuzzy
 msgid "page.donate.faq.membership"
 msgstr "<div %(div_question)s>An féidir liom mo bhallraíocht a uasghrádú nó ilbhallraíochtaí a fháil?</div>"
 
-#: allthethings/page/templates/page/faq.html:139
+#: allthethings/page/templates/page/faq.html:140
 #, fuzzy
 msgid "page.donate.faq.text_other_payment1"
 msgstr "<div %(div_question)s>An bhfuil modhanna íocaíochta eile agat?</div> Faoi láthair níl. Ní theastaíonn ó go leor daoine go mbeadh cartlanna mar seo ann, mar sin caithfimid a bheith cúramach. Má tá tú in ann cabhrú linn modhanna íocaíochta eile (níos áisiúla) a chur ar bun go sábháilte, déan teagmháil linn ag %(email)s."
 
-#: allthethings/page/templates/page/faq.html:143
+#: allthethings/page/templates/page/faq.html:144
 #, fuzzy
 msgid "page.donate.faq.spend"
 msgstr "<div %(div_question)s>Cad a chaitheann sibh bronntanais air?</div> Téann 100%% chun eolas agus cultúr an domhain a chaomhnú agus a chur ar fáil. Faoi láthair, caithimid é den chuid is mó ar fhreastalaithe, stóráil, agus bandaleithead. Ní théann aon airgead chuig aon bhall foirne go pearsanta."
 
-#: allthethings/page/templates/page/faq.html:147
+#: allthethings/page/templates/page/faq.html:148
 #, fuzzy
 msgid "page.donate.faq.text_large_donation"
 msgstr "<div %(div_question)s>An féidir liom síntiús mór a dhéanamh?</div> Bheadh sé sin iontach! Le haghaidh síntiúis os cionn cúpla míle dollar, déan teagmháil linn go díreach ag %(email)s."
 
-#: allthethings/page/templates/page/faq.html:151
+#: allthethings/page/templates/page/faq.html:152
 #, fuzzy
 msgid "page.donate.faq.non_member_donation"
 msgstr "<div %(div_question)s>An féidir liom síntiús a dhéanamh gan a bheith i mo bhall?</div> Cinnte. Glacaimid le síntiúis d'aon mhéid ag an seoladh Monero (XMR) seo: %(address)s."
 
-#: allthethings/page/templates/page/faq.html:154
+#: allthethings/page/templates/page/faq.html:155
 #, fuzzy
 msgid "page.faq.upload.title"
 msgstr "Conas a uaslódálaim leabhair nua?"
 
-#: allthethings/page/templates/page/faq.html:157
+#: allthethings/page/templates/page/faq.html:158
 #, fuzzy
 msgid "page.upload.text1"
 msgstr "Faoi láthair, molaimid leabhair nua a uaslódáil chuig forcanna Library Genesis. Seo <a %(a_guide)s>treoir áisiúil</a>. Tabhair faoi deara go dtarraingíonn an dá fhorc a ndéanaimid innéacsú orthu ar an suíomh gréasáin seo ón gcóras uaslódála céanna."
 
-#: allthethings/page/templates/page/faq.html:158
+#: allthethings/page/templates/page/faq.html:159
 #, fuzzy
 msgid "common.libgen.email"
 msgstr "Má tá do sheoladh ríomhphoist neamhbhailí ar na fóraim Libgen, molaimid <a %(a_mail)s>Proton Mail</a> (saor in aisce) a úsáid. Is féidir leat freisin <a %(a_manual)s>iarratas a dhéanamh de láimh</a> chun do chuntas a ghníomhachtú."
 
-#: allthethings/page/templates/page/faq.html:159
+#: allthethings/page/templates/page/faq.html:160
 #, fuzzy
 msgid "page.faq.mhut_upload"
 msgstr "Tabhair faoi deara go gcuireann mhut.org bac ar raonta IP áirithe, mar sin b'fhéidir go mbeidh gá le VPN."
 
-#: allthethings/page/templates/page/faq.html:163
+#: allthethings/page/templates/page/faq.html:164
 #, fuzzy
 msgid "page.upload.zlib.text1"
 msgstr "Mar mhalairt air sin, is féidir leat iad a uaslódáil chuig Z-Library <a %(a_upload)s>anseo</a>."
 
-#: allthethings/page/templates/page/faq.html:167
+#: allthethings/page/templates/page/faq.html:168
 #, fuzzy
 msgid "page.upload.zlib.text2"
 msgstr "Chun páipéir acadúla a uaslódáil, uaslódáil chuig <a %(a_stc_nexus)s>STC Nexus</a> chomh maith (chomh maith le Library Genesis). Is iad an leabharlann scáth is fearr le haghaidh páipéir nua. Níl muid tar éis iad a chomhtháthú fós, ach beidh muid ag pointe éigin. Is féidir leat a <a %(a_telegram)s>bot uaslódála ar Telegram</a> a úsáid, nó déan teagmháil leis an seoladh atá liostaithe ina dteachtaireacht bioráin má tá an iomarca comhad agat le híoslódáil ar an mbealach seo."
 
-#: allthethings/page/templates/page/faq.html:171
+#: allthethings/page/templates/page/faq.html:172
 #, fuzzy
 msgid "page.upload.large.text"
 msgstr "Le haghaidh uaslódálacha móra (os cionn 10,000 comhad) nach nglacann Libgen nó Z-Library leo, déan teagmháil linn ag %(a_email)s."
 
-#: allthethings/page/templates/page/faq.html:174
+#: allthethings/page/templates/page/faq.html:175
 #, fuzzy
 msgid "page.faq.request.title"
 msgstr "Conas a iarraim leabhair?"
 
-#: allthethings/page/templates/page/faq.html:177
+#: allthethings/page/templates/page/faq.html:178
 #, fuzzy
 msgid "page.request.cannot_accomodate"
 msgstr "Faoi láthair, ní féidir linn freastal ar iarratais leabhar."
 
-#: allthethings/page/templates/page/faq.html:178
+#: allthethings/page/templates/page/faq.html:179
 #, fuzzy
 msgid "page.request.forums"
 msgstr "Déan do chuid iarratais ar fhóraim Z-Library nó Libgen."
 
-#: allthethings/page/templates/page/faq.html:179
+#: allthethings/page/templates/page/faq.html:180
 #, fuzzy
 msgid "page.request.dont_email"
 msgstr "Ná seol ríomhphost chugainn le d'iarratais leabhar."
 
-#: allthethings/page/templates/page/faq.html:182
+#: allthethings/page/templates/page/faq.html:183
 #, fuzzy
 msgid "page.faq.metadata.title"
 msgstr "An mbailíonn sibh meiteashonraí?"
 
-#: allthethings/page/templates/page/faq.html:185
+#: allthethings/page/templates/page/faq.html:186
 #, fuzzy
 msgid "page.faq.metadata.indeed"
 msgstr "Bailímid cinnte."
 
-#: allthethings/page/templates/page/faq.html:191
+#: allthethings/page/templates/page/faq.html:192
 #, fuzzy
 msgid "page.faq.1984.title"
 msgstr "Íoslódáil mé 1984 le George Orwell, an dtiocfaidh na póilíní chuig mo dhoras?"
 
-#: allthethings/page/templates/page/faq.html:194
+#: allthethings/page/templates/page/faq.html:195
 #, fuzzy
 msgid "page.faq.1984.text"
 msgstr "Ná bí buartha ró-mhór, tá go leor daoine ag íoslódáil ó shuíomhanna gréasáin a nascann muid leo, agus is annamh a bhíonn trioblóid ann. Mar sin féin, chun fanacht sábháilte molaimid VPN (íoctha) a úsáid, nó <a %(a_tor)s>Tor</a> (saor in aisce)."
 
-#: allthethings/page/templates/page/faq.html:197
+#: allthethings/page/templates/page/faq.html:198
 #, fuzzy
 msgid "page.faq.save_search.title"
 msgstr "Conas a shábhálaim mo shocruithe cuardaigh?"
 
-#: allthethings/page/templates/page/faq.html:200
+#: allthethings/page/templates/page/faq.html:201
 #, fuzzy
 msgid "page.faq.save_search.text1"
 msgstr "Roghnaigh na socruithe is maith leat, coinnigh an bosca cuardaigh folamh, cliceáil “Cuardaigh”, agus ansin cuir an leathanach le do leabharmharcanna ag úsáid gné leabharmharcála do bhrabhsálaí."
 
-#: allthethings/page/templates/page/faq.html:203
+#: allthethings/page/templates/page/faq.html:204
 #, fuzzy
 msgid "page.faq.mobile.title"
 msgstr "An bhfuil aip soghluaiste agaibh?"
 
-#: allthethings/page/templates/page/faq.html:206
+#: allthethings/page/templates/page/faq.html:207
 #, fuzzy
 msgid "page.faq.mobile.text1"
 msgstr "Níl aip oifigiúil soghluaiste againn, ach is féidir leat an suíomh gréasáin seo a shuiteáil mar aip."
 
-#: allthethings/page/templates/page/faq.html:207
+#: allthethings/page/templates/page/faq.html:208
 #, fuzzy
 msgid "page.faq.mobile.android"
 msgstr "<strong>Android:</strong> Cliceáil ar an roghchlár trí phonc sa chúinne ar dheis ar barr, agus roghnaigh “Cuir leis an Scáileán Baile”."
 
-#: allthethings/page/templates/page/faq.html:208
+#: allthethings/page/templates/page/faq.html:209
 #, fuzzy
 msgid "page.faq.mobile.ios"
 msgstr "<strong>iOS:</strong> Cliceáil ar an gcnaipe “Comhroinn” ag an mbun, agus roghnaigh “Cuir leis an Scáileán Baile”."
 
-#: allthethings/page/templates/page/faq.html:211
+#: allthethings/page/templates/page/faq.html:212
 #, fuzzy
 msgid "page.faq.api.title"
 msgstr "An bhfuil API agat?"
 
-#: allthethings/page/templates/page/faq.html:214
+#: allthethings/page/templates/page/faq.html:215
 #, fuzzy
 msgid "page.faq.api.text1"
 msgstr "Tá API JSON cobhsaí amháin againn do bhaill, chun URL íoslódála tapa a fháil: <a %(a_fast_download)s>/dyn/api/fast_download.json</a> (doiciméadú laistigh den JSON féin)."
 
-#: allthethings/page/templates/page/faq.html:218
+#: allthethings/page/templates/page/faq.html:219
 #, fuzzy
 msgid "page.faq.api.text2"
 msgstr "Le haghaidh cásanna úsáide eile, mar shampla dul tríd ár gcomhaid go léir, cuardach saincheaptha a thógáil, agus mar sin de, molaimid <a %(a_generate)s>giniúint</a> nó <a %(a_download)s>íoslódáil</a> ár mbunachair sonraí ElasticSearch agus MariaDB. Is féidir na sonraí amh a iniúchadh de láimh <a %(a_explore)s>trí chomhaid JSON</a>."
 
-#: allthethings/page/templates/page/faq.html:222
+#: allthethings/page/templates/page/faq.html:223
 #, fuzzy
 msgid "page.faq.api.text3"
 msgstr "Is féidir ár liosta amh de thorrents a íoslódáil mar <a %(a_torrents)s>JSON</a> freisin."
 
-#: allthethings/page/templates/page/faq.html:225
+#: allthethings/page/templates/page/faq.html:226
 #, fuzzy
 msgid "page.faq.torrents.title"
 msgstr "CCanna Torrents"
 
-#: allthethings/page/templates/page/faq.html:228
+#: allthethings/page/templates/page/faq.html:229
 #, fuzzy
 msgid "page.faq.torrents.q1"
 msgstr "Ba mhaith liom cabhrú le síolú, ach níl mórán spáis diosca agam."
 
-#: allthethings/page/templates/page/faq.html:230
+#: allthethings/page/templates/page/faq.html:231
 #, fuzzy
 msgid "page.faq.torrents.a1"
 msgstr "Úsáid an <a %(a_list)s>gineadóir liosta torrent</a> chun liosta de thorrents a ghiniúint atá is mó a bhfuil gá le torrentáil, laistigh de theorainneacha do spáis stórála."
 
-#: allthethings/page/templates/page/faq.html:234
+#: allthethings/page/templates/page/faq.html:235
 #, fuzzy
 msgid "page.faq.torrents.q2"
 msgstr "Tá na torrents ró-mhall; an féidir liom na sonraí a íoslódáil go díreach uait?"
 
-#: allthethings/page/templates/page/faq.html:236
+#: allthethings/page/templates/page/faq.html:237
 #, fuzzy
 msgid "page.faq.torrents.a2"
 msgstr "Sea, féach ar an leathanach <a %(a_llm)s>sonraí LLM</a>."
 
-#: allthethings/page/templates/page/faq.html:240
+#: allthethings/page/templates/page/faq.html:241
 #, fuzzy
 msgid "page.faq.torrents.q3"
 msgstr "An féidir liom fo-thacar de na comhaid a íoslódáil, cosúil le teanga nó ábhar ar leith amháin?"
 
-#: allthethings/page/templates/page/faq.html:242
+#: allthethings/page/templates/page/faq.html:243
 #, fuzzy
 msgid "page.faq.torrents.a3"
 msgstr "Tá na comhaid go díreach i bhformhór na dtorrents, rud a chiallaíonn gur féidir leat treoir a thabhairt do chliaint torrent na comhaid riachtanacha amháin a íoslódáil. Chun a chinneadh cé na comhaid atá le híoslódáil, is féidir leat ár meiteashonraí a <a %(a_generate)s>ghiniúint</a>, nó ár mbunachair sonraí ElasticSearch agus MariaDB a <a %(a_download)s>íoslódáil</a>. Ar an drochuair, tá roinnt bailiúchán torrent ina bhfuil comhaid .zip nó .tar ag an bhfréamh, agus sa chás sin ní mór duit an torrent iomlán a íoslódáil sula mbeidh tú in ann comhaid aonair a roghnú."
 
-#: allthethings/page/templates/page/faq.html:246
+#: allthethings/page/templates/page/faq.html:247
 #, fuzzy
 msgid "page.faq.torrents.q4"
 msgstr "Conas a láimhseálann tú dúbailtí sna torrents?"
 
-#: allthethings/page/templates/page/faq.html:248
+#: allthethings/page/templates/page/faq.html:249
 #, fuzzy
 msgid "page.faq.torrents.a4"
 msgstr "Déanaimid iarracht an dúbailt nó an forluí a choinneáil ar a laghad idir na torrents sa liosta seo, ach ní féidir é seo a bhaint amach i gcónaí, agus braitheann sé go mór ar bheartais na leabharlanna foinse. Maidir le leabharlanna a chuireann a dtorrents féin amach, tá sé as ár lámha. Maidir le torrents a scaoiltear ag Cartlann Anna, déanaimid dí-dhúbailt bunaithe ar hash MD5 amháin, rud a chiallaíonn nach ndéantar leaganacha éagsúla den leabhar céanna a dhí-dhúbailt."
 
-#: allthethings/page/templates/page/faq.html:252
+#: allthethings/page/templates/page/faq.html:253
 #, fuzzy
 msgid "page.faq.torrents.q5"
 msgstr "An féidir liom an liosta torrent a fháil mar JSON?"
 
-#: allthethings/page/templates/page/faq.html:254
+#: allthethings/page/templates/page/faq.html:255
 #, fuzzy
 msgid "page.faq.torrents.a5"
 msgstr "Sea."
 
-#: allthethings/page/templates/page/faq.html:258
+#: allthethings/page/templates/page/faq.html:259
 #, fuzzy
 msgid "page.faq.torrents.q6"
 msgstr "Ní fheicim PDFs nó EPUBs sna torrents, ach comhaid dhénártha amháin? Cad a dhéanfaidh mé?"
 
-#: allthethings/page/templates/page/faq.html:260
+#: allthethings/page/templates/page/faq.html:261
 #, fuzzy
 msgid "page.faq.torrents.a6"
 msgstr "Is PDFs agus EPUBs iad seo i ndáiríre, níl síneadh acu i go leor dár torrents. Tá dhá áit ann inar féidir leat na meiteashonraí do chomhaid torrent a fháil, lena n-áirítear na cineálacha/síneadh comhaid:"
 
-#: allthethings/page/templates/page/faq.html:262
+#: allthethings/page/templates/page/faq.html:263
 #, fuzzy
 msgid "page.faq.torrents.a6.li1"
 msgstr "1. Tá a meiteashonraí féin ag gach bailiúchán nó eisiúint. Mar shampla, tá bunachar sonraí meiteashonraí comhfhreagrach ag <a %(a_libgen_nonfic)s>Libgen.rs torrents</a> atá óstáilte ar shuíomh gréasáin Libgen.rs. De ghnáth nascann muid le hacmhainní meiteashonraí ábhartha ó leathanach <a %(a_datasets)s>tacair sonraí</a> gach bailiúcháin."
 
-#: allthethings/page/templates/page/faq.html:264
+#: allthethings/page/templates/page/faq.html:265
 #, fuzzy
 msgid "page.faq.torrents.a6.li2"
 msgstr "2. Molaimid ár mbunachair sonraí ElasticSearch agus MariaDB a <a %(a_generate)s>ghiniúint</a> nó a <a %(a_download)s>íoslódáil</a>. Tá léarscáil ann do gach taifead i gCartlann Anna chuig a chomhaid torrent comhfhreagracha (más ann dóibh), faoi “torrent_paths” sa JSON ElasticSearch."
 
-#: allthethings/page/templates/page/faq.html:267
+#: allthethings/page/templates/page/faq.html:268
 #, fuzzy
 msgid "page.faq.security.title"
 msgstr "An bhfuil clár nochtaithe freagrach agat?"
 
-#: allthethings/page/templates/page/faq.html:270
+#: allthethings/page/templates/page/faq.html:271
 #, fuzzy
 msgid "page.faq.security.text1"
 msgstr "Cuirimid fáilte roimh thaighdeoirí slándála leochaileachtaí a chuardach inár gcórais. Is lucht tacaíochta móra muid de nochtadh freagrach. Déan teagmháil linn <a %(a_contact)s>anseo</a>."
 
-#: allthethings/page/templates/page/faq.html:274
+#: allthethings/page/templates/page/faq.html:275
 #, fuzzy
 msgid "page.faq.security.text2"
 msgstr "Faoi láthair, níl muid in ann luach saothair a bhronnadh as fabhtanna, ach amháin le haghaidh leochaileachtaí a bhfuil an <a %(a_link)s>poitéinseal acu ár n-ainmníocht a chur i mbaol</a>, as a dtugaimid luach saothair idir $10k-50k. Ba mhaith linn raon níos leithne a thairiscint le haghaidh luach saothair fabhtanna sa todhchaí! Tabhair faoi deara nach bhfuil ionsaithe innealtóireachta sóisialta san áireamh."
 
-#: allthethings/page/templates/page/faq.html:278
+#: allthethings/page/templates/page/faq.html:279
 #, fuzzy
 msgid "page.faq.security.text3"
 msgstr "Má tá suim agat i slándáil ionsaitheach, agus más mian leat cabhrú le heolas agus cultúr an domhain a chartlannú, bí cinnte teagmháil a dhéanamh linn. Tá go leor bealaí ann inar féidir leat cabhrú."
 
-#: allthethings/page/templates/page/faq.html:281
+#: allthethings/page/templates/page/faq.html:282
 #, fuzzy
 msgid "page.faq.resources.title"
 msgstr "An bhfuil níos mó acmhainní faoi Chartlann Anna?"
 
-#: allthethings/page/templates/page/faq.html:284
+#: allthethings/page/templates/page/faq.html:285
 #, fuzzy
 msgid "page.faq.resources.annas_blog"
 msgstr "<a %(a_blog)s>Blag Anna</a>, <a %(a_reddit_u)s>Reddit</a>, <a %(a_reddit_r)s>Fo-Reddit</a> — nuashonruithe rialta"
 
-#: allthethings/page/templates/page/faq.html:285
+#: allthethings/page/templates/page/faq.html:286
 #, fuzzy
 msgid "page.faq.resources.annas_software"
 msgstr "<a %(a_software)s>Bogearraí Anna</a> — ár gcód foinse oscailte"
 
-#: allthethings/page/templates/page/faq.html:286
+#: allthethings/page/templates/page/faq.html:287
 #, fuzzy
 msgid "page.faq.resources.translate"
 msgstr "<a %(a_translate)s>Aistrigh ar Bhogearraí Anna</a> — ár gcóras aistriúcháin"
 
-#: allthethings/page/templates/page/faq.html:287
+#: allthethings/page/templates/page/faq.html:288
 #, fuzzy
 msgid "page.faq.resources.datasets"
 msgstr "<a %(a_datasets)s>Datasets</a> — faoin sonraí"
 
-#: allthethings/page/templates/page/faq.html:288
+#: allthethings/page/templates/page/faq.html:289
 #, fuzzy
 msgid "page.faq.resources.domains"
 msgstr "<a %(a_li)s>.li</a>, <a %(a_se)s>.se</a>, <a %(a_org)s>.org</a> — fearainn mhalartacha"
 
-#: allthethings/page/templates/page/faq.html:289
+#: allthethings/page/templates/page/faq.html:290
 #, fuzzy
 msgid "page.faq.resources.wikipedia"
 msgstr "<a %(a_wikipedia)s>Vicipéid</a> — tuilleadh fúinn (cabhraigh leathanach seo a choinneáil cothrom le dáta, nó cruthaigh ceann do do theanga féin!)"
 
-#: allthethings/page/templates/page/faq.html:292
+#: allthethings/page/templates/page/faq.html:293
 #, fuzzy
 msgid "page.faq.copyright.title"
 msgstr "Conas a thuairiscím sárú cóipchirt?"
 
-#: allthethings/page/templates/page/faq.html:295
+#: allthethings/page/templates/page/faq.html:296
 #, fuzzy
 msgid "page.faq.copyright.text1"
 msgstr "Ní óstáilimid aon ábhair faoi chóipcheart anseo. Is inneall cuardaigh muid, agus mar sin ní innéacsaimid ach meiteashonraí atá ar fáil go poiblí cheana féin. Agus tú ag íoslódáil ó na foinsí seachtracha seo, mholfaimis duit dlíthe i do dhlínse a sheiceáil maidir le cad atá ceadaithe. Níl muid freagrach as ábhar a óstáiltear ag daoine eile."
 
-#: allthethings/page/templates/page/faq.html:299
+#: allthethings/page/templates/page/faq.html:300
 #, fuzzy
 msgid "page.faq.copyright.text2"
 msgstr "Má tá gearáin agat faoi cad a fheiceann tú anseo, is fearr teagmháil a dhéanamh leis an suíomh gréasáin bunaidh. Tarraingímid a n-athruithe isteach inár mbunachar sonraí go rialta. Má cheapann tú i ndáiríre go bhfuil gearán bailí DMCA agat ar cheart dúinn freagairt dó, líon isteach an <a %(a_copyright)s>foirm éilimh DMCA / Cóipchirt</a>. Tógaimid do ghearáin dáiríre, agus rachaidh muid i dteagmháil leat chomh luath agus is féidir."
 
-#: allthethings/page/templates/page/faq.html:302
+#: allthethings/page/templates/page/faq.html:303
 #, fuzzy
 msgid "page.faq.hate.title"
 msgstr "Is fuath liom an chaoi a bhfuil tú ag rith an tionscadail seo!"
 
-#: allthethings/page/templates/page/faq.html:305
+#: allthethings/page/templates/page/faq.html:306
 #, fuzzy
 msgid "page.faq.hate.text1"
 msgstr "Ba mhaith linn a chur i gcuimhne do chách freisin go bhfuil ár gcód agus ár sonraí go hiomlán foinse oscailte. Tá sé seo uathúil do thionscadail cosúil lenár gceann — níl a fhios againn faoi aon tionscadal eile le catalóg chomh ollmhór atá foinse oscailte chomh maith. Cuirimid fáilte mhór roimh aon duine a cheapann go bhfuil muid ag rith ár dtionscadal go dona chun ár gcód agus ár sonraí a thógáil agus a leabharlann scáth féin a bhunú! Nílimid á rá seo as drochmheas nó rud éigin — ceapaimid go mbeadh sé seo iontach mar go n-ardódh sé an caighdeán do chách, agus go gcaomhnódh sé oidhreacht an chine dhaonna níos fearr."
 
-#: allthethings/page/templates/page/faq.html:308
+#: allthethings/page/templates/page/faq.html:309
 #, fuzzy
 msgid "page.faq.favorite.title"
 msgstr "Cad iad na leabhair is fearr leat?"
 
-#: allthethings/page/templates/page/faq.html:311
+#: allthethings/page/templates/page/faq.html:312
 #, fuzzy
 msgid "page.faq.favorite.text1"
 msgstr "Seo roinnt leabhar a bhfuil tábhacht ar leith acu do shaol na leabharlanna scáth agus caomhnú digiteach:"
@@ -3552,13 +3669,13 @@ msgid "page.md5.box.download.ipfs_gateway_extra"
 msgstr "(b'fhéidir go mbeidh ort iarracht a dhéanamh arís agus arís eile le IPFS)"
 
 #: allthethings/page/templates/page/ipfs_downloads.html:23
-#: allthethings/page/templates/page/partner_download.html:93
+#: allthethings/page/templates/page/partner_download.html:91
 #, fuzzy
 msgid "page.partner_download.faster_downloads"
 msgstr "🚀 Chun íoslódálacha níos tapúla a fháil agus na seiceálacha brabhsálaí a scipeáil, <a %(a_membership)s>bí i do bhall</a>."
 
 #: allthethings/page/templates/page/ipfs_downloads.html:27
-#: allthethings/page/templates/page/partner_download.html:97
+#: allthethings/page/templates/page/partner_download.html:95
 #, fuzzy
 msgid "page.partner_download.bulk_mirroring"
 msgstr "📡 Le haghaidh scáthán mórchóir dár mbailiúchán, féach ar na leathanaigh <a %(a_datasets)s>Datasets</a> agus <a %(a_torrents)s>Torrents</a>."
@@ -3928,27 +4045,31 @@ msgstr "Nuair a fhaigheann tú nasc íoslódála tá sé bailí ar feadh roinnt 
 msgid "page.partner_download.li4"
 msgstr "Go raibh maith agat as fanacht, coinníonn sé seo an suíomh Gréasáin inrochtana saor in aisce do chách! 😊"
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:40
+msgid "page.partner_download.automatic_refreshing"
+msgstr ""
+
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.url"
 msgstr "📚 Úsáid an URL seo a leanas chun íoslódáil: <a %(a_download)s>Íoslódáil anois</a>."
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.download_now"
 msgstr "Íoslódáil anois"
 
-#: allthethings/page/templates/page/partner_download.html:86
+#: allthethings/page/templates/page/partner_download.html:84
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads"
 msgstr "Rabhadh: tá a lán íoslódálacha déanta ó do sheoladh IP le 24 uair an chloig anuas. D’fhéadfadh íoslódálacha a bheith níos moille ná mar is gnách."
 
-#: allthethings/page/templates/page/partner_download.html:87
+#: allthethings/page/templates/page/partner_download.html:85
 #, fuzzy
 msgid "page.partner_download.downloads_last_24_hours"
 msgstr "Íoslódálacha ó do sheoladh IP le 24 uair an chloig anuas: %(count)s."
 
-#: allthethings/page/templates/page/partner_download.html:88
+#: allthethings/page/templates/page/partner_download.html:86
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads2"
 msgstr "Má tá tú ag úsáid VPN, nasc idirlín roinnte, nó má roinneann do ISP seoltaí IP, d’fhéadfadh an rabhadh seo a bheith mar gheall air sin."

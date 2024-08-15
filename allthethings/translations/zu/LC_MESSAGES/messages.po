@@ -370,10 +370,6 @@ msgstr "Ngeminikelo engaphezu kuka-$5000 sicela uxhumane nathi ngqo ku-%(email)s
 #: allthethings/account/templates/account/index.html:36
 #: allthethings/page/templates/page/contact.html:3
 #: allthethings/page/templates/page/contact.html:6
-#: allthethings/page/templates/page/faq.html:84
-#: allthethings/page/templates/page/faq.html:139
-#: allthethings/page/templates/page/faq.html:147
-#: allthethings/page/templates/page/faq.html:171
 #: allthethings/page/templates/page/home.html:77
 #: allthethings/page/templates/page/home.html:82
 #: allthethings/page/templates/page/home.html:90
@@ -1387,6 +1383,14 @@ msgstr "Amafayela alandiwe awakhonjiswa obala."
 msgid "page.downloaded.no_files"
 msgstr "Awukho amafayela alandiwe okwamanje."
 
+#: allthethings/account/templates/account/downloaded.html:16
+msgid "page.downloaded.last_18_hours"
+msgstr ""
+
+#: allthethings/account/templates/account/downloaded.html:21
+msgid "page.downloaded.earlier"
+msgstr ""
+
 #: allthethings/account/templates/account/index.html:5
 #: allthethings/account/templates/account/index.html:15
 #, fuzzy
@@ -1462,7 +1466,7 @@ msgid "page.account.logged_in.membership_upgrade"
 msgstr "Xhumana no-Anna ku %(email)s uma unentshisekelo yokuthuthukisa ubulungu bakho ku zinga eliphezulu."
 
 #: allthethings/account/templates/account/index.html:37
-#: allthethings/page/templates/page/faq.html:135
+#: allthethings/page/templates/page/faq.html:136
 #, fuzzy
 msgid "page.account.logged_in.membership_multiple"
 msgstr "Ungahlanganisa ubulungu obuningi (ukulanda okusheshayo ngamahora angama-24 kuzofakwa ndawonye)."
@@ -1717,6 +1721,14 @@ msgstr "Kuphawulwe njengokuphukile ku-Libgen.li"
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "Kulahlekile ku-Z-Library"
 
+#: allthethings/page/views.py:4845
+msgid "common.md5_problem_type_mapping.zlib_spam"
+msgstr ""
+
+#: allthethings/page/views.py:4846
+msgid "common.md5_problem_type_mapping.zlib_bad_file"
+msgstr ""
+
 #: allthethings/page/views.py:4847
 #, fuzzy
 msgid "common.md5_problem_type_mapping.duxiu_pdg_broken_files"
@@ -1807,26 +1819,31 @@ msgstr "Hlola imininingwane"
 msgid "common.access_types_mapping.torrents_available"
 msgstr "Okuqukethwe kumathorenti"
 
-#: allthethings/page/templates/page/datasets.html:52
-#: allthethings/page/templates/page/datasets.html:88
+#: allthethings/page/templates/page/datasets.html:51
+#: allthethings/page/templates/page/datasets.html:87
 #: allthethings/page/views.py:4880
 #, fuzzy
 msgid "common.record_sources_mapping.lgrs"
 msgstr "Libgen.rs"
 
-#: allthethings/page/templates/page/datasets.html:54
-#: allthethings/page/templates/page/datasets.html:109
+#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:108
 #: allthethings/page/views.py:4881
 #, fuzzy
 msgid "common.record_sources_mapping.lgli"
 msgstr "Libgen.li"
 
-#: allthethings/page/templates/page/datasets.html:55
-#: allthethings/page/templates/page/datasets.html:121
+#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:120
 #: allthethings/page/views.py:4882
 #, fuzzy
 msgid "common.record_sources_mapping.zlib"
 msgstr "Z-Library"
+
+#: allthethings/page/templates/page/datasets.html:55
+#: allthethings/page/views.py:4883
+msgid "common.record_sources_mapping.zlibzh"
+msgstr ""
 
 #: allthethings/page/views.py:4884
 #, fuzzy
@@ -1843,7 +1860,7 @@ msgstr "ISBNdb"
 msgid "common.record_sources_mapping.ol"
 msgstr "OpenLibrary"
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 #: allthethings/page/views.py:4887
 #, fuzzy
 msgid "common.record_sources_mapping.scihub"
@@ -1854,15 +1871,15 @@ msgstr "Sci-Hub"
 msgid "common.record_sources_mapping.oclc"
 msgstr "OCLC (WorldCat)"
 
-#: allthethings/page/templates/page/datasets.html:58
-#: allthethings/page/templates/page/datasets.html:142
+#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:141
 #: allthethings/page/views.py:4889
 #, fuzzy
 msgid "common.record_sources_mapping.duxiu"
 msgstr "DuXiu 读秀"
 
-#: allthethings/page/templates/page/datasets.html:59
-#: allthethings/page/templates/page/datasets.html:155
+#: allthethings/page/templates/page/datasets.html:58
+#: allthethings/page/templates/page/datasets.html:154
 #: allthethings/page/views.py:4890
 #, fuzzy
 msgid "common.record_sources_mapping.uploads"
@@ -2517,8 +2534,6 @@ msgstr "Kukhona okungahambi kahle. Sicela ulayishe ikhasi kabusha bese uzama fut
 
 #: allthethings/page/templates/page/aarecord.html:406
 #: allthethings/page/templates/page/aarecord.html:407
-#: allthethings/page/templates/page/codes.html:8
-#: allthethings/page/templates/page/codes.html:9
 #: allthethings/page/templates/page/copyright.html:6
 #: allthethings/page/templates/page/copyright.html:7
 #: allthethings/page/templates/page/datasets.html:13
@@ -2574,12 +2589,12 @@ msgstr "Leli yifayela elilawulwa yi-<a %(a_ia)s>IA’s Controlled Digital Lendin
 msgid "page.md5.text.file_info.text1"
 msgstr "Ngolwazi mayelana naleli fayela elithile, bheka ifayela lalo le-<a %(a_href)s>JSON</a>."
 
-#: allthethings/page/templates/page/aarecord_issue.html:4
+#: allthethings/page/templates/page/aarecord_issue.html:5
 #, fuzzy
 msgid "page.aarecord_issue.title"
 msgstr "🔥 Inkinga yokulayisha leli khasi"
 
-#: allthethings/page/templates/page/aarecord_issue.html:6
+#: allthethings/page/templates/page/aarecord_issue.html:7
 #, fuzzy
 msgid "page.aarecord_issue.text"
 msgstr "Sicela uvuselele ukuze uzame futhi. <a %(a_contact)s>Xhumana nathi</a> uma inkinga iqhubeka amahora amaningi."
@@ -2622,6 +2637,105 @@ msgstr "Uma ubambeke kumjikelezo ongapheli, sincoma ukufaka <a %(a_privacypass)s
 #, fuzzy
 msgid "page.login.text3"
 msgstr "Kungasiza futhi ukuvala ama-ad blockers nezinye izandiso zesiphequluli."
+
+#: allthethings/page/templates/page/codes.html:5
+msgid "page.codes.title"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:10
+msgid "page.codes.heading"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:14
+msgid "page.codes.intro"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:18
+msgid "page.codes.why_cloudflare"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:22
+msgid "page.codes.dont_scrape"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:33
+msgid "page.codes.prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:34
+msgid "common.form.go"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:35
+msgid "common.form.reset"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:40
+msgid "page.codes.bad_unicode"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:46
+msgid "page.codes.known_code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:48
+msgid "page.codes.code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:49
+msgid "page.codes.code_label"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:51
+msgid "page.codes.code_description"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgid "page.codes.code_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgctxt "the %s should not be changed"
+msgid "page.codes.s_substitution"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:57
+msgid "page.codes.generic_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:61
+msgid "page.codes.code_website"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:69
+msgid "page.codes.record_starting_with"
+msgid_plural "page.codes.records_starting_with"
+msgstr[0] ""
+msgstr[1] ""
+
+#: allthethings/page/templates/page/codes.html:75
+msgid "page.codes.search_archive"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:77
+msgid "page.codes.url_link"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:84
+msgid "page.codes.codes_starting_with"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:92
+msgid "page.codes.records_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:93
+msgid "page.codes.records_codes"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:113
+msgid "page.codes.fewer_than"
+msgstr ""
 
 #: allthethings/page/templates/page/contact.html:9
 #, fuzzy
@@ -2723,144 +2837,140 @@ msgstr ""
 msgid "page.datasets.overview.last_updated.header"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:52
+#: allthethings/page/templates/page/datasets.html:51
 msgid "common.record_sources_mapping.lgrs.nonfiction_and_fiction"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "common.record_sources_mapping.scihub.via_lgli_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_1"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_2"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "common.record_sources.mapping.lgli.excluding_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "page.datasets.lgli_fiction_is_behind"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:56
-msgid "common.record_sources_mapping.zlibzh"
-msgstr ""
-
-#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:55
 msgid "page.datasets.zlibzh.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
-#: allthethings/page/templates/page/datasets.html:130
+#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:129
 msgid "common.record_sources_mapping.iacdl"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:56
 msgid "page.datasets.iacdl.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.total"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.excluding_duplicates"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:64
+#: allthethings/page/templates/page/datasets.html:63
 msgid "page.datasets.overview.text4"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:68
+#: allthethings/page/templates/page/datasets.html:67
 msgid "page.datasets.overview.text5"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:71
+#: allthethings/page/templates/page/datasets.html:70
 msgid "page.datasets.source_libraries.title"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:74
+#: allthethings/page/templates/page/datasets.html:73
 #, fuzzy
 msgid "page.datasets.source_libraries.text1"
 msgstr "Ezinye izinqolobane zomthombo zikhuthaza ukwabelana ngobuningi bedatha yazo nge-torrents, kanti ezinye azabelani kalula nokuqoqwa kwazo. Kuleli cala lokugcina, i-Anna’s Archive izama ukuskena ukuqoqwa kwazo, futhi ikwenze kutholakale (bona ikhasi lethu le-<a %(a_torrents)s>Torrents</a>). Kukhona nezimo eziphakathi, isibonelo, lapho izinqolobane zomthombo zivuma ukwabelana, kodwa zingenazo izinsiza zokwenza lokho. Kulezo zimo, nathi sizama ukusiza."
 
-#: allthethings/page/templates/page/datasets.html:78
+#: allthethings/page/templates/page/datasets.html:77
 #, fuzzy
 msgid "page.datasets.source_libraries.text2"
 msgstr "Ngezansi kunesifinyezo sokuthi sixhumana kanjani nezinqolobane zomthombo ezahlukene."
 
-#: allthethings/page/templates/page/datasets.html:83
+#: allthethings/page/templates/page/datasets.html:82
 #, fuzzy
 msgid "page.datasets.sources.source.header"
 msgstr "Umthombo"
 
-#: allthethings/page/templates/page/datasets.html:84
+#: allthethings/page/templates/page/datasets.html:83
 #, fuzzy
 msgid "page.datasets.sources.metadata.header"
 msgstr "I-Metadata"
 
-#: allthethings/page/templates/page/datasets.html:85
+#: allthethings/page/templates/page/datasets.html:84
 #, fuzzy
 msgid "page.datasets.sources.files.header"
 msgstr "Amafayela"
 
-#: allthethings/page/templates/page/datasets.html:98
+#: allthethings/page/templates/page/datasets.html:97
 #, fuzzy
 msgid "common.record_sources_mapping.scihub_scimag"
 msgstr "Sci-Hub / Libgen “scimag”"
 
-#: allthethings/page/templates/page/datasets.html:162
+#: allthethings/page/templates/page/datasets.html:161
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.title"
 msgstr "Imithombo ye-Metadata kuphela"
 
-#: allthethings/page/templates/page/datasets.html:165
+#: allthethings/page/templates/page/datasets.html:164
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text1"
 msgstr "Siphinde sithuthukise ukuqoqwa kwethu ngemithombo ye-metadata kuphela, esingayifanisa namafayela, isibonelo sisebenzisa izinombolo ze-ISBN noma amanye amasimu. Ngezansi kunesifinyezo salokho. Futhi, eminye yale mithombo ivulekile ngokuphelele, kanti eminye kufanele siyiskena."
 
-#: allthethings/page/templates/page/datasets.html:169
-#: allthethings/page/templates/page/faq.html:186
+#: allthethings/page/templates/page/datasets.html:168
+#: allthethings/page/templates/page/faq.html:187
 #: allthethings/page/templates/page/search.html:294
 #, fuzzy
 msgid "page.faq.metadata.inspiration1"
 msgstr "Ugqozi lwethu lokuqoqa i-metadata luwumgomo ka-Aaron Swartz wokuthi “ikhasi lewebhu elilodwa le ncwadi ngayinye eyake yashicilelwa”, lapho adala khona <a %(a_openlib)s>i-Open Library</a>."
 
-#: allthethings/page/templates/page/datasets.html:170
-#: allthethings/page/templates/page/faq.html:187
+#: allthethings/page/templates/page/datasets.html:169
+#: allthethings/page/templates/page/faq.html:188
 #: allthethings/page/templates/page/search.html:295
 #, fuzzy
 msgid "page.faq.metadata.inspiration2"
 msgstr "Lelo phrojekthi lenze kahle, kodwa isikhundla sethu esiyingqayizivele sisivumela ukuthi sithole imininingwane abangakwazi ukuyithola."
 
-#: allthethings/page/templates/page/datasets.html:171
-#: allthethings/page/templates/page/faq.html:188
+#: allthethings/page/templates/page/datasets.html:170
+#: allthethings/page/templates/page/faq.html:189
 #: allthethings/page/templates/page/search.html:296
 #, fuzzy
 msgid "page.faq.metadata.inspiration3"
 msgstr "Okunye okwasiphefumulela kwakuyisifiso sethu sokwazi <a %(a_blog)s>ukuthi zikhona zingaki izincwadi emhlabeni</a>, ukuze sikwazi ukubala ukuthi zikhona zingaki izincwadi esisazozilondoloza."
 
-#: allthethings/page/templates/page/datasets.html:175
+#: allthethings/page/templates/page/datasets.html:174
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text2"
 msgstr "Qaphela ukuthi ekusesheni kwe-metadata, sikhombisa amarekhodi okuqala. Asenzi nhlobo ukuhlanganiswa kwamarekhodi."
 
-#: allthethings/page/templates/page/datasets.html:216
+#: allthethings/page/templates/page/datasets.html:215
 #, fuzzy
 msgid "page.datasets.unified_database.title"
 msgstr "Isizindalwazi esihlanganisiwe"
 
-#: allthethings/page/templates/page/datasets.html:219
+#: allthethings/page/templates/page/datasets.html:218
 #, fuzzy
 msgid "page.datasets.unified_database.text1"
 msgstr "Sihlanganisa yonke imithombo engenhla ibe isizindalwazi esisodwa esihlanganisiwe esisisebenzisela le webhusayithi. Lesi sizindalwazi esihlanganisiwe asitholakali ngqo, kodwa njengoba i-Anna’s Archive ivulekile ngokuphelele, singakwazi <a %(a_generated)s>ukusakha</a> noma <a %(a_downloaded)s>ukulanda</a> kalula njengezizindalwazi ze-ElasticSearch ne-MariaDB. Ama-scripts akulelo khasi azolanda ngokuzenzakalelayo yonke i-metadata edingekayo emithonjeni eshiwo ngenhla."
 
-#: allthethings/page/templates/page/datasets.html:227
+#: allthethings/page/templates/page/datasets.html:226
 #, fuzzy
 msgid "page.datasets.unified_database.text2"
 msgstr "Uma ungathanda ukuhlola idatha yethu ngaphambi kokusebenzisa lezo scripts endaweni, ungabheka amafayela ethu e-JSON, axhumanisa ngokuqhubekayo kwamanye amafayela e-JSON. <a %(a_json)s>Leli fayela</a> liyisiqalo esihle."
@@ -2901,473 +3011,477 @@ msgstr "Iwebhusayithi ye-ISBN"
 msgid "page.datasets/isbn_ranges.isbn_metadata"
 msgstr "I-Metadata"
 
-#: allthethings/page/templates/page/faq.html:3
-#: allthethings/page/templates/page/faq.html:6
+#: allthethings/page/templates/page/faq.html:5
+#: allthethings/page/templates/page/faq.html:8
 #, fuzzy
 msgid "page.faq.title"
 msgstr "Imibuzo Evame Ukubuzwa (FAQ)"
 
-#: allthethings/page/templates/page/faq.html:8
+#: allthethings/page/templates/page/faq.html:10
 #, fuzzy
 msgid "page.faq.what_is.title"
 msgstr "Iyini i-Archive ka-Anna?"
 
-#: allthethings/page/templates/page/faq.html:11
+#: allthethings/page/templates/page/faq.html:13
 #, fuzzy
 msgid "page.home.intro.text1"
 msgstr "<span %(span_anna)s>I-Archive ka-Anna</span> iyiphrojekthi engenzi nzuzo enezinhloso ezimbili:"
 
-#: allthethings/page/templates/page/faq.html:15
+#: allthethings/page/templates/page/faq.html:17
 #, fuzzy
 msgid "page.home.intro.text2"
 msgstr "<li><strong>Ukulondoloza:</strong> Ukugcina lonke ulwazi namasiko esintu.</li><li><strong>Ukufinyelela:</strong> Ukwenza lolu lwazi namasiko kutholakale kunoma ubani emhlabeni.</li>"
 
-#: allthethings/page/templates/page/faq.html:19
+#: allthethings/page/templates/page/faq.html:21
 #, fuzzy
 msgid "page.home.intro.open_source"
 msgstr "Wonke <a %(a_code)s>amakhodi</a> ethu kanye <a %(a_datasets)s>nedatha</a> yethu kuvulekile ngokuphelele."
 
-#: allthethings/page/templates/page/faq.html:23
+#: allthethings/page/templates/page/faq.html:25
 #, fuzzy
 msgid "page.home.preservation.header"
 msgstr "Ukulondoloza"
 
-#: allthethings/page/templates/page/faq.html:25
+#: allthethings/page/templates/page/faq.html:27
 #, fuzzy
 msgid "page.home.preservation.text1"
 msgstr "Sigcina izincwadi, amaphepha, amahlaya, omagazini, nokunye okuningi, ngokuletha lezi zinto ezivela kumalabhulali ahlukahlukene <a href=\"https://en.wikipedia.org/wiki/Shadow_library\">amalabhulali angaphansi komthunzi</a>, amalabhulali asemthethweni, nezinye izinqolobane ndawonye endaweni eyodwa. Yonke le datha igcinwa unomphela ngokwenza kube lula ukuyikopisha ngobuningi — kusetshenziswa ama-torrents — okuholela ekubeni nezinkulungwane zamakhophi emhlabeni wonke. Amanye amalabhulali angaphansi komthunzi asevele enza lokhu ngokwawo (isb. Sci-Hub, Library Genesis), kanti i-Archive ka-Anna “ikhulula” amanye amalabhulali anganikezi ukusatshalaliswa ngobuningi (isb. Z-Library) noma angawona amalabhulali angaphansi komthunzi nhlobo (isb. Internet Archive, DuXiu)."
 
-#: allthethings/page/templates/page/faq.html:27
+#: allthethings/page/templates/page/faq.html:29
 #, fuzzy
 msgid "page.home.preservation.text2"
 msgstr "Lokhu kusatshalaliswa okubanzi, kuhlanganiswe namakhodi avulekile, kwenza iwebhusayithi yethu iqine ekususweni, futhi kuqinisekisa ukulondolozwa kwesikhathi eside kolwazi namasiko esintu. Funda kabanzi mayelana href=\"/datasets\">nedatha yethu</a>."
 
-#: allthethings/page/templates/page/faq.html:41
+#: allthethings/page/templates/page/faq.html:43
 #, fuzzy
 msgid "page.home.preservation.label"
 msgstr "Silinganisa ukuthi silondoloze cishe <a href=\"https://annas-blog.org/blog-isbndb-dump-how-many-books-are-preserved-forever.html\">5%% wezincwadi zomhlaba</a>."
 
-#: allthethings/page/templates/page/faq.html:46
+#: allthethings/page/templates/page/faq.html:48
 #, fuzzy
 msgid "page.home.access.header"
 msgstr "Ukufinyelela"
 
-#: allthethings/page/templates/page/faq.html:48
+#: allthethings/page/templates/page/faq.html:50
 #, fuzzy
 msgid "page.home.access.text"
 msgstr "Sisebenza nabalingani ukwenza izinqolobane zethu zitholakale kalula futhi mahhala kunoma ubani. Sikholelwa ukuthi wonke umuntu unelungelo lokuthola ukuhlakanipha okuhlangene kwesintu. Futhi <a %(a_search)s>hhayi ngokulimaza ababhali</a>."
 
-#: allthethings/page/templates/page/faq.html:52
+#: allthethings/page/templates/page/faq.html:54
 #, fuzzy
 msgid "page.home.access.label"
 msgstr "Ukulanda ngehora ezinsukwini ezingama-30 ezedlule. Isilinganiso ngehora: %(hourly)s. Isilinganiso nsuku zonke: %(daily)s."
 
-#: allthethings/page/templates/page/faq.html:80
+#: allthethings/page/templates/page/faq.html:82
 #, fuzzy
 msgid "page.about.text2"
 msgstr "Sikholelwa ngokuqinile ekuthululekeni kwamahhala kolwazi, nasekulondolozweni kolwazi namasiko. Ngalesi sithwebuli, sakha emahlombe amadoda amakhulu. Sihlonipha kakhulu umsebenzi onzima wabantu abenze amalabhulali angaphansi komthunzi ahlukahlukene, futhi sethemba ukuthi lesi sithwebuli sizokwandisa ukufinyelela kwabo."
 
-#: allthethings/page/templates/page/faq.html:84
+#: allthethings/page/templates/page/faq.html:86
 #, fuzzy
 msgid "page.about.text3"
 msgstr "Ukuze uhlale unolwazi ngentuthuko yethu, landela u-Anna ku-<a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a> noma <a href=\"https://t.me/annasarchiveorg\">Telegram</a>. Ngemibuzo nempendulo sicela uxhumane no-Anna ku-%(email)s."
 
-#: allthethings/page/templates/page/faq.html:87
+#: allthethings/page/templates/page/faq.html:89
 #, fuzzy
 msgid "page.faq.help.title"
 msgstr "Ngingasiza kanjani?"
 
-#: allthethings/page/templates/page/faq.html:90
+#: allthethings/page/templates/page/faq.html:92
 #, fuzzy
 msgid "page.about.help.text"
 msgstr "<li>1. Silandele ku-<a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a>, noma <a href=\"https://t.me/annasarchiveorg\">Telegram</a>.</li><li>2. Sazisa abantu nge-Archive ka-Anna ku-Twitter, Reddit, Tiktok, Instagram, ekhefi lakho lendawo noma elabhulali, noma noma kuphi lapho uya khona! Asikholelwa ekugcineni ulwazi — uma sisuswa sizovela kwenye indawo, njengoba wonke amakhodi ethu nedatha kuvulekile ngokuphelele.</li><li>3. Uma ungakwazi, cabanga <a href=\"/donate\">ukunikela</a>.</li><li>4. Siza <a href=\"https://translate.annas-software.org/\">ukuhumusha</a> iwebhusayithi yethu ngezilimi ezahlukene.</li><li>5. Uma ungunjiniyela wesofthiwe, cabanga ukufaka isandla ku-<a href=\"https://annas-software.org/\">open source</a> yethu, noma ukusakaza ama-<a href=\"/datasets\">torrents</a> ethu.</li>"
 
-#: allthethings/page/templates/page/faq.html:91
+#: allthethings/page/templates/page/faq.html:93
 #, fuzzy
 msgid "page.about.help.text6"
 msgstr "6. Uma ungumcwaningi wezokuphepha, singasebenzisa amakhono akho kokubili ukuhlasela nokuzivikela. Bheka ikhasi lethu le-<a %(a_security)s>Security</a>."
 
-#: allthethings/page/templates/page/faq.html:92
+#: allthethings/page/templates/page/faq.html:94
 #, fuzzy
 msgid "page.about.help.text7"
 msgstr "7. Sifuna ochwepheshe ekukhokheni abathengisi abangaziwa. Ungasisiza yini ukwengeza izindlela ezilula zokunikela? PayPal, WeChat, amakhadi esipho. Uma wazi noma ubani, sicela uxhumane nathi."
 
-#: allthethings/page/templates/page/faq.html:93
+#: allthethings/page/templates/page/faq.html:95
 #, fuzzy
 msgid "page.about.help.text8"
 msgstr "Sihlala sifuna amandla engeziwe esiphakeli."
 
-#: allthethings/page/templates/page/faq.html:94
+#: allthethings/page/templates/page/faq.html:96
 #, fuzzy
 msgid "page.about.help.text9"
 msgstr "Ungasiza ngokubika izinkinga zefayela, ushiye imibono, futhi wenze izinhlu kule webhusayithi. Ungasiza futhi ngokuthi <a %(a_upload)s>ulayishe izincwadi eziningi</a>, noma ulungise izinkinga zefayela noma ifomethi yezincwadi ezikhona."
 
-#: allthethings/page/templates/page/faq.html:95
+#: allthethings/page/templates/page/faq.html:97
 #, fuzzy
 msgid "page.about.help.text10"
 msgstr "Dala noma usize ukugcina ikhasi le-Wikipedia le-Anna’s Archive ngolimi lwakho."
 
-#: allthethings/page/templates/page/faq.html:96
+#: allthethings/page/templates/page/faq.html:98
 #, fuzzy
 msgid "page.about.help.text11"
 msgstr "Sifuna ukubeka izikhangiso ezincane, ezinhle. Uma ungathanda ukukhangisa ku-Anna’s Archive, sicela usazise."
 
-#: allthethings/page/templates/page/faq.html:97
+#: allthethings/page/templates/page/faq.html:99
 #, fuzzy
 msgid "page.faq.help.mirrors"
 msgstr "Sithanda abantu abazosetha <a %(a_mirrors)s>izibuko</a>, futhi sizokweseka ngokwezimali lokhu."
 
-#: allthethings/page/templates/page/faq.html:105
+#: allthethings/page/templates/page/faq.html:103
+msgid "page.about.help.volunteer"
+msgstr ""
+
+#: allthethings/page/templates/page/faq.html:106
 #, fuzzy
 msgid "page.faq.slow.title"
 msgstr "Kungani ukulanda okuncane kuhamba kancane kangaka?"
 
-#: allthethings/page/templates/page/faq.html:108
+#: allthethings/page/templates/page/faq.html:109
 #, fuzzy
 msgid "page.faq.slow.text1"
 msgstr "Asinazo izinsiza ezanele zokunikeza wonke umuntu emhlabeni ukulanda ngesivinini esikhulu, noma singathanda. Uma umnikazi ocebile angathanda ukusiza futhi asinikeze lokhu, lokho kuzoba kuhle kakhulu, kodwa kuze kube yileso sikhathi, sizama konke okusemandleni ethu. Siyiprojekthi engenzi nzuzo engakwazi ukuziphilisa ngokunikela."
 
-#: allthethings/page/templates/page/faq.html:112
+#: allthethings/page/templates/page/faq.html:113
 #, fuzzy
 msgid "page.faq.slow.text2"
 msgstr "Yingakho sisebenzise izinhlelo ezimbili zokulanda kwamahhala, nabalingani bethu: amaseva ahlanganyelwe anokulanda okuncane, namaseva anokulanda okusheshayo kancane anohlu lokulinda (ukunciphisa inani labantu abalanda ngesikhathi esisodwa)."
 
-#: allthethings/page/templates/page/faq.html:116
+#: allthethings/page/templates/page/faq.html:117
 #, fuzzy
 msgid "page.faq.slow.text3"
 msgstr "Siphinde sibe <a %(a_verification)s>nokuqinisekiswa kwesiphequluli</a> kokulanda kwethu okuncane, ngoba ngaphandle kwalokho ama-bots nama-scrapers azowasebenzisa kabi, okwenza izinto zibe nzima kubasebenzisi abavumelekile."
 
-#: allthethings/page/templates/page/faq.html:120
+#: allthethings/page/templates/page/faq.html:121
 #, fuzzy
 msgid "page.faq.slow.text4"
 msgstr "Qaphela ukuthi, uma usebenzisa i-Tor Browser, ungase udinge ukulungisa izilungiselelo zakho zokuphepha. Kwezincane zezinketho, ezibizwa ngokuthi “Standard”, inselelo ye-Cloudflare turnstile iyaphumelela. Kweziphezulu zezinketho, ezibizwa ngokuthi “Safer” kanye “Safest”, inselelo iyahluleka."
 
-#: allthethings/page/templates/page/faq.html:124
+#: allthethings/page/templates/page/faq.html:125
 #, fuzzy
 msgid "page.faq.slow.text5"
 msgstr "Kweminithi amanye amafayela amakhulu kwesinye isikhathi kungaphazamiseka ukulanda phakathi nendawo. Sincoma ukusebenzisa umphathi wokulanda (njenge-JDownloader) ukuze uqhubeke ngokuzenzakalelayo nokulanda okukhulu."
 
-#: allthethings/page/templates/page/faq.html:127
+#: allthethings/page/templates/page/faq.html:128
 #, fuzzy
 msgid "page.donate.faq.title"
 msgstr "Imibuzo Evame Ukubuzwa Mayelana Nokunikela"
 
-#: allthethings/page/templates/page/faq.html:130
+#: allthethings/page/templates/page/faq.html:131
 #, fuzzy
 msgid "page.donate.faq.renew"
 msgstr "<div %(div_question)s>Ngabe ubulungu buvuselelwa ngokuzenzakalelayo?</div> Ubulungu <strong>abuvuselelwa</strong> ngokuzenzakalelayo. Ungajoyina isikhathi eside noma esifushane njengoba uthanda."
 
-#: allthethings/page/templates/page/faq.html:134
+#: allthethings/page/templates/page/faq.html:135
 #, fuzzy
 msgid "page.donate.faq.membership"
 msgstr "<div %(div_question)s>Ngingakwazi yini ukuthuthukisa ubulungu bami noma ngithole ubulungu obuningi?</div>"
 
-#: allthethings/page/templates/page/faq.html:139
+#: allthethings/page/templates/page/faq.html:140
 #, fuzzy
 msgid "page.donate.faq.text_other_payment1"
 msgstr "<div %(div_question)s>Ngabe unezinye izindlela zokukhokha?</div> Okwamanje cha. Abantu abaningi abafuni izinqolobane ezifana nalezi zibe khona, ngakho-ke kufanele siqaphele. Uma ungasisiza ukusetha ezinye izindlela zokukhokha (ezilula) ngokuphepha, sicela uxhumane nathi ku %(email)s."
 
-#: allthethings/page/templates/page/faq.html:143
+#: allthethings/page/templates/page/faq.html:144
 #, fuzzy
 msgid "page.donate.faq.spend"
 msgstr "<div %(div_question)s>Uchitha ini izimali zokunikela?</div> 100%% iya ekugcineni nasekwenzeni ulwazi namasiko omhlaba atholakale. Okwamanje sichitha kakhulu kumaseva, isitoreji, kanye ne-bandwidth. Akukho mali eya kunoma yimuphi ilungu leqembu mathupha."
 
-#: allthethings/page/templates/page/faq.html:147
+#: allthethings/page/templates/page/faq.html:148
 #, fuzzy
 msgid "page.donate.faq.text_large_donation"
 msgstr "<div %(div_question)s>Nginganikela imali eningi?</div> Lokho kuzoba kuhle kakhulu! Ukuze unikele ngaphezu kwezinkulungwane ezimbalwa zamaRandi, sicela uxhumane nathi ngqo ku %(email)s."
 
-#: allthethings/page/templates/page/faq.html:151
+#: allthethings/page/templates/page/faq.html:152
 #, fuzzy
 msgid "page.donate.faq.non_member_donation"
 msgstr "<div %(div_question)s>Nginganikela ngaphandle kokuba yilungu?</div> Yebo, kunjalo. Samukela izipho zemali nganoma yisiphi isamba kuleli kheli le-Monero (XMR): %(address)s."
 
-#: allthethings/page/templates/page/faq.html:154
+#: allthethings/page/templates/page/faq.html:155
 #, fuzzy
 msgid "page.faq.upload.title"
 msgstr "Ngiyalayisha kanjani izincwadi ezintsha?"
 
-#: allthethings/page/templates/page/faq.html:157
+#: allthethings/page/templates/page/faq.html:158
 #, fuzzy
 msgid "page.upload.text1"
 msgstr "Okwamanje, siphakamisa ukuthi ulayishe izincwadi ezintsha kuma-forks e-Library Genesis. Nansi <a %(a_guide)s>imihlahlandlela ewusizo</a>. Qaphela ukuthi kokubili ama-forks esiwabhalisa kule webhusayithi adonsa kusistimu yokulayisha efanayo."
 
-#: allthethings/page/templates/page/faq.html:158
+#: allthethings/page/templates/page/faq.html:159
 #, fuzzy
 msgid "common.libgen.email"
 msgstr "Uma ikheli lakho le-imeyili lingasebenzi kuma-forums e-Libgen, siphakamisa ukuthi usebenzise <a %(a_mail)s>i-Proton Mail</a> (mahhala). Ungabuye <a %(a_manual)s>ucela ngesandla</a> ukuthi i-akhawunti yakho ivulwe."
 
-#: allthethings/page/templates/page/faq.html:159
+#: allthethings/page/templates/page/faq.html:160
 #, fuzzy
 msgid "page.faq.mhut_upload"
 msgstr "Qaphela ukuthi i-mhut.org ivimba amabanga athile e-IP, ngakho-ke i-VPN ingase idingeke."
 
-#: allthethings/page/templates/page/faq.html:163
+#: allthethings/page/templates/page/faq.html:164
 #, fuzzy
 msgid "page.upload.zlib.text1"
 msgstr "Ngaphandle kwalokho, ungazilayisha ku-Z-Library <a %(a_upload)s>lapha</a>."
 
-#: allthethings/page/templates/page/faq.html:167
+#: allthethings/page/templates/page/faq.html:168
 #, fuzzy
 msgid "page.upload.zlib.text2"
 msgstr "Ukulayisha amaphepha ezemfundo, sicela futhi (ngaphezu kwe-Library Genesis) ulayishe ku <a %(a_stc_nexus)s>STC Nexus</a>. Bayinqolobane engcono kakhulu yamaphepha amasha. Asikayihlanganisi okwamanje, kodwa sizokwenza ngasikhathi esithile. Ungasebenzisa i- <a %(a_telegram)s>upload bot yabo ku-Telegram</a>, noma uxhumane nekheli elibhalwe emyalezweni wabo obekwe phezulu uma unezinqolobane eziningi okufanele uzilayishe ngale ndlela."
 
-#: allthethings/page/templates/page/faq.html:171
+#: allthethings/page/templates/page/faq.html:172
 #, fuzzy
 msgid "page.upload.large.text"
 msgstr "Uma ulayisho olukhulu (ngaphezu kwamafayela angu-10,000) angamukelwa yi-Libgen noma i-Z-Library, sicela uxhumane nathi ku-%(a_email)s."
 
-#: allthethings/page/templates/page/faq.html:174
+#: allthethings/page/templates/page/faq.html:175
 #, fuzzy
 msgid "page.faq.request.title"
 msgstr "Ngicela kanjani izincwadi?"
 
-#: allthethings/page/templates/page/faq.html:177
+#: allthethings/page/templates/page/faq.html:178
 #, fuzzy
 msgid "page.request.cannot_accomodate"
 msgstr "Okwamanje, asikwazi ukwamukela izicelo zezincwadi."
 
-#: allthethings/page/templates/page/faq.html:178
+#: allthethings/page/templates/page/faq.html:179
 #, fuzzy
 msgid "page.request.forums"
 msgstr "Sicela wenze izicelo zakho kuma-foramu e-Z-Library noma e-Libgen."
 
-#: allthethings/page/templates/page/faq.html:179
+#: allthethings/page/templates/page/faq.html:180
 #, fuzzy
 msgid "page.request.dont_email"
 msgstr "Ungasithumeli i-imeyili ngezicelo zezincwadi zakho."
 
-#: allthethings/page/templates/page/faq.html:182
+#: allthethings/page/templates/page/faq.html:183
 #, fuzzy
 msgid "page.faq.metadata.title"
 msgstr "Ingabe niqoqa imininingwane?"
 
-#: allthethings/page/templates/page/faq.html:185
+#: allthethings/page/templates/page/faq.html:186
 #, fuzzy
 msgid "page.faq.metadata.indeed"
 msgstr "Yebo, siyiqoqa."
 
-#: allthethings/page/templates/page/faq.html:191
+#: allthethings/page/templates/page/faq.html:192
 #, fuzzy
 msgid "page.faq.1984.title"
 msgstr "Ngilande i-1984 kaGeorge Orwell, ingabe amaphoyisa azofika emnyango wami?"
 
-#: allthethings/page/templates/page/faq.html:194
+#: allthethings/page/templates/page/faq.html:195
 #, fuzzy
 msgid "page.faq.1984.text"
 msgstr "Ungakhathazeki kakhulu, kunabantu abaningi abalanda kumawebhusayithi axhumene nathi, futhi kuyivelakancane ukuthi ube nenkinga. Nokho, ukuze uhlale uphephile sincoma ukusebenzisa i-VPN (ekhokhelwayo), noma <a %(a_tor)s>i-Tor</a> (yamahhala)."
 
-#: allthethings/page/templates/page/faq.html:197
+#: allthethings/page/templates/page/faq.html:198
 #, fuzzy
 msgid "page.faq.save_search.title"
 msgstr "Ngisindisa kanjani izilungiselelo zami zokusesha?"
 
-#: allthethings/page/templates/page/faq.html:200
+#: allthethings/page/templates/page/faq.html:201
 #, fuzzy
 msgid "page.faq.save_search.text1"
 msgstr "Khetha izilungiselelo ozithandayo, shiya ibhokisi lokusesha lingenalutho, chofoza “Search”, bese ugcina ikhasi usebenzisa isici sokubeka uphawu lwesiphequluli sakho."
 
-#: allthethings/page/templates/page/faq.html:203
+#: allthethings/page/templates/page/faq.html:204
 #, fuzzy
 msgid "page.faq.mobile.title"
 msgstr "Ingabe ninayo i-app yeselula?"
 
-#: allthethings/page/templates/page/faq.html:206
+#: allthethings/page/templates/page/faq.html:207
 #, fuzzy
 msgid "page.faq.mobile.text1"
 msgstr "Asinayo i-app esemthethweni yeselula, kodwa ungafaka le webhusayithi njenge-app."
 
-#: allthethings/page/templates/page/faq.html:207
+#: allthethings/page/templates/page/faq.html:208
 #, fuzzy
 msgid "page.faq.mobile.android"
 msgstr "<strong>Android:</strong> Chofoza imenyu yamachashazi amathathu ekhoneni eliphezulu kwesokudla, bese ukhetha “Add to Home Screen”."
 
-#: allthethings/page/templates/page/faq.html:208
+#: allthethings/page/templates/page/faq.html:209
 #, fuzzy
 msgid "page.faq.mobile.ios"
 msgstr "<strong>iOS:</strong> Chofoza inkinobho ethi “Share” ezansi, bese ukhetha “Add to Home Screen”."
 
-#: allthethings/page/templates/page/faq.html:211
+#: allthethings/page/templates/page/faq.html:212
 #, fuzzy
 msgid "page.faq.api.title"
 msgstr "Ingabe ninayo i-API?"
 
-#: allthethings/page/templates/page/faq.html:214
+#: allthethings/page/templates/page/faq.html:215
 #, fuzzy
 msgid "page.faq.api.text1"
 msgstr "Sinayo i-JSON API ezinzile yamalungu, yokuthola i-URL yokulanda ngokushesha: <a %(a_fast_download)s>/dyn/api/fast_download.json</a> (imininingwane ngaphakathi kwe-JSON uqobo)."
 
-#: allthethings/page/templates/page/faq.html:218
+#: allthethings/page/templates/page/faq.html:219
 #, fuzzy
 msgid "page.faq.api.text2"
 msgstr "Kwezinye izimo zokusetshenziswa, ezifana nokuphindaphinda wonke amafayela ethu, ukwakha usesho olwenziwe ngokwezifiso, nokunye, sincoma <a %(a_generate)s>ukukhiqiza</a> noma <a %(a_download)s>ukulanda</a> izizindalwazi zethu ze-ElasticSearch ne-MariaDB. Idatha eluhlaza ingahlolwa mathupha <a %(a_explore)s>ngamafayela e-JSON</a>."
 
-#: allthethings/page/templates/page/faq.html:222
+#: allthethings/page/templates/page/faq.html:223
 #, fuzzy
 msgid "page.faq.api.text3"
 msgstr "Uhlu lwethu lwama-torrents aluhlaza lungalandwa njenge <a %(a_torrents)s>JSON</a> futhi."
 
-#: allthethings/page/templates/page/faq.html:225
+#: allthethings/page/templates/page/faq.html:226
 #, fuzzy
 msgid "page.faq.torrents.title"
 msgstr "Imibuzo Evame Ukubuzwa Ngama-Torrents"
 
-#: allthethings/page/templates/page/faq.html:228
+#: allthethings/page/templates/page/faq.html:229
 #, fuzzy
 msgid "page.faq.torrents.q1"
 msgstr "Ngithanda ukusiza ukulanda, kodwa anginayo indawo enkulu yediski."
 
-#: allthethings/page/templates/page/faq.html:230
+#: allthethings/page/templates/page/faq.html:231
 #, fuzzy
 msgid "page.faq.torrents.a1"
 msgstr "Sebenzisa <a %(a_list)s>umakhi wohlu lwe-torrent</a> ukuze wenze uhlu lwe-torrents ezidinga kakhulu ukulandwa, ngaphakathi kwemikhawulo yesitoreji sakho."
 
-#: allthethings/page/templates/page/faq.html:234
+#: allthethings/page/templates/page/faq.html:235
 #, fuzzy
 msgid "page.faq.torrents.q2"
 msgstr "Ama-torrents ahamba kancane kakhulu; ngingakwazi yini ukulanda idatha ngqo kuwe?"
 
-#: allthethings/page/templates/page/faq.html:236
+#: allthethings/page/templates/page/faq.html:237
 #, fuzzy
 msgid "page.faq.torrents.a2"
 msgstr "Yebo, bheka ikhasi le <a %(a_llm)s>LLM data</a>."
 
-#: allthethings/page/templates/page/faq.html:240
+#: allthethings/page/templates/page/faq.html:241
 #, fuzzy
 msgid "page.faq.torrents.q3"
 msgstr "Ngingakwazi ukulanda ingxenye ethile yamafayela, njengolimi oluthile noma isihloko esithile?"
 
-#: allthethings/page/templates/page/faq.html:242
+#: allthethings/page/templates/page/faq.html:243
 #, fuzzy
 msgid "page.faq.torrents.a3"
 msgstr "Ama-torrents amaningi aqukethe amafayela ngqo, okusho ukuthi ungayala amaklayenti e-torrent ukuthi alande kuphela amafayela adingekayo. Ukuze unqume ukuthi yiziphi amafayela okufanele uzilande, ungakwazi <a %(a_generate)s>ukwenza</a> idatha yethu, noma <a %(a_download)s>ulande</a> izizindalwazi zethu ze-ElasticSearch ne-MariaDB. Ngeshwa, inqwaba yama-torrent aqukethe amafayela e-.zip noma .tar empandeni, lapho-ke kudingeka ulade i-torrent yonke ngaphambi kokukwazi ukukhetha amafayela ngamanye."
 
-#: allthethings/page/templates/page/faq.html:246
+#: allthethings/page/templates/page/faq.html:247
 #, fuzzy
 msgid "page.faq.torrents.q4"
 msgstr "Uphatha kanjani amafayela aphindaphindwayo kuma-torrents?"
 
-#: allthethings/page/templates/page/faq.html:248
+#: allthethings/page/templates/page/faq.html:249
 #, fuzzy
 msgid "page.faq.torrents.a4"
 msgstr "Sizama ukugcina ukuphindaphindeka okuncane noma ukungqubuzana phakathi kwama-torrents kulolu hlu, kodwa lokhu akuhlali kufezeka, futhi kuncike kakhulu ezinqubomgomo zamathala ezincwadi zomthombo. Kumathala ezincwadi akhipha ama-torrents awo, akusezandleni zethu. Kuma-torrents akhishwe yi-Archive ka-Anna, siphinda kuphela ngokusekelwe ku-MD5 hash, okusho ukuthi izinhlobo ezahlukene zencwadi efanayo aziphindaphindwa."
 
-#: allthethings/page/templates/page/faq.html:252
+#: allthethings/page/templates/page/faq.html:253
 #, fuzzy
 msgid "page.faq.torrents.q5"
 msgstr "Ngingathola uhlu lwe-torrent njenge-JSON?"
 
-#: allthethings/page/templates/page/faq.html:254
+#: allthethings/page/templates/page/faq.html:255
 #, fuzzy
 msgid "page.faq.torrents.a5"
 msgstr "Yebo."
 
-#: allthethings/page/templates/page/faq.html:258
+#: allthethings/page/templates/page/faq.html:259
 #, fuzzy
 msgid "page.faq.torrents.q6"
 msgstr "Angiboni ama-PDF noma ama-EPUB kuma-torrents, ngibona amafayela e-binary kuphela? Ngenzani?"
 
-#: allthethings/page/templates/page/faq.html:260
+#: allthethings/page/templates/page/faq.html:261
 #, fuzzy
 msgid "page.faq.torrents.a6"
 msgstr "Lawa empeleni ama-PDF nama-EPUB, awanalo nje isandiso kuma-torrents amaningi ethu. Kunezindawo ezimbili lapho ungathola khona idatha yohlobo lwefayela lwe-torrent, kufaka phakathi izinhlobo/zandiso zefayela:"
 
-#: allthethings/page/templates/page/faq.html:262
+#: allthethings/page/templates/page/faq.html:263
 #, fuzzy
 msgid "page.faq.torrents.a6.li1"
 msgstr "1. Iqoqo ngalinye noma ukukhishwa kunedatha yalo. Isibonelo, <a %(a_libgen_nonfic)s>ama-torrents e-Libgen.rs</a> anedatha ehambisanayo esingathwe kuwebhusayithi ye-Libgen.rs. Sivame ukuxhumanisa nezinsiza zedatha ezihambisanayo kusuka ekhasini le <a %(a_datasets)s>dataset</a> leqoqo ngalinye."
 
-#: allthethings/page/templates/page/faq.html:264
+#: allthethings/page/templates/page/faq.html:265
 #, fuzzy
 msgid "page.faq.torrents.a6.li2"
 msgstr "2. Sincoma <a %(a_generate)s>ukwenza</a> noma <a %(a_download)s>ukulanda</a> izizindalwazi zethu ze-ElasticSearch ne-MariaDB. Lezi ziqukethe imephu yokuqoshwa ngakunye ku-Archive ka-Anna kumafayela e-torrent ahambisanayo (uma etholakala), ngaphansi kwe-“torrent_paths” ku-ElasticSearch JSON."
 
-#: allthethings/page/templates/page/faq.html:267
+#: allthethings/page/templates/page/faq.html:268
 #, fuzzy
 msgid "page.faq.security.title"
 msgstr "Unayo yini uhlelo lokudalula olunomthwalo wemfanelo?"
 
-#: allthethings/page/templates/page/faq.html:270
+#: allthethings/page/templates/page/faq.html:271
 #, fuzzy
 msgid "page.faq.security.text1"
 msgstr "Samukela abacwaningi bezokuphepha ukuthi bafune izimbobo ezinhlelweni zethu. Siyabaxhasa kakhulu abadaluli abanomthwalo wemfanelo. Xhumana nathi <a %(a_contact)s>lapha</a>."
 
-#: allthethings/page/templates/page/faq.html:274
+#: allthethings/page/templates/page/faq.html:275
 #, fuzzy
 msgid "page.faq.security.text2"
 msgstr "Njengamanje asikwazi ukunikeza imiklomelo yezimbungulu, ngaphandle kwezimbobo ezine <a %(a_link)s>amandla okuphazamisa ubunikazi bethu</a>, lapho sinikeza khona imiklomelo ebangeni le-$10k-50k. Sifisa ukunikeza imiklomelo yezimbungulu enobubanzi obukhulu esikhathini esizayo! Sicela uqaphele ukuthi ukuhlasela kokuziphatha akubandakanyi."
 
-#: allthethings/page/templates/page/faq.html:278
+#: allthethings/page/templates/page/faq.html:279
 #, fuzzy
 msgid "page.faq.security.text3"
 msgstr "Uma unentshisekelo kwezokuphepha okuhlaselayo, futhi ufuna ukusiza ukulondoloza ulwazi namasiko omhlaba, qiniseka ukuthi uyaxhumana nathi. Kunezindlela eziningi ongakwazi ukusiza ngazo."
 
-#: allthethings/page/templates/page/faq.html:281
+#: allthethings/page/templates/page/faq.html:282
 #, fuzzy
 msgid "page.faq.resources.title"
 msgstr "Kukhona yini izinsiza eziningi mayelana ne-Archive ka-Anna?"
 
-#: allthethings/page/templates/page/faq.html:284
+#: allthethings/page/templates/page/faq.html:285
 #, fuzzy
 msgid "page.faq.resources.annas_blog"
 msgstr "<a %(a_blog)s>Ibhulogi ka-Anna</a>, <a %(a_reddit_u)s>i-Reddit</a>, <a %(a_reddit_r)s>i-Subreddit</a> — izibuyekezo ezijwayelekile"
 
-#: allthethings/page/templates/page/faq.html:285
+#: allthethings/page/templates/page/faq.html:286
 #, fuzzy
 msgid "page.faq.resources.annas_software"
 msgstr "<a %(a_software)s>Isoftware ka-Anna</a> — ikhodi yethu evulekile"
 
-#: allthethings/page/templates/page/faq.html:286
+#: allthethings/page/templates/page/faq.html:287
 #, fuzzy
 msgid "page.faq.resources.translate"
 msgstr "<a %(a_translate)s>Humusha ku-Isoftware ka-Anna</a> — uhlelo lwethu lokuhumusha"
 
-#: allthethings/page/templates/page/faq.html:287
+#: allthethings/page/templates/page/faq.html:288
 #, fuzzy
 msgid "page.faq.resources.datasets"
 msgstr "<a %(a_datasets)s>Ama-Datasets</a> — mayelana nedatha"
 
-#: allthethings/page/templates/page/faq.html:288
+#: allthethings/page/templates/page/faq.html:289
 #, fuzzy
 msgid "page.faq.resources.domains"
 msgstr "<a %(a_li)s>.li</a>, <a %(a_se)s>.se</a>, <a %(a_org)s>.org</a> — amanye ama-domain"
 
-#: allthethings/page/templates/page/faq.html:289
+#: allthethings/page/templates/page/faq.html:290
 #, fuzzy
 msgid "page.faq.resources.wikipedia"
 msgstr "<a %(a_wikipedia)s>Wikipedia</a> — okuningi ngathi (sicela usize ugcine leli khasi livuselelwe, noma udale elakho ngolimi lwakho!)"
 
-#: allthethings/page/templates/page/faq.html:292
+#: allthethings/page/templates/page/faq.html:293
 #, fuzzy
 msgid "page.faq.copyright.title"
 msgstr "Ngiyibika kanjani ukwephulwa kwamalungelo obunikazi?"
 
-#: allthethings/page/templates/page/faq.html:295
+#: allthethings/page/templates/page/faq.html:296
 #, fuzzy
 msgid "page.faq.copyright.text1"
 msgstr "Asigcini noma yiziphi izinto ezinelungelo lobunikazi lapha. Siyinjini yokusesha, futhi ngaleyo ndlela sibhala kuphela imininingwane esivele itholakala esidlangalaleni. Uma ulanda kulezi zinsiza zangaphandle, sincoma ukuthi uhlole imithetho endaweni yakho maqondana nalokho okuvumelekile. Asinacala ngokuqukethwe okuphethwe abanye."
 
-#: allthethings/page/templates/page/faq.html:299
+#: allthethings/page/templates/page/faq.html:300
 #, fuzzy
 msgid "page.faq.copyright.text2"
 msgstr "Uma unezikhalazo ngalokho okubonayo lapha, indlela engcono kakhulu ukuxhumana newebhusayithi yoqobo. Sivame ukuhlinzeka izinguquko zabo kudathabheyisi yethu. Uma ngempela ucabanga ukuthi unezikhalazo ze-DMCA ezivumelekile okufanele siphendule kuzo, sicela ugcwalise <a %(a_copyright)s>ifomu lesimangalo se-DMCA / Copyright</a>. Sithatha izikhalazo zakho ngokungathi sína, futhi sizokuphendula ngokushesha okukhulu."
 
-#: allthethings/page/templates/page/faq.html:302
+#: allthethings/page/templates/page/faq.html:303
 #, fuzzy
 msgid "page.faq.hate.title"
 msgstr "Ngiyazonda indlela eniphethe ngayo lo msebenzi!"
 
-#: allthethings/page/templates/page/faq.html:305
+#: allthethings/page/templates/page/faq.html:306
 #, fuzzy
 msgid "page.faq.hate.text1"
 msgstr "Siphinde sikhumbuze wonke umuntu ukuthi ikhodi yethu yonke nedatha yethu ivulekile ngokuphelele. Lokhu kuyingqayizivele kumaphrojekthi afana nowethu — asazi noma yimuphi omunye umphrojekthi onomthamo omkhulu ofanayo ovulekile ngokuphelele. Samukela kakhulu noma ubani ocabanga ukuthi siphethe kabi iphrojekthi yethu ukuthi athathe ikhodi yethu nedatha yethu bese esetha umtapo wolwazi wakhe! Asisho lokhu ngenxa yokucasuka noma okuthile — sikholelwa ngempela ukuthi lokhu kuzoba kuhle ngoba kuzokhulisa izinga kubo bonke, futhi kugcine ifa lesintu kangcono."
 
-#: allthethings/page/templates/page/faq.html:308
+#: allthethings/page/templates/page/faq.html:309
 #, fuzzy
 msgid "page.faq.favorite.title"
 msgstr "Yiziphi izincwadi ozithandayo?"
 
-#: allthethings/page/templates/page/faq.html:311
+#: allthethings/page/templates/page/faq.html:312
 #, fuzzy
 msgid "page.faq.favorite.text1"
 msgstr "Nazi ezinye izincwadi ezibaluleke kakhulu emhlabeni wamatapo wolwazi angabonakali kanye nokugcinwa kwedijithali:"
@@ -3549,13 +3663,13 @@ msgid "page.md5.box.download.ipfs_gateway_extra"
 msgstr "(ungase udinge ukuzama izikhathi eziningi nge-IPFS)"
 
 #: allthethings/page/templates/page/ipfs_downloads.html:23
-#: allthethings/page/templates/page/partner_download.html:93
+#: allthethings/page/templates/page/partner_download.html:91
 #, fuzzy
 msgid "page.partner_download.faster_downloads"
 msgstr "🚀 Ukuze uthole ukulanda okusheshayo futhi ugweme ukuhlolwa kwesiphequluli, <a %(a_membership)s>yiba yilungu</a>."
 
 #: allthethings/page/templates/page/ipfs_downloads.html:27
-#: allthethings/page/templates/page/partner_download.html:97
+#: allthethings/page/templates/page/partner_download.html:95
 #, fuzzy
 msgid "page.partner_download.bulk_mirroring"
 msgstr "📡 Ukuze ulingise ngobuningi iqoqo lethu, bheka amakhasi <a %(a_datasets)s>eDatasets</a> kanye <a %(a_torrents)s>eTorrents</a>."
@@ -3909,27 +4023,31 @@ msgstr "Uma usuthole isixhumanisi sokulanda sivumelekile amahora ambalwa."
 msgid "page.partner_download.li4"
 msgstr "Ngiyabonga ngokulinda, lokhu kugcina iwebhusayithi itholakala mahhala kubo bonke! 😊"
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:40
+msgid "page.partner_download.automatic_refreshing"
+msgstr ""
+
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.url"
 msgstr "📚 Sebenzisa i-URL elandelayo ukulanda: <a %(a_download)s>Landa manje</a>."
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.download_now"
 msgstr "Landa manje"
 
-#: allthethings/page/templates/page/partner_download.html:86
+#: allthethings/page/templates/page/partner_download.html:84
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads"
 msgstr "Isixwayiso: kube nokulanda okuningi kusuka kukheli lakho le-IP emahoreni angama-24 adlule. Ukulanda kungase kube kancane kunokujwayelekile."
 
-#: allthethings/page/templates/page/partner_download.html:87
+#: allthethings/page/templates/page/partner_download.html:85
 #, fuzzy
 msgid "page.partner_download.downloads_last_24_hours"
 msgstr "Ukulanda kusuka kukheli lakho le-IP emahoreni angama-24 adlule: %(count)s."
 
-#: allthethings/page/templates/page/partner_download.html:88
+#: allthethings/page/templates/page/partner_download.html:86
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads2"
 msgstr "Uma usebenzisa i-VPN, uxhumano lwe-inthanethi oluhlanganyelwe, noma i-ISP yakho ihlanganyela ama-IP, lesi sixwayiso singase sibe ngenxa yalokho."

@@ -370,10 +370,6 @@ msgstr "بۆ بەخشینەکان زیاتر لە $5000 تکایە ڕاستەو�
 #: allthethings/account/templates/account/index.html:36
 #: allthethings/page/templates/page/contact.html:3
 #: allthethings/page/templates/page/contact.html:6
-#: allthethings/page/templates/page/faq.html:84
-#: allthethings/page/templates/page/faq.html:139
-#: allthethings/page/templates/page/faq.html:147
-#: allthethings/page/templates/page/faq.html:171
 #: allthethings/page/templates/page/home.html:77
 #: allthethings/page/templates/page/home.html:82
 #: allthethings/page/templates/page/home.html:90
@@ -1387,6 +1383,14 @@ msgstr "فایلە داگرتووەکان بە شێوەیەکی گشتی نیش�
 msgid "page.downloaded.no_files"
 msgstr "هێشتا هیچ فایلێکم داونلۆد نەکردووە."
 
+#: allthethings/account/templates/account/downloaded.html:16
+msgid "page.downloaded.last_18_hours"
+msgstr ""
+
+#: allthethings/account/templates/account/downloaded.html:21
+msgid "page.downloaded.earlier"
+msgstr ""
+
 #: allthethings/account/templates/account/index.html:5
 #: allthethings/account/templates/account/index.html:15
 #, fuzzy
@@ -1462,7 +1466,7 @@ msgid "page.account.logged_in.membership_upgrade"
 msgstr "پەیوەندی بکە بە Anna لە %(email)s ئەگەر دڵخوازیت بەرزکردنەوەی ئەندامەتیەکەت بۆ پلەیەکی بەرزتر."
 
 #: allthethings/account/templates/account/index.html:37
-#: allthethings/page/templates/page/faq.html:135
+#: allthethings/page/templates/page/faq.html:136
 #, fuzzy
 msgid "page.account.logged_in.membership_multiple"
 msgstr "دەتوانیت چەند ئەندامەتیەک لەگەڵ یەکدا بکەیت (داگرتنی خێرا بۆ ٢٤ کاتژمێر بە یەکەوە زیاد دەکرێت)."
@@ -1717,6 +1721,14 @@ msgstr "لە Libgen.li وەکەڵ کراوە بە شیکستی"
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "لە Z-Library وەکەڵ کراوە بە نەبوونی"
 
+#: allthethings/page/views.py:4845
+msgid "common.md5_problem_type_mapping.zlib_spam"
+msgstr ""
+
+#: allthethings/page/views.py:4846
+msgid "common.md5_problem_type_mapping.zlib_bad_file"
+msgstr ""
+
 #: allthethings/page/views.py:4847
 #, fuzzy
 msgid "common.md5_problem_type_mapping.duxiu_pdg_broken_files"
@@ -1807,26 +1819,31 @@ msgstr "پشکنینی زانیاریەکان"
 msgid "common.access_types_mapping.torrents_available"
 msgstr "لە تورەکاندا هەیە"
 
-#: allthethings/page/templates/page/datasets.html:52
-#: allthethings/page/templates/page/datasets.html:88
+#: allthethings/page/templates/page/datasets.html:51
+#: allthethings/page/templates/page/datasets.html:87
 #: allthethings/page/views.py:4880
 #, fuzzy
 msgid "common.record_sources_mapping.lgrs"
 msgstr "Libgen.rs"
 
-#: allthethings/page/templates/page/datasets.html:54
-#: allthethings/page/templates/page/datasets.html:109
+#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:108
 #: allthethings/page/views.py:4881
 #, fuzzy
 msgid "common.record_sources_mapping.lgli"
 msgstr "Libgen.li"
 
-#: allthethings/page/templates/page/datasets.html:55
-#: allthethings/page/templates/page/datasets.html:121
+#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:120
 #: allthethings/page/views.py:4882
 #, fuzzy
 msgid "common.record_sources_mapping.zlib"
 msgstr "Z-Library"
+
+#: allthethings/page/templates/page/datasets.html:55
+#: allthethings/page/views.py:4883
+msgid "common.record_sources_mapping.zlibzh"
+msgstr ""
 
 #: allthethings/page/views.py:4884
 #, fuzzy
@@ -1843,7 +1860,7 @@ msgstr "ISBNdb"
 msgid "common.record_sources_mapping.ol"
 msgstr "OpenLibrary"
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 #: allthethings/page/views.py:4887
 #, fuzzy
 msgid "common.record_sources_mapping.scihub"
@@ -1854,15 +1871,15 @@ msgstr "Sci-Hub"
 msgid "common.record_sources_mapping.oclc"
 msgstr "OCLC (WorldCat)"
 
-#: allthethings/page/templates/page/datasets.html:58
-#: allthethings/page/templates/page/datasets.html:142
+#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:141
 #: allthethings/page/views.py:4889
 #, fuzzy
 msgid "common.record_sources_mapping.duxiu"
 msgstr "DuXiu 读秀"
 
-#: allthethings/page/templates/page/datasets.html:59
-#: allthethings/page/templates/page/datasets.html:155
+#: allthethings/page/templates/page/datasets.html:58
+#: allthethings/page/templates/page/datasets.html:154
 #: allthethings/page/views.py:4890
 #, fuzzy
 msgid "common.record_sources_mapping.uploads"
@@ -2517,8 +2534,6 @@ msgstr "هەڵەیەک ڕوویدا. تکایە پەڕەکە نوێ بکەرەو
 
 #: allthethings/page/templates/page/aarecord.html:406
 #: allthethings/page/templates/page/aarecord.html:407
-#: allthethings/page/templates/page/codes.html:8
-#: allthethings/page/templates/page/codes.html:9
 #: allthethings/page/templates/page/copyright.html:6
 #: allthethings/page/templates/page/copyright.html:7
 #: allthethings/page/templates/page/datasets.html:13
@@ -2574,12 +2589,12 @@ msgstr "ئەم پەڕگەیە بە ڕێکخراوی <a %(a_ia)s>وەرگرتنی
 msgid "page.md5.text.file_info.text1"
 msgstr "بۆ زانیاری زیاتر دەربارەی ئەم پەڕگەیە تایبەتی، ببینە <a %(a_href)s>پەڕگەی JSON</a>ی ئەوە."
 
-#: allthethings/page/templates/page/aarecord_issue.html:4
+#: allthethings/page/templates/page/aarecord_issue.html:5
 #, fuzzy
 msgid "page.aarecord_issue.title"
 msgstr "🔥 کێشە لە بارکردنی ئەم پەڕەیە"
 
-#: allthethings/page/templates/page/aarecord_issue.html:6
+#: allthethings/page/templates/page/aarecord_issue.html:7
 #, fuzzy
 msgid "page.aarecord_issue.text"
 msgstr "تکایە نوێکردنەوە بکە بۆ هەوڵدانەوە. <a %(a_contact)s>پەیوەندیمان پێوە بکە</a> ئەگەر کێشەکە چەند کاتژمێرێک بەردەوام بوو."
@@ -2622,6 +2637,105 @@ msgstr "ئەگەر لە خولەکێکی بێ کۆتایی داخەیت، پێش
 #, fuzzy
 msgid "page.login.text3"
 msgstr "لەوانەیە یارمەتی بدات بڵۆکەری ڕیکلامەکان و پێوەکراوەکانی وێبگەڕەکەت ناچالاک بکەیت."
+
+#: allthethings/page/templates/page/codes.html:5
+msgid "page.codes.title"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:10
+msgid "page.codes.heading"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:14
+msgid "page.codes.intro"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:18
+msgid "page.codes.why_cloudflare"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:22
+msgid "page.codes.dont_scrape"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:33
+msgid "page.codes.prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:34
+msgid "common.form.go"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:35
+msgid "common.form.reset"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:40
+msgid "page.codes.bad_unicode"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:46
+msgid "page.codes.known_code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:48
+msgid "page.codes.code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:49
+msgid "page.codes.code_label"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:51
+msgid "page.codes.code_description"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgid "page.codes.code_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgctxt "the %s should not be changed"
+msgid "page.codes.s_substitution"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:57
+msgid "page.codes.generic_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:61
+msgid "page.codes.code_website"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:69
+msgid "page.codes.record_starting_with"
+msgid_plural "page.codes.records_starting_with"
+msgstr[0] ""
+msgstr[1] ""
+
+#: allthethings/page/templates/page/codes.html:75
+msgid "page.codes.search_archive"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:77
+msgid "page.codes.url_link"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:84
+msgid "page.codes.codes_starting_with"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:92
+msgid "page.codes.records_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:93
+msgid "page.codes.records_codes"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:113
+msgid "page.codes.fewer_than"
+msgstr ""
 
 #: allthethings/page/templates/page/contact.html:9
 #, fuzzy
@@ -2723,144 +2837,140 @@ msgstr ""
 msgid "page.datasets.overview.last_updated.header"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:52
+#: allthethings/page/templates/page/datasets.html:51
 msgid "common.record_sources_mapping.lgrs.nonfiction_and_fiction"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "common.record_sources_mapping.scihub.via_lgli_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_1"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_2"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "common.record_sources.mapping.lgli.excluding_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "page.datasets.lgli_fiction_is_behind"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:56
-msgid "common.record_sources_mapping.zlibzh"
-msgstr ""
-
-#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:55
 msgid "page.datasets.zlibzh.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
-#: allthethings/page/templates/page/datasets.html:130
+#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:129
 msgid "common.record_sources_mapping.iacdl"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:56
 msgid "page.datasets.iacdl.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.total"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.excluding_duplicates"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:64
+#: allthethings/page/templates/page/datasets.html:63
 msgid "page.datasets.overview.text4"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:68
+#: allthethings/page/templates/page/datasets.html:67
 msgid "page.datasets.overview.text5"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:71
+#: allthethings/page/templates/page/datasets.html:70
 msgid "page.datasets.source_libraries.title"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:74
+#: allthethings/page/templates/page/datasets.html:73
 #, fuzzy
 msgid "page.datasets.source_libraries.text1"
 msgstr "هەندێک لاپەڕەی سەرچاوە پەیوەندیدانی زۆری داتایان بە شێوەی تورەنت بەشداری دەکەن، هەروەها هەندێکی تر بە ئاسانی کۆمەڵەکەیان بەشداری ناکەن. لەو کەیسەدا، ئەرشیفی ئەنە هەوڵ دەداتەوە کۆمەڵەکەیان بۆ بەرزکردنەوە، و بەردەستکردنیان (بینە لاپەڕەی <a %(a_torrents)s>تورەنتەکان</a>). هەروەها هەڵەی نێوانیش هەیە، بۆ نموونە، کە لاپەڕەی سەرچاوە ئامادەن بەشداری بکەن، بەڵام چەشنەی پێویست بۆ ئەوەیان نییە. لەو کەیسەدا، ئێمەش هەوڵ دەدەن یارمەتی بدەین."
 
-#: allthethings/page/templates/page/datasets.html:78
+#: allthethings/page/templates/page/datasets.html:77
 #, fuzzy
 msgid "page.datasets.source_libraries.text2"
 msgstr "لە خوارەوە پێداچوونەوەیەکە بۆ چۆنیەتی پەیوەندیدانی ئێمە بە لاپەڕە سەرچاوە جیاوازەکان."
 
-#: allthethings/page/templates/page/datasets.html:83
+#: allthethings/page/templates/page/datasets.html:82
 #, fuzzy
 msgid "page.datasets.sources.source.header"
 msgstr "سەرچاوە"
 
-#: allthethings/page/templates/page/datasets.html:84
+#: allthethings/page/templates/page/datasets.html:83
 #, fuzzy
 msgid "page.datasets.sources.metadata.header"
 msgstr "زانیاری سەرچاوە"
 
-#: allthethings/page/templates/page/datasets.html:85
+#: allthethings/page/templates/page/datasets.html:84
 #, fuzzy
 msgid "page.datasets.sources.files.header"
 msgstr "فایلەکان"
 
-#: allthethings/page/templates/page/datasets.html:98
+#: allthethings/page/templates/page/datasets.html:97
 #, fuzzy
 msgid "common.record_sources_mapping.scihub_scimag"
 msgstr "Sci-Hub / Libgen “scimag”"
 
-#: allthethings/page/templates/page/datasets.html:162
+#: allthethings/page/templates/page/datasets.html:161
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.title"
 msgstr "سەرچاوەکانی تەنها زانیاری سەرچاوە"
 
-#: allthethings/page/templates/page/datasets.html:165
+#: allthethings/page/templates/page/datasets.html:164
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text1"
 msgstr "هەروەها کۆمەڵەکەمان بە زانیاری سەرچاوە تەنها پەرەپێدەین، کە دەتوانین پەیوەندیش بکەین بە فایلەکان، بۆ نموونە بە بەکارهێنانی ژمارەی ISBN یان خانەی تر. لە خوارەوە پێداچوونەوەیەکە بۆ ئەوانە. دووبارە، هەندێک لەو سەرچاوەیانە بە تەواوی کراوەیە، هەروەها بۆ هەندێکی تر هەوڵ دەدەن بەرزکردنەوەیان."
 
-#: allthethings/page/templates/page/datasets.html:169
-#: allthethings/page/templates/page/faq.html:186
+#: allthethings/page/templates/page/datasets.html:168
+#: allthethings/page/templates/page/faq.html:187
 #: allthethings/page/templates/page/search.html:294
 #, fuzzy
 msgid "page.faq.metadata.inspiration1"
 msgstr "سەرچاوەی ئێمە بۆ کۆکردنەوەی زانیارییەکان ئامانجی ئارۆن سوارتز بوو کە \"یەک پەڕەی وێب بۆ هەر کتێبێک کە بڵاوکراوەتەوە\"، بۆیە <a %(a_openlib)s>کتێبخانەی کراوە</a>ی دروستکرد."
 
-#: allthethings/page/templates/page/datasets.html:170
-#: allthethings/page/templates/page/faq.html:187
+#: allthethings/page/templates/page/datasets.html:169
+#: allthethings/page/templates/page/faq.html:188
 #: allthethings/page/templates/page/search.html:295
 #, fuzzy
 msgid "page.faq.metadata.inspiration2"
 msgstr "ئەو پڕۆژەیە باش کاری کردووە، بەڵام بارودۆخی تایبەتمان ئەوەمان پێدەچێت کە زانیارییەکان بەدەست بهێنین کە ئەوان ناتوانن."
 
-#: allthethings/page/templates/page/datasets.html:171
-#: allthethings/page/templates/page/faq.html:188
+#: allthethings/page/templates/page/datasets.html:170
+#: allthethings/page/templates/page/faq.html:189
 #: allthethings/page/templates/page/search.html:296
 #, fuzzy
 msgid "page.faq.metadata.inspiration3"
 msgstr "سەرچاوەیەکی دیکەی ئێمە ئەو خواستە بوو کە بزانین <a %(a_blog)s>چەند کتێبێک هەیە لە جیهاندا</a>، بۆ ئەوەی بتوانین هەژمار بکەین چەند کتێبێکمان ماوە بۆ ڕزگارکردن."
 
-#: allthethings/page/templates/page/datasets.html:175
+#: allthethings/page/templates/page/datasets.html:174
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text2"
 msgstr "تێبینی بکە کە لە گەڕانی زانیاری سەرچاوە، تۆمارە سەرەکییەکان پیشان دەدەن. هیچ تێکەڵکردنی تۆمارەکان ناکەین."
 
-#: allthethings/page/templates/page/datasets.html:216
+#: allthethings/page/templates/page/datasets.html:215
 #, fuzzy
 msgid "page.datasets.unified_database.title"
 msgstr "بنکەی یەکگرتوو"
 
-#: allthethings/page/templates/page/datasets.html:219
+#: allthethings/page/templates/page/datasets.html:218
 #, fuzzy
 msgid "page.datasets.unified_database.text1"
 msgstr "هەموو ئەو سەرچاوەی سەرەوە یەکدەکەین بۆ بنکەیەکی یەکگرتوو کە بەکاردەهێنین بۆ خزمەتگوزاری ئەم ماڵپەڕە. ئەم بنکەی یەکگرتوو بە ڕاستی بەردەست نییە، بەڵام چونکە ئەرشیفی ئەنە بە تەواوی سەرچاوەیەکی کراوەیە، دەتوانرێت بە ئاسانیدا <a %(a_generated)s>دروست بکرێت</a> یان <a %(a_downloaded)s>داگرتن</a> وەک بنکەی ElasticSearch و MariaDB. سکرپتەکانی ئەو لاپەڕەیە خۆکارانە هەموو زانیاری سەرچاوەی پێویستەکان داگرتن دەکەن."
 
-#: allthethings/page/templates/page/datasets.html:227
+#: allthethings/page/templates/page/datasets.html:226
 #, fuzzy
 msgid "page.datasets.unified_database.text2"
 msgstr "ئەگەر دەتەوێت داتاکەمان بپشکنین پێش ئەوەی ئەو سکرپتە لە ناوخۆ بڕۆنیت، دەتوانیت بە فایلەکانی JSON یەمان سەردانی بکەیت، کە پەیوەندی زیاتر بە فایلەکانی JSON یە تر دەکەن. <a %(a_json)s>ئەم فایلە</a> سەرەتا باشە."
@@ -2901,473 +3011,477 @@ msgstr "ماڵپەڕی ISBN"
 msgid "page.datasets/isbn_ranges.isbn_metadata"
 msgstr "زانیاری سەرچاوە"
 
-#: allthethings/page/templates/page/faq.html:3
-#: allthethings/page/templates/page/faq.html:6
+#: allthethings/page/templates/page/faq.html:5
+#: allthethings/page/templates/page/faq.html:8
 #, fuzzy
 msgid "page.faq.title"
 msgstr "پرسیارە پەیوەندیدارەکان (FAQ)"
 
-#: allthethings/page/templates/page/faq.html:8
+#: allthethings/page/templates/page/faq.html:10
 #, fuzzy
 msgid "page.faq.what_is.title"
 msgstr "چییە ئەرشیفی ئانا؟"
 
-#: allthethings/page/templates/page/faq.html:11
+#: allthethings/page/templates/page/faq.html:13
 #, fuzzy
 msgid "page.home.intro.text1"
 msgstr "<span %(span_anna)s>ئەرشێفی ئانا</span> پرۆژەیەکی نەخۆشیەندە بە دوو ئامانج:"
 
-#: allthethings/page/templates/page/faq.html:15
+#: allthethings/page/templates/page/faq.html:17
 #, fuzzy
 msgid "page.home.intro.text2"
 msgstr "<li><strong>پاشەکەوتکردن:</strong> پاشەکەوتکردنی هەموو زانیاری و کەلتوری مرۆڤایەتی.</li><li><strong>دەستپێکردن:</strong> ئەم زانیاری و کەلتورە بۆ هەموو کەسێک لە جیهاندا بەردەستکردن.</li>"
 
-#: allthethings/page/templates/page/faq.html:19
+#: allthethings/page/templates/page/faq.html:21
 #, fuzzy
 msgid "page.home.intro.open_source"
 msgstr "هەموو <a %(a_code)s>کۆدەکانمان</a> و <a %(a_datasets)s>داتاکانمان</a> بە تەواوی سەرچاوەیەکی کراوەیە."
 
-#: allthethings/page/templates/page/faq.html:23
+#: allthethings/page/templates/page/faq.html:25
 #, fuzzy
 msgid "page.home.preservation.header"
 msgstr "پاشەکەوتکردن"
 
-#: allthethings/page/templates/page/faq.html:25
+#: allthethings/page/templates/page/faq.html:27
 #, fuzzy
 msgid "page.home.preservation.text1"
 msgstr "ئێمە کتێبەکان، پەیڤەکان، کۆمیکەکان، گۆڤارەکان، و زۆرتر پاشەکەوت دەکەین، بە ڕێکخستنی ئەم ماددەیە لە جێگاکانی جیاوازەوە بۆ یەک شوێن. هەموو ئەم داتایە بەرەو هەردەم پاشەکەوت دەکرێت بە ئاسانکردنی دووبارەکردنی بە شێوەیەکی گەورە — بە بەکارهێنانی تورەکان — کە بە هەندێک کۆپی لە سەرتاسەری جیهاندا ئەنجام دەدات. هەندێک پەیوەندیدانی شەدۆ خۆیان ئەمە دەکەن (وەک Sci-Hub، Library Genesis)، کاتێک ئەرشێفی ئانا \"ئازاد دەکات\" پەیوەندیدانەکانی تر کە پەیوەندیدانی بە شێوەیەکی گەورە پێشکەش ناکەن (وەک Z-Library) یان پەیوەندیدانی شەدۆ نییە بە هیچ شێوەیەک (وەک Internet Archive، DuXiu)."
 
-#: allthethings/page/templates/page/faq.html:27
+#: allthethings/page/templates/page/faq.html:29
 #, fuzzy
 msgid "page.home.preservation.text2"
 msgstr "ئەم پەخشکردنی فراوانە، بە هاوپەیوەندی کۆدی سەرچاوەیەکی کراوە، ماڵپەڕەکەمان بەردەوام دەکات لە ڕەشکردنەوە، و دڵنیایی پاشەکەوتکردنی درێژخایەنی زانیاری و کەلتوری مرۆڤایەتی دەدات. زانیاری زیاتر فێربە لەسەر <a href=\"/datasets\">داتاکانمان</a>."
 
-#: allthethings/page/templates/page/faq.html:41
+#: allthethings/page/templates/page/faq.html:43
 #, fuzzy
 msgid "page.home.preservation.label"
 msgstr "هەژمار دەکەین کە نزیکەی <a href=\"https://annas-blog.org/blog-isbndb-dump-how-many-books-are-preserved-forever.html\">5%% لە کتێبەکانی جیهانمان پاشەکەوت کردووە</a>."
 
-#: allthethings/page/templates/page/faq.html:46
+#: allthethings/page/templates/page/faq.html:48
 #, fuzzy
 msgid "page.home.access.header"
 msgstr "دەستپێکردن"
 
-#: allthethings/page/templates/page/faq.html:48
+#: allthethings/page/templates/page/faq.html:50
 #, fuzzy
 msgid "page.home.access.text"
 msgstr "ئێمە لەگەڵ هاوپەیوەندیدانەکانمان کار دەکەین بۆ ئاسان و بەخۆڕایی بەردەستکردنی کۆلەکشنەکانمان بۆ هەموو کەسێک. باوەڕمان پێیە کە هەموو کەسێک مافەکەیەتی زانیاری گشتیی مرۆڤایەتی هەبێت. و <a %(a_search)s>نە بە خەرجی نووسەران</a>."
 
-#: allthethings/page/templates/page/faq.html:52
+#: allthethings/page/templates/page/faq.html:54
 #, fuzzy
 msgid "page.home.access.label"
 msgstr "داگرتنی کاتژمێرەکان لە 30 ڕۆژی ڕابردوو. کاتژمێری ئاسایی: %(hourly)s. ڕۆژی ئاسایی: %(daily)s."
 
-#: allthethings/page/templates/page/faq.html:80
+#: allthethings/page/templates/page/faq.html:82
 #, fuzzy
 msgid "page.about.text2"
 msgstr "ئێمە بە بەردەوامی باوەڕمان بە جێبەجێکردنی ئازادی زانیاری و پاراستنی زانست و کەلتورە. بە ئەم گەڕانەوە، ئێمە لەسەر شانەی گەورەکان دادەبن. ئێمە زۆر ڕێز لە هەوڵەکانی ئەوانە دەگرین کە پەیوەندیدارەکان دروست کردووە، و ئێمە هیوامانە کە ئەم گەڕانەوە بەرزتر دەکاتەوە."
 
-#: allthethings/page/templates/page/faq.html:84
+#: allthethings/page/templates/page/faq.html:86
 #, fuzzy
 msgid "page.about.text3"
 msgstr "بۆ نوێترین زانیاریەکان لەسەر پێشکەوتنی ئێمە، ئەنا لە <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a> یان <a href=\"https://t.me/annasarchiveorg\">Telegram</a> بەدوای بکە. بۆ پرسیار و فیدباکت پەیوەندی بکە بە ئەنا لە %(email)s."
 
-#: allthethings/page/templates/page/faq.html:87
+#: allthethings/page/templates/page/faq.html:89
 #, fuzzy
 msgid "page.faq.help.title"
 msgstr "چۆن دەتوانم یارمەتی بدەم؟"
 
-#: allthethings/page/templates/page/faq.html:90
+#: allthethings/page/templates/page/faq.html:92
 #, fuzzy
 msgid "page.about.help.text"
 msgstr "<li>1. بەدوای ئێمە بکە لە <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a>، یان <a href=\"https://t.me/annasarchiveorg\">Telegram</a>.</li><li>2. لەسەر Twitter، Reddit، Tiktok، Instagram، لە کافە یان کتێبخانەی ناوچەکەت، یان هەر شوێنێک کە دەچیت، لەبارەی ئەرشەی ئەنا بڵاو بکەوە! ئێمە باوەڕمان نیە بە دروستکردنی دیوارەکان — ئەگەر ئێمە داخراوین، دووبارە دەربڕینەوە لە شوێنێکی تر، چونکە هەموو کۆد و داتاکەمان بە تەواوی ئاوەردراوە.</li><li>3. ئەگەر دەتوانیت، تکایە <a href=\"/donate\">پێشکەشکردن</a>.</li><li>4. یارمەتی بدە <a href=\"https://translate.annas-software.org/\">وەرگێڕان</a>ی ماڵپەڕەکەمان بۆ زمانە جیاوازەکان.</li><li>5. ئەگەر تۆ مهەندەسێکی بەرنامەیی، بیر لە یارمەتی پێشکەشکردنی بۆ <a href=\"https://annas-software.org/\">کۆدە ئاوەردراوەکان</a>، یان بڵاوکردنەوەی <a href=\"/datasets\">تۆڕەکانمان</a>.</li>"
 
-#: allthethings/page/templates/page/faq.html:91
+#: allthethings/page/templates/page/faq.html:93
 #, fuzzy
 msgid "page.about.help.text6"
 msgstr "6. ئەگەر تۆ تواناوی توێژینەوەی ئاسایشی هەیە، ئێمە دەتوانین لە تواناکانت بەرهەم بگرین بۆ هەردوو بەرگری و هێرش. سەردانی پەڕەی <a %(a_security)s>ئاسایش</a> بکە."
 
-#: allthethings/page/templates/page/faq.html:92
+#: allthethings/page/templates/page/faq.html:94
 #, fuzzy
 msgid "page.about.help.text7"
 msgstr "7. ئێمە بەدوای شارەزایانی پارەدان بۆ بازرگانیە نادیارەکان دەگەڕێین. دەتوانیت یارمەتی بدە بۆ زیادکردنی ڕێگاکانی پارەدان؟ PayPal، WeChat، کارتی خەلات. ئەگەر کەسێکت ناسیت، تکایە پەیوەندی بکە."
 
-#: allthethings/page/templates/page/faq.html:93
+#: allthethings/page/templates/page/faq.html:95
 #, fuzzy
 msgid "page.about.help.text8"
 msgstr "8. ئێمە هەموو کات بەدوای زۆرکردنی توانای ڕاژەمان دەگەڕێین."
 
-#: allthethings/page/templates/page/faq.html:94
+#: allthethings/page/templates/page/faq.html:96
 #, fuzzy
 msgid "page.about.help.text9"
 msgstr "9. دەتوانیت یارمەتی بدە بە ڕاپۆرتکردنی کێشەی فایلەکان، لەبەردەستگرتنی لێدوانەکان، و دروستکردنی لیستەکان لەسەر ئەم ماڵپەڕە. دەتوانیت یارمەتی بدە بە <a %(a_upload)s>بارکردنەوەی کتێبە زۆرتر</a>، یان چاککردنی کێشەی فایلەکان یان فۆرماتکردنی کتێبە هەنووکەکان."
 
-#: allthethings/page/templates/page/faq.html:95
+#: allthethings/page/templates/page/faq.html:97
 #, fuzzy
 msgid "page.about.help.text10"
 msgstr "10. دروستکردن یان پاراستنی پەڕەی ویکیپیدیا بۆ ئەرشەی ئەنا بە زمانەکەت."
 
-#: allthethings/page/templates/page/faq.html:96
+#: allthethings/page/templates/page/faq.html:98
 #, fuzzy
 msgid "page.about.help.text11"
 msgstr "11. ئێمە بەدوای ڕیکلامە بچووک و خوشەویستەکان دەگەڕێین. ئەگەر دەتەوێت ڕیکلام بکەیت لەسەر ئەرشەی ئەنا، تکایە بزانە."
 
-#: allthethings/page/templates/page/faq.html:97
+#: allthethings/page/templates/page/faq.html:99
 #, fuzzy
 msgid "page.faq.help.mirrors"
 msgstr "ئێمە زۆر دڵخۆش دەبەین کە خەڵک <a %(a_mirrors)s>مێرۆر</a> دروست بکەن، و ئێمە بە دارایی پشتیوانی ئەمە دەکەین."
 
-#: allthethings/page/templates/page/faq.html:105
+#: allthethings/page/templates/page/faq.html:103
+msgid "page.about.help.volunteer"
+msgstr ""
+
+#: allthethings/page/templates/page/faq.html:106
 #, fuzzy
 msgid "page.faq.slow.title"
 msgstr "بۆچی دابەزاندنە کەندەکان ئەوەندە کەندە؟"
 
-#: allthethings/page/templates/page/faq.html:108
+#: allthethings/page/templates/page/faq.html:109
 #, fuzzy
 msgid "page.faq.slow.text1"
 msgstr "ئێمە بە ڕاستی هەموو ئەو سەرچاوەیەمان نیە بۆ دابینکردنی داونلۆدی خێرا بۆ هەموو کەس لە جیهاندا، هەرچەندە هەوڵمان دەدات. ئەگەر بەخشندەیەکی دەرپەڕ بێت کە دەتوانێت ئەمە بۆمان دابین بکات، ئەوە زۆر باش دەبێت، بەڵام تاوەکو ئەو کاتە، ئێمە هەوڵمان دەدات. ئێمە پرۆژەیەکی نەخۆشیەتیە کە بە زۆر بەسختی خۆی بەردەوام دەکات بە پێشکەشکردنی دارایی."
 
-#: allthethings/page/templates/page/faq.html:112
+#: allthethings/page/templates/page/faq.html:113
 #, fuzzy
 msgid "page.faq.slow.text2"
 msgstr "بەمەشە هەوڵماندا دوو سیستەم بۆ داونلۆدی ئازاد جێبەجێ بکەین، بە هاوپەیمانەکانمان: ڕاژەی هاوبەش بە داونلۆدی هێواش، و ڕاژەیەکی کەمێک خێراتر بە لیستی چاوەڕوانی (بۆ کەمکردنەوەی ژمارەی کەسانی کە لە هەمان کات داونلۆد دەکەن)."
 
-#: allthethings/page/templates/page/faq.html:116
+#: allthethings/page/templates/page/faq.html:117
 #, fuzzy
 msgid "page.faq.slow.text3"
 msgstr "هەروەها <a %(a_verification)s>پشتڕاستکردنەوەی وێبگەڕ</a>مان هەیە بۆ داونلۆدی هێواشەکان، چونکە بە شێوەیەکی تر بۆت و سکراپەرەکان سوود لەوانە دەبن، کە ئەمەش بۆ بەکارهێنەرانی ڕاستەقینە هێواشتر دەکات."
 
-#: allthethings/page/templates/page/faq.html:120
+#: allthethings/page/templates/page/faq.html:121
 #, fuzzy
 msgid "page.faq.slow.text4"
 msgstr "تێبینی بکە، کاتێک بە Tor Browser بەکاردهێنیت، دەتەوێت ڕێکخستنەکانی سەلامەتی بگۆڕیت. لە کەمترین هەڵبژاردنەکان، کە بە ناوی “Standard” دەکرێت، چالاکی Cloudflare turnstile سەرکەوتوو دەبێت. لە هەڵبژاردنە بەرزەکان، کە بە ناوی “Safer” و “Safest” دەکرێت، چالاکیەکە سەرکەوتوو ناکات."
 
-#: allthethings/page/templates/page/faq.html:124
+#: allthethings/page/templates/page/faq.html:125
 #, fuzzy
 msgid "page.faq.slow.text5"
 msgstr "کاتەکاندا، داگرتنی پەڕگەی گەورەکان بە کەمی خێرایی ڕووبەڕوو دەبێت. پێشنیار دەکەین بەکاربردنی بەڕێوەبەری داگرتن (وەک JDownloader) بۆ بەردەوامکردنی داگرتنی پەڕگەی گەورەکان بە شێوەی خۆکار."
 
-#: allthethings/page/templates/page/faq.html:127
+#: allthethings/page/templates/page/faq.html:128
 #, fuzzy
 msgid "page.donate.faq.title"
 msgstr "پرسیارە زۆرپەرسراوەکانی پێشکەشکردن"
 
-#: allthethings/page/templates/page/faq.html:130
+#: allthethings/page/templates/page/faq.html:131
 #, fuzzy
 msgid "page.donate.faq.renew"
 msgstr "<div %(div_question)s>ئایا ئەندامەتیەکان خۆکارانە نوێ دەکرێنەوە؟</div> ئەندامەتیەکان <strong>خۆکارانە</strong> نوێ نەکرێنەوە. دەتوانیت بۆ هەر کاتێک یان کەمتر ئەندام بیت."
 
-#: allthethings/page/templates/page/faq.html:134
+#: allthethings/page/templates/page/faq.html:135
 #, fuzzy
 msgid "page.donate.faq.membership"
 msgstr "<div %(div_question)s>ئایا دەتوانم ئەندامیم بەرز بکەم یان چەند ئەندامیم هەبێت؟</div>"
 
-#: allthethings/page/templates/page/faq.html:139
+#: allthethings/page/templates/page/faq.html:140
 #, fuzzy
 msgid "page.donate.faq.text_other_payment1"
 msgstr "<div %(div_question)s>ئایا ڕێگاکانی پارەدانێکی تر هەیە؟</div> لە ئێستادا نیە. زۆر کەس نایانەوە ئەم ئەرشیە هەبێت، بۆیە پێویستە وریابین. ئەگەر دەتوانیت یارمەتی بدەیت بۆ دروستکردنی ڕێگاکانی پارەدانی تر (کە ئاسانترن) بە ئاسای، تکایە پەیوەندی بکە لە %(email)s."
 
-#: allthethings/page/templates/page/faq.html:143
+#: allthethings/page/templates/page/faq.html:144
 #, fuzzy
 msgid "page.donate.faq.spend"
 msgstr "<div %(div_question)s>پێشکەشەکان بۆ چی بەکاردەهێنن؟</div> 100%% بۆ پاراستن و بەردەستکردنی زانست و کەلتوری جیهانیە. لە ئێستادا زۆربەی ئەوە بەسەر ڕاژەکان، هەڵگرتن، و باندوێد دەچێت. هیچ پارەیەک بۆ هیچ ئەندامێکی تیمەکە نایە."
 
-#: allthethings/page/templates/page/faq.html:147
+#: allthethings/page/templates/page/faq.html:148
 #, fuzzy
 msgid "page.donate.faq.text_large_donation"
 msgstr "<div %(div_question)s>ئایا دەتوانم پێشکەشیەکی گەورە بکەم؟</div> ئەوە زۆر باش دەبێت! بۆ پێشکەشەکان زیاتر لە چەند هەزار دۆلار، تکایە بەڕاستەوخۆ پەیوەندی بکە لە %(email)s."
 
-#: allthethings/page/templates/page/faq.html:151
+#: allthethings/page/templates/page/faq.html:152
 #, fuzzy
 msgid "page.donate.faq.non_member_donation"
 msgstr "<div %(div_question)s>ئایا دەتوانم پێشکەش بکەم بێ ئەوەی ئەندام بم؟</div> بەڵێ، دەتوانیت. ئێمە هەر پێشکەشێک وەردەگرین بە هەر بڕێک لە ناونیشانی Monero (XMR) ئەمە: %(address)s."
 
-#: allthethings/page/templates/page/faq.html:154
+#: allthethings/page/templates/page/faq.html:155
 #, fuzzy
 msgid "page.faq.upload.title"
 msgstr "چۆنیەتی بارکردنی کتێبی نوێ؟"
 
-#: allthethings/page/templates/page/faq.html:157
+#: allthethings/page/templates/page/faq.html:158
 #, fuzzy
 msgid "page.upload.text1"
 msgstr "بۆ ئێستا، پێشنیار دەکەین کتێبە نوێکان بۆ فۆرکەکانی Library Genesis باربکەیت. ئەمە <a %(a_guide)s>ڕێنماییەکی کارا</a>یە. تێبینی بکە کە هەردوو فۆرکەکە کە لەسەر ئەم ماڵپەڕە دابین دەکەین لە هەمان سیستەمی بارکردنەوە وەرگرتن."
 
-#: allthethings/page/templates/page/faq.html:158
+#: allthethings/page/templates/page/faq.html:159
 #, fuzzy
 msgid "common.libgen.email"
 msgstr "ئەگەر ناونیشانی ئیمەیڵەکەت کار ناکات لە فۆڕمەکانی Libgen، پێشنیار دەکەین بەکارهێنانی <a %(a_mail)s>Proton Mail</a> (بەخۆڕایی). دەتوانیت <a %(a_manual)s>بەدەستەوە داواکاری بکەیت</a> بۆ چالاککردنی ئەکاونتەکەت."
 
-#: allthethings/page/templates/page/faq.html:159
+#: allthethings/page/templates/page/faq.html:160
 #, fuzzy
 msgid "page.faq.mhut_upload"
 msgstr "تێبینی بکە کە mhut.org هەندێک ڕەنگەی IP بڵۆک دەکات، بۆیە VPN پێویست دەبێت."
 
-#: allthethings/page/templates/page/faq.html:163
+#: allthethings/page/templates/page/faq.html:164
 #, fuzzy
 msgid "page.upload.zlib.text1"
 msgstr "هەروەها، دەتوانیت بۆ Z-Library <a %(a_upload)s>لێرە</a> باربکەیت."
 
-#: allthethings/page/templates/page/faq.html:167
+#: allthethings/page/templates/page/faq.html:168
 #, fuzzy
 msgid "page.upload.zlib.text2"
 msgstr "بۆ بارکردنی وتارە زانستییەکان، تکایە (لەگەڵ Library Genesis) بۆ <a %(a_stc_nexus)s>STC Nexus</a>یش باربکە. ئەوان باشترین کتێبخانەی شەدۆ بۆ وتارە نوێکانن. ئێمە هێشتا پەیوەندیمان پێوە نەکردووە، بەڵام لە هەندێک کاتدا ئەوەمان دەکات. دەتوانیت لە <a %(a_telegram)s>بۆتی بارکردنیان لە Telegram</a> بەکارهێنیت، یان پەیوەندی بکەیت بە ناونیشانی کە لە پەیامی سەربەخۆیاندا دیاری کراوە ئەگەر زۆر فایلەکانت هەیە بۆ بارکردن بە ئەم شێوەیە."
 
-#: allthethings/page/templates/page/faq.html:171
+#: allthethings/page/templates/page/faq.html:172
 #, fuzzy
 msgid "page.upload.large.text"
 msgstr "بۆ بارکردنی زۆر (سەرەوەی 10,000 فایل) کە لە لایەن Libgen یان Z-Library وەرنەگیرێن، تکایە پەیوەندی بکە بە ئیمەیڵی %(a_email)s."
 
-#: allthethings/page/templates/page/faq.html:174
+#: allthethings/page/templates/page/faq.html:175
 #, fuzzy
 msgid "page.faq.request.title"
 msgstr "چۆنیەتی داواکاری کتێب؟"
 
-#: allthethings/page/templates/page/faq.html:177
+#: allthethings/page/templates/page/faq.html:178
 #, fuzzy
 msgid "page.request.cannot_accomodate"
 msgstr "لە ئێستادا، ناتوانین داواکاری کتێبەکان بپەسین."
 
-#: allthethings/page/templates/page/faq.html:178
+#: allthethings/page/templates/page/faq.html:179
 #, fuzzy
 msgid "page.request.forums"
 msgstr "تکایە داواکاریەکانت لە فۆڕمەکانی Z-Library یان Libgen بکە."
 
-#: allthethings/page/templates/page/faq.html:179
+#: allthethings/page/templates/page/faq.html:180
 #, fuzzy
 msgid "page.request.dont_email"
 msgstr "تکایە داواکاری کتێبەکانت بۆ ئیمەیڵمان نەبەستەوە."
 
-#: allthethings/page/templates/page/faq.html:182
+#: allthethings/page/templates/page/faq.html:183
 #, fuzzy
 msgid "page.faq.metadata.title"
 msgstr "ئایا داتاکانی زانیاری هەڵدەگرین؟"
 
-#: allthethings/page/templates/page/faq.html:185
+#: allthethings/page/templates/page/faq.html:186
 #, fuzzy
 msgid "page.faq.metadata.indeed"
 msgstr "بەڕاستی هەڵدەگرین."
 
-#: allthethings/page/templates/page/faq.html:191
+#: allthethings/page/templates/page/faq.html:192
 #, fuzzy
 msgid "page.faq.1984.title"
 msgstr "من 1984 لە جۆرج ئۆروێل داگرت، ئایا پۆلیس لە دەرگاکەم دەکەوێت؟"
 
-#: allthethings/page/templates/page/faq.html:194
+#: allthethings/page/templates/page/faq.html:195
 #, fuzzy
 msgid "page.faq.1984.text"
 msgstr "زۆر نیگەران مەبە، زۆر کەس هەن کە دابەزاندن لە ماڵپەڕەکان کە بەستەرمان پێیان پێشکەش دەکات، وە زۆر بەندەرانە کە کەسەکە لە کێشەدا دابەزێت. بەڵام، بۆ پاراستنی خۆت پێشنیار دەکەین بەکارهێنانی VPN (پەیوەندیدار)، یان <a %(a_tor)s>Tor</a> (بەخۆڕایی)."
 
-#: allthethings/page/templates/page/faq.html:197
+#: allthethings/page/templates/page/faq.html:198
 #, fuzzy
 msgid "page.faq.save_search.title"
 msgstr "چۆن دەتوانم ڕێکخستنەکانی گەڕانم پاشەکەوت بکەم؟"
 
-#: allthethings/page/templates/page/faq.html:200
+#: allthethings/page/templates/page/faq.html:201
 #, fuzzy
 msgid "page.faq.save_search.text1"
 msgstr "ڕێکخستنەکانت هەڵبژێرە، بۆشایی گەڕان بەتاڵ بێنە، کرتە بکە \"گەڕان\"، وە پاشان پەڕەکە بە بەکارهێنانی تایبەتمەندی پاشەکەوتکردنی وێبگەڕەکەت پاشەکەوت بکە."
 
-#: allthethings/page/templates/page/faq.html:203
+#: allthethings/page/templates/page/faq.html:204
 #, fuzzy
 msgid "page.faq.mobile.title"
 msgstr "ئایا ئەپلیکەیشنی مۆبایل هەیە؟"
 
-#: allthethings/page/templates/page/faq.html:206
+#: allthethings/page/templates/page/faq.html:207
 #, fuzzy
 msgid "page.faq.mobile.text1"
 msgstr "ئێمە بەرنامەی مۆبایلی فەرمی نیە، بەڵام دەتوانیت ئەم وێبگەڕە وەک بەرنامە دامەزرێنیت."
 
-#: allthethings/page/templates/page/faq.html:207
+#: allthethings/page/templates/page/faq.html:208
 #, fuzzy
 msgid "page.faq.mobile.android"
 msgstr "<strong>ئەنڈرۆید:</strong> کرتە بکە لە لیستی سێخاڵەکە لە سەرەوەی ڕاست، و هەڵبژێرە \"زیادکردن بۆ سەرەکی\"."
 
-#: allthethings/page/templates/page/faq.html:208
+#: allthethings/page/templates/page/faq.html:209
 #, fuzzy
 msgid "page.faq.mobile.ios"
 msgstr "<strong>iOS:</strong> کرتە بکە لە دوگمەی \"هاوبەشکردن\" لە خوارەوە، و هەڵبژێرە \"زیادکردن بۆ سەرەکی\"."
 
-#: allthethings/page/templates/page/faq.html:211
+#: allthethings/page/templates/page/faq.html:212
 #, fuzzy
 msgid "page.faq.api.title"
 msgstr "ئایا ئێوە API هەیە؟"
 
-#: allthethings/page/templates/page/faq.html:214
+#: allthethings/page/templates/page/faq.html:215
 #, fuzzy
 msgid "page.faq.api.text1"
 msgstr "ئێمە یەک API یەکی JSON یەکی جێگیرمان هەیە بۆ ئەندامان، بۆ وەرگرتنی URL یەکی خێرا بۆ داگرتن: <a %(a_fast_download)s>/dyn/api/fast_download.json</a> (بەڵگەنامە لە ناو JSON خۆیەوە)."
 
-#: allthethings/page/templates/page/faq.html:218
+#: allthethings/page/templates/page/faq.html:219
 #, fuzzy
 msgid "page.faq.api.text2"
 msgstr "بۆ کەیسەکانی تر، وەک گەڕان لەسەر هەموو پەڕگەکانمان، دروستکردنی گەڕانێکی تایبەتی، و هتد، پێشنیار دەکەین <a %(a_generate)s>دروستکردن</a> یان <a %(a_download)s>داگرتن</a>ی بنکەدراوەکانی ElasticSearch و MariaDB. داتاکراوی خاوەنی دەکرێت بەدەستیدا بکرێت <a %(a_explore)s>لە ڕێگەی پەڕگەکانی JSON</a>."
 
-#: allthethings/page/templates/page/faq.html:222
+#: allthethings/page/templates/page/faq.html:223
 #, fuzzy
 msgid "page.faq.api.text3"
 msgstr "لیستی تورەنتە خاوەکانمانیش دەکرێت وەک <a %(a_torrents)s>JSON</a> داگرت."
 
-#: allthethings/page/templates/page/faq.html:225
+#: allthethings/page/templates/page/faq.html:226
 #, fuzzy
 msgid "page.faq.torrents.title"
 msgstr "پەرسەیەکی تورەنتەکان"
 
-#: allthethings/page/templates/page/faq.html:228
+#: allthethings/page/templates/page/faq.html:229
 #, fuzzy
 msgid "page.faq.torrents.q1"
 msgstr "دەیەوێت یارمەتی بدم بە تورەنتکردن، بەڵام زۆر شوێنیم نیە."
 
-#: allthethings/page/templates/page/faq.html:230
+#: allthethings/page/templates/page/faq.html:231
 #, fuzzy
 msgid "page.faq.torrents.a1"
 msgstr "بەکارهێنە <a %(a_list)s>دروستکەری لیستی تورەنت</a> بۆ دروستکردنی لیستی تورەنتەکان کە زۆر پێویست بە تورەنتکردنن، لە سنووری شوێنەکەتدا."
 
-#: allthethings/page/templates/page/faq.html:234
+#: allthethings/page/templates/page/faq.html:235
 #, fuzzy
 msgid "page.faq.torrents.q2"
 msgstr "تورەنتەکان زۆر خاوەن؛ دەتوانم داتاکە بەڕاستی لە ئێوە وەرگرم؟"
 
-#: allthethings/page/templates/page/faq.html:236
+#: allthethings/page/templates/page/faq.html:237
 #, fuzzy
 msgid "page.faq.torrents.a2"
 msgstr "بەڵێ، ببینە پەڕەی <a %(a_llm)s>داتای LLM</a>."
 
-#: allthethings/page/templates/page/faq.html:240
+#: allthethings/page/templates/page/faq.html:241
 #, fuzzy
 msgid "page.faq.torrents.q3"
 msgstr "دەتوانم تەنها بەشێک لە پەڕگەکان داگرم، وەک تەنها زمانێک یان بابەتێک؟"
 
-#: allthethings/page/templates/page/faq.html:242
+#: allthethings/page/templates/page/faq.html:243
 #, fuzzy
 msgid "page.faq.torrents.a3"
 msgstr "زۆربەی تورەکان فایلەکان بە شێوەی ڕاستەوخۆ تێدایە، کە واتە دەتوانیت ڕاژەکانی تورەنت ڕاگرتن بۆ تەنها فایلە پێویستەکان ڕێکبخەیت. بۆ دیاریکردنی کەیسی فایلەکان بۆ داگرتن، دەتوانیت <a %(a_generate)s>زانیاریەکانمان دروست بکەیت</a>، یان <a %(a_download)s>داگرتن</a>ی بنکەدراوەکانی ElasticSearch و MariaDB بکەیت. بەداخەوە، چەند کۆمەڵەی تورەنت هەن کە فایلەکانی .zip یان .tar لە بنەڕەتیاندا هەن، کە لەو کەیسەدا پێویستە هەموو تورەنتەکە داگرێیت پێش ئەوەی بتوانیت فایلە تاکەکان هەڵبژێریت."
 
-#: allthethings/page/templates/page/faq.html:246
+#: allthethings/page/templates/page/faq.html:247
 #, fuzzy
 msgid "page.faq.torrents.q4"
 msgstr "چۆن دووبارەکان لە تورەنتەکان دەستکاری دەکەیت؟"
 
-#: allthethings/page/templates/page/faq.html:248
+#: allthethings/page/templates/page/faq.html:249
 #, fuzzy
 msgid "page.faq.torrents.a4"
 msgstr "هەوڵدەدەین کەمترین دووبارەکاری یان پەیوەندی نێوان تورەنتەکان لە ئەم لیستەدا هەبێت، بەڵام ئەمە هەموو کاتەکان ناتوانرێت بەدەست بێت، وە بە شێوەیەکی زۆر پەیوەندیدارە بە سیاسەتی پەیوەندیدارەکان. بۆ پەیوەندیدارەکان کە تورەنتەکانیان بڵاو دەکەنەوە، ئەمە لە دەستەمان دەرچووە. بۆ تورەنتەکان کە لەلایەن ئەرشەفی ئانایەوە بڵاو دەکرێنەوە، تەنها لەسەر بنەمای MD5 hash دووبارەکاری دەکەین، کە واتە وەشانی جیاوازەکانی هەمان کتێب دووبارەکاری ناکرێن."
 
-#: allthethings/page/templates/page/faq.html:252
+#: allthethings/page/templates/page/faq.html:253
 #, fuzzy
 msgid "page.faq.torrents.q5"
 msgstr "دەتوانم لیستی تورەنتەکان وەک JSON وەرگرم؟"
 
-#: allthethings/page/templates/page/faq.html:254
+#: allthethings/page/templates/page/faq.html:255
 #, fuzzy
 msgid "page.faq.torrents.a5"
 msgstr "بەڵێ."
 
-#: allthethings/page/templates/page/faq.html:258
+#: allthethings/page/templates/page/faq.html:259
 #, fuzzy
 msgid "page.faq.torrents.q6"
 msgstr "PDF یان EPUB لە تورەنتەکاندا نادەمەزرێن، تەنها فایلە باینەرییەکان؟ چە بکەم؟"
 
-#: allthethings/page/templates/page/faq.html:260
+#: allthethings/page/templates/page/faq.html:261
 #, fuzzy
 msgid "page.faq.torrents.a6"
 msgstr "ئەمەکان بەراستی PDF و EPUB ن، تەنها زایەندەیان نییە لە زۆربەی تورەنتەکانماندا. دوو شوێن هەن کە دەتوانیت زانیاریەکان بۆ فایلە تورەنتەکان بدۆزیتەوە، لەگەڵ جۆرەکان/زایەندەکان:"
 
-#: allthethings/page/templates/page/faq.html:262
+#: allthethings/page/templates/page/faq.html:263
 #, fuzzy
 msgid "page.faq.torrents.a6.li1"
 msgstr "١. هەر کۆمەڵە یان بڵاوکردنەوەیەک زانیاریە تایبەتی خۆی هەیە. بۆ نموونە، <a %(a_libgen_nonfic)s>تورەنتەکانی Libgen.rs</a> بنکەی زانیاری پەیوەندیدارەکەیان لە ماڵپەڕی Libgen.rs میزبانی دەکرێت. بە گشتی، پەیوەندی بە سەرچاوە زانیاریە پەیوەندیدارەکان لە پەڕەی <a %(a_datasets)s>کۆمەڵە زانیاریەکان</a>ی هەر کۆمەڵەیەک دەکەین."
 
-#: allthethings/page/templates/page/faq.html:264
+#: allthethings/page/templates/page/faq.html:265
 #, fuzzy
 msgid "page.faq.torrents.a6.li2"
 msgstr "٢. پێشنیار دەکەین <a %(a_generate)s>زانیاریەکان دروست بکەیت</a> یان <a %(a_download)s>بنکەدراوەکان داگرێیت</a>ی ElasticSearch و MariaDB. ئەمەکان ناوەڕۆکی هەر تۆمارێک لە ئەرشەفی ئانا بۆ فایلە تورەنتە پەیوەندیدارەکەی (ئەگەر بەردەست بێت) تێدایە، لە ژێر “torrent_paths” لە ElasticSearch JSON."
 
-#: allthethings/page/templates/page/faq.html:267
+#: allthethings/page/templates/page/faq.html:268
 #, fuzzy
 msgid "page.faq.security.title"
 msgstr "بەرنامەی ڕاگەیاندنی بەرپرسانە هەیە؟"
 
-#: allthethings/page/templates/page/faq.html:270
+#: allthethings/page/templates/page/faq.html:271
 #, fuzzy
 msgid "page.faq.security.text1"
 msgstr "بەخێرباژی بەرژەوەندیەکانی ئاسایشی بەدوای هەڵەکان بگەڕێن لە سیستەمەکانماندا. ئێمە پشتیوانیەکی زۆر لە ڕاگەیاندنی بەرپرسانە دەکەین. پەیوەندی بکە <a %(a_contact)s>لێرە</a>."
 
-#: allthethings/page/templates/page/faq.html:274
+#: allthethings/page/templates/page/faq.html:275
 #, fuzzy
 msgid "page.faq.security.text2"
 msgstr "ئێستا ناتوانین پاداشی هەڵەکان بدەین، بەجگە لە هەڵەکان کە <a %(a_link)s>پتانسیالەکەیان بۆ تێپەڕاندنی نەناسنامەمان</a> هەیە، کە بۆیان پاداشەکان لە نێوان $10k-50k دایە. دەتوانین پەیوەندی فراوانتر بۆ پاداشی هەڵەکان لە داهاتوودا پێشکەش بکەین! تکایە تێبینی بکە کە هێرشەکانی فێربوونی کۆمەڵایەتی لە چوارچێوەی کارەکان دەرنەچێن."
 
-#: allthethings/page/templates/page/faq.html:278
+#: allthethings/page/templates/page/faq.html:279
 #, fuzzy
 msgid "page.faq.security.text3"
 msgstr "ئەگەر بەرژەوەندیەکەت لە ئاسایشی هێرشەکارانەیە، و دەتەوێت یارمەتی بەرەوپێشبردنی زانیاری و کەلتوری جیهانی بدەیت، دڵنیابە پەیوەندی بکەیت. ڕێگایە زۆر هەن کە دەتوانیت یارمەتی بدەیت."
 
-#: allthethings/page/templates/page/faq.html:281
+#: allthethings/page/templates/page/faq.html:282
 #, fuzzy
 msgid "page.faq.resources.title"
 msgstr "سەرچاوەی زیاتر هەیە دەربارەی ئەرشەفی ئانا؟"
 
-#: allthethings/page/templates/page/faq.html:284
+#: allthethings/page/templates/page/faq.html:285
 #, fuzzy
 msgid "page.faq.resources.annas_blog"
 msgstr "<a %(a_blog)s>بڵاگی ئانا</a>، <a %(a_reddit_u)s>Reddit</a>، <a %(a_reddit_r)s>Subreddit</a> — نوێکارییەکان بە شێوەی ڕێکخراو"
 
-#: allthethings/page/templates/page/faq.html:285
+#: allthethings/page/templates/page/faq.html:286
 #, fuzzy
 msgid "page.faq.resources.annas_software"
 msgstr "<a %(a_software)s>نرماوەی ئانا</a> — کۆدی سەرچاوە کراوەمان"
 
-#: allthethings/page/templates/page/faq.html:286
+#: allthethings/page/templates/page/faq.html:287
 #, fuzzy
 msgid "page.faq.resources.translate"
 msgstr "<a %(a_translate)s>وەرگێڕانی نرماوەی ئانا</a> — سیستەمی وەرگێڕانمان"
 
-#: allthethings/page/templates/page/faq.html:287
+#: allthethings/page/templates/page/faq.html:288
 #, fuzzy
 msgid "page.faq.resources.datasets"
 msgstr "<a %(a_datasets)s>کۆمەڵە زانیاریەکان</a> — دەربارەی زانیاریەکان"
 
-#: allthethings/page/templates/page/faq.html:288
+#: allthethings/page/templates/page/faq.html:289
 #, fuzzy
 msgid "page.faq.resources.domains"
 msgstr "<a %(a_li)s>.li</a>, <a %(a_se)s>.se</a>, <a %(a_org)s>.org</a> — ناونیشانی جێگرەکان"
 
-#: allthethings/page/templates/page/faq.html:289
+#: allthethings/page/templates/page/faq.html:290
 #, fuzzy
 msgid "page.faq.resources.wikipedia"
 msgstr "<a %(a_wikipedia)s>ویکیپیدیا</a> — زیاتر دەربارەی ئێمە (تکایە یارمەتی بدە ئەم پەڕەیە نوێ بکەین، یان یەکێک بۆ زمانی خۆت دروست بکە!)"
 
-#: allthethings/page/templates/page/faq.html:292
+#: allthethings/page/templates/page/faq.html:293
 #, fuzzy
 msgid "page.faq.copyright.title"
 msgstr "چۆن دزینی مافەکان ڕاپۆرت دەکەم؟"
 
-#: allthethings/page/templates/page/faq.html:295
+#: allthethings/page/templates/page/faq.html:296
 #, fuzzy
 msgid "page.faq.copyright.text1"
 msgstr "ئێمە هیچ بەرھەمێکی مافی پارێزراو لێرە پەیوەند ناکەین. ئێمە مەکۆیەکین و تەنها داتاکانی بەرزکراوی گشتی فەرمی فەرمی دەکەین. کاتێک دەتەوێت لە ئەم سەرچاوە دەرەکییەکانە داگرتن بکەیت، پێشنیار دەکەین پەیوەندەکان لە یاسای ناوچەکەت بپشکنەیت بۆ ئەوەی چی ڕێگەپێدراوە. ئێمە بەرپرسیار نیین بۆ ناوەرۆکی لە لایەن کەسانی ترەوە بەرھەمھاتووە."
 
-#: allthethings/page/templates/page/faq.html:299
+#: allthethings/page/templates/page/faq.html:300
 #, fuzzy
 msgid "page.faq.copyright.text2"
 msgstr "ئەگەر گەیاندنەکانت هەیە دەربارەی ئەوەی کە لە ئێرەدا بینیت، باشترین ڕێگات ئەوەیە کە پەیوەندی بە وێبسایتی سەرەکی بکەیت. ئێمە بە بەردەوامی گۆڕانکاریەکانیان لە بنکەدراوەکەماندا دابەزاندووە. ئەگەر دڵنیایت کە گەیاندنێکی دروستت هەیە کە پێویستە وەڵامی پێ بدەین، تکایە فۆڕمی <a %(a_copyright)s>گەرەنتی / داواکاری مافی چاپ</a> پڕبکەوە. ئێمە گەیاندنەکانت بە جێگرەوە دەبینین، وە زووترین کات وەڵامت دەدەن."
 
-#: allthethings/page/templates/page/faq.html:302
+#: allthethings/page/templates/page/faq.html:303
 #, fuzzy
 msgid "page.faq.hate.title"
 msgstr "من دڵم تێدەکەوێت چۆن ئەم پرۆژەیە بەڕێوەدەبەیت!"
 
-#: allthethings/page/templates/page/faq.html:305
+#: allthethings/page/templates/page/faq.html:306
 #, fuzzy
 msgid "page.faq.hate.text1"
 msgstr "ئێمە دەتەوێت هەموو کەسێک بێیارمەتی بکەین کە هەموو کۆد و داتای ئێمە بە تەواوی سەرچاوەی کراوەیە. ئەمە تایبەتمەندییە بۆ پرۆژەکان وەک ئەمەی ئێمە — ئێمە زانیاری نیە لەسەر هیچ پرۆژەیەکی تر کە بە شێوەیەکی وەک ئەمەی ئێمە کاتەلوگێکی زۆر هەیە کە بە تەواوی سەرچاوەی کراوە بێت. ئێمە بە زۆر خۆشحاڵی هەر کەسێک بەردەوام دەکەین کە بیر دەکات پرۆژەکەمان باش نیە بۆ کۆد و داتای ئێمە و دروستکردنی کتێبخانەیەکی سایەی تایبەتی خۆیان! ئێمە ئەمە بە شەرمەزارانە یان شتێکی تر ناکەین — بە ڕاستی ئێمە بیر دەکەین ئەمە زۆر باش بێت چونکە ئاستی هەموو کەسێک بەرز دەکات، و باشتر پاراستنی میراثی مرۆڤایەتی دەکات."
 
-#: allthethings/page/templates/page/faq.html:308
+#: allthethings/page/templates/page/faq.html:309
 #, fuzzy
 msgid "page.faq.favorite.title"
 msgstr "کتێبە دڵخوازەکانت چییە؟"
 
-#: allthethings/page/templates/page/faq.html:311
+#: allthethings/page/templates/page/faq.html:312
 #, fuzzy
 msgid "page.faq.favorite.text1"
 msgstr "ئەمە هەندێک کتێبن کە گرنگی تایبەتی هەیە بۆ جیهانی کتێبخانە سایەکان و پاراستنی دیجیتاڵ:"
@@ -3549,13 +3663,13 @@ msgid "page.md5.box.download.ipfs_gateway_extra"
 msgstr "(لەوانەیە هەندێک جار هەوڵ بدەیت بە IPFS)"
 
 #: allthethings/page/templates/page/ipfs_downloads.html:23
-#: allthethings/page/templates/page/partner_download.html:93
+#: allthethings/page/templates/page/partner_download.html:91
 #, fuzzy
 msgid "page.partner_download.faster_downloads"
 msgstr "🚀 بۆ داگرتنە خێراترەکان و تێپەڕبوونەوە لە پشکنینی وێبگەڕ، <a %(a_membership)s>بەشداربە</a>."
 
 #: allthethings/page/templates/page/ipfs_downloads.html:27
-#: allthethings/page/templates/page/partner_download.html:97
+#: allthethings/page/templates/page/partner_download.html:95
 #, fuzzy
 msgid "page.partner_download.bulk_mirroring"
 msgstr "📡 بۆ وێنەکردنی بەکۆمەڵەیەکەمان بە شێوەیەکی گشتی، پەڕەکانی <a %(a_datasets)s>Datasets</a> و <a %(a_torrents)s>Torrents</a> بپشکنە."
@@ -3925,27 +4039,31 @@ msgstr "کاتێک بەستەرێکی داگرتن بەدەست دەهێنیت،
 msgid "page.partner_download.li4"
 msgstr "سوپاس بۆ چاوەڕوانی، ئەمە وێبگەڕەکە بە بێ بەرامبەر بۆ هەموو کەسێک دەستڕەس پێدەکات! 😊"
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:40
+msgid "page.partner_download.automatic_refreshing"
+msgstr ""
+
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.url"
 msgstr "📚 بە ئیمەی ئەم URL ـە بەکارهێنە بۆ داگرتن: <a %(a_download)s>ئێستا داگربە</a>."
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.download_now"
 msgstr "ئێستا داگربە"
 
-#: allthethings/page/templates/page/partner_download.html:86
+#: allthethings/page/templates/page/partner_download.html:84
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads"
 msgstr "ئاگاداری: زۆر داگرتن لە ناونیشانی IP ـەکەت هەبووە لە 24 کاتژمێرێکدا. داگرتنەکان لەوانەیە خاوەن خێرایی کەمتر بن."
 
-#: allthethings/page/templates/page/partner_download.html:87
+#: allthethings/page/templates/page/partner_download.html:85
 #, fuzzy
 msgid "page.partner_download.downloads_last_24_hours"
 msgstr "داگرتنەکان لە ناونیشانی IP ـەکەت لە 24 کاتژمێرێکدا: %(count)s."
 
-#: allthethings/page/templates/page/partner_download.html:88
+#: allthethings/page/templates/page/partner_download.html:86
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads2"
 msgstr "ئەگەر VPN، بەشکراوی ئینتەرنێت، یان ISP ـەکەت IP ـەکان بەش بکات بەکاردەهێنیت، ئەم ئاگادارییە لەوانەیە بەهۆی ئەوە بێت."

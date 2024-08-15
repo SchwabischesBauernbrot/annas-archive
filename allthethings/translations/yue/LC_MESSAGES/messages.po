@@ -370,10 +370,6 @@ msgstr "如果捐款超過$5000，請直接聯絡我哋：%(email)s。"
 #: allthethings/account/templates/account/index.html:36
 #: allthethings/page/templates/page/contact.html:3
 #: allthethings/page/templates/page/contact.html:6
-#: allthethings/page/templates/page/faq.html:84
-#: allthethings/page/templates/page/faq.html:139
-#: allthethings/page/templates/page/faq.html:147
-#: allthethings/page/templates/page/faq.html:171
 #: allthethings/page/templates/page/home.html:77
 #: allthethings/page/templates/page/home.html:82
 #: allthethings/page/templates/page/home.html:90
@@ -1387,6 +1383,14 @@ msgstr "已下載嘅文件唔會公開顯示。"
 msgid "page.downloaded.no_files"
 msgstr "暫時未有下載文件。"
 
+#: allthethings/account/templates/account/downloaded.html:16
+msgid "page.downloaded.last_18_hours"
+msgstr ""
+
+#: allthethings/account/templates/account/downloaded.html:21
+msgid "page.downloaded.earlier"
+msgstr ""
+
 #: allthethings/account/templates/account/index.html:5
 #: allthethings/account/templates/account/index.html:15
 #, fuzzy
@@ -1462,7 +1466,7 @@ msgid "page.account.logged_in.membership_upgrade"
 msgstr "如果您有興趣升級到更高級別嘅會員，請聯絡Anna：%(email)s。"
 
 #: allthethings/account/templates/account/index.html:37
-#: allthethings/page/templates/page/faq.html:135
+#: allthethings/page/templates/page/faq.html:136
 #, fuzzy
 msgid "page.account.logged_in.membership_multiple"
 msgstr "您可以合併多個會員資格（每24小時嘅快速下載次數會加埋一齊計）。"
@@ -1717,6 +1721,14 @@ msgstr "喺 Libgen.li 標記為損壞"
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "喺 Z-Library 缺失"
 
+#: allthethings/page/views.py:4845
+msgid "common.md5_problem_type_mapping.zlib_spam"
+msgstr ""
+
+#: allthethings/page/views.py:4846
+msgid "common.md5_problem_type_mapping.zlib_bad_file"
+msgstr ""
+
 #: allthethings/page/views.py:4847
 #, fuzzy
 msgid "common.md5_problem_type_mapping.duxiu_pdg_broken_files"
@@ -1807,26 +1819,31 @@ msgstr "探索元數據"
 msgid "common.access_types_mapping.torrents_available"
 msgstr "包含喺種子文件中"
 
-#: allthethings/page/templates/page/datasets.html:52
-#: allthethings/page/templates/page/datasets.html:88
+#: allthethings/page/templates/page/datasets.html:51
+#: allthethings/page/templates/page/datasets.html:87
 #: allthethings/page/views.py:4880
 #, fuzzy
 msgid "common.record_sources_mapping.lgrs"
 msgstr "Libgen.rs"
 
-#: allthethings/page/templates/page/datasets.html:54
-#: allthethings/page/templates/page/datasets.html:109
+#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:108
 #: allthethings/page/views.py:4881
 #, fuzzy
 msgid "common.record_sources_mapping.lgli"
 msgstr "Libgen.li"
 
-#: allthethings/page/templates/page/datasets.html:55
-#: allthethings/page/templates/page/datasets.html:121
+#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:120
 #: allthethings/page/views.py:4882
 #, fuzzy
 msgid "common.record_sources_mapping.zlib"
 msgstr "Z-Library"
+
+#: allthethings/page/templates/page/datasets.html:55
+#: allthethings/page/views.py:4883
+msgid "common.record_sources_mapping.zlibzh"
+msgstr ""
 
 #: allthethings/page/views.py:4884
 #, fuzzy
@@ -1843,7 +1860,7 @@ msgstr "ISBNdb"
 msgid "common.record_sources_mapping.ol"
 msgstr "OpenLibrary"
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 #: allthethings/page/views.py:4887
 #, fuzzy
 msgid "common.record_sources_mapping.scihub"
@@ -1854,15 +1871,15 @@ msgstr "Sci-Hub"
 msgid "common.record_sources_mapping.oclc"
 msgstr "OCLC (WorldCat)"
 
-#: allthethings/page/templates/page/datasets.html:58
-#: allthethings/page/templates/page/datasets.html:142
+#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:141
 #: allthethings/page/views.py:4889
 #, fuzzy
 msgid "common.record_sources_mapping.duxiu"
 msgstr "读秀 DuXiu"
 
-#: allthethings/page/templates/page/datasets.html:59
-#: allthethings/page/templates/page/datasets.html:155
+#: allthethings/page/templates/page/datasets.html:58
+#: allthethings/page/templates/page/datasets.html:154
 #: allthethings/page/views.py:4890
 #, fuzzy
 msgid "common.record_sources_mapping.uploads"
@@ -2517,8 +2534,6 @@ msgstr "出咗啲問題。請重新載入頁面再試一次。"
 
 #: allthethings/page/templates/page/aarecord.html:406
 #: allthethings/page/templates/page/aarecord.html:407
-#: allthethings/page/templates/page/codes.html:8
-#: allthethings/page/templates/page/codes.html:9
 #: allthethings/page/templates/page/copyright.html:6
 #: allthethings/page/templates/page/copyright.html:7
 #: allthethings/page/templates/page/datasets.html:13
@@ -2574,12 +2589,12 @@ msgstr "呢個係由<a %(a_ia)s>IA嘅受控數字借閱</a>圖書館管理嘅檔
 msgid "page.md5.text.file_info.text1"
 msgstr "關於呢個特定檔案嘅信息，請查閱佢嘅<a %(a_href)s>JSON檔案</a>。"
 
-#: allthethings/page/templates/page/aarecord_issue.html:4
+#: allthethings/page/templates/page/aarecord_issue.html:5
 #, fuzzy
 msgid "page.aarecord_issue.title"
 msgstr "🔥 加載此頁面時出現問題"
 
-#: allthethings/page/templates/page/aarecord_issue.html:6
+#: allthethings/page/templates/page/aarecord_issue.html:7
 #, fuzzy
 msgid "page.aarecord_issue.text"
 msgstr "請刷新重試。<a %(a_contact)s>聯絡我們</a>如果問題持續多個小時。"
@@ -2622,6 +2637,105 @@ msgstr "如果您陷入無限循環，我哋建議安裝 <a %(a_privacypass)s>Pr
 #, fuzzy
 msgid "page.login.text3"
 msgstr "關閉廣告攔截器同其他瀏覽器擴展可能亦有幫助。"
+
+#: allthethings/page/templates/page/codes.html:5
+msgid "page.codes.title"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:10
+msgid "page.codes.heading"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:14
+msgid "page.codes.intro"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:18
+msgid "page.codes.why_cloudflare"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:22
+msgid "page.codes.dont_scrape"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:33
+msgid "page.codes.prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:34
+msgid "common.form.go"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:35
+msgid "common.form.reset"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:40
+msgid "page.codes.bad_unicode"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:46
+msgid "page.codes.known_code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:48
+msgid "page.codes.code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:49
+msgid "page.codes.code_label"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:51
+msgid "page.codes.code_description"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgid "page.codes.code_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgctxt "the %s should not be changed"
+msgid "page.codes.s_substitution"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:57
+msgid "page.codes.generic_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:61
+msgid "page.codes.code_website"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:69
+msgid "page.codes.record_starting_with"
+msgid_plural "page.codes.records_starting_with"
+msgstr[0] ""
+msgstr[1] ""
+
+#: allthethings/page/templates/page/codes.html:75
+msgid "page.codes.search_archive"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:77
+msgid "page.codes.url_link"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:84
+msgid "page.codes.codes_starting_with"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:92
+msgid "page.codes.records_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:93
+msgid "page.codes.records_codes"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:113
+msgid "page.codes.fewer_than"
+msgstr ""
 
 #: allthethings/page/templates/page/contact.html:9
 #, fuzzy
@@ -2723,144 +2837,140 @@ msgstr ""
 msgid "page.datasets.overview.last_updated.header"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:52
+#: allthethings/page/templates/page/datasets.html:51
 msgid "common.record_sources_mapping.lgrs.nonfiction_and_fiction"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "common.record_sources_mapping.scihub.via_lgli_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_1"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_2"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "common.record_sources.mapping.lgli.excluding_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "page.datasets.lgli_fiction_is_behind"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:56
-msgid "common.record_sources_mapping.zlibzh"
-msgstr ""
-
-#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:55
 msgid "page.datasets.zlibzh.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
-#: allthethings/page/templates/page/datasets.html:130
+#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:129
 msgid "common.record_sources_mapping.iacdl"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:56
 msgid "page.datasets.iacdl.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.total"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.excluding_duplicates"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:64
+#: allthethings/page/templates/page/datasets.html:63
 msgid "page.datasets.overview.text4"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:68
+#: allthethings/page/templates/page/datasets.html:67
 msgid "page.datasets.overview.text5"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:71
+#: allthethings/page/templates/page/datasets.html:70
 msgid "page.datasets.source_libraries.title"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:74
+#: allthethings/page/templates/page/datasets.html:73
 #, fuzzy
 msgid "page.datasets.source_libraries.text1"
 msgstr "有啲來源圖書館會透過 torrents 大量分享佢哋嘅數據，而有啲就唔會咁容易分享佢哋嘅收藏品。喺後者嘅情況下，Anna’s Archive 會嘗試爬取佢哋嘅收藏品，並將佢哋提供出嚟（睇吓我哋嘅 <a %(a_torrents)s>Torrents</a> 頁面）。仲有啲介乎兩者之間嘅情況，例如來源圖書館願意分享，但冇資源去做。喺呢啲情況下，我哋都會嘗試幫手。"
 
-#: allthethings/page/templates/page/datasets.html:78
+#: allthethings/page/templates/page/datasets.html:77
 #, fuzzy
 msgid "page.datasets.source_libraries.text2"
 msgstr "以下係我哋點樣同唔同來源圖書館互動嘅概覽。"
 
-#: allthethings/page/templates/page/datasets.html:83
+#: allthethings/page/templates/page/datasets.html:82
 #, fuzzy
 msgid "page.datasets.sources.source.header"
 msgstr "來源"
 
-#: allthethings/page/templates/page/datasets.html:84
+#: allthethings/page/templates/page/datasets.html:83
 #, fuzzy
 msgid "page.datasets.sources.metadata.header"
 msgstr "元數據"
 
-#: allthethings/page/templates/page/datasets.html:85
+#: allthethings/page/templates/page/datasets.html:84
 #, fuzzy
 msgid "page.datasets.sources.files.header"
 msgstr "文件"
 
-#: allthethings/page/templates/page/datasets.html:98
+#: allthethings/page/templates/page/datasets.html:97
 #, fuzzy
 msgid "common.record_sources_mapping.scihub_scimag"
 msgstr "Sci-Hub / Libgen “scimag”"
 
-#: allthethings/page/templates/page/datasets.html:162
+#: allthethings/page/templates/page/datasets.html:161
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.title"
 msgstr "只提供元數據嘅來源"
 
-#: allthethings/page/templates/page/datasets.html:165
+#: allthethings/page/templates/page/datasets.html:164
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text1"
 msgstr "我哋仲會用只提供元數據嘅來源嚟豐富我哋嘅收藏，呢啲元數據可以同文件匹配，例如用 ISBN 號碼或者其他欄位。以下係呢啲來源嘅概覽。再講一次，有啲來源係完全開放嘅，而有啲我哋就要爬取佢哋。"
 
-#: allthethings/page/templates/page/datasets.html:169
-#: allthethings/page/templates/page/faq.html:186
+#: allthethings/page/templates/page/datasets.html:168
+#: allthethings/page/templates/page/faq.html:187
 #: allthethings/page/templates/page/search.html:294
 #, fuzzy
 msgid "page.faq.metadata.inspiration1"
 msgstr "我哋收集元數據嘅靈感來自Aaron Swartz嘅目標：「為每本出版過嘅書創建一個網頁」，佢創建咗<a %(a_openlib)s>Open Library</a>。"
 
-#: allthethings/page/templates/page/datasets.html:170
-#: allthethings/page/templates/page/faq.html:187
+#: allthethings/page/templates/page/datasets.html:169
+#: allthethings/page/templates/page/faq.html:188
 #: allthethings/page/templates/page/search.html:295
 #, fuzzy
 msgid "page.faq.metadata.inspiration2"
 msgstr "嗰個項目做得好，但我哋嘅獨特位置使我哋能夠獲得佢哋無法獲得嘅元數據。"
 
-#: allthethings/page/templates/page/datasets.html:171
-#: allthethings/page/templates/page/faq.html:188
+#: allthethings/page/templates/page/datasets.html:170
+#: allthethings/page/templates/page/faq.html:189
 #: allthethings/page/templates/page/search.html:296
 #, fuzzy
 msgid "page.faq.metadata.inspiration3"
 msgstr "另一個靈感係我哋想知道<a %(a_blog)s>世界上有幾多本書</a>，咁我哋可以計算仲有幾多本書需要拯救。"
 
-#: allthethings/page/templates/page/datasets.html:175
+#: allthethings/page/templates/page/datasets.html:174
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text2"
 msgstr "請注意，喺元數據搜索中，我哋會顯示原始記錄。我哋唔會合併記錄。"
 
-#: allthethings/page/templates/page/datasets.html:216
+#: allthethings/page/templates/page/datasets.html:215
 #, fuzzy
 msgid "page.datasets.unified_database.title"
 msgstr "統一數據庫"
 
-#: allthethings/page/templates/page/datasets.html:219
+#: allthethings/page/templates/page/datasets.html:218
 #, fuzzy
 msgid "page.datasets.unified_database.text1"
 msgstr "我哋會將以上所有來源合併成一個統一數據庫，用嚟服務呢個網站。呢個統一數據庫唔會直接提供，但由於 Anna’s Archive 係完全開源嘅，可以相當容易咁 <a %(a_generated)s>生成</a> 或者 <a %(a_downloaded)s>下載</a> 成為 ElasticSearch 同 MariaDB 數據庫。嗰頁面嘅腳本會自動下載所有上述來源嘅必要元數據。"
 
-#: allthethings/page/templates/page/datasets.html:227
+#: allthethings/page/templates/page/datasets.html:226
 #, fuzzy
 msgid "page.datasets.unified_database.text2"
 msgstr "如果你想喺本地運行嗰啲腳本之前探索我哋嘅數據，你可以睇吓我哋嘅 JSON 文件，佢哋會進一步鏈接到其他 JSON 文件。<a %(a_json)s>呢個文件</a>係一個好嘅起點。"
@@ -2901,473 +3011,477 @@ msgstr "ISBN 網站"
 msgid "page.datasets/isbn_ranges.isbn_metadata"
 msgstr "元數據"
 
-#: allthethings/page/templates/page/faq.html:3
-#: allthethings/page/templates/page/faq.html:6
+#: allthethings/page/templates/page/faq.html:5
+#: allthethings/page/templates/page/faq.html:8
 #, fuzzy
 msgid "page.faq.title"
 msgstr "常見問題 (FAQ)"
 
-#: allthethings/page/templates/page/faq.html:8
+#: allthethings/page/templates/page/faq.html:10
 #, fuzzy
 msgid "page.faq.what_is.title"
 msgstr "咩係Anna’s Archive？"
 
-#: allthethings/page/templates/page/faq.html:11
+#: allthethings/page/templates/page/faq.html:13
 #, fuzzy
 msgid "page.home.intro.text1"
 msgstr "<span %(span_anna)s>Anna’s Archive</span>係一個非牟利項目，有兩個目標："
 
-#: allthethings/page/templates/page/faq.html:15
+#: allthethings/page/templates/page/faq.html:17
 #, fuzzy
 msgid "page.home.intro.text2"
 msgstr "<li><strong>保存：</strong>備份人類所有嘅知識同文化。</li><li><strong>存取：</strong>令呢啲知識同文化可以畀世界上任何人使用。</li>"
 
-#: allthethings/page/templates/page/faq.html:19
+#: allthethings/page/templates/page/faq.html:21
 #, fuzzy
 msgid "page.home.intro.open_source"
 msgstr "我哋嘅<a %(a_code)s>代碼</a>同<a %(a_datasets)s>數據</a>係完全開源嘅。"
 
-#: allthethings/page/templates/page/faq.html:23
+#: allthethings/page/templates/page/faq.html:25
 #, fuzzy
 msgid "page.home.preservation.header"
 msgstr "保存"
 
-#: allthethings/page/templates/page/faq.html:25
+#: allthethings/page/templates/page/faq.html:27
 #, fuzzy
 msgid "page.home.preservation.text1"
 msgstr "我哋保存書籍、論文、漫畫、雜誌等等，將呢啲材料從各種<a href=\"https://en.wikipedia.org/wiki/Shadow_library\">影子圖書館</a>、官方圖書館同其他收藏中集中喺一齊。所有呢啲數據都會永久保存，通過使用種子檔案大規模複製，令世界各地有好多副本。一啲影子圖書館已經自己咁做（例如Sci-Hub、Library Genesis），而Anna’s Archive會“解放”其他唔提供大規模分發嘅圖書館（例如Z-Library）或者根本唔係影子圖書館嘅（例如Internet Archive、DuXiu）。"
 
-#: allthethings/page/templates/page/faq.html:27
+#: allthethings/page/templates/page/faq.html:29
 #, fuzzy
 msgid "page.home.preservation.text2"
 msgstr "呢種廣泛分發，加上開源代碼，令我哋嘅網站可以抵抗下架，確保人類知識同文化嘅長期保存。了解更多關於<a href=\"/datasets\">我哋嘅數據集</a>。"
 
-#: allthethings/page/templates/page/faq.html:41
+#: allthethings/page/templates/page/faq.html:43
 #, fuzzy
 msgid "page.home.preservation.label"
 msgstr "我哋估計我哋已經保存咗大約<a href=\"https://annas-blog.org/blog-isbndb-dump-how-many-books-are-preserved-forever.html\">5%%嘅世界書籍</a>。"
 
-#: allthethings/page/templates/page/faq.html:46
+#: allthethings/page/templates/page/faq.html:48
 #, fuzzy
 msgid "page.home.access.header"
 msgstr "存取"
 
-#: allthethings/page/templates/page/faq.html:48
+#: allthethings/page/templates/page/faq.html:50
 #, fuzzy
 msgid "page.home.access.text"
 msgstr "我哋同合作夥伴一齊，令我哋嘅收藏可以輕鬆同免費畀任何人使用。我哋相信每個人都有權利獲得人類集體智慧。而且<a %(a_search)s>唔會犧牲作者嘅利益</a>。"
 
-#: allthethings/page/templates/page/faq.html:52
+#: allthethings/page/templates/page/faq.html:54
 #, fuzzy
 msgid "page.home.access.label"
 msgstr "過去30日每小時下載量。每小時平均：%(hourly)s。每日平均：%(daily)s。"
 
-#: allthethings/page/templates/page/faq.html:80
+#: allthethings/page/templates/page/faq.html:82
 #, fuzzy
 msgid "page.about.text2"
 msgstr "我哋堅信信息自由流通，同保存知識同文化。通過呢個搜索引擎，我哋係站喺巨人嘅肩膀上。我哋深深尊重創建各種影子圖書館嘅人嘅辛勤工作，希望呢個搜索引擎可以擴大佢哋嘅影響力。"
 
-#: allthethings/page/templates/page/faq.html:84
+#: allthethings/page/templates/page/faq.html:86
 #, fuzzy
 msgid "page.about.text3"
 msgstr "要了解我哋嘅最新進展，請喺<a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a>或者<a href=\"https://t.me/annasarchiveorg\">Telegram</a>上關注Anna。如有問題同反饋，請聯繫Anna：%(email)s。"
 
-#: allthethings/page/templates/page/faq.html:87
+#: allthethings/page/templates/page/faq.html:89
 #, fuzzy
 msgid "page.faq.help.title"
 msgstr "我可以點幫手？"
 
-#: allthethings/page/templates/page/faq.html:90
+#: allthethings/page/templates/page/faq.html:92
 #, fuzzy
 msgid "page.about.help.text"
 msgstr "<li>1. 喺<a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a>或者<a href=\"https://t.me/annasarchiveorg\">Telegram</a>上關注我哋。</li><li>2. 喺Twitter、Reddit、Tiktok、Instagram、本地咖啡店或者圖書館，或者你去嘅任何地方宣傳Anna’s Archive！我哋唔相信設限——如果我哋被下架，我哋會喺其他地方重新出現，因為我哋所有代碼同數據都係完全開源嘅。</li><li>3. 如果你有能力，請考慮<a href=\"/donate\">捐款</a>。</li><li>4. 幫手<a href=\"https://translate.annas-software.org/\">翻譯</a>我哋嘅網站成為唔同語言。</li><li>5. 如果你係軟件工程師，請考慮貢獻我哋嘅<a href=\"https://annas-software.org/\">開源項目</a>，或者做我哋嘅<a href=\"/datasets\">種子檔案</a>。</li>"
 
-#: allthethings/page/templates/page/faq.html:91
+#: allthethings/page/templates/page/faq.html:93
 #, fuzzy
 msgid "page.about.help.text6"
 msgstr "6. 如果你係安全研究員，我哋可以利用你嘅技能進行攻防。查看我哋嘅<a %(a_security)s>安全</a>頁面。"
 
-#: allthethings/page/templates/page/faq.html:92
+#: allthethings/page/templates/page/faq.html:94
 #, fuzzy
 msgid "page.about.help.text7"
 msgstr "7. 我哋尋找支付專家幫助匿名商家。你可以幫我哋增加更多方便嘅捐款方式嗎？PayPal、微信、禮品卡。如果你識人，請聯繫我哋。"
 
-#: allthethings/page/templates/page/faq.html:93
+#: allthethings/page/templates/page/faq.html:95
 #, fuzzy
 msgid "page.about.help.text8"
 msgstr "8. 我哋一直尋找更多嘅伺服器容量。"
 
-#: allthethings/page/templates/page/faq.html:94
+#: allthethings/page/templates/page/faq.html:96
 #, fuzzy
 msgid "page.about.help.text9"
 msgstr "9. 你可以通過報告文件問題、留言同喺呢個網站上創建列表嚟幫手。你亦可以通過<a %(a_upload)s>上傳更多書籍</a>，或者修正現有書籍嘅文件問題或者格式嚟幫手。"
 
-#: allthethings/page/templates/page/faq.html:95
+#: allthethings/page/templates/page/faq.html:97
 #, fuzzy
 msgid "page.about.help.text10"
 msgstr "10. 創建或者幫手維護你語言嘅Anna’s Archive嘅維基百科頁面。"
 
-#: allthethings/page/templates/page/faq.html:96
+#: allthethings/page/templates/page/faq.html:98
 #, fuzzy
 msgid "page.about.help.text11"
 msgstr "11. 我哋尋找放置小而雅緻廣告嘅機會。如果你想喺Anna’s Archive上投放廣告，請讓我哋知道。"
 
-#: allthethings/page/templates/page/faq.html:97
+#: allthethings/page/templates/page/faq.html:99
 #, fuzzy
 msgid "page.faq.help.mirrors"
 msgstr "我哋好希望大家可以設置<a %(a_mirrors)s>鏡像</a>，我哋會提供財政支援。"
 
-#: allthethings/page/templates/page/faq.html:105
+#: allthethings/page/templates/page/faq.html:103
+msgid "page.about.help.volunteer"
+msgstr ""
+
+#: allthethings/page/templates/page/faq.html:106
 #, fuzzy
 msgid "page.faq.slow.title"
 msgstr "點解下載咁慢？"
 
-#: allthethings/page/templates/page/faq.html:108
+#: allthethings/page/templates/page/faq.html:109
 #, fuzzy
 msgid "page.faq.slow.text1"
 msgstr "我哋真係冇足夠資源畀全世界每個人高速下載，雖然我哋好想。如果有個富有嘅贊助人願意幫手提供呢啲資源，真係太好啦，但係喺嗰之前，我哋會盡力而為。我哋係一個非牟利項目，靠捐款勉強維持。"
 
-#: allthethings/page/templates/page/faq.html:112
+#: allthethings/page/templates/page/faq.html:113
 #, fuzzy
 msgid "page.faq.slow.text2"
 msgstr "呢個就係點解我哋同合作夥伴實施咗兩個免費下載系統：共享伺服器提供慢速下載，仲有稍快啲嘅伺服器有等候名單（減少同時下載嘅人數）。"
 
-#: allthethings/page/templates/page/faq.html:116
+#: allthethings/page/templates/page/faq.html:117
 #, fuzzy
 msgid "page.faq.slow.text3"
 msgstr "我哋仲有<a %(a_verification)s>瀏覽器驗證</a>喺慢速下載度，因為如果唔係，機械人同爬蟲會濫用，令合法用戶嘅下載速度更加慢。"
 
-#: allthethings/page/templates/page/faq.html:120
+#: allthethings/page/templates/page/faq.html:121
 #, fuzzy
 msgid "page.faq.slow.text4"
 msgstr "請注意，使用 Tor 瀏覽器時，你可能需要調整你嘅安全設置。喺最低嘅選項，即“標準”中，Cloudflare turnstile 挑戰會成功。喺較高嘅選項，即“更安全”同“最安全”中，挑戰會失敗。"
 
-#: allthethings/page/templates/page/faq.html:124
+#: allthethings/page/templates/page/faq.html:125
 #, fuzzy
 msgid "page.faq.slow.text5"
 msgstr "有時下載大文件會中途中斷。我哋建議使用下載管理器（例如 JDownloader）來自動恢復大文件嘅下載。"
 
-#: allthethings/page/templates/page/faq.html:127
+#: allthethings/page/templates/page/faq.html:128
 #, fuzzy
 msgid "page.donate.faq.title"
 msgstr "捐款常見問題"
 
-#: allthethings/page/templates/page/faq.html:130
+#: allthethings/page/templates/page/faq.html:131
 #, fuzzy
 msgid "page.donate.faq.renew"
 msgstr "<div %(div_question)s>會員資格會自動續期嗎？</div> 會員資格<strong>唔會</strong>自動續期。你可以選擇加入嘅時間長短。"
 
-#: allthethings/page/templates/page/faq.html:134
+#: allthethings/page/templates/page/faq.html:135
 #, fuzzy
 msgid "page.donate.faq.membership"
 msgstr "<div %(div_question)s>我可以升級我嘅會員資格或者獲得多個會員資格嗎？</div>"
 
-#: allthethings/page/templates/page/faq.html:139
+#: allthethings/page/templates/page/faq.html:140
 #, fuzzy
 msgid "page.donate.faq.text_other_payment1"
 msgstr "<div %(div_question)s>你哋有其他付款方法嗎？</div> 目前冇。好多人成日唔想呢啲檔案存在，所以我哋要小心。如果你可以幫我哋安全地設置其他（更方便）嘅付款方法，請聯絡我哋：%(email)s。"
 
-#: allthethings/page/templates/page/faq.html:143
+#: allthethings/page/templates/page/faq.html:144
 #, fuzzy
 msgid "page.donate.faq.spend"
 msgstr "<div %(div_question)s>你哋會點樣使用捐款？</div> 100%%用嚟保存同提供世界知識同文化。目前我哋主要用喺伺服器、存儲同帶寬上。冇錢會畀到任何團隊成員。"
 
-#: allthethings/page/templates/page/faq.html:147
+#: allthethings/page/templates/page/faq.html:148
 #, fuzzy
 msgid "page.donate.faq.text_large_donation"
 msgstr "<div %(div_question)s>我可以做大額捐款嗎？</div> 太好啦！如果捐款超過幾千美元，請直接聯絡我哋：%(email)s。"
 
-#: allthethings/page/templates/page/faq.html:151
+#: allthethings/page/templates/page/faq.html:152
 #, fuzzy
 msgid "page.donate.faq.non_member_donation"
 msgstr "<div %(div_question)s>我可以唔成為會員而捐款嗎？</div> 當然可以。我哋接受任何金額嘅捐款，呢個係Monero (XMR)地址：%(address)s。"
 
-#: allthethings/page/templates/page/faq.html:154
+#: allthethings/page/templates/page/faq.html:155
 #, fuzzy
 msgid "page.faq.upload.title"
 msgstr "我點樣上傳新書？"
 
-#: allthethings/page/templates/page/faq.html:157
+#: allthethings/page/templates/page/faq.html:158
 #, fuzzy
 msgid "page.upload.text1"
 msgstr "目前，我哋建議你將新書上傳到Library Genesis分支。呢度有個<a %(a_guide)s>方便嘅指南</a>。請注意，我哋網站索引嘅兩個分支都係從呢個上傳系統拉取數據。"
 
-#: allthethings/page/templates/page/faq.html:158
+#: allthethings/page/templates/page/faq.html:159
 #, fuzzy
 msgid "common.libgen.email"
 msgstr "如果你嘅電郵地址喺Libgen論壇唔得，我哋建議使用<a %(a_mail)s>Proton Mail</a>（免費）。你亦可以<a %(a_manual)s>手動請求</a>激活你嘅帳戶。"
 
-#: allthethings/page/templates/page/faq.html:159
+#: allthethings/page/templates/page/faq.html:160
 #, fuzzy
 msgid "page.faq.mhut_upload"
 msgstr "請注意，mhut.org會封鎖某啲IP範圍，所以可能需要VPN。"
 
-#: allthethings/page/templates/page/faq.html:163
+#: allthethings/page/templates/page/faq.html:164
 #, fuzzy
 msgid "page.upload.zlib.text1"
 msgstr "或者，你可以將佢哋上傳到Z-Library<a %(a_upload)s>呢度</a>。"
 
-#: allthethings/page/templates/page/faq.html:167
+#: allthethings/page/templates/page/faq.html:168
 #, fuzzy
 msgid "page.upload.zlib.text2"
 msgstr "要上傳學術論文，請同時（除咗Library Genesis）上傳到<a %(a_stc_nexus)s>STC Nexus</a>。佢哋係新論文嘅最佳影子圖書館。我哋仲未整合佢哋，但係將來會。你可以使用佢哋嘅<a %(a_telegram)s>Telegram上傳機械人</a>，或者如果你有太多文件要上傳，可以聯絡佢哋釘住嘅訊息中列出嘅地址。"
 
-#: allthethings/page/templates/page/faq.html:171
+#: allthethings/page/templates/page/faq.html:172
 #, fuzzy
 msgid "page.upload.large.text"
 msgstr "對於大規模上傳（超過10,000個文件）而Libgen或Z-Library唔接受，請聯絡我哋：%(a_email)s。"
 
-#: allthethings/page/templates/page/faq.html:174
+#: allthethings/page/templates/page/faq.html:175
 #, fuzzy
 msgid "page.faq.request.title"
 msgstr "我點樣請求書籍？"
 
-#: allthethings/page/templates/page/faq.html:177
+#: allthethings/page/templates/page/faq.html:178
 #, fuzzy
 msgid "page.request.cannot_accomodate"
 msgstr "目前，我哋無法滿足書籍請求。"
 
-#: allthethings/page/templates/page/faq.html:178
+#: allthethings/page/templates/page/faq.html:179
 #, fuzzy
 msgid "page.request.forums"
 msgstr "請喺Z-Library或Libgen論壇提出你嘅請求。"
 
-#: allthethings/page/templates/page/faq.html:179
+#: allthethings/page/templates/page/faq.html:180
 #, fuzzy
 msgid "page.request.dont_email"
 msgstr "唔好電郵我哋你嘅書籍請求。"
 
-#: allthethings/page/templates/page/faq.html:182
+#: allthethings/page/templates/page/faq.html:183
 #, fuzzy
 msgid "page.faq.metadata.title"
 msgstr "你哋會收集元數據嗎？"
 
-#: allthethings/page/templates/page/faq.html:185
+#: allthethings/page/templates/page/faq.html:186
 #, fuzzy
 msgid "page.faq.metadata.indeed"
 msgstr "我哋確實會。"
 
-#: allthethings/page/templates/page/faq.html:191
+#: allthethings/page/templates/page/faq.html:192
 #, fuzzy
 msgid "page.faq.1984.title"
 msgstr "我下載咗喬治·奧威爾嘅《1984》，警察會唔會上門？"
 
-#: allthethings/page/templates/page/faq.html:194
+#: allthethings/page/templates/page/faq.html:195
 #, fuzzy
 msgid "page.faq.1984.text"
 msgstr "唔使太擔心，有好多其他人都係從我哋連結嘅網站下載，出事嘅機會極低。不過，為咗安全起見，我哋建議使用VPN（付費），或者<a %(a_tor)s>Tor</a>（免費）。"
 
-#: allthethings/page/templates/page/faq.html:197
+#: allthethings/page/templates/page/faq.html:198
 #, fuzzy
 msgid "page.faq.save_search.title"
 msgstr "點樣儲存我嘅搜尋設定？"
 
-#: allthethings/page/templates/page/faq.html:200
+#: allthethings/page/templates/page/faq.html:201
 #, fuzzy
 msgid "page.faq.save_search.text1"
 msgstr "揀你鍾意嘅設定，保持搜尋框空白，點擊“搜尋”，然後用你嘅瀏覽器書籤功能將頁面加到書籤。"
 
-#: allthethings/page/templates/page/faq.html:203
+#: allthethings/page/templates/page/faq.html:204
 #, fuzzy
 msgid "page.faq.mobile.title"
 msgstr "你哋有冇手機應用程式？"
 
-#: allthethings/page/templates/page/faq.html:206
+#: allthethings/page/templates/page/faq.html:207
 #, fuzzy
 msgid "page.faq.mobile.text1"
 msgstr "我哋冇官方手機應用程式，但你可以將呢個網站安裝成應用程式。"
 
-#: allthethings/page/templates/page/faq.html:207
+#: allthethings/page/templates/page/faq.html:208
 #, fuzzy
 msgid "page.faq.mobile.android"
 msgstr "<strong>Android：</strong> 點擊右上角嘅三點菜單，然後揀“加到主畫面”。"
 
-#: allthethings/page/templates/page/faq.html:208
+#: allthethings/page/templates/page/faq.html:209
 #, fuzzy
 msgid "page.faq.mobile.ios"
 msgstr "<strong>iOS：</strong> 點擊底部嘅“分享”按鈕，然後揀“加到主畫面”。"
 
-#: allthethings/page/templates/page/faq.html:211
+#: allthethings/page/templates/page/faq.html:212
 #, fuzzy
 msgid "page.faq.api.title"
 msgstr "你哋有冇API？"
 
-#: allthethings/page/templates/page/faq.html:214
+#: allthethings/page/templates/page/faq.html:215
 #, fuzzy
 msgid "page.faq.api.text1"
 msgstr "我哋有一個穩定嘅JSON API俾會員用，攞快速下載URL：<a %(a_fast_download)s>/dyn/api/fast_download.json</a>（文檔喺JSON內）。"
 
-#: allthethings/page/templates/page/faq.html:218
+#: allthethings/page/templates/page/faq.html:219
 #, fuzzy
 msgid "page.faq.api.text2"
 msgstr "對於其他用途，例如遍歷我哋所有文件、建立自定義搜尋等等，我哋建議<a %(a_generate)s>生成</a>或者<a %(a_download)s>下載</a>我哋嘅ElasticSearch同MariaDB數據庫。原始數據可以手動通過<a %(a_explore)s>JSON文件</a>探索。"
 
-#: allthethings/page/templates/page/faq.html:222
+#: allthethings/page/templates/page/faq.html:223
 #, fuzzy
 msgid "page.faq.api.text3"
 msgstr "我哋嘅原始種子列表亦可以作為<a %(a_torrents)s>JSON</a>下載。"
 
-#: allthethings/page/templates/page/faq.html:225
+#: allthethings/page/templates/page/faq.html:226
 #, fuzzy
 msgid "page.faq.torrents.title"
 msgstr "種子FAQ"
 
-#: allthethings/page/templates/page/faq.html:228
+#: allthethings/page/templates/page/faq.html:229
 #, fuzzy
 msgid "page.faq.torrents.q1"
 msgstr "我想幫手做種子，但我冇咩硬碟空間。"
 
-#: allthethings/page/templates/page/faq.html:230
+#: allthethings/page/templates/page/faq.html:231
 #, fuzzy
 msgid "page.faq.torrents.a1"
 msgstr "使用<a %(a_list)s>種子列表生成器</a>生成一個喺你存儲空間限制內最需要做種子嘅種子列表。"
 
-#: allthethings/page/templates/page/faq.html:234
+#: allthethings/page/templates/page/faq.html:235
 #, fuzzy
 msgid "page.faq.torrents.q2"
 msgstr "種子太慢啦；我可以直接從你哋度下載數據嗎？"
 
-#: allthethings/page/templates/page/faq.html:236
+#: allthethings/page/templates/page/faq.html:237
 #, fuzzy
 msgid "page.faq.torrents.a2"
 msgstr "可以，睇<a %(a_llm)s>LLM數據</a>頁面。"
 
-#: allthethings/page/templates/page/faq.html:240
+#: allthethings/page/templates/page/faq.html:241
 #, fuzzy
 msgid "page.faq.torrents.q3"
 msgstr "我可以只下載部分文件，例如某個特定語言或者主題嘅文件嗎？"
 
-#: allthethings/page/templates/page/faq.html:242
+#: allthethings/page/templates/page/faq.html:243
 #, fuzzy
 msgid "page.faq.torrents.a3"
 msgstr "大部分嘅種子直接包含文件，意思係你可以指示種子客戶端只下載所需嘅文件。要決定下載邊啲文件，你可以<a %(a_generate)s>生成</a>我哋嘅元數據，或者<a %(a_download)s>下載</a>我哋嘅ElasticSearch同MariaDB數據庫。不幸嘅係，有啲種子集合喺根目錄包含.zip或者.tar文件，呢種情況下你需要下載整個種子先可以揀選個別文件。"
 
-#: allthethings/page/templates/page/faq.html:246
+#: allthethings/page/templates/page/faq.html:247
 #, fuzzy
 msgid "page.faq.torrents.q4"
 msgstr "你點樣處理種子入面嘅重複文件？"
 
-#: allthethings/page/templates/page/faq.html:248
+#: allthethings/page/templates/page/faq.html:249
 #, fuzzy
 msgid "page.faq.torrents.a4"
 msgstr "我哋嘗試保持呢個列表入面嘅種子重複或者重疊最少，但呢個唔係每次都可以做到，仲好大程度上取決於來源圖書館嘅政策。對於自己發佈種子嘅圖書館，我哋無法控制。對於Anna’s Archive發佈嘅種子，我哋只會基於MD5哈希值去重複，意思係唔同版本嘅同一本書唔會被去重複。"
 
-#: allthethings/page/templates/page/faq.html:252
+#: allthethings/page/templates/page/faq.html:253
 #, fuzzy
 msgid "page.faq.torrents.q5"
 msgstr "我可以以JSON格式獲取種子列表嗎？"
 
-#: allthethings/page/templates/page/faq.html:254
+#: allthethings/page/templates/page/faq.html:255
 #, fuzzy
 msgid "page.faq.torrents.a5"
 msgstr "可以。"
 
-#: allthethings/page/templates/page/faq.html:258
+#: allthethings/page/templates/page/faq.html:259
 #, fuzzy
 msgid "page.faq.torrents.q6"
 msgstr "我喺種子入面睇唔到PDF或者EPUB，只係見到二進制文件？我應該點做？"
 
-#: allthethings/page/templates/page/faq.html:260
+#: allthethings/page/templates/page/faq.html:261
 #, fuzzy
 msgid "page.faq.torrents.a6"
 msgstr "呢啲其實係PDF同EPUB，只係喺我哋好多種子入面冇副檔名。你可以喺兩個地方搵到種子文件嘅元數據，包括文件類型/副檔名："
 
-#: allthethings/page/templates/page/faq.html:262
+#: allthethings/page/templates/page/faq.html:263
 #, fuzzy
 msgid "page.faq.torrents.a6.li1"
 msgstr "1. 每個集合或者發佈都有自己嘅元數據。例如，<a %(a_libgen_nonfic)s>Libgen.rs種子</a>有對應嘅元數據數據庫喺Libgen.rs網站上。我哋通常會喺每個集合嘅<a %(a_datasets)s>數據集頁面</a>鏈接到相關嘅元數據資源。"
 
-#: allthethings/page/templates/page/faq.html:264
+#: allthethings/page/templates/page/faq.html:265
 #, fuzzy
 msgid "page.faq.torrents.a6.li2"
 msgstr "2. 我哋建議<a %(a_generate)s>生成</a>或者<a %(a_download)s>下載</a>我哋嘅ElasticSearch同MariaDB數據庫。呢啲數據庫包含Anna’s Archive每條記錄對應嘅種子文件嘅映射（如果有），喺ElasticSearch JSON入面嘅“torrent_paths”字段。"
 
-#: allthethings/page/templates/page/faq.html:267
+#: allthethings/page/templates/page/faq.html:268
 #, fuzzy
 msgid "page.faq.security.title"
 msgstr "你哋有負責任披露計劃嗎？"
 
-#: allthethings/page/templates/page/faq.html:270
+#: allthethings/page/templates/page/faq.html:271
 #, fuzzy
 msgid "page.faq.security.text1"
 msgstr "我哋歡迎安全研究員搜索我哋系統入面嘅漏洞。我哋係負責任披露嘅大力支持者。聯絡我哋<a %(a_contact)s>呢度</a>。"
 
-#: allthethings/page/templates/page/faq.html:274
+#: allthethings/page/templates/page/faq.html:275
 #, fuzzy
 msgid "page.faq.security.text2"
 msgstr "我哋目前無法提供漏洞賞金，除咗有<a %(a_link)s>潛在威脅我哋匿名性</a>嘅漏洞，我哋會提供$10k-50k範圍內嘅賞金。我哋希望將來可以提供更廣泛嘅漏洞賞金範圍！請注意，社交工程攻擊唔喺範圍內。"
 
-#: allthethings/page/templates/page/faq.html:278
+#: allthethings/page/templates/page/faq.html:279
 #, fuzzy
 msgid "page.faq.security.text3"
 msgstr "如果你對攻擊性安全有興趣，並且想幫助存檔世界嘅知識同文化，記得聯絡我哋。你有好多方法可以幫助。"
 
-#: allthethings/page/templates/page/faq.html:281
+#: allthethings/page/templates/page/faq.html:282
 #, fuzzy
 msgid "page.faq.resources.title"
 msgstr "有冇更多關於Anna’s Archive嘅資源？"
 
-#: allthethings/page/templates/page/faq.html:284
+#: allthethings/page/templates/page/faq.html:285
 #, fuzzy
 msgid "page.faq.resources.annas_blog"
 msgstr "<a %(a_blog)s>Anna’s Blog</a>，<a %(a_reddit_u)s>Reddit</a>，<a %(a_reddit_r)s>Subreddit</a> — 定期更新"
 
-#: allthethings/page/templates/page/faq.html:285
+#: allthethings/page/templates/page/faq.html:286
 #, fuzzy
 msgid "page.faq.resources.annas_software"
 msgstr "<a %(a_software)s>Anna’s Software</a> — 我哋嘅開源代碼"
 
-#: allthethings/page/templates/page/faq.html:286
+#: allthethings/page/templates/page/faq.html:287
 #, fuzzy
 msgid "page.faq.resources.translate"
 msgstr "<a %(a_translate)s>Translate on Anna’s Software</a> — 我哋嘅翻譯系統"
 
-#: allthethings/page/templates/page/faq.html:287
+#: allthethings/page/templates/page/faq.html:288
 #, fuzzy
 msgid "page.faq.resources.datasets"
 msgstr "<a %(a_datasets)s>Datasets</a> — 關於數據"
 
-#: allthethings/page/templates/page/faq.html:288
+#: allthethings/page/templates/page/faq.html:289
 #, fuzzy
 msgid "page.faq.resources.domains"
 msgstr "<a %(a_li)s>.li</a>，<a %(a_se)s>.se</a>，<a %(a_org)s>.org</a> — 替代域名"
 
-#: allthethings/page/templates/page/faq.html:289
+#: allthethings/page/templates/page/faq.html:290
 #, fuzzy
 msgid "page.faq.resources.wikipedia"
 msgstr "<a %(a_wikipedia)s>Wikipedia</a> — 更多關於我哋嘅資訊（請幫助保持呢個頁面更新，或者為你自己嘅語言創建一個！）"
 
-#: allthethings/page/templates/page/faq.html:292
+#: allthethings/page/templates/page/faq.html:293
 #, fuzzy
 msgid "page.faq.copyright.title"
 msgstr "點樣舉報版權侵權？"
 
-#: allthethings/page/templates/page/faq.html:295
+#: allthethings/page/templates/page/faq.html:296
 #, fuzzy
 msgid "page.faq.copyright.text1"
 msgstr "我哋唔會喺呢度寄存任何受版權保護嘅材料。我哋係一個搜索引擎，所以只會索引已經公開嘅元數據。喺下載呢啲外部來源嘅時候，我哋建議你檢查你所在司法管轄區嘅法律，睇下乜嘢係允許嘅。我哋唔對其他人寄存嘅內容負責。"
 
-#: allthethings/page/templates/page/faq.html:299
+#: allthethings/page/templates/page/faq.html:300
 #, fuzzy
 msgid "page.faq.copyright.text2"
 msgstr "如果你對喺呢度見到嘅內容有投訴，最好嘅方法係聯絡原始網站。我哋定期將佢哋嘅更改拉入我哋嘅數據庫。如果你真係認為你有有效嘅DMCA投訴，我哋應該回應，請填寫<a %(a_copyright)s>DMCA / 版權投訴表格</a>。我哋會認真對待你嘅投訴，並會盡快回覆你。"
 
-#: allthethings/page/templates/page/faq.html:302
+#: allthethings/page/templates/page/faq.html:303
 #, fuzzy
 msgid "page.faq.hate.title"
 msgstr "我好憎你哋點樣運行呢個項目！"
 
-#: allthethings/page/templates/page/faq.html:305
+#: allthethings/page/templates/page/faq.html:306
 #, fuzzy
 msgid "page.faq.hate.text1"
 msgstr "我哋亦想提醒大家，我哋所有嘅代碼同數據都係完全開源嘅。對於類似我哋嘅項目嚟講，呢個係獨一無二嘅——我哋唔知道有其他項目有咁大規模嘅目錄同時係完全開源嘅。我哋非常歡迎任何認為我哋運行項目唔好嘅人，攞我哋嘅代碼同數據，設立自己嘅影子圖書館！我哋唔係出於惡意或者乜嘢——我哋真心認為呢個會好棒，因為呢個會提高大家嘅標準，更好咁保存人類嘅遺產。"
 
-#: allthethings/page/templates/page/faq.html:308
+#: allthethings/page/templates/page/faq.html:309
 #, fuzzy
 msgid "page.faq.favorite.title"
 msgstr "你最鍾意嘅書係乜嘢？"
 
-#: allthethings/page/templates/page/faq.html:311
+#: allthethings/page/templates/page/faq.html:312
 #, fuzzy
 msgid "page.faq.favorite.text1"
 msgstr "呢度有啲對影子圖書館同數字保存世界有特別意義嘅書："
@@ -3549,13 +3663,13 @@ msgid "page.md5.box.download.ipfs_gateway_extra"
 msgstr "（您可能需要多次嘗試使用IPFS）"
 
 #: allthethings/page/templates/page/ipfs_downloads.html:23
-#: allthethings/page/templates/page/partner_download.html:93
+#: allthethings/page/templates/page/partner_download.html:91
 #, fuzzy
 msgid "page.partner_download.faster_downloads"
 msgstr "🚀 為咗更快下載同跳過瀏覽器檢查，<a %(a_membership)s>成為會員</a>。"
 
 #: allthethings/page/templates/page/ipfs_downloads.html:27
-#: allthethings/page/templates/page/partner_download.html:97
+#: allthethings/page/templates/page/partner_download.html:95
 #, fuzzy
 msgid "page.partner_download.bulk_mirroring"
 msgstr "📡 想批量鏡像我哋嘅收藏，請查看<a %(a_datasets)s>數據集</a>同<a %(a_torrents)s>種子</a>頁面。"
@@ -3909,27 +4023,31 @@ msgstr "一旦您獲得下載鏈接，佢會有效幾個鐘。"
 msgid "page.partner_download.li4"
 msgstr "多謝等候，呢個可以保持網站免費俾大家使用！😊"
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:40
+msgid "page.partner_download.automatic_refreshing"
+msgstr ""
+
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.url"
 msgstr "📚 使用以下 URL 下載：<a %(a_download)s>立即下載</a>。"
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.download_now"
 msgstr "立即下載"
 
-#: allthethings/page/templates/page/partner_download.html:86
+#: allthethings/page/templates/page/partner_download.html:84
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads"
 msgstr "警告：您嘅 IP 地址喺過去 24 小時內有大量下載。下載速度可能會比平時慢。"
 
-#: allthethings/page/templates/page/partner_download.html:87
+#: allthethings/page/templates/page/partner_download.html:85
 #, fuzzy
 msgid "page.partner_download.downloads_last_24_hours"
 msgstr "您嘅 IP 地址喺過去 24 小時內嘅下載次數：%(count)s。"
 
-#: allthethings/page/templates/page/partner_download.html:88
+#: allthethings/page/templates/page/partner_download.html:86
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads2"
 msgstr "如果您使用 VPN、共享網絡連接，或者您嘅 ISP 共享 IP 地址，呢個警告可能係因為呢啲原因。"

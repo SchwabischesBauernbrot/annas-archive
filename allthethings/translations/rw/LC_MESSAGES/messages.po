@@ -370,10 +370,6 @@ msgstr "Ku nkunga zirenga $5000 nyamuneka tuvugishe kuri %(email)s."
 #: allthethings/account/templates/account/index.html:36
 #: allthethings/page/templates/page/contact.html:3
 #: allthethings/page/templates/page/contact.html:6
-#: allthethings/page/templates/page/faq.html:84
-#: allthethings/page/templates/page/faq.html:139
-#: allthethings/page/templates/page/faq.html:147
-#: allthethings/page/templates/page/faq.html:171
 #: allthethings/page/templates/page/home.html:77
 #: allthethings/page/templates/page/home.html:82
 #: allthethings/page/templates/page/home.html:90
@@ -1387,6 +1383,14 @@ msgstr "Amadosiye yakuruwemo ntabwo agaragazwa ku mugaragaro."
 msgid "page.downloaded.no_files"
 msgstr "Nta madosiye arakururwa."
 
+#: allthethings/account/templates/account/downloaded.html:16
+msgid "page.downloaded.last_18_hours"
+msgstr ""
+
+#: allthethings/account/templates/account/downloaded.html:21
+msgid "page.downloaded.earlier"
+msgstr ""
+
 #: allthethings/account/templates/account/index.html:5
 #: allthethings/account/templates/account/index.html:15
 #, fuzzy
@@ -1462,7 +1466,7 @@ msgid "page.account.logged_in.membership_upgrade"
 msgstr "Hamagara Anna kuri %(email)s niba ushaka kuzamura urwego rw’ubunyamuryango bwawe."
 
 #: allthethings/account/templates/account/index.html:37
-#: allthethings/page/templates/page/faq.html:135
+#: allthethings/page/templates/page/faq.html:136
 #, fuzzy
 msgid "page.account.logged_in.membership_multiple"
 msgstr "Urashobora guhuza ubunyamuryango bwinshi (ibikururwa byihuta buri masaha 24 bizateranywa)."
@@ -1717,6 +1721,14 @@ msgstr "Byagaragaye ko byangiritse muri Libgen.li"
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "Bibura muri Z-Library"
 
+#: allthethings/page/views.py:4845
+msgid "common.md5_problem_type_mapping.zlib_spam"
+msgstr ""
+
+#: allthethings/page/views.py:4846
+msgid "common.md5_problem_type_mapping.zlib_bad_file"
+msgstr ""
+
 #: allthethings/page/views.py:4847
 #, fuzzy
 msgid "common.md5_problem_type_mapping.duxiu_pdg_broken_files"
@@ -1807,26 +1819,31 @@ msgstr "Gusuzuma amakuru"
 msgid "common.access_types_mapping.torrents_available"
 msgstr "Biri muri torrents"
 
-#: allthethings/page/templates/page/datasets.html:52
-#: allthethings/page/templates/page/datasets.html:88
+#: allthethings/page/templates/page/datasets.html:51
+#: allthethings/page/templates/page/datasets.html:87
 #: allthethings/page/views.py:4880
 #, fuzzy
 msgid "common.record_sources_mapping.lgrs"
 msgstr "Libgen.rs"
 
-#: allthethings/page/templates/page/datasets.html:54
-#: allthethings/page/templates/page/datasets.html:109
+#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:108
 #: allthethings/page/views.py:4881
 #, fuzzy
 msgid "common.record_sources_mapping.lgli"
 msgstr "Libgen.li"
 
-#: allthethings/page/templates/page/datasets.html:55
-#: allthethings/page/templates/page/datasets.html:121
+#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:120
 #: allthethings/page/views.py:4882
 #, fuzzy
 msgid "common.record_sources_mapping.zlib"
 msgstr "Z-Library"
+
+#: allthethings/page/templates/page/datasets.html:55
+#: allthethings/page/views.py:4883
+msgid "common.record_sources_mapping.zlibzh"
+msgstr ""
 
 #: allthethings/page/views.py:4884
 #, fuzzy
@@ -1843,7 +1860,7 @@ msgstr "ISBNdb"
 msgid "common.record_sources_mapping.ol"
 msgstr "OpenLibrary"
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 #: allthethings/page/views.py:4887
 #, fuzzy
 msgid "common.record_sources_mapping.scihub"
@@ -1854,15 +1871,15 @@ msgstr "Sci-Hub"
 msgid "common.record_sources_mapping.oclc"
 msgstr "OCLC (WorldCat)"
 
-#: allthethings/page/templates/page/datasets.html:58
-#: allthethings/page/templates/page/datasets.html:142
+#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:141
 #: allthethings/page/views.py:4889
 #, fuzzy
 msgid "common.record_sources_mapping.duxiu"
 msgstr "DuXiu 读秀"
 
-#: allthethings/page/templates/page/datasets.html:59
-#: allthethings/page/templates/page/datasets.html:155
+#: allthethings/page/templates/page/datasets.html:58
+#: allthethings/page/templates/page/datasets.html:154
 #: allthethings/page/views.py:4890
 #, fuzzy
 msgid "common.record_sources_mapping.uploads"
@@ -2517,8 +2534,6 @@ msgstr "Habaye ikosa. Ongera usubize urupapuro maze ugerageze nanone."
 
 #: allthethings/page/templates/page/aarecord.html:406
 #: allthethings/page/templates/page/aarecord.html:407
-#: allthethings/page/templates/page/codes.html:8
-#: allthethings/page/templates/page/codes.html:9
 #: allthethings/page/templates/page/copyright.html:6
 #: allthethings/page/templates/page/copyright.html:7
 #: allthethings/page/templates/page/datasets.html:13
@@ -2574,12 +2589,12 @@ msgstr "Iki ni igikoresho gicungwa na <a %(a_ia)s>IA’s Controlled Digital Lend
 msgid "page.md5.text.file_info.text1"
 msgstr "Kubijyanye n’iki gikoresho cyihariye, reba <a %(a_href)s>icyegeranyo cya JSON</a>."
 
-#: allthethings/page/templates/page/aarecord_issue.html:4
+#: allthethings/page/templates/page/aarecord_issue.html:5
 #, fuzzy
 msgid "page.aarecord_issue.title"
 msgstr "🔥 Ikibazo cyo gupakira uru rupapuro"
 
-#: allthethings/page/templates/page/aarecord_issue.html:6
+#: allthethings/page/templates/page/aarecord_issue.html:7
 #, fuzzy
 msgid "page.aarecord_issue.text"
 msgstr "Gerageza kongera kuvugurura. <a %(a_contact)s>Twandikire</a> niba ikibazo gikomeza kumara amasaha menshi."
@@ -2622,6 +2637,105 @@ msgstr "Niba ufashwe mu ruziga rudashira, turagusaba gushyiramo <a %(a_privacypa
 #, fuzzy
 msgid "page.login.text3"
 msgstr "Birashobora kandi gufasha kuzimya ibikoresho byo guhagarika amatangazo n’utundi twongerewe kuri mudasobwa."
+
+#: allthethings/page/templates/page/codes.html:5
+msgid "page.codes.title"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:10
+msgid "page.codes.heading"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:14
+msgid "page.codes.intro"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:18
+msgid "page.codes.why_cloudflare"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:22
+msgid "page.codes.dont_scrape"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:33
+msgid "page.codes.prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:34
+msgid "common.form.go"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:35
+msgid "common.form.reset"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:40
+msgid "page.codes.bad_unicode"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:46
+msgid "page.codes.known_code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:48
+msgid "page.codes.code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:49
+msgid "page.codes.code_label"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:51
+msgid "page.codes.code_description"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgid "page.codes.code_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgctxt "the %s should not be changed"
+msgid "page.codes.s_substitution"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:57
+msgid "page.codes.generic_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:61
+msgid "page.codes.code_website"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:69
+msgid "page.codes.record_starting_with"
+msgid_plural "page.codes.records_starting_with"
+msgstr[0] ""
+msgstr[1] ""
+
+#: allthethings/page/templates/page/codes.html:75
+msgid "page.codes.search_archive"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:77
+msgid "page.codes.url_link"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:84
+msgid "page.codes.codes_starting_with"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:92
+msgid "page.codes.records_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:93
+msgid "page.codes.records_codes"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:113
+msgid "page.codes.fewer_than"
+msgstr ""
 
 #: allthethings/page/templates/page/contact.html:9
 #, fuzzy
@@ -2723,144 +2837,140 @@ msgstr ""
 msgid "page.datasets.overview.last_updated.header"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:52
+#: allthethings/page/templates/page/datasets.html:51
 msgid "common.record_sources_mapping.lgrs.nonfiction_and_fiction"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "common.record_sources_mapping.scihub.via_lgli_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_1"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_2"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "common.record_sources.mapping.lgli.excluding_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "page.datasets.lgli_fiction_is_behind"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:56
-msgid "common.record_sources_mapping.zlibzh"
-msgstr ""
-
-#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:55
 msgid "page.datasets.zlibzh.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
-#: allthethings/page/templates/page/datasets.html:130
+#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:129
 msgid "common.record_sources_mapping.iacdl"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:56
 msgid "page.datasets.iacdl.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.total"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.excluding_duplicates"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:64
+#: allthethings/page/templates/page/datasets.html:63
 msgid "page.datasets.overview.text4"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:68
+#: allthethings/page/templates/page/datasets.html:67
 msgid "page.datasets.overview.text5"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:71
+#: allthethings/page/templates/page/datasets.html:70
 msgid "page.datasets.source_libraries.title"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:74
+#: allthethings/page/templates/page/datasets.html:73
 #, fuzzy
 msgid "page.datasets.source_libraries.text1"
 msgstr "Bimwe mu bitabo by'amasomero bimwe byamamaza gusangira amakuru yabo menshi binyuze muri torrents, mu gihe ibindi bitabikora byoroshye. Muri icyo gihe, Anna’s Archive iragerageza gukusanya amakuru yabo, ikayashyira ahagaragara (reba urupapuro rwacu rwa <a %(a_torrents)s>Torrents</a>). Hari n'ibindi bihuza hagati, urugero, aho amasomero y'amasoko yiteguye gusangira, ariko ntibafite ubushobozi bwo kubikora. Muri ibyo bihe, natwe turagerageza gufasha."
 
-#: allthethings/page/templates/page/datasets.html:78
+#: allthethings/page/templates/page/datasets.html:77
 #, fuzzy
 msgid "page.datasets.source_libraries.text2"
 msgstr "Hasi hari ishusho y'uko dukorana n'amasomero atandukanye y'amasoko."
 
-#: allthethings/page/templates/page/datasets.html:83
+#: allthethings/page/templates/page/datasets.html:82
 #, fuzzy
 msgid "page.datasets.sources.source.header"
 msgstr "Isoko"
 
-#: allthethings/page/templates/page/datasets.html:84
+#: allthethings/page/templates/page/datasets.html:83
 #, fuzzy
 msgid "page.datasets.sources.metadata.header"
 msgstr "Amakuru y'ibanze"
 
-#: allthethings/page/templates/page/datasets.html:85
+#: allthethings/page/templates/page/datasets.html:84
 #, fuzzy
 msgid "page.datasets.sources.files.header"
 msgstr "Amadosiye"
 
-#: allthethings/page/templates/page/datasets.html:98
+#: allthethings/page/templates/page/datasets.html:97
 #, fuzzy
 msgid "common.record_sources_mapping.scihub_scimag"
 msgstr "Sci-Hub / Libgen “scimag”"
 
-#: allthethings/page/templates/page/datasets.html:162
+#: allthethings/page/templates/page/datasets.html:161
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.title"
 msgstr "Amasoko y'amakuru y'ibanze gusa"
 
-#: allthethings/page/templates/page/datasets.html:165
+#: allthethings/page/templates/page/datasets.html:164
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text1"
 msgstr "Twongeyeho kandi amakuru y'ibanze gusa mu nzu yacu y'ibitabo, dushobora guhuza n'amadosiye, urugero dukoresheje nimero za ISBN cyangwa ibindi bice. Hasi hari ishusho y'ayo. Nanone, bimwe muri ibyo bisoko birafunguye rwose, mu gihe ibindi tugomba kubikusanya."
 
-#: allthethings/page/templates/page/datasets.html:169
-#: allthethings/page/templates/page/faq.html:186
+#: allthethings/page/templates/page/datasets.html:168
+#: allthethings/page/templates/page/faq.html:187
 #: allthethings/page/templates/page/search.html:294
 #, fuzzy
 msgid "page.faq.metadata.inspiration1"
 msgstr "Icyo cyaduteye ishyaka ryo gukusanya amakuru ni intego ya Aaron Swartz yo “urupapuro rumwe rwa interineti kuri buri gitabo cyose cyasohotse”, aho yaremye <a %(a_openlib)s>Open Library</a>."
 
-#: allthethings/page/templates/page/datasets.html:170
-#: allthethings/page/templates/page/faq.html:187
+#: allthethings/page/templates/page/datasets.html:169
+#: allthethings/page/templates/page/faq.html:188
 #: allthethings/page/templates/page/search.html:295
 #, fuzzy
 msgid "page.faq.metadata.inspiration2"
 msgstr "Uwo mushinga wakoze neza, ariko umwanya wacu wihariye utuma tubona metadata batabasha kubona."
 
-#: allthethings/page/templates/page/datasets.html:171
-#: allthethings/page/templates/page/faq.html:188
+#: allthethings/page/templates/page/datasets.html:170
+#: allthethings/page/templates/page/faq.html:189
 #: allthethings/page/templates/page/search.html:296
 #, fuzzy
 msgid "page.faq.metadata.inspiration3"
 msgstr "Undi yindi yindi ni ugushaka kumenya <a %(a_blog)s>ibitabo bingahe biri mu isi</a>, kugira ngo tubare ibitabo tugifite byo kurokora."
 
-#: allthethings/page/templates/page/datasets.html:175
+#: allthethings/page/templates/page/datasets.html:174
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text2"
 msgstr "Icyitonderwa ni uko mu gushakisha amakuru y'ibanze, tugaragaza inyandiko z'umwimerere. Ntabwo dukora ihuriro ry'inyandiko."
 
-#: allthethings/page/templates/page/datasets.html:216
+#: allthethings/page/templates/page/datasets.html:215
 #, fuzzy
 msgid "page.datasets.unified_database.title"
 msgstr "Ishingiro ry'ububiko bw'ibintu byose"
 
-#: allthethings/page/templates/page/datasets.html:219
+#: allthethings/page/templates/page/datasets.html:218
 #, fuzzy
 msgid "page.datasets.unified_database.text1"
 msgstr "Duhuza amasoko yose yavuzwe haruguru mu ishingiro rimwe ry'ububiko bw'ibintu byose dukoresha kuri uru rubuga. Iri shingiro ry'ububiko bw'ibintu byose ntirihita riboneka, ariko kuko Anna’s Archive ifunguye rwose, birashoboka rwose <a %(a_generated)s>gukora</a> cyangwa <a %(a_downloaded)s>gukuramo</a> nk'ububiko bwa ElasticSearch na MariaDB. Ibisobanuro biri kuri urwo rupapuro bizahita bikuramo amakuru yose y'ibanze akenewe avuye mu masoko yavuzwe haruguru."
 
-#: allthethings/page/templates/page/datasets.html:227
+#: allthethings/page/templates/page/datasets.html:226
 #, fuzzy
 msgid "page.datasets.unified_database.text2"
 msgstr "Niba ushaka gusuzuma amakuru yacu mbere yo gukoresha izo scripts ku giti cyawe, ushobora kureba amadosiye yacu ya JSON, ahuza n'andi madosiye ya JSON. <a %(a_json)s>Iri dosiye</a> ni ahantu heza ho gutangirira."
@@ -2901,473 +3011,477 @@ msgstr "Urubuga rwa ISBN"
 msgid "page.datasets/isbn_ranges.isbn_metadata"
 msgstr "Amakuru y'ibanze"
 
-#: allthethings/page/templates/page/faq.html:3
-#: allthethings/page/templates/page/faq.html:6
+#: allthethings/page/templates/page/faq.html:5
+#: allthethings/page/templates/page/faq.html:8
 #, fuzzy
 msgid "page.faq.title"
 msgstr "Ibibazo Bikunze Kubazwa (FAQ)"
 
-#: allthethings/page/templates/page/faq.html:8
+#: allthethings/page/templates/page/faq.html:10
 #, fuzzy
 msgid "page.faq.what_is.title"
 msgstr "Anna’s Archive ni iki?"
 
-#: allthethings/page/templates/page/faq.html:11
+#: allthethings/page/templates/page/faq.html:13
 #, fuzzy
 msgid "page.home.intro.text1"
 msgstr "<span %(span_anna)s>Anna’s Archive</span> ni umushinga utagamije inyungu ufite intego ebyiri:"
 
-#: allthethings/page/templates/page/faq.html:15
+#: allthethings/page/templates/page/faq.html:17
 #, fuzzy
 msgid "page.home.intro.text2"
 msgstr "<li><strong>Kubika:</strong> Kubika ubumenyi n’umuco w’abantu bose.</li><li><strong>Kugera kuri:</strong> Gutuma ubu bumenyi n’umuco bigerwaho n’umuntu wese ku isi.</li>"
 
-#: allthethings/page/templates/page/faq.html:19
+#: allthethings/page/templates/page/faq.html:21
 #, fuzzy
 msgid "page.home.intro.open_source"
 msgstr "Kandi <a %(a_code)s>amakode</a> yacu yose hamwe na <a %(a_datasets)s>data</a> zacu byose ni open source."
 
-#: allthethings/page/templates/page/faq.html:23
+#: allthethings/page/templates/page/faq.html:25
 #, fuzzy
 msgid "page.home.preservation.header"
 msgstr "Kubika"
 
-#: allthethings/page/templates/page/faq.html:25
+#: allthethings/page/templates/page/faq.html:27
 #, fuzzy
 msgid "page.home.preservation.text1"
 msgstr "Tubika ibitabo, inyandiko, udukino, ibinyamakuru, n’ibindi byinshi, tubikuye muri <a href=\"https://en.wikipedia.org/wiki/Shadow_library\">maktaba z’icyihishe</a>, maktaba zemewe, n’andi makusanyirizo atandukanye tukabizana hamwe. Iyi data yose ibikwa iteka ryose kuko byoroshye kuyikuba mu bwinshi — dukoresheje torrents — bigatuma habaho kopi nyinshi hirya no hino ku isi. Hari zimwe muri maktaba z’icyihishe zibikora ubwazo (nko kuri Sci-Hub, Library Genesis), mu gihe Anna’s Archive “ibohora” izindi maktaba zitanga gukwirakwiza mu bwinshi (nko kuri Z-Library) cyangwa se zitari maktaba z’icyihishe na gato (nko kuri Internet Archive, DuXiu)."
 
-#: allthethings/page/templates/page/faq.html:27
+#: allthethings/page/templates/page/faq.html:29
 #, fuzzy
 msgid "page.home.preservation.text2"
 msgstr "Uku gukwirakwiza gukomeye, hamwe n’ikoreshwa rya code ifunguye, bituma urubuga rwacu rwihanganira gukurwaho, kandi bigatuma ubumenyi n’umuco w’abantu bibikwa igihe kirekire. Menya byinshi kuri <a href=\"/datasets\">datasets zacu</a>."
 
-#: allthethings/page/templates/page/faq.html:41
+#: allthethings/page/templates/page/faq.html:43
 #, fuzzy
 msgid "page.home.preservation.label"
 msgstr "Tubara ko twabashije kubika hafi <a href=\"https://annas-blog.org/blog-isbndb-dump-how-many-books-are-preserved-forever.html\">5%% by’ibitabo by’isi</a>."
 
-#: allthethings/page/templates/page/faq.html:46
+#: allthethings/page/templates/page/faq.html:48
 #, fuzzy
 msgid "page.home.access.header"
 msgstr "Kwifashisha"
 
-#: allthethings/page/templates/page/faq.html:48
+#: allthethings/page/templates/page/faq.html:50
 #, fuzzy
 msgid "page.home.access.text"
 msgstr "Dukorana n'abafatanyabikorwa kugirango dukusanye byoroshye kandi ku buntu kuri buri wese. Twemera ko buri wese afite uburenganzira ku bwenge bw'ikiremwamuntu. Kandi <a %(a_search)s>bitabaye ku nyungu z'abanditsi</a>."
 
-#: allthethings/page/templates/page/faq.html:52
+#: allthethings/page/templates/page/faq.html:54
 #, fuzzy
 msgid "page.home.access.label"
 msgstr "Ibikururwa buri saha mu minsi 30 ishize. Impuzandengo ya buri saha: %(hourly)s. Impuzandengo ya buri munsi: %(daily)s."
 
-#: allthethings/page/templates/page/faq.html:80
+#: allthethings/page/templates/page/faq.html:82
 #, fuzzy
 msgid "page.about.text2"
 msgstr "Twemera cyane mu gutanga amakuru ku buntu, no kubika ubumenyi n'umuco. Uyu mashini y'ubushakashatsi, twubaka ku bitugu by'ibihangange. Turashimira cyane umurimo ukomeye w'abantu bakoze amasomero y'ibanga, kandi twizeye ko uyu mashini y'ubushakashatsi izagura urwego rwabo."
 
-#: allthethings/page/templates/page/faq.html:84
+#: allthethings/page/templates/page/faq.html:86
 #, fuzzy
 msgid "page.about.text3"
 msgstr "Kugira ngo ukomeze kumenya aho tugeze, kurikira Anna kuri <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a> cyangwa <a href=\"https://t.me/annasarchiveorg\">Telegram</a>. Kubibazo no gutanga ibitekerezo nyamuneka hamagara Anna kuri %(email)s."
 
-#: allthethings/page/templates/page/faq.html:87
+#: allthethings/page/templates/page/faq.html:89
 #, fuzzy
 msgid "page.faq.help.title"
 msgstr "Ntecyo nakora ngo mfasha?"
 
-#: allthethings/page/templates/page/faq.html:90
+#: allthethings/page/templates/page/faq.html:92
 #, fuzzy
 msgid "page.about.help.text"
 msgstr "<li>1. Dukurikire kuri <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a>, cyangwa <a href=\"https://t.me/annasarchiveorg\">Telegram</a>.</li><li>2. Saba abantu kumenya Anna’s Archive kuri Twitter, Reddit, Tiktok, Instagram, muri cafe cyangwa isomero ryawe, cyangwa aho ujya hose! Ntidukunda kubuza abantu — niba badukuraho tuzagaruka ahandi, kuko code yacu n'ibikoresho byose bifunguye.</li><li>3. Niba ubishoboye, tekereza <a href=\"/donate\">gutanga inkunga</a>.</li><li>4. Fasha <a href=\"https://translate.annas-software.org/\">guhindura</a> urubuga rwacu mu ndimi zitandukanye.</li><li>5. Niba uri umutekinisiye wa software, tekereza gutanga umusanzu kuri <a href=\"https://annas-software.org/\">open source</a>, cyangwa gutanga <a href=\"/datasets\">torrents</a>.</li>"
 
-#: allthethings/page/templates/page/faq.html:91
+#: allthethings/page/templates/page/faq.html:93
 #, fuzzy
 msgid "page.about.help.text6"
 msgstr "6. Niba uri umushakashatsi mu by'umutekano, dushobora gukoresha ubumenyi bwawe mu kurinda no gutera. Reba urupapuro rwacu rwa <a %(a_security)s>Umutekano</a>."
 
-#: allthethings/page/templates/page/faq.html:92
+#: allthethings/page/templates/page/faq.html:94
 #, fuzzy
 msgid "page.about.help.text7"
 msgstr "7. Turashaka inzobere mu bijyanye n'ubwishyu bw'abacuruzi batagaragara. Waba ushobora kudufasha kongera uburyo bworoshye bwo gutanga inkunga? PayPal, WeChat, amakarita y'impano. Niba uzi umuntu uwo ari we wese, nyamuneka twandikire."
 
-#: allthethings/page/templates/page/faq.html:93
+#: allthethings/page/templates/page/faq.html:95
 #, fuzzy
 msgid "page.about.help.text8"
 msgstr "8. Buri gihe turashaka ubushobozi bwinshi bwo kwakira seriveri."
 
-#: allthethings/page/templates/page/faq.html:94
+#: allthethings/page/templates/page/faq.html:96
 #, fuzzy
 msgid "page.about.help.text9"
 msgstr "9. Ushobora kudufasha utanga raporo ku bibazo bya dosiye, usiga ibitekerezo, kandi ugakora urutonde kuri uru rubuga. Ushobora kandi kudufasha <a %(a_upload)s>gushyira ibitabo byinshi</a>, cyangwa gukosora ibibazo bya dosiye cyangwa imiterere y'ibitabo biriho."
 
-#: allthethings/page/templates/page/faq.html:95
+#: allthethings/page/templates/page/faq.html:97
 #, fuzzy
 msgid "page.about.help.text10"
 msgstr "10. Gira cyangwa fungura urupapuro rwa Wikipedia rwa Anna’s Archive mu rurimi rwawe."
 
-#: allthethings/page/templates/page/faq.html:96
+#: allthethings/page/templates/page/faq.html:98
 #, fuzzy
 msgid "page.about.help.text11"
 msgstr "11. Turashaka gushyiraho amatangazo mato, meza. Niba ushaka kwamamaza kuri Anna’s Archive, nyamuneka tubimenyeshe."
 
-#: allthethings/page/templates/page/faq.html:97
+#: allthethings/page/templates/page/faq.html:99
 #, fuzzy
 msgid "page.faq.help.mirrors"
 msgstr "Twishimiye ko abantu bashyiraho <a %(a_mirrors)s>mirrors</a>, kandi tuzabatera inkunga y'amafaranga."
 
-#: allthethings/page/templates/page/faq.html:105
+#: allthethings/page/templates/page/faq.html:103
+msgid "page.about.help.volunteer"
+msgstr ""
+
+#: allthethings/page/templates/page/faq.html:106
 #, fuzzy
 msgid "page.faq.slow.title"
 msgstr "Kuki impamvu zo gukuramo ibitabo bigenda buhoro?"
 
-#: allthethings/page/templates/page/faq.html:108
+#: allthethings/page/templates/page/faq.html:109
 #, fuzzy
 msgid "page.faq.slow.text1"
 msgstr "Nta bushobozi dufite bwo guha buri wese ku isi ubushobozi bwo gukurura ibintu ku muvuduko mwinshi, nubwo twabishaka. Niba hari umuterankunga w’umukire wifuza kudufasha muri ibi, byaba ari byiza cyane, ariko kugeza ubwo, turagerageza uko dushoboye. Turi umushinga udaharanira inyungu ushobora kwigira gusa ku nkunga z’amafaranga."
 
-#: allthethings/page/templates/page/faq.html:112
+#: allthethings/page/templates/page/faq.html:113
 #, fuzzy
 msgid "page.faq.slow.text2"
 msgstr "Ibi ni byo byatumye dushyiraho uburyo bubiri bwo gukurura ibintu ku buntu, hamwe n’abafatanyabikorwa bacu: seriveri zisangiwe zifite umuvuduko muto, na seriveri zifite umuvuduko muke ariko zifite urutonde rwo gutegereza (kugabanya umubare w’abantu bakurura ibintu icyarimwe)."
 
-#: allthethings/page/templates/page/faq.html:116
+#: allthethings/page/templates/page/faq.html:117
 #, fuzzy
 msgid "page.faq.slow.text3"
 msgstr "Dufite kandi <a %(a_verification)s>uburyo bwo kwemeza umuburanyi</a> ku bikururwa bifite umuvuduko muto, kuko bitabaye ibyo bots na scrapers byabyitwaramo nabi, bigatuma ibintu birushaho kugenda buhoro ku bakoresha bemewe."
 
-#: allthethings/page/templates/page/faq.html:120
+#: allthethings/page/templates/page/faq.html:121
 #, fuzzy
 msgid "page.faq.slow.text4"
 msgstr "Icyitonderwa ni uko, mu gukoresha Tor Browser, ushobora kuba ugomba guhindura uburyo bwawe bwo kwirinda. Ku rwego rwo hasi rwitwa “Standard”, ikibazo cya Cloudflare turnstile kiratsinda. Ku rwego rwo hejuru rwitwa “Safer” na “Safest”, ikibazo kiratsindwa."
 
-#: allthethings/page/templates/page/faq.html:124
+#: allthethings/page/templates/page/faq.html:125
 #, fuzzy
 msgid "page.faq.slow.text5"
 msgstr "Kubera amadosiye manini, rimwe na rimwe gukuramo bishobora guhagarara hagati. Turasaba gukoresha umuyobozi wo gukuramo (nka JDownloader) kugirango byikoreze gukomeza gukuramo binini."
 
-#: allthethings/page/templates/page/faq.html:127
+#: allthethings/page/templates/page/faq.html:128
 #, fuzzy
 msgid "page.donate.faq.title"
 msgstr "Ibibazo bikunze kubazwa ku gutanga inkunga"
 
-#: allthethings/page/templates/page/faq.html:130
+#: allthethings/page/templates/page/faq.html:131
 #, fuzzy
 msgid "page.donate.faq.renew"
 msgstr "<div %(div_question)s>Ese ubunyamuryango bwiyongera bwikora?</div> Ubunyamuryango <strong>ntibwiyongera</strong> bwikora. Ushobora kwiyandikisha igihe kirekire cyangwa gito ushaka."
 
-#: allthethings/page/templates/page/faq.html:134
+#: allthethings/page/templates/page/faq.html:135
 #, fuzzy
 msgid "page.donate.faq.membership"
 msgstr "<div %(div_question)s>Nshobora kuzamura urwego rw’ubunyamuryango bwanjye cyangwa kugira ubunyamuryango bwinshi?</div>"
 
-#: allthethings/page/templates/page/faq.html:139
+#: allthethings/page/templates/page/faq.html:140
 #, fuzzy
 msgid "page.donate.faq.text_other_payment1"
 msgstr "<div %(div_question)s>Ese mufite ubundi buryo bwo kwishyura?</div> Ubu ntibihari. Abantu benshi ntibashaka ko inyandiko nk’izi zibaho, bityo tugomba kuba maso. Niba ushobora kudufasha gushyiraho ubundi buryo bwo kwishyura (bworoshye) mu mutekano, nyamuneka twandikire kuri %(email)s."
 
-#: allthethings/page/templates/page/faq.html:143
+#: allthethings/page/templates/page/faq.html:144
 #, fuzzy
 msgid "page.donate.faq.spend"
 msgstr "<div %(div_question)s>Mukoreshamo iki inkunga z’amafaranga?</div> 100%% ikoreshwa mu kubungabunga no gutuma ubumenyi n’umuco by’isi biboneka. Ubu dukoresha cyane cyane seriveri, ububiko, n’umuyoboro. Nta mafaranga ajya ku bagize itsinda."
 
-#: allthethings/page/templates/page/faq.html:147
+#: allthethings/page/templates/page/faq.html:148
 #, fuzzy
 msgid "page.donate.faq.text_large_donation"
 msgstr "<div %(div_question)s>Nshobora gutanga inkunga nini?</div> Byaba ari byiza cyane! Ku nkunga zirengeje ibihumbi bike by’amadolari, nyamuneka twandikire kuri %(email)s."
 
-#: allthethings/page/templates/page/faq.html:151
+#: allthethings/page/templates/page/faq.html:152
 #, fuzzy
 msgid "page.donate.faq.non_member_donation"
 msgstr "<div %(div_question)s>Nshobora gutanga inkunga ntari umunyamuryango?</div> Yego rwose. Twemera inkunga y’amafaranga ayo ari yo yose kuri iyi aderesi ya Monero (XMR): %(address)s."
 
-#: allthethings/page/templates/page/faq.html:154
+#: allthethings/page/templates/page/faq.html:155
 #, fuzzy
 msgid "page.faq.upload.title"
 msgstr "Nigute nshobora gushyira ibitabo bishya?"
 
-#: allthethings/page/templates/page/faq.html:157
+#: allthethings/page/templates/page/faq.html:158
 #, fuzzy
 msgid "page.upload.text1"
 msgstr "Kugeza ubu, turasaba gushyira ibitabo bishya muri Library Genesis forks. Dore <a %(a_guide)s>uburyo bworoshye</a>. Menya ko forks zombi dukoresha kuri uru rubuga ziva muri ubu buryo bwo gushyiraho."
 
-#: allthethings/page/templates/page/faq.html:158
+#: allthethings/page/templates/page/faq.html:159
 #, fuzzy
 msgid "common.libgen.email"
 msgstr "Niba aderesi ya email yawe itakora ku mbuga za Libgen, turagusaba gukoresha <a %(a_mail)s>Proton Mail</a> (ubuntu). Ushobora kandi <a %(a_manual)s>gusaba intoki</a> ko konti yawe yemezwa."
 
-#: allthethings/page/templates/page/faq.html:159
+#: allthethings/page/templates/page/faq.html:160
 #, fuzzy
 msgid "page.faq.mhut_upload"
 msgstr "Menya ko mhut.org ifunga interineti zimwe na zimwe, bityo VPN irashobora kuba ngombwa."
 
-#: allthethings/page/templates/page/faq.html:163
+#: allthethings/page/templates/page/faq.html:164
 #, fuzzy
 msgid "page.upload.zlib.text1"
 msgstr "Byongeye, ushobora kubishyira kuri Z-Library <a %(a_upload)s>aha</a>."
 
-#: allthethings/page/templates/page/faq.html:167
+#: allthethings/page/templates/page/faq.html:168
 #, fuzzy
 msgid "page.upload.zlib.text2"
 msgstr "Kugira ngo ushyireho inyandiko z’ubushakashatsi, nyamuneka (uhererekanye na Library Genesis) shyira kuri <a %(a_stc_nexus)s>STC Nexus</a>. Nibo bafite isomero ryiza ry’inyandiko nshya. Ntabwo turabahuza, ariko tuzabikora mu gihe kizaza. Ushobora gukoresha <a %(a_telegram)s>bot yabo yo gushyira kuri Telegram</a>, cyangwa uhamagare aderesi iri mu butumwa bwabo bw’ibanze niba ufite inyandiko nyinshi zo gushyiraho muri ubu buryo."
 
-#: allthethings/page/templates/page/faq.html:171
+#: allthethings/page/templates/page/faq.html:172
 #, fuzzy
 msgid "page.upload.large.text"
 msgstr "Ku byoherezwa binini (birengeje inyandiko 10,000) bitakirwa na Libgen cyangwa Z-Library, nyamuneka twandikire kuri %(a_email)s."
 
-#: allthethings/page/templates/page/faq.html:174
+#: allthethings/page/templates/page/faq.html:175
 #, fuzzy
 msgid "page.faq.request.title"
 msgstr "Nigute nasaba ibitabo?"
 
-#: allthethings/page/templates/page/faq.html:177
+#: allthethings/page/templates/page/faq.html:178
 #, fuzzy
 msgid "page.request.cannot_accomodate"
 msgstr "Kuri ubu, ntitwashobora kwakira ibisabwa by'ibitabo."
 
-#: allthethings/page/templates/page/faq.html:178
+#: allthethings/page/templates/page/faq.html:179
 #, fuzzy
 msgid "page.request.forums"
 msgstr "Nyamuneka usabe ibyo ukeneye ku mbuga za Z-Library cyangwa Libgen."
 
-#: allthethings/page/templates/page/faq.html:179
+#: allthethings/page/templates/page/faq.html:180
 #, fuzzy
 msgid "page.request.dont_email"
 msgstr "Ntukadutume email usaba ibitabo."
 
-#: allthethings/page/templates/page/faq.html:182
+#: allthethings/page/templates/page/faq.html:183
 #, fuzzy
 msgid "page.faq.metadata.title"
 msgstr "Mubika amakuru y’ibanze?"
 
-#: allthethings/page/templates/page/faq.html:185
+#: allthethings/page/templates/page/faq.html:186
 #, fuzzy
 msgid "page.faq.metadata.indeed"
 msgstr "Yego turabikora."
 
-#: allthethings/page/templates/page/faq.html:191
+#: allthethings/page/templates/page/faq.html:192
 #, fuzzy
 msgid "page.faq.1984.title"
 msgstr "Nakurura igitabo cya 1984 cya George Orwell, polisi izaza ku rugi rwanjye?"
 
-#: allthethings/page/templates/page/faq.html:194
+#: allthethings/page/templates/page/faq.html:195
 #, fuzzy
 msgid "page.faq.1984.text"
 msgstr "Ntukagire ubwoba bwinshi, hari abantu benshi bakurura ibintu ku mbuga twerekana, kandi ni gake cyane kugira ikibazo. Ariko, kugira ngo ugume mu mutekano turagusaba gukoresha VPN (yishyuwe), cyangwa <a %(a_tor)s>Tor</a> (ubuntu)."
 
-#: allthethings/page/templates/page/faq.html:197
+#: allthethings/page/templates/page/faq.html:198
 #, fuzzy
 msgid "page.faq.save_search.title"
 msgstr "Nigute nabika uburyo bwanjye bwo gushakisha?"
 
-#: allthethings/page/templates/page/faq.html:200
+#: allthethings/page/templates/page/faq.html:201
 #, fuzzy
 msgid "page.faq.save_search.text1"
 msgstr "Hitamo uburyo ukunda, ureke agasanduku k’ishakisha kagasige ubusa, kanda “Shakisha”, hanyuma ubike urupapuro ukoresheje uburyo bwo kubika urupapuro bwa mudasobwa yawe."
 
-#: allthethings/page/templates/page/faq.html:203
+#: allthethings/page/templates/page/faq.html:204
 #, fuzzy
 msgid "page.faq.mobile.title"
 msgstr "Mufite porogaramu ya mobile?"
 
-#: allthethings/page/templates/page/faq.html:206
+#: allthethings/page/templates/page/faq.html:207
 #, fuzzy
 msgid "page.faq.mobile.text1"
 msgstr "Nta porogaramu dufite ku matelefoni, ariko ushobora gushyira uru rubuga nk'uburyo bwa porogaramu."
 
-#: allthethings/page/templates/page/faq.html:207
+#: allthethings/page/templates/page/faq.html:208
 #, fuzzy
 msgid "page.faq.mobile.android"
 msgstr "<strong>Android:</strong> Kanda menu y'utudomo dutatu hejuru iburyo, hanyuma uhitemo “Ongeraho kuri Home Screen”."
 
-#: allthethings/page/templates/page/faq.html:208
+#: allthethings/page/templates/page/faq.html:209
 #, fuzzy
 msgid "page.faq.mobile.ios"
 msgstr "<strong>iOS:</strong> Kanda kuri buto ya “Share” iri hepfo, hanyuma uhitemo “Add to Home Screen”."
 
-#: allthethings/page/templates/page/faq.html:211
+#: allthethings/page/templates/page/faq.html:212
 #, fuzzy
 msgid "page.faq.api.title"
 msgstr "Mufite API?"
 
-#: allthethings/page/templates/page/faq.html:214
+#: allthethings/page/templates/page/faq.html:215
 #, fuzzy
 msgid "page.faq.api.text1"
 msgstr "Dufite API imwe ya JSON ihamye ku banyamuryango, kugirango babone URL yihuse yo gukuramo: <a %(a_fast_download)s>/dyn/api/fast_download.json</a> (inyandiko iri muri JSON ubwayo)."
 
-#: allthethings/page/templates/page/faq.html:218
+#: allthethings/page/templates/page/faq.html:219
 #, fuzzy
 msgid "page.faq.api.text2"
 msgstr "Ku bindi bikoresho, nko gusubiramo amadosiye yacu yose, kubaka ubushakashatsi bwihariye, n'ibindi, turasaba <a %(a_generate)s>gukora</a> cyangwa <a %(a_download)s>gukuramo</a> databases zacu za ElasticSearch na MariaDB. Amakuru y'ibanze ashobora gusuzumwa <a %(a_explore)s>binyuze muri JSON files</a>."
 
-#: allthethings/page/templates/page/faq.html:222
+#: allthethings/page/templates/page/faq.html:223
 #, fuzzy
 msgid "page.faq.api.text3"
 msgstr "Urutonde rwacu rw'ibanze rwa torrents rushobora gukurwaho nka <a %(a_torrents)s>JSON</a> kandi."
 
-#: allthethings/page/templates/page/faq.html:225
+#: allthethings/page/templates/page/faq.html:226
 #, fuzzy
 msgid "page.faq.torrents.title"
 msgstr "Ibibazo bikunze kubazwa kuri Torrents"
 
-#: allthethings/page/templates/page/faq.html:228
+#: allthethings/page/templates/page/faq.html:229
 #, fuzzy
 msgid "page.faq.torrents.q1"
 msgstr "Ndashaka gufasha gutanga, ariko sinfite umwanya munini kuri disiki."
 
-#: allthethings/page/templates/page/faq.html:230
+#: allthethings/page/templates/page/faq.html:231
 #, fuzzy
 msgid "page.faq.torrents.a1"
 msgstr "Koresha <a %(a_list)s>generator y'urutonde rwa torrents</a> kugirango ukore urutonde rwa torrents rukeneye cyane gutangwa, mu mbibi z'umwanya wawe wo kubika."
 
-#: allthethings/page/templates/page/faq.html:234
+#: allthethings/page/templates/page/faq.html:235
 #, fuzzy
 msgid "page.faq.torrents.q2"
 msgstr "Torrents zirihuta cyane; nshobora gukuramo amakuru mva kuri mwe?"
 
-#: allthethings/page/templates/page/faq.html:236
+#: allthethings/page/templates/page/faq.html:237
 #, fuzzy
 msgid "page.faq.torrents.a2"
 msgstr "Yego, reba urupapuro rwa <a %(a_llm)s>LLM data</a>."
 
-#: allthethings/page/templates/page/faq.html:240
+#: allthethings/page/templates/page/faq.html:241
 #, fuzzy
 msgid "page.faq.torrents.q3"
 msgstr "Nshobora gukuramo igice cy'amadosiye gusa, nko mu rurimi runaka cyangwa ku ngingo runaka?"
 
-#: allthethings/page/templates/page/faq.html:242
+#: allthethings/page/templates/page/faq.html:243
 #, fuzzy
 msgid "page.faq.torrents.a3"
 msgstr "Torrents nyinshi zifite amadosiye ahita aboneka, bivuze ko ushobora gutegeka abakiriya ba torrent gukuramo amadosiye akenewe gusa. Kugirango umenye amadosiye yo gukuramo, ushobora <a %(a_generate)s>gukora</a> metadata yacu, cyangwa <a %(a_download)s>gukuramo</a> databases zacu za ElasticSearch na MariaDB. Birababaje, zimwe mu ngero za torrents zifite .zip cyangwa .tar amadosiye ku mizi, muri icyo gihe ugomba gukuramo torrent yose mbere yo kuba ushobora guhitamo amadosiye yihariye."
 
-#: allthethings/page/templates/page/faq.html:246
+#: allthethings/page/templates/page/faq.html:247
 #, fuzzy
 msgid "page.faq.torrents.q4"
 msgstr "Mubika gute amadosiye yikubye muri torrents?"
 
-#: allthethings/page/templates/page/faq.html:248
+#: allthethings/page/templates/page/faq.html:249
 #, fuzzy
 msgid "page.faq.torrents.a4"
 msgstr "Turagerageza kugabanya amadosiye yikubye cyangwa yisubiramo hagati ya torrents ziri kuri uru rutonde, ariko ibi ntibishobora kugerwaho buri gihe, kandi biterwa cyane n'amabwiriza y'amasomero y'inkomoko. Ku masomero asohora torrents zabo, ntacyo twabikoraho. Ku torrents zisohorwa na Anna’s Archive, dukuraho amadosiye yikubye gusa dushingiye kuri MD5 hash, bivuze ko amaversion atandukanye y'igitabo kimwe adakurwaho."
 
-#: allthethings/page/templates/page/faq.html:252
+#: allthethings/page/templates/page/faq.html:253
 #, fuzzy
 msgid "page.faq.torrents.q5"
 msgstr "Nshobora kubona urutonde rwa torrents nka JSON?"
 
-#: allthethings/page/templates/page/faq.html:254
+#: allthethings/page/templates/page/faq.html:255
 #, fuzzy
 msgid "page.faq.torrents.a5"
 msgstr "Yego."
 
-#: allthethings/page/templates/page/faq.html:258
+#: allthethings/page/templates/page/faq.html:259
 #, fuzzy
 msgid "page.faq.torrents.q6"
 msgstr "Sinabona PDFs cyangwa EPUBs muri torrents, mbona gusa amadosiye ya binary? Nakora iki?"
 
-#: allthethings/page/templates/page/faq.html:260
+#: allthethings/page/templates/page/faq.html:261
 #, fuzzy
 msgid "page.faq.torrents.a6"
 msgstr "Ayo ni PDFs na EPUBs, gusa ntibafite inyongera muri torrents nyinshi zacu. Hari ahantu habiri ushobora kubona metadata y'amadosiye ya torrent, harimo n'ubwoko bw'amadosiye/inyongera:"
 
-#: allthethings/page/templates/page/faq.html:262
+#: allthethings/page/templates/page/faq.html:263
 #, fuzzy
 msgid "page.faq.torrents.a6.li1"
 msgstr "1. Buri koleksheni cyangwa isohoka ifite metadata yayo. Urugero, <a %(a_libgen_nonfic)s>Libgen.rs torrents</a> ifite database ya metadata ibitswe ku rubuga rwa Libgen.rs. Akenshi dushyira ku murongo ibikoresho bya metadata bijyanye na buri koleksheni ku rupapuro rwa <a %(a_datasets)s>dataset</a>."
 
-#: allthethings/page/templates/page/faq.html:264
+#: allthethings/page/templates/page/faq.html:265
 #, fuzzy
 msgid "page.faq.torrents.a6.li2"
 msgstr "2. Turasaba <a %(a_generate)s>gukora</a> cyangwa <a %(a_download)s>gukuramo</a> databases zacu za ElasticSearch na MariaDB. Izi zifite mapping ya buri nyandiko muri Anna’s Archive ku madosiye ya torrent bijyanye (niba aboneka), munsi ya “torrent_paths” muri ElasticSearch JSON."
 
-#: allthethings/page/templates/page/faq.html:267
+#: allthethings/page/templates/page/faq.html:268
 #, fuzzy
 msgid "page.faq.security.title"
 msgstr "Mufite gahunda yo gutangaza amakuru yizewe?"
 
-#: allthethings/page/templates/page/faq.html:270
+#: allthethings/page/templates/page/faq.html:271
 #, fuzzy
 msgid "page.faq.security.text1"
 msgstr "Turabira abashakashatsi b’umutekano gushakisha ibibazo by’umutekano mu mikorere yacu. Turi abashyigikiye cyane gutangaza amakuru mu buryo bukwiye. Twandikire <a %(a_contact)s>aha</a>."
 
-#: allthethings/page/templates/page/faq.html:274
+#: allthethings/page/templates/page/faq.html:275
 #, fuzzy
 msgid "page.faq.security.text2"
 msgstr "Ubu ntitwashobora gutanga ibihembo by’abashakashatsi b’ibibazo by’umutekano, uretse ibibazo bifite <a %(a_link)s>amahirwe yo guhungabanya umwirondoro wacu</a>, aho dutanga ibihembo biri hagati ya $10k-50k. Twifuza gutanga amahirwe menshi yo kubona ibihembo by’abashakashatsi b’ibibazo by’umutekano mu gihe kizaza! Nyamuneka menya ko ibitero by’uburiganya bitari mu ntego."
 
-#: allthethings/page/templates/page/faq.html:278
+#: allthethings/page/templates/page/faq.html:279
 #, fuzzy
 msgid "page.faq.security.text3"
 msgstr "Niba wifuza umutekano w'ubwirinzi, kandi ushaka gufasha kubika ubumenyi n'umuco w'isi, nyamuneka twandikire. Hari inzira nyinshi ushobora gufashamo."
 
-#: allthethings/page/templates/page/faq.html:281
+#: allthethings/page/templates/page/faq.html:282
 #, fuzzy
 msgid "page.faq.resources.title"
 msgstr "Hari andi makuru kuri Anna’s Archive?"
 
-#: allthethings/page/templates/page/faq.html:284
+#: allthethings/page/templates/page/faq.html:285
 #, fuzzy
 msgid "page.faq.resources.annas_blog"
 msgstr "<a %(a_blog)s>Blog ya Anna</a>, <a %(a_reddit_u)s>Reddit</a>, <a %(a_reddit_r)s>Subreddit</a> — amakuru agezweho"
 
-#: allthethings/page/templates/page/faq.html:285
+#: allthethings/page/templates/page/faq.html:286
 #, fuzzy
 msgid "page.faq.resources.annas_software"
 msgstr "<a %(a_software)s>Software ya Anna</a> — code yacu ifunguye"
 
-#: allthethings/page/templates/page/faq.html:286
+#: allthethings/page/templates/page/faq.html:287
 #, fuzzy
 msgid "page.faq.resources.translate"
 msgstr "<a %(a_translate)s>Hindura kuri Software ya Anna</a> — uburyo bwacu bwo guhindura indimi"
 
-#: allthethings/page/templates/page/faq.html:287
+#: allthethings/page/templates/page/faq.html:288
 #, fuzzy
 msgid "page.faq.resources.datasets"
 msgstr "<a %(a_datasets)s>Datasets</a> — ku bijyanye n’amakuru"
 
-#: allthethings/page/templates/page/faq.html:288
+#: allthethings/page/templates/page/faq.html:289
 #, fuzzy
 msgid "page.faq.resources.domains"
 msgstr "<a %(a_li)s>.li</a>, <a %(a_se)s>.se</a>, <a %(a_org)s>.org</a> — amazina y’ubundi buryo"
 
-#: allthethings/page/templates/page/faq.html:289
+#: allthethings/page/templates/page/faq.html:290
 #, fuzzy
 msgid "page.faq.resources.wikipedia"
 msgstr "<a %(a_wikipedia)s>Wikipedia</a> — byinshi kuri twe (nyamuneka dufashe gukomeza kuvugurura uru rupapuro, cyangwa ukore rumwe mu rurimi rwawe!)"
 
-#: allthethings/page/templates/page/faq.html:292
+#: allthethings/page/templates/page/faq.html:293
 #, fuzzy
 msgid "page.faq.copyright.title"
 msgstr "Nigute natanga raporo ku byerekeye kwica uburenganzira bw'umwanditsi?"
 
-#: allthethings/page/templates/page/faq.html:295
+#: allthethings/page/templates/page/faq.html:296
 #, fuzzy
 msgid "page.faq.copyright.text1"
 msgstr "Ntabwo twakira ibikoresho bifite uburenganzira hano. Turi mashini y'ubushakashatsi, bityo tukaba twandika gusa amakuru y'ibikoresho byamaze kuba ku mugaragaro. Mugihe ukura kuri aya masoko y'inyuma, twasaba kugenzura amategeko mu karere kawe ku bijyanye n'ibyo byemewe. Ntabwo dufite inshingano ku bikoresho byakiriwe n'abandi."
 
-#: allthethings/page/templates/page/faq.html:299
+#: allthethings/page/templates/page/faq.html:300
 #, fuzzy
 msgid "page.faq.copyright.text2"
 msgstr "Niba ufite ibirego ku byo ubona hano, igitekerezo cyiza ni uguhamagara urubuga rw'ibanze. Dukunda gukurura impinduka zabo muri database yacu. Niba koko wumva ufite ikirego cya DMCA cyemewe tugomba gusubiza, nyamuneka wuzuze <a %(a_copyright)s>DMCA / Ifishi y'ikirego cy'uburenganzira</a>. Dufata ibirego byawe mu buryo bukomeye, kandi tuzagusubiza vuba bishoboka."
 
-#: allthethings/page/templates/page/faq.html:302
+#: allthethings/page/templates/page/faq.html:303
 #, fuzzy
 msgid "page.faq.hate.title"
 msgstr "Nanga uko urimo gukoresha uyu mushinga!"
 
-#: allthethings/page/templates/page/faq.html:305
+#: allthethings/page/templates/page/faq.html:306
 #, fuzzy
 msgid "page.faq.hate.text1"
 msgstr "Twifuza kandi kwibutsa buri wese ko code yacu n’amakuru yose ari open source. Ibi ni byihariye ku mishinga nk’iyacu — ntitumenya undi mushinga ufite urutonde runini nk’uru kandi ruri open source. Turakaza neza buri wese utekereza ko dukora nabi umushinga wacu gufata code yacu n’amakuru no gushyiraho isomero ryabo! Ntabwo tubivuga kubera umujinya cyangwa ikindi — tubyizera rwose ko byaba ari byiza cyane kuko byazamura urwego rwa buri wese, kandi bikarushaho kubungabunga umurage w’abantu."
 
-#: allthethings/page/templates/page/faq.html:308
+#: allthethings/page/templates/page/faq.html:309
 #, fuzzy
 msgid "page.faq.favorite.title"
 msgstr "Ni ibihe bitabo ukunda?"
 
-#: allthethings/page/templates/page/faq.html:311
+#: allthethings/page/templates/page/faq.html:312
 #, fuzzy
 msgid "page.faq.favorite.text1"
 msgstr "Hano hari ibitabo bifite agaciro kadasanzwe mu isi y'amasomero y'ibanga no kubika inyandiko z'ikoranabuhanga:"
@@ -3549,13 +3663,13 @@ msgid "page.md5.box.download.ipfs_gateway_extra"
 msgstr "(ushobora gukenera kugerageza inshuro nyinshi na IPFS)"
 
 #: allthethings/page/templates/page/ipfs_downloads.html:23
-#: allthethings/page/templates/page/partner_download.html:93
+#: allthethings/page/templates/page/partner_download.html:91
 #, fuzzy
 msgid "page.partner_download.faster_downloads"
 msgstr "🚀 Kugira ngo ubone gukuramo byihuse no kwirinda kugenzura umubare w’abakoresha, <a %(a_membership)s>ba umunyamuryango</a>."
 
 #: allthethings/page/templates/page/ipfs_downloads.html:27
-#: allthethings/page/templates/page/partner_download.html:97
+#: allthethings/page/templates/page/partner_download.html:95
 #, fuzzy
 msgid "page.partner_download.bulk_mirroring"
 msgstr "📡 Kugira ngo ushyireho kopi nyinshi z’inyandiko zacu, reba <a %(a_datasets)s>Datasets</a> na <a %(a_torrents)s>Torrents</a>."
@@ -3925,27 +4039,31 @@ msgstr "Nimara kubona umurongo wo gukuramo uzamara amasaha menshi."
 msgid "page.partner_download.li4"
 msgstr "Urakoze gutegereza, ibi bituma urubuga ruboneka ku buntu kuri bose! 😊"
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:40
+msgid "page.partner_download.automatic_refreshing"
+msgstr ""
+
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.url"
 msgstr "📚 Koresha URL ikurikira kugira ngo ukuremo: <a %(a_download)s>Kuramo ubu</a>."
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.download_now"
 msgstr "Kuramo ubu"
 
-#: allthethings/page/templates/page/partner_download.html:86
+#: allthethings/page/templates/page/partner_download.html:84
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads"
 msgstr "Icyitonderwa: habayeho gukuramo byinshi kuva kuri aderesi ya IP yawe mu masaha 24 ashize. Gukuramo bishobora kuba bitinze kurusha bisanzwe."
 
-#: allthethings/page/templates/page/partner_download.html:87
+#: allthethings/page/templates/page/partner_download.html:85
 #, fuzzy
 msgid "page.partner_download.downloads_last_24_hours"
 msgstr "Ibikururwa na IP yawe mu masaha 24 ashize: %(count)s."
 
-#: allthethings/page/templates/page/partner_download.html:88
+#: allthethings/page/templates/page/partner_download.html:86
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads2"
 msgstr "Niba ukoresha VPN, internet isangiwe, cyangwa ISP yawe isangira IPs, iki cyitonderwa gishobora guterwa n'ibyo."

@@ -370,10 +370,6 @@ msgstr "Fir Spenden iwwer $5000 kontaktéiert eis w.e.g. direkt op %(email)s."
 #: allthethings/account/templates/account/index.html:36
 #: allthethings/page/templates/page/contact.html:3
 #: allthethings/page/templates/page/contact.html:6
-#: allthethings/page/templates/page/faq.html:84
-#: allthethings/page/templates/page/faq.html:139
-#: allthethings/page/templates/page/faq.html:147
-#: allthethings/page/templates/page/faq.html:171
 #: allthethings/page/templates/page/home.html:77
 #: allthethings/page/templates/page/home.html:82
 #: allthethings/page/templates/page/home.html:90
@@ -1387,6 +1383,14 @@ msgstr "Erofgelueden Dateien ginn net ëffentlech gewisen."
 msgid "page.downloaded.no_files"
 msgstr "Nach keng Dateien erofgelueden."
 
+#: allthethings/account/templates/account/downloaded.html:16
+msgid "page.downloaded.last_18_hours"
+msgstr ""
+
+#: allthethings/account/templates/account/downloaded.html:21
+msgid "page.downloaded.earlier"
+msgstr ""
+
 #: allthethings/account/templates/account/index.html:5
 #: allthethings/account/templates/account/index.html:15
 #, fuzzy
@@ -1462,7 +1466,7 @@ msgid "page.account.logged_in.membership_upgrade"
 msgstr "Kontaktéiert d'Anna op %(email)s wann Dir interesséiert sidd Äre Memberschaft op en héijeren Niveau ze upgrade."
 
 #: allthethings/account/templates/account/index.html:37
-#: allthethings/page/templates/page/faq.html:135
+#: allthethings/page/templates/page/faq.html:136
 #, fuzzy
 msgid "page.account.logged_in.membership_multiple"
 msgstr "Dir kënnt méi Memberschaften kombinéieren (schnell Downloads pro 24 Stonnen ginn zesummegerechent)."
@@ -1717,6 +1721,14 @@ msgstr "Als defekt markéiert an Libgen.li"
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "Feelt an der Z-Library"
 
+#: allthethings/page/views.py:4845
+msgid "common.md5_problem_type_mapping.zlib_spam"
+msgstr ""
+
+#: allthethings/page/views.py:4846
+msgid "common.md5_problem_type_mapping.zlib_bad_file"
+msgstr ""
+
 #: allthethings/page/views.py:4847
 #, fuzzy
 msgid "common.md5_problem_type_mapping.duxiu_pdg_broken_files"
@@ -1807,26 +1819,31 @@ msgstr "Metadaten entdecken"
 msgid "common.access_types_mapping.torrents_available"
 msgstr "An Torrents enthale"
 
-#: allthethings/page/templates/page/datasets.html:52
-#: allthethings/page/templates/page/datasets.html:88
+#: allthethings/page/templates/page/datasets.html:51
+#: allthethings/page/templates/page/datasets.html:87
 #: allthethings/page/views.py:4880
 #, fuzzy
 msgid "common.record_sources_mapping.lgrs"
 msgstr "Libgen.rs"
 
-#: allthethings/page/templates/page/datasets.html:54
-#: allthethings/page/templates/page/datasets.html:109
+#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:108
 #: allthethings/page/views.py:4881
 #, fuzzy
 msgid "common.record_sources_mapping.lgli"
 msgstr "Libgen.li"
 
-#: allthethings/page/templates/page/datasets.html:55
-#: allthethings/page/templates/page/datasets.html:121
+#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:120
 #: allthethings/page/views.py:4882
 #, fuzzy
 msgid "common.record_sources_mapping.zlib"
 msgstr "Z-Library"
+
+#: allthethings/page/templates/page/datasets.html:55
+#: allthethings/page/views.py:4883
+msgid "common.record_sources_mapping.zlibzh"
+msgstr ""
 
 #: allthethings/page/views.py:4884
 #, fuzzy
@@ -1843,7 +1860,7 @@ msgstr "ISBNdb"
 msgid "common.record_sources_mapping.ol"
 msgstr "OpenLibrary"
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 #: allthethings/page/views.py:4887
 #, fuzzy
 msgid "common.record_sources_mapping.scihub"
@@ -1854,15 +1871,15 @@ msgstr "Sci-Hub"
 msgid "common.record_sources_mapping.oclc"
 msgstr "OCLC (WorldCat)"
 
-#: allthethings/page/templates/page/datasets.html:58
-#: allthethings/page/templates/page/datasets.html:142
+#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:141
 #: allthethings/page/views.py:4889
 #, fuzzy
 msgid "common.record_sources_mapping.duxiu"
 msgstr "DuXiu 读秀"
 
-#: allthethings/page/templates/page/datasets.html:59
-#: allthethings/page/templates/page/datasets.html:155
+#: allthethings/page/templates/page/datasets.html:58
+#: allthethings/page/templates/page/datasets.html:154
 #: allthethings/page/views.py:4890
 #, fuzzy
 msgid "common.record_sources_mapping.uploads"
@@ -2517,8 +2534,6 @@ msgstr "Eppes ass schif gaangen. Luet d'Säit nei a probéiert et nach eng Kéie
 
 #: allthethings/page/templates/page/aarecord.html:406
 #: allthethings/page/templates/page/aarecord.html:407
-#: allthethings/page/templates/page/codes.html:8
-#: allthethings/page/templates/page/codes.html:9
 #: allthethings/page/templates/page/copyright.html:6
 #: allthethings/page/templates/page/copyright.html:7
 #: allthethings/page/templates/page/datasets.html:13
@@ -2574,12 +2589,12 @@ msgstr "Dëst ass eng Datei, déi vun der <a %(a_ia)s>IA’s Controlled Digital 
 msgid "page.md5.text.file_info.text1"
 msgstr "Fir Informatiounen iwwer dës spezifesch Datei, kuckt op hir <a %(a_href)s>JSON Datei</a>."
 
-#: allthethings/page/templates/page/aarecord_issue.html:4
+#: allthethings/page/templates/page/aarecord_issue.html:5
 #, fuzzy
 msgid "page.aarecord_issue.title"
 msgstr "🔥 Problem beim Luede vun dëser Säit"
 
-#: allthethings/page/templates/page/aarecord_issue.html:6
+#: allthethings/page/templates/page/aarecord_issue.html:7
 #, fuzzy
 msgid "page.aarecord_issue.text"
 msgstr "Probéiert w.e.g. nach eng Kéier. <a %(a_contact)s>Kontaktéiert eis</a> wann de Problem fir méi Stonnen unhale sollt."
@@ -2622,6 +2637,105 @@ msgstr "Wann Dir an enger onendlecher Schleif hänke bleift, empfeele mir d'Inst
 #, fuzzy
 msgid "page.login.text3"
 msgstr "Et kann och hëllefen, Annonceblocker an aner Browser-Erweiderungen auszeschalten."
+
+#: allthethings/page/templates/page/codes.html:5
+msgid "page.codes.title"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:10
+msgid "page.codes.heading"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:14
+msgid "page.codes.intro"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:18
+msgid "page.codes.why_cloudflare"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:22
+msgid "page.codes.dont_scrape"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:33
+msgid "page.codes.prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:34
+msgid "common.form.go"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:35
+msgid "common.form.reset"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:40
+msgid "page.codes.bad_unicode"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:46
+msgid "page.codes.known_code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:48
+msgid "page.codes.code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:49
+msgid "page.codes.code_label"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:51
+msgid "page.codes.code_description"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgid "page.codes.code_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgctxt "the %s should not be changed"
+msgid "page.codes.s_substitution"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:57
+msgid "page.codes.generic_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:61
+msgid "page.codes.code_website"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:69
+msgid "page.codes.record_starting_with"
+msgid_plural "page.codes.records_starting_with"
+msgstr[0] ""
+msgstr[1] ""
+
+#: allthethings/page/templates/page/codes.html:75
+msgid "page.codes.search_archive"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:77
+msgid "page.codes.url_link"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:84
+msgid "page.codes.codes_starting_with"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:92
+msgid "page.codes.records_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:93
+msgid "page.codes.records_codes"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:113
+msgid "page.codes.fewer_than"
+msgstr ""
 
 #: allthethings/page/templates/page/contact.html:9
 #, fuzzy
@@ -2723,144 +2837,140 @@ msgstr ""
 msgid "page.datasets.overview.last_updated.header"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:52
+#: allthethings/page/templates/page/datasets.html:51
 msgid "common.record_sources_mapping.lgrs.nonfiction_and_fiction"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "common.record_sources_mapping.scihub.via_lgli_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_1"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_2"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "common.record_sources.mapping.lgli.excluding_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "page.datasets.lgli_fiction_is_behind"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:56
-msgid "common.record_sources_mapping.zlibzh"
-msgstr ""
-
-#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:55
 msgid "page.datasets.zlibzh.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
-#: allthethings/page/templates/page/datasets.html:130
+#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:129
 msgid "common.record_sources_mapping.iacdl"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:56
 msgid "page.datasets.iacdl.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.total"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.excluding_duplicates"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:64
+#: allthethings/page/templates/page/datasets.html:63
 msgid "page.datasets.overview.text4"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:68
+#: allthethings/page/templates/page/datasets.html:67
 msgid "page.datasets.overview.text5"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:71
+#: allthethings/page/templates/page/datasets.html:70
 msgid "page.datasets.source_libraries.title"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:74
+#: allthethings/page/templates/page/datasets.html:73
 #, fuzzy
 msgid "page.datasets.source_libraries.text1"
 msgstr "E puer Quellbibliothéiken förderen d'Massendeelung vun hiren Donnéeën duerch Torrents, während anerer hir Sammlung net direkt deelen. Am leschte Fall probéiert Anna’s Archive hir Sammlungen ze scrape an se verfügbar ze maachen (kuckt eis <a %(a_torrents)s>Torrents</a> Säit). Et ginn och Zwëschefäll, zum Beispill, wou Quellbibliothéiken bereet sinn ze deelen, awer net d'Ressourcen hunn, dat ze maachen. An dëse Fäll probéiere mir och ze hëllefen."
 
-#: allthethings/page/templates/page/datasets.html:78
+#: allthethings/page/templates/page/datasets.html:77
 #, fuzzy
 msgid "page.datasets.source_libraries.text2"
 msgstr "Hei drënner ass en Iwwerbléck wéi mir mat de verschiddene Quellbibliothéiken interagéieren."
 
-#: allthethings/page/templates/page/datasets.html:83
+#: allthethings/page/templates/page/datasets.html:82
 #, fuzzy
 msgid "page.datasets.sources.source.header"
 msgstr "Quell"
 
-#: allthethings/page/templates/page/datasets.html:84
+#: allthethings/page/templates/page/datasets.html:83
 #, fuzzy
 msgid "page.datasets.sources.metadata.header"
 msgstr "Metadaten"
 
-#: allthethings/page/templates/page/datasets.html:85
+#: allthethings/page/templates/page/datasets.html:84
 #, fuzzy
 msgid "page.datasets.sources.files.header"
 msgstr "Dateien"
 
-#: allthethings/page/templates/page/datasets.html:98
+#: allthethings/page/templates/page/datasets.html:97
 #, fuzzy
 msgid "common.record_sources_mapping.scihub_scimag"
 msgstr "Sci-Hub / Libgen “scimag”"
 
-#: allthethings/page/templates/page/datasets.html:162
+#: allthethings/page/templates/page/datasets.html:161
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.title"
 msgstr "Nëmmen Metadaten Quellen"
 
-#: allthethings/page/templates/page/datasets.html:165
+#: allthethings/page/templates/page/datasets.html:164
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text1"
 msgstr "Mir beräicheren eis Sammlung och mat nëmmen Metadaten Quellen, déi mir mat Dateien vergläiche kënnen, z.B. mat ISBN Nummeren oder anere Felder. Hei drënner ass en Iwwerbléck vun dësen. Erëm, e puer vun dëse Quellen sinn komplett oppe, während mir anerer scrape mussen."
 
-#: allthethings/page/templates/page/datasets.html:169
-#: allthethings/page/templates/page/faq.html:186
+#: allthethings/page/templates/page/datasets.html:168
+#: allthethings/page/templates/page/faq.html:187
 #: allthethings/page/templates/page/search.html:294
 #, fuzzy
 msgid "page.faq.metadata.inspiration1"
 msgstr "Eis Inspiratioun fir Metadaten ze sammelen ass den Aaron Swartz säin Zil vun “eng Websäit fir all Buch dat jeemools publizéiert gouf”, fir déi hien <a %(a_openlib)s>Open Library</a> erstallt huet."
 
-#: allthethings/page/templates/page/datasets.html:170
-#: allthethings/page/templates/page/faq.html:187
+#: allthethings/page/templates/page/datasets.html:169
+#: allthethings/page/templates/page/faq.html:188
 #: allthethings/page/templates/page/search.html:295
 #, fuzzy
 msgid "page.faq.metadata.inspiration2"
 msgstr "Dëst Projet huet gutt funktionéiert, awer eis eenzegaarteg Positioun erlaabt eis Metadaten ze kréien, déi si net kënnen."
 
-#: allthethings/page/templates/page/datasets.html:171
-#: allthethings/page/templates/page/faq.html:188
+#: allthethings/page/templates/page/datasets.html:170
+#: allthethings/page/templates/page/faq.html:189
 #: allthethings/page/templates/page/search.html:296
 #, fuzzy
 msgid "page.faq.metadata.inspiration3"
 msgstr "Eng aner Inspiratioun war eise Wonsch ze wëssen <a %(a_blog)s>wéi vill Bicher et op der Welt ginn</a>, sou datt mir berechne kënnen, wéi vill Bicher mir nach ze retten hunn."
 
-#: allthethings/page/templates/page/datasets.html:175
+#: allthethings/page/templates/page/datasets.html:174
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text2"
 msgstr "Notéiert datt mir bei der Metadaten-Sich déi originell Opzeechnungen weisen. Mir maachen keng Zesummeféierung vun den Opzeechnungen."
 
-#: allthethings/page/templates/page/datasets.html:216
+#: allthethings/page/templates/page/datasets.html:215
 #, fuzzy
 msgid "page.datasets.unified_database.title"
 msgstr "Vereenegt Datebank"
 
-#: allthethings/page/templates/page/datasets.html:219
+#: allthethings/page/templates/page/datasets.html:218
 #, fuzzy
 msgid "page.datasets.unified_database.text1"
 msgstr "Mir kombinéieren all déi uewe genannte Quellen an eng vereenegt Datebank, déi mir benotze fir dës Websäit ze bedéngen. Dës vereenegt Datebank ass net direkt verfügbar, awer well Anna’s Archive komplett Open Source ass, kann se relativ einfach <a %(a_generated)s>generéiert</a> oder <a %(a_downloaded)s>erofgeluede</a> ginn als ElasticSearch an MariaDB Datebanken. D'Skripter op där Säit lueden automatesch all déi néideg Metadaten vun de genannte Quellen erof."
 
-#: allthethings/page/templates/page/datasets.html:227
+#: allthethings/page/templates/page/datasets.html:226
 #, fuzzy
 msgid "page.datasets.unified_database.text2"
 msgstr "Wann Dir eis Donnéeë wëllt entdecken ier Dir dës Skripter lokal ausféiert, kënnt Dir eis JSON-Dateien kucken, déi weider op aner JSON-Dateien verlinken. <a %(a_json)s>Dës Datei</a> ass e gudde Startpunkt."
@@ -2901,473 +3011,477 @@ msgstr "ISBN Websäit"
 msgid "page.datasets/isbn_ranges.isbn_metadata"
 msgstr "Metadaten"
 
-#: allthethings/page/templates/page/faq.html:3
-#: allthethings/page/templates/page/faq.html:6
+#: allthethings/page/templates/page/faq.html:5
+#: allthethings/page/templates/page/faq.html:8
 #, fuzzy
 msgid "page.faq.title"
 msgstr "Dacks gestallte Froen (FAQ)"
 
-#: allthethings/page/templates/page/faq.html:8
+#: allthethings/page/templates/page/faq.html:10
 #, fuzzy
 msgid "page.faq.what_is.title"
 msgstr "Wat ass Anna’s Archive?"
 
-#: allthethings/page/templates/page/faq.html:11
+#: allthethings/page/templates/page/faq.html:13
 #, fuzzy
 msgid "page.home.intro.text1"
 msgstr "<span %(span_anna)s>Anna’s Archive</span> ass e non-profit Projet mat zwou Ziler:"
 
-#: allthethings/page/templates/page/faq.html:15
+#: allthethings/page/templates/page/faq.html:17
 #, fuzzy
 msgid "page.home.intro.text2"
 msgstr "<li><strong>Erhalen:</strong> All Wëssen a Kultur vun der Mënschheet ze sécheren.</li><li><strong>Zougang:</strong> Dëst Wëssen a Kultur fir jiddereen op der Welt zougänglech ze maachen.</li>"
 
-#: allthethings/page/templates/page/faq.html:19
+#: allthethings/page/templates/page/faq.html:21
 #, fuzzy
 msgid "page.home.intro.open_source"
 msgstr "All eise <a %(a_code)s>Code</a> an <a %(a_datasets)s>Donnéeën</a> sinn komplett Open Source."
 
-#: allthethings/page/templates/page/faq.html:23
+#: allthethings/page/templates/page/faq.html:25
 #, fuzzy
 msgid "page.home.preservation.header"
 msgstr "Erhalen"
 
-#: allthethings/page/templates/page/faq.html:25
+#: allthethings/page/templates/page/faq.html:27
 #, fuzzy
 msgid "page.home.preservation.text1"
 msgstr "Mir sécheren Bicher, Pabeieren, Comics, Zäitschrëften a méi, andeems mir dës Materialien aus verschiddene <a href=\"https://en.wikipedia.org/wiki/Shadow_library\">Schiedbibliothéiken</a>, offiziellen Bibliothéiken an anere Sammlungen op enger Plaz zesummebréngen. All dës Donnéeën ginn fir ëmmer geséchert, andeems et einfach gemaach gëtt, se a grousse Quantitéiten ze duplizéieren — mat Torrents — wat zu ville Kopien ronderëm d'Welt féiert. E puer Schiedbibliothéiken maachen dat schonn selwer (z.B. Sci-Hub, Library Genesis), während Anna’s Archive aner Bibliothéiken \"befreit\", déi keng Bulk-Verdeelung ubidden (z.B. Z-Library) oder guer keng Schiedbibliothéiken sinn (z.B. Internet Archive, DuXiu)."
 
-#: allthethings/page/templates/page/faq.html:27
+#: allthethings/page/templates/page/faq.html:29
 #, fuzzy
 msgid "page.home.preservation.text2"
 msgstr "Dës breet Verdeelung, kombinéiert mat Open-Source Code, mécht eis Websäit resistent géint Ofschaltungen a séchert d'laangfristeg Erhalen vum Wëssen a Kultur vun der Mënschheet. Léiert méi iwwer <a href=\"/datasets\">eis Donnéeësets</a>."
 
-#: allthethings/page/templates/page/faq.html:41
+#: allthethings/page/templates/page/faq.html:43
 #, fuzzy
 msgid "page.home.preservation.label"
 msgstr "Mir schätzen, datt mir ongeféier <a href=\"https://annas-blog.org/blog-isbndb-dump-how-many-books-are-preserved-forever.html\">5%% vun de Bicher op der Welt geséchert hunn</a>."
 
-#: allthethings/page/templates/page/faq.html:46
+#: allthethings/page/templates/page/faq.html:48
 #, fuzzy
 msgid "page.home.access.header"
 msgstr "Zougang"
 
-#: allthethings/page/templates/page/faq.html:48
+#: allthethings/page/templates/page/faq.html:50
 #, fuzzy
 msgid "page.home.access.text"
 msgstr "Mir schaffen mat Partner zesummen, fir eis Sammlungen einfach a fräi zougänglech fir jiddereen ze maachen. Mir gleewen, datt jiddereen e Recht op d'kollektiv Wëssen vun der Mënschheet huet. An <a %(a_search)s>net op Käschte vun den Auteuren</a>."
 
-#: allthethings/page/templates/page/faq.html:52
+#: allthethings/page/templates/page/faq.html:54
 #, fuzzy
 msgid "page.home.access.label"
 msgstr "Stonnendownloads an de leschten 30 Deeg. Stonnenmoyenne: %(hourly)s. Dagesmoyenne: %(daily)s."
 
-#: allthethings/page/templates/page/faq.html:80
+#: allthethings/page/templates/page/faq.html:82
 #, fuzzy
 msgid "page.about.text2"
 msgstr "Mir gleewen staark un de fräie Floss vun Informatiounen an d'Erhale vu Wëssen a Kultur. Mat dëser Sichmaschinn bauen mir op d'Schëllere vu Risen. Mir respektéieren déif d'schwiereg Aarbecht vun de Leit, déi déi verschidde Schiedbibliothéiken erstallt hunn, a mir hoffen, datt dës Sichmaschinn hir Reechwäit erweidert."
 
-#: allthethings/page/templates/page/faq.html:84
+#: allthethings/page/templates/page/faq.html:86
 #, fuzzy
 msgid "page.about.text3"
 msgstr "Fir um Lafenden ze bleiwen iwwer eise Fortschrëtt, folgt Anna op <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a> oder <a href=\"https://t.me/annasarchiveorg\">Telegram</a>. Fir Froen a Feedback kontaktéiert w.e.g. Anna op %(email)s."
 
-#: allthethings/page/templates/page/faq.html:87
+#: allthethings/page/templates/page/faq.html:89
 #, fuzzy
 msgid "page.faq.help.title"
 msgstr "Wéi kann ech hëllefen?"
 
-#: allthethings/page/templates/page/faq.html:90
+#: allthethings/page/templates/page/faq.html:92
 #, fuzzy
 msgid "page.about.help.text"
 msgstr "<li>1. Follegt eis op <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a>, oder <a href=\"https://t.me/annasarchiveorg\">Telegram</a>.</li><li>2. Verbreet d'Wuert iwwer Anna’s Archive op Twitter, Reddit, Tiktok, Instagram, an ärem lokale Café oder Bibliothéik, oder iwwerall wou dir gitt! Mir gleewen net un d'Ofschiermung — wann mir ofgeschalt ginn, poppe mir einfach soss anzwousch op, well all eise Code an Donnéeën komplett Open Source sinn.</li><li>3. Wann dir kënnt, betruecht <a href=\"/donate\">ze spenden</a>.</li><li>4. Hëlleft <a href=\"https://translate.annas-software.org/\">eis Websäit</a> an aner Sproochen ze iwwersetzen.</li><li>5. Wann dir Software Ingenieur sidd, betruecht bäizedroen zu eisem <a href=\"https://annas-software.org/\">Open Source</a>, oder eis <a href=\"/datasets\">Torrents</a> ze séeden.</li>"
 
-#: allthethings/page/templates/page/faq.html:91
+#: allthethings/page/templates/page/faq.html:93
 #, fuzzy
 msgid "page.about.help.text6"
 msgstr "6. Wann dir Sécherheetsfuerscher sidd, kënne mir är Fäegkeeten souwuel fir Ugrëff wéi och Verdeedegung gebrauchen. Kuckt eis <a %(a_security)s>Sécherheets</a> Säit un."
 
-#: allthethings/page/templates/page/faq.html:92
+#: allthethings/page/templates/page/faq.html:94
 #, fuzzy
 msgid "page.about.help.text7"
 msgstr "7. Mir sichen Experten a Bezuelungen fir anonym Händler. Kënnt dir eis hëllefen méi praktesch Weeër derbäi ze maachen fir ze spenden? PayPal, WeChat, Cadeaukaarten. Wann dir een kennt, kontaktéiert eis w.e.g."
 
-#: allthethings/page/templates/page/faq.html:93
+#: allthethings/page/templates/page/faq.html:95
 #, fuzzy
 msgid "page.about.help.text8"
 msgstr "8. Mir sichen ëmmer no méi Serverkapazitéit."
 
-#: allthethings/page/templates/page/faq.html:94
+#: allthethings/page/templates/page/faq.html:96
 #, fuzzy
 msgid "page.about.help.text9"
 msgstr "9. Dir kënnt hëllefen andeems dir Dateiproblemer mellt, Kommentaren hannerloosst, a Lëschten op dëser Websäit erstellt. Dir kënnt och hëllefen andeems dir <a %(a_upload)s>méi Bicher eropluet</a>, oder Dateiproblemer oder Formatéierung vun existente Bicher fixéiert."
 
-#: allthethings/page/templates/page/faq.html:95
+#: allthethings/page/templates/page/faq.html:97
 #, fuzzy
 msgid "page.about.help.text10"
 msgstr "10. Erstellt oder hëlleft d'Wikipedia Säit fir Anna’s Archive an ärer Sprooch ze erhalen."
 
-#: allthethings/page/templates/page/faq.html:96
+#: allthethings/page/templates/page/faq.html:98
 #, fuzzy
 msgid "page.about.help.text11"
 msgstr "11. Mir sichen no klengen, dezenten Annoncen. Wann Dir op Anna’s Archive wëllt annoncéieren, sot eis w.e.g. Bescheed."
 
-#: allthethings/page/templates/page/faq.html:97
+#: allthethings/page/templates/page/faq.html:99
 #, fuzzy
 msgid "page.faq.help.mirrors"
 msgstr "Mir géifen et gär gesinn, wann d'Leit <a %(a_mirrors)s>Spigelen</a> opstellen, a mir wäerten dat finanziell ënnerstëtzen."
 
-#: allthethings/page/templates/page/faq.html:105
+#: allthethings/page/templates/page/faq.html:103
+msgid "page.about.help.volunteer"
+msgstr ""
+
+#: allthethings/page/templates/page/faq.html:106
 #, fuzzy
 msgid "page.faq.slow.title"
 msgstr "Firwat sinn d'langsam Downloads esou lues?"
 
-#: allthethings/page/templates/page/faq.html:108
+#: allthethings/page/templates/page/faq.html:109
 #, fuzzy
 msgid "page.faq.slow.text1"
 msgstr "Mir hunn net genuch Ressourcen, fir jidderengem op der Welt héich-Vitesse Downloads ze ginn, och wann mir dat gär géifen. Wann e räiche Benefactor eis dat géif erméiglechen, wier dat fantastesch, mee bis dohin maache mir eist Bescht. Mir sinn e Non-Profit-Projet, dee sech kaum duerch Donen erhale kann."
 
-#: allthethings/page/templates/page/faq.html:112
+#: allthethings/page/templates/page/faq.html:113
 #, fuzzy
 msgid "page.faq.slow.text2"
 msgstr "Dofir hu mir zwee Systemer fir gratis Downloads mat eise Partneren ëmgesat: gedeelt Servere mat luesen Downloads, an e bëssen méi séier Servere mat enger Waardelëscht (fir d'Zuel vun de Leit, déi gläichzäiteg eroflueden, ze reduzéieren)."
 
-#: allthethings/page/templates/page/faq.html:116
+#: allthethings/page/templates/page/faq.html:117
 #, fuzzy
 msgid "page.faq.slow.text3"
 msgstr "Mir hunn och <a %(a_verification)s>Browser-Verifikatioun</a> fir eis lues Downloads, well soss Bots a Scrapers se mëssbrauchen, wat d'Saache fir legitim Benotzer nach méi lues mécht."
 
-#: allthethings/page/templates/page/faq.html:120
+#: allthethings/page/templates/page/faq.html:121
 #, fuzzy
 msgid "page.faq.slow.text4"
 msgstr "Notéiert datt Dir, wann Dir de Tor Browser benotzt, eventuell Är Sécherheetseinstellungen upasse musst. Op der niddregster Optioun, genannt “Standard”, klappt d'Cloudflare Turnstile Erausfuerderung. Op den hécheren Optiounen, genannt “Sécher” an “Am Séchersten”, klappt d'Erausfuerderung net."
 
-#: allthethings/page/templates/page/faq.html:124
+#: allthethings/page/templates/page/faq.html:125
 #, fuzzy
 msgid "page.faq.slow.text5"
 msgstr "Fir grouss Dateien kënnen heiansdo lues Downloads an der Mëtt briechen. Mir recommandéieren e Download-Manager (wéi JDownloader) ze benotzen fir grouss Downloads automatesch weiderzefueren."
 
-#: allthethings/page/templates/page/faq.html:127
+#: allthethings/page/templates/page/faq.html:128
 #, fuzzy
 msgid "page.donate.faq.title"
 msgstr "Donatioun FAQ"
 
-#: allthethings/page/templates/page/faq.html:130
+#: allthethings/page/templates/page/faq.html:131
 #, fuzzy
 msgid "page.donate.faq.renew"
 msgstr "<div %(div_question)s>Ginn d'Memberschaften automatesch erneiert?</div> D'Memberschaften ginn <strong>net</strong> automatesch erneiert. Dir kënnt esou laang oder kuerz bäitrieden, wéi Dir wëllt."
 
-#: allthethings/page/templates/page/faq.html:134
+#: allthethings/page/templates/page/faq.html:135
 #, fuzzy
 msgid "page.donate.faq.membership"
 msgstr "<div %(div_question)s>Kann ech meng Memberschaft upgraden oder méi Memberschaften kréien?</div>"
 
-#: allthethings/page/templates/page/faq.html:139
+#: allthethings/page/templates/page/faq.html:140
 #, fuzzy
 msgid "page.donate.faq.text_other_payment1"
 msgstr "<div %(div_question)s>Hutt Dir aner Bezuelmethoden?</div> Momentan net. Vill Leit wëllen net, datt Archiver wéi dësen existéieren, dofir musse mir virsiichteg sinn. Wann Dir eis hëllefe kënnt, aner (méi praktesch) Bezuelmethoden sécher opzestellen, kontaktéiert eis w.e.g. op %(email)s."
 
-#: allthethings/page/templates/page/faq.html:143
+#: allthethings/page/templates/page/faq.html:144
 #, fuzzy
 msgid "page.donate.faq.spend"
 msgstr "<div %(div_question)s>Woufir gitt Dir d'Donatioune aus?</div> 100%% ginn an d'Erhalen an d'Zougänglechmaache vum Wëssen a Kultur vun der Welt. Momentan gi mir se haaptsächlech fir Serveren, Späicher a Bandbreet aus. Kee Geld geet un iergendeng Team-Memberen perséinlech."
 
-#: allthethings/page/templates/page/faq.html:147
+#: allthethings/page/templates/page/faq.html:148
 #, fuzzy
 msgid "page.donate.faq.text_large_donation"
 msgstr "<div %(div_question)s>Kann ech eng grouss Donatioun maachen?</div> Dat wier erstaunlech! Fir Donatioune vu méi wéi e puer dausend Dollar, kontaktéiert eis w.e.g. direkt op %(email)s."
 
-#: allthethings/page/templates/page/faq.html:151
+#: allthethings/page/templates/page/faq.html:152
 #, fuzzy
 msgid "page.donate.faq.non_member_donation"
 msgstr "<div %(div_question)s>Kann ech eng Donatioun maachen ouni Member ze ginn?</div> Natierlech. Mir akzeptéieren Donatioune vun all Betrag op dëser Monero (XMR) Adress: %(address)s."
 
-#: allthethings/page/templates/page/faq.html:154
+#: allthethings/page/templates/page/faq.html:155
 #, fuzzy
 msgid "page.faq.upload.title"
 msgstr "Wéi lueden ech nei Bicher erop?"
 
-#: allthethings/page/templates/page/faq.html:157
+#: allthethings/page/templates/page/faq.html:158
 #, fuzzy
 msgid "page.upload.text1"
 msgstr "Fir de Moment proposéiere mir, nei Bicher op d'Library Genesis Forken eropzelueden. Hei ass e <a %(a_guide)s>praktesche Guide</a>. Notéiert datt béid Forken, déi mir op dëser Websäit indexéieren, aus dësem selwechten Upload-System zéien."
 
-#: allthethings/page/templates/page/faq.html:158
+#: allthethings/page/templates/page/faq.html:159
 #, fuzzy
 msgid "common.libgen.email"
 msgstr "Wann Är E-Mail-Adress net op de Libgen Foren funktionéiert, recommandéiere mir <a %(a_mail)s>Proton Mail</a> (gratis) ze benotzen. Dir kënnt och <a %(a_manual)s>manuell ufroen</a>, datt Äre Kont aktivéiert gëtt."
 
-#: allthethings/page/templates/page/faq.html:159
+#: allthethings/page/templates/page/faq.html:160
 #, fuzzy
 msgid "page.faq.mhut_upload"
 msgstr "Notéiert datt mhut.org bestëmmte IP-Bereicher blockéiert, dofir kéint e VPN néideg sinn."
 
-#: allthethings/page/templates/page/faq.html:163
+#: allthethings/page/templates/page/faq.html:164
 #, fuzzy
 msgid "page.upload.zlib.text1"
 msgstr "Alternativ kënnt Dir se op Z-Library <a %(a_upload)s>hei</a> eroplueden."
 
-#: allthethings/page/templates/page/faq.html:167
+#: allthethings/page/templates/page/faq.html:168
 #, fuzzy
 msgid "page.upload.zlib.text2"
 msgstr "Fir akademesch Pabeieren eropzelueden, lued se w.e.g. och (zousätzlech zu Library Genesis) op <a %(a_stc_nexus)s>STC Nexus</a> erop. Si sinn déi bescht Schiedbibliothéik fir nei Pabeieren. Mir hunn se nach net integréiert, mee mir wäerten dat zu engem gewëssen Zäitpunkt maachen. Dir kënnt hiren <a %(a_telegram)s>Upload-Bot op Telegram</a> benotzen, oder d'Adress kontaktéieren, déi an hirer gepinnten Noriicht opgelëscht ass, wann Dir ze vill Dateien hutt, fir se op dës Manéier eropzelueden."
 
-#: allthethings/page/templates/page/faq.html:171
+#: allthethings/page/templates/page/faq.html:172
 #, fuzzy
 msgid "page.upload.large.text"
 msgstr "Fir grouss Uploads (iwwer 10,000 Dateien), déi net vu Libgen oder Z-Library akzeptéiert ginn, kontaktéiert eis w.e.g. op %(a_email)s."
 
-#: allthethings/page/templates/page/faq.html:174
+#: allthethings/page/templates/page/faq.html:175
 #, fuzzy
 msgid "page.faq.request.title"
 msgstr "Wéi froen ech Bicher un?"
 
-#: allthethings/page/templates/page/faq.html:177
+#: allthethings/page/templates/page/faq.html:178
 #, fuzzy
 msgid "page.request.cannot_accomodate"
 msgstr "De Moment kënne mir keng Buchufroen erfëllen."
 
-#: allthethings/page/templates/page/faq.html:178
+#: allthethings/page/templates/page/faq.html:179
 #, fuzzy
 msgid "page.request.forums"
 msgstr "Maacht w.e.g. Är Ufroen op de Foren vu Z-Library oder Libgen."
 
-#: allthethings/page/templates/page/faq.html:179
+#: allthethings/page/templates/page/faq.html:180
 #, fuzzy
 msgid "page.request.dont_email"
 msgstr "Schéckt eis keng E-Mail mat Äre Buchufroen."
 
-#: allthethings/page/templates/page/faq.html:182
+#: allthethings/page/templates/page/faq.html:183
 #, fuzzy
 msgid "page.faq.metadata.title"
 msgstr "Sammelt Dir Metadaten?"
 
-#: allthethings/page/templates/page/faq.html:185
+#: allthethings/page/templates/page/faq.html:186
 #, fuzzy
 msgid "page.faq.metadata.indeed"
 msgstr "Jo, dat maachen mir."
 
-#: allthethings/page/templates/page/faq.html:191
+#: allthethings/page/templates/page/faq.html:192
 #, fuzzy
 msgid "page.faq.1984.title"
 msgstr "Ech hunn 1984 vum George Orwell erofgelueden, wäert d'Police bei mir doheem kommen?"
 
-#: allthethings/page/templates/page/faq.html:194
+#: allthethings/page/templates/page/faq.html:195
 #, fuzzy
 msgid "page.faq.1984.text"
 msgstr "Maacht Iech keng Suergen, et ginn vill Leit, déi vun de Websäiten eroflueden, déi mir verlinken, an et ass extrem seelen, datt een a Problemer geréit. Fir sécher ze bleiwen, empfeele mir e VPN (bezuelt) oder <a %(a_tor)s>Tor</a> (gratis) ze benotzen."
 
-#: allthethings/page/templates/page/faq.html:197
+#: allthethings/page/templates/page/faq.html:198
 #, fuzzy
 msgid "page.faq.save_search.title"
 msgstr "Wéi späicheren ech meng Sichastellungen?"
 
-#: allthethings/page/templates/page/faq.html:200
+#: allthethings/page/templates/page/faq.html:201
 #, fuzzy
 msgid "page.faq.save_search.text1"
 msgstr "Wielt d'Astellungen déi Dir gär hutt, loosst d'Sichfeld eidel, klickt op \"Sichen\", an dann späichert d'Säit als Lesezeechen mat der Lesezeechen-Funktioun vun Ärem Browser."
 
-#: allthethings/page/templates/page/faq.html:203
+#: allthethings/page/templates/page/faq.html:204
 #, fuzzy
 msgid "page.faq.mobile.title"
 msgstr "Hutt Dir eng mobil App?"
 
-#: allthethings/page/templates/page/faq.html:206
+#: allthethings/page/templates/page/faq.html:207
 #, fuzzy
 msgid "page.faq.mobile.text1"
 msgstr "Mir hunn keng offiziell mobil App, mee Dir kënnt dës Websäit als App installéieren."
 
-#: allthethings/page/templates/page/faq.html:207
+#: allthethings/page/templates/page/faq.html:208
 #, fuzzy
 msgid "page.faq.mobile.android"
 msgstr "<strong>Android:</strong> Klickt op d'Dréi-Punkt-Menü uewen riets, an wielt \"Op Startbildschierm derbäisetzen\"."
 
-#: allthethings/page/templates/page/faq.html:208
+#: allthethings/page/templates/page/faq.html:209
 #, fuzzy
 msgid "page.faq.mobile.ios"
 msgstr "<strong>iOS:</strong> Klickt op de \"Deelen\" Knäppchen ënnen, an wielt \"Op Startbildschierm derbäisetzen\"."
 
-#: allthethings/page/templates/page/faq.html:211
+#: allthethings/page/templates/page/faq.html:212
 #, fuzzy
 msgid "page.faq.api.title"
 msgstr "Hutt Dir eng API?"
 
-#: allthethings/page/templates/page/faq.html:214
+#: allthethings/page/templates/page/faq.html:215
 #, fuzzy
 msgid "page.faq.api.text1"
 msgstr "Mir hunn eng stabil JSON API fir Memberen, fir eng séier Download-URL ze kréien: <a %(a_fast_download)s>/dyn/api/fast_download.json</a> (Dokumentatioun bannent dem JSON selwer)."
 
-#: allthethings/page/templates/page/faq.html:218
+#: allthethings/page/templates/page/faq.html:219
 #, fuzzy
 msgid "page.faq.api.text2"
 msgstr "Fir aner Benotzungsfäll, wéi d'Duerchfuere vun all eise Fichieren, d'Erstelle vun enger personaliséierter Sich, asw., empfeele mir <a %(a_generate)s>d'Generéiere</a> oder <a %(a_download)s>d'Erofluede</a> vun eisen ElasticSearch an MariaDB Datebanken. D'Rohdaten kënnen manuell <a %(a_explore)s>duerch JSON-Fichieren</a> exploréiert ginn."
 
-#: allthethings/page/templates/page/faq.html:222
+#: allthethings/page/templates/page/faq.html:223
 #, fuzzy
 msgid "page.faq.api.text3"
 msgstr "Eis Lëscht vu Roh-Torrents kann och als <a %(a_torrents)s>JSON</a> erofgeluede ginn."
 
-#: allthethings/page/templates/page/faq.html:225
+#: allthethings/page/templates/page/faq.html:226
 #, fuzzy
 msgid "page.faq.torrents.title"
 msgstr "Torrents FAQ"
 
-#: allthethings/page/templates/page/faq.html:228
+#: allthethings/page/templates/page/faq.html:229
 #, fuzzy
 msgid "page.faq.torrents.q1"
 msgstr "Ech géif gär hëllefen ze seeden, mee ech hunn net vill Späicherplatz."
 
-#: allthethings/page/templates/page/faq.html:230
+#: allthethings/page/templates/page/faq.html:231
 #, fuzzy
 msgid "page.faq.torrents.a1"
 msgstr "Benotzt de <a %(a_list)s>Torrent-Lëscht-Generator</a> fir eng Lëscht vun Torrents ze generéieren, déi am meeschten Ufro hunn, bannent Äre Späicherplatzlimiten."
 
-#: allthethings/page/templates/page/faq.html:234
+#: allthethings/page/templates/page/faq.html:235
 #, fuzzy
 msgid "page.faq.torrents.q2"
 msgstr "D'Torrents sinn ze lues; kann ech d'Donnéeën direkt vun Iech eroflueden?"
 
-#: allthethings/page/templates/page/faq.html:236
+#: allthethings/page/templates/page/faq.html:237
 #, fuzzy
 msgid "page.faq.torrents.a2"
 msgstr "Jo, kuckt op der <a %(a_llm)s>LLM Daten</a> Säit."
 
-#: allthethings/page/templates/page/faq.html:240
+#: allthethings/page/templates/page/faq.html:241
 #, fuzzy
 msgid "page.faq.torrents.q3"
 msgstr "Kann ech nëmmen en Deel vun de Fichieren eroflueden, wéi nëmmen eng bestëmmte Sprooch oder Thema?"
 
-#: allthethings/page/templates/page/faq.html:242
+#: allthethings/page/templates/page/faq.html:243
 #, fuzzy
 msgid "page.faq.torrents.a3"
 msgstr "Déi meescht Torrents enthalen d'Fichieren direkt, wat bedeit datt Dir Torrent-Clienten uweise kënnt, nëmmen déi erfuerderlech Fichieren erofzelueden. Fir ze bestëmmen, wéi eng Fichieren erofzelueden sinn, kënnt Dir <a %(a_generate)s>eis Metadaten generéieren</a>, oder <a %(a_download)s>eis ElasticSearch an MariaDB Datenbanken eroflueden</a>. Leider enthalen e puer Torrent-Kollektiounen .zip oder .tar Fichieren an der Root, an dësem Fall musst Dir den ganzen Torrent eroflueden, ier Dir individuell Fichieren auswiele kënnt."
 
-#: allthethings/page/templates/page/faq.html:246
+#: allthethings/page/templates/page/faq.html:247
 #, fuzzy
 msgid "page.faq.torrents.q4"
 msgstr "Wéi handhabt Dir Duplikater an den Torrents?"
 
-#: allthethings/page/templates/page/faq.html:248
+#: allthethings/page/templates/page/faq.html:249
 #, fuzzy
 msgid "page.faq.torrents.a4"
 msgstr "Mir probéieren d'Duplikatioun oder Iwwerlappung tëscht den Torrents op dëser Lëscht minimal ze halen, mee dat kann net ëmmer erreecht ginn an hänkt staark vun de Richtlinne vun de Quellbibliothéiken of. Fir Bibliothéiken, déi hir eege Torrents erausginn, ass et ausserhalb vun eiser Kontroll. Fir Torrents, déi vun Anna’s Archive verëffentlecht ginn, deduplizéiere mir nëmmen op Basis vum MD5 Hash, wat bedeit datt verschidde Versioune vum selwechte Buch net deduplizéiert ginn."
 
-#: allthethings/page/templates/page/faq.html:252
+#: allthethings/page/templates/page/faq.html:253
 #, fuzzy
 msgid "page.faq.torrents.q5"
 msgstr "Kann ech d'Torrent-Lëscht als JSON kréien?"
 
-#: allthethings/page/templates/page/faq.html:254
+#: allthethings/page/templates/page/faq.html:255
 #, fuzzy
 msgid "page.faq.torrents.a5"
 msgstr "Jo."
 
-#: allthethings/page/templates/page/faq.html:258
+#: allthethings/page/templates/page/faq.html:259
 #, fuzzy
 msgid "page.faq.torrents.q6"
 msgstr "Ech gesinn keng PDFs oder EPUBs an den Torrents, nëmmen binär Fichieren? Wat soll ech maachen?"
 
-#: allthethings/page/templates/page/faq.html:260
+#: allthethings/page/templates/page/faq.html:261
 #, fuzzy
 msgid "page.faq.torrents.a6"
 msgstr "Dëst sinn tatsächlech PDFs an EPUBs, si hunn just keng Extensioun an villen vun eisen Torrents. Et ginn zwou Plazen, wou Dir d'Metadaten fir Torrent-Fichieren fannt, inklusiv d'Fichier-Typen/Extensiounen:"
 
-#: allthethings/page/templates/page/faq.html:262
+#: allthethings/page/templates/page/faq.html:263
 #, fuzzy
 msgid "page.faq.torrents.a6.li1"
 msgstr "1. All Kollektioun oder Verëffentlechung huet seng eege Metadaten. Zum Beispill, <a %(a_libgen_nonfic)s>Libgen.rs Torrents</a> hunn eng entspriechend Metadaten-Datenbank op der Libgen.rs Websäit. Mir verlinken typesch op relevant Metadaten-Ressourcen vun all Kollektioun senger <a %(a_datasets)s>Dataset-Säit</a>."
 
-#: allthethings/page/templates/page/faq.html:264
+#: allthethings/page/templates/page/faq.html:265
 #, fuzzy
 msgid "page.faq.torrents.a6.li2"
 msgstr "2. Mir recommandéieren <a %(a_generate)s>eis ElasticSearch an MariaDB Datenbanken ze generéieren</a> oder <a %(a_download)s>erofzelueden</a>. Dës enthalen eng Zuweisung fir all Opzeechnung an Anna’s Archive zu hiren entspriechenden Torrent-Fichieren (wann verfügbar), ënner \"torrent_paths\" am ElasticSearch JSON."
 
-#: allthethings/page/templates/page/faq.html:267
+#: allthethings/page/templates/page/faq.html:268
 #, fuzzy
 msgid "page.faq.security.title"
 msgstr "Hutt Dir e Programm fir verantwortlech Offenbarung?"
 
-#: allthethings/page/templates/page/faq.html:270
+#: allthethings/page/templates/page/faq.html:271
 #, fuzzy
 msgid "page.faq.security.text1"
 msgstr "Mir begréissen Sécherheetsfuerscher fir Schwachstelle an eise Systemer ze sichen. Mir sinn grouss Verfechter vun der verantwortlecher Offenbarung. Kontaktéiert eis <a %(a_contact)s>hei</a>."
 
-#: allthethings/page/templates/page/faq.html:274
+#: allthethings/page/templates/page/faq.html:275
 #, fuzzy
 msgid "page.faq.security.text2"
 msgstr "Mir sinn de Moment net fäeg Bug Bounties unzebidden, ausser fir Schwachstelle, déi d'<a %(a_link)s>Potenzial hunn eis Anonymitéit ze kompromittéieren</a>, fir déi mir Bounties am Beräich vun $10k-50k ubidden. Mir géifen an der Zukunft gär e méi breede Spektrum fir Bug Bounties ubidden! Notéiert w.e.g. datt sozial Ingenieursattacken ausserhalb vum Beräich sinn."
 
-#: allthethings/page/templates/page/faq.html:278
+#: allthethings/page/templates/page/faq.html:279
 #, fuzzy
 msgid "page.faq.security.text3"
 msgstr "Wann Dir un offensiver Sécherheet interesséiert sidd, an hëllefe wëllt d'Wëssen an d'Kultur vun der Welt ze archivéieren, gitt sécher eis ze kontaktéieren. Et ginn vill Weeër, wéi Dir hëllefe kënnt."
 
-#: allthethings/page/templates/page/faq.html:281
+#: allthethings/page/templates/page/faq.html:282
 #, fuzzy
 msgid "page.faq.resources.title"
 msgstr "Ginn et méi Ressourcen iwwer Anna’s Archive?"
 
-#: allthethings/page/templates/page/faq.html:284
+#: allthethings/page/templates/page/faq.html:285
 #, fuzzy
 msgid "page.faq.resources.annas_blog"
 msgstr "<a %(a_blog)s>Anna’s Blog</a>, <a %(a_reddit_u)s>Reddit</a>, <a %(a_reddit_r)s>Subreddit</a> — reegelméisseg Updates"
 
-#: allthethings/page/templates/page/faq.html:285
+#: allthethings/page/templates/page/faq.html:286
 #, fuzzy
 msgid "page.faq.resources.annas_software"
 msgstr "<a %(a_software)s>Anna’s Software</a> — eisen Open Source Code"
 
-#: allthethings/page/templates/page/faq.html:286
+#: allthethings/page/templates/page/faq.html:287
 #, fuzzy
 msgid "page.faq.resources.translate"
 msgstr "<a %(a_translate)s>Iwwersetzt op Anna’s Software</a> — eisen Iwwersetzungssystem"
 
-#: allthethings/page/templates/page/faq.html:287
+#: allthethings/page/templates/page/faq.html:288
 #, fuzzy
 msgid "page.faq.resources.datasets"
 msgstr "<a %(a_datasets)s>Datasets</a> — iwwer d'Donnéeën"
 
-#: allthethings/page/templates/page/faq.html:288
+#: allthethings/page/templates/page/faq.html:289
 #, fuzzy
 msgid "page.faq.resources.domains"
 msgstr "<a %(a_li)s>.li</a>, <a %(a_se)s>.se</a>, <a %(a_org)s>.org</a> — alternativ Domänen"
 
-#: allthethings/page/templates/page/faq.html:289
+#: allthethings/page/templates/page/faq.html:290
 #, fuzzy
 msgid "page.faq.resources.wikipedia"
 msgstr "<a %(a_wikipedia)s>Wikipedia</a> — méi iwwer eis (hëlleft w.e.g. dës Säit aktuell ze halen, oder erstellt eng an Ärer eegener Sprooch!)"
 
-#: allthethings/page/templates/page/faq.html:292
+#: allthethings/page/templates/page/faq.html:293
 #, fuzzy
 msgid "page.faq.copyright.title"
 msgstr "Wéi kann ech eng Copyright-Verletzung mellen?"
 
-#: allthethings/page/templates/page/faq.html:295
+#: allthethings/page/templates/page/faq.html:296
 #, fuzzy
 msgid "page.faq.copyright.text1"
 msgstr "Mir hosten hei keng copyright-geschützt Material. Mir sinn eng Sichmaschinn, a mir indexéieren nëmmen Metadaten, déi scho ëffentlech verfügbar sinn. Wann Dir vun dësen externe Quellen erofluet, proposéiere mir Iech, d'Gesetzer an Ärer Juridictioun ze iwwerpréiwen, wat erlaabt ass. Mir sinn net verantwortlech fir den Inhalt, deen anerer hosten."
 
-#: allthethings/page/templates/page/faq.html:299
+#: allthethings/page/templates/page/faq.html:300
 #, fuzzy
 msgid "page.faq.copyright.text2"
 msgstr "Wann Dir Reklamatiounen iwwer dat hutt, wat Dir hei gesitt, ass et am beschten, de urspréngleche Site ze kontaktéieren. Mir zéien hir Ännerungen regelméisseg an eis Datebank. Wann Dir wierklech mengt, datt Dir eng valabel DMCA-Reklamatioun hutt, op déi mir reagéiere sollen, fëllt w.e.g. de <a %(a_copyright)s>DMCA / Copyright-Reklamatiounsformular</a> aus. Mir huelen Är Reklamatiounen eescht a wäerten esou séier wéi méiglech zréckkommen."
 
-#: allthethings/page/templates/page/faq.html:302
+#: allthethings/page/templates/page/faq.html:303
 #, fuzzy
 msgid "page.faq.hate.title"
 msgstr "Ech haassen, wéi Dir dëse Projet leeft!"
 
-#: allthethings/page/templates/page/faq.html:305
+#: allthethings/page/templates/page/faq.html:306
 #, fuzzy
 msgid "page.faq.hate.text1"
 msgstr "Mir wëllen och jiddereen drun erënneren, datt all eis Code an Daten komplett open source sinn. Dëst ass eenzegaarteg fir Projeten wéi eisen — mir sinn net bewosst vun engem anere Projet mat engem ähnlech massiven Katalog, deen och voll open source ass. Mir begréissen jiddereen, deen mengt, datt mir eise Projet schlecht lafen, fir eisen Code an Daten ze huelen an hir eege Schiedbibliothéik opzestellen! Mir soen dat net aus Trotz oder sou eppes — mir mengen wierklech, datt dëst genial wier, well et d'Bar fir jiddereen héich setzt an d'Vermächtnis vun der Mënschheet besser erhalen."
 
-#: allthethings/page/templates/page/faq.html:308
+#: allthethings/page/templates/page/faq.html:309
 #, fuzzy
 msgid "page.faq.favorite.title"
 msgstr "Wat sinn Är Lieblingsbicher?"
 
-#: allthethings/page/templates/page/faq.html:311
+#: allthethings/page/templates/page/faq.html:312
 #, fuzzy
 msgid "page.faq.favorite.text1"
 msgstr "Hei sinn e puer Bicher, déi eng besonnesch Bedeitung fir d'Welt vun de Schiedbibliothéiken an der digitaler Erhaalung hunn:"
@@ -3549,13 +3663,13 @@ msgid "page.md5.box.download.ipfs_gateway_extra"
 msgstr "(et kann néideg sinn, méi Versich mat IPFS ze maachen)"
 
 #: allthethings/page/templates/page/ipfs_downloads.html:23
-#: allthethings/page/templates/page/partner_download.html:93
+#: allthethings/page/templates/page/partner_download.html:91
 #, fuzzy
 msgid "page.partner_download.faster_downloads"
 msgstr "🚀 Fir méi séier Downloads a fir d'Browserkontrollen ze iwwersprangen, <a %(a_membership)s>gitt Member</a>."
 
 #: allthethings/page/templates/page/ipfs_downloads.html:27
-#: allthethings/page/templates/page/partner_download.html:97
+#: allthethings/page/templates/page/partner_download.html:95
 #, fuzzy
 msgid "page.partner_download.bulk_mirroring"
 msgstr "📡 Fir bulk Spigelung vun eiser Sammlung, kuckt op d' <a %(a_datasets)s>Datasets</a> an <a %(a_torrents)s>Torrents</a> Säiten."
@@ -3909,27 +4023,31 @@ msgstr "Wann Dir en Erofluedlink kritt, ass en e puer Stonnen gëlteg."
 msgid "page.partner_download.li4"
 msgstr "Merci fir d'Waarden, dëst hält d'Websäit gratis fir jiddereen zougänglech! 😊"
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:40
+msgid "page.partner_download.automatic_refreshing"
+msgstr ""
+
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.url"
 msgstr "📚 Benotzt déi folgend URL fir erofzelueden: <a %(a_download)s>Elo eroflueden</a>."
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.download_now"
 msgstr "Elo eroflueden"
 
-#: allthethings/page/templates/page/partner_download.html:86
+#: allthethings/page/templates/page/partner_download.html:84
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads"
 msgstr "Warnung: et goufen vill Erofluede vun Ärer IP Adress an de leschten 24 Stonnen. Erofluede kéinte méi lues sinn wéi gewinnt."
 
-#: allthethings/page/templates/page/partner_download.html:87
+#: allthethings/page/templates/page/partner_download.html:85
 #, fuzzy
 msgid "page.partner_download.downloads_last_24_hours"
 msgstr "Erofluede vun Ärer IP Adress an de leschten 24 Stonnen: %(count)s."
 
-#: allthethings/page/templates/page/partner_download.html:88
+#: allthethings/page/templates/page/partner_download.html:86
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads2"
 msgstr "Wann Dir e VPN, eng gedeelt Internetverbindung benotzt, oder Ären ISP IPs deelt, kéint dës Warnung doduerch verursaacht ginn."

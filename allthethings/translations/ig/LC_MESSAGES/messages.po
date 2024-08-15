@@ -370,10 +370,6 @@ msgstr "Maka onyinye karịrị $5000 biko kpọtụrụ anyị ozugbo na %(emai
 #: allthethings/account/templates/account/index.html:36
 #: allthethings/page/templates/page/contact.html:3
 #: allthethings/page/templates/page/contact.html:6
-#: allthethings/page/templates/page/faq.html:84
-#: allthethings/page/templates/page/faq.html:139
-#: allthethings/page/templates/page/faq.html:147
-#: allthethings/page/templates/page/faq.html:171
 #: allthethings/page/templates/page/home.html:77
 #: allthethings/page/templates/page/home.html:82
 #: allthethings/page/templates/page/home.html:90
@@ -1387,6 +1383,14 @@ msgstr "Faịlụ ebudatara anaghị egosi n'ihu ọha."
 msgid "page.downloaded.no_files"
 msgstr "Enweghị faịlụ ebudatara."
 
+#: allthethings/account/templates/account/downloaded.html:16
+msgid "page.downloaded.last_18_hours"
+msgstr ""
+
+#: allthethings/account/templates/account/downloaded.html:21
+msgid "page.downloaded.earlier"
+msgstr ""
+
 #: allthethings/account/templates/account/index.html:5
 #: allthethings/account/templates/account/index.html:15
 #, fuzzy
@@ -1462,7 +1466,7 @@ msgid "page.account.logged_in.membership_upgrade"
 msgstr "Kpọtụrụ Anna na %(email)s ma ọ bụrụ na ị nwere mmasị ịmelite òtù gị gaa ọkwa dị elu."
 
 #: allthethings/account/templates/account/index.html:37
-#: allthethings/page/templates/page/faq.html:135
+#: allthethings/page/templates/page/faq.html:136
 #, fuzzy
 msgid "page.account.logged_in.membership_multiple"
 msgstr "Ị nwere ike ijikọ ọtụtụ òtù (nghọta ngwa ngwa kwa awa 24 ga-agbakọta ọnụ)."
@@ -1717,6 +1721,14 @@ msgstr "E depụtara ya dị ka nke mebiri na Libgen.li"
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "Na-efu na Z-Library"
 
+#: allthethings/page/views.py:4845
+msgid "common.md5_problem_type_mapping.zlib_spam"
+msgstr ""
+
+#: allthethings/page/views.py:4846
+msgid "common.md5_problem_type_mapping.zlib_bad_file"
+msgstr ""
+
 #: allthethings/page/views.py:4847
 #, fuzzy
 msgid "common.md5_problem_type_mapping.duxiu_pdg_broken_files"
@@ -1807,26 +1819,31 @@ msgstr "Nyocha metadata"
 msgid "common.access_types_mapping.torrents_available"
 msgstr "Ndị dị na torrents"
 
-#: allthethings/page/templates/page/datasets.html:52
-#: allthethings/page/templates/page/datasets.html:88
+#: allthethings/page/templates/page/datasets.html:51
+#: allthethings/page/templates/page/datasets.html:87
 #: allthethings/page/views.py:4880
 #, fuzzy
 msgid "common.record_sources_mapping.lgrs"
 msgstr "Libgen.rs"
 
-#: allthethings/page/templates/page/datasets.html:54
-#: allthethings/page/templates/page/datasets.html:109
+#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:108
 #: allthethings/page/views.py:4881
 #, fuzzy
 msgid "common.record_sources_mapping.lgli"
 msgstr "Libgen.li"
 
-#: allthethings/page/templates/page/datasets.html:55
-#: allthethings/page/templates/page/datasets.html:121
+#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:120
 #: allthethings/page/views.py:4882
 #, fuzzy
 msgid "common.record_sources_mapping.zlib"
 msgstr "Z-Library"
+
+#: allthethings/page/templates/page/datasets.html:55
+#: allthethings/page/views.py:4883
+msgid "common.record_sources_mapping.zlibzh"
+msgstr ""
 
 #: allthethings/page/views.py:4884
 #, fuzzy
@@ -1843,7 +1860,7 @@ msgstr "ISBNdb"
 msgid "common.record_sources_mapping.ol"
 msgstr "OpenLibrary"
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 #: allthethings/page/views.py:4887
 #, fuzzy
 msgid "common.record_sources_mapping.scihub"
@@ -1854,15 +1871,15 @@ msgstr "Sci-Hub"
 msgid "common.record_sources_mapping.oclc"
 msgstr "OCLC (WorldCat)"
 
-#: allthethings/page/templates/page/datasets.html:58
-#: allthethings/page/templates/page/datasets.html:142
+#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:141
 #: allthethings/page/views.py:4889
 #, fuzzy
 msgid "common.record_sources_mapping.duxiu"
 msgstr "DuXiu 读秀"
 
-#: allthethings/page/templates/page/datasets.html:59
-#: allthethings/page/templates/page/datasets.html:155
+#: allthethings/page/templates/page/datasets.html:58
+#: allthethings/page/templates/page/datasets.html:154
 #: allthethings/page/views.py:4890
 #, fuzzy
 msgid "common.record_sources_mapping.uploads"
@@ -2517,8 +2534,6 @@ msgstr "Ihe mere na-ezighi ezi. Biko gbanye ibe ahụ ọzọ ma nwalee ọzọ.
 
 #: allthethings/page/templates/page/aarecord.html:406
 #: allthethings/page/templates/page/aarecord.html:407
-#: allthethings/page/templates/page/codes.html:8
-#: allthethings/page/templates/page/codes.html:9
 #: allthethings/page/templates/page/copyright.html:6
 #: allthethings/page/templates/page/copyright.html:7
 #: allthethings/page/templates/page/datasets.html:13
@@ -2574,12 +2589,12 @@ msgstr "Nke a bụ faịlụ nke <a %(a_ia)s>IA’s Controlled Digital Lending</
 msgid "page.md5.text.file_info.text1"
 msgstr "Maka ozi gbasara faịlụ a kpọmkwem, lelee faịlụ <a %(a_href)s>JSON</a> ya."
 
-#: allthethings/page/templates/page/aarecord_issue.html:4
+#: allthethings/page/templates/page/aarecord_issue.html:5
 #, fuzzy
 msgid "page.aarecord_issue.title"
 msgstr "🔥 Nsogbu na-ebufe ibe a"
 
-#: allthethings/page/templates/page/aarecord_issue.html:6
+#: allthethings/page/templates/page/aarecord_issue.html:7
 #, fuzzy
 msgid "page.aarecord_issue.text"
 msgstr "Biko mee ka ibe a dị ọhụrụ ka ị nwalee ọzọ. <a %(a_contact)s>Kpọtụrụ anyị</a> ma ọ bụrụ na nsogbu ahụ adịgide ruo ọtụtụ awa."
@@ -2622,6 +2637,105 @@ msgstr "Ọ bụrụ na ị na-agbakọta na loop na-enweghị ngwụcha, anyị
 #, fuzzy
 msgid "page.login.text3"
 msgstr "Ọ nwekwara ike inyere aka ịgbanyụ ndị na-egbochi mgbasa ozi na ndọtị ihe nchọgharị ndị ọzọ."
+
+#: allthethings/page/templates/page/codes.html:5
+msgid "page.codes.title"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:10
+msgid "page.codes.heading"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:14
+msgid "page.codes.intro"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:18
+msgid "page.codes.why_cloudflare"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:22
+msgid "page.codes.dont_scrape"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:33
+msgid "page.codes.prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:34
+msgid "common.form.go"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:35
+msgid "common.form.reset"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:40
+msgid "page.codes.bad_unicode"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:46
+msgid "page.codes.known_code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:48
+msgid "page.codes.code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:49
+msgid "page.codes.code_label"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:51
+msgid "page.codes.code_description"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgid "page.codes.code_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgctxt "the %s should not be changed"
+msgid "page.codes.s_substitution"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:57
+msgid "page.codes.generic_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:61
+msgid "page.codes.code_website"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:69
+msgid "page.codes.record_starting_with"
+msgid_plural "page.codes.records_starting_with"
+msgstr[0] ""
+msgstr[1] ""
+
+#: allthethings/page/templates/page/codes.html:75
+msgid "page.codes.search_archive"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:77
+msgid "page.codes.url_link"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:84
+msgid "page.codes.codes_starting_with"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:92
+msgid "page.codes.records_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:93
+msgid "page.codes.records_codes"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:113
+msgid "page.codes.fewer_than"
+msgstr ""
 
 #: allthethings/page/templates/page/contact.html:9
 #, fuzzy
@@ -2723,144 +2837,140 @@ msgstr ""
 msgid "page.datasets.overview.last_updated.header"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:52
+#: allthethings/page/templates/page/datasets.html:51
 msgid "common.record_sources_mapping.lgrs.nonfiction_and_fiction"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "common.record_sources_mapping.scihub.via_lgli_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_1"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_2"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "common.record_sources.mapping.lgli.excluding_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "page.datasets.lgli_fiction_is_behind"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:56
-msgid "common.record_sources_mapping.zlibzh"
-msgstr ""
-
-#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:55
 msgid "page.datasets.zlibzh.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
-#: allthethings/page/templates/page/datasets.html:130
+#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:129
 msgid "common.record_sources_mapping.iacdl"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:56
 msgid "page.datasets.iacdl.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.total"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.excluding_duplicates"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:64
+#: allthethings/page/templates/page/datasets.html:63
 msgid "page.datasets.overview.text4"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:68
+#: allthethings/page/templates/page/datasets.html:67
 msgid "page.datasets.overview.text5"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:71
+#: allthethings/page/templates/page/datasets.html:70
 msgid "page.datasets.source_libraries.title"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:74
+#: allthethings/page/templates/page/datasets.html:73
 #, fuzzy
 msgid "page.datasets.source_libraries.text1"
 msgstr "Ụfọdụ ebe nchekwa isi mmalite na-akwalite ịkekọrịta data ha n'ọtụtụ site na torrents, ebe ndị ọzọ anaghị ekekọrịta nchịkọta ha ngwa ngwa. N'ọnọdụ ikpeazụ a, Anna’s Archive na-agbalị ịnakọta nchịkọta ha, ma mee ka ha dịrị n'ịntanetị (lee ibe anyị <a %(a_torrents)s>Torrents</a>). E nwekwara ọnọdụ dị n'etiti, dịka ọmụmaatụ, ebe ebe nchekwa isi mmalite dị njikere ịkekọrịta, mana ha enweghị akụrụngwa iji mee ya. N'ọnọdụ ndị ahụ, anyị na-agbalịkwa inyere aka."
 
-#: allthethings/page/templates/page/datasets.html:78
+#: allthethings/page/templates/page/datasets.html:77
 #, fuzzy
 msgid "page.datasets.source_libraries.text2"
 msgstr "N'okpuru ebe a bụ nchịkọta nke otu anyị si ejikọ na ebe nchekwa isi mmalite dị iche iche."
 
-#: allthethings/page/templates/page/datasets.html:83
+#: allthethings/page/templates/page/datasets.html:82
 #, fuzzy
 msgid "page.datasets.sources.source.header"
 msgstr "Isi mmalite"
 
-#: allthethings/page/templates/page/datasets.html:84
+#: allthethings/page/templates/page/datasets.html:83
 #, fuzzy
 msgid "page.datasets.sources.metadata.header"
 msgstr "Metadata"
 
-#: allthethings/page/templates/page/datasets.html:85
+#: allthethings/page/templates/page/datasets.html:84
 #, fuzzy
 msgid "page.datasets.sources.files.header"
 msgstr "Faịlụ"
 
-#: allthethings/page/templates/page/datasets.html:98
+#: allthethings/page/templates/page/datasets.html:97
 #, fuzzy
 msgid "common.record_sources_mapping.scihub_scimag"
 msgstr "Sci-Hub / Libgen “scimag”"
 
-#: allthethings/page/templates/page/datasets.html:162
+#: allthethings/page/templates/page/datasets.html:161
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.title"
 msgstr "Isi mmalite metadata naanị"
 
-#: allthethings/page/templates/page/datasets.html:165
+#: allthethings/page/templates/page/datasets.html:164
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text1"
 msgstr "Anyị na-emekwa ka nchịkọta anyị dịkwuo mma site na isi mmalite metadata naanị, nke anyị nwere ike ịkọrọ faịlụ, dịka iji ISBN nọmba ma ọ bụ ubi ndị ọzọ. N'okpuru ebe a bụ nchịkọta nke ndị ahụ. Ọzọkwa, ụfọdụ n'ime isi mmalite ndị a bụ kpamkpam mepere emepe, ebe maka ndị ọzọ anyị ga-anakọta ha."
 
-#: allthethings/page/templates/page/datasets.html:169
-#: allthethings/page/templates/page/faq.html:186
+#: allthethings/page/templates/page/datasets.html:168
+#: allthethings/page/templates/page/faq.html:187
 #: allthethings/page/templates/page/search.html:294
 #, fuzzy
 msgid "page.faq.metadata.inspiration1"
 msgstr "Ihe na-akpali anyị ịnakọta metadata bụ ebumnuche Aaron Swartz nke “otu ibe weebụ maka akwụkwọ ọ bụla e bipụtara”, nke o kere <a %(a_openlib)s>Open Library</a>."
 
-#: allthethings/page/templates/page/datasets.html:170
-#: allthethings/page/templates/page/faq.html:187
+#: allthethings/page/templates/page/datasets.html:169
+#: allthethings/page/templates/page/faq.html:188
 #: allthethings/page/templates/page/search.html:295
 #, fuzzy
 msgid "page.faq.metadata.inspiration2"
 msgstr "Ọrụ ahụ emeela nke ọma, mana ọnọdụ pụrụ iche anyị na-enye anyị ohere ịnweta metadata nke ha enweghị ike."
 
-#: allthethings/page/templates/page/datasets.html:171
-#: allthethings/page/templates/page/faq.html:188
+#: allthethings/page/templates/page/datasets.html:170
+#: allthethings/page/templates/page/faq.html:189
 #: allthethings/page/templates/page/search.html:296
 #, fuzzy
 msgid "page.faq.metadata.inspiration3"
 msgstr "Ihe ọzọ kpatara anyị bụ ọchịchọ ịmata <a %(a_blog)s>ogologo akwụkwọ dị n’ụwa</a>, ka anyị wee nwee ike ịgbakọ ole akwụkwọ ka anyị ga-azọpụta."
 
-#: allthethings/page/templates/page/datasets.html:175
+#: allthethings/page/templates/page/datasets.html:174
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text2"
 msgstr "Rịba ama na na metadata ọchụchọ, anyị na-egosi ndekọ mbụ. Anyị anaghị eme njikọta ndekọ ọ bụla."
 
-#: allthethings/page/templates/page/datasets.html:216
+#: allthethings/page/templates/page/datasets.html:215
 #, fuzzy
 msgid "page.datasets.unified_database.title"
 msgstr "Nchikota data"
 
-#: allthethings/page/templates/page/datasets.html:219
+#: allthethings/page/templates/page/datasets.html:218
 #, fuzzy
 msgid "page.datasets.unified_database.text1"
 msgstr "Anyị na-ejikọta isi mmalite niile dị n'elu n'ime otu nchikota data nke anyị na-eji iji jeere weebụsaịtị a ozi. Nchikota data a adịghị adị ozugbo, mana ebe Anna’s Archive bụ kpamkpam mepere emepe, ọ nwere ike ịdị mfe <a %(a_generated)s>mepụta</a> ma ọ bụ <a %(a_downloaded)s>budata</a> dị ka ElasticSearch na MariaDB nchịkọta data. Usoro ndị dị na ibe ahụ ga-akpaghị aka budata metadata niile dị mkpa site na isi mmalite ndị a kpọtụrụ aha n'elu."
 
-#: allthethings/page/templates/page/datasets.html:227
+#: allthethings/page/templates/page/datasets.html:226
 #, fuzzy
 msgid "page.datasets.unified_database.text2"
 msgstr "Ọ bụrụ na ịchọrọ ịgagharị data anyị tupu ịgba ọsọ usoro ndị ahụ n'ịntanetị, ị nwere ike ile anya na faịlụ JSON anyị, nke na-ejikọta n'ihu na faịlụ JSON ndị ọzọ. <a %(a_json)s>Faịlụ a</a> bụ ezigbo mmalite."
@@ -2901,473 +3011,477 @@ msgstr "ISBN weebụsaịtị"
 msgid "page.datasets/isbn_ranges.isbn_metadata"
 msgstr "Metadata"
 
-#: allthethings/page/templates/page/faq.html:3
-#: allthethings/page/templates/page/faq.html:6
+#: allthethings/page/templates/page/faq.html:5
+#: allthethings/page/templates/page/faq.html:8
 #, fuzzy
 msgid "page.faq.title"
 msgstr "Ajụjụ a na-ajụkarị (FAQ)"
 
-#: allthethings/page/templates/page/faq.html:8
+#: allthethings/page/templates/page/faq.html:10
 #, fuzzy
 msgid "page.faq.what_is.title"
 msgstr "Gịnị bụ Anna’s Archive?"
 
-#: allthethings/page/templates/page/faq.html:11
+#: allthethings/page/templates/page/faq.html:13
 #, fuzzy
 msgid "page.home.intro.text1"
 msgstr "<span %(span_anna)s>Anna’s Archive</span> bụ ọrụ na-abụghị uru abụọ nwere ebumnuche abụọ:"
 
-#: allthethings/page/templates/page/faq.html:15
+#: allthethings/page/templates/page/faq.html:17
 #, fuzzy
 msgid "page.home.intro.text2"
 msgstr "<li><strong>Nchekwa:</strong> Ịchekwa ihe ọmụma na omenala mmadụ niile.</li><li><strong>Nnweta:</strong> Ịme ka ihe ọmụma na omenala a dịrị onye ọ bụla n’ụwa.</li>"
 
-#: allthethings/page/templates/page/faq.html:19
+#: allthethings/page/templates/page/faq.html:21
 #, fuzzy
 msgid "page.home.intro.open_source"
 msgstr "Akwụkwọ <a %(a_code)s>koodu</a> na <a %(a_datasets)s>data</a> anyị niile bụ isi mmalite mepere emepe."
 
-#: allthethings/page/templates/page/faq.html:23
+#: allthethings/page/templates/page/faq.html:25
 #, fuzzy
 msgid "page.home.preservation.header"
 msgstr "Nchekwa"
 
-#: allthethings/page/templates/page/faq.html:25
+#: allthethings/page/templates/page/faq.html:27
 #, fuzzy
 msgid "page.home.preservation.text1"
 msgstr "Anyị na-echekwa akwụkwọ, akwụkwọ akụkọ, akwụkwọ mmịpụta, magazin, na ọtụtụ ihe ndị ọzọ, site n’ịnakọta ihe ndị a site na <a href=\"https://en.wikipedia.org/wiki/Shadow_library\">ụlọ akwụkwọ ndò</a> dị iche iche, ụlọ akwụkwọ gọọmentị, na nchịkọta ndị ọzọ n’otu ebe. A na-echekwa data niile a ruo mgbe ebighị ebi site n’ịme ka ọ dị mfe ịmepụta ya n’ụba — site na torrents — na-eduga n’ọtụtụ oyiri gburugburu ụwa. Ụfọdụ ụlọ akwụkwọ ndò na-eme nke a n’onwe ha (dịka Sci-Hub, Library Genesis), ebe Anna’s Archive “na-emeghe” ụlọ akwụkwọ ndị ọzọ na-adịghị enye nkesa n’ụba (dịka Z-Library) ma ọ bụ na-abụghị ụlọ akwụkwọ ndò n’ụdị ọ bụla (dịka Internet Archive, DuXiu)."
 
-#: allthethings/page/templates/page/faq.html:27
+#: allthethings/page/templates/page/faq.html:29
 #, fuzzy
 msgid "page.home.preservation.text2"
 msgstr "Nkesa sara mbara a, jikọtara ya na koodu isi mmalite mepere emepe, na-eme ka weebụsaịtị anyị nwee ike iguzogide iwepụ, na-ekwe nkwa nchekwa ogologo oge nke ihe ọmụma na omenala mmadụ. Mụta ihe ndị ọzọ gbasara <a href=\"/datasets\">datasets anyị</a>."
 
-#: allthethings/page/templates/page/faq.html:41
+#: allthethings/page/templates/page/faq.html:43
 #, fuzzy
 msgid "page.home.preservation.label"
 msgstr "Anyị na-atụ anya na anyị echekwala ihe dị ka <a href=\"https://annas-blog.org/blog-isbndb-dump-how-many-books-are-preserved-forever.html\">5%% nke akwụkwọ ụwa</a>."
 
-#: allthethings/page/templates/page/faq.html:46
+#: allthethings/page/templates/page/faq.html:48
 #, fuzzy
 msgid "page.home.access.header"
 msgstr "Nnweta"
 
-#: allthethings/page/templates/page/faq.html:48
+#: allthethings/page/templates/page/faq.html:50
 #, fuzzy
 msgid "page.home.access.text"
 msgstr "Anyị na-arụkọ ọrụ na ndị mmekọ iji mee ka nchịkọta anyị dịrị onye ọ bụla mfe na n’efu. Anyị kwenyere na onye ọ bụla nwere ikike ịnweta amamihe nke mmadụ niile. Na <a %(a_search)s>ọ bụghị na ụgwọ nke ndị ode akwụkwọ</a>."
 
-#: allthethings/page/templates/page/faq.html:52
+#: allthethings/page/templates/page/faq.html:54
 #, fuzzy
 msgid "page.home.access.label"
 msgstr "Nbudata kwa elekere n’izu gara aga. Ntụle kwa elekere: %(hourly)s. Ntụle kwa ụbọchị: %(daily)s."
 
-#: allthethings/page/templates/page/faq.html:80
+#: allthethings/page/templates/page/faq.html:82
 #, fuzzy
 msgid "page.about.text2"
 msgstr "Anyị kwenyere nke ukwuu na ntinye nke ozi n’efu, na nchekwa nke ihe ọmụma na omenala. Site na igwe nchọta a, anyị na-ewu n’ubu ndị na-eto eto. Anyị na-asọpụrụ ọrụ siri ike nke ndị mepụtara ụlọ akwụkwọ ndò dị iche iche, na anyị na-atụ anya na igwe nchọta a ga-agbasa nnweta ha."
 
-#: allthethings/page/templates/page/faq.html:84
+#: allthethings/page/templates/page/faq.html:86
 #, fuzzy
 msgid "page.about.text3"
 msgstr "Iji nọrọ na mmelite banyere mmepe anyị, soro Anna na <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a> ma ọ bụ <a href=\"https://t.me/annasarchiveorg\">Telegram</a>. Maka ajụjụ na nzaghachi biko kpọtụrụ Anna na %(email)s."
 
-#: allthethings/page/templates/page/faq.html:87
+#: allthethings/page/templates/page/faq.html:89
 #, fuzzy
 msgid "page.faq.help.title"
 msgstr "Kedu ka m ga-esi enyere aka?"
 
-#: allthethings/page/templates/page/faq.html:90
+#: allthethings/page/templates/page/faq.html:92
 #, fuzzy
 msgid "page.about.help.text"
 msgstr "<li>1. Soro anyị na <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a>, ma ọ bụ <a href=\"https://t.me/annasarchiveorg\">Telegram</a>.</li><li>2. Gwa ndị mmadụ gbasara Anna’s Archive na Twitter, Reddit, Tiktok, Instagram, na ụlọ oriri na ọṅụṅụ ma ọ bụ ụlọ akwụkwọ gị, ma ọ bụ ebe ọ bụla ị na-aga! Anyị anaghị ekwe ka mmadụ na-echekwa ụzọ — ọ bụrụ na e wepụ anyị, anyị ga-apụta ọzọ ebe ọzọ, ebe koodu na data anyị niile bụ isi mmalite mepere emepe.</li><li>3. Ọ bụrụ na ị nwere ike, tụlee <a href=\"/donate\">inyefe onyinye</a>.</li><li>4. Nye aka <a href=\"https://translate.annas-software.org/\">ịtụgharị</a> weebụsaịtị anyị n’asụsụ dị iche iche.</li><li>5. Ọ bụrụ na ị bụ injinia sọftụwia, tụlee ịnye aka na <a href=\"https://annas-software.org/\">isi mmalite mepere emepe</a>, ma ọ bụ ịkụziri <a href=\"/datasets\">torrents</a>.</li>"
 
-#: allthethings/page/templates/page/faq.html:91
+#: allthethings/page/templates/page/faq.html:93
 #, fuzzy
 msgid "page.about.help.text6"
 msgstr "6. Ọ bụrụ na ị bụ onye nyocha nchekwa, anyị nwere ike iji nkà gị maka mwakpo na nchebe. Lelee ibe <a %(a_security)s>Nchedo</a> anyị."
 
-#: allthethings/page/templates/page/faq.html:92
+#: allthethings/page/templates/page/faq.html:94
 #, fuzzy
 msgid "page.about.help.text7"
 msgstr "7. Anyị na-achọ ndị ọkachamara na ịkwụ ụgwọ maka ndị na-ere ahịa na-enweghị aha. Ị nwere ike inyere anyị aka ịgbakwunye ụzọ dị mfe iji nye onyinye? PayPal, WeChat, kaadị onyinye. Ọ bụrụ na ị maara onye ọ bụla, biko kpọtụrụ anyị."
 
-#: allthethings/page/templates/page/faq.html:93
+#: allthethings/page/templates/page/faq.html:95
 #, fuzzy
 msgid "page.about.help.text8"
 msgstr "8. Anyị na-achọkarị ikike sava ọzọ."
 
-#: allthethings/page/templates/page/faq.html:94
+#: allthethings/page/templates/page/faq.html:96
 #, fuzzy
 msgid "page.about.help.text9"
 msgstr "9. Ị nwere ike inyere aka site n’ịkọ akụkọ nsogbu faịlụ, ịhapụ okwu, na ịmepụta ndepụta n’ebe a na weebụsaịtị a. Ị nwekwara ike inyere aka site na <a %(a_upload)s>ịbulite akwụkwọ ndị ọzọ</a>, ma ọ bụ idozi nsogbu faịlụ ma ọ bụ nhazi nke akwụkwọ dị adị."
 
-#: allthethings/page/templates/page/faq.html:95
+#: allthethings/page/templates/page/faq.html:97
 #, fuzzy
 msgid "page.about.help.text10"
 msgstr "10. Kere ma ọ bụ nyere aka idobe ibe Wikipedia maka Anna’s Archive n’asụsụ gị."
 
-#: allthethings/page/templates/page/faq.html:96
+#: allthethings/page/templates/page/faq.html:98
 #, fuzzy
 msgid "page.about.help.text11"
 msgstr "11. Anyị na-achọ itinye obere mgbasa ozi dị mma. Ọ bụrụ na ịchọrọ ịgba akwụkwọ na Anna’s Archive, biko gwa anyị."
 
-#: allthethings/page/templates/page/faq.html:97
+#: allthethings/page/templates/page/faq.html:99
 #, fuzzy
 msgid "page.faq.help.mirrors"
 msgstr "Anyị ga-enwe mmasị ka ndị mmadụ hazie <a %(a_mirrors)s>mirrors</a>, anyị ga-enyekwa nkwado ego maka nke a."
 
-#: allthethings/page/templates/page/faq.html:105
+#: allthethings/page/templates/page/faq.html:103
+msgid "page.about.help.volunteer"
+msgstr ""
+
+#: allthethings/page/templates/page/faq.html:106
 #, fuzzy
 msgid "page.faq.slow.title"
 msgstr "Gịnị mere nbudata dị nwayọọ ji dị nwayọọ?"
 
-#: allthethings/page/templates/page/faq.html:108
+#: allthethings/page/templates/page/faq.html:109
 #, fuzzy
 msgid "page.faq.slow.text1"
 msgstr "Anyị enweghị ike inye mmadụ niile n’ụwa nbudata ọsọ ọsọ, ọbụlagodi na anyị chọrọ nke ahụ. Ọ bụrụ na onye nwere ego chọrọ inyere anyị aka inye nke a, ọ ga-abụ ihe ịtụnanya, mana ruo mgbe ahụ, anyị na-agbalị ike anyị. Anyị bụ ọrụ na-abụghị uru nke na-esiri ike ịnọgide na-adịgide site na onyinye."
 
-#: allthethings/page/templates/page/faq.html:112
+#: allthethings/page/templates/page/faq.html:113
 #, fuzzy
 msgid "page.faq.slow.text2"
 msgstr "Nke a bụ ihe mere anyị ji mepụta usoro abụọ maka nbudata n’efu, na ndị mmekọ anyị: sava ndị a na-ekekọrịta na nbudata nwayọ, na sava ndị na-adị ntakịrị ọsọ ọsọ na ndepụta echere (iji belata ọnụ ọgụgụ ndị na-ebudata n’otu oge)."
 
-#: allthethings/page/templates/page/faq.html:116
+#: allthethings/page/templates/page/faq.html:117
 #, fuzzy
 msgid "page.faq.slow.text3"
 msgstr "Anyị nwekwara <a %(a_verification)s>nnyocha ihe nchọgharị</a> maka nbudata nwayọ anyị, n’ihi na bots na ndị na-akụda ihe ga-eji ha eme ihe ike, na-eme ka ihe dịkwuo nwayọ maka ndị ọrụ ziri ezi."
 
-#: allthethings/page/templates/page/faq.html:120
+#: allthethings/page/templates/page/faq.html:121
 #, fuzzy
 msgid "page.faq.slow.text4"
 msgstr "Rịba ama na, mgbe ị na-eji Tor Browser, ị nwere ike ịgbanwe ntọala nchekwa gị. Na nke kacha ala nke nhọrọ, akpọrọ “Standard”, Cloudflare turnstile ịma aka na-aga nke ọma. Na nhọrọ ndị dị elu, akpọrọ “Safer” na “Safest”, ịma aka ahụ na-ada."
 
-#: allthethings/page/templates/page/faq.html:124
+#: allthethings/page/templates/page/faq.html:125
 #, fuzzy
 msgid "page.faq.slow.text5"
 msgstr "Maka nnukwu faịlụ, mgbe ụfọdụ, nbudata nwayọ nwere ike ịkwụsị n'etiti. Anyị na-akwado iji onye njikwa nbudata (dịka JDownloader) iji malitegharịa nbudata nnukwu faịlụ na-akpaghị aka."
 
-#: allthethings/page/templates/page/faq.html:127
+#: allthethings/page/templates/page/faq.html:128
 #, fuzzy
 msgid "page.donate.faq.title"
 msgstr "Ajụjụ ọnụahịa maka onyinye"
 
-#: allthethings/page/templates/page/faq.html:130
+#: allthethings/page/templates/page/faq.html:131
 #, fuzzy
 msgid "page.donate.faq.renew"
 msgstr "<div %(div_question)s>Ọ̀ bụ na nnọkọ na-emelite onwe ha na-akpaghị aka?</div> Nnọkọ <strong>adịghị</strong> emelite onwe ha na-akpaghị aka. Ị nwere ike isonye ogologo oge ma ọ bụ obere oge ịchọrọ."
 
-#: allthethings/page/templates/page/faq.html:134
+#: allthethings/page/templates/page/faq.html:135
 #, fuzzy
 msgid "page.donate.faq.membership"
 msgstr "<div %(div_question)s>Enwere m ike ịkwalite aha m ma ọ bụ nweta ọtụtụ aha?</div>"
 
-#: allthethings/page/templates/page/faq.html:139
+#: allthethings/page/templates/page/faq.html:140
 #, fuzzy
 msgid "page.donate.faq.text_other_payment1"
 msgstr "<div %(div_question)s>Ị nwere ụzọ ịkwụ ụgwọ ndị ọzọ?</div> Ugbu a, mba. Ọtụtụ ndị anaghị achọ ka ebe nchekwa dị ka nke a dị, ya mere anyị ga-ejide n’aka. Ọ bụrụ na ị nwere ike inyere anyị aka ịtọlite ụzọ ịkwụ ụgwọ ndị ọzọ (dị mfe) n’enweghị nsogbu, biko kpọtụrụ anyị na %(email)s."
 
-#: allthethings/page/templates/page/faq.html:143
+#: allthethings/page/templates/page/faq.html:144
 #, fuzzy
 msgid "page.donate.faq.spend"
 msgstr "<div %(div_question)s>Kedu ihe ị na-eji onyinye eme?</div> 100%% na-aga n’ịchekwa na ime ka ihe ọmụma na omenala ụwa dịrị. Ugbu a, anyị na-eji ya na sava, nchekwa, na bandwidth. Ego ọ bụla adịghị aga n’aka ndị otu."
 
-#: allthethings/page/templates/page/faq.html:147
+#: allthethings/page/templates/page/faq.html:148
 #, fuzzy
 msgid "page.donate.faq.text_large_donation"
 msgstr "<div %(div_question)s>Enwere m ike inye onyinye buru ibu?</div> Nke ahụ ga-abụ ihe ịtụnanya! Maka onyinye karịrị puku dollar ole na ole, biko kpọtụrụ anyị ozugbo na %(email)s."
 
-#: allthethings/page/templates/page/faq.html:151
+#: allthethings/page/templates/page/faq.html:152
 #, fuzzy
 msgid "page.donate.faq.non_member_donation"
 msgstr "<div %(div_question)s>Enwere m ike inye onyinye n’enweghị ịbụ onye otu?</div> Ee, ọ dịghị nsogbu. Anyị na-anabata onyinye ọ bụla na adreesị Monero (XMR) a: %(address)s."
 
-#: allthethings/page/templates/page/faq.html:154
+#: allthethings/page/templates/page/faq.html:155
 #, fuzzy
 msgid "page.faq.upload.title"
 msgstr "Kedu ka m ga-esi bulite akwụkwọ ọhụrụ?"
 
-#: allthethings/page/templates/page/faq.html:157
+#: allthethings/page/templates/page/faq.html:158
 #, fuzzy
 msgid "page.upload.text1"
 msgstr "N’oge a, anyị na-atụ aro ka ị bulite akwụkwọ ọhụrụ na forks Library Genesis. Nke a bụ <a %(a_guide)s>ntuziaka bara uru</a>. Mara na forks abụọ anyị na-edekọ na webụsaịtị a na-adọta site na usoro nbudata a."
 
-#: allthethings/page/templates/page/faq.html:158
+#: allthethings/page/templates/page/faq.html:159
 #, fuzzy
 msgid "common.libgen.email"
 msgstr "Ọ bụrụ na adreesị email gị anaghị arụ ọrụ na forums Libgen, anyị na-atụ aro iji <a %(a_mail)s>Proton Mail</a> (n’efu). Ị nwekwara ike <a %(a_manual)s>arịọ aka</a> ka akaụntụ gị bụrụ ihe a na-arụ ọrụ."
 
-#: allthethings/page/templates/page/faq.html:159
+#: allthethings/page/templates/page/faq.html:160
 #, fuzzy
 msgid "page.faq.mhut_upload"
 msgstr "Mara na mhut.org na-egbochi ụfọdụ nso IP, ya mere VPN nwere ike ịdị mkpa."
 
-#: allthethings/page/templates/page/faq.html:163
+#: allthethings/page/templates/page/faq.html:164
 #, fuzzy
 msgid "page.upload.zlib.text1"
 msgstr "Ma ọ bụ, ị nwere ike bulite ha na Z-Library <a %(a_upload)s>ebe a</a>."
 
-#: allthethings/page/templates/page/faq.html:167
+#: allthethings/page/templates/page/faq.html:168
 #, fuzzy
 msgid "page.upload.zlib.text2"
 msgstr "Iji bulite akwụkwọ ọmụmụ, biko bulitekwa (na mgbakwunye na Library Genesis) na <a %(a_stc_nexus)s>STC Nexus</a>. Ha bụ ebe nchekwa kacha mma maka akwụkwọ ọhụrụ. Anyị anaghị etinye ha n’ime ya ugbu a, mana anyị ga-eme ya n’oge ụfọdụ. Ị nwere ike iji <a %(a_telegram)s>bot nbudata ha na Telegram</a>, ma ọ bụ kpọtụrụ adreesị edepụtara na ozi ha a na-ejikọtara ma ọ bụrụ na ị nwere ọtụtụ faịlụ ị ga-ebudata n’ụzọ a."
 
-#: allthethings/page/templates/page/faq.html:171
+#: allthethings/page/templates/page/faq.html:172
 #, fuzzy
 msgid "page.upload.large.text"
 msgstr "Maka nbudata buru ibu (karịrị faịlụ 10,000) nke Libgen ma ọ bụ Z-Library anaghị anabata, biko kpọtụrụ anyị na %(a_email)s."
 
-#: allthethings/page/templates/page/faq.html:174
+#: allthethings/page/templates/page/faq.html:175
 #, fuzzy
 msgid "page.faq.request.title"
 msgstr "Kedu ka m ga-esi arịọ akwụkwọ?"
 
-#: allthethings/page/templates/page/faq.html:177
+#: allthethings/page/templates/page/faq.html:178
 #, fuzzy
 msgid "page.request.cannot_accomodate"
 msgstr "N’oge a, anyị enweghị ike izute arịrịọ akwụkwọ."
 
-#: allthethings/page/templates/page/faq.html:178
+#: allthethings/page/templates/page/faq.html:179
 #, fuzzy
 msgid "page.request.forums"
 msgstr "Biko mee arịrịọ gị na Z-Library ma ọ bụ Libgen forums."
 
-#: allthethings/page/templates/page/faq.html:179
+#: allthethings/page/templates/page/faq.html:180
 #, fuzzy
 msgid "page.request.dont_email"
 msgstr "Egbula anyị email maka arịrịọ akwụkwọ gị."
 
-#: allthethings/page/templates/page/faq.html:182
+#: allthethings/page/templates/page/faq.html:183
 #, fuzzy
 msgid "page.faq.metadata.title"
 msgstr "Ị na-anakọta metadata?"
 
-#: allthethings/page/templates/page/faq.html:185
+#: allthethings/page/templates/page/faq.html:186
 #, fuzzy
 msgid "page.faq.metadata.indeed"
 msgstr "Ee, anyị na-anakọta metadata."
 
-#: allthethings/page/templates/page/faq.html:191
+#: allthethings/page/templates/page/faq.html:192
 #, fuzzy
 msgid "page.faq.1984.title"
 msgstr "Ebudatara m 1984 nke George Orwell, ọ̀ ga-abụ na ndị uwe ojii ga-abịa n’ọnụ ụzọ m?"
 
-#: allthethings/page/templates/page/faq.html:194
+#: allthethings/page/templates/page/faq.html:195
 #, fuzzy
 msgid "page.faq.1984.text"
 msgstr "Echegbula onwe gị nke ukwuu, e nwere ọtụtụ ndị na-ebudata site na weebụsaịtị ndị anyị na-ejikọ, ọ dịkwa nnọọ obere ka mmadụ na-abanye n’ọgba aghara. Otú ọ dị, iji nọrọ n’ebe nchekwa, anyị na-akwado iji VPN (akwụkwọ ụgwọ), ma ọ bụ <a %(a_tor)s>Tor</a> (n’efu)."
 
-#: allthethings/page/templates/page/faq.html:197
+#: allthethings/page/templates/page/faq.html:198
 #, fuzzy
 msgid "page.faq.save_search.title"
 msgstr "Kedu ka m ga-esi chekwaa ntọala ọchụchọ m?"
 
-#: allthethings/page/templates/page/faq.html:200
+#: allthethings/page/templates/page/faq.html:201
 #, fuzzy
 msgid "page.faq.save_search.text1"
 msgstr "Họrọ ntọala ị na-achọ, hapụ igbe ọchụchọ ka ọ bụrụ efu, pịa “Search”, wee debe ibe ahụ na akwụkwọ ndekọ ihe nchọgharị gị."
 
-#: allthethings/page/templates/page/faq.html:203
+#: allthethings/page/templates/page/faq.html:204
 #, fuzzy
 msgid "page.faq.mobile.title"
 msgstr "Ị nwere ngwa mkpanaka?"
 
-#: allthethings/page/templates/page/faq.html:206
+#: allthethings/page/templates/page/faq.html:207
 #, fuzzy
 msgid "page.faq.mobile.text1"
 msgstr "Anyị enweghị ngwa mkpanaka gọọmentị, mana ị nwere ike iwunye weebụsaịtị a dị ka ngwa."
 
-#: allthethings/page/templates/page/faq.html:207
+#: allthethings/page/templates/page/faq.html:208
 #, fuzzy
 msgid "page.faq.mobile.android"
 msgstr "<strong>Android:</strong> Pịa menu atọ n’elu aka nri, họrọ “Tinye na Home Screen”."
 
-#: allthethings/page/templates/page/faq.html:208
+#: allthethings/page/templates/page/faq.html:209
 #, fuzzy
 msgid "page.faq.mobile.ios"
 msgstr "<strong>iOS:</strong> Pịa bọtịnụ “Share” n’ala, họrọ “Tinye na Home Screen”."
 
-#: allthethings/page/templates/page/faq.html:211
+#: allthethings/page/templates/page/faq.html:212
 #, fuzzy
 msgid "page.faq.api.title"
 msgstr "Ị nwere API?"
 
-#: allthethings/page/templates/page/faq.html:214
+#: allthethings/page/templates/page/faq.html:215
 #, fuzzy
 msgid "page.faq.api.text1"
 msgstr "Anyị nwere otu API JSON kwụ ọtọ maka ndị otu, maka inweta URL nbudata ngwa ngwa: <a %(a_fast_download)s>/dyn/api/fast_download.json</a> (akwụkwọ n'ime JSON n'onwe ya)."
 
-#: allthethings/page/templates/page/faq.html:218
+#: allthethings/page/templates/page/faq.html:219
 #, fuzzy
 msgid "page.faq.api.text2"
 msgstr "Maka ihe ndị ọzọ, dị ka ịgagharị n’ime faịlụ anyị niile, iwulite ọchụchọ omenala, wdg, anyị na-akwado <a %(a_generate)s>ịmepụta</a> ma ọ bụ <a %(a_download)s>ibudata</a> ElasticSearch na MariaDB databases anyị. A pụkwara ịgagharị data akọrọ <a %(a_explore)s>site na faịlụ JSON</a>."
 
-#: allthethings/page/templates/page/faq.html:222
+#: allthethings/page/templates/page/faq.html:223
 #, fuzzy
 msgid "page.faq.api.text3"
 msgstr "A pụkwara ibudata ndepụta torrents akọrọ anyị dị ka <a %(a_torrents)s>JSON</a>."
 
-#: allthethings/page/templates/page/faq.html:225
+#: allthethings/page/templates/page/faq.html:226
 #, fuzzy
 msgid "page.faq.torrents.title"
 msgstr "Torrents FAQ"
 
-#: allthethings/page/templates/page/faq.html:228
+#: allthethings/page/templates/page/faq.html:229
 #, fuzzy
 msgid "page.faq.torrents.q1"
 msgstr "Achọrọ m inyere aka seed, mana enweghị m ọtụtụ ohere diski."
 
-#: allthethings/page/templates/page/faq.html:230
+#: allthethings/page/templates/page/faq.html:231
 #, fuzzy
 msgid "page.faq.torrents.a1"
 msgstr "Jiri <a %(a_list)s>ngwaọrụ ndepụta torrent</a> iji mepụta ndepụta torrents ndị kacha mkpa maka torrenting, n'ime oke ohere nchekwa gị."
 
-#: allthethings/page/templates/page/faq.html:234
+#: allthethings/page/templates/page/faq.html:235
 #, fuzzy
 msgid "page.faq.torrents.q2"
 msgstr "Torrents na-adị nwayọọ; ọ̀ ga-abụ na m nwere ike ibudata data ozugbo site na gị?"
 
-#: allthethings/page/templates/page/faq.html:236
+#: allthethings/page/templates/page/faq.html:237
 #, fuzzy
 msgid "page.faq.torrents.a2"
 msgstr "Ee, lee <a %(a_llm)s>peeji data LLM</a>."
 
-#: allthethings/page/templates/page/faq.html:240
+#: allthethings/page/templates/page/faq.html:241
 #, fuzzy
 msgid "page.faq.torrents.q3"
 msgstr "Enwere m ike ibudata naanị otu akụkụ nke faịlụ ndị ahụ, dịka naanị otu asụsụ ma ọ bụ isiokwu?"
 
-#: allthethings/page/templates/page/faq.html:242
+#: allthethings/page/templates/page/faq.html:243
 #, fuzzy
 msgid "page.faq.torrents.a3"
 msgstr "Ọtụtụ torrents nwere faịlụ ndị ahụ ozugbo, nke pụtara na ị nwere ike ịgwa ndị ahịa torrent ka ha budata naanị faịlụ ndị achọrọ. Iji chọpụta faịlụ ndị ị ga-ebudata, ị nwere ike <a %(a_generate)s>mepụta</a> metadata anyị, ma ọ bụ <a %(a_download)s>budata</a> ElasticSearch na MariaDB databases anyị. N'ụzọ dị mwute, ọtụtụ nchịkọta torrent nwere faịlụ .zip ma ọ bụ .tar na mgbọrọgwụ, nke pụtara na ị ga-ebudata torrent niile tupu ị nwee ike ịhọrọ faịlụ ndị dị iche iche."
 
-#: allthethings/page/templates/page/faq.html:246
+#: allthethings/page/templates/page/faq.html:247
 #, fuzzy
 msgid "page.faq.torrents.q4"
 msgstr "Kedu ka ị si edozi faịlụ ndị yiri ibe ha na torrents?"
 
-#: allthethings/page/templates/page/faq.html:248
+#: allthethings/page/templates/page/faq.html:249
 #, fuzzy
 msgid "page.faq.torrents.a4"
 msgstr "Anyị na-agbalị idobe ntakịrị ọdịiche ma ọ bụ nkwụghachi na torrents dị na ndepụta a, mana nke a apụghị imezu mgbe niile, na-adabere nke ukwuu na iwu nke ụlọ akwụkwọ mmụta isi. Maka ụlọ akwụkwọ mmụta na-ebipụta torrents nke ha, ọ bụghị n'aka anyị. Maka torrents nke Anna’s Archive wepụtara, anyị na-edozi naanị dabere na MD5 hash, nke pụtara na ụdị dị iche iche nke otu akwụkwọ anaghị edozi."
 
-#: allthethings/page/templates/page/faq.html:252
+#: allthethings/page/templates/page/faq.html:253
 #, fuzzy
 msgid "page.faq.torrents.q5"
 msgstr "Enwere m ike inweta ndepụta torrent dị ka JSON?"
 
-#: allthethings/page/templates/page/faq.html:254
+#: allthethings/page/templates/page/faq.html:255
 #, fuzzy
 msgid "page.faq.torrents.a5"
 msgstr "Ee."
 
-#: allthethings/page/templates/page/faq.html:258
+#: allthethings/page/templates/page/faq.html:259
 #, fuzzy
 msgid "page.faq.torrents.q6"
 msgstr "Achọghị m PDFs ma ọ bụ EPUBs na torrents, naanị faịlụ binary? Kedu ihe m ga-eme?"
 
-#: allthethings/page/templates/page/faq.html:260
+#: allthethings/page/templates/page/faq.html:261
 #, fuzzy
 msgid "page.faq.torrents.a6"
 msgstr "Ndị a bụ n'ezie PDFs na EPUBs, ha enweghị mgbakwunye na ọtụtụ torrents anyị. Enwere ebe abụọ ị nwere ike ịchọta metadata maka faịlụ torrent, gụnyere ụdị faịlụ/mgbakwunye:"
 
-#: allthethings/page/templates/page/faq.html:262
+#: allthethings/page/templates/page/faq.html:263
 #, fuzzy
 msgid "page.faq.torrents.a6.li1"
 msgstr "1. Nchịkọta ma ọ bụ ntọhapụ ọ bụla nwere metadata nke ya. Dịka ọmụmaatụ, <a %(a_libgen_nonfic)s>Libgen.rs torrents</a> nwere nchekwa data metadata kwekọrọ na weebụsaịtị Libgen.rs. Anyị na-ejikọta na akụ metadata dị mkpa site na peeji dataset nke nchịkọta ọ bụla <a %(a_datasets)s>dataset page</a>."
 
-#: allthethings/page/templates/page/faq.html:264
+#: allthethings/page/templates/page/faq.html:265
 #, fuzzy
 msgid "page.faq.torrents.a6.li2"
 msgstr "2. Anyị na-akwado <a %(a_generate)s>mepụta</a> ma ọ bụ <a %(a_download)s>budata</a> ElasticSearch na MariaDB databases anyị. Ndị a nwere map maka ndekọ ọ bụla na Anna’s Archive na faịlụ torrent kwekọrọ na ya (ọ bụrụ na ọ dị), n'okpuru “torrent_paths” na ElasticSearch JSON."
 
-#: allthethings/page/templates/page/faq.html:267
+#: allthethings/page/templates/page/faq.html:268
 #, fuzzy
 msgid "page.faq.security.title"
 msgstr "Ị nwere mmemme nkwupụta ọrụ?"
 
-#: allthethings/page/templates/page/faq.html:270
+#: allthethings/page/templates/page/faq.html:271
 #, fuzzy
 msgid "page.faq.security.text1"
 msgstr "Anyị na-anabata ndị nyocha nchekwa ka ha chọọ adịghị ike na sistemụ anyị. Anyị bụ ndị na-akwado nkwupụta ọrụ. Kpọtụrụ anyị <a %(a_contact)s>ebe a</a>."
 
-#: allthethings/page/templates/page/faq.html:274
+#: allthethings/page/templates/page/faq.html:275
 #, fuzzy
 msgid "page.faq.security.text2"
 msgstr "Anyị enweghị ike ịnye ụgwọ ọrụ maka njehie ugbu a, ma e wezụga maka adịghị ike nke nwere <a %(a_link)s>ike imebi nzuzo anyị</a>, nke anyị na-enye ụgwọ ọrụ n'etiti $10k-50k. Anyị ga-achọ inye ohere sara mbara maka ụgwọ ọrụ njehie n'ọdịnihu! Biko mara na mwakpo mmekọrịta mmadụ na ibe ya adịghị n'ime oke."
 
-#: allthethings/page/templates/page/faq.html:278
+#: allthethings/page/templates/page/faq.html:279
 #, fuzzy
 msgid "page.faq.security.text3"
 msgstr "Ọ bụrụ na ị nwere mmasị na nchekwa mwakpo, ma chọọ inyere aka idekọ ihe ọmụma na omenala ụwa, jide n'aka na ịkpọtụrụ anyị. Enwere ọtụtụ ụzọ ị nwere ike isi nyere aka."
 
-#: allthethings/page/templates/page/faq.html:281
+#: allthethings/page/templates/page/faq.html:282
 #, fuzzy
 msgid "page.faq.resources.title"
 msgstr "Enwere ihe ndị ọzọ gbasara Anna’s Archive?"
 
-#: allthethings/page/templates/page/faq.html:284
+#: allthethings/page/templates/page/faq.html:285
 #, fuzzy
 msgid "page.faq.resources.annas_blog"
 msgstr "<a %(a_blog)s>Blog Anna</a>, <a %(a_reddit_u)s>Reddit</a>, <a %(a_reddit_r)s>Subreddit</a> — mmelite mgbe niile"
 
-#: allthethings/page/templates/page/faq.html:285
+#: allthethings/page/templates/page/faq.html:286
 #, fuzzy
 msgid "page.faq.resources.annas_software"
 msgstr "<a %(a_software)s>Ngwaọrụ Anna</a> — koodu anyị na-emeghe"
 
-#: allthethings/page/templates/page/faq.html:286
+#: allthethings/page/templates/page/faq.html:287
 #, fuzzy
 msgid "page.faq.resources.translate"
 msgstr "<a %(a_translate)s>Tụgharịa na Ngwaọrụ Anna</a> — usoro ntụgharị anyị"
 
-#: allthethings/page/templates/page/faq.html:287
+#: allthethings/page/templates/page/faq.html:288
 #, fuzzy
 msgid "page.faq.resources.datasets"
 msgstr "<a %(a_datasets)s>Datasets</a> — gbasara data"
 
-#: allthethings/page/templates/page/faq.html:288
+#: allthethings/page/templates/page/faq.html:289
 #, fuzzy
 msgid "page.faq.resources.domains"
 msgstr "<a %(a_li)s>.li</a>, <a %(a_se)s>.se</a>, <a %(a_org)s>.org</a> — ebe ndị ọzọ"
 
-#: allthethings/page/templates/page/faq.html:289
+#: allthethings/page/templates/page/faq.html:290
 #, fuzzy
 msgid "page.faq.resources.wikipedia"
 msgstr "<a %(a_wikipedia)s>Wikipedia</a> — ihe ndị ọzọ gbasara anyị (biko nyere aka idobe ibe a ka ọ dị ọhụrụ, ma ọ bụ mepụta nke gị n'asụsụ gị!)"
 
-#: allthethings/page/templates/page/faq.html:292
+#: allthethings/page/templates/page/faq.html:293
 #, fuzzy
 msgid "page.faq.copyright.title"
 msgstr "Kedu ka m ga-esi kọọ mmebi ikike nwebisiinka?"
 
-#: allthethings/page/templates/page/faq.html:295
+#: allthethings/page/templates/page/faq.html:296
 #, fuzzy
 msgid "page.faq.copyright.text1"
 msgstr "Anyị anaghị enweta ihe ọ bụla nwere ikike nwebisiinka ebe a. Anyị bụ igwe nchọta, ya mere anyị na-edekọ naanị metadata nke dịlarị n'ihu ọha. Mgbe ị na-ebudata site na isi mmalite ndị a dị n'èzí, anyị ga-atụ aro ka ị lelee iwu na mpaghara gị gbasara ihe a na-ekwe. Anyị anaghị enwe ọrụ maka ọdịnaya ndị ọzọ na-ahụ maka ya."
 
-#: allthethings/page/templates/page/faq.html:299
+#: allthethings/page/templates/page/faq.html:300
 #, fuzzy
 msgid "page.faq.copyright.text2"
 msgstr "Ọ bụrụ na ị nwere mkpesa gbasara ihe ị hụrụ ebe a, ihe kacha mma ị ga-eme bụ ịkpọtụrụ weebụsaịtị mbụ. Anyị na-ejikarị data ha na-emelite nchekwa data anyị. Ọ bụrụ na ị chere n'ezie na ị nwere mkpesa DMCA ziri ezi anyị kwesịrị ịza, biko jupụta na <a %(a_copyright)s>DMCA / Fọm mkpesa ikike nwebisiinka</a>. Anyị na-ewere mkpesa gị n'isi, ma ga-aza gị ozugbo o kwere mee."
 
-#: allthethings/page/templates/page/faq.html:302
+#: allthethings/page/templates/page/faq.html:303
 #, fuzzy
 msgid "page.faq.hate.title"
 msgstr "Anaghị m ahụ ka ị na-agba ọsọ ọrụ a!"
 
-#: allthethings/page/templates/page/faq.html:305
+#: allthethings/page/templates/page/faq.html:306
 #, fuzzy
 msgid "page.faq.hate.text1"
 msgstr "Anyị ga-achọkwa icheta onye ọ bụla na koodu na data anyị niile bụ kpamkpam mepere emepe. Nke a bụ ihe pụrụ iche maka ọrụ dịka nke anyị — anyị amaghị ọrụ ọ bụla ọzọ nwere katalọgụ buru ibu nke a na-emeghe kpamkpam. Anyị na-anabata onye ọ bụla na-eche na anyị na-agba ọsọ ọrụ anyị nke ọma iji were koodu na data anyị wee guzobe ụlọ akwụkwọ ndò nke ha! Anyị anaghị ekwu nke a n'ihi iwe ma ọ bụ ihe ọ bụla — anyị n'ezie na-eche na nke a ga-adị egwu ebe ọ ga-ebuli ogo maka onye ọ bụla, ma chekwaa ihe nketa mmadụ nke ọma."
 
-#: allthethings/page/templates/page/faq.html:308
+#: allthethings/page/templates/page/faq.html:309
 #, fuzzy
 msgid "page.faq.favorite.title"
 msgstr "Kedu akwụkwọ ndị ị hụrụ n'anya?"
 
-#: allthethings/page/templates/page/faq.html:311
+#: allthethings/page/templates/page/faq.html:312
 #, fuzzy
 msgid "page.faq.favorite.text1"
 msgstr "Ndị a bụ ụfọdụ akwụkwọ nke nwere ihe pụrụ iche maka ụwa nke ụlọ akwụkwọ ndò na nchekwa dijitalụ:"
@@ -3549,13 +3663,13 @@ msgid "page.md5.box.download.ipfs_gateway_extra"
 msgstr "(ị nwere ike ịchọ ịnwale ọtụtụ oge na IPFS)"
 
 #: allthethings/page/templates/page/ipfs_downloads.html:23
-#: allthethings/page/templates/page/partner_download.html:93
+#: allthethings/page/templates/page/partner_download.html:91
 #, fuzzy
 msgid "page.partner_download.faster_downloads"
 msgstr "🚀 Iji nweta nbudata ngwa ngwa ma gbanwee nyocha nchọgharị, <a %(a_membership)s>ghọọ onye otu</a>."
 
 #: allthethings/page/templates/page/ipfs_downloads.html:27
-#: allthethings/page/templates/page/partner_download.html:97
+#: allthethings/page/templates/page/partner_download.html:95
 #, fuzzy
 msgid "page.partner_download.bulk_mirroring"
 msgstr "📡 Maka ịmepụta ọtụtụ ihe n'ịntanetị nke nchịkọta anyị, lelee <a %(a_datasets)s>Datasets</a> na <a %(a_torrents)s>Torrents</a> ibe."
@@ -3909,27 +4023,31 @@ msgstr "Ozugbo ị nwetara njikọ nbudata ọ dị irè maka ọtụtụ awa."
 msgid "page.partner_download.li4"
 msgstr "Daalụ maka ichere, nke a na-eme ka weebụsaịtị dịrị n'efu maka onye ọ bụla! 😊"
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:40
+msgid "page.partner_download.automatic_refreshing"
+msgstr ""
+
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.url"
 msgstr "📚 Jiri URL na-esonụ ibudata: <a %(a_download)s>Budata ugbu a</a>."
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.download_now"
 msgstr "Budata ugbu a"
 
-#: allthethings/page/templates/page/partner_download.html:86
+#: allthethings/page/templates/page/partner_download.html:84
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads"
 msgstr "Ịdọ aka ná ntị: e nwere ọtụtụ nbudata site na adreesị IP gị n'ime awa 24 gara aga. Nbudata nwere ike ịdị nwayọ karịa ka ọ dị na mbụ."
 
-#: allthethings/page/templates/page/partner_download.html:87
+#: allthethings/page/templates/page/partner_download.html:85
 #, fuzzy
 msgid "page.partner_download.downloads_last_24_hours"
 msgstr "Nbudata site na adreesị IP gị n'ime awa 24 gara aga: %(count)s."
 
-#: allthethings/page/templates/page/partner_download.html:88
+#: allthethings/page/templates/page/partner_download.html:86
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads2"
 msgstr "Ọ bụrụ na ị na-eji VPN, njikọ ịntanetị kesara, ma ọ bụ ISP gị kesara IPs, ịdọ aka ná ntị a nwere ike ịbụ n'ihi nke ahụ."

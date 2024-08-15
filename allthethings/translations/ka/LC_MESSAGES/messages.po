@@ -370,10 +370,6 @@ msgstr "5000$-ზე მეტი შემოწირულობისთვ�
 #: allthethings/account/templates/account/index.html:36
 #: allthethings/page/templates/page/contact.html:3
 #: allthethings/page/templates/page/contact.html:6
-#: allthethings/page/templates/page/faq.html:84
-#: allthethings/page/templates/page/faq.html:139
-#: allthethings/page/templates/page/faq.html:147
-#: allthethings/page/templates/page/faq.html:171
 #: allthethings/page/templates/page/home.html:77
 #: allthethings/page/templates/page/home.html:82
 #: allthethings/page/templates/page/home.html:90
@@ -1387,6 +1383,14 @@ msgstr "ჩამოტვირთული ფაილები არ არ
 msgid "page.downloaded.no_files"
 msgstr "ჯერ ფაილები არ გადმოწერილა."
 
+#: allthethings/account/templates/account/downloaded.html:16
+msgid "page.downloaded.last_18_hours"
+msgstr ""
+
+#: allthethings/account/templates/account/downloaded.html:21
+msgid "page.downloaded.earlier"
+msgstr ""
+
 #: allthethings/account/templates/account/index.html:5
 #: allthethings/account/templates/account/index.html:15
 #, fuzzy
@@ -1462,7 +1466,7 @@ msgid "page.account.logged_in.membership_upgrade"
 msgstr "დაუკავშირდით ანას %(email)s-ზე თუ დაინტერესებული ხართ თქვენი წევრობის მაღალ დონეზე გაუმჯობესებით."
 
 #: allthethings/account/templates/account/index.html:37
-#: allthethings/page/templates/page/faq.html:135
+#: allthethings/page/templates/page/faq.html:136
 #, fuzzy
 msgid "page.account.logged_in.membership_multiple"
 msgstr "შეგიძლიათ გააერთიანოთ რამდენიმე წევრობა (სწრაფი გადმოწერები 24 საათში დაემატება ერთმანეთს)."
@@ -1717,6 +1721,14 @@ msgstr "მონიშნულია დაზიანებულად Libg
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "დაკარგულია Z-Library-დან"
 
+#: allthethings/page/views.py:4845
+msgid "common.md5_problem_type_mapping.zlib_spam"
+msgstr ""
+
+#: allthethings/page/views.py:4846
+msgid "common.md5_problem_type_mapping.zlib_bad_file"
+msgstr ""
+
 #: allthethings/page/views.py:4847
 #, fuzzy
 msgid "common.md5_problem_type_mapping.duxiu_pdg_broken_files"
@@ -1807,26 +1819,31 @@ msgstr "მეტამონაცემების გამოკვლე�
 msgid "common.access_types_mapping.torrents_available"
 msgstr "ტორენტებში შემავალი"
 
-#: allthethings/page/templates/page/datasets.html:52
-#: allthethings/page/templates/page/datasets.html:88
+#: allthethings/page/templates/page/datasets.html:51
+#: allthethings/page/templates/page/datasets.html:87
 #: allthethings/page/views.py:4880
 #, fuzzy
 msgid "common.record_sources_mapping.lgrs"
 msgstr "Libgen.rs"
 
-#: allthethings/page/templates/page/datasets.html:54
-#: allthethings/page/templates/page/datasets.html:109
+#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:108
 #: allthethings/page/views.py:4881
 #, fuzzy
 msgid "common.record_sources_mapping.lgli"
 msgstr "Libgen.li"
 
-#: allthethings/page/templates/page/datasets.html:55
-#: allthethings/page/templates/page/datasets.html:121
+#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:120
 #: allthethings/page/views.py:4882
 #, fuzzy
 msgid "common.record_sources_mapping.zlib"
 msgstr "Z-Library"
+
+#: allthethings/page/templates/page/datasets.html:55
+#: allthethings/page/views.py:4883
+msgid "common.record_sources_mapping.zlibzh"
+msgstr ""
 
 #: allthethings/page/views.py:4884
 #, fuzzy
@@ -1843,7 +1860,7 @@ msgstr "ISBNdb"
 msgid "common.record_sources_mapping.ol"
 msgstr "OpenLibrary"
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 #: allthethings/page/views.py:4887
 #, fuzzy
 msgid "common.record_sources_mapping.scihub"
@@ -1854,15 +1871,15 @@ msgstr "Sci-Hub"
 msgid "common.record_sources_mapping.oclc"
 msgstr "OCLC (WorldCat)"
 
-#: allthethings/page/templates/page/datasets.html:58
-#: allthethings/page/templates/page/datasets.html:142
+#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:141
 #: allthethings/page/views.py:4889
 #, fuzzy
 msgid "common.record_sources_mapping.duxiu"
 msgstr "DuXiu 读秀"
 
-#: allthethings/page/templates/page/datasets.html:59
-#: allthethings/page/templates/page/datasets.html:155
+#: allthethings/page/templates/page/datasets.html:58
+#: allthethings/page/templates/page/datasets.html:154
 #: allthethings/page/views.py:4890
 #, fuzzy
 msgid "common.record_sources_mapping.uploads"
@@ -2517,8 +2534,6 @@ msgstr "რაღაც არასწორად მოხდა. გთხ�
 
 #: allthethings/page/templates/page/aarecord.html:406
 #: allthethings/page/templates/page/aarecord.html:407
-#: allthethings/page/templates/page/codes.html:8
-#: allthethings/page/templates/page/codes.html:9
 #: allthethings/page/templates/page/copyright.html:6
 #: allthethings/page/templates/page/copyright.html:7
 #: allthethings/page/templates/page/datasets.html:13
@@ -2574,12 +2589,12 @@ msgstr "ეს არის ფაილი, რომელსაც მარ�
 msgid "page.md5.text.file_info.text1"
 msgstr "ამ კონკრეტული ფაილის შესახებ ინფორმაციისთვის, შეამოწმეთ მისი <a %(a_href)s>JSON ფაილი</a>."
 
-#: allthethings/page/templates/page/aarecord_issue.html:4
+#: allthethings/page/templates/page/aarecord_issue.html:5
 #, fuzzy
 msgid "page.aarecord_issue.title"
 msgstr "🔥 გვერდის ჩატვირთვის პრობლემა"
 
-#: allthethings/page/templates/page/aarecord_issue.html:6
+#: allthethings/page/templates/page/aarecord_issue.html:7
 #, fuzzy
 msgid "page.aarecord_issue.text"
 msgstr "გთხოვთ, განაახლეთ გვერდი და სცადეთ თავიდან. <a %(a_contact)s>დაგვიკავშირდით</a>, თუ პრობლემა რამდენიმე საათის განმავლობაში გაგრძელდება."
@@ -2622,6 +2637,104 @@ msgstr "თუ უსასრულო ციკლში მოხვდით
 #, fuzzy
 msgid "page.login.text3"
 msgstr "ასევე შეიძლება დაგეხმაროთ რეკლამების ბლოკატორებისა და სხვა ბრაუზერის გაფართოებების გამორთვა."
+
+#: allthethings/page/templates/page/codes.html:5
+msgid "page.codes.title"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:10
+msgid "page.codes.heading"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:14
+msgid "page.codes.intro"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:18
+msgid "page.codes.why_cloudflare"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:22
+msgid "page.codes.dont_scrape"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:33
+msgid "page.codes.prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:34
+msgid "common.form.go"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:35
+msgid "common.form.reset"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:40
+msgid "page.codes.bad_unicode"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:46
+msgid "page.codes.known_code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:48
+msgid "page.codes.code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:49
+msgid "page.codes.code_label"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:51
+msgid "page.codes.code_description"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgid "page.codes.code_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgctxt "the %s should not be changed"
+msgid "page.codes.s_substitution"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:57
+msgid "page.codes.generic_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:61
+msgid "page.codes.code_website"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:69
+msgid "page.codes.record_starting_with"
+msgid_plural "page.codes.records_starting_with"
+msgstr[0] ""
+
+#: allthethings/page/templates/page/codes.html:75
+msgid "page.codes.search_archive"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:77
+msgid "page.codes.url_link"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:84
+msgid "page.codes.codes_starting_with"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:92
+msgid "page.codes.records_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:93
+msgid "page.codes.records_codes"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:113
+msgid "page.codes.fewer_than"
+msgstr ""
 
 #: allthethings/page/templates/page/contact.html:9
 #, fuzzy
@@ -2722,144 +2835,140 @@ msgstr ""
 msgid "page.datasets.overview.last_updated.header"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:52
+#: allthethings/page/templates/page/datasets.html:51
 msgid "common.record_sources_mapping.lgrs.nonfiction_and_fiction"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "common.record_sources_mapping.scihub.via_lgli_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_1"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_2"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "common.record_sources.mapping.lgli.excluding_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "page.datasets.lgli_fiction_is_behind"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:56
-msgid "common.record_sources_mapping.zlibzh"
-msgstr ""
-
-#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:55
 msgid "page.datasets.zlibzh.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
-#: allthethings/page/templates/page/datasets.html:130
+#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:129
 msgid "common.record_sources_mapping.iacdl"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:56
 msgid "page.datasets.iacdl.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.total"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.excluding_duplicates"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:64
+#: allthethings/page/templates/page/datasets.html:63
 msgid "page.datasets.overview.text4"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:68
+#: allthethings/page/templates/page/datasets.html:67
 msgid "page.datasets.overview.text5"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:71
+#: allthethings/page/templates/page/datasets.html:70
 msgid "page.datasets.source_libraries.title"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:74
+#: allthethings/page/templates/page/datasets.html:73
 #, fuzzy
 msgid "page.datasets.source_libraries.text1"
 msgstr "ზოგიერთი წყაროს ბიბლიოთეკა ხელს უწყობს მათი მონაცემების მასობრივ გაზიარებას ტორენტების მეშვეობით, ხოლო სხვები არ იზიარებენ თავიანთ კოლექციას. ამ უკანასკნელ შემთხვევაში, ანას არქივი ცდილობს მათი კოლექციების სკრაპინგს და ხელმისაწვდომობას (იხილეთ ჩვენი <a %(a_torrents)s>ტორენტები</a> გვერდი). ასევე არსებობს შუალედური სიტუაციები, მაგალითად, როდესაც წყაროს ბიბლიოთეკები მზად არიან გაზიარებისთვის, მაგრამ არ აქვთ რესურსები ამის გასაკეთებლად. ამ შემთხვევებში, ჩვენც ვცდილობთ დახმარებას."
 
-#: allthethings/page/templates/page/datasets.html:78
+#: allthethings/page/templates/page/datasets.html:77
 #, fuzzy
 msgid "page.datasets.source_libraries.text2"
 msgstr "ქვემოთ მოცემულია მიმოხილვა, თუ როგორ ვურთიერთობთ სხვადასხვა წყაროს ბიბლიოთეკებთან."
 
-#: allthethings/page/templates/page/datasets.html:83
+#: allthethings/page/templates/page/datasets.html:82
 #, fuzzy
 msgid "page.datasets.sources.source.header"
 msgstr "წყარო"
 
-#: allthethings/page/templates/page/datasets.html:84
+#: allthethings/page/templates/page/datasets.html:83
 #, fuzzy
 msgid "page.datasets.sources.metadata.header"
 msgstr "მეტამონაცემები"
 
-#: allthethings/page/templates/page/datasets.html:85
+#: allthethings/page/templates/page/datasets.html:84
 #, fuzzy
 msgid "page.datasets.sources.files.header"
 msgstr "ფაილები"
 
-#: allthethings/page/templates/page/datasets.html:98
+#: allthethings/page/templates/page/datasets.html:97
 #, fuzzy
 msgid "common.record_sources_mapping.scihub_scimag"
 msgstr "Sci-Hub / Libgen “scimag”"
 
-#: allthethings/page/templates/page/datasets.html:162
+#: allthethings/page/templates/page/datasets.html:161
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.title"
 msgstr "მხოლოდ მეტამონაცემების წყაროები"
 
-#: allthethings/page/templates/page/datasets.html:165
+#: allthethings/page/templates/page/datasets.html:164
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text1"
 msgstr "ჩვენ ასევე ვამდიდრებთ ჩვენს კოლექციას მხოლოდ მეტამონაცემების წყაროებით, რომელთა დაკავშირება შეგვიძლია ფაილებთან, მაგალითად, ISBN ნომრების ან სხვა ველების გამოყენებით. ქვემოთ მოცემულია მათი მიმოხილვა. კიდევ ერთხელ, ზოგიერთი ეს წყარო სრულიად ღიაა, ხოლო სხვებისთვის ჩვენ უნდა გავაკეთოთ სკრაპინგი."
 
-#: allthethings/page/templates/page/datasets.html:169
-#: allthethings/page/templates/page/faq.html:186
+#: allthethings/page/templates/page/datasets.html:168
+#: allthethings/page/templates/page/faq.html:187
 #: allthethings/page/templates/page/search.html:294
 #, fuzzy
 msgid "page.faq.metadata.inspiration1"
 msgstr "ჩვენი შთაგონება მეტამონაცემების შეგროვებისთვის არის აარონ შვარცის მიზანი „ერთი ვებგვერდი ყველა ოდესმე გამოქვეყნებული წიგნისთვის“, რისთვისაც მან შექმნა <a %(a_openlib)s>Open Library</a>."
 
-#: allthethings/page/templates/page/datasets.html:170
-#: allthethings/page/templates/page/faq.html:187
+#: allthethings/page/templates/page/datasets.html:169
+#: allthethings/page/templates/page/faq.html:188
 #: allthethings/page/templates/page/search.html:295
 #, fuzzy
 msgid "page.faq.metadata.inspiration2"
 msgstr "ამ პროექტმა კარგად იმუშავა, მაგრამ ჩვენი უნიკალური პოზიცია საშუალებას გვაძლევს მივიღოთ მეტამონაცემები, რომლებიც მათ არ შეუძლიათ."
 
-#: allthethings/page/templates/page/datasets.html:171
-#: allthethings/page/templates/page/faq.html:188
+#: allthethings/page/templates/page/datasets.html:170
+#: allthethings/page/templates/page/faq.html:189
 #: allthethings/page/templates/page/search.html:296
 #, fuzzy
 msgid "page.faq.metadata.inspiration3"
 msgstr "კიდევ ერთი შთაგონება იყო ჩვენი სურვილი, რომ ვიცოდეთ <a %(a_blog)s>რამდენი წიგნია მსოფლიოში</a>, რათა გამოვთვალოთ რამდენი წიგნი დაგვრჩა გადასარჩენი."
 
-#: allthethings/page/templates/page/datasets.html:175
+#: allthethings/page/templates/page/datasets.html:174
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text2"
 msgstr "გაითვალისწინეთ, რომ მეტამონაცემების ძიებაში ჩვენ ვაჩვენებთ ორიგინალურ ჩანაწერებს. ჩვენ არ ვაკეთებთ ჩანაწერების შერწყმას."
 
-#: allthethings/page/templates/page/datasets.html:216
+#: allthethings/page/templates/page/datasets.html:215
 #, fuzzy
 msgid "page.datasets.unified_database.title"
 msgstr "გაერთიანებული მონაცემთა ბაზა"
 
-#: allthethings/page/templates/page/datasets.html:219
+#: allthethings/page/templates/page/datasets.html:218
 #, fuzzy
 msgid "page.datasets.unified_database.text1"
 msgstr "ჩვენ ვაერთიანებთ ყველა ზემოთ აღნიშნულ წყაროს ერთ გაერთიანებულ მონაცემთა ბაზაში, რომელსაც ვიყენებთ ამ ვებგვერდის მომსახურებისთვის. ეს გაერთიანებული მონაცემთა ბაზა პირდაპირ არ არის ხელმისაწვდომი, მაგრამ რადგან ანას არქივი სრულიად ღია წყაროა, ის შეიძლება საკმაოდ მარტივად <a %(a_generated)s>გენერირდეს</a> ან <a %(a_downloaded)s>ჩამოტვირთოს</a> როგორც ElasticSearch და MariaDB მონაცემთა ბაზები. ამ გვერდზე არსებული სკრიპტები ავტომატურად ჩამოტვირთავენ ყველა საჭირო მეტამონაცემას ზემოთ აღნიშნული წყაროებიდან."
 
-#: allthethings/page/templates/page/datasets.html:227
+#: allthethings/page/templates/page/datasets.html:226
 #, fuzzy
 msgid "page.datasets.unified_database.text2"
 msgstr "თუ გსურთ ჩვენი მონაცემების შესწავლა ამ სკრიპტების ლოკალურად გაშვებამდე, შეგიძლიათ ნახოთ ჩვენი JSON ფაილები, რომლებიც შემდგომში სხვა JSON ფაილებთან აკავშირებენ. <a %(a_json)s>ეს ფაილი</a> კარგი საწყისი წერტილია."
@@ -2900,473 +3009,477 @@ msgstr "ISBN ვებგვერდი"
 msgid "page.datasets/isbn_ranges.isbn_metadata"
 msgstr "მეტამონაცემები"
 
-#: allthethings/page/templates/page/faq.html:3
-#: allthethings/page/templates/page/faq.html:6
+#: allthethings/page/templates/page/faq.html:5
+#: allthethings/page/templates/page/faq.html:8
 #, fuzzy
 msgid "page.faq.title"
 msgstr "ხშირად დასმული კითხვები (FAQ)"
 
-#: allthethings/page/templates/page/faq.html:8
+#: allthethings/page/templates/page/faq.html:10
 #, fuzzy
 msgid "page.faq.what_is.title"
 msgstr "რა არის ანას არქივი?"
 
-#: allthethings/page/templates/page/faq.html:11
+#: allthethings/page/templates/page/faq.html:13
 #, fuzzy
 msgid "page.home.intro.text1"
 msgstr "<span %(span_anna)s>ანას არქივი</span> არის არამომგებიანი პროექტი ორი მიზნისთვის:"
 
-#: allthethings/page/templates/page/faq.html:15
+#: allthethings/page/templates/page/faq.html:17
 #, fuzzy
 msgid "page.home.intro.text2"
 msgstr "<li><strong>შენახვა:</strong> მთელი კაცობრიობის ცოდნისა და კულტურის სარეზერვო ასლის შექმნა.</li><li><strong>წვდომა:</strong> ამ ცოდნისა და კულტურის ხელმისაწვდომობა ყველასთვის მსოფლიოში.</li>"
 
-#: allthethings/page/templates/page/faq.html:19
+#: allthethings/page/templates/page/faq.html:21
 #, fuzzy
 msgid "page.home.intro.open_source"
 msgstr "ჩვენი <a %(a_code)s>კოდი</a> და <a %(a_datasets)s>მონაცემები</a> სრულიად ღია წყაროა."
 
-#: allthethings/page/templates/page/faq.html:23
+#: allthethings/page/templates/page/faq.html:25
 #, fuzzy
 msgid "page.home.preservation.header"
 msgstr "შენახვა"
 
-#: allthethings/page/templates/page/faq.html:25
+#: allthethings/page/templates/page/faq.html:27
 #, fuzzy
 msgid "page.home.preservation.text1"
 msgstr "ჩვენ ვინახავთ წიგნებს, სტატიებს, კომიქსებს, ჟურნალებს და სხვა მასალებს, სხვადასხვა <a href=\"https://en.wikipedia.org/wiki/Shadow_library\">ჩრდილოვანი ბიბლიოთეკებიდან</a>, ოფიციალური ბიბლიოთეკებიდან და სხვა კოლექციებიდან ერთ ადგილას. ეს მონაცემები სამუდამოდ ინახება, რადგან მისი მასობრივი დუბლირება მარტივია — ტორენტების გამოყენებით — რაც იწვევს მრავალ ასლს მთელ მსოფლიოში. ზოგიერთი ჩრდილოვანი ბიბლიოთეკა ამას თავად აკეთებს (მაგ. Sci-Hub, Library Genesis), ხოლო ანას არქივი „ათავისუფლებს“ სხვა ბიბლიოთეკებს, რომლებიც არ სთავაზობენ მასობრივ განაწილებას (მაგ. Z-Library) ან საერთოდ არ არიან ჩრდილოვანი ბიბლიოთეკები (მაგ. Internet Archive, DuXiu)."
 
-#: allthethings/page/templates/page/faq.html:27
+#: allthethings/page/templates/page/faq.html:29
 #, fuzzy
 msgid "page.home.preservation.text2"
 msgstr "ეს ფართო განაწილება, ღია წყაროს კოდთან ერთად, ჩვენს ვებგვერდს გამძლეობას აძლევს წაშლის მიმართ და უზრუნველყოფს კაცობრიობის ცოდნისა და კულტურის გრძელვადიან შენახვას. გაიგეთ მეტი <a href=\"/datasets\">ჩვენი მონაცემთა ნაკრებების</a> შესახებ."
 
-#: allthethings/page/templates/page/faq.html:41
+#: allthethings/page/templates/page/faq.html:43
 #, fuzzy
 msgid "page.home.preservation.label"
 msgstr "ჩვენ ვაფასებთ, რომ ჩვენ შევინახეთ დაახლოებით <a href=\"https://annas-blog.org/blog-isbndb-dump-how-many-books-are-preserved-forever.html\">5%% მსოფლიოს წიგნების</a>."
 
-#: allthethings/page/templates/page/faq.html:46
+#: allthethings/page/templates/page/faq.html:48
 #, fuzzy
 msgid "page.home.access.header"
 msgstr "წვდომა"
 
-#: allthethings/page/templates/page/faq.html:48
+#: allthethings/page/templates/page/faq.html:50
 #, fuzzy
 msgid "page.home.access.text"
 msgstr "ჩვენ ვმუშაობთ პარტნიორებთან ერთად, რათა ჩვენი კოლექციები მარტივად და უფასოდ ხელმისაწვდომი იყოს ყველასთვის. ჩვენ გვჯერა, რომ ყველას აქვს უფლება კაცობრიობის კოლექტიურ სიბრძნესთან. და <a %(a_search)s>არა ავტორების ხარჯზე</a>."
 
-#: allthethings/page/templates/page/faq.html:52
+#: allthethings/page/templates/page/faq.html:54
 #, fuzzy
 msgid "page.home.access.label"
 msgstr "საათობრივი ჩამოტვირთვები ბოლო 30 დღის განმავლობაში. საათობრივი საშუალო: %(hourly)s. დღიური საშუალო: %(daily)s."
 
-#: allthethings/page/templates/page/faq.html:80
+#: allthethings/page/templates/page/faq.html:82
 #, fuzzy
 msgid "page.about.text2"
 msgstr "ჩვენ მტკიცედ გვჯერა ინფორმაციის თავისუფალი ნაკადის და ცოდნისა და კულტურის შენახვის. ამ საძიებო სისტემით, ჩვენ ვაშენებთ გიგანტების მხრებზე. ჩვენ ღრმად ვაფასებთ იმ ადამიანების შრომას, რომლებმაც შექმნეს სხვადასხვა ჩრდილოვანი ბიბლიოთეკები და ვიმედოვნებთ, რომ ეს საძიებო სისტემა გააფართოვებს მათ მიღწევებს."
 
-#: allthethings/page/templates/page/faq.html:84
+#: allthethings/page/templates/page/faq.html:86
 #, fuzzy
 msgid "page.about.text3"
 msgstr "ჩვენი პროგრესის შესახებ ინფორმაციის მისაღებად, მიჰყევით ანას <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit-ზე</a> ან <a href=\"https://t.me/annasarchiveorg\">Telegram-ზე</a>. კითხვებისთვის და გამოხმაურებისთვის გთხოვთ დაუკავშირდეთ ანას %(email)s."
 
-#: allthethings/page/templates/page/faq.html:87
+#: allthethings/page/templates/page/faq.html:89
 #, fuzzy
 msgid "page.faq.help.title"
 msgstr "როგორ შემიძლია დავეხმარო?"
 
-#: allthethings/page/templates/page/faq.html:90
+#: allthethings/page/templates/page/faq.html:92
 #, fuzzy
 msgid "page.about.help.text"
 msgstr "<li>1. მიჰყევით ჩვენ <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit-ზე</a>, ან <a href=\"https://t.me/annasarchiveorg\">Telegram-ზე</a>.</li><li>2. გაავრცელეთ ინფორმაცია ანას არქივის შესახებ Twitter-ზე, Reddit-ზე, Tiktok-ზე, Instagram-ზე, თქვენს ადგილობრივ კაფეში ან ბიბლიოთეკაში, ან სადაც არ უნდა წახვიდეთ! ჩვენ არ გვჯერა კარების ჩაკეტვის — თუ ჩვენ წაგვართმევენ, ჩვენ უბრალოდ სხვაგან გამოვჩნდებით, რადგან ჩვენი მთელი კოდი და მონაცემები სრულიად ღია წყაროა.</li><li>3. თუ შეგიძლიათ, განიხილეთ <a href=\"/donate\">შემოწირულობა</a>.</li><li>4. დაეხმარეთ <a href=\"https://translate.annas-software.org/\">ჩვენი ვებგვერდის თარგმნაში</a> სხვადასხვა ენებზე.</li><li>5. თუ ხართ პროგრამული უზრუნველყოფის ინჟინერი, განიხილეთ ჩვენი <a href=\"https://annas-software.org/\">ღია წყაროს</a> პროექტებში მონაწილეობა, ან ჩვენი <a href=\"/datasets\">ტორენტების</a> დათესვა.</li>"
 
-#: allthethings/page/templates/page/faq.html:91
+#: allthethings/page/templates/page/faq.html:93
 #, fuzzy
 msgid "page.about.help.text6"
 msgstr "6. თუ თქვენ ხართ უსაფრთხოების მკვლევარი, ჩვენ შეგვიძლია გამოვიყენოთ თქვენი უნარები როგორც თავდასხმის, ასევე დაცვისთვის. იხილეთ ჩვენი <a %(a_security)s>უსაფრთხოების</a> გვერდი."
 
-#: allthethings/page/templates/page/faq.html:92
+#: allthethings/page/templates/page/faq.html:94
 #, fuzzy
 msgid "page.about.help.text7"
 msgstr "7. ჩვენ ვეძებთ ექსპერტებს ანონიმური ვაჭრების გადახდების საკითხებში. შეგიძლიათ დაგვეხმაროთ უფრო მოსახერხებელი გზების დამატებაში შესაწირად? PayPal, WeChat, სასაჩუქრე ბარათები. თუ ვინმეს იცნობთ, გთხოვთ დაგვიკავშირდეთ."
 
-#: allthethings/page/templates/page/faq.html:93
+#: allthethings/page/templates/page/faq.html:95
 #, fuzzy
 msgid "page.about.help.text8"
 msgstr "8. ჩვენ ყოველთვის ვეძებთ მეტი სერვერის სიმძლავრეს."
 
-#: allthethings/page/templates/page/faq.html:94
+#: allthethings/page/templates/page/faq.html:96
 #, fuzzy
 msgid "page.about.help.text9"
 msgstr "9. შეგიძლიათ დაგვეხმაროთ ფაილების პრობლემების მოხსენებით, კომენტარების დატოვებით და სიების შექმნით ამ ვებგვერდზე. ასევე შეგიძლიათ დაგვეხმაროთ <a %(a_upload)s>მეტი წიგნის ატვირთვით</a>, ან არსებული წიგნების ფაილების პრობლემების ან ფორმატირების გამოსწორებით."
 
-#: allthethings/page/templates/page/faq.html:95
+#: allthethings/page/templates/page/faq.html:97
 #, fuzzy
 msgid "page.about.help.text10"
 msgstr "10. შექმენით ან დაეხმარეთ „ანა არქივის“ ვიკიპედიის გვერდის შენარჩუნებაში თქვენს ენაზე."
 
-#: allthethings/page/templates/page/faq.html:96
+#: allthethings/page/templates/page/faq.html:98
 #, fuzzy
 msgid "page.about.help.text11"
 msgstr "11. ჩვენ ვეძებთ მცირე, გემოვნებიან რეკლამებს. თუ გსურთ რეკლამირება „ანა არქივზე“, გთხოვთ შეგვატყობინოთ."
 
-#: allthethings/page/templates/page/faq.html:97
+#: allthethings/page/templates/page/faq.html:99
 #, fuzzy
 msgid "page.faq.help.mirrors"
 msgstr "ჩვენ გვინდა, რომ ხალხმა შექმნას <a %(a_mirrors)s>სარკეები</a>, და ჩვენ ფინანსურად დავუჭერთ მხარს ამას."
 
-#: allthethings/page/templates/page/faq.html:105
+#: allthethings/page/templates/page/faq.html:103
+msgid "page.about.help.volunteer"
+msgstr ""
+
+#: allthethings/page/templates/page/faq.html:106
 #, fuzzy
 msgid "page.faq.slow.title"
 msgstr "რატომ არის ნელი ჩამოტვირთვები ასე ნელი?"
 
-#: allthethings/page/templates/page/faq.html:108
+#: allthethings/page/templates/page/faq.html:109
 #, fuzzy
 msgid "page.faq.slow.text1"
 msgstr "ჩვენ არ გვაქვს საკმარისი რესურსები, რომ ყველას მთელ მსოფლიოში მივაწოდოთ მაღალი სიჩქარის ჩამოტვირთვები, როგორც გვსურს. თუ მდიდარი მფარველი დაგვეხმარება ამაში, ეს საოცარი იქნება, მაგრამ მანამდე, ჩვენ ვცდილობთ საუკეთესოს. ჩვენ ვართ არამომგებიანი პროექტი, რომელიც ძლივს ინარჩუნებს თავს შემოწირულობებით."
 
-#: allthethings/page/templates/page/faq.html:112
+#: allthethings/page/templates/page/faq.html:113
 #, fuzzy
 msgid "page.faq.slow.text2"
 msgstr "ამიტომ ჩვენ შევიმუშავეთ ორი სისტემა უფასო ჩამოტვირთვებისთვის, ჩვენი პარტნიორებით: გაზიარებული სერვერები ნელი ჩამოტვირთვებით და ოდნავ სწრაფი სერვერები მოლოდინის სიით (რათა შემცირდეს ერთდროულად ჩამოტვირთვის რაოდენობა)."
 
-#: allthethings/page/templates/page/faq.html:116
+#: allthethings/page/templates/page/faq.html:117
 #, fuzzy
 msgid "page.faq.slow.text3"
 msgstr "ჩვენ ასევე გვაქვს <a %(a_verification)s>ბრაუზერის ვერიფიკაცია</a> ჩვენი ნელი ჩამოტვირთვებისთვის, რადგან სხვაგვარად ბოტები და სკრიპტები მათ ბოროტად გამოიყენებენ, რაც კიდევ უფრო შეანელებს ლეგიტიმური მომხმარებლებისთვის."
 
-#: allthethings/page/templates/page/faq.html:120
+#: allthethings/page/templates/page/faq.html:121
 #, fuzzy
 msgid "page.faq.slow.text4"
 msgstr "გაითვალისწინეთ, რომ Tor ბრაუზერის გამოყენებისას, შესაძლოა დაგჭირდეთ თქვენი უსაფრთხოების პარამეტრების შეცვლა. ყველაზე დაბალ პარამეტრზე, რომელსაც \"სტანდარტული\" ეწოდება, Cloudflare turnstile გამოწვევა წარმატებით სრულდება. უფრო მაღალ პარამეტრებზე, რომელსაც \"უსაფრთხო\" და \"ყველაზე უსაფრთხო\" ეწოდება, გამოწვევა ვერ ხერხდება."
 
-#: allthethings/page/templates/page/faq.html:124
+#: allthethings/page/templates/page/faq.html:125
 #, fuzzy
 msgid "page.faq.slow.text5"
 msgstr "დიდი ფაილებისთვის ზოგჯერ ნელი ჩამოტვირთვები შეიძლება შუაში შეწყდეს. გირჩევთ გამოიყენოთ ჩამოტვირთვის მენეჯერი (მაგალითად, JDownloader) ავტომატურად დიდი ჩამოტვირთვების გასაგრძელებლად."
 
-#: allthethings/page/templates/page/faq.html:127
+#: allthethings/page/templates/page/faq.html:128
 #, fuzzy
 msgid "page.donate.faq.title"
 msgstr "შემოწირულობების FAQ"
 
-#: allthethings/page/templates/page/faq.html:130
+#: allthethings/page/templates/page/faq.html:131
 #, fuzzy
 msgid "page.donate.faq.renew"
 msgstr "<div %(div_question)s>გაწევრიანება ავტომატურად განახლდება?</div> გაწევრიანება <strong>არ</strong> განახლდება ავტომატურად. შეგიძლიათ გაწევრიანდეთ როგორც ხანგრძლივად, ასევე მოკლევადიანად."
 
-#: allthethings/page/templates/page/faq.html:134
+#: allthethings/page/templates/page/faq.html:135
 #, fuzzy
 msgid "page.donate.faq.membership"
 msgstr "<div %(div_question)s>შეიძლება გავაუმჯობესო ჩემი წევრობა ან მივიღო მრავალი წევრობა?</div>"
 
-#: allthethings/page/templates/page/faq.html:139
+#: allthethings/page/templates/page/faq.html:140
 #, fuzzy
 msgid "page.donate.faq.text_other_payment1"
 msgstr "<div %(div_question)s>გაქვთ სხვა გადახდის მეთოდები?</div> ამჟამად არა. ბევრი ადამიანი არ სურს, რომ ასეთი არქივები არსებობდეს, ამიტომ ფრთხილად უნდა ვიყოთ. თუ შეგიძლიათ დაგვეხმაროთ სხვა (უფრო მოსახერხებელი) გადახდის მეთოდების უსაფრთხოდ დაყენებაში, გთხოვთ დაგვიკავშირდეთ %(email)s."
 
-#: allthethings/page/templates/page/faq.html:143
+#: allthethings/page/templates/page/faq.html:144
 #, fuzzy
 msgid "page.donate.faq.spend"
 msgstr "<div %(div_question)s>რას ხარჯავთ შემოწირულობებს?</div> 100%% იხარჯება მსოფლიოს ცოდნისა და კულტურის შენარჩუნებასა და ხელმისაწვდომობაზე. ამჟამად, ჩვენ ძირითადად ვხარჯავთ სერვერებზე, საცავზე და სიჩქარეზე. არცერთი თანხა არ მიდის გუნდის წევრებზე პირადად."
 
-#: allthethings/page/templates/page/faq.html:147
+#: allthethings/page/templates/page/faq.html:148
 #, fuzzy
 msgid "page.donate.faq.text_large_donation"
 msgstr "<div %(div_question)s>შეიძლება დიდი შემოწირულობის გაკეთება?</div> ეს საოცარი იქნება! რამდენიმე ათასი დოლარის შემოწირულობებისთვის, გთხოვთ დაგვიკავშირდეთ პირდაპირ %(email)s."
 
-#: allthethings/page/templates/page/faq.html:151
+#: allthethings/page/templates/page/faq.html:152
 #, fuzzy
 msgid "page.donate.faq.non_member_donation"
 msgstr "<div %(div_question)s>შეიძლება შემოწირულობის გაკეთება წევრობის გარეშე?</div> რა თქმა უნდა. ჩვენ ვიღებთ ნებისმიერი რაოდენობის შემოწირულობებს ამ Monero (XMR) მისამართზე: %(address)s."
 
-#: allthethings/page/templates/page/faq.html:154
+#: allthethings/page/templates/page/faq.html:155
 #, fuzzy
 msgid "page.faq.upload.title"
 msgstr "როგორ ავტვირთო ახალი წიგნები?"
 
-#: allthethings/page/templates/page/faq.html:157
+#: allthethings/page/templates/page/faq.html:158
 #, fuzzy
 msgid "page.upload.text1"
 msgstr "ამჟამად, გირჩევთ ახალი წიგნების ატვირთვას Library Genesis-ის ფორკებზე. აქ არის <a %(a_guide)s>სასარგებლო სახელმძღვანელო</a>. გაითვალისწინეთ, რომ ორივე ფორკი, რომელსაც ჩვენ ვინდექსირებთ ამ ვებგვერდზე, იყენებს ამავე ატვირთვის სისტემას."
 
-#: allthethings/page/templates/page/faq.html:158
+#: allthethings/page/templates/page/faq.html:159
 #, fuzzy
 msgid "common.libgen.email"
 msgstr "თუ თქვენი ელფოსტის მისამართი არ მუშაობს Libgen ფორუმებზე, გირჩევთ გამოიყენოთ <a %(a_mail)s>Proton Mail</a> (უფასო). ასევე შეგიძლიათ <a %(a_manual)s>მექანიკურად მოითხოვოთ</a> თქვენი ანგარიშის გააქტიურება."
 
-#: allthethings/page/templates/page/faq.html:159
+#: allthethings/page/templates/page/faq.html:160
 #, fuzzy
 msgid "page.faq.mhut_upload"
 msgstr "გაითვალისწინეთ, რომ mhut.org ბლოკავს გარკვეულ IP დიაპაზონებს, ამიტომ შესაძლოა საჭირო იყოს VPN."
 
-#: allthethings/page/templates/page/faq.html:163
+#: allthethings/page/templates/page/faq.html:164
 #, fuzzy
 msgid "page.upload.zlib.text1"
 msgstr "თქვენ ასევე შეგიძლიათ ატვირთოთ ისინი Z-Library-ზე <a %(a_upload)s>აქ</a>."
 
-#: allthethings/page/templates/page/faq.html:167
+#: allthethings/page/templates/page/faq.html:168
 #, fuzzy
 msgid "page.upload.zlib.text2"
 msgstr "აკადემიური ნაშრომების ატვირთვისთვის, გთხოვთ, ატვირთოთ ისინი (Library Genesis-ის გარდა) <a %(a_stc_nexus)s>STC Nexus</a>-ზე. ისინი საუკეთესო ჩრდილოვანი ბიბლიოთეკაა ახალი ნაშრომებისთვის. ჩვენ ჯერ არ გვაქვს მათი ინტეგრაცია, მაგრამ მომავალში გვექნება. შეგიძლიათ გამოიყენოთ მათი <a %(a_telegram)s>ატვირთვის ბოტი Telegram-ზე</a>, ან დაუკავშირდით მისამართს, რომელიც მითითებულია მათ პინირებულ შეტყობინებაში, თუ ძალიან ბევრი ფაილი გაქვთ ასატვირთად."
 
-#: allthethings/page/templates/page/faq.html:171
+#: allthethings/page/templates/page/faq.html:172
 #, fuzzy
 msgid "page.upload.large.text"
 msgstr "დიდი ატვირთვებისთვის (10,000 ფაილზე მეტი), რომლებიც არ მიიღება Libgen ან Z-Library-ზე, გთხოვთ, დაგვიკავშირდეთ %(a_email)s-ზე."
 
-#: allthethings/page/templates/page/faq.html:174
+#: allthethings/page/templates/page/faq.html:175
 #, fuzzy
 msgid "page.faq.request.title"
 msgstr "როგორ მოვითხოვო წიგნები?"
 
-#: allthethings/page/templates/page/faq.html:177
+#: allthethings/page/templates/page/faq.html:178
 #, fuzzy
 msgid "page.request.cannot_accomodate"
 msgstr "ამ დროისთვის, ჩვენ არ შეგვიძლია წიგნების მოთხოვნების დაკმაყოფილება."
 
-#: allthethings/page/templates/page/faq.html:178
+#: allthethings/page/templates/page/faq.html:179
 #, fuzzy
 msgid "page.request.forums"
 msgstr "გთხოვთ, თქვენი მოთხოვნები განათავსოთ Z-Library ან Libgen ფორუმებზე."
 
-#: allthethings/page/templates/page/faq.html:179
+#: allthethings/page/templates/page/faq.html:180
 #, fuzzy
 msgid "page.request.dont_email"
 msgstr "არ გამოგვიგზავნოთ თქვენი წიგნების მოთხოვნები ელფოსტით."
 
-#: allthethings/page/templates/page/faq.html:182
+#: allthethings/page/templates/page/faq.html:183
 #, fuzzy
 msgid "page.faq.metadata.title"
 msgstr "აგროვებთ მეტამონაცემებს?"
 
-#: allthethings/page/templates/page/faq.html:185
+#: allthethings/page/templates/page/faq.html:186
 #, fuzzy
 msgid "page.faq.metadata.indeed"
 msgstr "დიახ, ვაგროვებთ."
 
-#: allthethings/page/templates/page/faq.html:191
+#: allthethings/page/templates/page/faq.html:192
 #, fuzzy
 msgid "page.faq.1984.title"
 msgstr "ჩამოვტვირთე ჯორჯ ორუელის „1984“, პოლიცია მოვა ჩემს კართან?"
 
-#: allthethings/page/templates/page/faq.html:194
+#: allthethings/page/templates/page/faq.html:195
 #, fuzzy
 msgid "page.faq.1984.text"
 msgstr "არ ინერვიულოთ, ბევრი ადამიანი ჩამოტვირთავს ვებსაიტებიდან, რომლებსაც ჩვენ ვუკავშირებთ, და ძალიან იშვიათია პრობლემების წარმოქმნა. თუმცა, უსაფრთხოების მიზნით, გირჩევთ გამოიყენოთ VPN (გადახდილი), ან <a %(a_tor)s>Tor</a> (უფასო)."
 
-#: allthethings/page/templates/page/faq.html:197
+#: allthethings/page/templates/page/faq.html:198
 #, fuzzy
 msgid "page.faq.save_search.title"
 msgstr "როგორ შევინახო ჩემი ძიების პარამეტრები?"
 
-#: allthethings/page/templates/page/faq.html:200
+#: allthethings/page/templates/page/faq.html:201
 #, fuzzy
 msgid "page.faq.save_search.text1"
 msgstr "აირჩიეთ სასურველი პარამეტრები, დატოვეთ ძიების ველი ცარიელი, დააწკაპუნეთ „ძიება“-ზე, შემდეგ კი შეინახეთ გვერდი თქვენი ბრაუზერის ბუქმარკების ფუნქციით."
 
-#: allthethings/page/templates/page/faq.html:203
+#: allthethings/page/templates/page/faq.html:204
 #, fuzzy
 msgid "page.faq.mobile.title"
 msgstr "გაქვთ მობილური აპლიკაცია?"
 
-#: allthethings/page/templates/page/faq.html:206
+#: allthethings/page/templates/page/faq.html:207
 #, fuzzy
 msgid "page.faq.mobile.text1"
 msgstr "ჩვენ არ გვაქვს ოფიციალური მობილური აპლიკაცია, მაგრამ შეგიძლიათ დააინსტალიროთ ეს ვებსაიტი როგორც აპლიკაცია."
 
-#: allthethings/page/templates/page/faq.html:207
+#: allthethings/page/templates/page/faq.html:208
 #, fuzzy
 msgid "page.faq.mobile.android"
 msgstr "<strong>Android:</strong> დააწკაპუნეთ ზედა მარჯვენა კუთხეში სამწერტილიან მენიუზე და აირჩიეთ „დამატება მთავარ ეკრანზე“."
 
-#: allthethings/page/templates/page/faq.html:208
+#: allthethings/page/templates/page/faq.html:209
 #, fuzzy
 msgid "page.faq.mobile.ios"
 msgstr "<strong>iOS:</strong> დააწკაპუნეთ ქვედა ნაწილში „გაზიარება“ ღილაკზე და აირჩიეთ „დამატება მთავარ ეკრანზე“."
 
-#: allthethings/page/templates/page/faq.html:211
+#: allthethings/page/templates/page/faq.html:212
 #, fuzzy
 msgid "page.faq.api.title"
 msgstr "გაქვთ API?"
 
-#: allthethings/page/templates/page/faq.html:214
+#: allthethings/page/templates/page/faq.html:215
 #, fuzzy
 msgid "page.faq.api.text1"
 msgstr "ჩვენ გვაქვს ერთი სტაბილური JSON API წევრებისთვის, სწრაფი ჩამოტვირთვის URL-ის მისაღებად: <a %(a_fast_download)s>/dyn/api/fast_download.json</a> (დოკუმენტაცია JSON-ში)."
 
-#: allthethings/page/templates/page/faq.html:218
+#: allthethings/page/templates/page/faq.html:219
 #, fuzzy
 msgid "page.faq.api.text2"
 msgstr "სხვა გამოყენების შემთხვევებისთვის, როგორიცაა ყველა ჩვენი ფაილის გადახედვა, მორგებული ძიების შექმნა და ა.შ., გირჩევთ <a %(a_generate)s>გენერირებას</a> ან <a %(a_download)s>ჩამოტვირთვას</a> ჩვენი ElasticSearch და MariaDB მონაცემთა ბაზების. ნედლი მონაცემები შეგიძლიათ ხელით გამოიკვლიოთ <a %(a_explore)s>JSON ფაილების მეშვეობით</a>."
 
-#: allthethings/page/templates/page/faq.html:222
+#: allthethings/page/templates/page/faq.html:223
 #, fuzzy
 msgid "page.faq.api.text3"
 msgstr "ჩვენი ნედლი ტორენტების სია ასევე შეგიძლიათ ჩამოტვირთოთ <a %(a_torrents)s>JSON</a> ფორმატში."
 
-#: allthethings/page/templates/page/faq.html:225
+#: allthethings/page/templates/page/faq.html:226
 #, fuzzy
 msgid "page.faq.torrents.title"
 msgstr "ტორენტების FAQ"
 
-#: allthethings/page/templates/page/faq.html:228
+#: allthethings/page/templates/page/faq.html:229
 #, fuzzy
 msgid "page.faq.torrents.q1"
 msgstr "მინდა დავეხმარო სიდინგში, მაგრამ არ მაქვს ბევრი დისკის სივრცე."
 
-#: allthethings/page/templates/page/faq.html:230
+#: allthethings/page/templates/page/faq.html:231
 #, fuzzy
 msgid "page.faq.torrents.a1"
 msgstr "გამოიყენეთ <a %(a_list)s>ტორენტების სიის გენერატორი</a> ტორენტების სიის შესაქმნელად, რომლებიც ყველაზე მეტად საჭიროებენ ტორენტირებას, თქვენი საცავის სივრცის შეზღუდვების ფარგლებში."
 
-#: allthethings/page/templates/page/faq.html:234
+#: allthethings/page/templates/page/faq.html:235
 #, fuzzy
 msgid "page.faq.torrents.q2"
 msgstr "ტორენტები ძალიან ნელია; შემიძლია პირდაპირ თქვენგან ჩამოტვირთვა?"
 
-#: allthethings/page/templates/page/faq.html:236
+#: allthethings/page/templates/page/faq.html:237
 #, fuzzy
 msgid "page.faq.torrents.a2"
 msgstr "დიახ, იხილეთ <a %(a_llm)s>LLM მონაცემები</a> გვერდი."
 
-#: allthethings/page/templates/page/faq.html:240
+#: allthethings/page/templates/page/faq.html:241
 #, fuzzy
 msgid "page.faq.torrents.q3"
 msgstr "შემიძლია მხოლოდ ფაილების ქვეჯგუფის ჩამოტვირთვა, მაგალითად, მხოლოდ კონკრეტული ენა ან თემა?"
 
-#: allthethings/page/templates/page/faq.html:242
+#: allthethings/page/templates/page/faq.html:243
 #, fuzzy
 msgid "page.faq.torrents.a3"
 msgstr "უმეტეს ტორენტებში ფაილები პირდაპირაა, რაც ნიშნავს, რომ შეგიძლიათ ტორენტ კლიენტებს დაავალოთ მხოლოდ საჭირო ფაილების ჩამოტვირთვა. რომელი ფაილების ჩამოტვირთვა გსურთ, შეგიძლიათ <a %(a_generate)s>გენერირება</a> ჩვენი მეტამონაცემების, ან <a %(a_download)s>ჩამოტვირთვა</a> ჩვენი ElasticSearch და MariaDB მონაცემთა ბაზების. სამწუხაროდ, ზოგიერთი ტორენტ კოლექცია შეიცავს .zip ან .tar ფაილებს ფესვში, ამ შემთხვევაში საჭიროა მთელი ტორენტის ჩამოტვირთვა, სანამ შეძლებთ ინდივიდუალური ფაილების არჩევას."
 
-#: allthethings/page/templates/page/faq.html:246
+#: allthethings/page/templates/page/faq.html:247
 #, fuzzy
 msgid "page.faq.torrents.q4"
 msgstr "როგორ უმკლავდებით დუბლიკატებს ტორენტებში?"
 
-#: allthethings/page/templates/page/faq.html:248
+#: allthethings/page/templates/page/faq.html:249
 #, fuzzy
 msgid "page.faq.torrents.a4"
 msgstr "ვცდილობთ მინიმალური დუბლიკაციის ან გადაფარვის შენარჩუნებას ამ სიის ტორენტებში, მაგრამ ეს ყოველთვის ვერ მიიღწევა და დიდად დამოკიდებულია წყაროს ბიბლიოთეკების პოლიტიკებზე. ბიბლიოთეკებისთვის, რომლებიც საკუთარ ტორენტებს უშვებენ, ეს ჩვენს ხელში არ არის. ტორენტებისთვის, რომლებიც გამოქვეყნებულია Anna’s Archive-ის მიერ, დუბლიკაციას ვაკეთებთ მხოლოდ MD5 ჰეშის საფუძველზე, რაც ნიშნავს, რომ ერთი და იგივე წიგნის სხვადასხვა ვერსიები არ დუბლირდება."
 
-#: allthethings/page/templates/page/faq.html:252
+#: allthethings/page/templates/page/faq.html:253
 #, fuzzy
 msgid "page.faq.torrents.q5"
 msgstr "შემიძლია ტორენტების სია JSON ფორმატში მივიღო?"
 
-#: allthethings/page/templates/page/faq.html:254
+#: allthethings/page/templates/page/faq.html:255
 #, fuzzy
 msgid "page.faq.torrents.a5"
 msgstr "დიახ."
 
-#: allthethings/page/templates/page/faq.html:258
+#: allthethings/page/templates/page/faq.html:259
 #, fuzzy
 msgid "page.faq.torrents.q6"
 msgstr "ტორენტებში არ ვხედავ PDF-ებს ან EPUB-ებს, მხოლოდ ბინარულ ფაილებს? რა ვქნა?"
 
-#: allthethings/page/templates/page/faq.html:260
+#: allthethings/page/templates/page/faq.html:261
 #, fuzzy
 msgid "page.faq.torrents.a6"
 msgstr "ეს სინამდვილეში PDF-ები და EPUB-ებია, უბრალოდ ბევრ ჩვენს ტორენტში გაფართოება არ აქვთ. არსებობს ორი ადგილი, სადაც შეგიძლიათ იპოვოთ ტორენტ ფაილების მეტამონაცემები, მათ შორის ფაილის ტიპები/გაფართოებები:"
 
-#: allthethings/page/templates/page/faq.html:262
+#: allthethings/page/templates/page/faq.html:263
 #, fuzzy
 msgid "page.faq.torrents.a6.li1"
 msgstr "1. თითოეულ კოლექციას ან გამოშვებას აქვს საკუთარი მეტამონაცემები. მაგალითად, <a %(a_libgen_nonfic)s>Libgen.rs ტორენტები</a> აქვთ შესაბამისი მეტამონაცემების მონაცემთა ბაზა, რომელიც განთავსებულია Libgen.rs ვებგვერდზე. ჩვენ, როგორც წესი, ვაკავშირებთ შესაბამის მეტამონაცემების რესურსებს თითოეული კოლექციის <a %(a_datasets)s>მონაცემთა გვერდიდან</a>."
 
-#: allthethings/page/templates/page/faq.html:264
+#: allthethings/page/templates/page/faq.html:265
 #, fuzzy
 msgid "page.faq.torrents.a6.li2"
 msgstr "2. გირჩევთ <a %(a_generate)s>გენერირება</a> ან <a %(a_download)s>ჩამოტვირთვა</a> ჩვენი ElasticSearch და MariaDB მონაცემთა ბაზების. ეს შეიცავს თითოეული ჩანაწერის მეპინგს Anna’s Archive-ში შესაბამის ტორენტ ფაილებთან (თუ ხელმისაწვდომია), ElasticSearch JSON-ში \"torrent_paths\" ქვეშ."
 
-#: allthethings/page/templates/page/faq.html:267
+#: allthethings/page/templates/page/faq.html:268
 #, fuzzy
 msgid "page.faq.security.title"
 msgstr "გაქვთ პასუხისმგებლობის გამჟღავნების პროგრამა?"
 
-#: allthethings/page/templates/page/faq.html:270
+#: allthethings/page/templates/page/faq.html:271
 #, fuzzy
 msgid "page.faq.security.text1"
 msgstr "მივესალმებით უსაფრთხოების მკვლევარებს, რომ მოძებნონ ჩვენი სისტემების სისუსტეები. ჩვენ დიდი მხარდამჭერები ვართ პასუხისმგებლობის გამჟღავნების. დაგვიკავშირდით <a %(a_contact)s>აქ</a>."
 
-#: allthethings/page/templates/page/faq.html:274
+#: allthethings/page/templates/page/faq.html:275
 #, fuzzy
 msgid "page.faq.security.text2"
 msgstr "ამჟამად არ შეგვიძლია ბაგების ჯილდოების გადახდა, გარდა იმ სისუსტეებისა, რომლებსაც აქვთ <a %(a_link)s>ჩვენი ანონიმურობის კომპრომეტაციის პოტენციალი</a>, რისთვისაც ვთავაზობთ ჯილდოებს $10k-50k დიაპაზონში. გვსურს მომავალში უფრო ფართო სპექტრის ბაგების ჯილდოების შეთავაზება! გთხოვთ გაითვალისწინოთ, რომ სოციალური ინჟინერიის შეტევები არ არის გათვალისწინებული."
 
-#: allthethings/page/templates/page/faq.html:278
+#: allthethings/page/templates/page/faq.html:279
 #, fuzzy
 msgid "page.faq.security.text3"
 msgstr "თუ დაინტერესებული ხართ თავდაცვითი უსაფრთხოებით და გსურთ დაეხმაროთ მსოფლიოს ცოდნისა და კულტურის არქივირებაში, აუცილებლად დაგვიკავშირდით. არსებობს მრავალი გზა, რომლითაც შეგიძლიათ დახმარება."
 
-#: allthethings/page/templates/page/faq.html:281
+#: allthethings/page/templates/page/faq.html:282
 #, fuzzy
 msgid "page.faq.resources.title"
 msgstr "არის თუ არა მეტი რესურსი ანას არქივის შესახებ?"
 
-#: allthethings/page/templates/page/faq.html:284
+#: allthethings/page/templates/page/faq.html:285
 #, fuzzy
 msgid "page.faq.resources.annas_blog"
 msgstr "<a %(a_blog)s>ანას ბლოგი</a>, <a %(a_reddit_u)s>Reddit</a>, <a %(a_reddit_r)s>Subreddit</a> — რეგულარული განახლებები"
 
-#: allthethings/page/templates/page/faq.html:285
+#: allthethings/page/templates/page/faq.html:286
 #, fuzzy
 msgid "page.faq.resources.annas_software"
 msgstr "<a %(a_software)s>ანას პროგრამული უზრუნველყოფა</a> — ჩვენი ღია კოდის პროგრამა"
 
-#: allthethings/page/templates/page/faq.html:286
+#: allthethings/page/templates/page/faq.html:287
 #, fuzzy
 msgid "page.faq.resources.translate"
 msgstr "<a %(a_translate)s>თარგმნა ანას პროგრამული უზრუნველყოფაზე</a> — ჩვენი თარგმნის სისტემა"
 
-#: allthethings/page/templates/page/faq.html:287
+#: allthethings/page/templates/page/faq.html:288
 #, fuzzy
 msgid "page.faq.resources.datasets"
 msgstr "<a %(a_datasets)s>Datasets</a> — მონაცემების შესახებ"
 
-#: allthethings/page/templates/page/faq.html:288
+#: allthethings/page/templates/page/faq.html:289
 #, fuzzy
 msgid "page.faq.resources.domains"
 msgstr "<a %(a_li)s>.li</a>, <a %(a_se)s>.se</a>, <a %(a_org)s>.org</a> — ალტერნატიული დომენები"
 
-#: allthethings/page/templates/page/faq.html:289
+#: allthethings/page/templates/page/faq.html:290
 #, fuzzy
 msgid "page.faq.resources.wikipedia"
 msgstr "<a %(a_wikipedia)s>ვიკიპედია</a> — მეტი ჩვენ შესახებ (გთხოვთ, დაეხმარეთ ამ გვერდის განახლებაში ან შექმენით ერთი თქვენი ენისთვის!)"
 
-#: allthethings/page/templates/page/faq.html:292
+#: allthethings/page/templates/page/faq.html:293
 #, fuzzy
 msgid "page.faq.copyright.title"
 msgstr "როგორ შემიძლია დავარეპორტო საავტორო უფლებების დარღვევა?"
 
-#: allthethings/page/templates/page/faq.html:295
+#: allthethings/page/templates/page/faq.html:296
 #, fuzzy
 msgid "page.faq.copyright.text1"
 msgstr "ჩვენ არ ვმასპინძლობთ აქ საავტორო უფლებებით დაცულ მასალებს. ჩვენ ვართ საძიებო სისტემა და მხოლოდ ვინდექსებთ უკვე საჯაროდ ხელმისაწვდომ მეტამონაცემებს. ამ გარე წყაროებიდან ჩამოტვირთვისას, გირჩევთ შეამოწმოთ თქვენი იურისდიქციის კანონები იმის შესახებ, თუ რა არის ნებადართული. ჩვენ არ ვართ პასუხისმგებელი სხვების მიერ მასპინძლებულ შინაარსზე."
 
-#: allthethings/page/templates/page/faq.html:299
+#: allthethings/page/templates/page/faq.html:300
 #, fuzzy
 msgid "page.faq.copyright.text2"
 msgstr "თუ გაქვთ საჩივრები იმის შესახებ, რასაც აქ ხედავთ, საუკეთესო ვარიანტია დაუკავშირდეთ ორიგინალურ ვებგვერდს. ჩვენ რეგულარულად ვამატებთ მათ ცვლილებებს ჩვენს მონაცემთა ბაზაში. თუ ნამდვილად ფიქრობთ, რომ გაქვთ ვალიდური DMCA საჩივარი, გთხოვთ შეავსოთ <a %(a_copyright)s>DMCA / საავტორო უფლებების პრეტენზიის ფორმა</a>. ჩვენ სერიოზულად ვიღებთ თქვენს საჩივრებს და დაგიბრუნდებით რაც შეიძლება მალე."
 
-#: allthethings/page/templates/page/faq.html:302
+#: allthethings/page/templates/page/faq.html:303
 #, fuzzy
 msgid "page.faq.hate.title"
 msgstr "მძულს, როგორ მართავთ ამ პროექტს!"
 
-#: allthethings/page/templates/page/faq.html:305
+#: allthethings/page/templates/page/faq.html:306
 #, fuzzy
 msgid "page.faq.hate.text1"
 msgstr "ასევე გვინდა შეგახსენოთ, რომ ჩვენი ყველა კოდი და მონაცემი სრულიად ღია კოდია. ეს უნიკალურია ჩვენი მსგავსი პროექტებისთვის — ჩვენ არ ვიცით სხვა პროექტი, რომელსაც აქვს მსგავსი მასშტაბის კატალოგი და ასევე სრულად ღია კოდია. ჩვენ ძალიან მივესალმებით ყველას, ვინც ფიქრობს, რომ ცუდად ვმართავთ ჩვენს პროექტს, რომ აიღოს ჩვენი კოდი და მონაცემები და შექმნას საკუთარი ჩრდილოვანი ბიბლიოთეკა! ჩვენ ამას არ ვამბობთ ბოროტად ან რამე — ჩვენ ნამდვილად ვფიქრობთ, რომ ეს შესანიშნავი იქნებოდა, რადგან ეს ყველასთვის სტანდარტს აამაღლებს და უკეთ შეინარჩუნებს კაცობრიობის მემკვიდრეობას."
 
-#: allthethings/page/templates/page/faq.html:308
+#: allthethings/page/templates/page/faq.html:309
 #, fuzzy
 msgid "page.faq.favorite.title"
 msgstr "რომელია თქვენი საყვარელი წიგნები?"
 
-#: allthethings/page/templates/page/faq.html:311
+#: allthethings/page/templates/page/faq.html:312
 #, fuzzy
 msgid "page.faq.favorite.text1"
 msgstr "აქ არის რამდენიმე წიგნი, რომლებიც განსაკუთრებულ მნიშვნელობას ატარებენ ჩრდილოვანი ბიბლიოთეკებისა და ციფრული შენახვის სამყაროში:"
@@ -3548,13 +3661,13 @@ msgid "page.md5.box.download.ipfs_gateway_extra"
 msgstr "(შეიძლება დაგჭირდეთ რამდენიმე მცდელობა IPFS-თან)"
 
 #: allthethings/page/templates/page/ipfs_downloads.html:23
-#: allthethings/page/templates/page/partner_download.html:93
+#: allthethings/page/templates/page/partner_download.html:91
 #, fuzzy
 msgid "page.partner_download.faster_downloads"
 msgstr "🚀 უფრო სწრაფი ჩამოტვირთვისთვის და ბრაუზერის შემოწმებების გამოტოვებისთვის, <a %(a_membership)s>გახდით წევრი</a>."
 
 #: allthethings/page/templates/page/ipfs_downloads.html:27
-#: allthethings/page/templates/page/partner_download.html:97
+#: allthethings/page/templates/page/partner_download.html:95
 #, fuzzy
 msgid "page.partner_download.bulk_mirroring"
 msgstr "📡 ჩვენი კოლექციის მასობრივი ასლებისთვის, გადახედეთ <a %(a_datasets)s>Datasets</a> და <a %(a_torrents)s>Torrents</a> გვერდებს."
@@ -3908,27 +4021,31 @@ msgstr "როდესაც მიიღებთ ჩამოტვირთ�
 msgid "page.partner_download.li4"
 msgstr "გმადლობთ ლოდინისთვის, ეს ინარჩუნებს ვებგვერდს უფასოდ ყველასთვის! 😊"
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:40
+msgid "page.partner_download.automatic_refreshing"
+msgstr ""
+
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.url"
 msgstr "📚 გამოიყენეთ შემდეგი URL ჩამოტვირთვისთვის: <a %(a_download)s>ჩამოტვირთეთ ახლა</a>."
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.download_now"
 msgstr "ჩამოტვირთეთ ახლა"
 
-#: allthethings/page/templates/page/partner_download.html:86
+#: allthethings/page/templates/page/partner_download.html:84
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads"
 msgstr "გაფრთხილება: ბოლო 24 საათის განმავლობაში თქვენი IP მისამართიდან ბევრი ჩამოტვირთვა განხორციელდა. ჩამოტვირთვები შეიძლება იყოს ნელი ჩვეულებრივზე."
 
-#: allthethings/page/templates/page/partner_download.html:87
+#: allthethings/page/templates/page/partner_download.html:85
 #, fuzzy
 msgid "page.partner_download.downloads_last_24_hours"
 msgstr "ბოლო 24 საათის განმავლობაში თქვენი IP მისამართიდან ჩამოტვირთვები: %(count)s."
 
-#: allthethings/page/templates/page/partner_download.html:88
+#: allthethings/page/templates/page/partner_download.html:86
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads2"
 msgstr "თუ იყენებთ VPN-ს, გაზიარებულ ინტერნეტ კავშირს, ან თქვენი ISP იზიარებს IP-ებს, ეს გაფრთხილება შეიძლება ამის გამო იყოს."

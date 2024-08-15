@@ -301,10 +301,6 @@ msgstr "Per donazioni superiori ai 5000$, per favore contattaci direttamente a %
 #: allthethings/account/templates/account/index.html:36
 #: allthethings/page/templates/page/contact.html:3
 #: allthethings/page/templates/page/contact.html:6
-#: allthethings/page/templates/page/faq.html:84
-#: allthethings/page/templates/page/faq.html:139
-#: allthethings/page/templates/page/faq.html:147
-#: allthethings/page/templates/page/faq.html:171
 #: allthethings/page/templates/page/home.html:77
 #: allthethings/page/templates/page/home.html:82
 #: allthethings/page/templates/page/home.html:90
@@ -1138,6 +1134,14 @@ msgstr "I file scaricati non sono mostrati pubblicamente."
 msgid "page.downloaded.no_files"
 msgstr "Ancora nessun file scaricato."
 
+#: allthethings/account/templates/account/downloaded.html:16
+msgid "page.downloaded.last_18_hours"
+msgstr ""
+
+#: allthethings/account/templates/account/downloaded.html:21
+msgid "page.downloaded.earlier"
+msgstr ""
+
 #: allthethings/account/templates/account/index.html:5
 #: allthethings/account/templates/account/index.html:15
 msgid "page.account.logged_in.title"
@@ -1199,7 +1203,7 @@ msgid "page.account.logged_in.membership_upgrade"
 msgstr "Contatta Anna via %(email)s se vuoi fare l'upgrade del tuo abbonamento."
 
 #: allthethings/account/templates/account/index.html:37
-#: allthethings/page/templates/page/faq.html:135
+#: allthethings/page/templates/page/faq.html:136
 msgid "page.account.logged_in.membership_multiple"
 msgstr "Puoi combinare più abbonamenti (i download veloci saranno aggiunti insieme per 24 ore)."
 
@@ -1405,6 +1409,14 @@ msgstr "Contrassegnato come non valido in Libgen.li"
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "Mancante in Z-Library"
 
+#: allthethings/page/views.py:4845
+msgid "common.md5_problem_type_mapping.zlib_spam"
+msgstr ""
+
+#: allthethings/page/views.py:4846
+msgid "common.md5_problem_type_mapping.zlib_bad_file"
+msgstr ""
+
 #: allthethings/page/views.py:4847
 msgid "common.md5_problem_type_mapping.duxiu_pdg_broken_files"
 msgstr "Non tutte le pagine possono essere convertite in PDF"
@@ -1477,23 +1489,28 @@ msgstr "Esplora i metadata"
 msgid "common.access_types_mapping.torrents_available"
 msgstr "Contenuti nei torrent"
 
-#: allthethings/page/templates/page/datasets.html:52
-#: allthethings/page/templates/page/datasets.html:88
+#: allthethings/page/templates/page/datasets.html:51
+#: allthethings/page/templates/page/datasets.html:87
 #: allthethings/page/views.py:4880
 msgid "common.record_sources_mapping.lgrs"
 msgstr "Libgen.rs"
 
-#: allthethings/page/templates/page/datasets.html:54
-#: allthethings/page/templates/page/datasets.html:109
+#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:108
 #: allthethings/page/views.py:4881
 msgid "common.record_sources_mapping.lgli"
 msgstr "Libgen.li"
 
-#: allthethings/page/templates/page/datasets.html:55
-#: allthethings/page/templates/page/datasets.html:121
+#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:120
 #: allthethings/page/views.py:4882
 msgid "common.record_sources_mapping.zlib"
 msgstr "Z-Library"
+
+#: allthethings/page/templates/page/datasets.html:55
+#: allthethings/page/views.py:4883
+msgid "common.record_sources_mapping.zlibzh"
+msgstr ""
 
 #: allthethings/page/views.py:4884
 msgid "common.record_sources_mapping.ia"
@@ -1507,7 +1524,7 @@ msgstr "ISBNdb"
 msgid "common.record_sources_mapping.ol"
 msgstr "OpenLibrary"
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 #: allthethings/page/views.py:4887
 msgid "common.record_sources_mapping.scihub"
 msgstr "Sci-Hub"
@@ -1516,14 +1533,14 @@ msgstr "Sci-Hub"
 msgid "common.record_sources_mapping.oclc"
 msgstr "OCLC (WorldCat)"
 
-#: allthethings/page/templates/page/datasets.html:58
-#: allthethings/page/templates/page/datasets.html:142
+#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:141
 #: allthethings/page/views.py:4889
 msgid "common.record_sources_mapping.duxiu"
 msgstr "DuXiu 读秀"
 
-#: allthethings/page/templates/page/datasets.html:59
-#: allthethings/page/templates/page/datasets.html:155
+#: allthethings/page/templates/page/datasets.html:58
+#: allthethings/page/templates/page/datasets.html:154
 #: allthethings/page/views.py:4890
 msgid "common.record_sources_mapping.uploads"
 msgstr "Caricamenti su AA"
@@ -2083,8 +2100,6 @@ msgstr "Qualcosa è andato storto. Ricarica la pagina e riprova."
 
 #: allthethings/page/templates/page/aarecord.html:406
 #: allthethings/page/templates/page/aarecord.html:407
-#: allthethings/page/templates/page/codes.html:8
-#: allthethings/page/templates/page/codes.html:9
 #: allthethings/page/templates/page/copyright.html:6
 #: allthethings/page/templates/page/copyright.html:7
 #: allthethings/page/templates/page/datasets.html:13
@@ -2139,11 +2154,11 @@ msgstr "Questo è un file gestito dalla <a %(a_ia)s>biblioteca del Prestito Digi
 msgid "page.md5.text.file_info.text1"
 msgstr "Per informazioni su questo particolare file, consulta il suo <a %(a_href)s>file JSON</a>."
 
-#: allthethings/page/templates/page/aarecord_issue.html:4
+#: allthethings/page/templates/page/aarecord_issue.html:5
 msgid "page.aarecord_issue.title"
 msgstr "🔥 Errore nel caricare questa pagina"
 
-#: allthethings/page/templates/page/aarecord_issue.html:6
+#: allthethings/page/templates/page/aarecord_issue.html:7
 msgid "page.aarecord_issue.text"
 msgstr "Per favore, aggiorna per riprovare. <a %(a_contact)s>Contattaci</a> se il problema persiste per diverse ore."
 
@@ -2178,6 +2193,105 @@ msgstr "Se ti trovi in un loop infinito, ti consigliamo di installare <a %(a_pri
 #: allthethings/page/templates/page/browser_verification.html:13
 msgid "page.login.text3"
 msgstr "Potrebbe essere utile disattivare il blocco degli annunci (Adblock) e altre estensioni del browser."
+
+#: allthethings/page/templates/page/codes.html:5
+msgid "page.codes.title"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:10
+msgid "page.codes.heading"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:14
+msgid "page.codes.intro"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:18
+msgid "page.codes.why_cloudflare"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:22
+msgid "page.codes.dont_scrape"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:33
+msgid "page.codes.prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:34
+msgid "common.form.go"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:35
+msgid "common.form.reset"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:40
+msgid "page.codes.bad_unicode"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:46
+msgid "page.codes.known_code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:48
+msgid "page.codes.code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:49
+msgid "page.codes.code_label"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:51
+msgid "page.codes.code_description"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgid "page.codes.code_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgctxt "the %s should not be changed"
+msgid "page.codes.s_substitution"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:57
+msgid "page.codes.generic_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:61
+msgid "page.codes.code_website"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:69
+msgid "page.codes.record_starting_with"
+msgid_plural "page.codes.records_starting_with"
+msgstr[0] ""
+msgstr[1] ""
+
+#: allthethings/page/templates/page/codes.html:75
+msgid "page.codes.search_archive"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:77
+msgid "page.codes.url_link"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:84
+msgid "page.codes.codes_starting_with"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:92
+msgid "page.codes.records_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:93
+msgid "page.codes.records_codes"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:113
+msgid "page.codes.fewer_than"
+msgstr ""
 
 #: allthethings/page/templates/page/contact.html:9
 msgid "page.contact.dmca.form"
@@ -2271,141 +2385,137 @@ msgstr ""
 msgid "page.datasets.overview.last_updated.header"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:52
+#: allthethings/page/templates/page/datasets.html:51
 msgid "common.record_sources_mapping.lgrs.nonfiction_and_fiction"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "common.record_sources_mapping.scihub.via_lgli_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_1"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_2"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "common.record_sources.mapping.lgli.excluding_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "page.datasets.lgli_fiction_is_behind"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:56
-msgid "common.record_sources_mapping.zlibzh"
-msgstr ""
-
-#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:55
 msgid "page.datasets.zlibzh.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
-#: allthethings/page/templates/page/datasets.html:130
+#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:129
 msgid "common.record_sources_mapping.iacdl"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:56
 msgid "page.datasets.iacdl.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.total"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.excluding_duplicates"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:64
+#: allthethings/page/templates/page/datasets.html:63
 msgid "page.datasets.overview.text4"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:68
+#: allthethings/page/templates/page/datasets.html:67
 msgid "page.datasets.overview.text5"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:71
+#: allthethings/page/templates/page/datasets.html:70
 msgid "page.datasets.source_libraries.title"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:74
+#: allthethings/page/templates/page/datasets.html:73
 #, fuzzy
 msgid "page.datasets.source_libraries.text1"
 msgstr "Alcune biblioteche di origine promuovono la condivisione massiva dei loro dati tramite torrent, mentre altre non condividono facilmente la loro collezione. In quest'ultimo caso, l'Archivio di Anna cerca di raccogliere le loro collezioni e renderle disponibili (vedi la nostra pagina <a %(a_torrents)s>Torrents</a>). Ci sono anche situazioni intermedie, ad esempio, dove le biblioteche di origine sono disposte a condividere, ma non hanno le risorse per farlo. In questi casi, cerchiamo anche di aiutare."
 
-#: allthethings/page/templates/page/datasets.html:78
+#: allthethings/page/templates/page/datasets.html:77
 #, fuzzy
 msgid "page.datasets.source_libraries.text2"
 msgstr "Di seguito è riportata una panoramica di come interagiamo con le diverse biblioteche di origine."
 
-#: allthethings/page/templates/page/datasets.html:83
+#: allthethings/page/templates/page/datasets.html:82
 #, fuzzy
 msgid "page.datasets.sources.source.header"
 msgstr "Fonte"
 
-#: allthethings/page/templates/page/datasets.html:84
+#: allthethings/page/templates/page/datasets.html:83
 #, fuzzy
 msgid "page.datasets.sources.metadata.header"
 msgstr "Metadata"
 
-#: allthethings/page/templates/page/datasets.html:85
+#: allthethings/page/templates/page/datasets.html:84
 #, fuzzy
 msgid "page.datasets.sources.files.header"
 msgstr "File"
 
-#: allthethings/page/templates/page/datasets.html:98
+#: allthethings/page/templates/page/datasets.html:97
 #, fuzzy
 msgid "common.record_sources_mapping.scihub_scimag"
 msgstr "Sci-Hub / Libgen “scimag”"
 
-#: allthethings/page/templates/page/datasets.html:162
+#: allthethings/page/templates/page/datasets.html:161
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.title"
 msgstr "Fonti solo metadata"
 
-#: allthethings/page/templates/page/datasets.html:165
+#: allthethings/page/templates/page/datasets.html:164
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text1"
 msgstr "Arricchiamo anche la nostra collezione con fonti solo metadata, che possiamo abbinare ai file, ad esempio utilizzando i numeri ISBN o altri campi. Di seguito è riportata una panoramica di queste fonti. Anche in questo caso, alcune di queste fonti sono completamente aperte, mentre per altre dobbiamo raccoglierle."
 
-#: allthethings/page/templates/page/datasets.html:169
-#: allthethings/page/templates/page/faq.html:186
+#: allthethings/page/templates/page/datasets.html:168
+#: allthethings/page/templates/page/faq.html:187
 #: allthethings/page/templates/page/search.html:294
 msgid "page.faq.metadata.inspiration1"
 msgstr "La nostra ispirazione per la raccolta dei metadati è l'obiettivo di Aaron Swartz relativo a \"creare una pagina web per ogni libro mai pubblicato\", motivo per cui ha dato origine a <a %(a_openlib)s>Open Library</a>."
 
-#: allthethings/page/templates/page/datasets.html:170
-#: allthethings/page/templates/page/faq.html:187
+#: allthethings/page/templates/page/datasets.html:169
+#: allthethings/page/templates/page/faq.html:188
 #: allthethings/page/templates/page/search.html:295
 msgid "page.faq.metadata.inspiration2"
 msgstr "Quel progetto è andato bene, ma la nostra posizione unica ci permette di ottenere metadati che loro non riescono a ottenere."
 
-#: allthethings/page/templates/page/datasets.html:171
-#: allthethings/page/templates/page/faq.html:188
+#: allthethings/page/templates/page/datasets.html:170
+#: allthethings/page/templates/page/faq.html:189
 #: allthethings/page/templates/page/search.html:296
 msgid "page.faq.metadata.inspiration3"
 msgstr "Un'altra ispirazione è stata il desiderio di sapere <a %(a_blog)s>quanti libri ci sono nel mondo</a>, in modo da poter calcolare quanti libri ci restano da salvare."
 
-#: allthethings/page/templates/page/datasets.html:175
+#: allthethings/page/templates/page/datasets.html:174
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text2"
 msgstr "Nota che nella ricerca dei metadata, mostriamo i record originali. Non facciamo alcuna fusione dei record."
 
-#: allthethings/page/templates/page/datasets.html:216
+#: allthethings/page/templates/page/datasets.html:215
 #, fuzzy
 msgid "page.datasets.unified_database.title"
 msgstr "Database unificato"
 
-#: allthethings/page/templates/page/datasets.html:219
+#: allthethings/page/templates/page/datasets.html:218
 #, fuzzy
 msgid "page.datasets.unified_database.text1"
 msgstr "Combiniamo tutte le fonti sopra menzionate in un unico database unificato che utilizziamo per servire questo sito web. Questo database unificato non è disponibile direttamente, ma poiché l'Archivio di Anna è completamente open source, può essere abbastanza facilmente <a %(a_generated)s>generato</a> o <a %(a_downloaded)s>scaricato</a> come database ElasticSearch e MariaDB. Gli script su quella pagina scaricheranno automaticamente tutti i metadata necessari dalle fonti sopra menzionate."
 
-#: allthethings/page/templates/page/datasets.html:227
+#: allthethings/page/templates/page/datasets.html:226
 #, fuzzy
 msgid "page.datasets.unified_database.text2"
 msgstr "Se desideri esplorare i nostri dati prima di eseguire quegli script localmente, puoi guardare i nostri file JSON, che collegano ulteriormente ad altri file JSON. <a %(a_json)s>Questo file</a> è un buon punto di partenza."
@@ -2446,384 +2556,388 @@ msgstr "Sito web ISBN"
 msgid "page.datasets/isbn_ranges.isbn_metadata"
 msgstr "Metadata"
 
-#: allthethings/page/templates/page/faq.html:3
-#: allthethings/page/templates/page/faq.html:6
+#: allthethings/page/templates/page/faq.html:5
+#: allthethings/page/templates/page/faq.html:8
 msgid "page.faq.title"
 msgstr "Frequently Asked Questions (FAQ)"
 
-#: allthethings/page/templates/page/faq.html:8
+#: allthethings/page/templates/page/faq.html:10
 msgid "page.faq.what_is.title"
 msgstr "Che cos'è Anna's Archive?"
 
-#: allthethings/page/templates/page/faq.html:11
+#: allthethings/page/templates/page/faq.html:13
 msgid "page.home.intro.text1"
 msgstr "<span %(span_anna)s>Anna’s Archive</span> è un progetto non-profit con due obiettivi:"
 
-#: allthethings/page/templates/page/faq.html:15
+#: allthethings/page/templates/page/faq.html:17
 msgid "page.home.intro.text2"
 msgstr "<li><strong>Conservazione:</strong> Backup di tutta la conoscenza e cultura dell'umanità.</li><li><strong>Accessibilità:</strong> Rendere questa conoscenza e cultura disponibile a chiunque nel mondo.</li>"
 
-#: allthethings/page/templates/page/faq.html:19
+#: allthethings/page/templates/page/faq.html:21
 msgid "page.home.intro.open_source"
 msgstr "Tutti i nostri <a %(a_code)s>codici</a> e <a %(a_datasets)s>dati</a> sono completamente open source."
 
-#: allthethings/page/templates/page/faq.html:23
+#: allthethings/page/templates/page/faq.html:25
 msgid "page.home.preservation.header"
 msgstr "Conservazione"
 
-#: allthethings/page/templates/page/faq.html:25
+#: allthethings/page/templates/page/faq.html:27
 msgid "page.home.preservation.text1"
 msgstr "Conserviamo libri, documenti, fumetti, riviste e altro ancora, riunendo in un unico luogo questi materiali provenienti da varie <a href=\"https://it.wikipedia.org/wiki/Biblioteca_ombra\">biblioteche ombra</a>, biblioteche ufficiali e altre collezioni. Tutti questi dati vengono conservati per sempre rendendo facile la loro duplicazione in massa - utilizzando i torrent - con il risultato di avere molte copie distribuite in tutto il mondo. Alcune biblioteche ombra lo fanno già da sole (ad esempio Sci-Hub, Library Genesis), mentre Anna's Archive \"libera\" altre biblioteche che non offrono la distribuzione in massa (ad esempio Z-Library) o non sono affatto biblioteche ombra (ad esempio Internet Archive, DuXiu)."
 
-#: allthethings/page/templates/page/faq.html:27
+#: allthethings/page/templates/page/faq.html:29
 msgid "page.home.preservation.text2"
 msgstr "Questa ampia distribuzione, unita al codice open-source, rende il nostro sito web resistente agli attacchi e garantisce la conservazione a lungo termine della conoscenza e della cultura dell'umanità. Per saperne di più sui nostri <a href=\"/datasets\"> set di dati</a>."
 
-#: allthethings/page/templates/page/faq.html:41
+#: allthethings/page/templates/page/faq.html:43
 msgid "page.home.preservation.label"
 msgstr "Stimiamo di aver conservato circa <a href=\"https://annas-blog.org/blog-isbndb-dump-how-many-books-are-preserved-forever.html\">5%% di tutti i libri esistenti al mondo</a>."
 
-#: allthethings/page/templates/page/faq.html:46
+#: allthethings/page/templates/page/faq.html:48
 msgid "page.home.access.header"
 msgstr "Accesso"
 
-#: allthethings/page/templates/page/faq.html:48
+#: allthethings/page/templates/page/faq.html:50
 msgid "page.home.access.text"
 msgstr "Lavoriamo con i nostri partner per rendere le nostre collezioni facilmente e liberamente accessibili a chiunque. Crediamo che tutti abbiano diritto alla saggezza collettiva dell'umanità. E <a %(a_search)s>non a spese degli autori</a>."
 
-#: allthethings/page/templates/page/faq.html:52
+#: allthethings/page/templates/page/faq.html:54
 msgid "page.home.access.label"
 msgstr "Download per ora negli ultimi 30 giorni. Media oraria: %(hourly)s. Media giornaliera: %(daily)s."
 
-#: allthethings/page/templates/page/faq.html:80
+#: allthethings/page/templates/page/faq.html:82
 msgid "page.about.text2"
 msgstr "Crediamo fermamente nella libera circolazione di informazioni e nella conservazione della conoscenza e della cultura. Con questo motore di ricerca, costruiamo su delle basi solide. Rispettiamo profondamente il duro lavoro delle persone che hanno creato le varie biblioteche ombra e speriamo che questo motore di ricerca possa ampliare la loro portata."
 
-#: allthethings/page/templates/page/faq.html:84
+#: allthethings/page/templates/page/faq.html:86
 msgid "page.about.text3"
 msgstr "Per restare aggiornato/a sui nostri progressi, segui Anna's Archive su <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a> o su <a href=\"https://t.me/annasarchiveorg\">Telegram</a>. Per domande o feedback, contatta Anna all'indirizzo email %(email)s."
 
-#: allthethings/page/templates/page/faq.html:87
+#: allthethings/page/templates/page/faq.html:89
 msgid "page.faq.help.title"
 msgstr "Come posso contribuire?"
 
-#: allthethings/page/templates/page/faq.html:90
+#: allthethings/page/templates/page/faq.html:92
 msgid "page.about.help.text"
 msgstr "<li>1. Seguici su <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a> o <a href=\"https://t.me/annasarchiveorg\">Telegram</a>.</li><li>2. Diffondi il verbo riguardo Anna's Archive su Twitter/X, Reddit, TikTok, Instagram, nella tua università, a lavoro o in biblioteca. Sentiti libero/a di farlo ovunque tu vada! Non crediamo nel gatekeeping: se dovessero tirarci giù il sito, appariremo da quache altra parte, dal momento che il nostro codice sorgente è totalmente open source.</li><li>3. Se puoi, prendi in considerazione di supportarci tramite <a href=\"/donate\">una donazione</a>.</li><li>4. Aiutaci a <a href=\"https://translate.annas-software.org/\">tradurre</a> il nostro sito in varie lingue (sì, l'abbiamo tradotto anche in italiano!).</li><li>5. Se sei un ingegnere/a informatico, sarebbe fantastico se potessi contribuire al nostro codice sorgente <a href=\"https://annas-software.org/\">open source</a> o pensare di condividere i nostri <a href=\"/datasets\">torrent</a>.</li>"
 
-#: allthethings/page/templates/page/faq.html:91
+#: allthethings/page/templates/page/faq.html:93
 msgid "page.about.help.text6"
 msgstr "6. Se sei un esperto/a di sicurezza informatica, possiamo sfruttare le tue competenze sia per scopi di attacco che di difesa. Dai un'occhiata alla nostra pagina <a %(a_security)s>Security</a>."
 
-#: allthethings/page/templates/page/faq.html:92
+#: allthethings/page/templates/page/faq.html:94
 msgid "page.about.help.text7"
 msgstr "7. Siamo alla ricerca di esperti/e in pagamenti anonimi. Potresti aiutarci ad aggiungere metodi di pagamento più convenienti per le donazioni? PayPal, WeChat, gift card. Se conosci qualcuno/a, per favore contattaci."
 
-#: allthethings/page/templates/page/faq.html:93
+#: allthethings/page/templates/page/faq.html:95
 msgid "page.about.help.text8"
 msgstr "8. Siamo sempre alla ricerca di server con maggiore capacità."
 
-#: allthethings/page/templates/page/faq.html:94
+#: allthethings/page/templates/page/faq.html:96
 msgid "page.about.help.text9"
 msgstr "9. Puoi aiutarci segnalandoci i problemi ai file, lasciandoci dei commenti e creando liste su questo sito web. Inoltre, puoi aiutarci anche <a %(a_upload)s>caricando dei libri</a> oppure sistemando le anomalie ai file o la formattazione dei libri attualmente presenti."
 
-#: allthethings/page/templates/page/faq.html:95
+#: allthethings/page/templates/page/faq.html:97
 msgid "page.about.help.text10"
 msgstr "10. Creare o aiutare a mantenere la pagina di Anna's Archive su Wikipedia nella tua lingua."
 
-#: allthethings/page/templates/page/faq.html:96
+#: allthethings/page/templates/page/faq.html:98
 msgid "page.about.help.text11"
 msgstr "11. Stiamo cercando di inserire piccoli annunci pubblicitari \"di buon gusto\". Se volessi mettere un'inserzione pubblicitaria sul nostro sito, faccelo sapere."
 
-#: allthethings/page/templates/page/faq.html:97
+#: allthethings/page/templates/page/faq.html:99
 msgid "page.faq.help.mirrors"
 msgstr "Ci piacerebbe molto che le persone creassero degli <a %(a_mirrors)s>mirror</a> perché noi li sosterremmo finanziariamente."
 
-#: allthethings/page/templates/page/faq.html:105
+#: allthethings/page/templates/page/faq.html:103
+msgid "page.about.help.volunteer"
+msgstr ""
+
+#: allthethings/page/templates/page/faq.html:106
 msgid "page.faq.slow.title"
 msgstr "Perché i download lenti sono così lenti?"
 
-#: allthethings/page/templates/page/faq.html:108
+#: allthethings/page/templates/page/faq.html:109
 msgid "page.faq.slow.text1"
 msgstr "Non abbiamo letteralmente abbastanza risorse per offrire a tutti nel mondo download ad alta velocità, per quanto questo ci piacerebbe. Se un ricco benefattore volesse farsi avanti e fornircelo, sarebbe incredibile, ma fino ad allora, stiamo facendo del nostro meglio. Siamo un progetto senza scopo di lucro che riesce a malapena a sostenersi attraverso le donazioni."
 
-#: allthethings/page/templates/page/faq.html:112
+#: allthethings/page/templates/page/faq.html:113
 msgid "page.faq.slow.text2"
 msgstr "Ecco perché abbiamo implementato due sistemi per i download gratuiti, con i nostri partner: server condivisi con download lenti e server leggermente più veloci con una lista d'attesa (per ridurre il numero di persone che scaricano contemporaneamente)."
 
-#: allthethings/page/templates/page/faq.html:116
+#: allthethings/page/templates/page/faq.html:117
 msgid "page.faq.slow.text3"
 msgstr "Abbiamo anche <a %(a_verification)s>la verifica del browser</a> per i nostri download lenti, perché altrimenti i bot e gli scraper ne abuserebbero, rendendo le cose ancora più lente per gli utenti legittimi."
 
-#: allthethings/page/templates/page/faq.html:120
+#: allthethings/page/templates/page/faq.html:121
 #, fuzzy
 msgid "page.faq.slow.text4"
 msgstr "Nota che, quando utilizzi il Tor Browser, potresti dover regolare le tue impostazioni di sicurezza. Al livello più basso delle opzioni, chiamato “Standard”, la sfida del turnstile Cloudflare riesce. Ai livelli più alti, chiamati “Più sicuro” e “Massima sicurezza”, la sfida fallisce."
 
-#: allthethings/page/templates/page/faq.html:124
+#: allthethings/page/templates/page/faq.html:125
 #, fuzzy
 msgid "page.faq.slow.text5"
 msgstr "A volte, per i file di grandi dimensioni, i download lenti possono interrompersi a metà. Consigliamo di utilizzare un gestore di download (come JDownloader) per riprendere automaticamente i download di grandi dimensioni."
 
-#: allthethings/page/templates/page/faq.html:127
+#: allthethings/page/templates/page/faq.html:128
 msgid "page.donate.faq.title"
 msgstr "FAQ Donazioni"
 
-#: allthethings/page/templates/page/faq.html:130
+#: allthethings/page/templates/page/faq.html:131
 msgid "page.donate.faq.renew"
 msgstr "<div %(div_question)s>Gli abbonamenti si rinnovano automaticamente?</div> Gli abbonamenti <strong>non</strong> si rinnovano automaticamente. Puoi rimanere abbonato/a quanto a lungo vuoi."
 
-#: allthethings/page/templates/page/faq.html:134
+#: allthethings/page/templates/page/faq.html:135
 #, fuzzy
 msgid "page.donate.faq.membership"
 msgstr "<div %(div_question)s>Posso aggiornare la mia iscrizione o ottenere più iscrizioni?</div>"
 
-#: allthethings/page/templates/page/faq.html:139
+#: allthethings/page/templates/page/faq.html:140
 msgid "page.donate.faq.text_other_payment1"
 msgstr "<div %(div_question)s>Avete altri metodi di pagamento?</div> Attualmente no. Molte persone non vogliono che archivi come questo esistano quindi bisogna essere cauti. Se puoi aiutarci a inserire altri metodi di pagamento (più convenienti) in sicurezza, per favore contattaci a %(email)s."
 
-#: allthethings/page/templates/page/faq.html:143
+#: allthethings/page/templates/page/faq.html:144
 msgid "page.donate.faq.spend"
 msgstr "<div %(div_question)s>Per cosa spendete i fondi delle donazioni?</div> Il 100%% è speso nel preservare e rendere accessibile la conoscenza e la cultura di tutto il mondo. Al momento la gran parte delle spese sono destinate a server, memoria e banda. Nessuna parte dei fondi va personalmente ad alcun membro del team."
 
-#: allthethings/page/templates/page/faq.html:147
+#: allthethings/page/templates/page/faq.html:148
 msgid "page.donate.faq.text_large_donation"
 msgstr "<div %(div_question)s>Posso fare una grossa donazione?</div> Sarebbe fantastico! Per donazioni oltre qualche migliaio di dollari, per favore contattaci direttamente via email a %(email)s."
 
-#: allthethings/page/templates/page/faq.html:151
+#: allthethings/page/templates/page/faq.html:152
 msgid "page.donate.faq.non_member_donation"
 msgstr "<div %(div_question)s>Posso fare una donazione senza diventare membro?</div> Certamente. Accettiamo donazioni di qualsiasi importo a questo indirizzo Monero (XMR): %(address)s."
 
-#: allthethings/page/templates/page/faq.html:154
+#: allthethings/page/templates/page/faq.html:155
 msgid "page.faq.upload.title"
 msgstr "Come posso caricare nuovi libri?"
 
-#: allthethings/page/templates/page/faq.html:157
+#: allthethings/page/templates/page/faq.html:158
 msgid "page.upload.text1"
 msgstr "Per il momento, ti consigliamo di caricare nuovi libri su un fork di Library Genesis. Ecco una <a %(a_guide)s>guida pratica</a>. Nota: entrambi i fork che vengono indicizzati su questo sito si basano sullo stesso sistema di caricamenti."
 
-#: allthethings/page/templates/page/faq.html:158
+#: allthethings/page/templates/page/faq.html:159
 msgid "common.libgen.email"
 msgstr "Se il tuo indirizzo email non funziona sui forum Libgen, ti consigliamo di usare <a %(a_mail)s>Proton Mail</a> (gratuito). Puoi anche <a %(a_manual)s>richiedere manualmente</a> l'attivazione del tuo account."
 
-#: allthethings/page/templates/page/faq.html:159
+#: allthethings/page/templates/page/faq.html:160
 msgid "page.faq.mhut_upload"
 msgstr "Nota che mhut.org blocca alcune serie di IP, quindi potrebbe essere necessario un VPN."
 
-#: allthethings/page/templates/page/faq.html:163
+#: allthethings/page/templates/page/faq.html:164
 msgid "page.upload.zlib.text1"
 msgstr "In alternativa, puoi caricarli su Z-Library <a %(a_upload)s>qui</a>."
 
-#: allthethings/page/templates/page/faq.html:167
+#: allthethings/page/templates/page/faq.html:168
 msgid "page.upload.zlib.text2"
 msgstr "Per caricare articoli accademici, per favore (oltre a Library Genesis) caricali anche su <a %(a_stc_nexus)s>STC Nexus</a>. Sono la migliore biblioteca ombra per nuovi articoli. Non li abbiamo ancora integrati, ma lo faremo prima o poi. Puoi usare il loro <a %(a_telegram)s>bot di caricamento su Telegram</a>, o contattare l'indirizzo elencato nel loro messaggi fissati se hai troppi file da caricare in questo modo."
 
-#: allthethings/page/templates/page/faq.html:171
+#: allthethings/page/templates/page/faq.html:172
 msgid "page.upload.large.text"
 msgstr "Per il caricamento di grandi quantità di file (più di 10.000 file) che non vengono accettati da Libgen o Z-Library, per favore scrivici a %(a_email)s."
 
-#: allthethings/page/templates/page/faq.html:174
+#: allthethings/page/templates/page/faq.html:175
 msgid "page.faq.request.title"
 msgstr "Come posso richiedere il caricamento di nuovi libri?"
 
-#: allthethings/page/templates/page/faq.html:177
+#: allthethings/page/templates/page/faq.html:178
 msgid "page.request.cannot_accomodate"
 msgstr "Al momento purtroppo non riusciamo a gestire le richieste di nuovi libri."
 
-#: allthethings/page/templates/page/faq.html:178
+#: allthethings/page/templates/page/faq.html:179
 msgid "page.request.forums"
 msgstr "Per favore, formula le tue richieste nei forum Z-Library o Libgen."
 
-#: allthethings/page/templates/page/faq.html:179
+#: allthethings/page/templates/page/faq.html:180
 msgid "page.request.dont_email"
 msgstr "Non scriverci un'email per effettuare una richiesta di nuovi libri."
 
-#: allthethings/page/templates/page/faq.html:182
+#: allthethings/page/templates/page/faq.html:183
 msgid "page.faq.metadata.title"
 msgstr "Raccogliete metadati?"
 
-#: allthethings/page/templates/page/faq.html:185
+#: allthethings/page/templates/page/faq.html:186
 msgid "page.faq.metadata.indeed"
 msgstr "Certamente."
 
-#: allthethings/page/templates/page/faq.html:191
+#: allthethings/page/templates/page/faq.html:192
 msgid "page.faq.1984.title"
 msgstr "Ho scaricato 1984 di George Orwell, la polizia verrà a casa mia?"
 
-#: allthethings/page/templates/page/faq.html:194
+#: allthethings/page/templates/page/faq.html:195
 msgid "page.faq.1984.text"
 msgstr "Non preoccuparti troppo, ci sono molte persone che scaricano dai siti web collegati da noi, ed è estremamente raro avere problemi. Tuttavia, per rimanere al sicuro, consigliamo di utilizzare un VPN (a pagamento), o <a %(a_tor)s>Tor</a> (gratuito)."
 
-#: allthethings/page/templates/page/faq.html:197
+#: allthethings/page/templates/page/faq.html:198
 msgid "page.faq.save_search.title"
 msgstr "Come salvo le mie impostazioni di ricerca?"
 
-#: allthethings/page/templates/page/faq.html:200
+#: allthethings/page/templates/page/faq.html:201
 msgid "page.faq.save_search.text1"
 msgstr "Seleziona le impostazioni che preferisci, lascia la casella di ricerca vuota, clicca su “Cerca”, e poi aggiungi la pagina ai preferiti utilizzando la funzione segnalibro del tuo browser."
 
-#: allthethings/page/templates/page/faq.html:203
+#: allthethings/page/templates/page/faq.html:204
 msgid "page.faq.mobile.title"
 msgstr "Avete un'app mobile?"
 
-#: allthethings/page/templates/page/faq.html:206
+#: allthethings/page/templates/page/faq.html:207
 msgid "page.faq.mobile.text1"
 msgstr "Non abbiamo un'app mobile ufficiale, ma puoi installare questo sito web come app."
 
-#: allthethings/page/templates/page/faq.html:207
+#: allthethings/page/templates/page/faq.html:208
 msgid "page.faq.mobile.android"
 msgstr "<strong>Android:</strong> Clicca sul menu a tre puntini in alto a destra e seleziona “Aggiungi a schermata Home”."
 
-#: allthethings/page/templates/page/faq.html:208
+#: allthethings/page/templates/page/faq.html:209
 msgid "page.faq.mobile.ios"
 msgstr "<strong>iOS:</strong> Clicca sul pulsante “Condividi” in basso e seleziona “Aggiungi a schermata Home”."
 
-#: allthethings/page/templates/page/faq.html:211
+#: allthethings/page/templates/page/faq.html:212
 msgid "page.faq.api.title"
 msgstr "Avete un'API?"
 
-#: allthethings/page/templates/page/faq.html:214
+#: allthethings/page/templates/page/faq.html:215
 msgid "page.faq.api.text1"
 msgstr "Abbiamo un'API JSON stabile per i membri, per ottenere un URL di download veloce: <a %(a_fast_download)s>/dyn/api/fast_download.json</a> (documentazione all'interno del JSON stesso)."
 
-#: allthethings/page/templates/page/faq.html:218
+#: allthethings/page/templates/page/faq.html:219
 msgid "page.faq.api.text2"
 msgstr "Per altri casi d'uso, come iterare attraverso tutti i nostri file, costruire ricerche personalizzate, e così via, consigliamo di <a %(a_generate)s>generare</a> o <a %(a_download)s>scaricare</a> i nostri database ElasticSearch e MariaDB. I dati raw possono essere esplorati manualmente <a %(a_explore)s>attraverso i file JSON</a>."
 
-#: allthethings/page/templates/page/faq.html:222
+#: allthethings/page/templates/page/faq.html:223
 msgid "page.faq.api.text3"
 msgstr "La nostra lista di torrent raw può essere scaricata anche come <a %(a_torrents)s>JSON</a>."
 
-#: allthethings/page/templates/page/faq.html:225
+#: allthethings/page/templates/page/faq.html:226
 msgid "page.faq.torrents.title"
 msgstr "FAQ Torrent"
 
-#: allthethings/page/templates/page/faq.html:228
+#: allthethings/page/templates/page/faq.html:229
 msgid "page.faq.torrents.q1"
 msgstr "Vorrei aiutare a fare seeding, ma non ho molto spazio su disco."
 
-#: allthethings/page/templates/page/faq.html:230
+#: allthethings/page/templates/page/faq.html:231
 msgid "page.faq.torrents.a1"
 msgstr "Utilizza il <a %(a_list)s>generatore di liste torrent</a> per generare una lista di torrent che hanno più bisogno di torrenting, entro i limiti del tuo spazio di archiviazione."
 
-#: allthethings/page/templates/page/faq.html:234
+#: allthethings/page/templates/page/faq.html:235
 msgid "page.faq.torrents.q2"
 msgstr "I torrent sono troppo lenti; posso scaricare i dati direttamente da voi?"
 
-#: allthethings/page/templates/page/faq.html:236
+#: allthethings/page/templates/page/faq.html:237
 msgid "page.faq.torrents.a2"
 msgstr "Sì, consulta la pagina <a %(a_llm)s>LLM data</a>."
 
-#: allthethings/page/templates/page/faq.html:240
+#: allthethings/page/templates/page/faq.html:241
 msgid "page.faq.torrents.q3"
 msgstr "Posso scaricare solo un sottoinsieme dei file, come solo una particolare lingua o argomento?"
 
-#: allthethings/page/templates/page/faq.html:242
+#: allthethings/page/templates/page/faq.html:243
 #, fuzzy
 msgid "page.faq.torrents.a3"
 msgstr "La maggior parte dei torrent contiene direttamente i file, il che significa che puoi impostare i client torrent e scaricare solo i file richiesti. Per determinare quali file scaricare, puoi <a %(a_generate)s>generare</a> i nostri metadata, oppure <a %(a_download)s>scaricare</a> i nostri database ElasticSearch e MariaDB. Purtroppo, una parte della raccolta torrent contiene file .zip o .tar alla base, in tal caso devi prima scaricare l'intero torrent per poter selezionare i singoli file"
 
-#: allthethings/page/templates/page/faq.html:246
+#: allthethings/page/templates/page/faq.html:247
 msgid "page.faq.torrents.q4"
 msgstr "Come gestite i duplicati nei torrent?"
 
-#: allthethings/page/templates/page/faq.html:248
+#: allthethings/page/templates/page/faq.html:249
 msgid "page.faq.torrents.a4"
 msgstr "Cerchiamo di mantenere al minimo la duplicazione o la sovrapposizione tra i torrent in questa lista, ma questo non sempre riesce e dipende molto anche dalle politiche delle biblioteche di origine. Per le biblioteche che pubblicano i propri torrent, è fuori dal nostro controllo. Per i torrent rilasciati da Anna's Archive, deduplichiamo solo in base all'hash MD5, il che significa che le diverse versioni dello stesso libro non vengono deduplicate."
 
-#: allthethings/page/templates/page/faq.html:252
+#: allthethings/page/templates/page/faq.html:253
 msgid "page.faq.torrents.q5"
 msgstr "Posso ottenere la lista dei torrent in formato JSON?"
 
-#: allthethings/page/templates/page/faq.html:254
+#: allthethings/page/templates/page/faq.html:255
 msgid "page.faq.torrents.a5"
 msgstr "Sì."
 
-#: allthethings/page/templates/page/faq.html:258
+#: allthethings/page/templates/page/faq.html:259
 msgid "page.faq.torrents.q6"
 msgstr "Non vedo i PDF o EPUB nei torrent, solo file binari. Cosa devo fare?"
 
-#: allthethings/page/templates/page/faq.html:260
+#: allthethings/page/templates/page/faq.html:261
 msgid "page.faq.torrents.a6"
 msgstr "Quelli sono in realtà PDF ed EPUB, semplicemente in molti dei nostri torrent non hanno un'estensione. Ci sono due posti in cui puoi trovare i metadata per i file torrent, inclusi i tipi/estensioni dei file:"
 
-#: allthethings/page/templates/page/faq.html:262
+#: allthethings/page/templates/page/faq.html:263
 msgid "page.faq.torrents.a6.li1"
 msgstr "1. Ogni collezione o pubblicazione ha i propri metadata. Ad esempio, i <a %(a_libgen_nonfic)s>torrent di Libgen.rs</a> hanno un database di metadata corrispondenti ospitato sul sito di Libgen.rs. Solitamente colleghiamo le risorse dei metadata rilevanti dalla <a %(a_datasets)s>pagina del dataset</a> di ciascuna collezione."
 
-#: allthethings/page/templates/page/faq.html:264
+#: allthethings/page/templates/page/faq.html:265
 msgid "page.faq.torrents.a6.li2"
 msgstr "2. Raccomandiamo di <a %(a_generate)s>generare</a> o <a %(a_download)s>scaricare</a> i nostri database ElasticSearch e MariaDB. Questi contengono una mappatura per ogni record in Anna’s Archive ai suoi file torrent corrispondenti (se disponibili), sotto \"torrent_paths\" nel JSON di ElasticSearch."
 
-#: allthethings/page/templates/page/faq.html:267
+#: allthethings/page/templates/page/faq.html:268
 msgid "page.faq.security.title"
 msgstr "Avete un programma di divulgazione responsabile?"
 
-#: allthethings/page/templates/page/faq.html:270
+#: allthethings/page/templates/page/faq.html:271
 msgid "page.faq.security.text1"
 msgstr "Accogliamo con piacere esperti di sicurezza che cercano vulnerabilità nei nostri sistemi. Siamo grandi sostenitori della divulgazione responsabile. Contattaci <a %(a_contact)s>qui</a>."
 
-#: allthethings/page/templates/page/faq.html:274
+#: allthethings/page/templates/page/faq.html:275
 msgid "page.faq.security.text2"
 msgstr "Attualmente non siamo in grado di assegnare ricompense per bug, tranne per le vulnerabilità che hanno il <a %(a_link)s>potenziale di compromettere il nostro anonimato</a>, per le quali offriamo ricompense nell'ordine di $10k-50k. Vorremmo offrire un più vasto campo d'azione per le ricompense per bug in futuro! Si prega di notare che gli attacchi di ingegneria sociale non rientrano nell'ambito."
 
-#: allthethings/page/templates/page/faq.html:278
+#: allthethings/page/templates/page/faq.html:279
 msgid "page.faq.security.text3"
 msgstr "Se sei interessato alla sicurezza offensiva e vuoi aiutare ad archiviare la conoscenza e la cultura del mondo, assicurati di contattarci. Ci sono molti modi in cui puoi aiutare."
 
-#: allthethings/page/templates/page/faq.html:281
+#: allthethings/page/templates/page/faq.html:282
 msgid "page.faq.resources.title"
 msgstr "Ci sono altre risorse su Anna's Archive?"
 
-#: allthethings/page/templates/page/faq.html:284
+#: allthethings/page/templates/page/faq.html:285
 msgid "page.faq.resources.annas_blog"
 msgstr "<a %(a_blog)s>Blog di Anna</a>, <a %(a_reddit_u)s>Reddit</a>, <a %(a_reddit_r)s>Subreddit</a> — aggiornamenti regolari"
 
-#: allthethings/page/templates/page/faq.html:285
+#: allthethings/page/templates/page/faq.html:286
 msgid "page.faq.resources.annas_software"
 msgstr "<a %(a_software)s>Software di Anna</a> — il nostro codice open source"
 
-#: allthethings/page/templates/page/faq.html:286
+#: allthethings/page/templates/page/faq.html:287
 msgid "page.faq.resources.translate"
 msgstr "<a %(a_translate)s>Traduci su Software di Anna</a> — il nostro sistema di traduzione"
 
-#: allthethings/page/templates/page/faq.html:287
+#: allthethings/page/templates/page/faq.html:288
 msgid "page.faq.resources.datasets"
 msgstr "<a %(a_datasets)s>Datasets</a> — informazioni sui dati"
 
-#: allthethings/page/templates/page/faq.html:288
+#: allthethings/page/templates/page/faq.html:289
 msgid "page.faq.resources.domains"
 msgstr "<a %(a_li)s>.li</a>, <a %(a_se)s>.se</a>, <a %(a_org)s>.org</a> — domini alternativi"
 
-#: allthethings/page/templates/page/faq.html:289
+#: allthethings/page/templates/page/faq.html:290
 msgid "page.faq.resources.wikipedia"
 msgstr "<a %(a_wikipedia)s>Wikipedia</a> — dove troverai maggiori informazioni su di noi (per favore aiuta a mantenere aggiornata la pagina o creane una nella tua lingua!)"
 
-#: allthethings/page/templates/page/faq.html:292
+#: allthethings/page/templates/page/faq.html:293
 msgid "page.faq.copyright.title"
 msgstr "Come posso segnalare una violazione del copyright?"
 
-#: allthethings/page/templates/page/faq.html:295
+#: allthethings/page/templates/page/faq.html:296
 msgid "page.faq.copyright.text1"
 msgstr "Non ospitiamo alcun materiale protetto da copyright qui. Siamo un motore di ricerca e, in quanto tale, indicizziamo solo i metadata che sono già disponibili pubblicamente. Quando scarichi da queste fonti esterne, ti suggeriamo di controllare le leggi nella tua giurisdizione riguardo a ciò che è consentito e non. Non siamo responsabili per i contenuti hostati da altri."
 
-#: allthethings/page/templates/page/faq.html:299
+#: allthethings/page/templates/page/faq.html:300
 msgid "page.faq.copyright.text2"
 msgstr "Se hai reclami su ciò che vedi qui, la tua opzione migliore è contattare il sito web originale. Regolarmente aggiorniamo il nostro database con le loro modifiche. Se pensi davvero di avere un reclamo DMCA valido a cui dovremmo rispondere, compila il <a %(a_copyright)s>modulo di reclamo DMCA / Copyright</a>. Prendiamo i reclami seriamente e risponderemo il prima possibile."
 
-#: allthethings/page/templates/page/faq.html:302
+#: allthethings/page/templates/page/faq.html:303
 msgid "page.faq.hate.title"
 msgstr "Odio come state gestendo questo progetto!"
 
-#: allthethings/page/templates/page/faq.html:305
+#: allthethings/page/templates/page/faq.html:306
 msgid "page.faq.hate.text1"
 msgstr "Vorremmo anche ricordare a tutti che tutto il nostro codice e i nostri dati sono completamente open source. Questo è unico per progetti come il nostro — non siamo a conoscenza di nessun altro progetto con un catalogo altrettanto massiccio che sia completamente open source. Invitiamo con molto piacere chiunque pensi che stiamo gestendo male il nostro progetto a prendere il nostro codice ed i nostri dati a creare la propria biblioteca ombra! Non lo diciamo per dispetto o altro — pensiamo sinceramente che sarebbe fantastico poiché alzerebbe il livello per tutti e preserverebbe meglio l'eredità dell'umanità."
 
-#: allthethings/page/templates/page/faq.html:308
+#: allthethings/page/templates/page/faq.html:309
 msgid "page.faq.favorite.title"
 msgstr "Quali sono i vostri libri preferiti?"
 
-#: allthethings/page/templates/page/faq.html:311
+#: allthethings/page/templates/page/faq.html:312
 msgid "page.faq.favorite.text1"
 msgstr "Ecco alcuni libri che hanno un significato speciale per il mondo delle biblioteche ombra e della conservazione digitale:"
 
@@ -2974,12 +3088,12 @@ msgid "page.md5.box.download.ipfs_gateway_extra"
 msgstr "(potrebbe essere necessario provare più volte con IPFS)"
 
 #: allthethings/page/templates/page/ipfs_downloads.html:23
-#: allthethings/page/templates/page/partner_download.html:93
+#: allthethings/page/templates/page/partner_download.html:91
 msgid "page.partner_download.faster_downloads"
 msgstr "🚀 Per ottenere download rapidi e saltare il controllo del browser, <a %(a_membership)s>iscriviti</a>."
 
 #: allthethings/page/templates/page/ipfs_downloads.html:27
-#: allthethings/page/templates/page/partner_download.html:97
+#: allthethings/page/templates/page/partner_download.html:95
 msgid "page.partner_download.bulk_mirroring"
 msgstr "📡 Per il mirroring in blocco della nostra collezione, vai alle pagine <a %(a_datasets)s>Dataset</a> e <a %(a_torrents)s>Torrent</a>."
 
@@ -3293,23 +3407,27 @@ msgstr "Una volta ottenuto un link di download, questo è valido per diverse ore
 msgid "page.partner_download.li4"
 msgstr "Grazie per l'attesa, questo mantiene il sito accessibile gratuitamente per tutti! 😊"
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:40
+msgid "page.partner_download.automatic_refreshing"
+msgstr ""
+
+#: allthethings/page/templates/page/partner_download.html:78
 msgid "page.partner_download.url"
 msgstr "📚 Usa il seguente indirizzo per scaricare: <a %(a_download)s>Scarica ora</a>."
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:78
 msgid "page.partner_download.download_now"
 msgstr "Scarica ora"
 
-#: allthethings/page/templates/page/partner_download.html:86
+#: allthethings/page/templates/page/partner_download.html:84
 msgid "page.partner_download.warning_many_downloads"
 msgstr "Attenzione: nelle ultime 24 ore sono stati effettuati molti download dal tuo indirizzo IP. I download potrebbero essere più lenti del solito."
 
-#: allthethings/page/templates/page/partner_download.html:87
+#: allthethings/page/templates/page/partner_download.html:85
 msgid "page.partner_download.downloads_last_24_hours"
 msgstr "Download dal tuo indirizzo IP nelle ultime 24 ore: %(count)s."
 
-#: allthethings/page/templates/page/partner_download.html:88
+#: allthethings/page/templates/page/partner_download.html:86
 msgid "page.partner_download.warning_many_downloads2"
 msgstr "Se stai usando una VPN, una connessione internet condivisa, o il tuo ISP condivide gli IP, questo avviso potrebbe essere dovuto a ciò."
 

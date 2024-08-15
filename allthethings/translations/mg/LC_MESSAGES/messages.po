@@ -370,10 +370,6 @@ msgstr "Ho an'ny fanomezana mihoatra ny $5000 dia mifandraisa mivantana aminay a
 #: allthethings/account/templates/account/index.html:36
 #: allthethings/page/templates/page/contact.html:3
 #: allthethings/page/templates/page/contact.html:6
-#: allthethings/page/templates/page/faq.html:84
-#: allthethings/page/templates/page/faq.html:139
-#: allthethings/page/templates/page/faq.html:147
-#: allthethings/page/templates/page/faq.html:171
 #: allthethings/page/templates/page/home.html:77
 #: allthethings/page/templates/page/home.html:82
 #: allthethings/page/templates/page/home.html:90
@@ -1387,6 +1383,14 @@ msgstr "Tsy aseho ampahibemaso ny rakitra alaina."
 msgid "page.downloaded.no_files"
 msgstr "Tsy mbola misy rakitra alaina."
 
+#: allthethings/account/templates/account/downloaded.html:16
+msgid "page.downloaded.last_18_hours"
+msgstr ""
+
+#: allthethings/account/templates/account/downloaded.html:21
+msgid "page.downloaded.earlier"
+msgstr ""
+
 #: allthethings/account/templates/account/index.html:5
 #: allthethings/account/templates/account/index.html:15
 #, fuzzy
@@ -1462,7 +1466,7 @@ msgid "page.account.logged_in.membership_upgrade"
 msgstr "Mifandraisa amin’i Anna amin’ny %(email)s raha liana amin’ny fanatsarana ny fisoratana anarana ho amin’ny ambaratonga ambony kokoa ianao."
 
 #: allthethings/account/templates/account/index.html:37
-#: allthethings/page/templates/page/faq.html:135
+#: allthethings/page/templates/page/faq.html:136
 #, fuzzy
 msgid "page.account.logged_in.membership_multiple"
 msgstr "Afaka mampifangaro fisoratana anarana maro ianao (ho ampiana miaraka ny fampidinana haingana isaky ny 24 ora)."
@@ -1717,6 +1721,14 @@ msgstr "Voamarika ho tapaka ao amin'ny Libgen.li"
 msgid "common.md5_problem_type_mapping.zlib_missing"
 msgstr "Tsy hita ao amin'ny Z-Library"
 
+#: allthethings/page/views.py:4845
+msgid "common.md5_problem_type_mapping.zlib_spam"
+msgstr ""
+
+#: allthethings/page/views.py:4846
+msgid "common.md5_problem_type_mapping.zlib_bad_file"
+msgstr ""
+
 #: allthethings/page/views.py:4847
 #, fuzzy
 msgid "common.md5_problem_type_mapping.duxiu_pdg_broken_files"
@@ -1807,26 +1819,31 @@ msgstr "Hijery metadata"
 msgid "common.access_types_mapping.torrents_available"
 msgstr "Ao anatin'ny torrents"
 
-#: allthethings/page/templates/page/datasets.html:52
-#: allthethings/page/templates/page/datasets.html:88
+#: allthethings/page/templates/page/datasets.html:51
+#: allthethings/page/templates/page/datasets.html:87
 #: allthethings/page/views.py:4880
 #, fuzzy
 msgid "common.record_sources_mapping.lgrs"
 msgstr "Libgen.rs"
 
-#: allthethings/page/templates/page/datasets.html:54
-#: allthethings/page/templates/page/datasets.html:109
+#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:108
 #: allthethings/page/views.py:4881
 #, fuzzy
 msgid "common.record_sources_mapping.lgli"
 msgstr "Libgen.li"
 
-#: allthethings/page/templates/page/datasets.html:55
-#: allthethings/page/templates/page/datasets.html:121
+#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:120
 #: allthethings/page/views.py:4882
 #, fuzzy
 msgid "common.record_sources_mapping.zlib"
 msgstr "Z-Library"
+
+#: allthethings/page/templates/page/datasets.html:55
+#: allthethings/page/views.py:4883
+msgid "common.record_sources_mapping.zlibzh"
+msgstr ""
 
 #: allthethings/page/views.py:4884
 #, fuzzy
@@ -1843,7 +1860,7 @@ msgstr "ISBNdb"
 msgid "common.record_sources_mapping.ol"
 msgstr "OpenLibrary"
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 #: allthethings/page/views.py:4887
 #, fuzzy
 msgid "common.record_sources_mapping.scihub"
@@ -1854,15 +1871,15 @@ msgstr "Sci-Hub"
 msgid "common.record_sources_mapping.oclc"
 msgstr "OCLC (WorldCat)"
 
-#: allthethings/page/templates/page/datasets.html:58
-#: allthethings/page/templates/page/datasets.html:142
+#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:141
 #: allthethings/page/views.py:4889
 #, fuzzy
 msgid "common.record_sources_mapping.duxiu"
 msgstr "DuXiu 读秀"
 
-#: allthethings/page/templates/page/datasets.html:59
-#: allthethings/page/templates/page/datasets.html:155
+#: allthethings/page/templates/page/datasets.html:58
+#: allthethings/page/templates/page/datasets.html:154
 #: allthethings/page/views.py:4890
 #, fuzzy
 msgid "common.record_sources_mapping.uploads"
@@ -2517,8 +2534,6 @@ msgstr "Nisy zavatra tsy nety. Azafady havaozy ny pejy ary andramo indray."
 
 #: allthethings/page/templates/page/aarecord.html:406
 #: allthethings/page/templates/page/aarecord.html:407
-#: allthethings/page/templates/page/codes.html:8
-#: allthethings/page/templates/page/codes.html:9
 #: allthethings/page/templates/page/copyright.html:6
 #: allthethings/page/templates/page/copyright.html:7
 #: allthethings/page/templates/page/datasets.html:13
@@ -2574,12 +2589,12 @@ msgstr "Ity dia rakitra tantanin'ny <a %(a_ia)s>IA’s Controlled Digital Lendin
 msgid "page.md5.text.file_info.text1"
 msgstr "Raha mila fanazavana momba ity rakitra manokana ity, jereo ny <a %(a_href)s>rakitra JSON</a>."
 
-#: allthethings/page/templates/page/aarecord_issue.html:4
+#: allthethings/page/templates/page/aarecord_issue.html:5
 #, fuzzy
 msgid "page.aarecord_issue.title"
 msgstr "🔥 Olana amin'ny famoahana ity pejy ity"
 
-#: allthethings/page/templates/page/aarecord_issue.html:6
+#: allthethings/page/templates/page/aarecord_issue.html:7
 #, fuzzy
 msgid "page.aarecord_issue.text"
 msgstr "Azafady, avereno ny pejy mba hanandrana indray. <a %(a_contact)s>Mifandraisa aminay</a> raha mbola mitohy ny olana mandritra ny ora maro."
@@ -2622,6 +2637,105 @@ msgstr "Raha tratra ao anaty fihodinana tsy misy fiafarana ianao, dia manoro hev
 #, fuzzy
 msgid "page.login.text3"
 msgstr "Mety hanampy ihany koa ny famonoana ny ad blockers sy ny fanitarana navigateur hafa."
+
+#: allthethings/page/templates/page/codes.html:5
+msgid "page.codes.title"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:10
+msgid "page.codes.heading"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:14
+msgid "page.codes.intro"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:18
+msgid "page.codes.why_cloudflare"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:22
+msgid "page.codes.dont_scrape"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:33
+msgid "page.codes.prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:34
+msgid "common.form.go"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:35
+msgid "common.form.reset"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:40
+msgid "page.codes.bad_unicode"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:46
+msgid "page.codes.known_code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:48
+msgid "page.codes.code_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:49
+msgid "page.codes.code_label"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:51
+msgid "page.codes.code_description"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgid "page.codes.code_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:55
+msgctxt "the %s should not be changed"
+msgid "page.codes.s_substitution"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:57
+msgid "page.codes.generic_url"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:61
+msgid "page.codes.code_website"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:69
+msgid "page.codes.record_starting_with"
+msgid_plural "page.codes.records_starting_with"
+msgstr[0] ""
+msgstr[1] ""
+
+#: allthethings/page/templates/page/codes.html:75
+msgid "page.codes.search_archive"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:77
+msgid "page.codes.url_link"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:84
+msgid "page.codes.codes_starting_with"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:92
+msgid "page.codes.records_prefix"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:93
+msgid "page.codes.records_codes"
+msgstr ""
+
+#: allthethings/page/templates/page/codes.html:113
+msgid "page.codes.fewer_than"
+msgstr ""
 
 #: allthethings/page/templates/page/contact.html:9
 #, fuzzy
@@ -2723,144 +2837,140 @@ msgstr ""
 msgid "page.datasets.overview.last_updated.header"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:52
+#: allthethings/page/templates/page/datasets.html:51
 msgid "common.record_sources_mapping.lgrs.nonfiction_and_fiction"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "common.record_sources_mapping.scihub.via_lgli_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_1"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:53
+#: allthethings/page/templates/page/datasets.html:52
 msgid "page.datasets.scihub_frozen_2"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "common.record_sources.mapping.lgli.excluding_scimag"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:54
+#: allthethings/page/templates/page/datasets.html:53
 msgid "page.datasets.lgli_fiction_is_behind"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:56
-msgid "common.record_sources_mapping.zlibzh"
-msgstr ""
-
-#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:55
 msgid "page.datasets.zlibzh.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
-#: allthethings/page/templates/page/datasets.html:130
+#: allthethings/page/templates/page/datasets.html:56
+#: allthethings/page/templates/page/datasets.html:129
 msgid "common.record_sources_mapping.iacdl"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:57
+#: allthethings/page/templates/page/datasets.html:56
 msgid "page.datasets.iacdl.searchable"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.total"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:60
+#: allthethings/page/templates/page/datasets.html:59
 msgid "page.datasets.overview.excluding_duplicates"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:64
+#: allthethings/page/templates/page/datasets.html:63
 msgid "page.datasets.overview.text4"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:68
+#: allthethings/page/templates/page/datasets.html:67
 msgid "page.datasets.overview.text5"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:71
+#: allthethings/page/templates/page/datasets.html:70
 msgid "page.datasets.source_libraries.title"
 msgstr ""
 
-#: allthethings/page/templates/page/datasets.html:74
+#: allthethings/page/templates/page/datasets.html:73
 #, fuzzy
 msgid "page.datasets.source_libraries.text1"
 msgstr "Ny tranomboky sasany dia mampiroborobo ny fizarana betsaka ny angon-drakiny amin'ny alàlan'ny torrents, raha ny hafa kosa tsy mizara mora foana ny fanangonany. Amin'ny tranga farany, ny Anna’s Archive dia miezaka manangona ny fanangonany, ary manome azy ireo (jereo ny pejinay <a %(a_torrents)s>Torrents</a>). Misy ihany koa ny toe-javatra eo anelanelany, ohatra, izay vonona hizara ny tranomboky loharano, saingy tsy manana ny loharanon-karena hanaovana izany. Amin'ireo tranga ireo, miezaka manampy ihany koa izahay."
 
-#: allthethings/page/templates/page/datasets.html:78
+#: allthethings/page/templates/page/datasets.html:77
 #, fuzzy
 msgid "page.datasets.source_libraries.text2"
 msgstr "Eto ambany ny topy maso momba ny fomba ifandraisanay amin'ny tranomboky loharano samihafa."
 
-#: allthethings/page/templates/page/datasets.html:83
+#: allthethings/page/templates/page/datasets.html:82
 #, fuzzy
 msgid "page.datasets.sources.source.header"
 msgstr "Loharano"
 
-#: allthethings/page/templates/page/datasets.html:84
+#: allthethings/page/templates/page/datasets.html:83
 #, fuzzy
 msgid "page.datasets.sources.metadata.header"
 msgstr "Metadata"
 
-#: allthethings/page/templates/page/datasets.html:85
+#: allthethings/page/templates/page/datasets.html:84
 #, fuzzy
 msgid "page.datasets.sources.files.header"
 msgstr "Rakitra"
 
-#: allthethings/page/templates/page/datasets.html:98
+#: allthethings/page/templates/page/datasets.html:97
 #, fuzzy
 msgid "common.record_sources_mapping.scihub_scimag"
 msgstr "Sci-Hub / Libgen “scimag”"
 
-#: allthethings/page/templates/page/datasets.html:162
+#: allthethings/page/templates/page/datasets.html:161
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.title"
 msgstr "Loharano metadata ihany"
 
-#: allthethings/page/templates/page/datasets.html:165
+#: allthethings/page/templates/page/datasets.html:164
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text1"
 msgstr "Manatsara ny fanangonanay ihany koa izahay amin'ny loharano metadata ihany, izay azontsika ampifanarahana amin'ny rakitra, ohatra amin'ny fampiasana ny laharana ISBN na saha hafa. Eto ambany ny topy maso momba ireo. Indray, ny sasany amin'ireo loharano ireo dia misokatra tanteraka, raha ny hafa kosa dia tsy maintsy angonina."
 
-#: allthethings/page/templates/page/datasets.html:169
-#: allthethings/page/templates/page/faq.html:186
+#: allthethings/page/templates/page/datasets.html:168
+#: allthethings/page/templates/page/faq.html:187
 #: allthethings/page/templates/page/search.html:294
 #, fuzzy
 msgid "page.faq.metadata.inspiration1"
 msgstr "Ny aingam-panahy ho anay amin'ny fanangonana metadata dia ny tanjon'i Aaron Swartz hoe “pejy iray ho an'ny boky rehetra navoaka”, izay namoronany ny <a %(a_openlib)s>Open Library</a>."
 
-#: allthethings/page/templates/page/datasets.html:170
-#: allthethings/page/templates/page/faq.html:187
+#: allthethings/page/templates/page/datasets.html:169
+#: allthethings/page/templates/page/faq.html:188
 #: allthethings/page/templates/page/search.html:295
 #, fuzzy
 msgid "page.faq.metadata.inspiration2"
 msgstr "Nanao tsara izany tetikasa izany, saingy ny toerana tokana misy anay dia ahafahantsika mahazo metadata izay tsy azon'izy ireo."
 
-#: allthethings/page/templates/page/datasets.html:171
-#: allthethings/page/templates/page/faq.html:188
+#: allthethings/page/templates/page/datasets.html:170
+#: allthethings/page/templates/page/faq.html:189
 #: allthethings/page/templates/page/search.html:296
 #, fuzzy
 msgid "page.faq.metadata.inspiration3"
 msgstr "Ny aingam-panahy iray hafa dia ny fanirianay hahafantatra <a %(a_blog)s>ny isan'ny boky misy eto amin'izao tontolo izao</a>, mba hahafahantsika kajy ny isan'ny boky mbola tsy voavonjy."
 
-#: allthethings/page/templates/page/datasets.html:175
+#: allthethings/page/templates/page/datasets.html:174
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text2"
 msgstr "Mariho fa amin'ny fikarohana metadata, asehonay ny firaketana tany am-boalohany. Tsy manao fampifangaroana firaketana izahay."
 
-#: allthethings/page/templates/page/datasets.html:216
+#: allthethings/page/templates/page/datasets.html:215
 #, fuzzy
 msgid "page.datasets.unified_database.title"
 msgstr "Tahiry iray mitambatra"
 
-#: allthethings/page/templates/page/datasets.html:219
+#: allthethings/page/templates/page/datasets.html:218
 #, fuzzy
 msgid "page.datasets.unified_database.text1"
 msgstr "Ampifangaroanay ireo loharano rehetra etsy ambony ho tahiry iray mitambatra izay ampiasainay hanompoana ity tranonkala ity. Tsy misy mivantana ity tahiry mitambatra ity, fa satria misokatra tanteraka ny Anna’s Archive, dia azo atao mora foana ny <a %(a_generated)s>mamorona</a> na <a %(a_downloaded)s>misintona</a> azy ho tahiry ElasticSearch sy MariaDB. Ny script amin'io pejy io dia hisintona ho azy ny metadata rehetra ilaina avy amin'ireo loharano voalaza etsy ambony."
 
-#: allthethings/page/templates/page/datasets.html:227
+#: allthethings/page/templates/page/datasets.html:226
 #, fuzzy
 msgid "page.datasets.unified_database.text2"
 msgstr "Raha te hijery ny angon-drakitray ianao alohan'ny hampandehanana ireo script eo an-toerana, dia azonao jerena ny rakitra JSON anay, izay mampifandray bebe kokoa amin'ny rakitra JSON hafa. <a %(a_json)s>Ity rakitra ity</a> dia fanombohana tsara."
@@ -2901,473 +3011,477 @@ msgstr "Tranokala ISBN"
 msgid "page.datasets/isbn_ranges.isbn_metadata"
 msgstr "Metadata"
 
-#: allthethings/page/templates/page/faq.html:3
-#: allthethings/page/templates/page/faq.html:6
+#: allthethings/page/templates/page/faq.html:5
+#: allthethings/page/templates/page/faq.html:8
 #, fuzzy
 msgid "page.faq.title"
 msgstr "Fanontaniana napetraka matetika (FAQ)"
 
-#: allthethings/page/templates/page/faq.html:8
+#: allthethings/page/templates/page/faq.html:10
 #, fuzzy
 msgid "page.faq.what_is.title"
 msgstr "Inona no atao hoe Anna’s Archive?"
 
-#: allthethings/page/templates/page/faq.html:11
+#: allthethings/page/templates/page/faq.html:13
 #, fuzzy
 msgid "page.home.intro.text1"
 msgstr "<span %(span_anna)s>Anna’s Archive</span> dia tetikasa tsy mitady tombombarotra manana tanjona roa:"
 
-#: allthethings/page/templates/page/faq.html:15
+#: allthethings/page/templates/page/faq.html:17
 #, fuzzy
 msgid "page.home.intro.text2"
 msgstr "<li><strong>Fitehirizana:</strong> Fitahirizana ny fahalalana sy ny kolontsaina rehetra an’ny olombelona.</li><li><strong>Fidirana:</strong> Fanaovana ity fahalalana sy kolontsaina ity ho azon’ny olona rehetra eran-tany.</li>"
 
-#: allthethings/page/templates/page/faq.html:19
+#: allthethings/page/templates/page/faq.html:21
 #, fuzzy
 msgid "page.home.intro.open_source"
 msgstr "Ny <a %(a_code)s>kaody</a> sy <a %(a_datasets)s>angona</a> rehetra dia misokatra tanteraka."
 
-#: allthethings/page/templates/page/faq.html:23
+#: allthethings/page/templates/page/faq.html:25
 #, fuzzy
 msgid "page.home.preservation.header"
 msgstr "Fitehirizana"
 
-#: allthethings/page/templates/page/faq.html:25
+#: allthethings/page/templates/page/faq.html:27
 #, fuzzy
 msgid "page.home.preservation.text1"
 msgstr "Mitahiry boky, taratasy, tantara an-tsary, gazety, sy maro hafa izahay, amin’ny alalan’ny fanangonana ireo fitaovana ireo avy amin’ny <a href=\"https://en.wikipedia.org/wiki/Shadow_library\">tranomboky aloka</a>, tranomboky ofisialy, ary fanangonana hafa ao anaty toerana iray. Ireo angona rehetra ireo dia voatahiry mandrakizay amin’ny fanaovana azy ireo ho mora adika betsaka — amin’ny alalan’ny torrents — ka miteraka kopia maro manerana izao tontolo izao. Ny tranomboky aloka sasany dia efa manao izany ho azy ireo (ohatra, Sci-Hub, Library Genesis), raha Anna’s Archive kosa “manafaka” ireo tranomboky hafa izay tsy manolotra fizarana betsaka (ohatra, Z-Library) na tsy tranomboky aloka akory (ohatra, Internet Archive, DuXiu)."
 
-#: allthethings/page/templates/page/faq.html:27
+#: allthethings/page/templates/page/faq.html:29
 #, fuzzy
 msgid "page.home.preservation.text2"
 msgstr "Ity fizarana midadasika ity, miaraka amin’ny kaody misokatra, dia mahatonga ny tranokalanay ho mahatohitra ny fanesorana, ary miantoka ny fitahirizana maharitra ny fahalalana sy ny kolontsainan’ny olombelona. Mianara bebe kokoa momba ny <a href=\"/datasets\">angonay</a>."
 
-#: allthethings/page/templates/page/faq.html:41
+#: allthethings/page/templates/page/faq.html:43
 #, fuzzy
 msgid "page.home.preservation.label"
 msgstr "Tombananay fa efa nitahiry manodidina ny <a href=\"https://annas-blog.org/blog-isbndb-dump-how-many-books-are-preserved-forever.html\">5%% amin’ny boky eran-tany izahay</a>."
 
-#: allthethings/page/templates/page/faq.html:46
+#: allthethings/page/templates/page/faq.html:48
 #, fuzzy
 msgid "page.home.access.header"
 msgstr "Fidirana"
 
-#: allthethings/page/templates/page/faq.html:48
+#: allthethings/page/templates/page/faq.html:50
 #, fuzzy
 msgid "page.home.access.text"
 msgstr "Miara-miasa amin’ny mpiara-miombon’antoka izahay mba hahatonga ny fanangonana anay ho mora sy malalaka azon’ny rehetra idirana. Mino izahay fa manana zo amin’ny fahendrena iombonan’ny olombelona ny tsirairay. Ary <a %(a_search)s>tsy amin’ny fandaniana ny mpanoratra</a>."
 
-#: allthethings/page/templates/page/faq.html:52
+#: allthethings/page/templates/page/faq.html:54
 #, fuzzy
 msgid "page.home.access.label"
 msgstr "Fampidinana isan’ora tao anatin’ny 30 andro farany. Salan’isa isan’ora: %(hourly)s. Salan’isa isan’andro: %(daily)s."
 
-#: allthethings/page/templates/page/faq.html:80
+#: allthethings/page/templates/page/faq.html:82
 #, fuzzy
 msgid "page.about.text2"
 msgstr "Mino mafy izahay amin’ny fikorianan’ny vaovao malalaka, sy ny fitahirizana ny fahalalana sy ny kolontsaina. Amin’ity motera fikarohana ity, dia manangana eo amin’ny sorok’ireo goavam-be izahay. Manaja fatratra ny asa mafy nataon’ireo olona izay namorona ny tranomboky aloka isan-karazany izahay, ary manantena fa ity motera fikarohana ity dia hanitatra ny fidiran’izy ireo."
 
-#: allthethings/page/templates/page/faq.html:84
+#: allthethings/page/templates/page/faq.html:86
 #, fuzzy
 msgid "page.about.text3"
 msgstr "Mba hahazoana vaovao farany momba ny fandrosoanay, araho i Anna ao amin’ny <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a> na <a href=\"https://t.me/annasarchiveorg\">Telegram</a>. Raha misy fanontaniana sy fanehoan-kevitra dia mifandraisa amin’i Anna amin’ny %(email)s."
 
-#: allthethings/page/templates/page/faq.html:87
+#: allthethings/page/templates/page/faq.html:89
 #, fuzzy
 msgid "page.faq.help.title"
 msgstr "Ahoana no ahafahako manampy?"
 
-#: allthethings/page/templates/page/faq.html:90
+#: allthethings/page/templates/page/faq.html:92
 #, fuzzy
 msgid "page.about.help.text"
 msgstr "<li>1. Araho izahay ao amin’ny <a href=\"https://www.reddit.com/r/Annas_Archive/\">Reddit</a>, na <a href=\"https://t.me/annasarchiveorg\">Telegram</a>.</li><li>2. Aparitaho ny vaovao momba ny Anna’s Archive ao amin’ny Twitter, Reddit, Tiktok, Instagram, amin’ny trano fisotro kafe na tranomboky eo an-toerana, na aiza na aiza alehanao! Tsy mino ny fanakanana izahay — raha esorina izahay dia hipoitra indray any an-kafa, satria misokatra tanteraka ny kaody sy ny angonay.</li><li>3. Raha afaka ianao, eritrereto ny <a href=\"/donate\">fanomezana</a>.</li><li>4. Ampio <a href=\"https://translate.annas-software.org/\">handika</a> ny tranokalanay amin’ny fiteny samihafa.</li><li>5. Raha injeniera rindrambaiko ianao, eritrereto ny handray anjara amin’ny <a href=\"https://annas-software.org/\">kaody misokatra</a>, na hanaparitaka ny <a href=\"/datasets\">torrents</a>.</li>"
 
-#: allthethings/page/templates/page/faq.html:91
+#: allthethings/page/templates/page/faq.html:93
 #, fuzzy
 msgid "page.about.help.text6"
 msgstr "6. Raha mpikaroka momba ny fiarovana ianao, afaka mampiasa ny fahaizanao izahay na amin’ny fanafihana na amin’ny fiarovana. Zahao ny pejinay <a %(a_security)s>Security</a>."
 
-#: allthethings/page/templates/page/faq.html:92
+#: allthethings/page/templates/page/faq.html:94
 #, fuzzy
 msgid "page.about.help.text7"
 msgstr "7. Mitady manam-pahaizana momba ny fandoavam-bola ho an’ny mpivarotra tsy fantatra izahay. Afaka manampy anay hanampy fomba fandoavam-bola mora kokoa ve ianao? PayPal, WeChat, karatra fanomezana. Raha mahafantatra olona ianao, mifandraisa aminay."
 
-#: allthethings/page/templates/page/faq.html:93
+#: allthethings/page/templates/page/faq.html:95
 #, fuzzy
 msgid "page.about.help.text8"
 msgstr "8. Mitady fahafaha-mitahiry mpizara bebe kokoa izahay."
 
-#: allthethings/page/templates/page/faq.html:94
+#: allthethings/page/templates/page/faq.html:96
 #, fuzzy
 msgid "page.about.help.text9"
 msgstr "9. Afaka manampy amin’ny famoahana olana amin’ny rakitra, fametrahana fanehoan-kevitra, ary famoronana lisitra mivantana amin’ity tranokala ity ianao. Azonao atao ihany koa ny manampy amin’ny <a %(a_upload)s>fampidirana boky bebe kokoa</a>, na fanamboarana olana amin’ny rakitra na fametrahana endrika amin’ny boky efa misy."
 
-#: allthethings/page/templates/page/faq.html:95
+#: allthethings/page/templates/page/faq.html:97
 #, fuzzy
 msgid "page.about.help.text10"
 msgstr "10. Mamorona na manampy amin’ny fikojakojana ny pejy Wikipedia ho an’ny Anna’s Archive amin’ny fiteninao."
 
-#: allthethings/page/templates/page/faq.html:96
+#: allthethings/page/templates/page/faq.html:98
 #, fuzzy
 msgid "page.about.help.text11"
 msgstr "Mitady hametraka dokambarotra kely sy mendrika izahay. Raha te-hanao dokambarotra ao amin’ny Anna’s Archive ianao, azafady mba ampahafantaro anay."
 
-#: allthethings/page/templates/page/faq.html:97
+#: allthethings/page/templates/page/faq.html:99
 #, fuzzy
 msgid "page.faq.help.mirrors"
 msgstr "Tianay raha misy olona mametraka <a %(a_mirrors)s>fitaratra</a>, ary hanohana ara-bola izany izahay."
 
-#: allthethings/page/templates/page/faq.html:105
+#: allthethings/page/templates/page/faq.html:103
+msgid "page.about.help.volunteer"
+msgstr ""
+
+#: allthethings/page/templates/page/faq.html:106
 #, fuzzy
 msgid "page.faq.slow.title"
 msgstr "Fa maninona no miadana be ny fisintomana miadana?"
 
-#: allthethings/page/templates/page/faq.html:108
+#: allthethings/page/templates/page/faq.html:109
 #, fuzzy
 msgid "page.faq.slow.text1"
 msgstr "Tsy manana loharano ampy izahay mba hanomezana ny olona rehetra eran-tany fisintomana haingam-pandeha, na dia tianay aza izany. Raha misy mpanome vola manan-karena te-hanampy anay amin’izany, dia ho tena mahafinaritra izany, fa mandra-pahatongan’izany, dia miezaka izahay. Tetikasa tsy mitady tombontsoa izahay izay saika miankina amin’ny fanomezana."
 
-#: allthethings/page/templates/page/faq.html:112
+#: allthethings/page/templates/page/faq.html:113
 #, fuzzy
 msgid "page.faq.slow.text2"
 msgstr "Izany no antony nametrahana rafitra roa ho an’ny fisintomana maimaim-poana, miaraka amin’ny mpiara-miombon’antoka aminay: mpizara iombonana miaraka amin’ny fisintomana miadana, ary mpizara somary haingana kokoa miaraka amin’ny lisitra fiandrasana (mba hampihenana ny isan’ny olona misintona amin’ny fotoana iray)."
 
-#: allthethings/page/templates/page/faq.html:116
+#: allthethings/page/templates/page/faq.html:117
 #, fuzzy
 msgid "page.faq.slow.text3"
 msgstr "Manana <a %(a_verification)s>fanamarinana navigateur</a> ihany koa izahay ho an’ny fisintomana miadana, satria raha tsy izany dia ho ampiasain’ny bots sy scrapers izany, ka hampiadana kokoa ny zavatra ho an’ny mpampiasa ara-dalàna."
 
-#: allthethings/page/templates/page/faq.html:120
+#: allthethings/page/templates/page/faq.html:121
 #, fuzzy
 msgid "page.faq.slow.text4"
 msgstr "Mariho fa, rehefa mampiasa ny Tor Browser ianao, dia mety mila manitsy ny toe-javatra fiarovana ianao. Amin'ny safidy ambany indrindra, antsoina hoe “Standard”, dia mahomby ny fanamby Cloudflare turnstile. Amin'ny safidy ambony kokoa, antsoina hoe “Safer” sy “Safest”, dia tsy mahomby ny fanamby."
 
-#: allthethings/page/templates/page/faq.html:124
+#: allthethings/page/templates/page/faq.html:125
 #, fuzzy
 msgid "page.faq.slow.text5"
 msgstr "Mety tapaka eo afovoany ny fisintomana rehefa miadana ny fisintomana rakitra lehibe. Manoro hevitra izahay ny hampiasa mpitantana fisintomana (toy ny JDownloader) mba hanohy ho azy ny fisintomana lehibe."
 
-#: allthethings/page/templates/page/faq.html:127
+#: allthethings/page/templates/page/faq.html:128
 #, fuzzy
 msgid "page.donate.faq.title"
 msgstr "Fanontaniana Momba ny Fanomezana"
 
-#: allthethings/page/templates/page/faq.html:130
+#: allthethings/page/templates/page/faq.html:131
 #, fuzzy
 msgid "page.donate.faq.renew"
 msgstr "<div %(div_question)s>Miverina ho azy ve ny fidirana mpikambana?</div> Tsy <strong>miverina ho azy</strong> ny fidirana mpikambana. Afaka miditra ianao mandritra ny fotoana tianao."
 
-#: allthethings/page/templates/page/faq.html:134
+#: allthethings/page/templates/page/faq.html:135
 #, fuzzy
 msgid "page.donate.faq.membership"
 msgstr "<div %(div_question)s>Afaka manatsara ny maha-mpikambana ahy ve aho sa mahazo maha-mpikambana maro?</div>"
 
-#: allthethings/page/templates/page/faq.html:139
+#: allthethings/page/templates/page/faq.html:140
 #, fuzzy
 msgid "page.donate.faq.text_other_payment1"
 msgstr "<div %(div_question)s>Manana fomba fandoavam-bola hafa ve ianareo?</div> Amin’izao fotoana izao dia tsia. Maro ny olona tsy te-hisy tahiry toy izao, ka mila mitandrina izahay. Raha afaka manampy anay hanangana fomba fandoavam-bola hafa (tsara kokoa) ianao, azafady mba mifandraisa aminay amin’ny %(email)s."
 
-#: allthethings/page/templates/page/faq.html:143
+#: allthethings/page/templates/page/faq.html:144
 #, fuzzy
 msgid "page.donate.faq.spend"
 msgstr "<div %(div_question)s>Inona no ampiasainareo ny fanomezana?</div> 100%% dia ampiasaina amin’ny fitahirizana sy fanomezana fahafahana miditra amin’ny fahalalana sy kolontsaina maneran-tany. Amin’izao fotoana izao dia ampiasainay indrindra amin’ny mpizara, fitahirizana, ary bandwidth izany. Tsy misy vola mandeha any amin’ny mpikambana ao amin’ny ekipa manokana."
 
-#: allthethings/page/templates/page/faq.html:147
+#: allthethings/page/templates/page/faq.html:148
 #, fuzzy
 msgid "page.donate.faq.text_large_donation"
 msgstr "<div %(div_question)s>Afaka manome fanomezana lehibe ve aho?</div> Tena mahafinaritra izany! Ho an’ny fanomezana mihoatra ny arivo dolara, azafady mba mifandraisa mivantana aminay amin’ny %(email)s."
 
-#: allthethings/page/templates/page/faq.html:151
+#: allthethings/page/templates/page/faq.html:152
 #, fuzzy
 msgid "page.donate.faq.non_member_donation"
 msgstr "<div %(div_question)s>Afaka manome fanomezana tsy miditra mpikambana ve aho?</div> Mazava ho azy. Manaiky fanomezana amin’ny vola rehetra izahay amin’ity adiresy Monero (XMR) ity: %(address)s."
 
-#: allthethings/page/templates/page/faq.html:154
+#: allthethings/page/templates/page/faq.html:155
 #, fuzzy
 msgid "page.faq.upload.title"
 msgstr "Ahoana no fomba hampidirana boky vaovao?"
 
-#: allthethings/page/templates/page/faq.html:157
+#: allthethings/page/templates/page/faq.html:158
 #, fuzzy
 msgid "page.upload.text1"
 msgstr "Amin’izao fotoana izao, manoro hevitra izahay hampiditra boky vaovao amin’ny forks an’ny Library Genesis. Ity misy <a %(a_guide)s>torolalana mahasoa</a>. Mariho fa ny forks roa izay indexinay amin’ity tranonkala ity dia misintona avy amin’ity rafitra fampidirana ity ihany."
 
-#: allthethings/page/templates/page/faq.html:158
+#: allthethings/page/templates/page/faq.html:159
 #, fuzzy
 msgid "common.libgen.email"
 msgstr "Raha tsy mandeha ny adiresy mailakao amin’ny forum Libgen, manoro hevitra izahay hampiasa <a %(a_mail)s>Proton Mail</a> (maimaim-poana). Azonao atao ihany koa ny <a %(a_manual)s>mangataka tanana</a> mba hampavitrika ny kaontinao."
 
-#: allthethings/page/templates/page/faq.html:159
+#: allthethings/page/templates/page/faq.html:160
 #, fuzzy
 msgid "page.faq.mhut_upload"
 msgstr "Mariho fa ny mhut.org dia manakana IP ranges sasany, ka mety ilaina ny VPN."
 
-#: allthethings/page/templates/page/faq.html:163
+#: allthethings/page/templates/page/faq.html:164
 #, fuzzy
 msgid "page.upload.zlib.text1"
 msgstr "Raha tsy izany, azonao atao ny mampiditra azy ireo ao amin’ny Z-Library <a %(a_upload)s>eto</a>."
 
-#: allthethings/page/templates/page/faq.html:167
+#: allthethings/page/templates/page/faq.html:168
 #, fuzzy
 msgid "page.upload.zlib.text2"
 msgstr "Raha hampiditra taratasy akademika, azafady mba ampidirinao ihany koa (anisan’izany ny Library Genesis) ao amin’ny <a %(a_stc_nexus)s>STC Nexus</a>. Izy ireo no tahiry aloka tsara indrindra ho an’ny taratasy vaovao. Tsy mbola nampiditra azy ireo izahay, fa hanao izany amin’ny fotoana iray. Azonao ampiasaina ny <a %(a_telegram)s>bot fampidirana ao amin’ny Telegram</a>, na mifandraisa amin’ny adiresy voatanisa ao amin’ny hafatra voapetaka raha manana rakitra be loatra hampidirina amin’ity fomba ity ianao."
 
-#: allthethings/page/templates/page/faq.html:171
+#: allthethings/page/templates/page/faq.html:172
 #, fuzzy
 msgid "page.upload.large.text"
 msgstr "Ho an’ny fampidirana lehibe (mihoatra ny 10,000 rakitra) izay tsy eken’ny Libgen na Z-Library, azafady mba mifandraisa aminay amin’ny %(a_email)s."
 
-#: allthethings/page/templates/page/faq.html:174
+#: allthethings/page/templates/page/faq.html:175
 #, fuzzy
 msgid "page.faq.request.title"
 msgstr "Ahoana no fomba fangatahana boky?"
 
-#: allthethings/page/templates/page/faq.html:177
+#: allthethings/page/templates/page/faq.html:178
 #, fuzzy
 msgid "page.request.cannot_accomodate"
 msgstr "Amin’izao fotoana izao, tsy afaka manome fangatahana boky izahay."
 
-#: allthethings/page/templates/page/faq.html:178
+#: allthethings/page/templates/page/faq.html:179
 #, fuzzy
 msgid "page.request.forums"
 msgstr "Azafady, manaova fangatahanao amin'ny forum Z-Library na Libgen."
 
-#: allthethings/page/templates/page/faq.html:179
+#: allthethings/page/templates/page/faq.html:180
 #, fuzzy
 msgid "page.request.dont_email"
 msgstr "Aza mandefa mailaka anay ny fangatahanao boky."
 
-#: allthethings/page/templates/page/faq.html:182
+#: allthethings/page/templates/page/faq.html:183
 #, fuzzy
 msgid "page.faq.metadata.title"
 msgstr "Manangona metadata ve ianareo?"
 
-#: allthethings/page/templates/page/faq.html:185
+#: allthethings/page/templates/page/faq.html:186
 #, fuzzy
 msgid "page.faq.metadata.indeed"
 msgstr "Eny tokoa."
 
-#: allthethings/page/templates/page/faq.html:191
+#: allthethings/page/templates/page/faq.html:192
 #, fuzzy
 msgid "page.faq.1984.title"
 msgstr "Naka ny boky 1984 nosoratan’i George Orwell aho, ho avy ve ny polisy eo am-baravarako?"
 
-#: allthethings/page/templates/page/faq.html:194
+#: allthethings/page/templates/page/faq.html:195
 #, fuzzy
 msgid "page.faq.1984.text"
 msgstr "Aza manahy loatra, maro ny olona misintona avy amin'ny tranonkala ifandraisanay, ary tena zara raha misy olana. Na izany aza, mba ho azo antoka dia manoro hevitra izahay ny hampiasa VPN (karama), na <a %(a_tor)s>Tor</a> (maimaim-poana)."
 
-#: allthethings/page/templates/page/faq.html:197
+#: allthethings/page/templates/page/faq.html:198
 #, fuzzy
 msgid "page.faq.save_search.title"
 msgstr "Ahoana no hamonjeko ny toe-javatra fikarohako?"
 
-#: allthethings/page/templates/page/faq.html:200
+#: allthethings/page/templates/page/faq.html:201
 #, fuzzy
 msgid "page.faq.save_search.text1"
 msgstr "Safidio ny toe-javatra tianao, avelao foana ny boaty fikarohana, tsindrio ny “Search”, ary avy eo ataovy bookmark ilay pejy amin'ny alalan'ny fiasa bookmark an'ny navigateur-nao."
 
-#: allthethings/page/templates/page/faq.html:203
+#: allthethings/page/templates/page/faq.html:204
 #, fuzzy
 msgid "page.faq.mobile.title"
 msgstr "Manana app finday ve ianareo?"
 
-#: allthethings/page/templates/page/faq.html:206
+#: allthethings/page/templates/page/faq.html:207
 #, fuzzy
 msgid "page.faq.mobile.text1"
 msgstr "Tsy manana app finday ofisialy izahay, fa azonao apetraka ho app ity tranonkala ity."
 
-#: allthethings/page/templates/page/faq.html:207
+#: allthethings/page/templates/page/faq.html:208
 #, fuzzy
 msgid "page.faq.mobile.android"
 msgstr "<strong>Android:</strong> Tsindrio ny menio telo teboka eo amin'ny zoro ambony ankavanana, ary safidio ny “Add to Home Screen”."
 
-#: allthethings/page/templates/page/faq.html:208
+#: allthethings/page/templates/page/faq.html:209
 #, fuzzy
 msgid "page.faq.mobile.ios"
 msgstr "<strong>iOS:</strong> Tsindrio ny bokotra “Share” eo ambany, ary safidio ny “Add to Home Screen”."
 
-#: allthethings/page/templates/page/faq.html:211
+#: allthethings/page/templates/page/faq.html:212
 #, fuzzy
 msgid "page.faq.api.title"
 msgstr "Manana API ve ianareo?"
 
-#: allthethings/page/templates/page/faq.html:214
+#: allthethings/page/templates/page/faq.html:215
 #, fuzzy
 msgid "page.faq.api.text1"
 msgstr "Manana API JSON iray azo antoka ho an'ny mpikambana izahay, ho an'ny fahazoana URL fisintomana haingana: <a %(a_fast_download)s>/dyn/api/fast_download.json</a> (famaritana ao anatin'ny JSON mihitsy)."
 
-#: allthethings/page/templates/page/faq.html:218
+#: allthethings/page/templates/page/faq.html:219
 #, fuzzy
 msgid "page.faq.api.text2"
 msgstr "Ho an'ny tranga hafa, toy ny famakafakana ny rakitra rehetra, fananganana fikarohana manokana, sy ny sisa, dia manoro hevitra izahay ny <a %(a_generate)s>manao</a> na <a %(a_download)s>misintona</a> ny angon-drakitra ElasticSearch sy MariaDB anay. Ny angon-drakitra manta dia azo zahana tanana <a %(a_explore)s>amin'ny alalan'ny rakitra JSON</a>."
 
-#: allthethings/page/templates/page/faq.html:222
+#: allthethings/page/templates/page/faq.html:223
 #, fuzzy
 msgid "page.faq.api.text3"
 msgstr "Ny lisitry ny torrents manta anay dia azo sintonina ho <a %(a_torrents)s>JSON</a> ihany koa."
 
-#: allthethings/page/templates/page/faq.html:225
+#: allthethings/page/templates/page/faq.html:226
 #, fuzzy
 msgid "page.faq.torrents.title"
 msgstr "Torrents FAQ"
 
-#: allthethings/page/templates/page/faq.html:228
+#: allthethings/page/templates/page/faq.html:229
 #, fuzzy
 msgid "page.faq.torrents.q1"
 msgstr "Te hanampy amin'ny fanaparitahana aho, saingy tsy dia manana toerana fitahirizana betsaka."
 
-#: allthethings/page/templates/page/faq.html:230
+#: allthethings/page/templates/page/faq.html:231
 #, fuzzy
 msgid "page.faq.torrents.a1"
 msgstr "Ampiasao ny <a %(a_list)s>mpamorona lisitry ny torrent</a> mba hamoronana lisitry ny torrents izay tena mila fanaparitahana, ao anatin'ny fetran'ny toerana fitahirizanao."
 
-#: allthethings/page/templates/page/faq.html:234
+#: allthethings/page/templates/page/faq.html:235
 #, fuzzy
 msgid "page.faq.torrents.q2"
 msgstr "Tena miadana ny torrents; afaka misintona ny angon-drakitra mivantana avy aminareo ve aho?"
 
-#: allthethings/page/templates/page/faq.html:236
+#: allthethings/page/templates/page/faq.html:237
 #, fuzzy
 msgid "page.faq.torrents.a2"
 msgstr "Eny, jereo ny pejy <a %(a_llm)s>LLM data</a>."
 
-#: allthethings/page/templates/page/faq.html:240
+#: allthethings/page/templates/page/faq.html:241
 #, fuzzy
 msgid "page.faq.torrents.q3"
 msgstr "Afaka misintona ampahany amin'ny rakitra ihany ve aho, toy ny fiteny na lohahevitra manokana?"
 
-#: allthethings/page/templates/page/faq.html:242
+#: allthethings/page/templates/page/faq.html:243
 #, fuzzy
 msgid "page.faq.torrents.a3"
 msgstr "Ny ankamaroan'ny torrents dia misy ny rakitra mivantana, midika izany fa afaka manome toromarika ny mpanjifa torrent ianao mba hisintona ireo rakitra ilaina ihany. Mba hamaritana izay rakitra hisintona, azonao atao ny <a %(a_generate)s>mamokatra</a> ny metadata anay, na <a %(a_download)s>misintona</a> ny ElasticSearch sy MariaDB databases anay. Indrisy anefa, misy ny fanangonana torrent izay misy rakitra .zip na .tar eo amin'ny fotony, ka mila misintona ny torrent manontolo ianao alohan'ny ahafahanao misafidy rakitra tsirairay."
 
-#: allthethings/page/templates/page/faq.html:246
+#: allthethings/page/templates/page/faq.html:247
 #, fuzzy
 msgid "page.faq.torrents.q4"
 msgstr "Ahoana no fitantananareo ny dika mitovy ao amin'ny torrents?"
 
-#: allthethings/page/templates/page/faq.html:248
+#: allthethings/page/templates/page/faq.html:249
 #, fuzzy
 msgid "page.faq.torrents.a4"
 msgstr "Miezaka izahay mba hampihena ny dika mitovy na ny fifanindriana eo amin'ny torrents ao amin'ity lisitra ity, saingy tsy azo tanterahina foana izany, ary miankina betsaka amin'ny politikan'ny tranomboky loharano. Ho an'ny tranomboky izay mamoaka ny torrents azy manokana, tsy eo am-pelatananay izany. Ho an'ny torrents navoakan'ny Anna’s Archive, dia manala dika mitovy izahay mifototra amin'ny MD5 hash ihany, midika izany fa ny dikan-teny samihafa amin'ny boky iray dia tsy voafafa."
 
-#: allthethings/page/templates/page/faq.html:252
+#: allthethings/page/templates/page/faq.html:253
 #, fuzzy
 msgid "page.faq.torrents.q5"
 msgstr "Afaka mahazo ny lisitry ny torrent amin'ny endrika JSON ve aho?"
 
-#: allthethings/page/templates/page/faq.html:254
+#: allthethings/page/templates/page/faq.html:255
 #, fuzzy
 msgid "page.faq.torrents.a5"
 msgstr "Eny."
 
-#: allthethings/page/templates/page/faq.html:258
+#: allthethings/page/templates/page/faq.html:259
 #, fuzzy
 msgid "page.faq.torrents.q6"
 msgstr "Tsy mahita PDFs na EPUBs ao amin'ny torrents aho, fa rakitra binary ihany? Inona no tokony hataoko?"
 
-#: allthethings/page/templates/page/faq.html:260
+#: allthethings/page/templates/page/faq.html:261
 #, fuzzy
 msgid "page.faq.torrents.a6"
 msgstr "Ireo dia PDFs sy EPUBs tokoa, saingy tsy manana extension ao amin'ny torrents maro anay. Misy toerana roa ahafahanao mahita ny metadata ho an'ny rakitra torrent, anisan'izany ny karazana rakitra/extensions:"
 
-#: allthethings/page/templates/page/faq.html:262
+#: allthethings/page/templates/page/faq.html:263
 #, fuzzy
 msgid "page.faq.torrents.a6.li1"
 msgstr "1. Ny fanangonana na famoahana tsirairay dia manana ny metadata azy. Ohatra, ny <a %(a_libgen_nonfic)s>Libgen.rs torrents</a> dia manana tahiry metadata mifanaraka izay ampiantranoina ao amin'ny tranokalan'ny Libgen.rs. Matetika izahay dia mampifandray amin'ny loharano metadata mifandraika amin'ny pejin'ny <a %(a_datasets)s>dataset</a> tsirairay."
 
-#: allthethings/page/templates/page/faq.html:264
+#: allthethings/page/templates/page/faq.html:265
 #, fuzzy
 msgid "page.faq.torrents.a6.li2"
 msgstr "2. Manoro hevitra izahay ny <a %(a_generate)s>mamokatra</a> na <a %(a_download)s>misintona</a> ny ElasticSearch sy MariaDB databases anay. Ireo dia misy sarintany ho an'ny rakitra tsirairay ao amin'ny Anna’s Archive mankany amin'ny rakitra torrent mifanaraka aminy (raha misy), eo ambanin'ny “torrent_paths” ao amin'ny ElasticSearch JSON."
 
-#: allthethings/page/templates/page/faq.html:267
+#: allthethings/page/templates/page/faq.html:268
 #, fuzzy
 msgid "page.faq.security.title"
 msgstr "Manana programa fanambarana andraikitra ve ianareo?"
 
-#: allthethings/page/templates/page/faq.html:270
+#: allthethings/page/templates/page/faq.html:271
 #, fuzzy
 msgid "page.faq.security.text1"
 msgstr "Mandray an-tanan-droa ireo mpikaroka momba ny fiarovana izahay mba hitady fahalemena ao amin'ny rafitray. Mpankasitraka ny fanambarana andraikitra izahay. Mifandraisa aminay <a %(a_contact)s>eto</a>."
 
-#: allthethings/page/templates/page/faq.html:274
+#: allthethings/page/templates/page/faq.html:275
 #, fuzzy
 msgid "page.faq.security.text2"
 msgstr "Amin'izao fotoana izao dia tsy afaka manome valisoa ho an'ny bibikely izahay, afa-tsy ho an'ny fahalemena izay manana <a %(a_link)s>fahafahana manohintohina ny tsiambaratelonay</a>, izay manolotra valisoa eo amin'ny $10k-50k. Tianay ny hanolotra sehatra midadasika kokoa ho an'ny valisoa ho an'ny bibikely amin'ny ho avy! Mariho fa ny fanafihana ara-tsosialy dia tsy tafiditra ao anatin'ny sehatra."
 
-#: allthethings/page/templates/page/faq.html:278
+#: allthethings/page/templates/page/faq.html:279
 #, fuzzy
 msgid "page.faq.security.text3"
 msgstr "Raha liana amin'ny fiarovana manafika ianao, ary te hanampy amin'ny fitahirizana ny fahalalana sy ny kolontsaina maneran-tany, dia aza misalasala mifandray aminay. Misy fomba maro ahafahanao manampy."
 
-#: allthethings/page/templates/page/faq.html:281
+#: allthethings/page/templates/page/faq.html:282
 #, fuzzy
 msgid "page.faq.resources.title"
 msgstr "Misy loharano hafa momba ny Anna’s Archive ve?"
 
-#: allthethings/page/templates/page/faq.html:284
+#: allthethings/page/templates/page/faq.html:285
 #, fuzzy
 msgid "page.faq.resources.annas_blog"
 msgstr "<a %(a_blog)s>Anna’s Blog</a>, <a %(a_reddit_u)s>Reddit</a>, <a %(a_reddit_r)s>Subreddit</a> — fanavaozana tsy tapaka"
 
-#: allthethings/page/templates/page/faq.html:285
+#: allthethings/page/templates/page/faq.html:286
 #, fuzzy
 msgid "page.faq.resources.annas_software"
 msgstr "<a %(a_software)s>Anna’s Software</a> — ny kaody loharano misokatra anay"
 
-#: allthethings/page/templates/page/faq.html:286
+#: allthethings/page/templates/page/faq.html:287
 #, fuzzy
 msgid "page.faq.resources.translate"
 msgstr "<a %(a_translate)s>Translate on Anna’s Software</a> — ny rafitra fandikan-teninay"
 
-#: allthethings/page/templates/page/faq.html:287
+#: allthethings/page/templates/page/faq.html:288
 #, fuzzy
 msgid "page.faq.resources.datasets"
 msgstr "<a %(a_datasets)s>Datasets</a> — momba ny angona"
 
-#: allthethings/page/templates/page/faq.html:288
+#: allthethings/page/templates/page/faq.html:289
 #, fuzzy
 msgid "page.faq.resources.domains"
 msgstr "<a %(a_li)s>.li</a>, <a %(a_se)s>.se</a>, <a %(a_org)s>.org</a> — sehatra hafa"
 
-#: allthethings/page/templates/page/faq.html:289
+#: allthethings/page/templates/page/faq.html:290
 #, fuzzy
 msgid "page.faq.resources.wikipedia"
 msgstr "<a %(a_wikipedia)s>Wikipedia</a> — mahafantatra bebe kokoa momba anay (azafady mba ampio havaozina ity pejy ity, na mamorona iray ho an'ny fiteninao manokana!)"
 
-#: allthethings/page/templates/page/faq.html:292
+#: allthethings/page/templates/page/faq.html:293
 #, fuzzy
 msgid "page.faq.copyright.title"
 msgstr "Ahoana no fomba hitaterana fanitsakitsahana zon'ny mpamorona?"
 
-#: allthethings/page/templates/page/faq.html:295
+#: allthethings/page/templates/page/faq.html:296
 #, fuzzy
 msgid "page.faq.copyright.text1"
 msgstr "Tsy mitahiry fitaovana voaaro amin'ny zon'ny mpamorona izahay eto. Mpitady angona izahay, ary noho izany dia manondro metadata izay efa misy ampahibemaso ihany. Rehefa misintona avy amin'ireo loharano ivelany ireo, dia manoro hevitra izahay mba hijery ny lalàna ao amin'ny faritra misy anao momba izay azo atao. Tsy tompon'andraikitra amin'ny votoaty tazonin'ny hafa izahay."
 
-#: allthethings/page/templates/page/faq.html:299
+#: allthethings/page/templates/page/faq.html:300
 #, fuzzy
 msgid "page.faq.copyright.text2"
 msgstr "Raha manana fitarainana momba izay hitanao eto ianao, ny tsara indrindra dia ny mifandray amin'ny tranokala tany am-boalohany. Matetika izahay no manavao ny angon-drakitray amin'ny fanovana ataon'izy ireo. Raha tena mino ianao fa manana fitarainana DMCA manan-kery tokony ho valianay ianao, azafady fenoy ny <a %(a_copyright)s>taratasy fitarainana DMCA / Copyright</a>. Raisinay am-pahamatorana ny fitarainanao, ary hifandray aminao izahay haingana araka izay azo atao."
 
-#: allthethings/page/templates/page/faq.html:302
+#: allthethings/page/templates/page/faq.html:303
 #, fuzzy
 msgid "page.faq.hate.title"
 msgstr "Halako ny fomba fitantananareo ity tetikasa ity!"
 
-#: allthethings/page/templates/page/faq.html:305
+#: allthethings/page/templates/page/faq.html:306
 #, fuzzy
 msgid "page.faq.hate.text1"
 msgstr "Te hampahatsiahy ny rehetra koa izahay fa ny kaody sy ny angon-drakitray rehetra dia misokatra tanteraka. Ity no miavaka amin'ny tetikasa tahaka ny anay — tsy mahafantatra tetikasa hafa manana katalaogy lehibe toy izany izay misokatra tanteraka koa izahay. Tena mandray tsara ireo rehetra mihevitra fa ratsy ny fitantananay ny tetikasanay izahay mba haka ny kaody sy ny angon-drakitray ary hanangana ny tranomboky alokalony manokana! Tsy milaza izany izahay noho ny fankahalana na zavatra hafa — tena mino izahay fa ho tena mahafinaritra izany satria hampiakatra ny fenitra ho an'ny rehetra, ary hitahiry tsara kokoa ny lovan'ny olombelona."
 
-#: allthethings/page/templates/page/faq.html:308
+#: allthethings/page/templates/page/faq.html:309
 #, fuzzy
 msgid "page.faq.favorite.title"
 msgstr "Inona avy ireo boky tianao indrindra?"
 
-#: allthethings/page/templates/page/faq.html:311
+#: allthethings/page/templates/page/faq.html:312
 #, fuzzy
 msgid "page.faq.favorite.text1"
 msgstr "Ireto misy boky izay manana lanja manokana amin'ny tontolon'ny tranomboky aloka sy ny fitahirizana nomerika:"
@@ -3549,13 +3663,13 @@ msgid "page.md5.box.download.ipfs_gateway_extra"
 msgstr "(mety mila miezaka imbetsaka amin'ny IPFS ianao)"
 
 #: allthethings/page/templates/page/ipfs_downloads.html:23
-#: allthethings/page/templates/page/partner_download.html:93
+#: allthethings/page/templates/page/partner_download.html:91
 #, fuzzy
 msgid "page.partner_download.faster_downloads"
 msgstr "🚀 Mba hahazoana fisintomana haingana kokoa sy hisorohana ny fanamarinana navigateur, <a %(a_membership)s>midira mpikambana</a>."
 
 #: allthethings/page/templates/page/ipfs_downloads.html:27
-#: allthethings/page/templates/page/partner_download.html:97
+#: allthethings/page/templates/page/partner_download.html:95
 #, fuzzy
 msgid "page.partner_download.bulk_mirroring"
 msgstr "📡 Raha te-haka ny tahirin-kevitra betsaka amin'ny fanangonana anay ianao, jereo ny pejy <a %(a_datasets)s>Datasets</a> sy <a %(a_torrents)s>Torrents</a>."
@@ -3909,27 +4023,31 @@ msgstr "Rehefa mahazo rohy fisintomana ianao dia manan-kery mandritra ny ora mar
 msgid "page.partner_download.li4"
 msgstr "Misaotra anao niandry, manampy amin'ny fitazonana ny tranokala ho azo idirana maimaim-poana ho an'ny rehetra izany! 😊"
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:40
+msgid "page.partner_download.automatic_refreshing"
+msgstr ""
+
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.url"
 msgstr "📚 Ampiasao ity URL manaraka ity hisintomana: <a %(a_download)s>Sintomy izao</a>."
 
-#: allthethings/page/templates/page/partner_download.html:80
+#: allthethings/page/templates/page/partner_download.html:78
 #, fuzzy
 msgid "page.partner_download.download_now"
 msgstr "Sintomy izao"
 
-#: allthethings/page/templates/page/partner_download.html:86
+#: allthethings/page/templates/page/partner_download.html:84
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads"
 msgstr "Fampitandremana: nisy fisintomana maro avy amin'ny adiresy IP-nao tao anatin'ny 24 ora farany. Mety ho miadana kokoa noho ny mahazatra ny fisintomana."
 
-#: allthethings/page/templates/page/partner_download.html:87
+#: allthethings/page/templates/page/partner_download.html:85
 #, fuzzy
 msgid "page.partner_download.downloads_last_24_hours"
 msgstr "Fisintomana avy amin'ny adiresy IP-nao tao anatin'ny 24 ora farany: %(count)s."
 
-#: allthethings/page/templates/page/partner_download.html:88
+#: allthethings/page/templates/page/partner_download.html:86
 #, fuzzy
 msgid "page.partner_download.warning_many_downloads2"
 msgstr "Raha mampiasa VPN ianao, mizara fifandraisana Internet, na mizara IP ny ISP-nao, mety noho izany io fampitandremana io."
