@@ -63,8 +63,8 @@ def databases():
                 mariapersist_conn.execute(text("SELECT 1 FROM mariapersist_downloads_total_by_md5 LIMIT 1"))
         if not es.ping():
             raise Exception("es.ping failed!")
-        if not es_aux.ping():
-            raise Exception("es_aux.ping failed!")
+        # if not es_aux.ping():
+        #     raise Exception("es_aux.ping failed!")
     except:
         number_of_db_exceptions += 1
         if number_of_db_exceptions > 10:
@@ -105,6 +105,11 @@ def api_md5_fast_download():
 
     if not allthethings.utils.validate_canonical_md5s([canonical_md5]) or canonical_md5 != md5_input:
         return api_md5_fast_download_get_json(None, { "error": "Invalid md5" }), 400, {'Content-Type': 'text/json; charset=utf-8'}
+
+    account_id = allthethings.utils.account_id_from_secret_key(key_input)
+    if account_id is None:
+        return api_md5_fast_download_get_json(None, { "error": "Invalid secret key" }), 401, {'Content-Type': 'text/json; charset=utf-8'}
+
     aarecords = get_aarecords_elasticsearch([f"md5:{canonical_md5}"])
     if aarecords is None:
         return api_md5_fast_download_get_json(None, { "error": "Error during fetching" }), 500, {'Content-Type': 'text/json; charset=utf-8'}
@@ -118,9 +123,6 @@ def api_md5_fast_download():
         return api_md5_fast_download_get_json(None, { "error": "Invalid domain_index or path_index" }), 400, {'Content-Type': 'text/json; charset=utf-8'}
     url = 'https://' + domain + '/' + allthethings.utils.make_anon_download_uri(False, 20000, path_info['path'], aarecord['additional']['filename'], domain)
 
-    account_id = allthethings.utils.account_id_from_secret_key(key_input)
-    if account_id is None:
-        return api_md5_fast_download_get_json(None, { "error": "Invalid secret key" }), 401, {'Content-Type': 'text/json; charset=utf-8'}
     with Session(mariapersist_engine) as mariapersist_session:
         account_fast_download_info = allthethings.utils.get_account_fast_download_info(mariapersist_session, account_id)
         if account_fast_download_info is None:

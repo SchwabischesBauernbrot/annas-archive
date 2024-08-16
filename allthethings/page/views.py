@@ -3746,7 +3746,7 @@ def get_aarecords_elasticsearch(aarecord_ids):
                 search_results_raw += es_handle.mget(docs=docs)['docs']
                 break
             except:
-                print(f"Warning: another attempt during get_aarecords_elasticsearch {aarecord_ids=}")
+                print(f"Warning: another attempt during get_aarecords_elasticsearch {es_handle=} {aarecord_ids=}")
                 if attempt >= 3:
                     number_of_get_aarecords_elasticsearch_exceptions += 1
                     if number_of_get_aarecords_elasticsearch_exceptions > 5:
@@ -5532,35 +5532,38 @@ def md5_fast_download(md5_input, path_index, domain_index):
 
     if not allthethings.utils.validate_canonical_md5s([canonical_md5]) or canonical_md5 != md5_input:
         return redirect(f"/md5/{md5_input}", code=302)
-    with Session(engine) as session:
-        aarecords = get_aarecords_elasticsearch([f"md5:{canonical_md5}"])
-        if aarecords is None:
-            return render_template("page/aarecord_issue.html", header_active="search"), 500
-        if len(aarecords) == 0:
-            return render_template("page/aarecord_not_found.html", header_active="search", not_found_field=md5_input), 404
-        aarecord = aarecords[0]
-        try:
-            domain = allthethings.utils.FAST_DOWNLOAD_DOMAINS[domain_index]
-            path_info = aarecord['additional']['partner_url_paths'][path_index]
-        except:
-            return redirect(f"/md5/{md5_input}", code=302)
-        url = 'https://' + domain + '/' + allthethings.utils.make_anon_download_uri(False, 20000, path_info['path'], aarecord['additional']['filename'], domain)
-
+    
     account_id = allthethings.utils.get_account_id(request.cookies)
+    if account_id is None:
+        return redirect(f"/fast_download_not_member", code=302)
+
     with Session(mariapersist_engine) as mariapersist_session:
         account_fast_download_info = allthethings.utils.get_account_fast_download_info(mariapersist_session, account_id)
         if account_fast_download_info is None:
             return redirect(f"/fast_download_not_member", code=302)
 
+        with Session(engine) as session:
+            aarecords = get_aarecords_elasticsearch([f"md5:{canonical_md5}"])
+            if aarecords is None:
+                return render_template("page/aarecord_issue.html", header_active="search"), 500
+            if len(aarecords) == 0:
+                return render_template("page/aarecord_not_found.html", header_active="search", not_found_field=md5_input), 404
+            aarecord = aarecords[0]
+            try:
+                domain = allthethings.utils.FAST_DOWNLOAD_DOMAINS[domain_index]
+                path_info = aarecord['additional']['partner_url_paths'][path_index]
+            except:
+                return redirect(f"/md5/{md5_input}", code=302)
+            url = 'https://' + domain + '/' + allthethings.utils.make_anon_download_uri(False, 20000, path_info['path'], aarecord['additional']['filename'], domain)
+
         if canonical_md5 not in account_fast_download_info['recently_downloaded_md5s']:
             if account_fast_download_info['downloads_left'] <= 0:
                 return redirect(f"/fast_download_no_more", code=302)
-
             data_md5 = bytes.fromhex(canonical_md5)
             data_ip = allthethings.utils.canonical_ip_bytes(request.remote_addr)
             mariapersist_session.connection().execute(text('INSERT INTO mariapersist_fast_download_access (md5, ip, account_id) VALUES (:md5, :ip, :account_id)').bindparams(md5=data_md5, ip=data_ip, account_id=account_id))
             mariapersist_session.commit()
-    return redirect(url, code=302)
+        return redirect(url, code=302)
 
 def compute_download_speed(targeted_seconds, filesize, minimum, maximum):
     return min(maximum, max(minimum, int(filesize/1000/targeted_seconds)))
