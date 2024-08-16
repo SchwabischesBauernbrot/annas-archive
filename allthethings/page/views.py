@@ -3447,7 +3447,7 @@ def get_aac_upload_book_dicts(session, key, values):
 
             upload_book_exiftool_append(aac_upload_book_dict['aa_upload_derived']['producer_multiple'], record, 'Producer')
 
-            if record['metadata'].get('exiftool_failed') or False:
+            if (record['metadata'].get('exiftool_failed') or False) and ('Wide character in print' not in ((record['metadata'].get('exiftool_output') or {}).get('error') or '')):
                 aac_upload_book_dict['aa_upload_derived']['problems_infos'].append({
                     'upload_problem_type': 'exiftool_failed',
                 })
