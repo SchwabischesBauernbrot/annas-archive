@@ -953,7 +953,7 @@ def codes_page():
             cursor.execute('SELECT code_prefix FROM aarecords_codes_prefixes')
             new_prefixes = [row['code_prefix'] + b':' for row in list(cursor.fetchall())]
         else:
-            max_exact_matches = 10000
+            max_exact_matches = 100
             cursor.execute('SELECT aarecord_id FROM aarecords_codes WHERE code = %(prefix)s ORDER BY code, aarecord_id LIMIT %(max_exact_matches)s', { "prefix": prefix_bytes, "max_exact_matches": max_exact_matches })
             exact_matches_aarecord_ids = [row['aarecord_id'].decode() for row in cursor.fetchall()]
             if len(exact_matches_aarecord_ids) == max_exact_matches:
@@ -5639,7 +5639,7 @@ def md5_slow_download(md5_input, path_index, domain_index):
         # targeted_seconds_multiplier = 2.0
         # minimum = 20
         # maximum = 100
-        waitlist_max_wait_time_seconds *= 2
+        # waitlist_max_wait_time_seconds *= 2
         # warning = True
         domain = domain_slowest
     elif daily_download_count_from_ip >= 20:
@@ -5647,7 +5647,7 @@ def md5_slow_download(md5_input, path_index, domain_index):
 
     if allthethings.utils.SLOW_DOWNLOAD_DOMAINS_SLIGHTLY_FASTER[domain_index]:
         WAITLIST_DOWNLOAD_WINDOW_SECONDS = 2*60
-        hashed_md5_bytes = int.from_bytes(hashlib.sha1(bytes.fromhex(canonical_md5) + HASHED_DOWNLOADS_SECRET_KEY).digest(), byteorder='big')
+        hashed_md5_bytes = int.from_bytes(hashlib.sha256(bytes.fromhex(canonical_md5) + HASHED_DOWNLOADS_SECRET_KEY).digest(), byteorder='big')
         seconds_since_epoch = int(time.time())
         wait_seconds = ((hashed_md5_bytes-seconds_since_epoch) % waitlist_max_wait_time_seconds) - WAITLIST_DOWNLOAD_WINDOW_SECONDS
         if wait_seconds > 1:
