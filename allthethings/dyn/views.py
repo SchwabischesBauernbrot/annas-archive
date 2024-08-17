@@ -805,7 +805,7 @@ def account_buy_membership():
         raise Exception(f"Invalid costCentsUsdVerification")
 
     donation_type = 0 # manual
-    if method in ['payment1', 'payment1_alipay', 'payment1_wechat', 'payment1b', 'payment1bb', 'payment2', 'payment2paypal', 'payment2cashapp', 'payment2cc', 'amazon', 'hoodpay', 'payment3a', 'payment3b']:
+    if method in ['payment1', 'payment1_alipay', 'payment1_wechat', 'payment1b', 'payment1bb', 'payment2', 'payment2paypal', 'payment2cashapp', 'payment2revolut', 'payment2cc', 'amazon', 'hoodpay', 'payment3a', 'payment3b']:
         donation_type = 1
 
     with Session(mariapersist_engine) as mariapersist_session:
@@ -854,12 +854,12 @@ def account_buy_membership():
                 print(f"Warning payment3_request error: {donation_json['payment3_request']}")
                 return orjson.dumps({ 'error': gettext('dyn.buy_membership.error.unknown', email="https://annas-archive.se/contact") })
 
-        if method in ['payment2', 'payment2paypal', 'payment2cashapp', 'payment2cc']:
+        if method in ['payment2', 'payment2paypal', 'payment2cashapp', 'payment2revolut', 'payment2cc']:
             if method == 'payment2':
                 pay_currency = request.form['pay_currency']
             elif method == 'payment2paypal':
                 pay_currency = 'pyusd'
-            elif method in ['payment2cc', 'payment2cashapp']:
+            elif method in ['payment2cc', 'payment2cashapp', 'payment2revolut']:
                 pay_currency = 'btc'
             if pay_currency not in ['btc','eth','bch','ltc','xmr','ada','bnbbsc','busdbsc','dai','doge','dot','matic','near','pax','pyusd','sol','ton','trx','tusd','usdc','usdtbsc','usdterc20','usdttrc20','usdtsol']: # No XRP, needs a "tag"
                 raise Exception(f"Invalid pay_currency: {pay_currency}")
@@ -867,6 +867,9 @@ def account_buy_membership():
             price_currency = 'usd'
             if pay_currency in ['busdbsc','dai','pyusd','tusd','usdc','usdterc20','usdttrc20']:
                 price_currency = pay_currency
+
+            if (pay_currency == 'btc') and (membership_costs['cost_cents_usd'] < 1000):
+                return orjson.dumps({ 'error': gettext('dyn.buy_membership.error.minimum') })
 
             response = None
             try:

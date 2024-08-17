@@ -5236,7 +5236,11 @@ def get_additional_for_aarecord(aarecord):
         else:
             additional['torrent_paths'].append({ "collection": "zlib", "torrent_path": f"managed_by_aa/zlib/{aarecord['zlib_book']['pilimi_torrent']}", "file_level1": str(aarecord['zlib_book']['zlibrary_id']), "file_level2": "" })
     if (aarecord.get('aac_zlib3_book') is not None) and (aarecord['aac_zlib3_book']['file_aacid'] is not None):
-        zlib_path = make_temp_anon_aac_path("u/zlib3_files", aarecord['aac_zlib3_book']['file_aacid'], aarecord['aac_zlib3_book']['file_data_folder'])
+        server = 'u'
+        date = aarecord['aac_zlib3_book']['file_data_folder'].split('__')[3][0:8]
+        if date in ['20240807']:
+            server = 'o'
+        zlib_path = make_temp_anon_aac_path(f"{server}/zlib3_files", aarecord['aac_zlib3_book']['file_aacid'], aarecord['aac_zlib3_book']['file_data_folder'])
         add_partner_servers(zlib_path, 'aa_exclusive' if (len(additional['fast_partner_urls']) == 0) else '', aarecord, additional)
         additional['torrent_paths'].append({ "collection": "zlib", "torrent_path": f"managed_by_aa/annas_archive_data__aacid/{aarecord['aac_zlib3_book']['file_data_folder']}.torrent", "file_level1": aarecord['aac_zlib3_book']['file_aacid'], "file_level2": "" })
     if aarecord.get('aac_zlib3_book') is not None:
