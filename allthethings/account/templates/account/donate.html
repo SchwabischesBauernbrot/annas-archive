@@ -307,6 +307,8 @@
 
       <ol class="list-decimal list-inside mb-4">
         <li><strong>{{ gettext('page.donate.payment.buttons.amazon') }}</strong>: {{ gettext('page.donate.ccexp.amazon_com') }}</li>
+        <!-- TODO:TRANSLATE -->
+        <li><strong>{{ gettext('page.donate.payment.buttons.alipay') }}</strong>: Alipay supports international credit/debit cards. See <a href="alipay.pdf">this guide</a> for more information.</li>
         <li><strong>{{ gettext('page.donate.payment.buttons.wechat') }}</strong>: {{ gettext('page.donate.ccexp.wechat') }}</li>
         <li><strong>{{ gettext('page.donate.payment.buttons.crypto', bitcoin_icon=('<span class="hidden icon-[mdi--bitcoin] text-lg align-text-bottom"></span>' | safe)) }}</strong>: {{ gettext('page.donate.ccexp.crypto') }} {{ gettext('page.donate.payment.desc.crypto_suggestion', option1=('<a href="https://www.binance.com/en" rel="noopener noreferrer nofollow" target="_blank">Binance</a>' | safe), option2=('<a href="https://www.coinbase.com" rel="noopener noreferrer nofollow" target="_blank">Coinbase</a>' | safe), option3=('<a href="https://www.kraken.com" rel="noopener noreferrer nofollow" target="_blank">Kraken</a>' | safe)) }}</li>
       </ol>
