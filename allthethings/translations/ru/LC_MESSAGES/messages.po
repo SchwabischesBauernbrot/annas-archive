@@ -1,3 +1,19 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-18 18:47+0000\n"
+"PO-Revision-Date: 2024-08-18 18:47+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.7\n"
+
 #: allthethings/app.py:209
 msgid "layout.index.invalid_request"
 msgstr "Неверный запрос. Посетите %(websites)s."
@@ -199,8 +215,9 @@ msgid "page.donate.perks.if_you_donate_this_month"
 msgstr "если вы пожертвуете в этом месяце!"
 
 #: allthethings/account/templates/account/donate.html:55
+#, fuzzy
 msgid "page.donate.membership_per_month"
-msgstr ""
+msgstr "$%(cost)s / месяц"
 
 #: allthethings/account/templates/account/donate.html:57
 msgid "page.donate.buttons.join"
@@ -321,16 +338,19 @@ msgid "page.donate.payment.buttons.paypal"
 msgstr "PayPal (США) %(bitcoin_icon)s"
 
 #: allthethings/account/templates/account/donate.html:140
+#, fuzzy
 msgid "page.donate.payment.buttons.paypalreg"
-msgstr ""
+msgstr "PayPal (регулярный)"
 
 #: allthethings/account/templates/account/donate.html:141
+#, fuzzy
 msgid "page.donate.payment.buttons.givebutter"
-msgstr ""
+msgstr "Карта / PayPal / Venmo"
 
 #: allthethings/account/templates/account/donate.html:143
+#, fuzzy
 msgid "page.donate.payment.buttons.bmc"
-msgstr ""
+msgstr "Кредитная/дебетовая/Apple/Google (BMC)"
 
 #: allthethings/account/templates/account/donate.html:144
 #: allthethings/account/templates/account/donate.html:160
@@ -348,8 +368,9 @@ msgid "page.donate.payment.buttons.cashapp"
 msgstr "Cash App"
 
 #: allthethings/account/templates/account/donate.html:150
+#, fuzzy
 msgid "page.donate.payment.buttons.revolut"
-msgstr ""
+msgstr "Revolut"
 
 #: allthethings/account/templates/account/donate.html:151
 msgid "page.donate.payment.buttons.paypal_plain"
@@ -364,8 +385,9 @@ msgid "page.donate.payment.buttons.credit_debit2"
 msgstr "Кредитная/дебетовая карта 2"
 
 #: allthethings/account/templates/account/donate.html:156
+#, fuzzy
 msgid "page.donate.payment.buttons.binance"
-msgstr ""
+msgstr "Бинанс"
 
 #: allthethings/account/templates/account/donate.html:161
 #: allthethings/account/templates/account/donate.html:170
@@ -400,18 +422,21 @@ msgstr "Если вы пользуетесь криптовалютой в пе�
 
 #: allthethings/account/templates/account/donate.html:219
 #: allthethings/account/templates/account/donate.html:338
+#, fuzzy
 msgid "page.donate.payment.processor.binance"
-msgstr ""
+msgstr "Бинанс"
 
 #: allthethings/account/templates/account/donate.html:220
 #: allthethings/account/templates/account/donate.html:339
+#, fuzzy
 msgid "page.donate.payment.processor.coinbase"
-msgstr ""
+msgstr "Coinbase"
 
 #: allthethings/account/templates/account/donate.html:221
 #: allthethings/account/templates/account/donate.html:340
+#, fuzzy
 msgid "page.donate.payment.processor.kraken"
-msgstr ""
+msgstr "Kraken"
 
 #: allthethings/account/templates/account/donate.html:232
 msgid "page.donate.payment.desc.paypal"
@@ -435,12 +460,14 @@ msgid "page.donate.payment.desc.cashapp_fee"
 msgstr "Заметим, что при транзацкиях ниже %(amount)s Cash App может взимать комиссию в %(fee)s. Для %(amount)s или выше транзакции бесплатны!"
 
 #: allthethings/account/templates/account/donate.html:249
+#, fuzzy
 msgid "page.donate.payment.desc.revolut"
-msgstr ""
+msgstr "Пожертвуйте с помощью Revolut."
 
 #: allthethings/account/templates/account/donate.html:250
+#, fuzzy
 msgid "page.donate.payment.desc.revolut_easy"
-msgstr ""
+msgstr "Если у вас есть Revolut, это самый простой способ сделать пожертвование!"
 
 #: allthethings/account/templates/account/donate.html:259
 #: allthethings/account/templates/account/donate.html:313
@@ -468,8 +495,9 @@ msgid "page.donate.payment.desc.binance_p2"
 msgstr "Binance доступен почти в каждой стране и поддерживает большинство банков и кредитных/дебетовых карт. В настоящее время это наша основная рекомендация. Мы ценим ваше время, потраченное на изучение этого метода пожертвования, так как это нам очень помогает."
 
 #: allthethings/account/templates/account/donate.html:278
+#, fuzzy
 msgid "page.donate.payment.desc.paypalreg"
-msgstr ""
+msgstr "Пожертвуйте, используя ваш обычный аккаунт PayPal."
 
 #: allthethings/account/templates/account/donate.html:284
 #: allthethings/account/templates/account/donate.html:290
@@ -498,18 +526,21 @@ msgid "page.donate.payment.desc.credit_debit_backup"
 msgstr "Этот метод использует поставщика криптовалюты в качестве промежуточного конвертера. Это может быть немного запутанно, поэтому используйте этот метод только в том случае, если другие способы оплаты не работают. Этот метод также не работает во всех странах."
 
 #: allthethings/account/templates/account/donate.html:320
+#, fuzzy
 msgid "page.donate.payment.desc.credit_debit_explained"
-msgstr ""
+msgstr "Мы не можем поддерживать кредитные/дебетовые карты напрямую, потому что банки не хотят с нами работать. ☹ Однако, есть несколько способов использовать кредитные/дебетовые карты через другие платежные методы:"
 
 #: allthethings/account/templates/account/donate.html:325
 msgid "page.donate.ccexp.amazon_com"
 msgstr "Отправьте нам подарочные карты Amazon.com, используя свою кредитную/дебетовую карту."
 
 #: allthethings/account/templates/account/donate.html:328
+#, fuzzy
 msgid "page.donate.ccexp.alipay"
-msgstr ""
+msgstr "Alipay поддерживает международные кредитные/дебетовые карты. См. <a %(a_alipay)s>это руководство</a> для получения дополнительной информации."
 
 #: allthethings/account/templates/account/donate.html:331
+#, fuzzy
 msgid "page.donate.ccexp.wechat"
 msgstr "WeChat (Weixin Pay) поддерживает международные кредитные/дебетовые карты. В приложении WeChat, перейдите в: «Me => Services => Wallet => Add a Card». Если вы не видите этот пункт, то включите его: «Me => Settings => General => Tools => Weixin Pay => Enable»."
 
@@ -4624,4 +4655,3 @@ msgstr "Следующая"
 
 #~ msgid "page.md5.box.download.header_generic"
 #~ msgstr "Загрузки"
-

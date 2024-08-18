@@ -1,3 +1,18 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-18 18:47+0000\n"
+"PO-Revision-Date: 2024-08-18 18:47+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.7\n"
+
 #: allthethings/app.py:209
 msgid "layout.index.invalid_request"
 msgstr "Requête invalide. Merci de visiter %(websites)s."
@@ -199,8 +214,9 @@ msgid "page.donate.perks.if_you_donate_this_month"
 msgstr "si vous faites un don ce mois-ci !"
 
 #: allthethings/account/templates/account/donate.html:55
+#, fuzzy
 msgid "page.donate.membership_per_month"
-msgstr ""
+msgstr "$%(cost)s / mois"
 
 #: allthethings/account/templates/account/donate.html:57
 msgid "page.donate.buttons.join"
@@ -321,16 +337,19 @@ msgid "page.donate.payment.buttons.paypal"
 msgstr "PayPal %(bitcoin_icon)s"
 
 #: allthethings/account/templates/account/donate.html:140
+#, fuzzy
 msgid "page.donate.payment.buttons.paypalreg"
-msgstr ""
+msgstr "PayPal (régulier)"
 
 #: allthethings/account/templates/account/donate.html:141
+#, fuzzy
 msgid "page.donate.payment.buttons.givebutter"
-msgstr ""
+msgstr "Carte / PayPal / Venmo"
 
 #: allthethings/account/templates/account/donate.html:143
+#, fuzzy
 msgid "page.donate.payment.buttons.bmc"
-msgstr ""
+msgstr "Crédit/débit/Apple/Google (BMC)"
 
 #: allthethings/account/templates/account/donate.html:144
 #: allthethings/account/templates/account/donate.html:160
@@ -348,8 +367,9 @@ msgid "page.donate.payment.buttons.cashapp"
 msgstr "Cash App"
 
 #: allthethings/account/templates/account/donate.html:150
+#, fuzzy
 msgid "page.donate.payment.buttons.revolut"
-msgstr ""
+msgstr "Revolut"
 
 #: allthethings/account/templates/account/donate.html:151
 msgid "page.donate.payment.buttons.paypal_plain"
@@ -364,8 +384,9 @@ msgid "page.donate.payment.buttons.credit_debit2"
 msgstr "Carte de crédit/débit 2"
 
 #: allthethings/account/templates/account/donate.html:156
+#, fuzzy
 msgid "page.donate.payment.buttons.binance"
-msgstr ""
+msgstr "Binance"
 
 #: allthethings/account/templates/account/donate.html:161
 #: allthethings/account/templates/account/donate.html:170
@@ -400,18 +421,21 @@ msgstr "Si vous utilisez une cryptomonnaie pour la première fois, nous vous sug
 
 #: allthethings/account/templates/account/donate.html:219
 #: allthethings/account/templates/account/donate.html:338
+#, fuzzy
 msgid "page.donate.payment.processor.binance"
-msgstr ""
+msgstr "Binance"
 
 #: allthethings/account/templates/account/donate.html:220
 #: allthethings/account/templates/account/donate.html:339
+#, fuzzy
 msgid "page.donate.payment.processor.coinbase"
-msgstr ""
+msgstr "Coinbase"
 
 #: allthethings/account/templates/account/donate.html:221
 #: allthethings/account/templates/account/donate.html:340
+#, fuzzy
 msgid "page.donate.payment.processor.kraken"
-msgstr ""
+msgstr "Kraken"
 
 #: allthethings/account/templates/account/donate.html:232
 msgid "page.donate.payment.desc.paypal"
@@ -435,12 +459,14 @@ msgid "page.donate.payment.desc.cashapp_fee"
 msgstr "Notez que pour les transactions inférieures à %(amount)s, Cash App impose %(fee)s de frais. Pour %(amount)s et plus, c'est gratuit !"
 
 #: allthethings/account/templates/account/donate.html:249
+#, fuzzy
 msgid "page.donate.payment.desc.revolut"
-msgstr ""
+msgstr "Faites un don en utilisant Revolut."
 
 #: allthethings/account/templates/account/donate.html:250
+#, fuzzy
 msgid "page.donate.payment.desc.revolut_easy"
-msgstr ""
+msgstr "Si vous avez Revolut, c’est le moyen le plus simple de faire un don !"
 
 #: allthethings/account/templates/account/donate.html:259
 #: allthethings/account/templates/account/donate.html:313
@@ -468,8 +494,9 @@ msgid "page.donate.payment.desc.binance_p2"
 msgstr "Binance est disponible dans la plupart des pays du monde et fonctionne avec la plupart des banques et cartes de crédit/débit. Pour nous faire don, c'est actuellement la méthode que nous vous recommandons. Merci d'avance pour le temps que vous aurez pris pour apprendre à nous faire don par ce biais, cette méthode nous aide énormément."
 
 #: allthethings/account/templates/account/donate.html:278
+#, fuzzy
 msgid "page.donate.payment.desc.paypalreg"
-msgstr ""
+msgstr "Faites un don en utilisant votre compte PayPal régulier."
 
 #: allthethings/account/templates/account/donate.html:284
 #: allthethings/account/templates/account/donate.html:290
@@ -498,18 +525,21 @@ msgid "page.donate.payment.desc.credit_debit_backup"
 msgstr "Cette méthode utilise un fournisseur de cryptomonnaie comme convertisseur intermédiaire. Cela peut être un peu déroutant, alors veuillez n'utiliser cette méthode que si les autres ne fonctionnent pas. De plus, elle ne fonctionne pas dans tous les pays."
 
 #: allthethings/account/templates/account/donate.html:320
+#, fuzzy
 msgid "page.donate.payment.desc.credit_debit_explained"
-msgstr ""
+msgstr "Nous ne pouvons pas accepter directement les cartes de crédit/débit, car les banques ne veulent pas travailler avec nous. ☹ Cependant, il existe plusieurs façons d’utiliser les cartes de crédit/débit en utilisant d’autres méthodes de paiement :"
 
 #: allthethings/account/templates/account/donate.html:325
 msgid "page.donate.ccexp.amazon_com"
 msgstr "Envoyez-nous des cartes cadeau Amazon.com en utilisant votre carte de crédit/débit."
 
 #: allthethings/account/templates/account/donate.html:328
+#, fuzzy
 msgid "page.donate.ccexp.alipay"
-msgstr ""
+msgstr "Alipay prend en charge les cartes de crédit/débit internationales. Voir <a %(a_alipay)s>ce guide</a> pour plus d’informations."
 
 #: allthethings/account/templates/account/donate.html:331
+#, fuzzy
 msgid "page.donate.ccexp.wechat"
 msgstr "WeChat (Weixin Pay) accepte les cartes de crédit/débit internationales. Dans l'appli WeChat, allez dans “Me => Services => Wallet => Add a Card”. Si vous ne voyez pas ce menu, activez-le en naviguant dans “Me => Settings => General => Tools => Weixin Pay => Enable”."
 
@@ -1540,8 +1570,9 @@ msgstr "Z-Library"
 
 #: allthethings/page/templates/page/datasets.html:55
 #: allthethings/page/views.py:4883
+#, fuzzy
 msgid "common.record_sources_mapping.zlibzh"
-msgstr ""
+msgstr "Z-Library chinois"
 
 #: allthethings/page/views.py:4884
 msgid "common.record_sources_mapping.ia"
@@ -2429,8 +2460,9 @@ msgid "page.datasets.overview.mirrored.clarification"
 msgstr ""
 
 #: allthethings/page/templates/page/datasets.html:49
+#, fuzzy
 msgid "page.datasets.overview.last_updated.header"
-msgstr ""
+msgstr "Dernière mise à jour"
 
 #: allthethings/page/templates/page/datasets.html:51
 #, fuzzy
@@ -3371,12 +3403,14 @@ msgid "page.mirrors.intro"
 msgstr "Pour augmenter la résilience de l’Archive d’Anna, nous recherchons des volontaires pour gérer des miroirs."
 
 #: allthethings/page/templates/page/mirrors.html:13
+#, fuzzy
 msgid "page.mirrors.text1"
-msgstr ""
+msgstr "Nous recherchons ceci :"
 
 #: allthethings/page/templates/page/mirrors.html:17
+#, fuzzy
 msgid "page.mirrors.list.run_anna"
-msgstr ""
+msgstr "Vous exécutez la base de code open source d’Anna’s Archive, et vous mettez régulièrement à jour à la fois le code et les données."
 
 #: allthethings/page/templates/page/mirrors.html:18
 msgid "page.mirrors.list.clearly_a_mirror"
@@ -3431,12 +3465,14 @@ msgid "page.mirrors.getting_started.text2"
 msgstr "N'hésitez pas à poster des tickets ou des demandes de fusion sur notre Gitlab lorsque vous rencontrez des problèmes. Nous pourrions avoir besoin de développer certaines fonctionnalités spécifiques au site miroir avec vous, telles que le rebranding de « l'Archive d'Anna » au nom de votre site, la désactivation (initiale) des comptes utilisateurs, ou le lien vers notre site principal depuis les pages de livres."
 
 #: allthethings/page/templates/page/mirrors.html:47
+#, fuzzy
 msgid "page.mirrors.getting_started.text3"
-msgstr ""
+msgstr "Une fois que vous avez votre site miroir en fonctionnement, veuillez nous contacter. Nous aimerions examiner votre OpSec, et une fois que ce sera solide, nous créerons un lien vers votre site miroir et commencerons à travailler plus étroitement avec vous."
 
 #: allthethings/page/templates/page/mirrors.html:51
+#, fuzzy
 msgid "page.mirrors.getting_started.text4"
-msgstr ""
+msgstr "Merci d’avance à tous ceux qui sont prêts à contribuer de cette manière ! Ce n’est pas pour les âmes sensibles, mais cela renforcerait la longévité de la plus grande bibliothèque véritablement ouverte de l’histoire humaine."
 
 #: allthethings/page/templates/page/partner_download.html:3
 #: allthethings/page/templates/page/partner_download.html:10
@@ -4645,4 +4681,3 @@ msgstr "Suivant"
 
 #~ msgid "page.md5.box.download.header_generic"
 #~ msgstr "Téléchargements"
-
