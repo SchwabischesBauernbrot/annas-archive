@@ -194,6 +194,9 @@ msgstr "This applies to the entire membership period."
 #: allthethings/account/templates/account/donate.html:58
 #: allthethings/account/templates/account/donate.html:72
 #: allthethings/account/templates/account/donate.html:86
+msgid "page.donate.membership_per_month"
+msgstr "$%(cost)s / month"
+
 msgid "page.donate.buttons.join"
 msgstr "Join"
 
@@ -316,15 +319,7 @@ msgstr "Contact email"
 msgid "page.donate.without_membership"
 msgstr "If you’d like to make a donation (any amount) without membership, feel free to use this Monero (XMR) address: %(address)s."
 
-#: allthethings/account/templates/account/donate.html:123
-msgid "page.donate.payment.intro"
-msgstr "Select a payment option. We give discounts for crypto-based payments %(bitcoin_icon)s, because we incur (way) fewer fees."
-
-#: allthethings/account/templates/account/donate.html:124
-msgid "page.donate.payment.intro2"
-msgstr "Select a payment option. We currently only have crypto-based payments %(bitcoin_icon)s, since traditional payment processors refuse to work with us."
-
-#: allthethings/account/templates/account/donate.html:126
+#: allthethings/account/templates/account/donate.html:120
 msgid "page.donate.payment.select_method"
 msgstr "Please select a payment method."
 
@@ -362,10 +357,18 @@ msgstr "-%(percentage)s%%"
 msgid "page.donate.payment.buttons.paypal"
 msgstr "PayPal (US) %(bitcoin_icon)s"
 
-#: allthethings/account/templates/account/donate.html:139
-#: allthethings/account/templates/account/donate.html:156
-#: allthethings/account/templates/account/donate.html:163
-#: allthethings/account/templates/account/donate.html:311
+#: allthethings/account/templates/account/donate.html:143
+msgid "page.donate.payment.buttons.paypalreg"
+msgstr "PayPal (regular)"
+
+#: allthethings/account/templates/account/donate.html:144
+msgid "page.donate.payment.buttons.givebutter"
+msgstr "Card / PayPal / Venmo"
+
+#: allthethings/account/templates/account/donate.html:146
+msgid "page.donate.payment.buttons.bmc"
+msgstr "Credit/debit/Apple/Google (BMC)"
+
 msgid "page.donate.payment.buttons.alipay"
 msgstr "Alipay"
 
@@ -377,7 +380,10 @@ msgstr "Pix (Brazil)"
 msgid "page.donate.payment.buttons.cashapp"
 msgstr "Cash App"
 
-#: allthethings/account/templates/account/donate.html:147
+#: allthethings/account/templates/account/donate.html:146
+msgid "page.donate.payment.buttons.revolut"
+msgstr "Revolut"
+
 msgid "page.donate.payment.buttons.paypal_plain"
 msgstr "PayPal"
 
@@ -393,11 +399,14 @@ msgstr "Credit/debit card (backup)"
 msgid "page.donate.payment.buttons.credit_debit2"
 msgstr "Credit/debit card 2"
 
-#: allthethings/account/templates/account/donate.html:157
-#: allthethings/account/templates/account/donate.html:165
-#: allthethings/account/templates/account/donate.html:174
-#: allthethings/account/templates/account/donate.html:182
-#: allthethings/account/templates/account/donate.html:189
+#: allthethings/account/templates/account/donate.html:156
+msgid "page.donate.payment.buttons.binance"
+msgstr "Binance"
+
+#: allthethings/account/templates/account/donate.html:164
+#: allthethings/account/templates/account/donate.html:173
+#: allthethings/account/templates/account/donate.html:181
+#: allthethings/account/templates/account/donate.html:188
 msgid "page.donate.payment.buttons.alipay_wechat"
 msgstr "Alipay 支付宝 / WeChat 微信"
 
@@ -424,7 +433,16 @@ msgstr "With crypto you can donate using BTC, ETH, XMR, and more."
 msgid "page.donate.payment.desc.crypto_suggestion"
 msgstr "If you’re using crypto for the first time, we suggest using %(option1)s, %(option2)s, or %(option3)s to buy and donate Bitcoin (the original and most used cryptocurrency)."
 
-#: allthethings/account/templates/account/donate.html:212
+#: allthethings/account/templates/account/donate.html:211
+msgid "page.donate.payment.processor.binance"
+msgstr "Binance"
+
+msgid "page.donate.payment.processor.coinbase"
+msgstr "Coinbase"
+
+msgid "page.donate.payment.processor.kraken"
+msgstr "Kraken"
+
 msgid "page.donate.payment.desc.paypal"
 msgstr "To donate using PayPal US, we’re going to use PayPal Crypto, which allows us to remain anonymous. We appreciate you taking the time to learn how to donate using this method, since it helps us out a lot."
 
@@ -445,8 +463,14 @@ msgstr "If you have Cash App, this is the easiest way to donate!"
 msgid "page.donate.payment.desc.cashapp_fee"
 msgstr "Note that for transactions under %(amount)s, Cash App may charge a %(fee)s fee. For %(amount)s or above, it’s free!"
 
-#: allthethings/account/templates/account/donate.html:240
-#: allthethings/account/templates/account/donate.html:294
+#: allthethings/account/templates/account/donate.html:227
+#: allthethings/account/templates/account/donate.html:281
+msgid "page.donate.payment.desc.revolut"
+msgstr "Donate using Revolut."
+
+msgid "page.donate.payment.desc.revolut_easy"
+msgstr "If you have Revolut, this is the easiest way to donate!"
+
 msgid "page.donate.payment.desc.credit_debit"
 msgstr "Donate with a credit or debit card."
 
@@ -470,8 +494,11 @@ msgstr "With Binance, you buy Bitcoin with a credit/debit card or bank account, 
 msgid "page.donate.payment.desc.binance_p2"
 msgstr "Binance is available in almost every country, and supports most banks and credit/debit cards. This is currently our main recommendation. We appreciate you taking the time to learn how to donate using this method, since it helps us out a lot."
 
-#: allthethings/account/templates/account/donate.html:265
-#: allthethings/account/templates/account/donate.html:271
+#: allthethings/account/templates/account/donate.html:252
+#: allthethings/account/templates/account/donate.html:258
+msgid "page.donate.payment.desc.paypalreg"
+msgstr "Donate using your regular PayPal account."
+
 msgid "page.donate.payment.desc.alipay_wechat"
 msgstr "Donate using Alipay or WeChat. You can choose between these on the next page."
 
@@ -496,21 +523,20 @@ msgstr "<strong>IMPORTANT:</strong> We only support Amazon.com, not other Amazon
 msgid "page.donate.payment.desc.credit_debit_backup"
 msgstr "This method uses a cryptocurrency provider as an intermediate conversion. This can be a bit confusing, so please only use this method if other payment methods don’t work. It also doesn’t work in all countries."
 
-#: allthethings/account/templates/account/donate.html:301
-msgid "page.donate.payment.desc.credit_debit_p1"
-msgstr "We can’t support credit/debit cards directly, because banks don’t want to work with us. :("
-
-#: allthethings/account/templates/account/donate.html:305
-msgid "page.donate.payment.desc.credit_debit_p2"
-msgstr "However, there are several ways to use credit/debit cards anyway, using our other payment methods:"
+#: allthethings/account/templates/account/donate.html:323
+msgid "page.donate.payment.desc.credit_debit_explained"
+msgstr "We can’t support credit/debit cards directly, because banks don’t want to work with us. ☹ However, there are several ways to use credit/debit cards anyway, using other payment methods:"
 
 #: allthethings/account/templates/account/donate.html:309
 msgid "page.donate.ccexp.amazon_com"
 msgstr "Send us Amazon.com gift cards using your credit/debit card."
 
-#: allthethings/account/templates/account/donate.html:312
+#: allthethings/account/templates/account/donate.html:297
+msgid "page.donate.ccexp.alipay"
+msgstr "Alipay supports international credit/debit cards. See <a %(a_alipay)s>this guide</a> for more information."
+
 msgid "page.donate.ccexp.wechat"
-msgstr "WeChat (Weixin Pay) supports international credit/debit cards. In the WeChat app, go to “Me => Services => Wallet => Add a Card”. If you don’t see that, enable it using “Me => Settings => General => Tools => Weixin Pay => Enable”."
+msgstr "WeChat (Weixin Pay) supports international credit/debit cards. In the WeChat app, go to “Me → Services → Wallet → Add a Card”. If you don’t see that, enable it using “Me → Settings → General → Tools → Weixin Pay → Enable”."
 
 #: allthethings/account/templates/account/donate.html:313
 msgid "page.donate.ccexp.crypto"

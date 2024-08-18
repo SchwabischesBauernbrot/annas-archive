@@ -5,6 +5,7 @@ import base64
 import sys
 import time
 import babel.numbers as babel_numbers
+import babel.lists as babel_list
 import multiprocessing
 import ipaddress
 import datetime
@@ -150,9 +151,14 @@ def extensions(app):
     app.jinja_env.lstrip_blocks = True
     app.jinja_env.globals['get_locale'] = get_locale
     app.jinja_env.globals['FEATURE_FLAGS'] = allthethings.utils.FEATURE_FLAGS
+
     def urlsafe_b64encode(string):
         return base64.urlsafe_b64encode(string.encode()).decode()
     app.jinja_env.globals['urlsafe_b64encode'] = urlsafe_b64encode
+
+    def format_list(lst, style='standard'):
+        return babel_list.format_list(lst, style=style, locale=get_locale())
+    app.jinja_env.globals['format_list'] = format_list
 
     # https://stackoverflow.com/a/18095320
     hash_cache = {}
