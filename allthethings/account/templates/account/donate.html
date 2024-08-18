@@ -52,13 +52,13 @@
   {% macro membership_tier(level, size_classes) %}
     <div class="{{ size_classes }} w-[calc(50%-6px)] px-2 py-4 bg-white border border-gray-200 aria-selected:border-[#09008e] rounded-lg shadow mb-3 js-membership-tier js-membership-tier-{{ level }}" aria-selected="false">
       <div class="whitespace-nowrap text-center mb-2">{{ membership_tier_names[level] | replace(' ', '<br>') | safe }}</div>
-      <div class="text-center font-bold text-xl mb-2">{{ gettext('page.donate.membership_per_month', cost=MEMBERSHIP_TIER_COSTS[level]) }}</div>
+      <div class="text-center font-bold text-xl mb-2">{{ gettext('page.donate.membership_per_month', cost=('%0.2f'| format(MEMBERSHIP_TIER_COSTS[level] * (1-(MEMBERSHIP_DURATION_DISCOUNTS['96']+10)/100)) | string | replace('.00', '')) + "-$" + (MEMBERSHIP_TIER_COSTS[level] | string)) }}</div>
       <button onclick="window.membershipTierToggle('{{level}}')" class="text-center mb-1 block bg-[#0195ff] hover:bg-blue-600 [[aria-selected=true]_&]:bg-[#09008e] px-2 py-1 rounded-md text-white w-full">
         <span class="[[aria-selected=true]_&]:hidden">{{ gettext('page.donate.buttons.join') }}</span>
         <span class="[[aria-selected=false]_&]:hidden"><span class="icon-[ion--checkmark-circle-sharp] text-lg align-text-bottom"></span> {{ gettext('page.donate.buttons.selected') }}</span>
       </button>
-      <div class="text-xs text-gray-500 text-center mb-4">{{ gettext('page.donate.buttons.up_to_discounts', percentage=MEMBERSHIP_DURATION_DISCOUNTS['96']+10) }}</div>
-      <ul class="pl-5">
+      <!-- <div class="text-xs text-gray-500 text-center">{{ gettext('page.donate.buttons.up_to_discounts', percentage=MEMBERSHIP_DURATION_DISCOUNTS['96']+10) }}</div> -->
+      <ul class="mt-4 pl-5">
         {{ caller() }}
       </ul>
     </div>
