@@ -144,17 +144,17 @@ msgstr "Kaitango Raraunga Rerehua"
 msgid "common.membership.tier_name.5"
 msgstr "Kaitiaki Pūranga Mīharo"
 
-#: allthethings/utils.py:552
+#: allthethings/utils.py:554
 #, fuzzy
 msgid "common.membership.format_currency.total_with_usd"
 msgstr "%(amount)s (%(amount_usd)s) katoa"
 
-#: allthethings/utils.py:554 allthethings/utils.py:555
+#: allthethings/utils.py:556 allthethings/utils.py:557
 #, fuzzy
 msgid "common.membership.format_currency.amount_with_usd"
 msgstr "%(amount)s (%(amount_usd)s)"
 
-#: allthethings/utils.py:566
+#: allthethings/utils.py:568
 #, fuzzy
 msgid "common.membership.format_currency.total"
 msgstr "%(amount)s katoa"
@@ -335,7 +335,7 @@ msgid "page.donate.expert.contact_us"
 msgstr "whakapā mai"
 
 #: allthethings/account/templates/account/donate.html:103
-#: allthethings/account/templates/account/donation.html:579
+#: allthethings/account/templates/account/donation.html:624
 #: allthethings/page/templates/page/contact.html:21
 #, fuzzy
 msgid "page.donate.small_team"
@@ -403,14 +403,14 @@ msgid "page.donate.payment.select_method"
 msgstr "Tēnā tīpakohia tētahi tikanga utu."
 
 #: allthethings/account/templates/account/donate.html:130
-#: allthethings/account/templates/account/donate.html:296
+#: allthethings/account/templates/account/donate.html:309
 #, fuzzy
 msgid "page.donate.payment.buttons.amazon"
 msgstr "Kāri Koha Amazon"
 
 #: allthethings/account/templates/account/donate.html:131
 #: allthethings/account/templates/account/donate.html:141
-#: allthethings/account/templates/account/donate.html:298
+#: allthethings/account/templates/account/donate.html:313
 #, fuzzy
 msgid "page.donate.payment.buttons.crypto"
 msgstr "Crypto %(bitcoin_icon)s"
@@ -422,14 +422,15 @@ msgstr "Crypto %(bitcoin_icon)s"
 #: allthethings/account/templates/account/donate.html:142
 #: allthethings/account/templates/account/donate.html:145
 #: allthethings/account/templates/account/donate.html:146
-#: allthethings/account/templates/account/donate.html:149
-#: allthethings/account/templates/account/donate.html:152
-#: allthethings/account/templates/account/donate.html:317
-#: allthethings/account/templates/account/donate.html:318
-#: allthethings/account/templates/account/donate.html:319
-#: allthethings/account/templates/account/donate.html:320
-#: allthethings/account/templates/account/donate.html:321
-#: allthethings/account/templates/account/donate.html:322
+#: allthethings/account/templates/account/donate.html:147
+#: allthethings/account/templates/account/donate.html:150
+#: allthethings/account/templates/account/donate.html:153
+#: allthethings/account/templates/account/donate.html:332
+#: allthethings/account/templates/account/donate.html:333
+#: allthethings/account/templates/account/donate.html:334
+#: allthethings/account/templates/account/donate.html:335
+#: allthethings/account/templates/account/donate.html:336
+#: allthethings/account/templates/account/donate.html:337
 #, fuzzy
 msgid "page.donate.discount"
 msgstr "-%(percentage)s%%"
@@ -440,8 +441,9 @@ msgid "page.donate.payment.buttons.paypal"
 msgstr "PayPal (US) %(bitcoin_icon)s"
 
 #: allthethings/account/templates/account/donate.html:139
-#: allthethings/account/templates/account/donate.html:155
-#: allthethings/account/templates/account/donate.html:162
+#: allthethings/account/templates/account/donate.html:156
+#: allthethings/account/templates/account/donate.html:163
+#: allthethings/account/templates/account/donate.html:311
 #, fuzzy
 msgid "page.donate.payment.buttons.alipay"
 msgstr "Alipay"
@@ -456,366 +458,367 @@ msgstr "Pix (Brazil)"
 msgid "page.donate.payment.buttons.cashapp"
 msgstr "Pūkoro Moni"
 
-#: allthethings/account/templates/account/donate.html:146
+#: allthethings/account/templates/account/donate.html:147
 #, fuzzy
 msgid "page.donate.payment.buttons.paypal_plain"
 msgstr "PayPal"
 
-#: allthethings/account/templates/account/donate.html:147
+#: allthethings/account/templates/account/donate.html:148
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit"
 msgstr "Kāri nama/kāri utu"
 
-#: allthethings/account/templates/account/donate.html:148
+#: allthethings/account/templates/account/donate.html:149
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit_backup"
 msgstr "Kāri nama/kāri utu (tautoko)"
 
-#: allthethings/account/templates/account/donate.html:149
+#: allthethings/account/templates/account/donate.html:150
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit2"
 msgstr "Kāri nama/kāri utu 2"
 
-#: allthethings/account/templates/account/donate.html:156
-#: allthethings/account/templates/account/donate.html:164
-#: allthethings/account/templates/account/donate.html:173
-#: allthethings/account/templates/account/donate.html:181
-#: allthethings/account/templates/account/donate.html:188
+#: allthethings/account/templates/account/donate.html:157
+#: allthethings/account/templates/account/donate.html:165
+#: allthethings/account/templates/account/donate.html:174
+#: allthethings/account/templates/account/donate.html:182
+#: allthethings/account/templates/account/donate.html:189
 #, fuzzy
 msgid "page.donate.payment.buttons.alipay_wechat"
 msgstr "Alipay 支付宝 / WeChat 微信"
 
-#: allthethings/account/templates/account/donate.html:157
-#: allthethings/account/templates/account/donate.html:163
-#: allthethings/account/templates/account/donate.html:297
+#: allthethings/account/templates/account/donate.html:158
+#: allthethings/account/templates/account/donate.html:164
+#: allthethings/account/templates/account/donate.html:312
 #, fuzzy
 msgid "page.donate.payment.buttons.wechat"
 msgstr "WeChat"
 
-#: allthethings/account/templates/account/donate.html:188
+#: allthethings/account/templates/account/donate.html:189
 #, fuzzy
 msgid "page.donate.payment.buttons.temporarily_unavailable"
 msgstr "(kāore e wātea ana i tēnei wā)"
 
-#: allthethings/account/templates/account/donate.html:195
+#: allthethings/account/templates/account/donate.html:196
 #, fuzzy
 msgid "page.donate.payment.desc.crypto"
 msgstr "Mā te moni matihiko ka taea e koe te koha mā te BTC, ETH, XMR, me te SOL. Whakamahia tēnei kōwhiringa mēnā kua mōhio kē koe ki te moni matihiko."
 
-#: allthethings/account/templates/account/donate.html:201
+#: allthethings/account/templates/account/donate.html:202
 #, fuzzy
 msgid "page.donate.payment.desc.crypto2"
 msgstr "Mā te moni matihiko ka taea e koe te koha mā te BTC, ETH, XMR, me ētahi atu."
 
-#: allthethings/account/templates/account/donate.html:205
-#: allthethings/account/templates/account/donate.html:298
+#: allthethings/account/templates/account/donate.html:206
+#: allthethings/account/templates/account/donate.html:313
 #, fuzzy
 msgid "page.donate.payment.desc.crypto_suggestion"
 msgstr "Mēnā he wā tuatahi koe ki te whakamahi moni matihiko, ka tūtohu mātou kia whakamahi koe i a %(option1)s, %(option2)s, rānei %(option3)s ki te hoko me te koha Bitcoin (te moni matihiko taketake me te tino whakamahia)."
 
-#: allthethings/account/templates/account/donate.html:211
+#: allthethings/account/templates/account/donate.html:212
 #, fuzzy
 msgid "page.donate.payment.desc.paypal"
 msgstr "Hei koha mā te PayPal US, ka whakamahi mātou i te PayPal Crypto, e āhei ana mātou ki te noho ingoamuna. Ka tino mihi mātou ki a koe mō te ako me pēhea te koha mā tēnei tikanga, nā te mea he tino āwhina tēnei ki a mātou."
 
-#: allthethings/account/templates/account/donate.html:212
+#: allthethings/account/templates/account/donate.html:213
 #, fuzzy
 msgid "page.donate.payment.desc.paypal_short"
 msgstr "Koha mā te PayPal."
 
-#: allthethings/account/templates/account/donate.html:218
+#: allthethings/account/templates/account/donate.html:219
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp"
 msgstr "Koha mā te Pūkoro Moni."
 
-#: allthethings/account/templates/account/donate.html:218
+#: allthethings/account/templates/account/donate.html:219
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_easy"
 msgstr "Mēnā he Pūkoro Moni tāu, koinei te ara māmā rawa ki te koha!"
 
-#: allthethings/account/templates/account/donate.html:221
+#: allthethings/account/templates/account/donate.html:222
+#: allthethings/account/templates/account/donate.html:234
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_fee"
 msgstr "Me mōhio koe mō ngā whakawhitinga i raro i te %(amount)s, ka utua pea e te Pūkoro Moni he utu %(fee)s. Mō te %(amount)s neke atu, he kore utu!"
 
-#: allthethings/account/templates/account/donate.html:227
-#: allthethings/account/templates/account/donate.html:281
+#: allthethings/account/templates/account/donate.html:240
+#: allthethings/account/templates/account/donate.html:294
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit"
 msgstr "Koha mā te kāri nama, kāri utu rānei."
 
-#: allthethings/account/templates/account/donate.html:228
+#: allthethings/account/templates/account/donate.html:241
 #, fuzzy
 msgid "page.donate.payment.desc.google_apple"
 msgstr "Ka taea pea te whakamahi i te Google Pay me te Apple Pay hoki."
 
-#: allthethings/account/templates/account/donate.html:229
+#: allthethings/account/templates/account/donate.html:242
 #, fuzzy
 msgid "page.donate.payment.desc.elimate_discount"
 msgstr "Me mōhio koe mō ngā koha iti, ka taea pea ngā utu kāri nama te whakakore i tā mātou %(discount)s%% hekenga, nō reira ka tūtohu mātou kia roa ake ngā ohaurunga."
 
-#: allthethings/account/templates/account/donate.html:230
+#: allthethings/account/templates/account/donate.html:243
 #, fuzzy
 msgid "page.donate.payment.desc.longer_subs"
 msgstr "Me mōhio koe mō ngā koha iti, he nui ngā utu, nō reira ka tūtohu mātou kia roa ake ngā ohaurunga."
 
-#: allthethings/account/templates/account/donate.html:236
+#: allthethings/account/templates/account/donate.html:249
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p1"
 msgstr "Mā te Binance, ka taea e koe te hoko Bitcoin mā te kāri nama/utu rānei, te pūkete pēke rānei, ā, kātahi ka koha mai i taua Bitcoin ki a mātou. Mā tēnei ara ka noho haumaru, huna hoki mātou i te wā e whiwhi ana i tō koha."
 
-#: allthethings/account/templates/account/donate.html:240
+#: allthethings/account/templates/account/donate.html:253
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p2"
 msgstr "Kei te wātea a Binance i te nuinga o ngā whenua, ā, e tautoko ana i te nuinga o ngā pēke me ngā kāri nama/utu. Koinei te tikanga matua e taunaki ana mātou i tēnei wā. E mihi ana mātou ki a koe mō te wā i whakapaua e koe ki te ako me pēhea te koha mā tēnei tikanga, nā te mea he tino āwhina tēnei ki a mātou."
 
-#: allthethings/account/templates/account/donate.html:252
-#: allthethings/account/templates/account/donate.html:258
+#: allthethings/account/templates/account/donate.html:265
+#: allthethings/account/templates/account/donate.html:271
 #, fuzzy
 msgid "page.donate.payment.desc.alipay_wechat"
 msgstr "Koha mā te whakamahi i a Alipay, WeChat rānei. Ka taea e koe te whiriwhiri i waenga i ēnei i te whārangi e whai ake nei."
 
-#: allthethings/account/templates/account/donate.html:264
+#: allthethings/account/templates/account/donate.html:277
 #, fuzzy
 msgid "page.donate.payment.desc.givebutter"
 msgstr "Koha mā te whakamahi i te kāri nama/utu, PayPal, Venmo rānei. Ka taea e koe te whiriwhiri i waenga i ēnei i te whārangi e whai ake nei."
 
-#: allthethings/account/templates/account/donate.html:270
+#: allthethings/account/templates/account/donate.html:283
 #, fuzzy
 msgid "page.donate.payment.desc.amazon"
 msgstr "Koha mā te whakamahi i tētahi kāri koha Amazon."
 
-#: allthethings/account/templates/account/donate.html:271
+#: allthethings/account/templates/account/donate.html:284
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_round"
 msgstr "Kia mōhio mai, me whakakotahi ngā moni ki ngā rahinga e whakaaetia ana e ō mātou kaihoko (iti rawa %(minimum)s)."
 
-#: allthethings/account/templates/account/donate.html:275
-#: allthethings/account/templates/account/donation.html:325
+#: allthethings/account/templates/account/donate.html:288
+#: allthethings/account/templates/account/donation.html:370
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_com"
 msgstr "<strong>TINO NUI:</strong> E tautoko ana mātou i a Amazon.com anake, kāore i ērā atu paetukutuku Amazon. Hei tauira, kāore e tautokona ana te .de, .co.uk, .ca."
 
-#: allthethings/account/templates/account/donate.html:282
+#: allthethings/account/templates/account/donate.html:295
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_backup"
 msgstr "Ka whakamahi tēnei tikanga i tētahi kaiwhakarato cryptocurrency hei whakawhiti takawaenga. He āhua pōnānā tēnei, nō reira me whakamahi anake tēnei tikanga mēnā kāore e pai ana ētahi atu tikanga utu. Kāore hoki tēnei e mahi i ngā whenua katoa."
 
-#: allthethings/account/templates/account/donate.html:288
+#: allthethings/account/templates/account/donate.html:301
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_p1"
 msgstr "Kāore mātou e taea te tautoko tika i ngā kāri nama/utu, nā te mea kāore ngā pēke e hiahia ki te mahi tahi me mātou. :("
 
-#: allthethings/account/templates/account/donate.html:292
+#: allthethings/account/templates/account/donate.html:305
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_p2"
 msgstr "Heoi anō, he maha ngā ara hei whakamahi i ngā kāri nama/utu, mā ētahi atu tikanga utu:"
 
-#: allthethings/account/templates/account/donate.html:296
+#: allthethings/account/templates/account/donate.html:309
 #, fuzzy
 msgid "page.donate.ccexp.amazon_com"
 msgstr "Tukua mai he kāri koha Amazon.com mā te whakamahi i tō kāri nama/utu."
 
-#: allthethings/account/templates/account/donate.html:297
+#: allthethings/account/templates/account/donate.html:312
 #, fuzzy
 msgid "page.donate.ccexp.wechat"
 msgstr "E tautoko ana a WeChat (Weixin Pay) i ngā kāri nama/utu ā-ao. I roto i te taupānga WeChat, haere ki “Me => Services => Wallet => Add a Card”. Mēnā kāore koe e kite i tērā, whakahohe mā te whakamahi i “Me => Settings => General => Tools => Weixin Pay => Enable”."
 
-#: allthethings/account/templates/account/donate.html:298
+#: allthethings/account/templates/account/donate.html:313
 #, fuzzy
 msgid "page.donate.ccexp.crypto"
 msgstr "Ka taea e koe te hoko crypto mā te whakamahi i ngā kāri nama/utu."
 
-#: allthethings/account/templates/account/donate.html:304
+#: allthethings/account/templates/account/donate.html:319
 #, fuzzy
 msgid "page.donate.payment.desc.bmc"
 msgstr "Mō ngā kāri nama, kāri utu, Apple Pay, me Google Pay, ka whakamahi mātou i te “Buy Me a Coffee” (BMC <span class=\"icon-[ph--coffee-fill] text-lg align-text-bottom\"></span>). I roto i tā rātou pūnaha, kotahi “coffee” e rite ana ki te $5, nō reira ka whakakotahitia tō koha ki te tatauranga 5."
 
-#: allthethings/account/templates/account/donate.html:311
+#: allthethings/account/templates/account/donate.html:326
 #, fuzzy
 msgid "page.donate.duration.intro"
 msgstr "Kōwhiria te roa e hiahia ana koe ki te ohauru."
 
-#: allthethings/account/templates/account/donate.html:316
+#: allthethings/account/templates/account/donate.html:331
 #, fuzzy
 msgid "page.donate.duration.1_mo"
 msgstr "1 marama"
 
-#: allthethings/account/templates/account/donate.html:317
+#: allthethings/account/templates/account/donate.html:332
 #, fuzzy
 msgid "page.donate.duration.3_mo"
 msgstr "3 marama"
 
-#: allthethings/account/templates/account/donate.html:318
+#: allthethings/account/templates/account/donate.html:333
 #, fuzzy
 msgid "page.donate.duration.6_mo"
 msgstr "6 marama"
 
-#: allthethings/account/templates/account/donate.html:319
+#: allthethings/account/templates/account/donate.html:334
 #, fuzzy
 msgid "page.donate.duration.12_mo"
 msgstr "12 marama"
 
-#: allthethings/account/templates/account/donate.html:320
+#: allthethings/account/templates/account/donate.html:335
 #, fuzzy
 msgid "page.donate.duration.24_mo"
 msgstr "24 marama"
 
-#: allthethings/account/templates/account/donate.html:321
+#: allthethings/account/templates/account/donate.html:336
 #, fuzzy
 msgid "page.donate.duration.48_mo"
 msgstr "48 marama"
 
-#: allthethings/account/templates/account/donate.html:322
+#: allthethings/account/templates/account/donate.html:337
 #, fuzzy
 msgid "page.donate.duration.96_mo"
 msgstr "96 marama"
 
-#: allthethings/account/templates/account/donate.html:325
+#: allthethings/account/templates/account/donate.html:340
 #, fuzzy
 msgid "page.donate.duration.summary"
 msgstr "<div %(div_monthly_cost)s></div><div %(div_after)s>i muri i ngā hekenga utu <span %(span_discount)s></span></div><div %(div_total)s></div><div %(div_duration)s></div>"
 
-#: allthethings/account/templates/account/donate.html:332
+#: allthethings/account/templates/account/donate.html:347
 #, fuzzy
 msgid "page.donate.payment.minimum_method"
 msgstr "E hiahiatia ana tēnei tikanga utu kia iti rawa te %(amount)s. Tēnā koa tīpakohia tētahi roanga wā kē atu, tikanga utu kē atu rānei."
 
-#: allthethings/account/templates/account/donate.html:333
-#: allthethings/account/templates/account/donate.html:337
+#: allthethings/account/templates/account/donate.html:348
+#: allthethings/account/templates/account/donate.html:352
 #, fuzzy
 msgid "page.donate.buttons.donate"
 msgstr "Koha"
 
-#: allthethings/account/templates/account/donate.html:336
+#: allthethings/account/templates/account/donate.html:351
 #, fuzzy
 msgid "page.donate.payment.maximum_method"
 msgstr "E āhei ana tēnei tikanga utu mō te mōrahi o te %(amount)s anake. Tēnā koa tīpakohia tētahi roanga wā kē atu, tikanga utu kē atu rānei."
 
-#: allthethings/account/templates/account/donate.html:343
+#: allthethings/account/templates/account/donate.html:358
 #, fuzzy
 msgid "page.donate.login2"
 msgstr "Hei mema, tēnā koa <a %(a_login)s>Takiuru, Rēhita rānei</a>. Ngā mihi mō tō tautoko!"
 
-#: allthethings/account/templates/account/donate.html:350
+#: allthethings/account/templates/account/donate.html:365
 #, fuzzy
 msgid "page.donate.payment.crypto_select"
 msgstr "Tīpakohia tō moni crypto pai:"
 
-#: allthethings/account/templates/account/donate.html:355
+#: allthethings/account/templates/account/donate.html:370
 #, fuzzy
 msgid "page.donate.currency_lowest_minimum"
 msgstr "(iti rawa te moni timatanga)"
 
-#: allthethings/account/templates/account/donate.html:369
-#: allthethings/account/templates/account/donate.html:370
-#: allthethings/account/templates/account/donate.html:374
-#: allthethings/account/templates/account/donate.html:376
+#: allthethings/account/templates/account/donate.html:384
+#: allthethings/account/templates/account/donate.html:385
+#: allthethings/account/templates/account/donate.html:389
+#: allthethings/account/templates/account/donate.html:391
 #, fuzzy
 msgid "page.donate.currency_warning_high_minimum"
 msgstr "(whakatūpato: nui rawa te moni timatanga)"
 
-#: allthethings/account/templates/account/donate.html:385
+#: allthethings/account/templates/account/donate.html:400
 #, fuzzy
 msgid "page.donate.submit.confirm"
 msgstr "Pāwhiritia te pātene koha hei whakaū i tēnei koha."
 
-#: allthethings/account/templates/account/donate.html:393
+#: allthethings/account/templates/account/donate.html:408
 #, fuzzy
 msgid "page.donate.submit.button"
 msgstr "Koha <span %(span_cost)s></span> <span %(span_label)s></span>"
 
-#: allthethings/account/templates/account/donate.html:398
+#: allthethings/account/templates/account/donate.html:413
 #, fuzzy
 msgid "page.donate.submit.cancel_note"
 msgstr "Ka taea tonu te whakakore i te koha i te wā o te takiuru."
 
-#: allthethings/account/templates/account/donate.html:402
+#: allthethings/account/templates/account/donate.html:417
 #, fuzzy
 msgid "page.donate.submit.success"
 msgstr "✅ E hāngai ana ki te whārangi koha…"
 
-#: allthethings/account/templates/account/donate.html:403
+#: allthethings/account/templates/account/donate.html:418
 #, fuzzy
 msgid "page.donate.submit.failure"
 msgstr "❌ I hapa tētahi mea. Tēnā koa uta anō te whārangi ka ngana anō."
 
-#: allthethings/account/templates/account/donate.html:463
+#: allthethings/account/templates/account/donate.html:478
 #, fuzzy
 msgid "page.donate.duration.summary.discount"
 msgstr "%(percentage)s%%"
 
-#: allthethings/account/templates/account/donate.html:464
+#: allthethings/account/templates/account/donate.html:479
 #, fuzzy
 msgid "page.donate.duration.summary.monthly_cost"
 msgstr "%(monthly_cost)s / marama"
 
-#: allthethings/account/templates/account/donate.html:467
+#: allthethings/account/templates/account/donate.html:482
 #, fuzzy
 msgid "page.donate.duration.summary.duration.1_mo"
 msgstr "mō te 1 marama"
 
-#: allthethings/account/templates/account/donate.html:468
+#: allthethings/account/templates/account/donate.html:483
 #, fuzzy
 msgid "page.donate.duration.summary.duration.3_mo"
 msgstr "mō te 3 marama"
 
-#: allthethings/account/templates/account/donate.html:469
+#: allthethings/account/templates/account/donate.html:484
 #, fuzzy
 msgid "page.donate.duration.summary.duration.6_mo"
 msgstr "mō te 6 marama"
 
-#: allthethings/account/templates/account/donate.html:470
+#: allthethings/account/templates/account/donate.html:485
 #, fuzzy
 msgid "page.donate.duration.summary.duration.12_mo"
 msgstr "mō ngā marama 12"
 
-#: allthethings/account/templates/account/donate.html:471
+#: allthethings/account/templates/account/donate.html:486
 #, fuzzy
 msgid "page.donate.duration.summary.duration.24_mo"
 msgstr "mō ngā marama 24"
 
-#: allthethings/account/templates/account/donate.html:472
+#: allthethings/account/templates/account/donate.html:487
 #, fuzzy
 msgid "page.donate.duration.summary.duration.48_mo"
 msgstr "mō ngā marama 48"
 
-#: allthethings/account/templates/account/donate.html:473
+#: allthethings/account/templates/account/donate.html:488
 #, fuzzy
 msgid "page.donate.duration.summary.duration.96_mo"
 msgstr "mō ngā marama 96"
 
-#: allthethings/account/templates/account/donate.html:477
+#: allthethings/account/templates/account/donate.html:492
 #, fuzzy
 msgid "page.donate.submit.button.label.1_mo"
 msgstr "mō te marama kotahi “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:478
+#: allthethings/account/templates/account/donate.html:493
 #, fuzzy
 msgid "page.donate.submit.button.label.3_mo"
 msgstr "mō ngā marama e toru “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:479
+#: allthethings/account/templates/account/donate.html:494
 #, fuzzy
 msgid "page.donate.submit.button.label.6_mo"
 msgstr "mō ngā marama e ono “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:480
+#: allthethings/account/templates/account/donate.html:495
 #, fuzzy
 msgid "page.donate.submit.button.label.12_mo"
 msgstr "mō ngā marama 12 “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:481
+#: allthethings/account/templates/account/donate.html:496
 #, fuzzy
 msgid "page.donate.submit.button.label.24_mo"
 msgstr "mō ngā marama 24 “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:482
+#: allthethings/account/templates/account/donate.html:497
 #, fuzzy
 msgid "page.donate.submit.button.label.48_mo"
 msgstr "mō ngā marama 48 “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:483
+#: allthethings/account/templates/account/donate.html:498
 #, fuzzy
 msgid "page.donate.submit.button.label.96_mo"
 msgstr "mō ngā marama 96 “%(tier_name)s”"
@@ -927,15 +930,16 @@ msgstr "<strong>He kōrero nui:</strong> Ka taea te rerekē nui o ngā utu Crypt
 #: allthethings/account/templates/account/donation.html:115
 #: allthethings/account/templates/account/donation.html:166
 #: allthethings/account/templates/account/donation.html:206
-#: allthethings/account/templates/account/donation.html:251
-#: allthethings/account/templates/account/donation.html:292
-#: allthethings/account/templates/account/donation.html:354
-#: allthethings/account/templates/account/donation.html:370
-#: allthethings/account/templates/account/donation.html:388
-#: allthethings/account/templates/account/donation.html:404
-#: allthethings/account/templates/account/donation.html:421
-#: allthethings/account/templates/account/donation.html:456
-#: allthethings/account/templates/account/donation.html:482
+#: allthethings/account/templates/account/donation.html:250
+#: allthethings/account/templates/account/donation.html:296
+#: allthethings/account/templates/account/donation.html:337
+#: allthethings/account/templates/account/donation.html:399
+#: allthethings/account/templates/account/donation.html:415
+#: allthethings/account/templates/account/donation.html:433
+#: allthethings/account/templates/account/donation.html:449
+#: allthethings/account/templates/account/donation.html:466
+#: allthethings/account/templates/account/donation.html:501
+#: allthethings/account/templates/account/donation.html:527
 #, fuzzy
 msgid "page.donation.expired"
 msgstr "Kua pau tēnei koha. Tēnā, whakakorehia ka hangaia he mea hou."
@@ -987,7 +991,7 @@ msgid "page.donation.payment.paypal.text5"
 msgstr "Tāuruhia tō mātou wāhitau Bitcoin (BTC) hei kaiwhiwhi, ā, whai i ngā tohutohu ki te tuku i tō koha o %(total)s:"
 
 #: allthethings/account/templates/account/donation.html:139
-#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:292
 #, fuzzy
 msgid "page.donation.credit_debit_card_instructions"
 msgstr "Ngā tohutohu kāri nama / kāri taurewa"
@@ -1009,85 +1013,92 @@ msgstr "Tirohia te aratohu ā-taahiraa i raro nei."
 
 #: allthethings/account/templates/account/donation.html:148
 #: allthethings/account/templates/account/donation.html:191
-#: allthethings/account/templates/account/donation.html:234
-#: allthethings/account/templates/account/donation.html:275
-#: allthethings/account/templates/account/donation.html:304
-#: allthethings/account/templates/account/donation.html:335
-#: allthethings/account/templates/account/donation.html:441
-#: allthethings/account/templates/account/donation.html:468
+#: allthethings/account/templates/account/donation.html:235
+#: allthethings/account/templates/account/donation.html:279
+#: allthethings/account/templates/account/donation.html:320
+#: allthethings/account/templates/account/donation.html:349
+#: allthethings/account/templates/account/donation.html:380
+#: allthethings/account/templates/account/donation.html:486
+#: allthethings/account/templates/account/donation.html:513
 #, fuzzy
 msgid "page.donation.status_header"
 msgstr "Tūnga:"
 
 #: allthethings/account/templates/account/donation.html:148
 #: allthethings/account/templates/account/donation.html:191
-#: allthethings/account/templates/account/donation.html:234
-#: allthethings/account/templates/account/donation.html:275
-#: allthethings/account/templates/account/donation.html:304
-#: allthethings/account/templates/account/donation.html:441
-#: allthethings/account/templates/account/donation.html:468
+#: allthethings/account/templates/account/donation.html:235
+#: allthethings/account/templates/account/donation.html:279
+#: allthethings/account/templates/account/donation.html:320
+#: allthethings/account/templates/account/donation.html:349
+#: allthethings/account/templates/account/donation.html:486
+#: allthethings/account/templates/account/donation.html:513
 #, fuzzy
 msgid "page.donation.waiting_for_confirmation_refresh"
 msgstr "E tatari ana mō te whakatuturutanga (whakahoungia te whārangi hei tirotiro)…"
 
 #: allthethings/account/templates/account/donation.html:148
 #: allthethings/account/templates/account/donation.html:191
-#: allthethings/account/templates/account/donation.html:234
-#: allthethings/account/templates/account/donation.html:275
-#: allthethings/account/templates/account/donation.html:304
-#: allthethings/account/templates/account/donation.html:441
-#: allthethings/account/templates/account/donation.html:468
+#: allthethings/account/templates/account/donation.html:235
+#: allthethings/account/templates/account/donation.html:279
+#: allthethings/account/templates/account/donation.html:320
+#: allthethings/account/templates/account/donation.html:349
+#: allthethings/account/templates/account/donation.html:486
+#: allthethings/account/templates/account/donation.html:513
 #, fuzzy
 msgid "page.donation.waiting_for_transfer_refresh"
 msgstr "E tatari ana mō te whakawhitinga (whakahoungia te whārangi hei tirotiro)…"
 
 #: allthethings/account/templates/account/donation.html:149
 #: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:276
-#: allthethings/account/templates/account/donation.html:305
-#: allthethings/account/templates/account/donation.html:442
-#: allthethings/account/templates/account/donation.html:469
+#: allthethings/account/templates/account/donation.html:236
+#: allthethings/account/templates/account/donation.html:280
+#: allthethings/account/templates/account/donation.html:321
+#: allthethings/account/templates/account/donation.html:350
+#: allthethings/account/templates/account/donation.html:487
+#: allthethings/account/templates/account/donation.html:514
 #, fuzzy
 msgid "page.donation.time_left_header"
 msgstr "Wā e toe ana:"
 
 #: allthethings/account/templates/account/donation.html:149
 #: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:276
-#: allthethings/account/templates/account/donation.html:305
-#: allthethings/account/templates/account/donation.html:442
-#: allthethings/account/templates/account/donation.html:469
+#: allthethings/account/templates/account/donation.html:236
+#: allthethings/account/templates/account/donation.html:280
+#: allthethings/account/templates/account/donation.html:321
+#: allthethings/account/templates/account/donation.html:350
+#: allthethings/account/templates/account/donation.html:487
+#: allthethings/account/templates/account/donation.html:514
 #, fuzzy
 msgid "page.donation.might_want_to_cancel"
 msgstr "(tērā pea ka hiahia koe ki te whakakore me te hanga koha hou)"
 
 #: allthethings/account/templates/account/donation.html:153
 #: allthethings/account/templates/account/donation.html:196
-#: allthethings/account/templates/account/donation.html:239
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:309
-#: allthethings/account/templates/account/donation.html:446
-#: allthethings/account/templates/account/donation.html:473
+#: allthethings/account/templates/account/donation.html:240
+#: allthethings/account/templates/account/donation.html:284
+#: allthethings/account/templates/account/donation.html:325
+#: allthethings/account/templates/account/donation.html:354
+#: allthethings/account/templates/account/donation.html:491
+#: allthethings/account/templates/account/donation.html:518
 #, fuzzy
 msgid "page.donation.reset_timer"
 msgstr "Hei tautuhi anō i te taima, hangaia he koha hou noa."
 
 #: allthethings/account/templates/account/donation.html:157
 #: allthethings/account/templates/account/donation.html:200
-#: allthethings/account/templates/account/donation.html:243
-#: allthethings/account/templates/account/donation.html:284
-#: allthethings/account/templates/account/donation.html:313
-#: allthethings/account/templates/account/donation.html:339
-#: allthethings/account/templates/account/donation.html:450
-#: allthethings/account/templates/account/donation.html:477
+#: allthethings/account/templates/account/donation.html:244
+#: allthethings/account/templates/account/donation.html:288
+#: allthethings/account/templates/account/donation.html:329
+#: allthethings/account/templates/account/donation.html:358
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:495
+#: allthethings/account/templates/account/donation.html:522
 #, fuzzy
 msgid "page.donation.refresh_status"
 msgstr "Whakahou tūnga"
 
 #: allthethings/account/templates/account/donation.html:161
-#: allthethings/account/templates/account/donation.html:577
+#: allthethings/account/templates/account/donation.html:622
 #, fuzzy
 msgid "page.donation.footer.issues_contact"
 msgstr "Mēnā ka raru koe, tēnā whakapā mai ki a mātou i %(email)s me te whakauru i ngā mōhiohio katoa ka taea (pērā i ngā whakaahuamata)."
@@ -1113,215 +1124,216 @@ msgid "page.donation.pyusd.transfer"
 msgstr "Haere ki te whārangi “PYUSD” i tō taupānga PayPal, paetukutuku rānei. Pēhia te pātene “Whakawhiti” %(icon)s, ā, kātahi ka “Tukua”."
 
 #: allthethings/account/templates/account/donation.html:187
-#: allthethings/account/templates/account/donation.html:226
-#: allthethings/account/templates/account/donation.html:296
+#: allthethings/account/templates/account/donation.html:227
+#: allthethings/account/templates/account/donation.html:271
+#: allthethings/account/templates/account/donation.html:341
 #, fuzzy
 msgid "page.donation.transfer_amount_to"
 msgstr "Whakawhiti %(amount)s ki %(account)s"
 
-#: allthethings/account/templates/account/donation.html:288
+#: allthethings/account/templates/account/donation.html:333
 #, fuzzy
 msgid "page.donation.crypto_instructions"
 msgstr "Ngā tohutohu %(coin_name)s"
 
-#: allthethings/account/templates/account/donation.html:300
+#: allthethings/account/templates/account/donation.html:345
 #, fuzzy
 msgid "page.donation.crypto_standard"
 msgstr "Ka tautokohia e mātou te putanga paerewa anake o ngā moni crypto, kāore he whatunga rerekē, he putanga rerekē rānei o ngā moni. Ka taea te whakapumau i te whakawhitinga i roto i te haora kotahi, i runga anō i te moni."
 
-#: allthethings/account/templates/account/donation.html:317
+#: allthethings/account/templates/account/donation.html:362
 #, fuzzy
 msgid "page.donation.amazon.header"
 msgstr "Kāri koha Amazon"
 
-#: allthethings/account/templates/account/donation.html:320
+#: allthethings/account/templates/account/donation.html:365
 #, fuzzy
 msgid "page.donation.amazon.form_instructions"
 msgstr "Tēnā koa whakamahia te <a %(a_form)s>puka mana Amazon.com</a> hei tuku mai i tētahi kāri koha o %(amount)s ki te wāhitau īmēra kei raro iho nei."
 
-#: allthethings/account/templates/account/donation.html:321
+#: allthethings/account/templates/account/donation.html:366
 #, fuzzy
 msgid "page.donation.amazon.only_official"
 msgstr "Kāore e taea e mātou te whakaae ki ētahi atu momo kāri koha, <strong>me tuku tika mai i te puka mana kei Amazon.com</strong>. Kāore e taea te whakahoki i tō kāri koha mēnā kāore koe e whakamahi i tēnei puka."
 
-#: allthethings/account/templates/account/donation.html:326
+#: allthethings/account/templates/account/donation.html:371
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_message"
 msgstr "Tēnā koa KĀUA e tuhi i tō ake karere."
 
-#: allthethings/account/templates/account/donation.html:330
+#: allthethings/account/templates/account/donation.html:375
 #, fuzzy
 msgid "page.donation.amazon.form_to"
 msgstr "“Ki” te wāhitau īmēra kei te puka:"
 
-#: allthethings/account/templates/account/donation.html:331
+#: allthethings/account/templates/account/donation.html:376
 #, fuzzy
 msgid "page.donation.amazon.unique"
 msgstr "Motuhake ki tō pūkete, kaua e toha."
 
-#: allthethings/account/templates/account/donation.html:335
+#: allthethings/account/templates/account/donation.html:380
 #, fuzzy
 msgid "page.donation.amazon.waiting_gift_card"
 msgstr "E tatari ana mō te kāri koha… (whakahouhia te whārangi hei tirotiro)"
 
-#: allthethings/account/templates/account/donation.html:343
+#: allthethings/account/templates/account/donation.html:388
 #, fuzzy
 msgid "page.donation.amazon.confirm_automated"
 msgstr "I muri i te tuku i tō kāri koha, ka whakamanahia e tō mātou pūnaha aunoa i roto i ētahi meneti. Mēnā kāore e mahi, whakamātauria anō te tuku i tō kāri koha (<a %(a_instr)s>arotahi</a>)."
 
-#: allthethings/account/templates/account/donation.html:344
+#: allthethings/account/templates/account/donation.html:389
 #, fuzzy
 msgid "page.donation.amazon.doesnt_work"
 msgstr "Mēnā kāore tonu e mahi tēnā koa īmēra mai ki a mātou ā, ka arotake ā-ringa a Anna (tērā pea ka roa ētahi rā), ā, kia mōhio mai mēnā kua whakamātau anō koe ki te tuku."
 
-#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:392
 #, fuzzy
 msgid "page.donation.amazon.example"
 msgstr "Tauira:"
 
-#: allthethings/account/templates/account/donation.html:383
-#: allthethings/account/templates/account/donation.html:400
-#: allthethings/account/templates/account/donation.html:416
-#: allthethings/account/templates/account/donation.html:437
-#: allthethings/account/templates/account/donation.html:494
+#: allthethings/account/templates/account/donation.html:428
+#: allthethings/account/templates/account/donation.html:445
+#: allthethings/account/templates/account/donation.html:461
+#: allthethings/account/templates/account/donation.html:482
+#: allthethings/account/templates/account/donation.html:539
 #, fuzzy
 msgid "page.donate.strange_account"
 msgstr "Me mōhio ko te ingoa pūkete, te pikitia rānei tērā pea ka rerekē. Kaua e māharahara! Kei te whakahaerehia ēnei pūkete e ō mātou hoa koha. Kāore anō kia tāhaetia ā mātou pūkete."
 
-#: allthethings/account/templates/account/donation.html:407
-#: allthethings/account/templates/account/donation.html:424
+#: allthethings/account/templates/account/donation.html:452
+#: allthethings/account/templates/account/donation.html:469
 #, fuzzy
 msgid "page.donation.payment.alipay.top_header"
 msgstr "Tohutohu Alipay"
 
-#: allthethings/account/templates/account/donation.html:409
-#: allthethings/account/templates/account/donation.html:426
+#: allthethings/account/templates/account/donation.html:454
+#: allthethings/account/templates/account/donation.html:471
 #, fuzzy
 msgid "page.donation.payment.alipay.header1"
 msgstr "<span %(span_circle)s>1</span>Koha mā Alipay"
 
-#: allthethings/account/templates/account/donation.html:412
-#: allthethings/account/templates/account/donation.html:429
+#: allthethings/account/templates/account/donation.html:457
+#: allthethings/account/templates/account/donation.html:474
 #, fuzzy
 msgid "page.donation.payment.alipay.text1_new"
 msgstr "Koha i te katoa o te %(total)s mā te whakamahi i <a %(a_account)s>tēnei pūkete Alipay</a>"
 
-#: allthethings/account/templates/account/donation.html:433
+#: allthethings/account/templates/account/donation.html:478
 #, fuzzy
 msgid "page.donation.payment.alipay.error"
 msgstr "Aroha mai, he maha ngā wā kāore e taea te uru atu ki te whārangi Alipay mai i <strong>Haina matua</strong>. Tērā pea me whakakore mō te wā poto tō VPN, me whakamahi rānei i tētahi VPN ki Haina matua (ka pai hoki a Hong Kong i ētahi wā)."
 
-#: allthethings/account/templates/account/donation.html:459
+#: allthethings/account/templates/account/donation.html:504
 #, fuzzy
 msgid "page.donation.payment.wechat.top_header"
 msgstr "Tohutohu WeChat"
 
-#: allthethings/account/templates/account/donation.html:461
+#: allthethings/account/templates/account/donation.html:506
 #, fuzzy
 msgid "page.donation.payment.wechat.header1"
 msgstr "<span %(span_circle)s>1</span>Koha mā WeChat"
 
-#: allthethings/account/templates/account/donation.html:464
+#: allthethings/account/templates/account/donation.html:509
 #, fuzzy
 msgid "page.donation.payment.wechat.text1"
 msgstr "Koha i te katoa o te %(total)s mā te whakamahi i <a %(a_account)s>tēnei pūkete WeChat</a>"
 
-#: allthethings/account/templates/account/donation.html:485
+#: allthethings/account/templates/account/donation.html:530
 #, fuzzy
 msgid "page.donation.payment.pix.top_header"
 msgstr "Tohutohu Pix"
 
-#: allthethings/account/templates/account/donation.html:487
+#: allthethings/account/templates/account/donation.html:532
 #, fuzzy
 msgid "page.donation.payment.pix.header1"
 msgstr "<span %(span_circle)s>1</span>Koha mā Pix"
 
-#: allthethings/account/templates/account/donation.html:490
+#: allthethings/account/templates/account/donation.html:535
 #, fuzzy
 msgid "page.donation.payment.pix.text1"
 msgstr "Koha te katoa o %(total)s mā te whakamahi i <a %(a_account)s>tēnei kaute Pix"
 
-#: allthethings/account/templates/account/donation.html:499
+#: allthethings/account/templates/account/donation.html:544
 #, fuzzy
 msgid "page.donation.footer.header"
 msgstr "<span %(span_circle)s>%(circle_number)s</span>Tukua mai te rihīti mā te īmēra"
 
-#: allthethings/account/templates/account/donation.html:505
+#: allthethings/account/templates/account/donation.html:550
 #, fuzzy
 msgid "page.donation.footer.text1"
 msgstr "Tukua mai he rihīti, he whakaahuamata rānei ki tō wāhitau manatoko whaiaro:"
 
-#: allthethings/account/templates/account/donation.html:515
+#: allthethings/account/templates/account/donation.html:560
 #, fuzzy
 msgid "page.donation.footer.crypto_note"
 msgstr "Mēnā i rerekē te utu whakawhiti crypto i te wā o te whakawhitinga, kia mahara ki te whakauru i te rihīti e whakaatu ana i te utu whakawhiti taketake. Ka tino mihi mātou ki a koe mō te whakamahi i te crypto, he tino āwhina nui tēnei ki a mātou!"
 
-#: allthethings/account/templates/account/donation.html:520
+#: allthethings/account/templates/account/donation.html:565
 #, fuzzy
 msgid "page.donation.footer.text2"
 msgstr "Kua tukua e koe tō rihīti mā te īmēra, pāwhiria tēnei pātene, kia arotake ā-ringa a Anna (tērā pea ka roa ake i te torutoru rā):"
 
-#: allthethings/account/templates/account/donation.html:530
+#: allthethings/account/templates/account/donation.html:575
 #, fuzzy
 msgid "page.donation.footer.button"
 msgstr "Āe, kua tukua e au taku rihīti mā te īmēra"
 
-#: allthethings/account/templates/account/donation.html:533
+#: allthethings/account/templates/account/donation.html:578
 #, fuzzy
 msgid "page.donation.footer.success"
 msgstr "✅ Ngā mihi mō tō koha! Ka whakahohe ā-ringa a Anna i tō mema i roto i ngā rā torutoru."
 
-#: allthethings/account/templates/account/donation.html:534
+#: allthethings/account/templates/account/donation.html:579
 #, fuzzy
 msgid "page.donation.footer.failure"
 msgstr "❌ I hapa tētahi mea. Tēnā utaina anō te whārangi ka ngana anō."
 
-#: allthethings/account/templates/account/donation.html:539
+#: allthethings/account/templates/account/donation.html:584
 #, fuzzy
 msgid "page.donation.stepbystep"
 msgstr "Aratohu ā-taahiraa"
 
-#: allthethings/account/templates/account/donation.html:541
+#: allthethings/account/templates/account/donation.html:586
 #, fuzzy
 msgid "page.donation.crypto_dont_worry"
 msgstr "Kei roto i ētahi o ngā taahiraa ngā putea crypto, engari kaua e māharahara, kāore koe e hiahia ki te ako i tētahi mea mō te crypto mō tēnei."
 
-#: allthethings/account/templates/account/donation.html:543
+#: allthethings/account/templates/account/donation.html:588
 #, fuzzy
 msgid "page.donation.hoodpay.step1"
 msgstr "1. Tāuru tō īmēra."
 
-#: allthethings/account/templates/account/donation.html:549
+#: allthethings/account/templates/account/donation.html:594
 #, fuzzy
 msgid "page.donation.hoodpay.step2"
 msgstr "2. Kōwhiria tō tikanga utu."
 
-#: allthethings/account/templates/account/donation.html:555
+#: allthethings/account/templates/account/donation.html:600
 #, fuzzy
 msgid "page.donation.hoodpay.step3"
 msgstr "3. Kōwhiria anō tō tikanga utu."
 
-#: allthethings/account/templates/account/donation.html:561
+#: allthethings/account/templates/account/donation.html:606
 #, fuzzy
 msgid "page.donation.hoodpay.step4"
 msgstr "4. Kōwhiria te putea “Self-hosted”."
 
-#: allthethings/account/templates/account/donation.html:567
+#: allthethings/account/templates/account/donation.html:612
 #, fuzzy
 msgid "page.donation.hoodpay.step5"
 msgstr "5. Pāwhiria “Ka whakatūturuhia e au te rangatiratanga”."
 
-#: allthethings/account/templates/account/donation.html:573
+#: allthethings/account/templates/account/donation.html:618
 #, fuzzy
 msgid "page.donation.hoodpay.step6"
 msgstr "6. Me whiwhi koe i tētahi rihīti īmēra. Tēnā tukua mai ki a mātou, ā, ka whakatūturuhia e mātou tō koha i te wā e taea ai."
 
-#: allthethings/account/templates/account/donation.html:578
+#: allthethings/account/templates/account/donation.html:623
 #, fuzzy
 msgid "page.donate.wait"
 msgstr "Tēnā tatari kia <span %(span_hours)s>rua haora</span> (me whakahou anō i tēnei whārangi) i mua i te whakapā mai ki a mātou."
 
-#: allthethings/account/templates/account/donation.html:579
+#: allthethings/account/templates/account/donation.html:624
 #, fuzzy
 msgid "page.donate.mistake"
 msgstr "Mēnā i hapa koe i te wā o te utu, kāore mātou e taea te whakahoki moni, engari ka ngana mātou ki te whakatika."
@@ -1670,23 +1682,23 @@ msgstr "Kāore anō kia rārangihia he rārangi"
 msgid "page.profile.lists.new_list"
 msgstr "Waihangatia he rārangi hou mā te kimi kōnae me te whakatuwhera i te ripa “Rārangi”."
 
-#: allthethings/dyn/views.py:855 allthethings/dyn/views.py:884
-#: allthethings/dyn/views.py:895
+#: allthethings/dyn/views.py:855 allthethings/dyn/views.py:887
+#: allthethings/dyn/views.py:898
 #, fuzzy
 msgid "dyn.buy_membership.error.unknown"
 msgstr "I puta he hapa kāore i te mōhiotia. Tēnā whakapā mai ki a mātou i %(email)s me te whakaahua o te mata."
 
-#: allthethings/dyn/views.py:881
-#, fuzzy
-msgid "dyn.buy_membership.error.try_again"
-msgstr "Kāore i taea te whakaoti i te tono. Tēnā whakamātauria anō i muri i ngā meneti ruarua, ā, ki te pērā tonu, whakapā mai ki a mātou i %(email)s me te whakaahua o te mata."
-
-#: allthethings/dyn/views.py:889
+#: allthethings/dyn/views.py:872 allthethings/dyn/views.py:892
 #, fuzzy
 msgid "dyn.buy_membership.error.minimum"
 msgstr "He teitei ake te iti rawa o tēnei moni. Tēnā tīpakohia tētahi wā roa kē atu, tētahi moni kē atu rānei."
 
-#: allthethings/dyn/views.py:892
+#: allthethings/dyn/views.py:884
+#, fuzzy
+msgid "dyn.buy_membership.error.try_again"
+msgstr "Kāore i taea te whakaoti i te tono. Tēnā whakamātauria anō i muri i ngā meneti ruarua, ā, ki te pērā tonu, whakapā mai ki a mātou i %(email)s me te whakaahua o te mata."
+
+#: allthethings/dyn/views.py:895
 #, fuzzy
 msgid "dyn.buy_membership.error.wait"
 msgstr "Hapa i te tukatuka utu. Tēnā tatari mō tētahi wā poto ka whakamātauria anō. Ki te pērā tonu mō te 24 haora neke atu, tēnā whakapā mai ki a mātou i %(email)s me te whakaahua o te mata."
@@ -2000,7 +2012,7 @@ msgstr "te rā i whakatuwheratia ai te puna"
 msgid "page.md5.box.download.temporarily_unavailable"
 msgstr "Kāore e wātea ana ngā tikiake a te Tūmau Hoa mō tēnei kōnae mō tēnei wā."
 
-#: allthethings/page/views.py:5070 allthethings/page/views.py:5254
+#: allthethings/page/views.py:5070 allthethings/page/views.py:5258
 #, fuzzy
 msgid "page.md5.box.download.scihub"
 msgstr "Sci-Hub: %(doi)s"
@@ -2037,107 +2049,107 @@ msgstr "Libgen.li"
 msgid "page.md5.box.download.libgen_ads"
 msgstr "e mōhiotia ana he pūmanawa kino kei roto i ā rātou pānuitanga, nō reira whakamahia he ārai pānuitanga, kaua rānei e pāwhiri i ngā pānuitanga"
 
-#: allthethings/page/views.py:5251
+#: allthethings/page/views.py:5255
 #, fuzzy
 msgid "page.md5.box.download.ia_borrow"
 msgstr "Tonoa mai i te Internet Archive"
 
-#: allthethings/page/views.py:5251
+#: allthethings/page/views.py:5255
 #, fuzzy
 msgid "page.md5.box.download.print_disabled_only"
 msgstr "(mō ngā kiritaki kāore e taea te tā)"
 
-#: allthethings/page/views.py:5254
+#: allthethings/page/views.py:5258
 #, fuzzy
 msgid "page.md5.box.download.scihub_maybe"
 msgstr "(kāore pea te DOI e wātea ana i Sci-Hub)"
 
-#: allthethings/page/views.py:5260
+#: allthethings/page/views.py:5264
 #, fuzzy
 msgid "page.md5.box.download.collection"
 msgstr "kohinga"
 
-#: allthethings/page/views.py:5261
+#: allthethings/page/views.py:5265
 #, fuzzy
 msgid "page.md5.box.download.torrent"
 msgstr "tōrere"
 
-#: allthethings/page/views.py:5267
+#: allthethings/page/views.py:5271
 #, fuzzy
 msgid "page.md5.box.download.bulk_torrents"
 msgstr "Ngā tikiake tōrere nui"
 
-#: allthethings/page/views.py:5267
+#: allthethings/page/views.py:5271
 #, fuzzy
 msgid "page.md5.box.download.experts_only"
 msgstr "(mōhiohio anake)"
 
-#: allthethings/page/views.py:5274
+#: allthethings/page/views.py:5278
 #, fuzzy
 msgid "page.md5.box.download.aa_isbn"
 msgstr "Rapu i te Puna o Anna mō te ISBN"
 
-#: allthethings/page/views.py:5275
+#: allthethings/page/views.py:5279
 #, fuzzy
 msgid "page.md5.box.download.other_isbn"
 msgstr "Rapu i ētahi atu papatono mō te ISBN"
 
-#: allthethings/page/views.py:5277
+#: allthethings/page/views.py:5281
 #, fuzzy
 msgid "page.md5.box.download.original_isbndb"
 msgstr "Kimihia te rekoata taketake i ISBNdb"
 
-#: allthethings/page/views.py:5279
+#: allthethings/page/views.py:5283
 #, fuzzy
 msgid "page.md5.box.download.aa_openlib"
 msgstr "Kimihia te Rēhita a Anna mō te ID Open Library"
 
-#: allthethings/page/views.py:5281
+#: allthethings/page/views.py:5285
 #, fuzzy
 msgid "page.md5.box.download.original_openlib"
 msgstr "Kimihia te rekoata taketake i te Open Library"
 
-#: allthethings/page/views.py:5283
+#: allthethings/page/views.py:5287
 #, fuzzy
 msgid "page.md5.box.download.aa_oclc"
 msgstr "Kimihia te Rēhita a Anna mō te nama OCLC (WorldCat)"
 
-#: allthethings/page/views.py:5284
+#: allthethings/page/views.py:5288
 #, fuzzy
 msgid "page.md5.box.download.original_oclc"
 msgstr "Kimihia te rekoata taketake i te WorldCat"
 
-#: allthethings/page/views.py:5286
+#: allthethings/page/views.py:5290
 #, fuzzy
 msgid "page.md5.box.download.aa_duxiu"
 msgstr "Kimihia te Rēhita a Anna mō te nama SSID DuXiu"
 
-#: allthethings/page/views.py:5287
+#: allthethings/page/views.py:5291
 #, fuzzy
 msgid "page.md5.box.download.original_duxiu"
 msgstr "Kimihia ā-ringa i runga i te DuXiu"
 
-#: allthethings/page/views.py:5289
+#: allthethings/page/views.py:5293
 #, fuzzy
 msgid "page.md5.box.download.aa_cadal"
 msgstr "Kimihia te Rēhita a Anna mō te nama SSNO CADAL"
 
-#: allthethings/page/views.py:5290
+#: allthethings/page/views.py:5294
 #, fuzzy
 msgid "page.md5.box.download.original_cadal"
 msgstr "Kimihia te rekoata taketake i te CADAL"
 
-#: allthethings/page/views.py:5294
+#: allthethings/page/views.py:5298
 #, fuzzy
 msgid "page.md5.box.download.aa_dxid"
 msgstr "Kimihia te Rēhita a Anna mō te nama DXID DuXiu"
 
-#: allthethings/page/views.py:5299 allthethings/page/views.py:5300
+#: allthethings/page/views.py:5303 allthethings/page/views.py:5304
 #, fuzzy
 msgid "page.md5.box.download.scidb"
 msgstr "Te Rēhita a Anna 🧬 SciDB"
 
-#: allthethings/page/views.py:5299 allthethings/page/views.py:5300
+#: allthethings/page/views.py:5303 allthethings/page/views.py:5304
 #, fuzzy
 msgid "common.md5.servers.no_browser_verification"
 msgstr "(kāore he manatoko pūtirotiro e hiahiatia)"

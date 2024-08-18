@@ -144,17 +144,17 @@ msgstr "Häikäisevä Tietojenkerääjä"
 msgid "common.membership.tier_name.5"
 msgstr "Uskomaton Arkistoija"
 
-#: allthethings/utils.py:552
+#: allthethings/utils.py:554
 #, fuzzy
 msgid "common.membership.format_currency.total_with_usd"
 msgstr "%(amount)s (%(amount_usd)s) yhteensä"
 
-#: allthethings/utils.py:554 allthethings/utils.py:555
+#: allthethings/utils.py:556 allthethings/utils.py:557
 #, fuzzy
 msgid "common.membership.format_currency.amount_with_usd"
 msgstr "%(amount)s (%(amount_usd)s)"
 
-#: allthethings/utils.py:566
+#: allthethings/utils.py:568
 #, fuzzy
 msgid "common.membership.format_currency.total"
 msgstr "%(amount)s yhteensä"
@@ -335,7 +335,7 @@ msgid "page.donate.expert.contact_us"
 msgstr "ota yhteyttä"
 
 #: allthethings/account/templates/account/donate.html:103
-#: allthethings/account/templates/account/donation.html:579
+#: allthethings/account/templates/account/donation.html:624
 #: allthethings/page/templates/page/contact.html:21
 #, fuzzy
 msgid "page.donate.small_team"
@@ -403,14 +403,14 @@ msgid "page.donate.payment.select_method"
 msgstr "Valitse maksutapa."
 
 #: allthethings/account/templates/account/donate.html:130
-#: allthethings/account/templates/account/donate.html:296
+#: allthethings/account/templates/account/donate.html:309
 #, fuzzy
 msgid "page.donate.payment.buttons.amazon"
 msgstr "Amazon-lahjakortti"
 
 #: allthethings/account/templates/account/donate.html:131
 #: allthethings/account/templates/account/donate.html:141
-#: allthethings/account/templates/account/donate.html:298
+#: allthethings/account/templates/account/donate.html:313
 #, fuzzy
 msgid "page.donate.payment.buttons.crypto"
 msgstr "Krypto %(bitcoin_icon)s"
@@ -422,14 +422,15 @@ msgstr "Krypto %(bitcoin_icon)s"
 #: allthethings/account/templates/account/donate.html:142
 #: allthethings/account/templates/account/donate.html:145
 #: allthethings/account/templates/account/donate.html:146
-#: allthethings/account/templates/account/donate.html:149
-#: allthethings/account/templates/account/donate.html:152
-#: allthethings/account/templates/account/donate.html:317
-#: allthethings/account/templates/account/donate.html:318
-#: allthethings/account/templates/account/donate.html:319
-#: allthethings/account/templates/account/donate.html:320
-#: allthethings/account/templates/account/donate.html:321
-#: allthethings/account/templates/account/donate.html:322
+#: allthethings/account/templates/account/donate.html:147
+#: allthethings/account/templates/account/donate.html:150
+#: allthethings/account/templates/account/donate.html:153
+#: allthethings/account/templates/account/donate.html:332
+#: allthethings/account/templates/account/donate.html:333
+#: allthethings/account/templates/account/donate.html:334
+#: allthethings/account/templates/account/donate.html:335
+#: allthethings/account/templates/account/donate.html:336
+#: allthethings/account/templates/account/donate.html:337
 #, fuzzy
 msgid "page.donate.discount"
 msgstr "-%(percentage)s%%"
@@ -440,8 +441,9 @@ msgid "page.donate.payment.buttons.paypal"
 msgstr "PayPal (US) %(bitcoin_icon)s"
 
 #: allthethings/account/templates/account/donate.html:139
-#: allthethings/account/templates/account/donate.html:155
-#: allthethings/account/templates/account/donate.html:162
+#: allthethings/account/templates/account/donate.html:156
+#: allthethings/account/templates/account/donate.html:163
+#: allthethings/account/templates/account/donate.html:311
 #, fuzzy
 msgid "page.donate.payment.buttons.alipay"
 msgstr "Alipay"
@@ -456,366 +458,367 @@ msgstr "Pix (Brasilia)"
 msgid "page.donate.payment.buttons.cashapp"
 msgstr "Cash App"
 
-#: allthethings/account/templates/account/donate.html:146
+#: allthethings/account/templates/account/donate.html:147
 #, fuzzy
 msgid "page.donate.payment.buttons.paypal_plain"
 msgstr "PayPal"
 
-#: allthethings/account/templates/account/donate.html:147
+#: allthethings/account/templates/account/donate.html:148
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit"
 msgstr "Luotto-/pankkikortti"
 
-#: allthethings/account/templates/account/donate.html:148
+#: allthethings/account/templates/account/donate.html:149
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit_backup"
 msgstr "Luotto-/pankkikortti (varajärjestelmä)"
 
-#: allthethings/account/templates/account/donate.html:149
+#: allthethings/account/templates/account/donate.html:150
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit2"
 msgstr "Luotto-/pankkikortti 2"
 
-#: allthethings/account/templates/account/donate.html:156
-#: allthethings/account/templates/account/donate.html:164
-#: allthethings/account/templates/account/donate.html:173
-#: allthethings/account/templates/account/donate.html:181
-#: allthethings/account/templates/account/donate.html:188
+#: allthethings/account/templates/account/donate.html:157
+#: allthethings/account/templates/account/donate.html:165
+#: allthethings/account/templates/account/donate.html:174
+#: allthethings/account/templates/account/donate.html:182
+#: allthethings/account/templates/account/donate.html:189
 #, fuzzy
 msgid "page.donate.payment.buttons.alipay_wechat"
 msgstr "Alipay 支付宝 / WeChat 微信"
 
-#: allthethings/account/templates/account/donate.html:157
-#: allthethings/account/templates/account/donate.html:163
-#: allthethings/account/templates/account/donate.html:297
+#: allthethings/account/templates/account/donate.html:158
+#: allthethings/account/templates/account/donate.html:164
+#: allthethings/account/templates/account/donate.html:312
 #, fuzzy
 msgid "page.donate.payment.buttons.wechat"
 msgstr "WeChat"
 
-#: allthethings/account/templates/account/donate.html:188
+#: allthethings/account/templates/account/donate.html:189
 #, fuzzy
 msgid "page.donate.payment.buttons.temporarily_unavailable"
 msgstr "(väliaikaisesti ei saatavilla)"
 
-#: allthethings/account/templates/account/donate.html:195
+#: allthethings/account/templates/account/donate.html:196
 #, fuzzy
 msgid "page.donate.payment.desc.crypto"
 msgstr "Kryptovaluutalla voit lahjoittaa käyttämällä BTC, ETH, XMR ja SOL. Käytä tätä vaihtoehtoa, jos olet jo perehtynyt kryptovaluuttaan."
 
-#: allthethings/account/templates/account/donate.html:201
+#: allthethings/account/templates/account/donate.html:202
 #, fuzzy
 msgid "page.donate.payment.desc.crypto2"
 msgstr "Kryptovaluutalla voit lahjoittaa käyttämällä BTC, ETH, XMR ja muita."
 
-#: allthethings/account/templates/account/donate.html:205
-#: allthethings/account/templates/account/donate.html:298
+#: allthethings/account/templates/account/donate.html:206
+#: allthethings/account/templates/account/donate.html:313
 #, fuzzy
 msgid "page.donate.payment.desc.crypto_suggestion"
 msgstr "Jos käytät kryptovaluuttaa ensimmäistä kertaa, suosittelemme käyttämään %(option1)s, %(option2)s tai %(option3)s Bitcoinin (alkuperäinen ja eniten käytetty kryptovaluutta) ostamiseen ja lahjoittamiseen."
 
-#: allthethings/account/templates/account/donate.html:211
+#: allthethings/account/templates/account/donate.html:212
 #, fuzzy
 msgid "page.donate.payment.desc.paypal"
 msgstr "Lahjoittaaksesi PayPal US:n kautta, käytämme PayPal Cryptoa, joka mahdollistaa anonymiteetin säilyttämisen. Arvostamme, että käytät aikaa oppiaksesi lahjoittamaan tällä menetelmällä, sillä se auttaa meitä paljon."
 
-#: allthethings/account/templates/account/donate.html:212
+#: allthethings/account/templates/account/donate.html:213
 #, fuzzy
 msgid "page.donate.payment.desc.paypal_short"
 msgstr "Lahjoita käyttämällä PayPalia."
 
-#: allthethings/account/templates/account/donate.html:218
+#: allthethings/account/templates/account/donate.html:219
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp"
 msgstr "Lahjoita käyttämällä Cash Appia."
 
-#: allthethings/account/templates/account/donate.html:218
+#: allthethings/account/templates/account/donate.html:219
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_easy"
 msgstr "Jos sinulla on Cash App, tämä on helpoin tapa lahjoittaa!"
 
-#: allthethings/account/templates/account/donate.html:221
+#: allthethings/account/templates/account/donate.html:222
+#: allthethings/account/templates/account/donate.html:234
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_fee"
 msgstr "Huomaa, että alle %(amount)s tapahtumista Cash App saattaa veloittaa %(fee)s maksun. %(amount)s tai enemmän on maksutonta!"
 
-#: allthethings/account/templates/account/donate.html:227
-#: allthethings/account/templates/account/donate.html:281
+#: allthethings/account/templates/account/donate.html:240
+#: allthethings/account/templates/account/donate.html:294
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit"
 msgstr "Lahjoita luotto- tai pankkikortilla."
 
-#: allthethings/account/templates/account/donate.html:228
+#: allthethings/account/templates/account/donate.html:241
 #, fuzzy
 msgid "page.donate.payment.desc.google_apple"
 msgstr "Google Pay ja Apple Pay saattavat myös toimia."
 
-#: allthethings/account/templates/account/donate.html:229
+#: allthethings/account/templates/account/donate.html:242
 #, fuzzy
 msgid "page.donate.payment.desc.elimate_discount"
 msgstr "Huomaa, että pienissä lahjoituksissa luottokorttimaksut saattavat poistaa %(discount)s%% alennuksemme, joten suosittelemme pidempiä tilauksia."
 
-#: allthethings/account/templates/account/donate.html:230
+#: allthethings/account/templates/account/donate.html:243
 #, fuzzy
 msgid "page.donate.payment.desc.longer_subs"
 msgstr "Huomaa, että pienissä lahjoituksissa maksut ovat korkeat, joten suosittelemme pidempiä tilauksia."
 
-#: allthethings/account/templates/account/donate.html:236
+#: allthethings/account/templates/account/donate.html:249
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p1"
 msgstr "Binancen avulla voit ostaa Bitcoinia luotto-/pankkikortilla tai pankkitilillä ja lahjoittaa sitten Bitcoinin meille. Näin voimme pysyä turvallisina ja anonyymeinä vastaanottaessamme lahjoituksesi."
 
-#: allthethings/account/templates/account/donate.html:240
+#: allthethings/account/templates/account/donate.html:253
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p2"
 msgstr "Binance on saatavilla lähes kaikissa maissa ja tukee useimpia pankkeja sekä luotto-/pankkikortteja. Tämä on tällä hetkellä pääsuosituksemme. Arvostamme, että käytät aikaa oppiaksesi lahjoittamaan tällä menetelmällä, sillä se auttaa meitä paljon."
 
-#: allthethings/account/templates/account/donate.html:252
-#: allthethings/account/templates/account/donate.html:258
+#: allthethings/account/templates/account/donate.html:265
+#: allthethings/account/templates/account/donate.html:271
 #, fuzzy
 msgid "page.donate.payment.desc.alipay_wechat"
 msgstr "Lahjoita käyttämällä Alipayta tai WeChatia. Voit valita näiden välillä seuraavalla sivulla."
 
-#: allthethings/account/templates/account/donate.html:264
+#: allthethings/account/templates/account/donate.html:277
 #, fuzzy
 msgid "page.donate.payment.desc.givebutter"
 msgstr "Lahjoita käyttämällä luotto-/pankkikorttia, PayPalia tai Venmoa. Voit valita näistä seuraavalla sivulla."
 
-#: allthethings/account/templates/account/donate.html:270
+#: allthethings/account/templates/account/donate.html:283
 #, fuzzy
 msgid "page.donate.payment.desc.amazon"
 msgstr "Lahjoita käyttämällä Amazon-lahjakorttia."
 
-#: allthethings/account/templates/account/donate.html:271
+#: allthethings/account/templates/account/donate.html:284
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_round"
 msgstr "Huomaa, että meidän on pyöristettävä jälleenmyyjiemme hyväksymiin summiin (vähintään %(minimum)s)."
 
-#: allthethings/account/templates/account/donate.html:275
-#: allthethings/account/templates/account/donation.html:325
+#: allthethings/account/templates/account/donate.html:288
+#: allthethings/account/templates/account/donation.html:370
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_com"
 msgstr "<strong>TÄRKEÄÄ:</strong> Tuemme vain Amazon.comia, emme muita Amazon-sivustoja. Esimerkiksi .de, .co.uk, .ca, EIVÄT ole tuettuja."
 
-#: allthethings/account/templates/account/donate.html:282
+#: allthethings/account/templates/account/donate.html:295
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_backup"
 msgstr "Tämä menetelmä käyttää kryptovaluuttapalveluntarjoajaa välivaiheen muuntamiseen. Tämä voi olla hieman hämmentävää, joten käytä tätä menetelmää vain, jos muut maksutavat eivät toimi. Se ei myöskään toimi kaikissa maissa."
 
-#: allthethings/account/templates/account/donate.html:288
+#: allthethings/account/templates/account/donate.html:301
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_p1"
 msgstr "Emme voi tukea suoraan luotto-/pankkikortteja, koska pankit eivät halua tehdä yhteistyötä kanssamme. :("
 
-#: allthethings/account/templates/account/donate.html:292
+#: allthethings/account/templates/account/donate.html:305
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_p2"
 msgstr "Kuitenkin, on useita tapoja käyttää luotto-/pankkikortteja muiden maksutapojemme kautta:"
 
-#: allthethings/account/templates/account/donate.html:296
+#: allthethings/account/templates/account/donate.html:309
 #, fuzzy
 msgid "page.donate.ccexp.amazon_com"
 msgstr "Lähetä meille Amazon.com-lahjakortteja käyttämällä luotto-/pankkikorttiasi."
 
-#: allthethings/account/templates/account/donate.html:297
+#: allthethings/account/templates/account/donate.html:312
 #, fuzzy
 msgid "page.donate.ccexp.wechat"
 msgstr "WeChat (Weixin Pay) tukee kansainvälisiä luotto-/pankkikortteja. WeChat-sovelluksessa mene kohtaan ”Minä => Palvelut => Lompakko => Lisää kortti”. Jos et näe tätä, ota se käyttöön valitsemalla ”Minä => Asetukset => Yleiset => Työkalut => Weixin Pay => Ota käyttöön”."
 
-#: allthethings/account/templates/account/donate.html:298
+#: allthethings/account/templates/account/donate.html:313
 #, fuzzy
 msgid "page.donate.ccexp.crypto"
 msgstr "Voit ostaa kryptovaluuttaa luotto-/pankkikorteilla."
 
-#: allthethings/account/templates/account/donate.html:304
+#: allthethings/account/templates/account/donate.html:319
 #, fuzzy
 msgid "page.donate.payment.desc.bmc"
 msgstr "Luotto- ja pankkikorttien, Apple Payn ja Google Payn osalta käytämme \"Buy Me a Coffee\" (BMC <span class=\"icon-[ph--coffee-fill] text-lg align-text-bottom\"></span>). Heidän järjestelmässään yksi \"kahvi\" vastaa 5 dollaria, joten lahjoituksesi pyöristetään lähimpään viiden dollarin kerrannaiseen."
 
-#: allthethings/account/templates/account/donate.html:311
+#: allthethings/account/templates/account/donate.html:326
 #, fuzzy
 msgid "page.donate.duration.intro"
 msgstr "Valitse, kuinka kauan haluat tilata."
 
-#: allthethings/account/templates/account/donate.html:316
+#: allthethings/account/templates/account/donate.html:331
 #, fuzzy
 msgid "page.donate.duration.1_mo"
 msgstr "1 kuukausi"
 
-#: allthethings/account/templates/account/donate.html:317
+#: allthethings/account/templates/account/donate.html:332
 #, fuzzy
 msgid "page.donate.duration.3_mo"
 msgstr "3 kuukautta"
 
-#: allthethings/account/templates/account/donate.html:318
+#: allthethings/account/templates/account/donate.html:333
 #, fuzzy
 msgid "page.donate.duration.6_mo"
 msgstr "6 kuukautta"
 
-#: allthethings/account/templates/account/donate.html:319
+#: allthethings/account/templates/account/donate.html:334
 #, fuzzy
 msgid "page.donate.duration.12_mo"
 msgstr "12 kuukautta"
 
-#: allthethings/account/templates/account/donate.html:320
+#: allthethings/account/templates/account/donate.html:335
 #, fuzzy
 msgid "page.donate.duration.24_mo"
 msgstr "24 kuukautta"
 
-#: allthethings/account/templates/account/donate.html:321
+#: allthethings/account/templates/account/donate.html:336
 #, fuzzy
 msgid "page.donate.duration.48_mo"
 msgstr "48 kuukautta"
 
-#: allthethings/account/templates/account/donate.html:322
+#: allthethings/account/templates/account/donate.html:337
 #, fuzzy
 msgid "page.donate.duration.96_mo"
 msgstr "96 kuukautta"
 
-#: allthethings/account/templates/account/donate.html:325
+#: allthethings/account/templates/account/donate.html:340
 #, fuzzy
 msgid "page.donate.duration.summary"
 msgstr "<div %(div_monthly_cost)s></div><div %(div_after)s>alennusten <span %(span_discount)s></span> jälkeen</div><div %(div_total)s></div><div %(div_duration)s></div>"
 
-#: allthethings/account/templates/account/donate.html:332
+#: allthethings/account/templates/account/donate.html:347
 #, fuzzy
 msgid "page.donate.payment.minimum_method"
 msgstr "Tämä maksutapa vaatii vähintään %(amount)s. Valitse toinen kesto tai maksutapa."
 
-#: allthethings/account/templates/account/donate.html:333
-#: allthethings/account/templates/account/donate.html:337
+#: allthethings/account/templates/account/donate.html:348
+#: allthethings/account/templates/account/donate.html:352
 #, fuzzy
 msgid "page.donate.buttons.donate"
 msgstr "Lahjoita"
 
-#: allthethings/account/templates/account/donate.html:336
+#: allthethings/account/templates/account/donate.html:351
 #, fuzzy
 msgid "page.donate.payment.maximum_method"
 msgstr "Tämä maksutapa sallii enintään %(amount)s. Valitse toinen kesto tai maksutapa."
 
-#: allthethings/account/templates/account/donate.html:343
+#: allthethings/account/templates/account/donate.html:358
 #, fuzzy
 msgid "page.donate.login2"
 msgstr "Liity jäseneksi, ole hyvä ja <a %(a_login)s>Kirjaudu sisään tai Rekisteröidy</a>. Kiitos tuestasi!"
 
-#: allthethings/account/templates/account/donate.html:350
+#: allthethings/account/templates/account/donate.html:365
 #, fuzzy
 msgid "page.donate.payment.crypto_select"
 msgstr "Valitse haluamasi kryptovaluutta:"
 
-#: allthethings/account/templates/account/donate.html:355
+#: allthethings/account/templates/account/donate.html:370
 #, fuzzy
 msgid "page.donate.currency_lowest_minimum"
 msgstr "(alin vähimmäismäärä)"
 
-#: allthethings/account/templates/account/donate.html:369
-#: allthethings/account/templates/account/donate.html:370
-#: allthethings/account/templates/account/donate.html:374
-#: allthethings/account/templates/account/donate.html:376
+#: allthethings/account/templates/account/donate.html:384
+#: allthethings/account/templates/account/donate.html:385
+#: allthethings/account/templates/account/donate.html:389
+#: allthethings/account/templates/account/donate.html:391
 #, fuzzy
 msgid "page.donate.currency_warning_high_minimum"
 msgstr "(varoitus: korkea vähimmäismäärä)"
 
-#: allthethings/account/templates/account/donate.html:385
+#: allthethings/account/templates/account/donate.html:400
 #, fuzzy
 msgid "page.donate.submit.confirm"
 msgstr "Vahvista tämä lahjoitus napsauttamalla lahjoituspainiketta."
 
-#: allthethings/account/templates/account/donate.html:393
+#: allthethings/account/templates/account/donate.html:408
 #, fuzzy
 msgid "page.donate.submit.button"
 msgstr "Lahjoita <span %(span_cost)s></span> <span %(span_label)s></span>"
 
-#: allthethings/account/templates/account/donate.html:398
+#: allthethings/account/templates/account/donate.html:413
 #, fuzzy
 msgid "page.donate.submit.cancel_note"
 msgstr "Voit silti peruuttaa lahjoituksen kassalla."
 
-#: allthethings/account/templates/account/donate.html:402
+#: allthethings/account/templates/account/donate.html:417
 #, fuzzy
 msgid "page.donate.submit.success"
 msgstr "✅ Uudelleenohjataan lahjoitussivulle…"
 
-#: allthethings/account/templates/account/donate.html:403
+#: allthethings/account/templates/account/donate.html:418
 #, fuzzy
 msgid "page.donate.submit.failure"
 msgstr "❌ Jotain meni pieleen. Lataa sivu uudelleen ja yritä uudelleen."
 
-#: allthethings/account/templates/account/donate.html:463
+#: allthethings/account/templates/account/donate.html:478
 #, fuzzy
 msgid "page.donate.duration.summary.discount"
 msgstr "%(percentage)s%%"
 
-#: allthethings/account/templates/account/donate.html:464
+#: allthethings/account/templates/account/donate.html:479
 #, fuzzy
 msgid "page.donate.duration.summary.monthly_cost"
 msgstr "%(monthly_cost)s / kuukausi"
 
-#: allthethings/account/templates/account/donate.html:467
+#: allthethings/account/templates/account/donate.html:482
 #, fuzzy
 msgid "page.donate.duration.summary.duration.1_mo"
 msgstr "1 kuukaudeksi"
 
-#: allthethings/account/templates/account/donate.html:468
+#: allthethings/account/templates/account/donate.html:483
 #, fuzzy
 msgid "page.donate.duration.summary.duration.3_mo"
 msgstr "3 kuukaudeksi"
 
-#: allthethings/account/templates/account/donate.html:469
+#: allthethings/account/templates/account/donate.html:484
 #, fuzzy
 msgid "page.donate.duration.summary.duration.6_mo"
 msgstr "6 kuukaudeksi"
 
-#: allthethings/account/templates/account/donate.html:470
+#: allthethings/account/templates/account/donate.html:485
 #, fuzzy
 msgid "page.donate.duration.summary.duration.12_mo"
 msgstr "12 kuukaudeksi"
 
-#: allthethings/account/templates/account/donate.html:471
+#: allthethings/account/templates/account/donate.html:486
 #, fuzzy
 msgid "page.donate.duration.summary.duration.24_mo"
 msgstr "24 kuukaudeksi"
 
-#: allthethings/account/templates/account/donate.html:472
+#: allthethings/account/templates/account/donate.html:487
 #, fuzzy
 msgid "page.donate.duration.summary.duration.48_mo"
 msgstr "48 kuukaudeksi"
 
-#: allthethings/account/templates/account/donate.html:473
+#: allthethings/account/templates/account/donate.html:488
 #, fuzzy
 msgid "page.donate.duration.summary.duration.96_mo"
 msgstr "96 kuukaudeksi"
 
-#: allthethings/account/templates/account/donate.html:477
+#: allthethings/account/templates/account/donate.html:492
 #, fuzzy
 msgid "page.donate.submit.button.label.1_mo"
 msgstr "1 kuukaudeksi “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:478
+#: allthethings/account/templates/account/donate.html:493
 #, fuzzy
 msgid "page.donate.submit.button.label.3_mo"
 msgstr "3 kuukaudeksi “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:479
+#: allthethings/account/templates/account/donate.html:494
 #, fuzzy
 msgid "page.donate.submit.button.label.6_mo"
 msgstr "6 kuukaudeksi “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:480
+#: allthethings/account/templates/account/donate.html:495
 #, fuzzy
 msgid "page.donate.submit.button.label.12_mo"
 msgstr "12 kuukaudeksi “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:481
+#: allthethings/account/templates/account/donate.html:496
 #, fuzzy
 msgid "page.donate.submit.button.label.24_mo"
 msgstr "24 kuukaudeksi “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:482
+#: allthethings/account/templates/account/donate.html:497
 #, fuzzy
 msgid "page.donate.submit.button.label.48_mo"
 msgstr "48 kuukaudeksi “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:483
+#: allthethings/account/templates/account/donate.html:498
 #, fuzzy
 msgid "page.donate.submit.button.label.96_mo"
 msgstr "96 kuukaudeksi “%(tier_name)s”"
@@ -927,15 +930,16 @@ msgstr "<strong>Tärkeä huomautus:</strong> Kryptovaluuttojen hinnat voivat vai
 #: allthethings/account/templates/account/donation.html:115
 #: allthethings/account/templates/account/donation.html:166
 #: allthethings/account/templates/account/donation.html:206
-#: allthethings/account/templates/account/donation.html:251
-#: allthethings/account/templates/account/donation.html:292
-#: allthethings/account/templates/account/donation.html:354
-#: allthethings/account/templates/account/donation.html:370
-#: allthethings/account/templates/account/donation.html:388
-#: allthethings/account/templates/account/donation.html:404
-#: allthethings/account/templates/account/donation.html:421
-#: allthethings/account/templates/account/donation.html:456
-#: allthethings/account/templates/account/donation.html:482
+#: allthethings/account/templates/account/donation.html:250
+#: allthethings/account/templates/account/donation.html:296
+#: allthethings/account/templates/account/donation.html:337
+#: allthethings/account/templates/account/donation.html:399
+#: allthethings/account/templates/account/donation.html:415
+#: allthethings/account/templates/account/donation.html:433
+#: allthethings/account/templates/account/donation.html:449
+#: allthethings/account/templates/account/donation.html:466
+#: allthethings/account/templates/account/donation.html:501
+#: allthethings/account/templates/account/donation.html:527
 #, fuzzy
 msgid "page.donation.expired"
 msgstr "Tämä lahjoitus on vanhentunut. Peruuta ja luo uusi."
@@ -987,7 +991,7 @@ msgid "page.donation.payment.paypal.text5"
 msgstr "Syötä Bitcoin (BTC) -osoitteemme vastaanottajaksi ja seuraa ohjeita lähettääksesi lahjoituksesi %(total)s:"
 
 #: allthethings/account/templates/account/donation.html:139
-#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:292
 #, fuzzy
 msgid "page.donation.credit_debit_card_instructions"
 msgstr "Luottokortti- / pankkikorttiohjeet"
@@ -1009,85 +1013,92 @@ msgstr "Katso alla oleva vaiheittainen opas."
 
 #: allthethings/account/templates/account/donation.html:148
 #: allthethings/account/templates/account/donation.html:191
-#: allthethings/account/templates/account/donation.html:234
-#: allthethings/account/templates/account/donation.html:275
-#: allthethings/account/templates/account/donation.html:304
-#: allthethings/account/templates/account/donation.html:335
-#: allthethings/account/templates/account/donation.html:441
-#: allthethings/account/templates/account/donation.html:468
+#: allthethings/account/templates/account/donation.html:235
+#: allthethings/account/templates/account/donation.html:279
+#: allthethings/account/templates/account/donation.html:320
+#: allthethings/account/templates/account/donation.html:349
+#: allthethings/account/templates/account/donation.html:380
+#: allthethings/account/templates/account/donation.html:486
+#: allthethings/account/templates/account/donation.html:513
 #, fuzzy
 msgid "page.donation.status_header"
 msgstr "Tila:"
 
 #: allthethings/account/templates/account/donation.html:148
 #: allthethings/account/templates/account/donation.html:191
-#: allthethings/account/templates/account/donation.html:234
-#: allthethings/account/templates/account/donation.html:275
-#: allthethings/account/templates/account/donation.html:304
-#: allthethings/account/templates/account/donation.html:441
-#: allthethings/account/templates/account/donation.html:468
+#: allthethings/account/templates/account/donation.html:235
+#: allthethings/account/templates/account/donation.html:279
+#: allthethings/account/templates/account/donation.html:320
+#: allthethings/account/templates/account/donation.html:349
+#: allthethings/account/templates/account/donation.html:486
+#: allthethings/account/templates/account/donation.html:513
 #, fuzzy
 msgid "page.donation.waiting_for_confirmation_refresh"
 msgstr "Odotetaan vahvistusta (päivitä sivu tarkistaaksesi)…"
 
 #: allthethings/account/templates/account/donation.html:148
 #: allthethings/account/templates/account/donation.html:191
-#: allthethings/account/templates/account/donation.html:234
-#: allthethings/account/templates/account/donation.html:275
-#: allthethings/account/templates/account/donation.html:304
-#: allthethings/account/templates/account/donation.html:441
-#: allthethings/account/templates/account/donation.html:468
+#: allthethings/account/templates/account/donation.html:235
+#: allthethings/account/templates/account/donation.html:279
+#: allthethings/account/templates/account/donation.html:320
+#: allthethings/account/templates/account/donation.html:349
+#: allthethings/account/templates/account/donation.html:486
+#: allthethings/account/templates/account/donation.html:513
 #, fuzzy
 msgid "page.donation.waiting_for_transfer_refresh"
 msgstr "Odotetaan siirtoa (päivitä sivu tarkistaaksesi)…"
 
 #: allthethings/account/templates/account/donation.html:149
 #: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:276
-#: allthethings/account/templates/account/donation.html:305
-#: allthethings/account/templates/account/donation.html:442
-#: allthethings/account/templates/account/donation.html:469
+#: allthethings/account/templates/account/donation.html:236
+#: allthethings/account/templates/account/donation.html:280
+#: allthethings/account/templates/account/donation.html:321
+#: allthethings/account/templates/account/donation.html:350
+#: allthethings/account/templates/account/donation.html:487
+#: allthethings/account/templates/account/donation.html:514
 #, fuzzy
 msgid "page.donation.time_left_header"
 msgstr "Aikaa jäljellä:"
 
 #: allthethings/account/templates/account/donation.html:149
 #: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:276
-#: allthethings/account/templates/account/donation.html:305
-#: allthethings/account/templates/account/donation.html:442
-#: allthethings/account/templates/account/donation.html:469
+#: allthethings/account/templates/account/donation.html:236
+#: allthethings/account/templates/account/donation.html:280
+#: allthethings/account/templates/account/donation.html:321
+#: allthethings/account/templates/account/donation.html:350
+#: allthethings/account/templates/account/donation.html:487
+#: allthethings/account/templates/account/donation.html:514
 #, fuzzy
 msgid "page.donation.might_want_to_cancel"
 msgstr "(voit halutessasi peruuttaa ja luoda uuden lahjoituksen)"
 
 #: allthethings/account/templates/account/donation.html:153
 #: allthethings/account/templates/account/donation.html:196
-#: allthethings/account/templates/account/donation.html:239
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:309
-#: allthethings/account/templates/account/donation.html:446
-#: allthethings/account/templates/account/donation.html:473
+#: allthethings/account/templates/account/donation.html:240
+#: allthethings/account/templates/account/donation.html:284
+#: allthethings/account/templates/account/donation.html:325
+#: allthethings/account/templates/account/donation.html:354
+#: allthethings/account/templates/account/donation.html:491
+#: allthethings/account/templates/account/donation.html:518
 #, fuzzy
 msgid "page.donation.reset_timer"
 msgstr "Nollataksesi ajastimen, luo yksinkertaisesti uusi lahjoitus."
 
 #: allthethings/account/templates/account/donation.html:157
 #: allthethings/account/templates/account/donation.html:200
-#: allthethings/account/templates/account/donation.html:243
-#: allthethings/account/templates/account/donation.html:284
-#: allthethings/account/templates/account/donation.html:313
-#: allthethings/account/templates/account/donation.html:339
-#: allthethings/account/templates/account/donation.html:450
-#: allthethings/account/templates/account/donation.html:477
+#: allthethings/account/templates/account/donation.html:244
+#: allthethings/account/templates/account/donation.html:288
+#: allthethings/account/templates/account/donation.html:329
+#: allthethings/account/templates/account/donation.html:358
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:495
+#: allthethings/account/templates/account/donation.html:522
 #, fuzzy
 msgid "page.donation.refresh_status"
 msgstr "Päivitä tila"
 
 #: allthethings/account/templates/account/donation.html:161
-#: allthethings/account/templates/account/donation.html:577
+#: allthethings/account/templates/account/donation.html:622
 #, fuzzy
 msgid "page.donation.footer.issues_contact"
 msgstr "Jos kohtaat ongelmia, ota yhteyttä osoitteeseen %(email)s ja liitä mukaan mahdollisimman paljon tietoa (kuten kuvakaappauksia)."
@@ -1113,215 +1124,216 @@ msgid "page.donation.pyusd.transfer"
 msgstr "Siirry \"PYUSD\" -sivulle PayPal-sovelluksessasi tai -verkkosivustollasi. Paina \"Siirrä\" -painiketta %(icon)s ja sitten \"Lähetä\"."
 
 #: allthethings/account/templates/account/donation.html:187
-#: allthethings/account/templates/account/donation.html:226
-#: allthethings/account/templates/account/donation.html:296
+#: allthethings/account/templates/account/donation.html:227
+#: allthethings/account/templates/account/donation.html:271
+#: allthethings/account/templates/account/donation.html:341
 #, fuzzy
 msgid "page.donation.transfer_amount_to"
 msgstr "Siirrä %(amount)s kohteeseen %(account)s"
 
-#: allthethings/account/templates/account/donation.html:288
+#: allthethings/account/templates/account/donation.html:333
 #, fuzzy
 msgid "page.donation.crypto_instructions"
 msgstr "%(coin_name)s ohjeet"
 
-#: allthethings/account/templates/account/donation.html:300
+#: allthethings/account/templates/account/donation.html:345
 #, fuzzy
 msgid "page.donation.crypto_standard"
 msgstr "Tuemme vain kryptovaluuttojen standardiversioita, emme eksoottisia verkkoja tai versioita. Siirron vahvistaminen voi kestää jopa tunnin, riippuen valuutasta."
 
-#: allthethings/account/templates/account/donation.html:317
+#: allthethings/account/templates/account/donation.html:362
 #, fuzzy
 msgid "page.donation.amazon.header"
 msgstr "Amazon-lahjakortti"
 
-#: allthethings/account/templates/account/donation.html:320
+#: allthethings/account/templates/account/donation.html:365
 #, fuzzy
 msgid "page.donation.amazon.form_instructions"
 msgstr "Käytä <a %(a_form)s>virallista Amazon.com-lomaketta</a> lähettääksesi meille lahjakortin %(amount)s alla olevaan sähköpostiosoitteeseen."
 
-#: allthethings/account/templates/account/donation.html:321
+#: allthethings/account/templates/account/donation.html:366
 #, fuzzy
 msgid "page.donation.amazon.only_official"
 msgstr "Emme voi hyväksyä muita lahjakorttimenetelmiä, <strong>vain suoraan Amazon.comin virallisesta lomakkeesta lähetettyjä</strong>. Emme voi palauttaa lahjakorttiasi, jos et käytä tätä lomaketta."
 
-#: allthethings/account/templates/account/donation.html:326
+#: allthethings/account/templates/account/donation.html:371
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_message"
 msgstr "ÄLÄ kirjoita omaa viestiäsi."
 
-#: allthethings/account/templates/account/donation.html:330
+#: allthethings/account/templates/account/donation.html:375
 #, fuzzy
 msgid "page.donation.amazon.form_to"
 msgstr "“To” vastaanottajan sähköposti muodossa:"
 
-#: allthethings/account/templates/account/donation.html:331
+#: allthethings/account/templates/account/donation.html:376
 #, fuzzy
 msgid "page.donation.amazon.unique"
 msgstr "Ainutlaatuinen tilillesi, älä jaa."
 
-#: allthethings/account/templates/account/donation.html:335
+#: allthethings/account/templates/account/donation.html:380
 #, fuzzy
 msgid "page.donation.amazon.waiting_gift_card"
 msgstr "Odotetaan lahjakorttia… (päivitä sivu tarkistaaksesi)"
 
-#: allthethings/account/templates/account/donation.html:343
+#: allthethings/account/templates/account/donation.html:388
 #, fuzzy
 msgid "page.donation.amazon.confirm_automated"
 msgstr "Lähetettyäsi lahjakorttisi, automaattinen järjestelmämme vahvistaa sen muutaman minuutin kuluessa. Jos tämä ei toimi, yritä lähettää lahjakortti uudelleen (<a %(a_instr)s>ohjeet</a>)."
 
-#: allthethings/account/templates/account/donation.html:344
+#: allthethings/account/templates/account/donation.html:389
 #, fuzzy
 msgid "page.donation.amazon.doesnt_work"
 msgstr "Jos tämä ei vieläkään toimi, lähetä meille sähköpostia ja Anna tarkistaa sen manuaalisesti (tämä voi kestää muutaman päivän), ja muista mainita, jos olet jo yrittänyt lähettää uudelleen."
 
-#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:392
 #, fuzzy
 msgid "page.donation.amazon.example"
 msgstr "Esimerkki:"
 
-#: allthethings/account/templates/account/donation.html:383
-#: allthethings/account/templates/account/donation.html:400
-#: allthethings/account/templates/account/donation.html:416
-#: allthethings/account/templates/account/donation.html:437
-#: allthethings/account/templates/account/donation.html:494
+#: allthethings/account/templates/account/donation.html:428
+#: allthethings/account/templates/account/donation.html:445
+#: allthethings/account/templates/account/donation.html:461
+#: allthethings/account/templates/account/donation.html:482
+#: allthethings/account/templates/account/donation.html:539
 #, fuzzy
 msgid "page.donate.strange_account"
 msgstr "Huomaa, että tilin nimi tai kuva saattaa näyttää oudolta. Ei syytä huoleen! Näitä tilejä hallinnoivat lahjoituskumppanimme. Tilejämme ei ole hakkeroitu."
 
-#: allthethings/account/templates/account/donation.html:407
-#: allthethings/account/templates/account/donation.html:424
+#: allthethings/account/templates/account/donation.html:452
+#: allthethings/account/templates/account/donation.html:469
 #, fuzzy
 msgid "page.donation.payment.alipay.top_header"
 msgstr "Alipay-ohjeet"
 
-#: allthethings/account/templates/account/donation.html:409
-#: allthethings/account/templates/account/donation.html:426
+#: allthethings/account/templates/account/donation.html:454
+#: allthethings/account/templates/account/donation.html:471
 #, fuzzy
 msgid "page.donation.payment.alipay.header1"
 msgstr "<span %(span_circle)s>1</span>Lahjoita Alipaylla"
 
-#: allthethings/account/templates/account/donation.html:412
-#: allthethings/account/templates/account/donation.html:429
+#: allthethings/account/templates/account/donation.html:457
+#: allthethings/account/templates/account/donation.html:474
 #, fuzzy
 msgid "page.donation.payment.alipay.text1_new"
 msgstr "Lahjoita yhteensä %(total)s käyttämällä <a %(a_account)s>tätä Alipay-tiliä</a>"
 
-#: allthethings/account/templates/account/donation.html:433
+#: allthethings/account/templates/account/donation.html:478
 #, fuzzy
 msgid "page.donation.payment.alipay.error"
 msgstr "Valitettavasti Alipay-sivu on usein käytettävissä vain <strong>Manner-Kiinasta</strong>. Saatat joutua väliaikaisesti poistamaan VPN:n käytöstä tai käyttämään VPN:ää Manner-Kiinaan (tai joskus myös Hongkong toimii)."
 
-#: allthethings/account/templates/account/donation.html:459
+#: allthethings/account/templates/account/donation.html:504
 #, fuzzy
 msgid "page.donation.payment.wechat.top_header"
 msgstr "WeChat-ohjeet"
 
-#: allthethings/account/templates/account/donation.html:461
+#: allthethings/account/templates/account/donation.html:506
 #, fuzzy
 msgid "page.donation.payment.wechat.header1"
 msgstr "<span %(span_circle)s>1</span>Lahjoita WeChatissa"
 
-#: allthethings/account/templates/account/donation.html:464
+#: allthethings/account/templates/account/donation.html:509
 #, fuzzy
 msgid "page.donation.payment.wechat.text1"
 msgstr "Lahjoita yhteensä %(total)s käyttämällä <a %(a_account)s>tätä WeChat-tiliä</a>"
 
-#: allthethings/account/templates/account/donation.html:485
+#: allthethings/account/templates/account/donation.html:530
 #, fuzzy
 msgid "page.donation.payment.pix.top_header"
 msgstr "Pix-ohjeet"
 
-#: allthethings/account/templates/account/donation.html:487
+#: allthethings/account/templates/account/donation.html:532
 #, fuzzy
 msgid "page.donation.payment.pix.header1"
 msgstr "<span %(span_circle)s>1</span>Lahjoita Pixillä"
 
-#: allthethings/account/templates/account/donation.html:490
+#: allthethings/account/templates/account/donation.html:535
 #, fuzzy
 msgid "page.donation.payment.pix.text1"
 msgstr "Lahjoita yhteensä %(total)s käyttämällä <a %(a_account)s>tätä Pix-tiliä"
 
-#: allthethings/account/templates/account/donation.html:499
+#: allthethings/account/templates/account/donation.html:544
 #, fuzzy
 msgid "page.donation.footer.header"
 msgstr "<span %(span_circle)s>%(circle_number)s</span>Lähetä meille kuitti sähköpostitse"
 
-#: allthethings/account/templates/account/donation.html:505
+#: allthethings/account/templates/account/donation.html:550
 #, fuzzy
 msgid "page.donation.footer.text1"
 msgstr "Lähetä kuitti tai kuvakaappaus henkilökohtaiseen vahvistusosoitteeseesi:"
 
-#: allthethings/account/templates/account/donation.html:515
+#: allthethings/account/templates/account/donation.html:560
 #, fuzzy
 msgid "page.donation.footer.crypto_note"
 msgstr "Jos kryptovaluutan vaihtokurssi vaihteli tapahtuman aikana, muista liittää mukaan kuitti, joka näyttää alkuperäisen vaihtokurssin. Arvostamme todella, että näet vaivaa käyttääksesi kryptovaluuttaa, se auttaa meitä paljon!"
 
-#: allthethings/account/templates/account/donation.html:520
+#: allthethings/account/templates/account/donation.html:565
 #, fuzzy
 msgid "page.donation.footer.text2"
 msgstr "Kun olet lähettänyt kuitin sähköpostitse, napsauta tätä painiketta, jotta Anna voi tarkistaa sen manuaalisesti (tämä voi kestää muutaman päivän):"
 
-#: allthethings/account/templates/account/donation.html:530
+#: allthethings/account/templates/account/donation.html:575
 #, fuzzy
 msgid "page.donation.footer.button"
 msgstr "Kyllä, lähetin sähköpostitse kuitin"
 
-#: allthethings/account/templates/account/donation.html:533
+#: allthethings/account/templates/account/donation.html:578
 #, fuzzy
 msgid "page.donation.footer.success"
 msgstr "✅ Kiitos lahjoituksestasi! Anna aktivoi jäsenyytesi manuaalisesti muutaman päivän kuluessa."
 
-#: allthethings/account/templates/account/donation.html:534
+#: allthethings/account/templates/account/donation.html:579
 #, fuzzy
 msgid "page.donation.footer.failure"
 msgstr "❌ Jotain meni pieleen. Lataa sivu uudelleen ja yritä uudestaan."
 
-#: allthethings/account/templates/account/donation.html:539
+#: allthethings/account/templates/account/donation.html:584
 #, fuzzy
 msgid "page.donation.stepbystep"
 msgstr "Vaiheittainen opas"
 
-#: allthethings/account/templates/account/donation.html:541
+#: allthethings/account/templates/account/donation.html:586
 #, fuzzy
 msgid "page.donation.crypto_dont_worry"
 msgstr "Jotkut vaiheet mainitsevat kryptolompakot, mutta älä huoli, sinun ei tarvitse oppia mitään kryptosta tätä varten."
 
-#: allthethings/account/templates/account/donation.html:543
+#: allthethings/account/templates/account/donation.html:588
 #, fuzzy
 msgid "page.donation.hoodpay.step1"
 msgstr "1. Syötä sähköpostiosoitteesi."
 
-#: allthethings/account/templates/account/donation.html:549
+#: allthethings/account/templates/account/donation.html:594
 #, fuzzy
 msgid "page.donation.hoodpay.step2"
 msgstr "2. Valitse maksutapa."
 
-#: allthethings/account/templates/account/donation.html:555
+#: allthethings/account/templates/account/donation.html:600
 #, fuzzy
 msgid "page.donation.hoodpay.step3"
 msgstr "3. Valitse maksutapasi uudelleen."
 
-#: allthethings/account/templates/account/donation.html:561
+#: allthethings/account/templates/account/donation.html:606
 #, fuzzy
 msgid "page.donation.hoodpay.step4"
 msgstr "4. Valitse ”Itseisännöity” lompakko."
 
-#: allthethings/account/templates/account/donation.html:567
+#: allthethings/account/templates/account/donation.html:612
 #, fuzzy
 msgid "page.donation.hoodpay.step5"
 msgstr "5. Klikkaa “Vahvistan omistajuuden”."
 
-#: allthethings/account/templates/account/donation.html:573
+#: allthethings/account/templates/account/donation.html:618
 #, fuzzy
 msgid "page.donation.hoodpay.step6"
 msgstr "6. Sinun pitäisi saada sähköpostikuitti. Lähetä se meille, ja vahvistamme lahjoituksesi mahdollisimman pian."
 
-#: allthethings/account/templates/account/donation.html:578
+#: allthethings/account/templates/account/donation.html:623
 #, fuzzy
 msgid "page.donate.wait"
 msgstr "Odota vähintään <span %(span_hours)s>kaksi tuntia</span> (ja päivitä tämä sivu) ennen kuin otat meihin yhteyttä."
 
-#: allthethings/account/templates/account/donation.html:579
+#: allthethings/account/templates/account/donation.html:624
 #, fuzzy
 msgid "page.donate.mistake"
 msgstr "Jos teit virheen maksun aikana, emme voi palauttaa rahoja, mutta yritämme korjata asian."
@@ -1670,23 +1682,23 @@ msgstr "Ei listoja vielä"
 msgid "page.profile.lists.new_list"
 msgstr "Luo uusi lista löytämällä tiedosto ja avaamalla “Listat”-välilehti."
 
-#: allthethings/dyn/views.py:855 allthethings/dyn/views.py:884
-#: allthethings/dyn/views.py:895
+#: allthethings/dyn/views.py:855 allthethings/dyn/views.py:887
+#: allthethings/dyn/views.py:898
 #, fuzzy
 msgid "dyn.buy_membership.error.unknown"
 msgstr "Tapahtui tuntematon virhe. Ota yhteyttä meihin osoitteessa %(email)s ja liitä mukaan kuvakaappaus."
 
-#: allthethings/dyn/views.py:881
-#, fuzzy
-msgid "dyn.buy_membership.error.try_again"
-msgstr "Pyyntöä ei voitu suorittaa. Yritä uudelleen muutaman minuutin kuluttua, ja jos ongelma jatkuu, ota meihin yhteyttä osoitteessa %(email)s ja liitä mukaan kuvakaappaus."
-
-#: allthethings/dyn/views.py:889
+#: allthethings/dyn/views.py:872 allthethings/dyn/views.py:892
 #, fuzzy
 msgid "dyn.buy_membership.error.minimum"
 msgstr "Tällä kolikolla on tavallista korkeampi vähimmäismäärä. Valitse eri kesto tai eri kolikko."
 
-#: allthethings/dyn/views.py:892
+#: allthethings/dyn/views.py:884
+#, fuzzy
+msgid "dyn.buy_membership.error.try_again"
+msgstr "Pyyntöä ei voitu suorittaa. Yritä uudelleen muutaman minuutin kuluttua, ja jos ongelma jatkuu, ota meihin yhteyttä osoitteessa %(email)s ja liitä mukaan kuvakaappaus."
+
+#: allthethings/dyn/views.py:895
 #, fuzzy
 msgid "dyn.buy_membership.error.wait"
 msgstr "Virhe maksun käsittelyssä. Odota hetki ja yritä uudelleen. Jos ongelma jatkuu yli 24 tuntia, ota yhteyttä osoitteeseen %(email)s ja liitä mukaan kuvakaappaus."
@@ -2000,7 +2012,7 @@ msgstr "päivämäärä avoimen lähdekoodin julkaisu"
 msgid "page.md5.box.download.temporarily_unavailable"
 msgstr "Yhteistyökumppanin palvelimen lataukset eivät ole tilapäisesti saatavilla tälle tiedostolle."
 
-#: allthethings/page/views.py:5070 allthethings/page/views.py:5254
+#: allthethings/page/views.py:5070 allthethings/page/views.py:5258
 #, fuzzy
 msgid "page.md5.box.download.scihub"
 msgstr "Sci-Hub: %(doi)s"
@@ -2037,107 +2049,107 @@ msgstr "Libgen.li"
 msgid "page.md5.box.download.libgen_ads"
 msgstr "heidän mainoksensa tunnetaan haittaohjelmista, joten käytä mainosten estäjää tai älä klikkaa mainoksia"
 
-#: allthethings/page/views.py:5251
+#: allthethings/page/views.py:5255
 #, fuzzy
 msgid "page.md5.box.download.ia_borrow"
 msgstr "Lainaa Internet Archivesta"
 
-#: allthethings/page/views.py:5251
+#: allthethings/page/views.py:5255
 #, fuzzy
 msgid "page.md5.box.download.print_disabled_only"
 msgstr "(vain tulostusrajoitteisille asiakkaille)"
 
-#: allthethings/page/views.py:5254
+#: allthethings/page/views.py:5258
 #, fuzzy
 msgid "page.md5.box.download.scihub_maybe"
 msgstr "(liittyvä DOI ei välttämättä ole saatavilla Sci-Hubissa)"
 
-#: allthethings/page/views.py:5260
+#: allthethings/page/views.py:5264
 #, fuzzy
 msgid "page.md5.box.download.collection"
 msgstr "kokoelma"
 
-#: allthethings/page/views.py:5261
+#: allthethings/page/views.py:5265
 #, fuzzy
 msgid "page.md5.box.download.torrent"
 msgstr "torrent"
 
-#: allthethings/page/views.py:5267
+#: allthethings/page/views.py:5271
 #, fuzzy
 msgid "page.md5.box.download.bulk_torrents"
 msgstr "Massatorrentlataukset"
 
-#: allthethings/page/views.py:5267
+#: allthethings/page/views.py:5271
 #, fuzzy
 msgid "page.md5.box.download.experts_only"
 msgstr "(vain asiantuntijoille)"
 
-#: allthethings/page/views.py:5274
+#: allthethings/page/views.py:5278
 #, fuzzy
 msgid "page.md5.box.download.aa_isbn"
 msgstr "Etsi Annan Arkistosta ISBN:llä"
 
-#: allthethings/page/views.py:5275
+#: allthethings/page/views.py:5279
 #, fuzzy
 msgid "page.md5.box.download.other_isbn"
 msgstr "Etsi erilaisista tietokannoista ISBN:ää"
 
-#: allthethings/page/views.py:5277
+#: allthethings/page/views.py:5281
 #, fuzzy
 msgid "page.md5.box.download.original_isbndb"
 msgstr "Löydä alkuperäinen tietue ISBNdb:stä"
 
-#: allthethings/page/views.py:5279
+#: allthethings/page/views.py:5283
 #, fuzzy
 msgid "page.md5.box.download.aa_openlib"
 msgstr "Etsi Anna’s Archive -sivustolta Open Library ID:llä"
 
-#: allthethings/page/views.py:5281
+#: allthethings/page/views.py:5285
 #, fuzzy
 msgid "page.md5.box.download.original_openlib"
 msgstr "Löydä alkuperäinen tietue Open Librarysta"
 
-#: allthethings/page/views.py:5283
+#: allthethings/page/views.py:5287
 #, fuzzy
 msgid "page.md5.box.download.aa_oclc"
 msgstr "Etsi Anna’s Archive -arkistosta OCLC (WorldCat) -numeroa"
 
-#: allthethings/page/views.py:5284
+#: allthethings/page/views.py:5288
 #, fuzzy
 msgid "page.md5.box.download.original_oclc"
 msgstr "Löydä alkuperäinen tietue WorldCatista"
 
-#: allthethings/page/views.py:5286
+#: allthethings/page/views.py:5290
 #, fuzzy
 msgid "page.md5.box.download.aa_duxiu"
 msgstr "Etsi Annin Arkistosta DuXiu SSID-numeroa"
 
-#: allthethings/page/views.py:5287
+#: allthethings/page/views.py:5291
 #, fuzzy
 msgid "page.md5.box.download.original_duxiu"
 msgstr "Etsi manuaalisesti DuXiu:sta"
 
-#: allthethings/page/views.py:5289
+#: allthethings/page/views.py:5293
 #, fuzzy
 msgid "page.md5.box.download.aa_cadal"
 msgstr "Etsi Anna’s Archive -sivustolta CADAL SSNO -numeroa"
 
-#: allthethings/page/views.py:5290
+#: allthethings/page/views.py:5294
 #, fuzzy
 msgid "page.md5.box.download.original_cadal"
 msgstr "Löydä alkuperäinen tietue CADAL:ssa"
 
-#: allthethings/page/views.py:5294
+#: allthethings/page/views.py:5298
 #, fuzzy
 msgid "page.md5.box.download.aa_dxid"
 msgstr "Etsi Anna’s Archivesta DuXiu DXID-numeroa"
 
-#: allthethings/page/views.py:5299 allthethings/page/views.py:5300
+#: allthethings/page/views.py:5303 allthethings/page/views.py:5304
 #, fuzzy
 msgid "page.md5.box.download.scidb"
 msgstr "Annan Arkisto 🧬 SciDB"
 
-#: allthethings/page/views.py:5299 allthethings/page/views.py:5300
+#: allthethings/page/views.py:5303 allthethings/page/views.py:5304
 #, fuzzy
 msgid "common.md5.servers.no_browser_verification"
 msgstr "(ei selaimen vahvistusta vaadita)"

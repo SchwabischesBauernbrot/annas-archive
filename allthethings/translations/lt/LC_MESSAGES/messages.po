@@ -119,15 +119,15 @@ msgstr "Akinantis duomenų rinkėjas"
 msgid "common.membership.tier_name.5"
 msgstr "Garbingas archyvininkas"
 
-#: allthethings/utils.py:552
+#: allthethings/utils.py:554
 msgid "common.membership.format_currency.total_with_usd"
 msgstr "%(amount)s (%(amount_usd)s) viso"
 
-#: allthethings/utils.py:554 allthethings/utils.py:555
+#: allthethings/utils.py:556 allthethings/utils.py:557
 msgid "common.membership.format_currency.amount_with_usd"
 msgstr "%(amount)s (%(amount_usd)s)"
 
-#: allthethings/utils.py:566
+#: allthethings/utils.py:568
 msgid "common.membership.format_currency.total"
 msgstr "%(amount)s viso"
 
@@ -284,7 +284,7 @@ msgid "page.donate.expert.contact_us"
 msgstr "susisiekite su mumis"
 
 #: allthethings/account/templates/account/donate.html:103
-#: allthethings/account/templates/account/donation.html:579
+#: allthethings/account/templates/account/donation.html:624
 #: allthethings/page/templates/page/contact.html:21
 msgid "page.donate.small_team"
 msgstr "Mes esame maža savanorių komanda. Jums atsakyti gali užtrukti 1-2 savaites."
@@ -343,13 +343,13 @@ msgid "page.donate.payment.select_method"
 msgstr "Pasirinkite mokėjimo būdą."
 
 #: allthethings/account/templates/account/donate.html:130
-#: allthethings/account/templates/account/donate.html:296
+#: allthethings/account/templates/account/donate.html:309
 msgid "page.donate.payment.buttons.amazon"
 msgstr "Amazon dovanų kortelė"
 
 #: allthethings/account/templates/account/donate.html:131
 #: allthethings/account/templates/account/donate.html:141
-#: allthethings/account/templates/account/donate.html:298
+#: allthethings/account/templates/account/donate.html:313
 msgid "page.donate.payment.buttons.crypto"
 msgstr "Kriptovaliutos %(bitcoin_icon)s"
 
@@ -360,14 +360,15 @@ msgstr "Kriptovaliutos %(bitcoin_icon)s"
 #: allthethings/account/templates/account/donate.html:142
 #: allthethings/account/templates/account/donate.html:145
 #: allthethings/account/templates/account/donate.html:146
-#: allthethings/account/templates/account/donate.html:149
-#: allthethings/account/templates/account/donate.html:152
-#: allthethings/account/templates/account/donate.html:317
-#: allthethings/account/templates/account/donate.html:318
-#: allthethings/account/templates/account/donate.html:319
-#: allthethings/account/templates/account/donate.html:320
-#: allthethings/account/templates/account/donate.html:321
-#: allthethings/account/templates/account/donate.html:322
+#: allthethings/account/templates/account/donate.html:147
+#: allthethings/account/templates/account/donate.html:150
+#: allthethings/account/templates/account/donate.html:153
+#: allthethings/account/templates/account/donate.html:332
+#: allthethings/account/templates/account/donate.html:333
+#: allthethings/account/templates/account/donate.html:334
+#: allthethings/account/templates/account/donate.html:335
+#: allthethings/account/templates/account/donate.html:336
+#: allthethings/account/templates/account/donate.html:337
 msgid "page.donate.discount"
 msgstr "-%(percentage)s%%"
 
@@ -376,8 +377,9 @@ msgid "page.donate.payment.buttons.paypal"
 msgstr "PayPal %(bitcoin_icon)s"
 
 #: allthethings/account/templates/account/donate.html:139
-#: allthethings/account/templates/account/donate.html:155
-#: allthethings/account/templates/account/donate.html:162
+#: allthethings/account/templates/account/donate.html:156
+#: allthethings/account/templates/account/donate.html:163
+#: allthethings/account/templates/account/donate.html:311
 msgid "page.donate.payment.buttons.alipay"
 msgstr "Alipay"
 
@@ -389,329 +391,330 @@ msgstr "Pix (Brazilija)"
 msgid "page.donate.payment.buttons.cashapp"
 msgstr "Cash App"
 
-#: allthethings/account/templates/account/donate.html:146
+#: allthethings/account/templates/account/donate.html:147
 msgid "page.donate.payment.buttons.paypal_plain"
 msgstr "PayPal"
 
-#: allthethings/account/templates/account/donate.html:147
+#: allthethings/account/templates/account/donate.html:148
 msgid "page.donate.payment.buttons.credit_debit"
 msgstr "Kredito/debeto kortelė"
 
-#: allthethings/account/templates/account/donate.html:148
+#: allthethings/account/templates/account/donate.html:149
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit_backup"
 msgstr "Kredito/debeto kortelė (atsarginė)"
 
-#: allthethings/account/templates/account/donate.html:149
+#: allthethings/account/templates/account/donate.html:150
 msgid "page.donate.payment.buttons.credit_debit2"
 msgstr "Kredito/debeto kortelė 2"
 
-#: allthethings/account/templates/account/donate.html:156
-#: allthethings/account/templates/account/donate.html:164
-#: allthethings/account/templates/account/donate.html:173
-#: allthethings/account/templates/account/donate.html:181
-#: allthethings/account/templates/account/donate.html:188
+#: allthethings/account/templates/account/donate.html:157
+#: allthethings/account/templates/account/donate.html:165
+#: allthethings/account/templates/account/donate.html:174
+#: allthethings/account/templates/account/donate.html:182
+#: allthethings/account/templates/account/donate.html:189
 msgid "page.donate.payment.buttons.alipay_wechat"
 msgstr "Alipay 支付宝 / WeChat 微信"
 
-#: allthethings/account/templates/account/donate.html:157
-#: allthethings/account/templates/account/donate.html:163
-#: allthethings/account/templates/account/donate.html:297
+#: allthethings/account/templates/account/donate.html:158
+#: allthethings/account/templates/account/donate.html:164
+#: allthethings/account/templates/account/donate.html:312
 msgid "page.donate.payment.buttons.wechat"
 msgstr "WeChat"
 
-#: allthethings/account/templates/account/donate.html:188
+#: allthethings/account/templates/account/donate.html:189
 msgid "page.donate.payment.buttons.temporarily_unavailable"
 msgstr "(laikinai nepasiekiama)"
 
-#: allthethings/account/templates/account/donate.html:195
+#: allthethings/account/templates/account/donate.html:196
 msgid "page.donate.payment.desc.crypto"
 msgstr "Galite aukoti su šiomis kriptovaliutomis: BTC, ETH, XMR ir SOL. Naudokite šį pasirinkimą jeigu jau esate susipažinę su kriptovaliutomis."
 
-#: allthethings/account/templates/account/donate.html:201
+#: allthethings/account/templates/account/donate.html:202
 #, fuzzy
 msgid "page.donate.payment.desc.crypto2"
 msgstr "Su kriptovaliuta galite paaukoti naudodami BTC, ETH, XMR ir daugiau."
 
-#: allthethings/account/templates/account/donate.html:205
-#: allthethings/account/templates/account/donate.html:298
+#: allthethings/account/templates/account/donate.html:206
+#: allthethings/account/templates/account/donate.html:313
 msgid "page.donate.payment.desc.crypto_suggestion"
 msgstr "Jei pirmą kartą naudojatės kriptovaliutomis, rekomenduojame naudotis %(option1)s, %(option2)s, arba %(option3)s perkant ir aukojant Bitcoin (originali ir dažniausiai naudojama kriptovaliuta)."
 
-#: allthethings/account/templates/account/donate.html:211
+#: allthethings/account/templates/account/donate.html:212
 msgid "page.donate.payment.desc.paypal"
 msgstr "Norint aukoti naudojant PayPal, mes naudosime PayPal Crypto. Tai leidžia mums išlikti anoniminiais. Dėkojame, kad skyrėte laiko ir išmokote aukoti šiuo metodu, nes jis mums labai padeda."
 
-#: allthethings/account/templates/account/donate.html:212
+#: allthethings/account/templates/account/donate.html:213
 msgid "page.donate.payment.desc.paypal_short"
 msgstr "Aukokite per PayPal."
 
-#: allthethings/account/templates/account/donate.html:218
+#: allthethings/account/templates/account/donate.html:219
 msgid "page.donate.payment.desc.cashapp"
 msgstr "Aukokite per Cash App."
 
-#: allthethings/account/templates/account/donate.html:218
+#: allthethings/account/templates/account/donate.html:219
 msgid "page.donate.payment.desc.cashapp_easy"
 msgstr "Jei naudojatės Cash App, tai yra lengviausias būdas aukoti!"
 
-#: allthethings/account/templates/account/donate.html:221
+#: allthethings/account/templates/account/donate.html:222
+#: allthethings/account/templates/account/donate.html:234
 msgid "page.donate.payment.desc.cashapp_fee"
 msgstr "Atkreipkite dėmesį, kad už sandorius, smulkesnius nei %(amount)s, Cash App gali imti %(fee)s mokestį. Už %(amount)s ir duagiau, sandoris nemokamas!"
 
-#: allthethings/account/templates/account/donate.html:227
-#: allthethings/account/templates/account/donate.html:281
+#: allthethings/account/templates/account/donate.html:240
+#: allthethings/account/templates/account/donate.html:294
 msgid "page.donate.payment.desc.credit_debit"
 msgstr "Aukokite naudadamiesi kredito ar debito kortele."
 
-#: allthethings/account/templates/account/donate.html:228
+#: allthethings/account/templates/account/donate.html:241
 #, fuzzy
 msgid "page.donate.payment.desc.google_apple"
 msgstr "Google Pay ir Apple Pay taip pat gali veikti."
 
-#: allthethings/account/templates/account/donate.html:229
+#: allthethings/account/templates/account/donate.html:242
 msgid "page.donate.payment.desc.elimate_discount"
 msgstr "Atkreipkite dėmesį, kad aukojant smulkias aukas kredito kortelės mokestis gali panaikinti Jūsų %(discount)s nuolaidą, tad rekomenduojame ilgiau trunkančias prenumeratas."
 
-#: allthethings/account/templates/account/donate.html:230
+#: allthethings/account/templates/account/donate.html:243
 msgid "page.donate.payment.desc.longer_subs"
 msgstr "Atkreipkite dėmesį, kad aukojant smulkias aukas taikomi dideli mokesčiai, tad rekomenduojame ilgiau trunkančias prenumeratas."
 
-#: allthethings/account/templates/account/donate.html:236
+#: allthethings/account/templates/account/donate.html:249
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p1"
 msgstr "Naudodamiesi Binance, galite nusipirkti Bitcoin su kredito/debeto kortele arba banko sąskaita, o tada paaukoti tą Bitcoin mums. Tokiu būdu galime išlikti saugūs ir anonimiški priimdami jūsų auką."
 
-#: allthethings/account/templates/account/donate.html:240
+#: allthethings/account/templates/account/donate.html:253
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p2"
 msgstr "Binance yra prieinamas beveik visose šalyse ir palaiko daugumą bankų bei kredito/debeto kortelių. Tai šiuo metu yra mūsų pagrindinė rekomendacija. Vertiname, kad skiriate laiko išmokti aukoti šiuo metodu, nes tai mums labai padeda."
 
-#: allthethings/account/templates/account/donate.html:252
-#: allthethings/account/templates/account/donate.html:258
+#: allthethings/account/templates/account/donate.html:265
+#: allthethings/account/templates/account/donate.html:271
 msgid "page.donate.payment.desc.alipay_wechat"
 msgstr "Aukokite per Alipay ar WeChat. Galite pasirinkti vieną iš jų sekančiame puslapyje."
 
-#: allthethings/account/templates/account/donate.html:264
+#: allthethings/account/templates/account/donate.html:277
 #, fuzzy
 msgid "page.donate.payment.desc.givebutter"
 msgstr "Aukokite naudodami kredito/debeto kortelę, PayPal arba Venmo. Galite pasirinkti tarp jų kitame puslapyje."
 
-#: allthethings/account/templates/account/donate.html:270
+#: allthethings/account/templates/account/donate.html:283
 msgid "page.donate.payment.desc.amazon"
 msgstr "Aukokite naudodamiesi Amazon dovanų kortele."
 
-#: allthethings/account/templates/account/donate.html:271
+#: allthethings/account/templates/account/donate.html:284
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_round"
 msgstr "Atkreipkite dėmesį, kad turime suapvalinti iki mūsų perpardavėjų priimamų sumų (mažiausiai %(minimum)s)."
 
-#: allthethings/account/templates/account/donate.html:275
-#: allthethings/account/templates/account/donation.html:325
+#: allthethings/account/templates/account/donate.html:288
+#: allthethings/account/templates/account/donation.html:370
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_com"
 msgstr "<strong>SVARBU:</strong> Mes palaikome tik Amazon.com, kitų Amazon svetainių, pvz., .de, .co.uk, .ca, NEPALAIKOME."
 
-#: allthethings/account/templates/account/donate.html:282
+#: allthethings/account/templates/account/donate.html:295
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_backup"
 msgstr "Šis metodas naudoja kriptovaliutų tiekėją kaip tarpinį konversijos būdą. Tai gali būti šiek tiek painu, todėl naudokite šį metodą tik tada, jei kiti mokėjimo būdai neveikia. Taip pat jis neveikia visose šalyse."
 
-#: allthethings/account/templates/account/donate.html:288
+#: allthethings/account/templates/account/donate.html:301
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_p1"
 msgstr "Negalime tiesiogiai palaikyti kredito/debeto kortelių, nes bankai nenori su mumis dirbti. :("
 
-#: allthethings/account/templates/account/donate.html:292
+#: allthethings/account/templates/account/donate.html:305
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_p2"
 msgstr "Tačiau yra keletas būdų, kaip naudoti kreditines/debetines korteles, naudojant kitus mūsų mokėjimo metodus:"
 
-#: allthethings/account/templates/account/donate.html:296
+#: allthethings/account/templates/account/donate.html:309
 #, fuzzy
 msgid "page.donate.ccexp.amazon_com"
 msgstr "Siųskite mums Amazon.com dovanų korteles naudodami savo kreditinę/debetinę kortelę."
 
-#: allthethings/account/templates/account/donate.html:297
+#: allthethings/account/templates/account/donate.html:312
 #, fuzzy
 msgid "page.donate.ccexp.wechat"
 msgstr "WeChat (Weixin Pay) palaiko tarptautines kreditines/debetines korteles. WeChat programėlėje eikite į „Me => Services => Wallet => Add a Card“. Jei to nematote, įjunkite naudodami „Me => Settings => General => Tools => Weixin Pay => Enable“."
 
-#: allthethings/account/templates/account/donate.html:298
+#: allthethings/account/templates/account/donate.html:313
 #, fuzzy
 msgid "page.donate.ccexp.crypto"
 msgstr "Galite pirkti kriptovaliutą naudodami kreditines/debetines korteles."
 
-#: allthethings/account/templates/account/donate.html:304
+#: allthethings/account/templates/account/donate.html:319
 #, fuzzy
 msgid "page.donate.payment.desc.bmc"
 msgstr "Kreditinėms kortelėms, debetinėms kortelėms, Apple Pay ir Google Pay mes naudojame „Buy Me a Coffee“ (BMC <span class=\"icon-[ph--coffee-fill] text-lg align-text-bottom\"></span>). Jų sistemoje viena „kava“ yra lygi 5 USD, todėl jūsų auka bus suapvalinta iki artimiausio 5 kartotinio."
 
-#: allthethings/account/templates/account/donate.html:311
+#: allthethings/account/templates/account/donate.html:326
 msgid "page.donate.duration.intro"
 msgstr "Pasirinkite kokiam laikotarpiui norite prenumeruoti."
 
-#: allthethings/account/templates/account/donate.html:316
+#: allthethings/account/templates/account/donate.html:331
 msgid "page.donate.duration.1_mo"
 msgstr "1 mėnesis"
 
-#: allthethings/account/templates/account/donate.html:317
+#: allthethings/account/templates/account/donate.html:332
 msgid "page.donate.duration.3_mo"
 msgstr "3 mėnesiai"
 
-#: allthethings/account/templates/account/donate.html:318
+#: allthethings/account/templates/account/donate.html:333
 msgid "page.donate.duration.6_mo"
 msgstr "6 mėnesiai"
 
-#: allthethings/account/templates/account/donate.html:319
+#: allthethings/account/templates/account/donate.html:334
 #, fuzzy
 msgid "page.donate.duration.12_mo"
 msgstr "12 mėnesių"
 
-#: allthethings/account/templates/account/donate.html:320
+#: allthethings/account/templates/account/donate.html:335
 #, fuzzy
 msgid "page.donate.duration.24_mo"
 msgstr "24 mėnesiai"
 
-#: allthethings/account/templates/account/donate.html:321
+#: allthethings/account/templates/account/donate.html:336
 #, fuzzy
 msgid "page.donate.duration.48_mo"
 msgstr "48 mėnesiai"
 
-#: allthethings/account/templates/account/donate.html:322
+#: allthethings/account/templates/account/donate.html:337
 #, fuzzy
 msgid "page.donate.duration.96_mo"
 msgstr "96 mėnesiai"
 
-#: allthethings/account/templates/account/donate.html:325
+#: allthethings/account/templates/account/donate.html:340
 msgid "page.donate.duration.summary"
 msgstr "<div %(div_monthly_cost)s></div><div %(div_after)s>po <span %(span_discount)s></span> nuolaidos:</div><div %(div_total)s></div><div %(div_duration)s></div>"
 
-#: allthethings/account/templates/account/donate.html:332
+#: allthethings/account/templates/account/donate.html:347
 #, fuzzy
 msgid "page.donate.payment.minimum_method"
 msgstr "Šis mokėjimo būdas reikalauja mažiausiai %(amount)s. Prašome pasirinkti kitą trukmę arba mokėjimo būdą."
 
-#: allthethings/account/templates/account/donate.html:333
-#: allthethings/account/templates/account/donate.html:337
+#: allthethings/account/templates/account/donate.html:348
+#: allthethings/account/templates/account/donate.html:352
 #, fuzzy
 msgid "page.donate.buttons.donate"
 msgstr "Paaukoti"
 
-#: allthethings/account/templates/account/donate.html:336
+#: allthethings/account/templates/account/donate.html:351
 #, fuzzy
 msgid "page.donate.payment.maximum_method"
 msgstr "Šis mokėjimo metodas leidžia maksimaliai %(amount)s. Prašome pasirinkti kitą trukmę arba mokėjimo metodą."
 
-#: allthethings/account/templates/account/donate.html:343
+#: allthethings/account/templates/account/donate.html:358
 #, fuzzy
 msgid "page.donate.login2"
 msgstr "Norėdami tapti nariu, prašome <a %(a_login)s>Prisijungti arba Registruotis</a>. Ačiū už jūsų palaikymą!"
 
-#: allthethings/account/templates/account/donate.html:350
+#: allthethings/account/templates/account/donate.html:365
 #, fuzzy
 msgid "page.donate.payment.crypto_select"
 msgstr "Pasirinkite norimą kriptovaliutą:"
 
-#: allthethings/account/templates/account/donate.html:355
+#: allthethings/account/templates/account/donate.html:370
 #, fuzzy
 msgid "page.donate.currency_lowest_minimum"
 msgstr "(mažiausia minimali suma)"
 
-#: allthethings/account/templates/account/donate.html:369
-#: allthethings/account/templates/account/donate.html:370
-#: allthethings/account/templates/account/donate.html:374
-#: allthethings/account/templates/account/donate.html:376
+#: allthethings/account/templates/account/donate.html:384
+#: allthethings/account/templates/account/donate.html:385
+#: allthethings/account/templates/account/donate.html:389
+#: allthethings/account/templates/account/donate.html:391
 #, fuzzy
 msgid "page.donate.currency_warning_high_minimum"
 msgstr "(įspėjimas: didelė minimali suma)"
 
-#: allthethings/account/templates/account/donate.html:385
+#: allthethings/account/templates/account/donate.html:400
 msgid "page.donate.submit.confirm"
 msgstr "Paspauskite mygtuką aukoti, kad patvirtinti šią auką."
 
-#: allthethings/account/templates/account/donate.html:393
+#: allthethings/account/templates/account/donate.html:408
 msgid "page.donate.submit.button"
 msgstr "Aukoti <span %(span_cost)s></span> <span %(span_label)s></span>"
 
-#: allthethings/account/templates/account/donate.html:398
+#: allthethings/account/templates/account/donate.html:413
 msgid "page.donate.submit.cancel_note"
 msgstr "Jūs vis dar galite atšaukti mokėjimo metu."
 
-#: allthethings/account/templates/account/donate.html:402
+#: allthethings/account/templates/account/donate.html:417
 msgid "page.donate.submit.success"
 msgstr "✅ Persiunčiame į aukojimo puslapį…"
 
-#: allthethings/account/templates/account/donate.html:403
+#: allthethings/account/templates/account/donate.html:418
 msgid "page.donate.submit.failure"
 msgstr "❌ Kažkas atsitiko negerai. Prašome perkrauti puslapį ir bandykite dar kartą."
 
-#: allthethings/account/templates/account/donate.html:463
+#: allthethings/account/templates/account/donate.html:478
 msgid "page.donate.duration.summary.discount"
 msgstr "%(percentage)s%%"
 
-#: allthethings/account/templates/account/donate.html:464
+#: allthethings/account/templates/account/donate.html:479
 msgid "page.donate.duration.summary.monthly_cost"
 msgstr "%(monthly_cost)s / mėnesį"
 
-#: allthethings/account/templates/account/donate.html:467
+#: allthethings/account/templates/account/donate.html:482
 msgid "page.donate.duration.summary.duration.1_mo"
 msgstr "1 mėnesiui"
 
-#: allthethings/account/templates/account/donate.html:468
+#: allthethings/account/templates/account/donate.html:483
 msgid "page.donate.duration.summary.duration.3_mo"
 msgstr "3 mėnesiams"
 
-#: allthethings/account/templates/account/donate.html:469
+#: allthethings/account/templates/account/donate.html:484
 msgid "page.donate.duration.summary.duration.6_mo"
 msgstr "6 mėnesiams"
 
-#: allthethings/account/templates/account/donate.html:470
+#: allthethings/account/templates/account/donate.html:485
 #, fuzzy
 msgid "page.donate.duration.summary.duration.12_mo"
 msgstr "12 mėnesių laikotarpiui"
 
-#: allthethings/account/templates/account/donate.html:471
+#: allthethings/account/templates/account/donate.html:486
 #, fuzzy
 msgid "page.donate.duration.summary.duration.24_mo"
 msgstr "24 mėnesiams"
 
-#: allthethings/account/templates/account/donate.html:472
+#: allthethings/account/templates/account/donate.html:487
 #, fuzzy
 msgid "page.donate.duration.summary.duration.48_mo"
 msgstr "už 48 mėnesius"
 
-#: allthethings/account/templates/account/donate.html:473
+#: allthethings/account/templates/account/donate.html:488
 #, fuzzy
 msgid "page.donate.duration.summary.duration.96_mo"
 msgstr "už 96 mėnesius"
 
-#: allthethings/account/templates/account/donate.html:477
+#: allthethings/account/templates/account/donate.html:492
 msgid "page.donate.submit.button.label.1_mo"
 msgstr "1 mėnesiui “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:478
+#: allthethings/account/templates/account/donate.html:493
 msgid "page.donate.submit.button.label.3_mo"
 msgstr "3 mėnesiams “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:479
+#: allthethings/account/templates/account/donate.html:494
 msgid "page.donate.submit.button.label.6_mo"
 msgstr "6 mėnesiams “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:480
+#: allthethings/account/templates/account/donate.html:495
 msgid "page.donate.submit.button.label.12_mo"
 msgstr "12 mėnesių “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:481
+#: allthethings/account/templates/account/donate.html:496
 #, fuzzy
 msgid "page.donate.submit.button.label.24_mo"
 msgstr "24 mėnesiams “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:482
+#: allthethings/account/templates/account/donate.html:497
 #, fuzzy
 msgid "page.donate.submit.button.label.48_mo"
 msgstr "už 48 mėnesius “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:483
+#: allthethings/account/templates/account/donate.html:498
 #, fuzzy
 msgid "page.donate.submit.button.label.96_mo"
 msgstr "už 96 mėnesius “%(tier_name)s”"
@@ -806,15 +809,16 @@ msgstr "<strong>Svarbu:</strong> Kriptovaliutų kainos gali labai greitai keisti
 #: allthethings/account/templates/account/donation.html:115
 #: allthethings/account/templates/account/donation.html:166
 #: allthethings/account/templates/account/donation.html:206
-#: allthethings/account/templates/account/donation.html:251
-#: allthethings/account/templates/account/donation.html:292
-#: allthethings/account/templates/account/donation.html:354
-#: allthethings/account/templates/account/donation.html:370
-#: allthethings/account/templates/account/donation.html:388
-#: allthethings/account/templates/account/donation.html:404
-#: allthethings/account/templates/account/donation.html:421
-#: allthethings/account/templates/account/donation.html:456
-#: allthethings/account/templates/account/donation.html:482
+#: allthethings/account/templates/account/donation.html:250
+#: allthethings/account/templates/account/donation.html:296
+#: allthethings/account/templates/account/donation.html:337
+#: allthethings/account/templates/account/donation.html:399
+#: allthethings/account/templates/account/donation.html:415
+#: allthethings/account/templates/account/donation.html:433
+#: allthethings/account/templates/account/donation.html:449
+#: allthethings/account/templates/account/donation.html:466
+#: allthethings/account/templates/account/donation.html:501
+#: allthethings/account/templates/account/donation.html:527
 #, fuzzy
 msgid "page.donation.expired"
 msgstr "Ši auka pasibaigė. Prašome atšaukti ir sukurti naują."
@@ -857,7 +861,7 @@ msgid "page.donation.payment.paypal.text5"
 msgstr "Įveskite mūsų Bitcoin (BTC) adresą kaip gavėją ir vadovaukitės instrukcijomis, kad išsiųstumėte %(total)s auką:"
 
 #: allthethings/account/templates/account/donation.html:139
-#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:292
 #, fuzzy
 msgid "page.donation.credit_debit_card_instructions"
 msgstr "Kredito / debeto kortelės instrukcijos"
@@ -879,85 +883,92 @@ msgstr "Žiūrėkite žingsnis po žingsnio vadovą žemiau."
 
 #: allthethings/account/templates/account/donation.html:148
 #: allthethings/account/templates/account/donation.html:191
-#: allthethings/account/templates/account/donation.html:234
-#: allthethings/account/templates/account/donation.html:275
-#: allthethings/account/templates/account/donation.html:304
-#: allthethings/account/templates/account/donation.html:335
-#: allthethings/account/templates/account/donation.html:441
-#: allthethings/account/templates/account/donation.html:468
+#: allthethings/account/templates/account/donation.html:235
+#: allthethings/account/templates/account/donation.html:279
+#: allthethings/account/templates/account/donation.html:320
+#: allthethings/account/templates/account/donation.html:349
+#: allthethings/account/templates/account/donation.html:380
+#: allthethings/account/templates/account/donation.html:486
+#: allthethings/account/templates/account/donation.html:513
 #, fuzzy
 msgid "page.donation.status_header"
 msgstr "Būsena:"
 
 #: allthethings/account/templates/account/donation.html:148
 #: allthethings/account/templates/account/donation.html:191
-#: allthethings/account/templates/account/donation.html:234
-#: allthethings/account/templates/account/donation.html:275
-#: allthethings/account/templates/account/donation.html:304
-#: allthethings/account/templates/account/donation.html:441
-#: allthethings/account/templates/account/donation.html:468
+#: allthethings/account/templates/account/donation.html:235
+#: allthethings/account/templates/account/donation.html:279
+#: allthethings/account/templates/account/donation.html:320
+#: allthethings/account/templates/account/donation.html:349
+#: allthethings/account/templates/account/donation.html:486
+#: allthethings/account/templates/account/donation.html:513
 #, fuzzy
 msgid "page.donation.waiting_for_confirmation_refresh"
 msgstr "Laukiama patvirtinimo (atnaujinkite puslapį, kad patikrintumėte)…"
 
 #: allthethings/account/templates/account/donation.html:148
 #: allthethings/account/templates/account/donation.html:191
-#: allthethings/account/templates/account/donation.html:234
-#: allthethings/account/templates/account/donation.html:275
-#: allthethings/account/templates/account/donation.html:304
-#: allthethings/account/templates/account/donation.html:441
-#: allthethings/account/templates/account/donation.html:468
+#: allthethings/account/templates/account/donation.html:235
+#: allthethings/account/templates/account/donation.html:279
+#: allthethings/account/templates/account/donation.html:320
+#: allthethings/account/templates/account/donation.html:349
+#: allthethings/account/templates/account/donation.html:486
+#: allthethings/account/templates/account/donation.html:513
 #, fuzzy
 msgid "page.donation.waiting_for_transfer_refresh"
 msgstr "Laukiama perkėlimo (atnaujinkite puslapį, kad patikrintumėte)…"
 
 #: allthethings/account/templates/account/donation.html:149
 #: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:276
-#: allthethings/account/templates/account/donation.html:305
-#: allthethings/account/templates/account/donation.html:442
-#: allthethings/account/templates/account/donation.html:469
+#: allthethings/account/templates/account/donation.html:236
+#: allthethings/account/templates/account/donation.html:280
+#: allthethings/account/templates/account/donation.html:321
+#: allthethings/account/templates/account/donation.html:350
+#: allthethings/account/templates/account/donation.html:487
+#: allthethings/account/templates/account/donation.html:514
 #, fuzzy
 msgid "page.donation.time_left_header"
 msgstr "Likęs laikas:"
 
 #: allthethings/account/templates/account/donation.html:149
 #: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:276
-#: allthethings/account/templates/account/donation.html:305
-#: allthethings/account/templates/account/donation.html:442
-#: allthethings/account/templates/account/donation.html:469
+#: allthethings/account/templates/account/donation.html:236
+#: allthethings/account/templates/account/donation.html:280
+#: allthethings/account/templates/account/donation.html:321
+#: allthethings/account/templates/account/donation.html:350
+#: allthethings/account/templates/account/donation.html:487
+#: allthethings/account/templates/account/donation.html:514
 #, fuzzy
 msgid "page.donation.might_want_to_cancel"
 msgstr "(galite norėti atšaukti ir sukurti naują auką)"
 
 #: allthethings/account/templates/account/donation.html:153
 #: allthethings/account/templates/account/donation.html:196
-#: allthethings/account/templates/account/donation.html:239
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:309
-#: allthethings/account/templates/account/donation.html:446
-#: allthethings/account/templates/account/donation.html:473
+#: allthethings/account/templates/account/donation.html:240
+#: allthethings/account/templates/account/donation.html:284
+#: allthethings/account/templates/account/donation.html:325
+#: allthethings/account/templates/account/donation.html:354
+#: allthethings/account/templates/account/donation.html:491
+#: allthethings/account/templates/account/donation.html:518
 #, fuzzy
 msgid "page.donation.reset_timer"
 msgstr "Norėdami atstatyti laikmatį, tiesiog sukurkite naują auką."
 
 #: allthethings/account/templates/account/donation.html:157
 #: allthethings/account/templates/account/donation.html:200
-#: allthethings/account/templates/account/donation.html:243
-#: allthethings/account/templates/account/donation.html:284
-#: allthethings/account/templates/account/donation.html:313
-#: allthethings/account/templates/account/donation.html:339
-#: allthethings/account/templates/account/donation.html:450
-#: allthethings/account/templates/account/donation.html:477
+#: allthethings/account/templates/account/donation.html:244
+#: allthethings/account/templates/account/donation.html:288
+#: allthethings/account/templates/account/donation.html:329
+#: allthethings/account/templates/account/donation.html:358
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:495
+#: allthethings/account/templates/account/donation.html:522
 #, fuzzy
 msgid "page.donation.refresh_status"
 msgstr "Atnaujinti būseną"
 
 #: allthethings/account/templates/account/donation.html:161
-#: allthethings/account/templates/account/donation.html:577
+#: allthethings/account/templates/account/donation.html:622
 #, fuzzy
 msgid "page.donation.footer.issues_contact"
 msgstr "Jei susidūrėte su kokiomis nors problemomis, prašome susisiekti su mumis adresu %(email)s ir pateikti kuo daugiau informacijos (pvz., ekrano nuotraukas)."
@@ -983,202 +994,203 @@ msgid "page.donation.pyusd.transfer"
 msgstr "Eikite į „PYUSD“ puslapį savo PayPal programėlėje arba svetainėje. Paspauskite mygtuką „Perkelti“ %(icon)s, tada „Siųsti“."
 
 #: allthethings/account/templates/account/donation.html:187
-#: allthethings/account/templates/account/donation.html:226
-#: allthethings/account/templates/account/donation.html:296
+#: allthethings/account/templates/account/donation.html:227
+#: allthethings/account/templates/account/donation.html:271
+#: allthethings/account/templates/account/donation.html:341
 #, fuzzy
 msgid "page.donation.transfer_amount_to"
 msgstr "Perkelti %(amount)s į %(account)s"
 
-#: allthethings/account/templates/account/donation.html:288
+#: allthethings/account/templates/account/donation.html:333
 #, fuzzy
 msgid "page.donation.crypto_instructions"
 msgstr "%(coin_name)s instrukcijos"
 
-#: allthethings/account/templates/account/donation.html:300
+#: allthethings/account/templates/account/donation.html:345
 #, fuzzy
 msgid "page.donation.crypto_standard"
 msgstr "Mes palaikome tik standartinę kriptovaliutų versiją, jokių egzotinių tinklų ar monetų versijų. Priklausomai nuo monetos, operacijos patvirtinimas gali užtrukti iki valandos."
 
-#: allthethings/account/templates/account/donation.html:317
+#: allthethings/account/templates/account/donation.html:362
 #, fuzzy
 msgid "page.donation.amazon.header"
 msgstr "Amazon dovanų kortelė"
 
-#: allthethings/account/templates/account/donation.html:320
+#: allthethings/account/templates/account/donation.html:365
 #, fuzzy
 msgid "page.donation.amazon.form_instructions"
 msgstr "Prašome naudoti <a %(a_form)s>oficialią Amazon.com formą</a>, kad atsiųstumėte mums dovanų kortelę %(amount)s į žemiau nurodytą el. pašto adresą."
 
-#: allthethings/account/templates/account/donation.html:321
+#: allthethings/account/templates/account/donation.html:366
 #, fuzzy
 msgid "page.donation.amazon.only_official"
 msgstr "Negalime priimti kitų dovanų kortelių metodų, <strong>tik siunčiamų tiesiogiai iš oficialios formos Amazon.com</strong>. Negalėsime grąžinti jūsų dovanų kortelės, jei nenaudosite šios formos."
 
-#: allthethings/account/templates/account/donation.html:326
+#: allthethings/account/templates/account/donation.html:371
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_message"
 msgstr "Prašome nerašyti savo žinutės."
 
-#: allthethings/account/templates/account/donation.html:330
+#: allthethings/account/templates/account/donation.html:375
 #, fuzzy
 msgid "page.donation.amazon.form_to"
 msgstr "„Kam“ gavėjo el. paštas formoje:"
 
-#: allthethings/account/templates/account/donation.html:331
+#: allthethings/account/templates/account/donation.html:376
 #, fuzzy
 msgid "page.donation.amazon.unique"
 msgstr "Unikalus jūsų paskyrai, nesidalinkite."
 
-#: allthethings/account/templates/account/donation.html:335
+#: allthethings/account/templates/account/donation.html:380
 #, fuzzy
 msgid "page.donation.amazon.waiting_gift_card"
 msgstr "Laukiama dovanų kortelės… (atnaujinkite puslapį, kad patikrintumėte)"
 
-#: allthethings/account/templates/account/donation.html:343
+#: allthethings/account/templates/account/donation.html:388
 #, fuzzy
 msgid "page.donation.amazon.confirm_automated"
 msgstr "Išsiuntus dovanų kortelę, mūsų automatinė sistema ją patvirtins per kelias minutes. Jei tai neveikia, pabandykite išsiųsti dovanų kortelę dar kartą (<a %(a_instr)s>instrukcijos</a>)."
 
-#: allthethings/account/templates/account/donation.html:344
+#: allthethings/account/templates/account/donation.html:389
 #, fuzzy
 msgid "page.donation.amazon.doesnt_work"
 msgstr "Jei tai vis tiek neveikia, prašome parašyti mums el. laišką, ir Anna peržiūrės tai rankiniu būdu (tai gali užtrukti kelias dienas). Būtinai paminėkite, jei jau bandėte išsiųsti iš naujo."
 
-#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:392
 #, fuzzy
 msgid "page.donation.amazon.example"
 msgstr "Pavyzdys:"
 
-#: allthethings/account/templates/account/donation.html:383
-#: allthethings/account/templates/account/donation.html:400
-#: allthethings/account/templates/account/donation.html:416
-#: allthethings/account/templates/account/donation.html:437
-#: allthethings/account/templates/account/donation.html:494
+#: allthethings/account/templates/account/donation.html:428
+#: allthethings/account/templates/account/donation.html:445
+#: allthethings/account/templates/account/donation.html:461
+#: allthethings/account/templates/account/donation.html:482
+#: allthethings/account/templates/account/donation.html:539
 msgid "page.donate.strange_account"
 msgstr "Svarbu žinoti, jog paskyros vardas arba nuotrauka gali atrodyti keistai. Nereikia jaudintis! Šios paskyros yra valdomos mūsų aukojimo partnerių. Į mūsų paskyras nebuvo įsilaužta."
 
-#: allthethings/account/templates/account/donation.html:407
-#: allthethings/account/templates/account/donation.html:424
+#: allthethings/account/templates/account/donation.html:452
+#: allthethings/account/templates/account/donation.html:469
 msgid "page.donation.payment.alipay.top_header"
 msgstr "Alipay instrukcijos"
 
-#: allthethings/account/templates/account/donation.html:409
-#: allthethings/account/templates/account/donation.html:426
+#: allthethings/account/templates/account/donation.html:454
+#: allthethings/account/templates/account/donation.html:471
 msgid "page.donation.payment.alipay.header1"
 msgstr "<span %(span_circle)s>1</span>Aukoti Alipay"
 
-#: allthethings/account/templates/account/donation.html:412
-#: allthethings/account/templates/account/donation.html:429
+#: allthethings/account/templates/account/donation.html:457
+#: allthethings/account/templates/account/donation.html:474
 #, fuzzy
 msgid "page.donation.payment.alipay.text1_new"
 msgstr "Paaukokite visą sumą %(total)s naudodami <a %(a_account)s>šį Alipay paskyrą</a>"
 
-#: allthethings/account/templates/account/donation.html:433
+#: allthethings/account/templates/account/donation.html:478
 #, fuzzy
 msgid "page.donation.payment.alipay.error"
 msgstr "Deja, Alipay puslapis dažnai pasiekiamas tik iš <strong>žemyninės Kinijos</strong>. Gali tekti laikinai išjungti savo VPN arba naudoti VPN į žemyninę Kiniją (kartais veikia ir Honkongas)."
 
-#: allthethings/account/templates/account/donation.html:459
+#: allthethings/account/templates/account/donation.html:504
 #, fuzzy
 msgid "page.donation.payment.wechat.top_header"
 msgstr "WeChat instrukcijos"
 
-#: allthethings/account/templates/account/donation.html:461
+#: allthethings/account/templates/account/donation.html:506
 #, fuzzy
 msgid "page.donation.payment.wechat.header1"
 msgstr "<span %(span_circle)s>1</span>Paaukokite per WeChat"
 
-#: allthethings/account/templates/account/donation.html:464
+#: allthethings/account/templates/account/donation.html:509
 #, fuzzy
 msgid "page.donation.payment.wechat.text1"
 msgstr "Paaukokite visą sumą %(total)s naudodami <a %(a_account)s>šį WeChat paskyrą</a>"
 
-#: allthethings/account/templates/account/donation.html:485
+#: allthethings/account/templates/account/donation.html:530
 msgid "page.donation.payment.pix.top_header"
 msgstr "Pix instrukcijos"
 
-#: allthethings/account/templates/account/donation.html:487
+#: allthethings/account/templates/account/donation.html:532
 msgid "page.donation.payment.pix.header1"
 msgstr "<span %(span_circle)s>1</span>Aukoti naudojant Pix"
 
-#: allthethings/account/templates/account/donation.html:490
+#: allthethings/account/templates/account/donation.html:535
 msgid "page.donation.payment.pix.text1"
 msgstr "Paaukokite %(total)s sumą naudojant <a %(a_account)s>šią Pix paskyrą"
 
-#: allthethings/account/templates/account/donation.html:499
+#: allthethings/account/templates/account/donation.html:544
 msgid "page.donation.footer.header"
 msgstr "<span %(span_circle)s>%(circle_number)s</span>Parašykite mums čekį elektroniniu paštu"
 
-#: allthethings/account/templates/account/donation.html:505
+#: allthethings/account/templates/account/donation.html:550
 msgid "page.donation.footer.text1"
 msgstr "Atsiųskite čeki arba ekrano nuotrauką į šį adresą:"
 
-#: allthethings/account/templates/account/donation.html:515
+#: allthethings/account/templates/account/donation.html:560
 msgid "page.donation.footer.crypto_note"
 msgstr "Jei operacijos metu kriptovaliutų kursas svyravo, būtinai pridėkite kvitą, kuriame nurodytas pradinis valiutos kursas. Labai dėkojame už tai, kad stengiatės naudoti kriptovaliutą, tai mums labai padeda!"
 
-#: allthethings/account/templates/account/donation.html:520
+#: allthethings/account/templates/account/donation.html:565
 msgid "page.donation.footer.text2"
 msgstr "Išsiuntę kvitą el. paštu, spustelėkite šį mygtuką, kad Anna galėtų jį peržiūrėti rankiniu būdu (tai gali užtrukti kelias dienas):"
 
-#: allthethings/account/templates/account/donation.html:530
+#: allthethings/account/templates/account/donation.html:575
 msgid "page.donation.footer.button"
 msgstr "Taip, išsiunčiau kvitą el. paštu"
 
-#: allthethings/account/templates/account/donation.html:533
+#: allthethings/account/templates/account/donation.html:578
 msgid "page.donation.footer.success"
 msgstr "✅ Ačiū už auką! Anna rankiniu būdu suaktyvins jūsų narystę per kelias dienas."
 
-#: allthethings/account/templates/account/donation.html:534
+#: allthethings/account/templates/account/donation.html:579
 msgid "page.donation.footer.failure"
 msgstr "❌ Kažkas atsitiko negerai. Perkraukite puslapį iš naujo ir bandykite dar kartą."
 
-#: allthethings/account/templates/account/donation.html:539
+#: allthethings/account/templates/account/donation.html:584
 #, fuzzy
 msgid "page.donation.stepbystep"
 msgstr "Žingsnis po žingsnio vadovas"
 
-#: allthethings/account/templates/account/donation.html:541
+#: allthethings/account/templates/account/donation.html:586
 #, fuzzy
 msgid "page.donation.crypto_dont_worry"
 msgstr "Kai kurie žingsniai mini kripto pinigines, bet nesijaudinkite, jums nereikės nieko mokytis apie kripto."
 
-#: allthethings/account/templates/account/donation.html:543
+#: allthethings/account/templates/account/donation.html:588
 #, fuzzy
 msgid "page.donation.hoodpay.step1"
 msgstr "1. Įveskite savo el. paštą."
 
-#: allthethings/account/templates/account/donation.html:549
+#: allthethings/account/templates/account/donation.html:594
 #, fuzzy
 msgid "page.donation.hoodpay.step2"
 msgstr "2. Pasirinkite savo mokėjimo metodą."
 
-#: allthethings/account/templates/account/donation.html:555
+#: allthethings/account/templates/account/donation.html:600
 #, fuzzy
 msgid "page.donation.hoodpay.step3"
 msgstr "3. Pasirinkite savo mokėjimo metodą dar kartą."
 
-#: allthethings/account/templates/account/donation.html:561
+#: allthethings/account/templates/account/donation.html:606
 #, fuzzy
 msgid "page.donation.hoodpay.step4"
 msgstr "4. Pasirinkite „Savarankiškai talpinamą“ piniginę."
 
-#: allthethings/account/templates/account/donation.html:567
+#: allthethings/account/templates/account/donation.html:612
 #, fuzzy
 msgid "page.donation.hoodpay.step5"
 msgstr "5. Spustelėkite „Patvirtinu nuosavybę“."
 
-#: allthethings/account/templates/account/donation.html:573
+#: allthethings/account/templates/account/donation.html:618
 #, fuzzy
 msgid "page.donation.hoodpay.step6"
 msgstr "6. Turėtumėte gauti el. laišką su kvitu. Prašome jį atsiųsti mums, ir mes kuo greičiau patvirtinsime jūsų auką."
 
-#: allthethings/account/templates/account/donation.html:578
+#: allthethings/account/templates/account/donation.html:623
 #, fuzzy
 msgid "page.donate.wait"
 msgstr "Prašome palaukti bent <span %(span_hours)s>dvi valandas</span> (ir atnaujinti šį puslapį) prieš susisiekdami su mumis."
 
-#: allthethings/account/templates/account/donation.html:579
+#: allthethings/account/templates/account/donation.html:624
 #, fuzzy
 msgid "page.donate.mistake"
 msgstr "Jei padarėte klaidą mokėjimo metu, mes negalime grąžinti pinigų, bet stengsimės išspręsti problemą."
@@ -1483,23 +1495,23 @@ msgstr "Kol kas jokių sąrašų"
 msgid "page.profile.lists.new_list"
 msgstr "Sukurkite naują sąrašą randant failą ir atidarant skirtuką “Sąrašai”."
 
-#: allthethings/dyn/views.py:855 allthethings/dyn/views.py:884
-#: allthethings/dyn/views.py:895
+#: allthethings/dyn/views.py:855 allthethings/dyn/views.py:887
+#: allthethings/dyn/views.py:898
 #, fuzzy
 msgid "dyn.buy_membership.error.unknown"
 msgstr "Įvyko nežinoma klaida. Prašome susisiekti su mumis adresu %(email)s ir pridėti ekrano nuotrauką."
 
-#: allthethings/dyn/views.py:881
-#, fuzzy
-msgid "dyn.buy_membership.error.try_again"
-msgstr "Užklausa negalėjo būti įvykdyta. Bandykite dar kartą po kelių minučių, o jei problema išlieka, susisiekite su mumis adresu %(email)s ir pridėkite ekrano nuotrauką."
-
-#: allthethings/dyn/views.py:889
+#: allthethings/dyn/views.py:872 allthethings/dyn/views.py:892
 #, fuzzy
 msgid "dyn.buy_membership.error.minimum"
 msgstr "Ši moneta turi didesnę nei įprasta minimalią sumą. Prašome pasirinkti kitą trukmę arba kitą monetą."
 
-#: allthethings/dyn/views.py:892
+#: allthethings/dyn/views.py:884
+#, fuzzy
+msgid "dyn.buy_membership.error.try_again"
+msgstr "Užklausa negalėjo būti įvykdyta. Bandykite dar kartą po kelių minučių, o jei problema išlieka, susisiekite su mumis adresu %(email)s ir pridėkite ekrano nuotrauką."
+
+#: allthethings/dyn/views.py:895
 #, fuzzy
 msgid "dyn.buy_membership.error.wait"
 msgstr "Mokėjimo apdorojimo klaida. Palaukite akimirką ir bandykite dar kartą. Jei problema išlieka ilgiau nei 24 valandas, susisiekite su mumis adresu %(email)s ir pridėkite ekrano nuotrauką."
@@ -1788,7 +1800,7 @@ msgstr "data, kai buvo atvertas šaltinis"
 msgid "page.md5.box.download.temporarily_unavailable"
 msgstr "Partnerio serverio atsisiuntimai laikinai nepasiekiami šiam failui."
 
-#: allthethings/page/views.py:5070 allthethings/page/views.py:5254
+#: allthethings/page/views.py:5070 allthethings/page/views.py:5258
 msgid "page.md5.box.download.scihub"
 msgstr "Sci-Hub: %(doi)s"
 
@@ -1819,106 +1831,106 @@ msgstr "Libgen.li"
 msgid "page.md5.box.download.libgen_ads"
 msgstr "jų reklamos yra žinomos dėl kenkėjiškos programinės įrangos, todėl naudokite reklamos blokatorių arba nespauskite ant reklamų"
 
-#: allthethings/page/views.py:5251
+#: allthethings/page/views.py:5255
 #, fuzzy
 msgid "page.md5.box.download.ia_borrow"
 msgstr "Skolinkitės iš Internet Archive"
 
-#: allthethings/page/views.py:5251
+#: allthethings/page/views.py:5255
 #, fuzzy
 msgid "page.md5.box.download.print_disabled_only"
 msgstr "(tik neįgaliesiems, negalintiems spausdinti)"
 
-#: allthethings/page/views.py:5254
+#: allthethings/page/views.py:5258
 msgid "page.md5.box.download.scihub_maybe"
 msgstr "(susijęs DOI gali būti nepasiekiamas Sci-Hub)"
 
-#: allthethings/page/views.py:5260
+#: allthethings/page/views.py:5264
 #, fuzzy
 msgid "page.md5.box.download.collection"
 msgstr "kolekcija"
 
-#: allthethings/page/views.py:5261
+#: allthethings/page/views.py:5265
 #, fuzzy
 msgid "page.md5.box.download.torrent"
 msgstr "torentas"
 
-#: allthethings/page/views.py:5267
+#: allthethings/page/views.py:5271
 #, fuzzy
 msgid "page.md5.box.download.bulk_torrents"
 msgstr "Masiniai torrentų atsisiuntimai"
 
-#: allthethings/page/views.py:5267
+#: allthethings/page/views.py:5271
 #, fuzzy
 msgid "page.md5.box.download.experts_only"
 msgstr "(tik ekspertams)"
 
-#: allthethings/page/views.py:5274
+#: allthethings/page/views.py:5278
 #, fuzzy
 msgid "page.md5.box.download.aa_isbn"
 msgstr "Ieškoti Annos Archyve pagal ISBN"
 
-#: allthethings/page/views.py:5275
+#: allthethings/page/views.py:5279
 #, fuzzy
 msgid "page.md5.box.download.other_isbn"
 msgstr "Ieškokite įvairiose kitose duomenų bazėse pagal ISBN"
 
-#: allthethings/page/views.py:5277
+#: allthethings/page/views.py:5281
 #, fuzzy
 msgid "page.md5.box.download.original_isbndb"
 msgstr "Rasti originalų įrašą ISBNdb"
 
-#: allthethings/page/views.py:5279
+#: allthethings/page/views.py:5283
 #, fuzzy
 msgid "page.md5.box.download.aa_openlib"
 msgstr "Ieškoti Annos Archyve pagal Open Library ID"
 
-#: allthethings/page/views.py:5281
+#: allthethings/page/views.py:5285
 #, fuzzy
 msgid "page.md5.box.download.original_openlib"
 msgstr "Rasti originalų įrašą Open Library"
 
-#: allthethings/page/views.py:5283
+#: allthethings/page/views.py:5287
 #, fuzzy
 msgid "page.md5.box.download.aa_oclc"
 msgstr "Ieškoti Annos Archyve pagal OCLC (WorldCat) numerį"
 
-#: allthethings/page/views.py:5284
+#: allthethings/page/views.py:5288
 #, fuzzy
 msgid "page.md5.box.download.original_oclc"
 msgstr "Rasti originalų įrašą WorldCat"
 
-#: allthethings/page/views.py:5286
+#: allthethings/page/views.py:5290
 #, fuzzy
 msgid "page.md5.box.download.aa_duxiu"
 msgstr "Ieškoti Annos Archyve pagal DuXiu SSID numerį"
 
-#: allthethings/page/views.py:5287
+#: allthethings/page/views.py:5291
 #, fuzzy
 msgid "page.md5.box.download.original_duxiu"
 msgstr "Ieškoti rankiniu būdu DuXiu"
 
-#: allthethings/page/views.py:5289
+#: allthethings/page/views.py:5293
 #, fuzzy
 msgid "page.md5.box.download.aa_cadal"
 msgstr "Ieškoti Anna’s Archive CADAL SSNO numerio"
 
-#: allthethings/page/views.py:5290
+#: allthethings/page/views.py:5294
 #, fuzzy
 msgid "page.md5.box.download.original_cadal"
 msgstr "Rasti originalų įrašą CADAL"
 
-#: allthethings/page/views.py:5294
+#: allthethings/page/views.py:5298
 #, fuzzy
 msgid "page.md5.box.download.aa_dxid"
 msgstr "Ieškoti Annos Archyve pagal DuXiu DXID numerį"
 
-#: allthethings/page/views.py:5299 allthethings/page/views.py:5300
+#: allthethings/page/views.py:5303 allthethings/page/views.py:5304
 #, fuzzy
 msgid "page.md5.box.download.scidb"
 msgstr "Annos Archyvas 🧬 SciDB"
 
-#: allthethings/page/views.py:5299 allthethings/page/views.py:5300
+#: allthethings/page/views.py:5303 allthethings/page/views.py:5304
 #, fuzzy
 msgid "common.md5.servers.no_browser_verification"
 msgstr "(nereikalingas naršyklės patvirtinimas)"

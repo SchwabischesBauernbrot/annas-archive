@@ -126,15 +126,15 @@ msgstr "데이터 수집가"
 msgid "common.membership.tier_name.5"
 msgstr "보관자"
 
-#: allthethings/utils.py:552
+#: allthethings/utils.py:554
 msgid "common.membership.format_currency.total_with_usd"
 msgstr "총 %(amount)s (%(amount_usd)s)"
 
-#: allthethings/utils.py:554 allthethings/utils.py:555
+#: allthethings/utils.py:556 allthethings/utils.py:557
 msgid "common.membership.format_currency.amount_with_usd"
 msgstr "%(amount)s (%(amount_usd)s)"
 
-#: allthethings/utils.py:566
+#: allthethings/utils.py:568
 msgid "common.membership.format_currency.total"
 msgstr "총 %(amount)s"
 
@@ -293,7 +293,7 @@ msgid "page.donate.expert.contact_us"
 msgstr "문의하기"
 
 #: allthethings/account/templates/account/donate.html:103
-#: allthethings/account/templates/account/donation.html:579
+#: allthethings/account/templates/account/donation.html:624
 #: allthethings/page/templates/page/contact.html:21
 msgid "page.donate.small_team"
 msgstr "저희는 소규모 자원봉사자 팀입니다. 응답하는 데 1-2주가 걸릴 수도 있습니다."
@@ -354,13 +354,13 @@ msgid "page.donate.payment.select_method"
 msgstr "결제 방법을 선택해 주세요."
 
 #: allthethings/account/templates/account/donate.html:130
-#: allthethings/account/templates/account/donate.html:296
+#: allthethings/account/templates/account/donate.html:309
 msgid "page.donate.payment.buttons.amazon"
 msgstr "아마존 기프트카드"
 
 #: allthethings/account/templates/account/donate.html:131
 #: allthethings/account/templates/account/donate.html:141
-#: allthethings/account/templates/account/donate.html:298
+#: allthethings/account/templates/account/donate.html:313
 msgid "page.donate.payment.buttons.crypto"
 msgstr "암호화폐 %(bitcoin_icon)s"
 
@@ -371,14 +371,15 @@ msgstr "암호화폐 %(bitcoin_icon)s"
 #: allthethings/account/templates/account/donate.html:142
 #: allthethings/account/templates/account/donate.html:145
 #: allthethings/account/templates/account/donate.html:146
-#: allthethings/account/templates/account/donate.html:149
-#: allthethings/account/templates/account/donate.html:152
-#: allthethings/account/templates/account/donate.html:317
-#: allthethings/account/templates/account/donate.html:318
-#: allthethings/account/templates/account/donate.html:319
-#: allthethings/account/templates/account/donate.html:320
-#: allthethings/account/templates/account/donate.html:321
-#: allthethings/account/templates/account/donate.html:322
+#: allthethings/account/templates/account/donate.html:147
+#: allthethings/account/templates/account/donate.html:150
+#: allthethings/account/templates/account/donate.html:153
+#: allthethings/account/templates/account/donate.html:332
+#: allthethings/account/templates/account/donate.html:333
+#: allthethings/account/templates/account/donate.html:334
+#: allthethings/account/templates/account/donate.html:335
+#: allthethings/account/templates/account/donate.html:336
+#: allthethings/account/templates/account/donate.html:337
 msgid "page.donate.discount"
 msgstr "-%(percentage)s%%"
 
@@ -387,8 +388,9 @@ msgid "page.donate.payment.buttons.paypal"
 msgstr "페이팔 (US) %(bitcoin_icon)s"
 
 #: allthethings/account/templates/account/donate.html:139
-#: allthethings/account/templates/account/donate.html:155
-#: allthethings/account/templates/account/donate.html:162
+#: allthethings/account/templates/account/donate.html:156
+#: allthethings/account/templates/account/donate.html:163
+#: allthethings/account/templates/account/donate.html:311
 msgid "page.donate.payment.buttons.alipay"
 msgstr "알리페이"
 
@@ -400,318 +402,319 @@ msgstr "픽스 (브라질)"
 msgid "page.donate.payment.buttons.cashapp"
 msgstr "캐시 앱"
 
-#: allthethings/account/templates/account/donate.html:146
+#: allthethings/account/templates/account/donate.html:147
 msgid "page.donate.payment.buttons.paypal_plain"
 msgstr "페이팔"
 
-#: allthethings/account/templates/account/donate.html:147
+#: allthethings/account/templates/account/donate.html:148
 msgid "page.donate.payment.buttons.credit_debit"
 msgstr "신용/직불 카드"
 
-#: allthethings/account/templates/account/donate.html:148
+#: allthethings/account/templates/account/donate.html:149
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit_backup"
 msgstr "신용/직불 카드 (백업)"
 
-#: allthethings/account/templates/account/donate.html:149
+#: allthethings/account/templates/account/donate.html:150
 msgid "page.donate.payment.buttons.credit_debit2"
 msgstr "신용/직불 카드 2"
 
-#: allthethings/account/templates/account/donate.html:156
-#: allthethings/account/templates/account/donate.html:164
-#: allthethings/account/templates/account/donate.html:173
-#: allthethings/account/templates/account/donate.html:181
-#: allthethings/account/templates/account/donate.html:188
+#: allthethings/account/templates/account/donate.html:157
+#: allthethings/account/templates/account/donate.html:165
+#: allthethings/account/templates/account/donate.html:174
+#: allthethings/account/templates/account/donate.html:182
+#: allthethings/account/templates/account/donate.html:189
 msgid "page.donate.payment.buttons.alipay_wechat"
 msgstr "알리페이 / 위챗"
 
-#: allthethings/account/templates/account/donate.html:157
-#: allthethings/account/templates/account/donate.html:163
-#: allthethings/account/templates/account/donate.html:297
+#: allthethings/account/templates/account/donate.html:158
+#: allthethings/account/templates/account/donate.html:164
+#: allthethings/account/templates/account/donate.html:312
 msgid "page.donate.payment.buttons.wechat"
 msgstr "WeChat(위챗)"
 
-#: allthethings/account/templates/account/donate.html:188
+#: allthethings/account/templates/account/donate.html:189
 msgid "page.donate.payment.buttons.temporarily_unavailable"
 msgstr "(일시적으로 사용 불가)"
 
-#: allthethings/account/templates/account/donate.html:195
+#: allthethings/account/templates/account/donate.html:196
 msgid "page.donate.payment.desc.crypto"
 msgstr "암호화를 사용하면 BTC, ETH, XMR 및 SOL을 사용하여 기부할 수 있습니다. 암호화폐에 이미 익숙한 경우 이 옵션을 사용하세요."
 
-#: allthethings/account/templates/account/donate.html:201
+#: allthethings/account/templates/account/donate.html:202
 msgid "page.donate.payment.desc.crypto2"
 msgstr "암호화폐로는 BTC, ETH, XMR 등을 사용하여 기부하실 수 있습니다."
 
-#: allthethings/account/templates/account/donate.html:205
-#: allthethings/account/templates/account/donate.html:298
+#: allthethings/account/templates/account/donate.html:206
+#: allthethings/account/templates/account/donate.html:313
 msgid "page.donate.payment.desc.crypto_suggestion"
 msgstr "암호화폐를 처음 사용하신다면, 비트코인(가장 오래되고 많이 사용되는 암호화폐)을 구매하고 기부하는데 %(option1)s,%(option2)s, 또는 %(option3)s 을 사용하기를 추천합니다."
 
-#: allthethings/account/templates/account/donate.html:211
+#: allthethings/account/templates/account/donate.html:212
 msgid "page.donate.payment.desc.paypal"
 msgstr "PayPal US를 사용하여 기부하려면 익명을 유지할 수 있는 PayPal Crypto를 사용할 것입니다. 시간을 내어 이 방법을 사용하여 기부하는 방법을 배워 주시면 감사합니다. 이는 저희에게 많은 도움이 됩니다."
 
-#: allthethings/account/templates/account/donate.html:212
+#: allthethings/account/templates/account/donate.html:213
 msgid "page.donate.payment.desc.paypal_short"
 msgstr "페이팔을 사용하여 기부하세요."
 
-#: allthethings/account/templates/account/donate.html:218
+#: allthethings/account/templates/account/donate.html:219
 msgid "page.donate.payment.desc.cashapp"
 msgstr "Cash App을 사용하여 기부하세요."
 
-#: allthethings/account/templates/account/donate.html:218
+#: allthethings/account/templates/account/donate.html:219
 msgid "page.donate.payment.desc.cashapp_easy"
 msgstr "Cash App을 가지고 계시다면, 이게 가장 간편한 기부 방법입니다!"
 
-#: allthethings/account/templates/account/donate.html:221
+#: allthethings/account/templates/account/donate.html:222
+#: allthethings/account/templates/account/donate.html:234
 msgid "page.donate.payment.desc.cashapp_fee"
 msgstr "%(amount)s 이하의 거래에 대해서는, Cash App이 %(fee)s의 수수료를 청구할 수 있다는 점을 알아두세요. %(amount)s 이상은 무료입니다!"
 
-#: allthethings/account/templates/account/donate.html:227
-#: allthethings/account/templates/account/donate.html:281
+#: allthethings/account/templates/account/donate.html:240
+#: allthethings/account/templates/account/donate.html:294
 msgid "page.donate.payment.desc.credit_debit"
 msgstr "신용 카드나 직불 카드를 사용하여 기부하세요."
 
-#: allthethings/account/templates/account/donate.html:228
+#: allthethings/account/templates/account/donate.html:241
 msgid "page.donate.payment.desc.google_apple"
 msgstr "구글 페이나 애플 페이도 작동할 수 있습니다."
 
-#: allthethings/account/templates/account/donate.html:229
+#: allthethings/account/templates/account/donate.html:242
 msgid "page.donate.payment.desc.elimate_discount"
 msgstr "적은 기부에 대해서는 신용 카드의 수수료가 저희의 %(discount)s%% 할인을 없앨 수 있으니, 더 긴 구독을 추천합니다."
 
-#: allthethings/account/templates/account/donate.html:230
+#: allthethings/account/templates/account/donate.html:243
 msgid "page.donate.payment.desc.longer_subs"
 msgstr "적은 기부는 수수료가 높으므로, 더 긴 구독을 추천합니다."
 
-#: allthethings/account/templates/account/donate.html:236
+#: allthethings/account/templates/account/donate.html:249
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p1"
 msgstr "Binance를 사용하면 신용/직불 카드나 은행 계좌로 비트코인을 구매한 후 그 비트코인을 우리에게 기부할 수 있습니다. 이렇게 하면 기부를 받을 때 보안과 익명성을 유지할 수 있습니다."
 
-#: allthethings/account/templates/account/donate.html:240
+#: allthethings/account/templates/account/donate.html:253
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p2"
 msgstr "Binance는 거의 모든 국가에서 이용 가능하며, 대부분의 은행 및 신용/직불 카드를 지원합니다. 현재 저희의 주요 추천 방법입니다. 이 방법을 통해 기부하는 방법을 배워주셔서 감사합니다. 이는 저희에게 큰 도움이 됩니다."
 
-#: allthethings/account/templates/account/donate.html:252
-#: allthethings/account/templates/account/donate.html:258
+#: allthethings/account/templates/account/donate.html:265
+#: allthethings/account/templates/account/donate.html:271
 msgid "page.donate.payment.desc.alipay_wechat"
 msgstr "알리페이나 위챗을 사용하여 기부하세요. 다음 페이지에서 선택할 수 있습니다."
 
-#: allthethings/account/templates/account/donate.html:264
+#: allthethings/account/templates/account/donate.html:277
 #, fuzzy
 msgid "page.donate.payment.desc.givebutter"
 msgstr "신용/직불 카드, PayPal(페이팔), 또는 Venmo를 사용하여 기부할 수 있습니다. 다음 페이지에서 이 중 하나를 선택할 수 있습니다."
 
-#: allthethings/account/templates/account/donate.html:270
+#: allthethings/account/templates/account/donate.html:283
 msgid "page.donate.payment.desc.amazon"
 msgstr "아마존 기프트 카드를 사용하여 기부하세요."
 
-#: allthethings/account/templates/account/donate.html:271
+#: allthethings/account/templates/account/donate.html:284
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_round"
 msgstr "리셀러가 수락하는 금액(최소 %(minimum)s)으로 반올림해야 합니다."
 
-#: allthethings/account/templates/account/donate.html:275
-#: allthethings/account/templates/account/donation.html:325
+#: allthethings/account/templates/account/donate.html:288
+#: allthethings/account/templates/account/donation.html:370
 msgid "page.donate.payment.desc.amazon_com"
 msgstr "<strong>중요:</strong> 저희는 다른 아마존 웹사이트가 아닌 amazon.com만을 지원합니다. 예시로, .de, .co.uk, .ca는 지원되지 않습니다."
 
-#: allthethings/account/templates/account/donate.html:282
+#: allthethings/account/templates/account/donate.html:295
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_backup"
 msgstr "이 방법은 암호화폐 제공자를 중간 변환으로 사용합니다. 약간 혼란스러울 수 있으므로 다른 결제 방법이 작동하지 않을 때만 이 방법을 사용하세요. 또한 모든 국가에서 작동하지 않습니다."
 
-#: allthethings/account/templates/account/donate.html:288
+#: allthethings/account/templates/account/donate.html:301
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_p1"
 msgstr "은행들이 우리와 거래하기를 원하지 않기 때문에 신용/직불 카드를 직접 지원할 수 없습니다. :("
 
-#: allthethings/account/templates/account/donate.html:292
+#: allthethings/account/templates/account/donate.html:305
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_p2"
 msgstr "그러나, 다른 결제 방법을 사용하여 신용/직불 카드를 사용할 수 있는 여러 가지 방법이 있습니다:"
 
-#: allthethings/account/templates/account/donate.html:296
+#: allthethings/account/templates/account/donate.html:309
 #, fuzzy
 msgid "page.donate.ccexp.amazon_com"
 msgstr "신용/직불 카드를 사용하여 Amazon.com 기프트 카드를 보내주세요."
 
-#: allthethings/account/templates/account/donate.html:297
+#: allthethings/account/templates/account/donate.html:312
 #, fuzzy
 msgid "page.donate.ccexp.wechat"
 msgstr "WeChat (Weixin Pay)는 국제 신용/직불 카드를 지원합니다. WeChat 앱에서 “나 => 서비스 => 지갑 => 카드 추가”로 이동하십시오. 해당 옵션이 보이지 않으면 “나 => 설정 => 일반 => 도구 => Weixin Pay => 활성화”를 통해 활성화하십시오."
 
-#: allthethings/account/templates/account/donate.html:298
+#: allthethings/account/templates/account/donate.html:313
 #, fuzzy
 msgid "page.donate.ccexp.crypto"
 msgstr "신용/직불 카드를 사용하여 암호화폐를 구매할 수 있습니다."
 
-#: allthethings/account/templates/account/donate.html:304
+#: allthethings/account/templates/account/donate.html:319
 #, fuzzy
 msgid "page.donate.payment.desc.bmc"
 msgstr "신용카드, 직불카드, Apple Pay 및 Google Pay의 경우, “Buy Me a Coffee” (BMC <span class=\"icon-[ph--coffee-fill] text-lg align-text-bottom\"></span>)를 사용합니다. 그들의 시스템에서 한 “커피”는 $5와 같으므로, 귀하의 기부는 5의 배수로 반올림됩니다."
 
-#: allthethings/account/templates/account/donate.html:311
+#: allthethings/account/templates/account/donate.html:326
 msgid "page.donate.duration.intro"
 msgstr "구독할 기간을 선택합니다."
 
-#: allthethings/account/templates/account/donate.html:316
+#: allthethings/account/templates/account/donate.html:331
 msgid "page.donate.duration.1_mo"
 msgstr "한 달"
 
-#: allthethings/account/templates/account/donate.html:317
+#: allthethings/account/templates/account/donate.html:332
 msgid "page.donate.duration.3_mo"
 msgstr "세 달"
 
-#: allthethings/account/templates/account/donate.html:318
+#: allthethings/account/templates/account/donate.html:333
 msgid "page.donate.duration.6_mo"
 msgstr "여섯 달"
 
-#: allthethings/account/templates/account/donate.html:319
+#: allthethings/account/templates/account/donate.html:334
 msgid "page.donate.duration.12_mo"
 msgstr "열두 달"
 
-#: allthethings/account/templates/account/donate.html:320
+#: allthethings/account/templates/account/donate.html:335
 msgid "page.donate.duration.24_mo"
 msgstr "24개월"
 
-#: allthethings/account/templates/account/donate.html:321
+#: allthethings/account/templates/account/donate.html:336
 #, fuzzy
 msgid "page.donate.duration.48_mo"
 msgstr "48개월"
 
-#: allthethings/account/templates/account/donate.html:322
+#: allthethings/account/templates/account/donate.html:337
 #, fuzzy
 msgid "page.donate.duration.96_mo"
 msgstr "96개월"
 
-#: allthethings/account/templates/account/donate.html:325
+#: allthethings/account/templates/account/donate.html:340
 #, fuzzy
 msgid "page.donate.duration.summary"
 msgstr "<div %(div_monthly_cost)s></div><div %(div_after)s><span %(span_discount)s></span> 할인 후</div><div %(div_total)s></div><div %(div_duration)s></div>"
 
-#: allthethings/account/templates/account/donate.html:332
+#: allthethings/account/templates/account/donate.html:347
 msgid "page.donate.payment.minimum_method"
 msgstr "이 결제 방법은 최소 %(amount)s를 필요로 합니다. 다른 기간이나 결제 방법을 선택해 주세요."
 
-#: allthethings/account/templates/account/donate.html:333
-#: allthethings/account/templates/account/donate.html:337
+#: allthethings/account/templates/account/donate.html:348
+#: allthethings/account/templates/account/donate.html:352
 #, fuzzy
 msgid "page.donate.buttons.donate"
 msgstr "기부하기"
 
-#: allthethings/account/templates/account/donate.html:336
+#: allthethings/account/templates/account/donate.html:351
 msgid "page.donate.payment.maximum_method"
 msgstr "이 결제 방법은 최대 %(amount)s까지 사용 가능합니다. 다른 기간이나 결제 방법을 선택해 주세요."
 
-#: allthethings/account/templates/account/donate.html:343
+#: allthethings/account/templates/account/donate.html:358
 msgid "page.donate.login2"
 msgstr "회원이 되시려면 <%(a_login)s> 로그인 또는 등록 </a>를 부탁드립니다. 응원해주셔서 감사합니다!"
 
-#: allthethings/account/templates/account/donate.html:350
+#: allthethings/account/templates/account/donate.html:365
 msgid "page.donate.payment.crypto_select"
 msgstr "선호하는 암호화폐 선택:"
 
-#: allthethings/account/templates/account/donate.html:355
+#: allthethings/account/templates/account/donate.html:370
 #, fuzzy
 msgid "page.donate.currency_lowest_minimum"
 msgstr "(최소 금액)"
 
-#: allthethings/account/templates/account/donate.html:369
-#: allthethings/account/templates/account/donate.html:370
-#: allthethings/account/templates/account/donate.html:374
-#: allthethings/account/templates/account/donate.html:376
+#: allthethings/account/templates/account/donate.html:384
+#: allthethings/account/templates/account/donate.html:385
+#: allthethings/account/templates/account/donate.html:389
+#: allthethings/account/templates/account/donate.html:391
 #, fuzzy
 msgid "page.donate.currency_warning_high_minimum"
 msgstr "(경고: 높은 최소 금액)"
 
-#: allthethings/account/templates/account/donate.html:385
+#: allthethings/account/templates/account/donate.html:400
 msgid "page.donate.submit.confirm"
 msgstr "기부를 확정하기 위해 기부 버튼을 눌러 주세요."
 
-#: allthethings/account/templates/account/donate.html:393
+#: allthethings/account/templates/account/donate.html:408
 msgid "page.donate.submit.button"
 msgstr "<span %(span_cost)s></span> <span %(span_label)s></span> 기부하기"
 
-#: allthethings/account/templates/account/donate.html:398
+#: allthethings/account/templates/account/donate.html:413
 msgid "page.donate.submit.cancel_note"
 msgstr "결제 중에도 구독을 취소하실 수 있습니다."
 
-#: allthethings/account/templates/account/donate.html:402
+#: allthethings/account/templates/account/donate.html:417
 msgid "page.donate.submit.success"
 msgstr "✅ 기부 페이지로 리다이렉팅…"
 
-#: allthethings/account/templates/account/donate.html:403
+#: allthethings/account/templates/account/donate.html:418
 msgid "page.donate.submit.failure"
 msgstr "❌ 무언가 잘못되었습니다. 페이지를 새로고침하고 다시 시도해 주세요."
 
-#: allthethings/account/templates/account/donate.html:463
+#: allthethings/account/templates/account/donate.html:478
 msgid "page.donate.duration.summary.discount"
 msgstr "%(percentage)s%%"
 
-#: allthethings/account/templates/account/donate.html:464
+#: allthethings/account/templates/account/donate.html:479
 msgid "page.donate.duration.summary.monthly_cost"
 msgstr "%(monthly_cost)s / 개월"
 
-#: allthethings/account/templates/account/donate.html:467
+#: allthethings/account/templates/account/donate.html:482
 msgid "page.donate.duration.summary.duration.1_mo"
 msgstr "1개월"
 
-#: allthethings/account/templates/account/donate.html:468
+#: allthethings/account/templates/account/donate.html:483
 msgid "page.donate.duration.summary.duration.3_mo"
 msgstr "3개월간"
 
-#: allthethings/account/templates/account/donate.html:469
+#: allthethings/account/templates/account/donate.html:484
 msgid "page.donate.duration.summary.duration.6_mo"
 msgstr "6개월간"
 
-#: allthethings/account/templates/account/donate.html:470
+#: allthethings/account/templates/account/donate.html:485
 msgid "page.donate.duration.summary.duration.12_mo"
 msgstr "12개월간"
 
-#: allthethings/account/templates/account/donate.html:471
+#: allthethings/account/templates/account/donate.html:486
 msgid "page.donate.duration.summary.duration.24_mo"
 msgstr "24개월간"
 
-#: allthethings/account/templates/account/donate.html:472
+#: allthethings/account/templates/account/donate.html:487
 #, fuzzy
 msgid "page.donate.duration.summary.duration.48_mo"
 msgstr "48개월 동안"
 
-#: allthethings/account/templates/account/donate.html:473
+#: allthethings/account/templates/account/donate.html:488
 #, fuzzy
 msgid "page.donate.duration.summary.duration.96_mo"
 msgstr "96개월 동안"
 
-#: allthethings/account/templates/account/donate.html:477
+#: allthethings/account/templates/account/donate.html:492
 msgid "page.donate.submit.button.label.1_mo"
 msgstr "1개월 \"%(tier_name)s\""
 
-#: allthethings/account/templates/account/donate.html:478
+#: allthethings/account/templates/account/donate.html:493
 msgid "page.donate.submit.button.label.3_mo"
 msgstr "3개월 \"%(tier_name)s\""
 
-#: allthethings/account/templates/account/donate.html:479
+#: allthethings/account/templates/account/donate.html:494
 msgid "page.donate.submit.button.label.6_mo"
 msgstr "6개월 \"%(tier_name)s\""
 
-#: allthethings/account/templates/account/donate.html:480
+#: allthethings/account/templates/account/donate.html:495
 msgid "page.donate.submit.button.label.12_mo"
 msgstr "12개월 \"%(tier_name)s\""
 
-#: allthethings/account/templates/account/donate.html:481
+#: allthethings/account/templates/account/donate.html:496
 msgid "page.donate.submit.button.label.24_mo"
 msgstr "24개월 \"%(tier_name)s\""
 
-#: allthethings/account/templates/account/donate.html:482
+#: allthethings/account/templates/account/donate.html:497
 #, fuzzy
 msgid "page.donate.submit.button.label.48_mo"
 msgstr "48개월 동안 “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:483
+#: allthethings/account/templates/account/donate.html:498
 #, fuzzy
 msgid "page.donate.submit.button.label.96_mo"
 msgstr "96개월 동안 “%(tier_name)s”"
@@ -803,15 +806,16 @@ msgstr "<strong>중요:</strong> 암호화폐 가격은 심하게 변동할 수 
 #: allthethings/account/templates/account/donation.html:115
 #: allthethings/account/templates/account/donation.html:166
 #: allthethings/account/templates/account/donation.html:206
-#: allthethings/account/templates/account/donation.html:251
-#: allthethings/account/templates/account/donation.html:292
-#: allthethings/account/templates/account/donation.html:354
-#: allthethings/account/templates/account/donation.html:370
-#: allthethings/account/templates/account/donation.html:388
-#: allthethings/account/templates/account/donation.html:404
-#: allthethings/account/templates/account/donation.html:421
-#: allthethings/account/templates/account/donation.html:456
-#: allthethings/account/templates/account/donation.html:482
+#: allthethings/account/templates/account/donation.html:250
+#: allthethings/account/templates/account/donation.html:296
+#: allthethings/account/templates/account/donation.html:337
+#: allthethings/account/templates/account/donation.html:399
+#: allthethings/account/templates/account/donation.html:415
+#: allthethings/account/templates/account/donation.html:433
+#: allthethings/account/templates/account/donation.html:449
+#: allthethings/account/templates/account/donation.html:466
+#: allthethings/account/templates/account/donation.html:501
+#: allthethings/account/templates/account/donation.html:527
 msgid "page.donation.expired"
 msgstr "이 기부는 만료되었습니다. 취소하고 새로 기부해 주세요."
 
@@ -858,7 +862,7 @@ msgid "page.donation.payment.paypal.text5"
 msgstr "수신자로 우리의 비트코인 (BTC) 주소를 입력하고, %(total)s 기부금을 보내기 위한 지침을 따르세요:"
 
 #: allthethings/account/templates/account/donation.html:139
-#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:292
 #, fuzzy
 msgid "page.donation.credit_debit_card_instructions"
 msgstr "신용 / 직불 카드 설명서"
@@ -880,84 +884,91 @@ msgstr "아래의 단계별 가이드를 참조하세요."
 
 #: allthethings/account/templates/account/donation.html:148
 #: allthethings/account/templates/account/donation.html:191
-#: allthethings/account/templates/account/donation.html:234
-#: allthethings/account/templates/account/donation.html:275
-#: allthethings/account/templates/account/donation.html:304
-#: allthethings/account/templates/account/donation.html:335
-#: allthethings/account/templates/account/donation.html:441
-#: allthethings/account/templates/account/donation.html:468
+#: allthethings/account/templates/account/donation.html:235
+#: allthethings/account/templates/account/donation.html:279
+#: allthethings/account/templates/account/donation.html:320
+#: allthethings/account/templates/account/donation.html:349
+#: allthethings/account/templates/account/donation.html:380
+#: allthethings/account/templates/account/donation.html:486
+#: allthethings/account/templates/account/donation.html:513
 #, fuzzy
 msgid "page.donation.status_header"
 msgstr "상태:"
 
 #: allthethings/account/templates/account/donation.html:148
 #: allthethings/account/templates/account/donation.html:191
-#: allthethings/account/templates/account/donation.html:234
-#: allthethings/account/templates/account/donation.html:275
-#: allthethings/account/templates/account/donation.html:304
-#: allthethings/account/templates/account/donation.html:441
-#: allthethings/account/templates/account/donation.html:468
+#: allthethings/account/templates/account/donation.html:235
+#: allthethings/account/templates/account/donation.html:279
+#: allthethings/account/templates/account/donation.html:320
+#: allthethings/account/templates/account/donation.html:349
+#: allthethings/account/templates/account/donation.html:486
+#: allthethings/account/templates/account/donation.html:513
 #, fuzzy
 msgid "page.donation.waiting_for_confirmation_refresh"
 msgstr "확인 대기 중 (확인하려면 페이지를 새로 고침하세요)…"
 
 #: allthethings/account/templates/account/donation.html:148
 #: allthethings/account/templates/account/donation.html:191
-#: allthethings/account/templates/account/donation.html:234
-#: allthethings/account/templates/account/donation.html:275
-#: allthethings/account/templates/account/donation.html:304
-#: allthethings/account/templates/account/donation.html:441
-#: allthethings/account/templates/account/donation.html:468
+#: allthethings/account/templates/account/donation.html:235
+#: allthethings/account/templates/account/donation.html:279
+#: allthethings/account/templates/account/donation.html:320
+#: allthethings/account/templates/account/donation.html:349
+#: allthethings/account/templates/account/donation.html:486
+#: allthethings/account/templates/account/donation.html:513
 #, fuzzy
 msgid "page.donation.waiting_for_transfer_refresh"
 msgstr "전송 대기 중 (페이지를 새로 고침하여 확인하세요)…"
 
 #: allthethings/account/templates/account/donation.html:149
 #: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:276
-#: allthethings/account/templates/account/donation.html:305
-#: allthethings/account/templates/account/donation.html:442
-#: allthethings/account/templates/account/donation.html:469
+#: allthethings/account/templates/account/donation.html:236
+#: allthethings/account/templates/account/donation.html:280
+#: allthethings/account/templates/account/donation.html:321
+#: allthethings/account/templates/account/donation.html:350
+#: allthethings/account/templates/account/donation.html:487
+#: allthethings/account/templates/account/donation.html:514
 #, fuzzy
 msgid "page.donation.time_left_header"
 msgstr "남은 시간:"
 
 #: allthethings/account/templates/account/donation.html:149
 #: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:276
-#: allthethings/account/templates/account/donation.html:305
-#: allthethings/account/templates/account/donation.html:442
-#: allthethings/account/templates/account/donation.html:469
+#: allthethings/account/templates/account/donation.html:236
+#: allthethings/account/templates/account/donation.html:280
+#: allthethings/account/templates/account/donation.html:321
+#: allthethings/account/templates/account/donation.html:350
+#: allthethings/account/templates/account/donation.html:487
+#: allthethings/account/templates/account/donation.html:514
 #, fuzzy
 msgid "page.donation.might_want_to_cancel"
 msgstr "(취소하고 새 기부를 생성하는 것이 좋습니다)"
 
 #: allthethings/account/templates/account/donation.html:153
 #: allthethings/account/templates/account/donation.html:196
-#: allthethings/account/templates/account/donation.html:239
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:309
-#: allthethings/account/templates/account/donation.html:446
-#: allthethings/account/templates/account/donation.html:473
+#: allthethings/account/templates/account/donation.html:240
+#: allthethings/account/templates/account/donation.html:284
+#: allthethings/account/templates/account/donation.html:325
+#: allthethings/account/templates/account/donation.html:354
+#: allthethings/account/templates/account/donation.html:491
+#: allthethings/account/templates/account/donation.html:518
 msgid "page.donation.reset_timer"
 msgstr "타이머를 재설정하려면 새 기부금을 만들기만 하면 됩니다."
 
 #: allthethings/account/templates/account/donation.html:157
 #: allthethings/account/templates/account/donation.html:200
-#: allthethings/account/templates/account/donation.html:243
-#: allthethings/account/templates/account/donation.html:284
-#: allthethings/account/templates/account/donation.html:313
-#: allthethings/account/templates/account/donation.html:339
-#: allthethings/account/templates/account/donation.html:450
-#: allthethings/account/templates/account/donation.html:477
+#: allthethings/account/templates/account/donation.html:244
+#: allthethings/account/templates/account/donation.html:288
+#: allthethings/account/templates/account/donation.html:329
+#: allthethings/account/templates/account/donation.html:358
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:495
+#: allthethings/account/templates/account/donation.html:522
 #, fuzzy
 msgid "page.donation.refresh_status"
 msgstr "상태 업데이트"
 
 #: allthethings/account/templates/account/donation.html:161
-#: allthethings/account/templates/account/donation.html:577
+#: allthethings/account/templates/account/donation.html:622
 #, fuzzy
 msgid "page.donation.footer.issues_contact"
 msgstr "문제가 발생하면 %(email)s로 연락해 주시고 가능한 한 많은 정보를 포함해 주세요 (예: 스크린샷)."
@@ -983,215 +994,216 @@ msgid "page.donation.pyusd.transfer"
 msgstr "PayPal 앱 또는 웹사이트에서 “PYUSD” 페이지로 이동하세요. “전송” 버튼 %(icon)s을 누르고, “보내기”를 선택하세요."
 
 #: allthethings/account/templates/account/donation.html:187
-#: allthethings/account/templates/account/donation.html:226
-#: allthethings/account/templates/account/donation.html:296
+#: allthethings/account/templates/account/donation.html:227
+#: allthethings/account/templates/account/donation.html:271
+#: allthethings/account/templates/account/donation.html:341
 #, fuzzy
 msgid "page.donation.transfer_amount_to"
 msgstr "%(amount)s을(를) %(account)s로 전송"
 
-#: allthethings/account/templates/account/donation.html:288
+#: allthethings/account/templates/account/donation.html:333
 #, fuzzy
 msgid "page.donation.crypto_instructions"
 msgstr "%(coin_name)s 지침"
 
-#: allthethings/account/templates/account/donation.html:300
+#: allthethings/account/templates/account/donation.html:345
 #, fuzzy
 msgid "page.donation.crypto_standard"
 msgstr "저희는 표준 버전의 암호화폐만 지원하며, 특이한 네트워크나 버전의 코인은 지원하지 않습니다. 코인에 따라 거래 확인이 최대 한 시간까지 걸릴 수 있습니다."
 
-#: allthethings/account/templates/account/donation.html:317
+#: allthethings/account/templates/account/donation.html:362
 #, fuzzy
 msgid "page.donation.amazon.header"
 msgstr "아마존 기프트 카드"
 
-#: allthethings/account/templates/account/donation.html:320
+#: allthethings/account/templates/account/donation.html:365
 #, fuzzy
 msgid "page.donation.amazon.form_instructions"
 msgstr "아래 이메일 주소로 %(amount)s의 기프트 카드를 보내려면 <a %(a_form)s>공식 Amazon.com 양식</a>을 사용해 주세요."
 
-#: allthethings/account/templates/account/donation.html:321
+#: allthethings/account/templates/account/donation.html:366
 #, fuzzy
 msgid "page.donation.amazon.only_official"
 msgstr "다른 방법의 기프트 카드는 받을 수 없습니다, <strong>Amazon.com의 공식 양식을 통해 직접 발송된 경우에만 가능합니다</strong>. 이 양식을 사용하지 않으면 기프트 카드를 반환할 수 없습니다."
 
-#: allthethings/account/templates/account/donation.html:326
+#: allthethings/account/templates/account/donation.html:371
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_message"
 msgstr "자신의 메시지를 작성하지 마세요."
 
-#: allthethings/account/templates/account/donation.html:330
+#: allthethings/account/templates/account/donation.html:375
 #, fuzzy
 msgid "page.donation.amazon.form_to"
 msgstr "“받는 사람” 이메일 양식:"
 
-#: allthethings/account/templates/account/donation.html:331
+#: allthethings/account/templates/account/donation.html:376
 #, fuzzy
 msgid "page.donation.amazon.unique"
 msgstr "계정에 고유한 정보로, 공유하지 마세요."
 
-#: allthethings/account/templates/account/donation.html:335
+#: allthethings/account/templates/account/donation.html:380
 #, fuzzy
 msgid "page.donation.amazon.waiting_gift_card"
 msgstr "기프트 카드를 기다리는 중… (페이지를 새로 고침하여 확인하세요)"
 
-#: allthethings/account/templates/account/donation.html:343
+#: allthethings/account/templates/account/donation.html:388
 #, fuzzy
 msgid "page.donation.amazon.confirm_automated"
 msgstr "기프트 카드를 보낸 후, 자동 시스템이 몇 분 내에 확인합니다. 작동하지 않으면 기프트 카드를 다시 보내보세요 (<a %(a_instr)s>설명서</a>)."
 
-#: allthethings/account/templates/account/donation.html:344
+#: allthethings/account/templates/account/donation.html:389
 #, fuzzy
 msgid "page.donation.amazon.doesnt_work"
 msgstr "그래도 작동하지 않으면 이메일을 보내주시면 Anna가 수동으로 검토할 것입니다 (며칠이 걸릴 수 있습니다). 이미 재전송을 시도한 경우 이를 언급하는 것을 잊지 마세요."
 
-#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:392
 #, fuzzy
 msgid "page.donation.amazon.example"
 msgstr "예시:"
 
-#: allthethings/account/templates/account/donation.html:383
-#: allthethings/account/templates/account/donation.html:400
-#: allthethings/account/templates/account/donation.html:416
-#: allthethings/account/templates/account/donation.html:437
-#: allthethings/account/templates/account/donation.html:494
+#: allthethings/account/templates/account/donation.html:428
+#: allthethings/account/templates/account/donation.html:445
+#: allthethings/account/templates/account/donation.html:461
+#: allthethings/account/templates/account/donation.html:482
+#: allthethings/account/templates/account/donation.html:539
 #, fuzzy
 msgid "page.donate.strange_account"
 msgstr "계정 이름이나 사진이 이상해 보일 수 있습니다. 걱정하지 마세요! 이 계정들은 우리의 기부 파트너가 관리합니다. 우리의 계정이 해킹된 것은 아닙니다."
 
-#: allthethings/account/templates/account/donation.html:407
-#: allthethings/account/templates/account/donation.html:424
+#: allthethings/account/templates/account/donation.html:452
+#: allthethings/account/templates/account/donation.html:469
 #, fuzzy
 msgid "page.donation.payment.alipay.top_header"
 msgstr "알리페이 지침"
 
-#: allthethings/account/templates/account/donation.html:409
-#: allthethings/account/templates/account/donation.html:426
+#: allthethings/account/templates/account/donation.html:454
+#: allthethings/account/templates/account/donation.html:471
 #, fuzzy
 msgid "page.donation.payment.alipay.header1"
 msgstr "<span %(span_circle)s>1</span>알리페이로 기부하기"
 
-#: allthethings/account/templates/account/donation.html:412
-#: allthethings/account/templates/account/donation.html:429
+#: allthethings/account/templates/account/donation.html:457
+#: allthethings/account/templates/account/donation.html:474
 #, fuzzy
 msgid "page.donation.payment.alipay.text1_new"
 msgstr "<a %(a_account)s>이 알리페이 계정</a>을 사용하여 총 %(total)s을 기부하세요."
 
-#: allthethings/account/templates/account/donation.html:433
+#: allthethings/account/templates/account/donation.html:478
 #, fuzzy
 msgid "page.donation.payment.alipay.error"
 msgstr "불행히도, 알리페이 페이지는 종종 <strong>중국 본토</strong>에서만 접근 가능합니다. VPN을 일시적으로 비활성화하거나 중국 본토(또는 때때로 홍콩도 작동합니다)로의 VPN을 사용해야 할 수 있습니다."
 
-#: allthethings/account/templates/account/donation.html:459
+#: allthethings/account/templates/account/donation.html:504
 #, fuzzy
 msgid "page.donation.payment.wechat.top_header"
 msgstr "WeChat 사용 지침"
 
-#: allthethings/account/templates/account/donation.html:461
+#: allthethings/account/templates/account/donation.html:506
 #, fuzzy
 msgid "page.donation.payment.wechat.header1"
 msgstr "<span %(span_circle)s>1</span>WeChat으로 기부하기"
 
-#: allthethings/account/templates/account/donation.html:464
+#: allthethings/account/templates/account/donation.html:509
 #, fuzzy
 msgid "page.donation.payment.wechat.text1"
 msgstr "총 %(total)s 금액을 <a %(a_account)s>이 WeChat 계정</a>을 사용하여 기부하세요."
 
-#: allthethings/account/templates/account/donation.html:485
+#: allthethings/account/templates/account/donation.html:530
 #, fuzzy
 msgid "page.donation.payment.pix.top_header"
 msgstr "Pix 지침"
 
-#: allthethings/account/templates/account/donation.html:487
+#: allthethings/account/templates/account/donation.html:532
 #, fuzzy
 msgid "page.donation.payment.pix.header1"
 msgstr "<span %(span_circle)s>1</span>Pix로 기부하기"
 
-#: allthethings/account/templates/account/donation.html:490
+#: allthethings/account/templates/account/donation.html:535
 #, fuzzy
 msgid "page.donation.payment.pix.text1"
 msgstr "<a %(a_account)s>이 Pix 계정</a>을 사용하여 총 %(total)s 금액을 기부하세요."
 
-#: allthethings/account/templates/account/donation.html:499
+#: allthethings/account/templates/account/donation.html:544
 #, fuzzy
 msgid "page.donation.footer.header"
 msgstr "<span %(span_circle)s>%(circle_number)s</span>영수증을 이메일로 보내주세요"
 
-#: allthethings/account/templates/account/donation.html:505
+#: allthethings/account/templates/account/donation.html:550
 #, fuzzy
 msgid "page.donation.footer.text1"
 msgstr "영수증이나 스크린샷을 개인 인증 주소로 보내세요:"
 
-#: allthethings/account/templates/account/donation.html:515
+#: allthethings/account/templates/account/donation.html:560
 #, fuzzy
 msgid "page.donation.footer.crypto_note"
 msgstr "거래 중 암호화폐 환율이 변동된 경우, 원래 환율을 보여주는 영수증을 반드시 포함해 주세요. 암호화폐를 사용해 주셔서 정말 감사합니다. 저희에게 큰 도움이 됩니다!"
 
-#: allthethings/account/templates/account/donation.html:520
+#: allthethings/account/templates/account/donation.html:565
 #, fuzzy
 msgid "page.donation.footer.text2"
 msgstr "영수증을 이메일로 보내신 후, 이 버튼을 클릭하여 Anna가 수동으로 검토할 수 있도록 하세요 (며칠이 걸릴 수 있습니다):"
 
-#: allthethings/account/templates/account/donation.html:530
+#: allthethings/account/templates/account/donation.html:575
 #, fuzzy
 msgid "page.donation.footer.button"
 msgstr "네, 영수증을 이메일로 보냈습니다"
 
-#: allthethings/account/templates/account/donation.html:533
+#: allthethings/account/templates/account/donation.html:578
 #, fuzzy
 msgid "page.donation.footer.success"
 msgstr "✅ 기부해 주셔서 감사합니다! Anna가 며칠 내에 수동으로 회원 자격을 활성화할 것입니다."
 
-#: allthethings/account/templates/account/donation.html:534
+#: allthethings/account/templates/account/donation.html:579
 #, fuzzy
 msgid "page.donation.footer.failure"
 msgstr "❌ 문제가 발생했습니다. 페이지를 새로 고침하고 다시 시도하세요."
 
-#: allthethings/account/templates/account/donation.html:539
+#: allthethings/account/templates/account/donation.html:584
 #, fuzzy
 msgid "page.donation.stepbystep"
 msgstr "단계별 가이드"
 
-#: allthethings/account/templates/account/donation.html:541
+#: allthethings/account/templates/account/donation.html:586
 #, fuzzy
 msgid "page.donation.crypto_dont_worry"
 msgstr "일부 단계에서는 암호화폐 지갑을 언급하지만, 걱정하지 마세요. 암호화폐에 대해 아무것도 배울 필요는 없습니다."
 
-#: allthethings/account/templates/account/donation.html:543
+#: allthethings/account/templates/account/donation.html:588
 #, fuzzy
 msgid "page.donation.hoodpay.step1"
 msgstr "1. 이메일을 입력하세요."
 
-#: allthethings/account/templates/account/donation.html:549
+#: allthethings/account/templates/account/donation.html:594
 #, fuzzy
 msgid "page.donation.hoodpay.step2"
 msgstr "2. 결제 방법을 선택하세요."
 
-#: allthethings/account/templates/account/donation.html:555
+#: allthethings/account/templates/account/donation.html:600
 #, fuzzy
 msgid "page.donation.hoodpay.step3"
 msgstr "3. 결제 방법을 다시 선택하세요."
 
-#: allthethings/account/templates/account/donation.html:561
+#: allthethings/account/templates/account/donation.html:606
 #, fuzzy
 msgid "page.donation.hoodpay.step4"
 msgstr "4. “자체 호스팅” 지갑을 선택하세요."
 
-#: allthethings/account/templates/account/donation.html:567
+#: allthethings/account/templates/account/donation.html:612
 #, fuzzy
 msgid "page.donation.hoodpay.step5"
 msgstr "5. \"소유권 확인\"을 클릭하세요."
 
-#: allthethings/account/templates/account/donation.html:573
+#: allthethings/account/templates/account/donation.html:618
 #, fuzzy
 msgid "page.donation.hoodpay.step6"
 msgstr "이메일 영수증을 받으셔야 합니다. 그 영수증을 저희에게 보내주시면 가능한 한 빨리 기부를 확인해드리겠습니다."
 
-#: allthethings/account/templates/account/donation.html:578
+#: allthethings/account/templates/account/donation.html:623
 #, fuzzy
 msgid "page.donate.wait"
 msgstr "저희에게 연락하기 전에 최소 <span %(span_hours)s>두 시간</span>을 기다렸다가 이 페이지를 새로 고침하세요."
 
-#: allthethings/account/templates/account/donation.html:579
+#: allthethings/account/templates/account/donation.html:624
 #, fuzzy
 msgid "page.donate.mistake"
 msgstr "결제 중 실수를 했다면 환불은 불가능하지만, 문제를 해결하기 위해 최선을 다하겠습니다."
@@ -1537,23 +1549,23 @@ msgstr "아직 목록이 없습니다"
 msgid "page.profile.lists.new_list"
 msgstr "파일을 찾아 “목록” 탭을 열어 새 목록을 만드세요."
 
-#: allthethings/dyn/views.py:855 allthethings/dyn/views.py:884
-#: allthethings/dyn/views.py:895
+#: allthethings/dyn/views.py:855 allthethings/dyn/views.py:887
+#: allthethings/dyn/views.py:898
 #, fuzzy
 msgid "dyn.buy_membership.error.unknown"
 msgstr "알 수 없는 오류가 발생했습니다. 스크린샷과 함께 %(email)s로 문의하십시오."
 
-#: allthethings/dyn/views.py:881
-#, fuzzy
-msgid "dyn.buy_membership.error.try_again"
-msgstr "요청을 완료할 수 없습니다. 몇 분 후에 다시 시도해 주세요. 계속 문제가 발생하면 %(email)s로 스크린샷과 함께 연락해 주세요."
-
-#: allthethings/dyn/views.py:889
+#: allthethings/dyn/views.py:872 allthethings/dyn/views.py:892
 #, fuzzy
 msgid "dyn.buy_membership.error.minimum"
 msgstr "이 코인은 평소보다 높은 최소 금액을 가지고 있습니다. 다른 기간 또는 다른 코인을 선택하세요."
 
-#: allthethings/dyn/views.py:892
+#: allthethings/dyn/views.py:884
+#, fuzzy
+msgid "dyn.buy_membership.error.try_again"
+msgstr "요청을 완료할 수 없습니다. 몇 분 후에 다시 시도해 주세요. 계속 문제가 발생하면 %(email)s로 스크린샷과 함께 연락해 주세요."
+
+#: allthethings/dyn/views.py:895
 #, fuzzy
 msgid "dyn.buy_membership.error.wait"
 msgstr "결제 처리 오류. 잠시 후 다시 시도해 주세요. 문제가 24시간 이상 지속되면, 스크린샷과 함께 %(email)s로 연락해 주세요."
@@ -1854,7 +1866,7 @@ msgstr "오픈 소스 날짜"
 msgid "page.md5.box.download.temporarily_unavailable"
 msgstr "이 파일에 대해 파트너 서버 다운로드가 일시적으로 불가능합니다."
 
-#: allthethings/page/views.py:5070 allthethings/page/views.py:5254
+#: allthethings/page/views.py:5070 allthethings/page/views.py:5258
 msgid "page.md5.box.download.scihub"
 msgstr "Sci-Hub: %(doi)s"
 
@@ -1890,107 +1902,107 @@ msgstr "Libgen.li"
 msgid "page.md5.box.download.libgen_ads"
 msgstr "그들의 광고에는 악성 소프트웨어가 포함되어 있을 수 있으므로 광고 차단기를 사용하거나 광고를 클릭하지 마세요."
 
-#: allthethings/page/views.py:5251
+#: allthethings/page/views.py:5255
 #, fuzzy
 msgid "page.md5.box.download.ia_borrow"
 msgstr "Internet Archive에서 대여하기"
 
-#: allthethings/page/views.py:5251
+#: allthethings/page/views.py:5255
 #, fuzzy
 msgid "page.md5.box.download.print_disabled_only"
 msgstr "(인쇄 비활성화된 이용자 전용)"
 
-#: allthethings/page/views.py:5254
+#: allthethings/page/views.py:5258
 #, fuzzy
 msgid "page.md5.box.download.scihub_maybe"
 msgstr "(관련 DOI는 Sci-Hub에서 사용할 수 없을 수 있습니다)"
 
-#: allthethings/page/views.py:5260
+#: allthethings/page/views.py:5264
 #, fuzzy
 msgid "page.md5.box.download.collection"
 msgstr "컬렉션"
 
-#: allthethings/page/views.py:5261
+#: allthethings/page/views.py:5265
 #, fuzzy
 msgid "page.md5.box.download.torrent"
 msgstr "토렌트"
 
-#: allthethings/page/views.py:5267
+#: allthethings/page/views.py:5271
 #, fuzzy
 msgid "page.md5.box.download.bulk_torrents"
 msgstr "대량 토렌트 다운로드"
 
-#: allthethings/page/views.py:5267
+#: allthethings/page/views.py:5271
 #, fuzzy
 msgid "page.md5.box.download.experts_only"
 msgstr "(전문가 전용)"
 
-#: allthethings/page/views.py:5274
+#: allthethings/page/views.py:5278
 #, fuzzy
 msgid "page.md5.box.download.aa_isbn"
 msgstr "Anna’s Archive에서 ISBN 검색"
 
-#: allthethings/page/views.py:5275
+#: allthethings/page/views.py:5279
 #, fuzzy
 msgid "page.md5.box.download.other_isbn"
 msgstr "ISBN을 위한 다양한 다른 데이터베이스 검색"
 
-#: allthethings/page/views.py:5277
+#: allthethings/page/views.py:5281
 #, fuzzy
 msgid "page.md5.box.download.original_isbndb"
 msgstr "ISBNdb에서 원본 기록 찾기"
 
-#: allthethings/page/views.py:5279
+#: allthethings/page/views.py:5283
 #, fuzzy
 msgid "page.md5.box.download.aa_openlib"
 msgstr "Open Library ID로 Anna’s Archive 검색"
 
-#: allthethings/page/views.py:5281
+#: allthethings/page/views.py:5285
 #, fuzzy
 msgid "page.md5.box.download.original_openlib"
 msgstr "Open Library에서 원본 기록 찾기"
 
-#: allthethings/page/views.py:5283
+#: allthethings/page/views.py:5287
 #, fuzzy
 msgid "page.md5.box.download.aa_oclc"
 msgstr "OCLC (WorldCat) 번호를 위해 Anna’s Archive 검색"
 
-#: allthethings/page/views.py:5284
+#: allthethings/page/views.py:5288
 #, fuzzy
 msgid "page.md5.box.download.original_oclc"
 msgstr "WorldCat에서 원본 기록 찾기"
 
-#: allthethings/page/views.py:5286
+#: allthethings/page/views.py:5290
 #, fuzzy
 msgid "page.md5.box.download.aa_duxiu"
 msgstr "DuXiu SSID 번호로 Anna’s Archive 검색"
 
-#: allthethings/page/views.py:5287
+#: allthethings/page/views.py:5291
 #, fuzzy
 msgid "page.md5.box.download.original_duxiu"
 msgstr "DuXiu에서 수동으로 검색하기"
 
-#: allthethings/page/views.py:5289
+#: allthethings/page/views.py:5293
 #, fuzzy
 msgid "page.md5.box.download.aa_cadal"
 msgstr "CADAL SSNO 번호로 Anna’s Archive 검색"
 
-#: allthethings/page/views.py:5290
+#: allthethings/page/views.py:5294
 #, fuzzy
 msgid "page.md5.box.download.original_cadal"
 msgstr "CADAL에서 원본 기록 찾기"
 
-#: allthethings/page/views.py:5294
+#: allthethings/page/views.py:5298
 #, fuzzy
 msgid "page.md5.box.download.aa_dxid"
 msgstr "DuXiu DXID 번호로 Anna’s Archive 검색"
 
-#: allthethings/page/views.py:5299 allthethings/page/views.py:5300
+#: allthethings/page/views.py:5303 allthethings/page/views.py:5304
 #, fuzzy
 msgid "page.md5.box.download.scidb"
 msgstr "Anna’s Archive 🧬 SciDB"
 
-#: allthethings/page/views.py:5299 allthethings/page/views.py:5300
+#: allthethings/page/views.py:5303 allthethings/page/views.py:5304
 #, fuzzy
 msgid "common.md5.servers.no_browser_verification"
 msgstr "(브라우저 인증 필요 없음)"

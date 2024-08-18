@@ -115,15 +115,15 @@ msgstr "Duktig Datahamstrare"
 msgid "common.membership.tier_name.5"
 msgstr "Allenastående Arkivarie"
 
-#: allthethings/utils.py:552
+#: allthethings/utils.py:554
 msgid "common.membership.format_currency.total_with_usd"
 msgstr "%(amount)s (%(amount_usd)s) totalt"
 
-#: allthethings/utils.py:554 allthethings/utils.py:555
+#: allthethings/utils.py:556 allthethings/utils.py:557
 msgid "common.membership.format_currency.amount_with_usd"
 msgstr "%(amount)s (%(amount_usd)s)"
 
-#: allthethings/utils.py:566
+#: allthethings/utils.py:568
 msgid "common.membership.format_currency.total"
 msgstr "%(amount)s totalt"
 
@@ -272,7 +272,7 @@ msgid "page.donate.expert.contact_us"
 msgstr "kontakta oss"
 
 #: allthethings/account/templates/account/donate.html:103
-#: allthethings/account/templates/account/donation.html:579
+#: allthethings/account/templates/account/donation.html:624
 #: allthethings/page/templates/page/contact.html:21
 msgid "page.donate.small_team"
 msgstr "Vi är ett litet gäng som jobbar ideellt. Det kan ta 1-2 veckor för oss att svara."
@@ -329,13 +329,13 @@ msgid "page.donate.payment.select_method"
 msgstr "Vänligen välj en betalningsmetod."
 
 #: allthethings/account/templates/account/donate.html:130
-#: allthethings/account/templates/account/donate.html:296
+#: allthethings/account/templates/account/donate.html:309
 msgid "page.donate.payment.buttons.amazon"
 msgstr "Amazon presentkort"
 
 #: allthethings/account/templates/account/donate.html:131
 #: allthethings/account/templates/account/donate.html:141
-#: allthethings/account/templates/account/donate.html:298
+#: allthethings/account/templates/account/donate.html:313
 msgid "page.donate.payment.buttons.crypto"
 msgstr "Krypto %(bitcoin_icon)s"
 
@@ -346,14 +346,15 @@ msgstr "Krypto %(bitcoin_icon)s"
 #: allthethings/account/templates/account/donate.html:142
 #: allthethings/account/templates/account/donate.html:145
 #: allthethings/account/templates/account/donate.html:146
-#: allthethings/account/templates/account/donate.html:149
-#: allthethings/account/templates/account/donate.html:152
-#: allthethings/account/templates/account/donate.html:317
-#: allthethings/account/templates/account/donate.html:318
-#: allthethings/account/templates/account/donate.html:319
-#: allthethings/account/templates/account/donate.html:320
-#: allthethings/account/templates/account/donate.html:321
-#: allthethings/account/templates/account/donate.html:322
+#: allthethings/account/templates/account/donate.html:147
+#: allthethings/account/templates/account/donate.html:150
+#: allthethings/account/templates/account/donate.html:153
+#: allthethings/account/templates/account/donate.html:332
+#: allthethings/account/templates/account/donate.html:333
+#: allthethings/account/templates/account/donate.html:334
+#: allthethings/account/templates/account/donate.html:335
+#: allthethings/account/templates/account/donate.html:336
+#: allthethings/account/templates/account/donate.html:337
 msgid "page.donate.discount"
 msgstr "-%(percentage)s%%"
 
@@ -362,8 +363,9 @@ msgid "page.donate.payment.buttons.paypal"
 msgstr "PayPal (USA) %(bitcoin_icon)s"
 
 #: allthethings/account/templates/account/donate.html:139
-#: allthethings/account/templates/account/donate.html:155
-#: allthethings/account/templates/account/donate.html:162
+#: allthethings/account/templates/account/donate.html:156
+#: allthethings/account/templates/account/donate.html:163
+#: allthethings/account/templates/account/donate.html:311
 msgid "page.donate.payment.buttons.alipay"
 msgstr "Alipay"
 
@@ -375,297 +377,298 @@ msgstr "Pix (Brasilien)"
 msgid "page.donate.payment.buttons.cashapp"
 msgstr "Cash App"
 
-#: allthethings/account/templates/account/donate.html:146
+#: allthethings/account/templates/account/donate.html:147
 msgid "page.donate.payment.buttons.paypal_plain"
 msgstr "PayPal"
 
-#: allthethings/account/templates/account/donate.html:147
+#: allthethings/account/templates/account/donate.html:148
 msgid "page.donate.payment.buttons.credit_debit"
 msgstr "Kredit/debitkort"
 
-#: allthethings/account/templates/account/donate.html:148
+#: allthethings/account/templates/account/donate.html:149
 msgid "page.donate.payment.buttons.credit_debit_backup"
 msgstr "Kredit/debitkort (backup)"
 
-#: allthethings/account/templates/account/donate.html:149
+#: allthethings/account/templates/account/donate.html:150
 msgid "page.donate.payment.buttons.credit_debit2"
 msgstr "Kredit/debitkort 2"
 
-#: allthethings/account/templates/account/donate.html:156
-#: allthethings/account/templates/account/donate.html:164
-#: allthethings/account/templates/account/donate.html:173
-#: allthethings/account/templates/account/donate.html:181
-#: allthethings/account/templates/account/donate.html:188
+#: allthethings/account/templates/account/donate.html:157
+#: allthethings/account/templates/account/donate.html:165
+#: allthethings/account/templates/account/donate.html:174
+#: allthethings/account/templates/account/donate.html:182
+#: allthethings/account/templates/account/donate.html:189
 msgid "page.donate.payment.buttons.alipay_wechat"
 msgstr "Alipay 支付宝 / WeChat 微信"
 
-#: allthethings/account/templates/account/donate.html:157
-#: allthethings/account/templates/account/donate.html:163
-#: allthethings/account/templates/account/donate.html:297
+#: allthethings/account/templates/account/donate.html:158
+#: allthethings/account/templates/account/donate.html:164
+#: allthethings/account/templates/account/donate.html:312
 msgid "page.donate.payment.buttons.wechat"
 msgstr "WeChat"
 
-#: allthethings/account/templates/account/donate.html:188
+#: allthethings/account/templates/account/donate.html:189
 msgid "page.donate.payment.buttons.temporarily_unavailable"
 msgstr "(just nu otillgänglig)"
 
-#: allthethings/account/templates/account/donate.html:195
+#: allthethings/account/templates/account/donate.html:196
 msgid "page.donate.payment.desc.crypto"
 msgstr "Med krypto kan du donera genom att använda BTC, ETH, XMR, och SOL. Använd detta alternativ om du är van vid kryptovalutor."
 
-#: allthethings/account/templates/account/donate.html:201
+#: allthethings/account/templates/account/donate.html:202
 msgid "page.donate.payment.desc.crypto2"
 msgstr "Med krypto kan du donera genom att använda BTC, ETH, XMR med flera."
 
-#: allthethings/account/templates/account/donate.html:205
-#: allthethings/account/templates/account/donate.html:298
+#: allthethings/account/templates/account/donate.html:206
+#: allthethings/account/templates/account/donate.html:313
 msgid "page.donate.payment.desc.crypto_suggestion"
 msgstr "Om du använder krypto för första gången, så föreslår vi att du använder %(option1)s, %(option2)s, eller %(option3)s för att köpa och donera Botcoin (den ursprungliga och mest använda kryptovalutan)."
 
-#: allthethings/account/templates/account/donate.html:211
+#: allthethings/account/templates/account/donate.html:212
 msgid "page.donate.payment.desc.paypal"
 msgstr "För att donera med hjölp av PayPal US, so kommer vi använda PayPal Krypto, vilket möjliggör anonymitet. Vi uppskattar att du tar tid på dig att lära dig denna donationsmetod, eftersom den hjälper oss mycket."
 
-#: allthethings/account/templates/account/donate.html:212
+#: allthethings/account/templates/account/donate.html:213
 msgid "page.donate.payment.desc.paypal_short"
 msgstr "Donera med hjälp av PayPal."
 
-#: allthethings/account/templates/account/donate.html:218
+#: allthethings/account/templates/account/donate.html:219
 msgid "page.donate.payment.desc.cashapp"
 msgstr "Donera med hjälp av Cash App."
 
-#: allthethings/account/templates/account/donate.html:218
+#: allthethings/account/templates/account/donate.html:219
 msgid "page.donate.payment.desc.cashapp_easy"
 msgstr "Om du har Cash App, så är detta det enklaste sättet att donera!"
 
-#: allthethings/account/templates/account/donate.html:221
+#: allthethings/account/templates/account/donate.html:222
+#: allthethings/account/templates/account/donate.html:234
 msgid "page.donate.payment.desc.cashapp_fee"
 msgstr "Lägg märke till att för transaktioner under %(amount)s kan CashApp debitera en %(fee)s avgift. För %(amount)s eller högre är det gratis!"
 
-#: allthethings/account/templates/account/donate.html:227
-#: allthethings/account/templates/account/donate.html:281
+#: allthethings/account/templates/account/donate.html:240
+#: allthethings/account/templates/account/donate.html:294
 msgid "page.donate.payment.desc.credit_debit"
 msgstr "Donera med ett kredit- eller debitkort."
 
-#: allthethings/account/templates/account/donate.html:228
+#: allthethings/account/templates/account/donate.html:241
 msgid "page.donate.payment.desc.google_apple"
 msgstr "Google Pay och Apple Pay kan också funka."
 
-#: allthethings/account/templates/account/donate.html:229
+#: allthethings/account/templates/account/donate.html:242
 msgid "page.donate.payment.desc.elimate_discount"
 msgstr "Observera att för små donationer så kan kreditkortavgifterna äta upp vår %(discount)s%% rabatt, så vi rekommenderar längre prenumerationer."
 
-#: allthethings/account/templates/account/donate.html:230
+#: allthethings/account/templates/account/donate.html:243
 msgid "page.donate.payment.desc.longer_subs"
 msgstr "Observera att avgifterna är höga för små donationer, så vi rekommenderar längre prenumerationer."
 
-#: allthethings/account/templates/account/donate.html:236
+#: allthethings/account/templates/account/donate.html:249
 msgid "page.donate.payment.desc.binance_p1"
 msgstr "Med Binance köper du Bitcoin med ett kredit-/betalkort eller bankkonto och donerar sedan den bitcoinen till oss. På så sätt kan vi förbli säkra och anonyma när vi tar emot din donation."
 
-#: allthethings/account/templates/account/donate.html:240
+#: allthethings/account/templates/account/donate.html:253
 msgid "page.donate.payment.desc.binance_p2"
 msgstr "Binance är tillgängligt i nästan alla länder och fungerar med de flesta banker och kredit-/betalkort. Detta är för närvarande vår huvudsakliga rekommendation. Vi uppskattar att du tar dig tid att lära dig hur du donerar med denna metod, eftersom det hjälper oss mycket."
 
-#: allthethings/account/templates/account/donate.html:252
-#: allthethings/account/templates/account/donate.html:258
+#: allthethings/account/templates/account/donate.html:265
+#: allthethings/account/templates/account/donate.html:271
 msgid "page.donate.payment.desc.alipay_wechat"
 msgstr "Donera genom Alipay eller WeChat. Du kan välja mellan dessa två i nästa steg."
 
-#: allthethings/account/templates/account/donate.html:264
+#: allthethings/account/templates/account/donate.html:277
 msgid "page.donate.payment.desc.givebutter"
 msgstr "Donera med kredit-/betalkort, PayPal eller Venmo. Du kan välja mellan dessa på nästa sida."
 
-#: allthethings/account/templates/account/donate.html:270
+#: allthethings/account/templates/account/donate.html:283
 msgid "page.donate.payment.desc.amazon"
 msgstr "Donera med hjälp av ett presentkort från Amazon."
 
-#: allthethings/account/templates/account/donate.html:271
+#: allthethings/account/templates/account/donate.html:284
 msgid "page.donate.payment.desc.amazon_round"
 msgstr "Observera att vi måste runda upp till summor som godkänns av våra återförsäljares (minimum %(minimum)s)."
 
-#: allthethings/account/templates/account/donate.html:275
-#: allthethings/account/templates/account/donation.html:325
+#: allthethings/account/templates/account/donate.html:288
+#: allthethings/account/templates/account/donation.html:370
 msgid "page.donate.payment.desc.amazon_com"
 msgstr "<strong>VIKTIGT:</strong> Vi stödjer bara Amazon.com, inte andra amazonwebbsidor. Exempelvis, .se, .de, co.uk fungerar INTE."
 
-#: allthethings/account/templates/account/donate.html:282
+#: allthethings/account/templates/account/donate.html:295
 msgid "page.donate.payment.desc.credit_debit_backup"
 msgstr "Denna metod använder en kryptovalutaleverantör som en mellanliggande konvertering. Detta kan vara lite förvirrande, så använd endast denna metod om andra betalningsmetoder inte fungerar. Det fungerar inte heller i alla länder."
 
-#: allthethings/account/templates/account/donate.html:288
+#: allthethings/account/templates/account/donate.html:301
 msgid "page.donate.payment.desc.credit_debit_p1"
 msgstr "Vi kan inte stöd för direktbetalning med kredit-/betalkort, eftersom bankerna inte vill samarbeta med oss. :("
 
-#: allthethings/account/templates/account/donate.html:292
+#: allthethings/account/templates/account/donate.html:305
 msgid "page.donate.payment.desc.credit_debit_p2"
 msgstr "Det finns trots detta flera sätt att använda kredit-/betalkort, genom våra andra betalningsmetoder:"
 
-#: allthethings/account/templates/account/donate.html:296
+#: allthethings/account/templates/account/donate.html:309
 msgid "page.donate.ccexp.amazon_com"
 msgstr "Skicka oss presentkort från Amazon.com med ditt kredit-/betalkort."
 
-#: allthethings/account/templates/account/donate.html:297
+#: allthethings/account/templates/account/donate.html:312
 msgid "page.donate.ccexp.wechat"
 msgstr "WeChat (Weixin Pay) stöder internationella kredit-/betalkort. I WeChat-appen, gå till ”Jag => Tjänster => Plånbok => Lägg till ett kort”. Om du inte ser det, aktivera det genom att gå till ”Jag => Inställningar => Allmänt => Verktyg => Weixin Pay => Aktivera”."
 
-#: allthethings/account/templates/account/donate.html:298
+#: allthethings/account/templates/account/donate.html:313
 msgid "page.donate.ccexp.crypto"
 msgstr "Du kan köpa krypto med kredit-/betalkort."
 
-#: allthethings/account/templates/account/donate.html:304
+#: allthethings/account/templates/account/donate.html:319
 msgid "page.donate.payment.desc.bmc"
 msgstr "För kreditkort, betalkort, Apple Pay och Google Pay använder vi “Buy Me a Coffee” (BMC <span class=\"icon-[ph--coffee-fill] text-lg align-text-bottom\"></span>). I deras system är en “kaffe” lika med $5, så din donation kommer att avrundas till närmaste multipel av 5."
 
-#: allthethings/account/templates/account/donate.html:311
+#: allthethings/account/templates/account/donate.html:326
 msgid "page.donate.duration.intro"
 msgstr "Välj hur länge din prenumeration ska gälla."
 
-#: allthethings/account/templates/account/donate.html:316
+#: allthethings/account/templates/account/donate.html:331
 msgid "page.donate.duration.1_mo"
 msgstr "1 månad"
 
-#: allthethings/account/templates/account/donate.html:317
+#: allthethings/account/templates/account/donate.html:332
 msgid "page.donate.duration.3_mo"
 msgstr "3 månader"
 
-#: allthethings/account/templates/account/donate.html:318
+#: allthethings/account/templates/account/donate.html:333
 msgid "page.donate.duration.6_mo"
 msgstr "6 månader"
 
-#: allthethings/account/templates/account/donate.html:319
+#: allthethings/account/templates/account/donate.html:334
 msgid "page.donate.duration.12_mo"
 msgstr "12 månader"
 
-#: allthethings/account/templates/account/donate.html:320
+#: allthethings/account/templates/account/donate.html:335
 msgid "page.donate.duration.24_mo"
 msgstr "24 månader"
 
-#: allthethings/account/templates/account/donate.html:321
+#: allthethings/account/templates/account/donate.html:336
 msgid "page.donate.duration.48_mo"
 msgstr "48 månader"
 
-#: allthethings/account/templates/account/donate.html:322
+#: allthethings/account/templates/account/donate.html:337
 msgid "page.donate.duration.96_mo"
 msgstr "96 månader"
 
-#: allthethings/account/templates/account/donate.html:325
+#: allthethings/account/templates/account/donate.html:340
 msgid "page.donate.duration.summary"
 msgstr "<div %(div_monthly_cost)s></div><div %(div_after)s>efter <span %(span_discount)s></span> rabatter</div><div %(div_total)s></div><div %(div_duration)s></div>"
 
-#: allthethings/account/templates/account/donate.html:332
+#: allthethings/account/templates/account/donate.html:347
 msgid "page.donate.payment.minimum_method"
 msgstr "Denna betalningsmetod kräver minst %(amount)s. Vänligen välj en annan längd eller betalningsmetod."
 
-#: allthethings/account/templates/account/donate.html:333
-#: allthethings/account/templates/account/donate.html:337
+#: allthethings/account/templates/account/donate.html:348
+#: allthethings/account/templates/account/donate.html:352
 msgid "page.donate.buttons.donate"
 msgstr "Donera"
 
-#: allthethings/account/templates/account/donate.html:336
+#: allthethings/account/templates/account/donate.html:351
 msgid "page.donate.payment.maximum_method"
 msgstr "Denna betalningsmetod tillåter endast ett maximum av %(amount)s. Vänligen välj en annan längd eller betalningsmetod."
 
-#: allthethings/account/templates/account/donate.html:343
+#: allthethings/account/templates/account/donate.html:358
 msgid "page.donate.login2"
 msgstr "För att bli medlem, var god <a %(a_login)s>logga in eller registrera dig</a>. Tack för ditt stöd!"
 
-#: allthethings/account/templates/account/donate.html:350
+#: allthethings/account/templates/account/donate.html:365
 msgid "page.donate.payment.crypto_select"
 msgstr "Välj den kryptovaluta du föredrar:"
 
-#: allthethings/account/templates/account/donate.html:355
+#: allthethings/account/templates/account/donate.html:370
 msgid "page.donate.currency_lowest_minimum"
 msgstr "(lägsta minimibelopp)"
 
-#: allthethings/account/templates/account/donate.html:369
-#: allthethings/account/templates/account/donate.html:370
-#: allthethings/account/templates/account/donate.html:374
-#: allthethings/account/templates/account/donate.html:376
+#: allthethings/account/templates/account/donate.html:384
+#: allthethings/account/templates/account/donate.html:385
+#: allthethings/account/templates/account/donate.html:389
+#: allthethings/account/templates/account/donate.html:391
 msgid "page.donate.currency_warning_high_minimum"
 msgstr "(varning: högt minimibelopp)"
 
-#: allthethings/account/templates/account/donate.html:385
+#: allthethings/account/templates/account/donate.html:400
 msgid "page.donate.submit.confirm"
 msgstr "Klicka på donationsknappen för att godkänna donationen."
 
-#: allthethings/account/templates/account/donate.html:393
+#: allthethings/account/templates/account/donate.html:408
 msgid "page.donate.submit.button"
 msgstr "Donera <span %(span_cost)s></span> <span %(span_label)s></span>"
 
-#: allthethings/account/templates/account/donate.html:398
+#: allthethings/account/templates/account/donate.html:413
 msgid "page.donate.submit.cancel_note"
 msgstr "Du kan fortfarande avbryta donationen under checkout."
 
-#: allthethings/account/templates/account/donate.html:402
+#: allthethings/account/templates/account/donate.html:417
 msgid "page.donate.submit.success"
 msgstr "✅ Omdirigerar till donationssidan…"
 
-#: allthethings/account/templates/account/donate.html:403
+#: allthethings/account/templates/account/donate.html:418
 msgid "page.donate.submit.failure"
 msgstr "❌ Något gick fel. Var god ladda om sidan och försök igen."
 
-#: allthethings/account/templates/account/donate.html:463
+#: allthethings/account/templates/account/donate.html:478
 msgid "page.donate.duration.summary.discount"
 msgstr "%(percentage)s%%"
 
-#: allthethings/account/templates/account/donate.html:464
+#: allthethings/account/templates/account/donate.html:479
 msgid "page.donate.duration.summary.monthly_cost"
 msgstr "%(monthly_cost)s / månad"
 
-#: allthethings/account/templates/account/donate.html:467
+#: allthethings/account/templates/account/donate.html:482
 msgid "page.donate.duration.summary.duration.1_mo"
 msgstr "i 1 månad"
 
-#: allthethings/account/templates/account/donate.html:468
+#: allthethings/account/templates/account/donate.html:483
 msgid "page.donate.duration.summary.duration.3_mo"
 msgstr "i 3 månader"
 
-#: allthethings/account/templates/account/donate.html:469
+#: allthethings/account/templates/account/donate.html:484
 msgid "page.donate.duration.summary.duration.6_mo"
 msgstr "i 6 månader"
 
-#: allthethings/account/templates/account/donate.html:470
+#: allthethings/account/templates/account/donate.html:485
 msgid "page.donate.duration.summary.duration.12_mo"
 msgstr "i 12 månader"
 
-#: allthethings/account/templates/account/donate.html:471
+#: allthethings/account/templates/account/donate.html:486
 msgid "page.donate.duration.summary.duration.24_mo"
 msgstr "i 24 månader"
 
-#: allthethings/account/templates/account/donate.html:472
+#: allthethings/account/templates/account/donate.html:487
 msgid "page.donate.duration.summary.duration.48_mo"
 msgstr "i 48 månader"
 
-#: allthethings/account/templates/account/donate.html:473
+#: allthethings/account/templates/account/donate.html:488
 msgid "page.donate.duration.summary.duration.96_mo"
 msgstr "i 96 månader"
 
-#: allthethings/account/templates/account/donate.html:477
+#: allthethings/account/templates/account/donate.html:492
 msgid "page.donate.submit.button.label.1_mo"
 msgstr "i 1 månad \"%(tier_name)s\""
 
-#: allthethings/account/templates/account/donate.html:478
+#: allthethings/account/templates/account/donate.html:493
 msgid "page.donate.submit.button.label.3_mo"
 msgstr "i 3 månader \"%(tier_name)s\""
 
-#: allthethings/account/templates/account/donate.html:479
+#: allthethings/account/templates/account/donate.html:494
 msgid "page.donate.submit.button.label.6_mo"
 msgstr "i 6 månader \"%(tier_name)s\""
 
-#: allthethings/account/templates/account/donate.html:480
+#: allthethings/account/templates/account/donate.html:495
 msgid "page.donate.submit.button.label.12_mo"
 msgstr "i 12 månader \"%(tier_name)s\""
 
-#: allthethings/account/templates/account/donate.html:481
+#: allthethings/account/templates/account/donate.html:496
 msgid "page.donate.submit.button.label.24_mo"
 msgstr "i 24 månader \"%(tier_name)s\""
 
-#: allthethings/account/templates/account/donate.html:482
+#: allthethings/account/templates/account/donate.html:497
 msgid "page.donate.submit.button.label.48_mo"
 msgstr "i 48 månader “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:483
+#: allthethings/account/templates/account/donate.html:498
 msgid "page.donate.submit.button.label.96_mo"
 msgstr "i 96 månader “%(tier_name)s”"
 
@@ -756,15 +759,16 @@ msgstr "<strong>Viktigt meddelande:</strong> Kryptopriser kan fluktuera kraftigt
 #: allthethings/account/templates/account/donation.html:115
 #: allthethings/account/templates/account/donation.html:166
 #: allthethings/account/templates/account/donation.html:206
-#: allthethings/account/templates/account/donation.html:251
-#: allthethings/account/templates/account/donation.html:292
-#: allthethings/account/templates/account/donation.html:354
-#: allthethings/account/templates/account/donation.html:370
-#: allthethings/account/templates/account/donation.html:388
-#: allthethings/account/templates/account/donation.html:404
-#: allthethings/account/templates/account/donation.html:421
-#: allthethings/account/templates/account/donation.html:456
-#: allthethings/account/templates/account/donation.html:482
+#: allthethings/account/templates/account/donation.html:250
+#: allthethings/account/templates/account/donation.html:296
+#: allthethings/account/templates/account/donation.html:337
+#: allthethings/account/templates/account/donation.html:399
+#: allthethings/account/templates/account/donation.html:415
+#: allthethings/account/templates/account/donation.html:433
+#: allthethings/account/templates/account/donation.html:449
+#: allthethings/account/templates/account/donation.html:466
+#: allthethings/account/templates/account/donation.html:501
+#: allthethings/account/templates/account/donation.html:527
 msgid "page.donation.expired"
 msgstr "Denna donation har gått ut. Vänligen avbryt och skapa en ny."
 
@@ -807,7 +811,7 @@ msgid "page.donation.payment.paypal.text5"
 msgstr "Ange vår Bitcoin (BTC)-adress som mottagare och följ instruktionerna för att skicka din donation på %(total)s:"
 
 #: allthethings/account/templates/account/donation.html:139
-#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:292
 msgid "page.donation.credit_debit_card_instructions"
 msgstr "Instruktioner för kredit-/betalkort"
 
@@ -825,78 +829,85 @@ msgstr "Se steg-för-steg-guiden nedan."
 
 #: allthethings/account/templates/account/donation.html:148
 #: allthethings/account/templates/account/donation.html:191
-#: allthethings/account/templates/account/donation.html:234
-#: allthethings/account/templates/account/donation.html:275
-#: allthethings/account/templates/account/donation.html:304
-#: allthethings/account/templates/account/donation.html:335
-#: allthethings/account/templates/account/donation.html:441
-#: allthethings/account/templates/account/donation.html:468
+#: allthethings/account/templates/account/donation.html:235
+#: allthethings/account/templates/account/donation.html:279
+#: allthethings/account/templates/account/donation.html:320
+#: allthethings/account/templates/account/donation.html:349
+#: allthethings/account/templates/account/donation.html:380
+#: allthethings/account/templates/account/donation.html:486
+#: allthethings/account/templates/account/donation.html:513
 msgid "page.donation.status_header"
 msgstr "Status:"
 
 #: allthethings/account/templates/account/donation.html:148
 #: allthethings/account/templates/account/donation.html:191
-#: allthethings/account/templates/account/donation.html:234
-#: allthethings/account/templates/account/donation.html:275
-#: allthethings/account/templates/account/donation.html:304
-#: allthethings/account/templates/account/donation.html:441
-#: allthethings/account/templates/account/donation.html:468
+#: allthethings/account/templates/account/donation.html:235
+#: allthethings/account/templates/account/donation.html:279
+#: allthethings/account/templates/account/donation.html:320
+#: allthethings/account/templates/account/donation.html:349
+#: allthethings/account/templates/account/donation.html:486
+#: allthethings/account/templates/account/donation.html:513
 msgid "page.donation.waiting_for_confirmation_refresh"
 msgstr "Väntar på bekräftelse (uppdatera sidan för att kontrollera)…"
 
 #: allthethings/account/templates/account/donation.html:148
 #: allthethings/account/templates/account/donation.html:191
-#: allthethings/account/templates/account/donation.html:234
-#: allthethings/account/templates/account/donation.html:275
-#: allthethings/account/templates/account/donation.html:304
-#: allthethings/account/templates/account/donation.html:441
-#: allthethings/account/templates/account/donation.html:468
+#: allthethings/account/templates/account/donation.html:235
+#: allthethings/account/templates/account/donation.html:279
+#: allthethings/account/templates/account/donation.html:320
+#: allthethings/account/templates/account/donation.html:349
+#: allthethings/account/templates/account/donation.html:486
+#: allthethings/account/templates/account/donation.html:513
 msgid "page.donation.waiting_for_transfer_refresh"
 msgstr "Väntar på överföring (uppdatera sidan för att kontrollera)…"
 
 #: allthethings/account/templates/account/donation.html:149
 #: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:276
-#: allthethings/account/templates/account/donation.html:305
-#: allthethings/account/templates/account/donation.html:442
-#: allthethings/account/templates/account/donation.html:469
+#: allthethings/account/templates/account/donation.html:236
+#: allthethings/account/templates/account/donation.html:280
+#: allthethings/account/templates/account/donation.html:321
+#: allthethings/account/templates/account/donation.html:350
+#: allthethings/account/templates/account/donation.html:487
+#: allthethings/account/templates/account/donation.html:514
 msgid "page.donation.time_left_header"
 msgstr "Tid kvar:"
 
 #: allthethings/account/templates/account/donation.html:149
 #: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:276
-#: allthethings/account/templates/account/donation.html:305
-#: allthethings/account/templates/account/donation.html:442
-#: allthethings/account/templates/account/donation.html:469
+#: allthethings/account/templates/account/donation.html:236
+#: allthethings/account/templates/account/donation.html:280
+#: allthethings/account/templates/account/donation.html:321
+#: allthethings/account/templates/account/donation.html:350
+#: allthethings/account/templates/account/donation.html:487
+#: allthethings/account/templates/account/donation.html:514
 msgid "page.donation.might_want_to_cancel"
 msgstr "(du kanske vill avbryta och skapa en ny donation)"
 
 #: allthethings/account/templates/account/donation.html:153
 #: allthethings/account/templates/account/donation.html:196
-#: allthethings/account/templates/account/donation.html:239
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:309
-#: allthethings/account/templates/account/donation.html:446
-#: allthethings/account/templates/account/donation.html:473
+#: allthethings/account/templates/account/donation.html:240
+#: allthethings/account/templates/account/donation.html:284
+#: allthethings/account/templates/account/donation.html:325
+#: allthethings/account/templates/account/donation.html:354
+#: allthethings/account/templates/account/donation.html:491
+#: allthethings/account/templates/account/donation.html:518
 msgid "page.donation.reset_timer"
 msgstr "För att återställa timern, skapa helt enkelt en ny donation."
 
 #: allthethings/account/templates/account/donation.html:157
 #: allthethings/account/templates/account/donation.html:200
-#: allthethings/account/templates/account/donation.html:243
-#: allthethings/account/templates/account/donation.html:284
-#: allthethings/account/templates/account/donation.html:313
-#: allthethings/account/templates/account/donation.html:339
-#: allthethings/account/templates/account/donation.html:450
-#: allthethings/account/templates/account/donation.html:477
+#: allthethings/account/templates/account/donation.html:244
+#: allthethings/account/templates/account/donation.html:288
+#: allthethings/account/templates/account/donation.html:329
+#: allthethings/account/templates/account/donation.html:358
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:495
+#: allthethings/account/templates/account/donation.html:522
 msgid "page.donation.refresh_status"
 msgstr "Uppdatera status"
 
 #: allthethings/account/templates/account/donation.html:161
-#: allthethings/account/templates/account/donation.html:577
+#: allthethings/account/templates/account/donation.html:622
 msgid "page.donation.footer.issues_contact"
 msgstr "Om du stöter på några problem, vänligen kontakta oss på %(email)s och skicka med så mycket information som möjligt (såsom skärmdumpar)."
 
@@ -917,176 +928,177 @@ msgid "page.donation.pyusd.transfer"
 msgstr "Gå till “PYUSD”-sidan i din PayPal-app eller på webbplatsen. Tryck på “Överför”-knappen %(icon)s, och sedan “Skicka”."
 
 #: allthethings/account/templates/account/donation.html:187
-#: allthethings/account/templates/account/donation.html:226
-#: allthethings/account/templates/account/donation.html:296
+#: allthethings/account/templates/account/donation.html:227
+#: allthethings/account/templates/account/donation.html:271
+#: allthethings/account/templates/account/donation.html:341
 msgid "page.donation.transfer_amount_to"
 msgstr "Överför %(amount)s till %(account)s"
 
-#: allthethings/account/templates/account/donation.html:288
+#: allthethings/account/templates/account/donation.html:333
 msgid "page.donation.crypto_instructions"
 msgstr "%(coin_name)s instruktioner"
 
-#: allthethings/account/templates/account/donation.html:300
+#: allthethings/account/templates/account/donation.html:345
 msgid "page.donation.crypto_standard"
 msgstr "Vi stöder endast standardversionen av kryptovalutor, inga exotiska nätverk eller versioner av mynt. Det kan ta upp till en timme att bekräfta transaktionen, beroende på myntet."
 
-#: allthethings/account/templates/account/donation.html:317
+#: allthethings/account/templates/account/donation.html:362
 msgid "page.donation.amazon.header"
 msgstr "Amazon-presentkort"
 
-#: allthethings/account/templates/account/donation.html:320
+#: allthethings/account/templates/account/donation.html:365
 msgid "page.donation.amazon.form_instructions"
 msgstr "Vänligen använd <a %(a_form)s>officiella Amazon.com-formuläret</a> för att skicka oss ett presentkort på %(amount)s till e-postadressen nedan."
 
-#: allthethings/account/templates/account/donation.html:321
+#: allthethings/account/templates/account/donation.html:366
 msgid "page.donation.amazon.only_official"
 msgstr "Vi kan inte acceptera andra metoder för presentkort, <strong>endast skickade direkt från det officiella formuläret på Amazon.com</strong>. Vi kan inte returnera ditt presentkort om du inte använder detta formulär."
 
-#: allthethings/account/templates/account/donation.html:326
+#: allthethings/account/templates/account/donation.html:371
 msgid "page.donate.payment.desc.amazon_message"
 msgstr "Vänligen skriv INTE ditt eget meddelande."
 
-#: allthethings/account/templates/account/donation.html:330
+#: allthethings/account/templates/account/donation.html:375
 msgid "page.donation.amazon.form_to"
 msgstr "“Mottagarens” e-post i formuläret:"
 
-#: allthethings/account/templates/account/donation.html:331
+#: allthethings/account/templates/account/donation.html:376
 msgid "page.donation.amazon.unique"
 msgstr "Unikt för ditt konto, dela inte."
 
-#: allthethings/account/templates/account/donation.html:335
+#: allthethings/account/templates/account/donation.html:380
 msgid "page.donation.amazon.waiting_gift_card"
 msgstr "Väntar på presentkort… (uppdatera sidan för att kontrollera)"
 
-#: allthethings/account/templates/account/donation.html:343
+#: allthethings/account/templates/account/donation.html:388
 msgid "page.donation.amazon.confirm_automated"
 msgstr "Efter att du skickat ditt presentkort kommer vårt automatiserade system att bekräfta det inom några minuter. Om detta inte fungerar, försök att skicka ditt presentkort igen (<a %(a_instr)s>instruktioner</a>)."
 
-#: allthethings/account/templates/account/donation.html:344
+#: allthethings/account/templates/account/donation.html:389
 msgid "page.donation.amazon.doesnt_work"
 msgstr "Om det fortfarande inte fungerar, vänligen mejla oss så kommer Anna att manuellt granska det (det kan ta några dagar), och var noga med att nämna om du redan har försökt skicka om."
 
-#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:392
 msgid "page.donation.amazon.example"
 msgstr ""
 
-#: allthethings/account/templates/account/donation.html:383
-#: allthethings/account/templates/account/donation.html:400
-#: allthethings/account/templates/account/donation.html:416
-#: allthethings/account/templates/account/donation.html:437
-#: allthethings/account/templates/account/donation.html:494
+#: allthethings/account/templates/account/donation.html:428
+#: allthethings/account/templates/account/donation.html:445
+#: allthethings/account/templates/account/donation.html:461
+#: allthethings/account/templates/account/donation.html:482
+#: allthethings/account/templates/account/donation.html:539
 msgid "page.donate.strange_account"
 msgstr "Observera att kontots namn eller bild kan se konstigt ut. Du behöver inte oroa dig! Dessa konton hanteras av våra donationspartners. Våra konton har inte blivit hackade."
 
-#: allthethings/account/templates/account/donation.html:407
-#: allthethings/account/templates/account/donation.html:424
+#: allthethings/account/templates/account/donation.html:452
+#: allthethings/account/templates/account/donation.html:469
 msgid "page.donation.payment.alipay.top_header"
 msgstr "Alipay-instruktioner"
 
-#: allthethings/account/templates/account/donation.html:409
-#: allthethings/account/templates/account/donation.html:426
+#: allthethings/account/templates/account/donation.html:454
+#: allthethings/account/templates/account/donation.html:471
 msgid "page.donation.payment.alipay.header1"
 msgstr "<span %(span_circle)s>1</span>Donera via Alipay"
 
-#: allthethings/account/templates/account/donation.html:412
-#: allthethings/account/templates/account/donation.html:429
+#: allthethings/account/templates/account/donation.html:457
+#: allthethings/account/templates/account/donation.html:474
 msgid "page.donation.payment.alipay.text1_new"
 msgstr "Donera totalbeloppet av %(total)s genom <a %(a_account)s>detta Alipay-konto</a>"
 
-#: allthethings/account/templates/account/donation.html:433
+#: allthethings/account/templates/account/donation.html:478
 msgid "page.donation.payment.alipay.error"
 msgstr "Tyvärr är Alipay-sidan ofta endast tillgänglig från <strong>Kina</strong>. Du kan behöva tillfälligt inaktivera din VPN, eller använda en VPN till Kina (eller Hongkong fungerar ibland också)."
 
-#: allthethings/account/templates/account/donation.html:459
+#: allthethings/account/templates/account/donation.html:504
 msgid "page.donation.payment.wechat.top_header"
 msgstr "WeChat-instruktioner"
 
-#: allthethings/account/templates/account/donation.html:461
+#: allthethings/account/templates/account/donation.html:506
 msgid "page.donation.payment.wechat.header1"
 msgstr "<span %(span_circle)s>1</span>Donera på WeChat"
 
-#: allthethings/account/templates/account/donation.html:464
+#: allthethings/account/templates/account/donation.html:509
 msgid "page.donation.payment.wechat.text1"
 msgstr "Donera totalbeloppet av %(total)s med <a %(a_account)s>detta WeChat-konto</a>"
 
-#: allthethings/account/templates/account/donation.html:485
+#: allthethings/account/templates/account/donation.html:530
 msgid "page.donation.payment.pix.top_header"
 msgstr "Pix-instruktioner"
 
-#: allthethings/account/templates/account/donation.html:487
+#: allthethings/account/templates/account/donation.html:532
 msgid "page.donation.payment.pix.header1"
 msgstr "<span %(span_circle)s>1</span>Donera på Pix"
 
-#: allthethings/account/templates/account/donation.html:490
+#: allthethings/account/templates/account/donation.html:535
 msgid "page.donation.payment.pix.text1"
 msgstr "Donera hela beloppet av %(total)s genom <a %(a_account)s>detta Pix-konto"
 
-#: allthethings/account/templates/account/donation.html:499
+#: allthethings/account/templates/account/donation.html:544
 msgid "page.donation.footer.header"
 msgstr "<span %(span_circle)s>%(circle_number)s</span>Maila oss kvittot"
 
-#: allthethings/account/templates/account/donation.html:505
+#: allthethings/account/templates/account/donation.html:550
 msgid "page.donation.footer.text1"
 msgstr "Skicka ett kvitto eller en skärmdump till din personliga verifieringsadress:"
 
-#: allthethings/account/templates/account/donation.html:515
+#: allthethings/account/templates/account/donation.html:560
 msgid "page.donation.footer.crypto_note"
 msgstr "Om växelkursen för kryptovalutan fluktuerade under transaktionen, se till att inkludera kvittot som visar den ursprungliga växelkursen. Vi uppskattar verkligen att du tar dig besväret att använda krypto, det hjälper oss mycket!"
 
-#: allthethings/account/templates/account/donation.html:520
+#: allthethings/account/templates/account/donation.html:565
 msgid "page.donation.footer.text2"
 msgstr "När du har skickat ditt kvitto via e-post, klicka på denna knapp, så att Anna kan granska det manuellt (detta kan ta några dagar):"
 
-#: allthethings/account/templates/account/donation.html:530
+#: allthethings/account/templates/account/donation.html:575
 msgid "page.donation.footer.button"
 msgstr "Ja, jag har mejlat mitt kvitto"
 
-#: allthethings/account/templates/account/donation.html:533
+#: allthethings/account/templates/account/donation.html:578
 msgid "page.donation.footer.success"
 msgstr ""
 
-#: allthethings/account/templates/account/donation.html:534
+#: allthethings/account/templates/account/donation.html:579
 msgid "page.donation.footer.failure"
 msgstr "❌ Något gick fel. Vänligen ladda om sidan och försök igen."
 
-#: allthethings/account/templates/account/donation.html:539
+#: allthethings/account/templates/account/donation.html:584
 msgid "page.donation.stepbystep"
 msgstr "Steg-för-steg-guide"
 
-#: allthethings/account/templates/account/donation.html:541
+#: allthethings/account/templates/account/donation.html:586
 #, fuzzy
 msgid "page.donation.crypto_dont_worry"
 msgstr "Några av stegen nämner kryptoplånböcker, men oroa dig inte, du behöver inte lära dig något om krypto för detta."
 
-#: allthethings/account/templates/account/donation.html:543
+#: allthethings/account/templates/account/donation.html:588
 msgid "page.donation.hoodpay.step1"
 msgstr "1. Ange din e-postadress."
 
-#: allthethings/account/templates/account/donation.html:549
+#: allthethings/account/templates/account/donation.html:594
 msgid "page.donation.hoodpay.step2"
 msgstr "2. Välj din betalningsmetod."
 
-#: allthethings/account/templates/account/donation.html:555
+#: allthethings/account/templates/account/donation.html:600
 msgid "page.donation.hoodpay.step3"
 msgstr ""
 
-#: allthethings/account/templates/account/donation.html:561
+#: allthethings/account/templates/account/donation.html:606
 msgid "page.donation.hoodpay.step4"
 msgstr "4. Välj “Självhostad” plånbok."
 
-#: allthethings/account/templates/account/donation.html:567
+#: allthethings/account/templates/account/donation.html:612
 msgid "page.donation.hoodpay.step5"
 msgstr "5. Klicka på “Jag bekräftar ägarskap”."
 
-#: allthethings/account/templates/account/donation.html:573
+#: allthethings/account/templates/account/donation.html:618
 msgid "page.donation.hoodpay.step6"
 msgstr "Du bör få ett e-postkvitto. Vänligen skicka det till oss, så bekräftar vi din donation så snart som möjligt."
 
-#: allthethings/account/templates/account/donation.html:578
+#: allthethings/account/templates/account/donation.html:623
 msgid "page.donate.wait"
 msgstr "Vänligen vänta minst <span %(span_hours)s>två timmar</span> (och uppdatera denna sida) innan du kontaktar oss."
 
-#: allthethings/account/templates/account/donation.html:579
+#: allthethings/account/templates/account/donation.html:624
 msgid "page.donate.mistake"
 msgstr "Om du gjorde ett misstag under betalningen kan vi inte göra återbetalningar, men vi kommer att försöka rätta till det."
 
@@ -1421,20 +1433,20 @@ msgstr "Inga listor ännu"
 msgid "page.profile.lists.new_list"
 msgstr "Skapa en ny lista genom att hitta en fil och öppna fliken \"Listor\"."
 
-#: allthethings/dyn/views.py:855 allthethings/dyn/views.py:884
-#: allthethings/dyn/views.py:895
+#: allthethings/dyn/views.py:855 allthethings/dyn/views.py:887
+#: allthethings/dyn/views.py:898
 msgid "dyn.buy_membership.error.unknown"
 msgstr "Ett okänt fel inträffade. Vänligen kontakta oss på %(email)s och bifoga en skärmdump."
 
-#: allthethings/dyn/views.py:881
-msgid "dyn.buy_membership.error.try_again"
-msgstr ""
-
-#: allthethings/dyn/views.py:889
+#: allthethings/dyn/views.py:872 allthethings/dyn/views.py:892
 msgid "dyn.buy_membership.error.minimum"
 msgstr "Denna mynt har en högre minimum än vanligt. Vänligen välj en annan längd eller ett annat mynt."
 
-#: allthethings/dyn/views.py:892
+#: allthethings/dyn/views.py:884
+msgid "dyn.buy_membership.error.try_again"
+msgstr ""
+
+#: allthethings/dyn/views.py:895
 #, fuzzy
 msgid "dyn.buy_membership.error.wait"
 msgstr "Fel vid betalningsbehandling. Vänta en stund och försök igen. Om problemet kvarstår i mer än 24 timmar, vänligen kontakta oss på %(email)s med en skärmdump."
@@ -1696,7 +1708,7 @@ msgstr "datum öppen källkod"
 msgid "page.md5.box.download.temporarily_unavailable"
 msgstr "Partnerservernedladdningar är just nu inte tillgängliga för denna fil."
 
-#: allthethings/page/views.py:5070 allthethings/page/views.py:5254
+#: allthethings/page/views.py:5070 allthethings/page/views.py:5258
 msgid "page.md5.box.download.scihub"
 msgstr "Sci-Hub: %(doi)s"
 
@@ -1726,89 +1738,89 @@ msgstr "Libgen.li"
 msgid "page.md5.box.download.libgen_ads"
 msgstr "deras annonser är kända för att innehålla skadlig programvara, så använd en annonsblockerare eller klicka inte på annonser"
 
-#: allthethings/page/views.py:5251
+#: allthethings/page/views.py:5255
 msgid "page.md5.box.download.ia_borrow"
 msgstr "Låna från Internet Archive"
 
-#: allthethings/page/views.py:5251
+#: allthethings/page/views.py:5255
 #, fuzzy
 msgid "page.md5.box.download.print_disabled_only"
 msgstr "(utskriftsbegränsade användare endast)"
 
-#: allthethings/page/views.py:5254
+#: allthethings/page/views.py:5258
 msgid "page.md5.box.download.scihub_maybe"
 msgstr "(associerad DOI är kanske inte tillgänglig i Sci-Hub)"
 
-#: allthethings/page/views.py:5260
+#: allthethings/page/views.py:5264
 msgid "page.md5.box.download.collection"
 msgstr "samling"
 
-#: allthethings/page/views.py:5261
+#: allthethings/page/views.py:5265
 msgid "page.md5.box.download.torrent"
 msgstr "torrent"
 
-#: allthethings/page/views.py:5267
+#: allthethings/page/views.py:5271
 #, fuzzy
 msgid "page.md5.box.download.bulk_torrents"
 msgstr "Massnedladdningar via torrent"
 
-#: allthethings/page/views.py:5267
+#: allthethings/page/views.py:5271
 msgid "page.md5.box.download.experts_only"
 msgstr "(endast experter)"
 
-#: allthethings/page/views.py:5274
+#: allthethings/page/views.py:5278
 msgid "page.md5.box.download.aa_isbn"
 msgstr "Sök i Annas Arkiv efter ISBN"
 
-#: allthethings/page/views.py:5275
+#: allthethings/page/views.py:5279
 msgid "page.md5.box.download.other_isbn"
 msgstr "Sök i olika andra databaser efter ISBN"
 
-#: allthethings/page/views.py:5277
+#: allthethings/page/views.py:5281
 msgid "page.md5.box.download.original_isbndb"
 msgstr "Hitta originalposten i ISBNdb"
 
-#: allthethings/page/views.py:5279
+#: allthethings/page/views.py:5283
 msgid "page.md5.box.download.aa_openlib"
 msgstr "Sök i Annas Arkiv efter Open Library ID"
 
-#: allthethings/page/views.py:5281
+#: allthethings/page/views.py:5285
 msgid "page.md5.box.download.original_openlib"
 msgstr "Hitta originalposten i Open Library"
 
-#: allthethings/page/views.py:5283
+#: allthethings/page/views.py:5287
 msgid "page.md5.box.download.aa_oclc"
 msgstr "Sök i Annas Arkiv efter OCLC (WorldCat) nummer"
 
-#: allthethings/page/views.py:5284
+#: allthethings/page/views.py:5288
 msgid "page.md5.box.download.original_oclc"
 msgstr "Hitta originalposten i WorldCat"
 
-#: allthethings/page/views.py:5286
+#: allthethings/page/views.py:5290
 msgid "page.md5.box.download.aa_duxiu"
 msgstr "Sök i Annas Arkiv efter DuXiu SSID-nummer"
 
-#: allthethings/page/views.py:5287
+#: allthethings/page/views.py:5291
 msgid "page.md5.box.download.original_duxiu"
 msgstr "Sök manuellt på DuXiu"
 
-#: allthethings/page/views.py:5289
+#: allthethings/page/views.py:5293
 msgid "page.md5.box.download.aa_cadal"
 msgstr "Sök i Annas Arkiv efter CADAL SSNO-nummer"
 
-#: allthethings/page/views.py:5290
+#: allthethings/page/views.py:5294
 msgid "page.md5.box.download.original_cadal"
 msgstr "Hitta originalposten i CADAL"
 
-#: allthethings/page/views.py:5294
+#: allthethings/page/views.py:5298
 msgid "page.md5.box.download.aa_dxid"
 msgstr "Sök i Annas Arkiv efter DuXiu DXID nummer"
 
-#: allthethings/page/views.py:5299 allthethings/page/views.py:5300
+#: allthethings/page/views.py:5303 allthethings/page/views.py:5304
 msgid "page.md5.box.download.scidb"
 msgstr "Annas Arkiv 🧬 SciDB"
 
-#: allthethings/page/views.py:5299 allthethings/page/views.py:5300
+#: allthethings/page/views.py:5303 allthethings/page/views.py:5304
 msgid "common.md5.servers.no_browser_verification"
 msgstr "(ingen webbläsarverifiering krävs)"
 
