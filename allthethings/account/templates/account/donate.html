@@ -34,67 +34,60 @@
     </div> -->
   {% endif %}
 
+  {% macro fast_downloads(downloads, multiplier) %}
+    {{ gettext('page.donate.perks.fast_downloads', number=((
+      '<span class="line-through mr-1">{}</span><strong class="text-[#ff005b]">{}</strong>'.format(downloads, downloads*2)
+      if g.is_membership_double
+      else '<strong>{}</strong>'.format(downloads | string)) | safe
+    )) }}
+    {% if g.is_membership_double %}
+      <div class="inline-block text-xs bg-[#ff005b] text-white px-1 rounded">{{ gettext('page.donate.perks.if_you_donate_this_month') }}</div>
+    {% endif %}
+  {% endmacro %}
+
+  {% set checkmark_icon %}
+    <span class="icon-[ion--checkmark-outline] absolute top-1 -left-5"></span>
+  {% endset %}
+
+  {% macro membership_tier(level, size_classes) %}
+    <div class="{{ size_classes }} w-[calc(50%-6px)] px-2 py-4 bg-white border border-gray-200 aria-selected:border-[#09008e] rounded-lg shadow mb-3 js-membership-tier js-membership-tier-{{ level }}" aria-selected="false">
+      <div class="whitespace-nowrap text-center mb-2">{{ membership_tier_names[level] | replace(' ', '<br>') | safe }}</div>
+      <div class="text-center font-bold text-xl mb-2">{{ gettext('page.donate.membership_per_month', cost=MEMBERSHIP_TIER_COSTS[level]) }}</div>
+      <button onclick="window.membershipTierToggle('{{level}}')" class="text-center mb-1 block bg-[#0195ff] hover:bg-blue-600 [[aria-selected=true]_&]:bg-[#09008e] px-2 py-1 rounded-md text-white w-full">
+        <span class="[[aria-selected=true]_&]:hidden">{{ gettext('page.donate.buttons.join') }}</span>
+        <span class="[[aria-selected=false]_&]:hidden"><span class="icon-[ion--checkmark-circle-sharp] text-lg align-text-bottom"></span> {{ gettext('page.donate.buttons.selected') }}</span>
+      </button>
+      <div class="text-xs text-gray-500 text-center mb-4">{{ gettext('page.donate.buttons.up_to_discounts', percentage=MEMBERSHIP_DURATION_DISCOUNTS['96']+10) }}</div>
+      <ul class="pl-5">
+        {{ caller() }}
+      </ul>
+    </div>
+  {% endmacro %}
+
   <div class="js-membership-section-tier">
     <div class="flex flex-wrap justify-between md:overflow-hidden">
-      <div class="md:min-w-[170px] w-[calc(50%-6px)] md:w-[21%] px-2 py-4 bg-white border border-gray-200 aria-selected:border-[#09008e] rounded-lg shadow mb-3 js-membership-tier js-membership-tier-2" aria-selected="false">
-        <div class="js-membership-name-tier whitespace-nowrap text-center mb-2"></div>
-        <div class="js-membership-cost-tier text-center font-bold text-xl mb-2"></div>
-        <button onclick="window.membershipTierToggle('2')" class="text-center mb-1 block bg-[#0195ff] hover:bg-blue-600 [[aria-selected=true]_&]:bg-[#09008e] px-2 py-1 rounded-md text-white w-full">
-          <span class="[[aria-selected=true]_&]:hidden">{{ gettext('page.donate.buttons.join') }}</span>
-          <span class="[[aria-selected=false]_&]:hidden"><span class="icon-[ion--checkmark-circle-sharp] text-lg align-text-bottom"></span> {{ gettext('page.donate.buttons.selected') }}</span>
-        </button>
-        <div class="text-xs text-gray-500 text-center mb-4">{{ gettext('page.donate.buttons.up_to_discounts', percentage=MEMBERSHIP_DURATION_DISCOUNTS['96']+10) }}</div>
-        <ul class="pl-5">
-          <li class="relative mb-1"><span class="icon-[ion--checkmark-outline] absolute top-1 -left-5"></span> 🚀 {{ gettext('page.donate.perks.fast_downloads', number=(((('<span class="line-through mr-1">' + (MEMBERSHIP_DOWNLOADS_PER_DAY['2'] | string) + '</span><strong class="text-[#ff005b]">' + ((MEMBERSHIP_DOWNLOADS_PER_DAY['2']*2) | string) + '</strong>') if g.is_membership_double else ('<strong>' + (MEMBERSHIP_DOWNLOADS_PER_DAY['2'] | string) + '</strong>'))) | safe)) }}{% if g.is_membership_double %} <div class="inline-block text-xs bg-[#ff005b] text-white px-1 rounded">{{ gettext('page.donate.perks.if_you_donate_this_month') }}</div>{% endif %}</li>
-          <li class="relative mb-1"><span class="icon-[ion--checkmark-outline] absolute top-1 -left-5"></span> 🧬&nbsp;{{ gettext('page.donate.perks.scidb') }}</li>
-          <li class="relative mb-1"><span class="icon-[ion--checkmark-outline] absolute top-1 -left-5"></span> 👩‍💻 {{ gettext('page.donate.perks.jsonapi', a_api=(' href="/faq#api"' | safe)) }}</li>
-          <!-- <li class="relative mb-1"><span class="icon-[ion--checkmark-outline] absolute top-1 -left-5"></span> 💁‍♀️ {{ gettext('page.donate.perks.refer', percentage=50, a_refer=(' href="/refer"' | safe)) }}</li> -->
-          <!-- <li class="relative mb-1"><span class="icon-[ion--checkmark-outline] absolute top-1 -left-5"></span> {{ gettext('page.donate.perks.credits') }}</li> -->
-        </ul>
-      </div>
-      <div class="md:min-w-[180px] w-[calc(50%-6px)] md:w-[21%] px-2 py-4 bg-white border border-gray-200 aria-selected:border-[#09008e] rounded-lg shadow mb-3 js-membership-tier js-membership-tier-3" aria-selected="false">
-        <div class="js-membership-name-tier whitespace-nowrap text-center mb-2"></div>
-        <div class="js-membership-cost-tier text-center font-bold text-xl mb-2"></div>
-        <button onclick="window.membershipTierToggle('3')" class="text-center mb-1 block bg-[#0195ff] hover:bg-blue-600 [[aria-selected=true]_&]:bg-[#09008e] px-2 py-1 rounded-md text-white w-full">
-          <span class="[[aria-selected=true]_&]:hidden">{{ gettext('page.donate.buttons.join') }}</span>
-          <span class="[[aria-selected=false]_&]:hidden"><span class="icon-[ion--checkmark-circle-sharp] text-lg align-text-bottom"></span> {{ gettext('page.donate.buttons.selected') }}</span>
-        </button>
-        <div class="text-xs text-gray-500 text-center mb-4">{{ gettext('page.donate.buttons.up_to_discounts', percentage=MEMBERSHIP_DURATION_DISCOUNTS['96']+10) }}</div>
-        <ul class="pl-5">
-          <li class="text-sm relative mb-1">{{ gettext('page.donate.perks.previous_plus') }}</li>
-          <li class="relative mb-1"><span class="icon-[ion--checkmark-outline] absolute top-1 -left-5"></span> 🚀 {{ gettext('page.donate.perks.fast_downloads', number=(((('<span class="line-through mr-1">' + (MEMBERSHIP_DOWNLOADS_PER_DAY['3'] | string) + '</span><strong class="text-[#ff005b]">' + ((MEMBERSHIP_DOWNLOADS_PER_DAY['3']*2) | string) + '</strong>') if g.is_membership_double else ('<strong>' + (MEMBERSHIP_DOWNLOADS_PER_DAY['3'] | string) + '</strong>'))) | safe)) }}{% if g.is_membership_double %} <div class="inline-block text-xs bg-[#ff005b] text-white px-1 rounded">{{ gettext('page.donate.perks.if_you_donate_this_month') }}</div>{% endif %}</li>
-          <!-- <li class="relative mb-1"><span class="icon-[ion--checkmark-outline] absolute top-1 -left-5"></span> {{ gettext('page.donate.perks.early_access') }}</li> -->
-        </ul>
-      </div>
-      <div class="md:min-w-[180px] w-[calc(50%-6px)] md:w-[23%] px-2 py-4 bg-white border border-gray-200 aria-selected:border-[#09008e] rounded-lg shadow mb-3 js-membership-tier js-membership-tier-4" aria-selected="false">
-        <div class="js-membership-name-tier whitespace-nowrap text-center mb-2"></div>
-        <div class="js-membership-cost-tier text-center font-bold text-xl mb-2"></div>
-        <button onclick="window.membershipTierToggle('4')" class="text-center mb-1 block bg-[#0195ff] hover:bg-blue-600 [[aria-selected=true]_&]:bg-[#09008e] px-2 py-1 rounded-md text-white w-full">
-          <span class="[[aria-selected=true]_&]:hidden">{{ gettext('page.donate.buttons.join') }}</span>
-          <span class="[[aria-selected=false]_&]:hidden"><span class="icon-[ion--checkmark-circle-sharp] text-lg align-text-bottom"></span> {{ gettext('page.donate.buttons.selected') }}</span>
-        </button>
-        <div class="text-xs text-gray-500 text-center mb-4">{{ gettext('page.donate.buttons.up_to_discounts', percentage=MEMBERSHIP_DURATION_DISCOUNTS['96']+10) }}</div>
-        <ul class="pl-5">
-          <li class="text-sm relative mb-1">{{ gettext('page.donate.perks.previous_plus') }}</li>
-          <li class="relative mb-1"><span class="icon-[ion--checkmark-outline] absolute top-1 -left-5"></span> 🚀 {{ gettext('page.donate.perks.fast_downloads', number=(((('<span class="line-through mr-1">' + (MEMBERSHIP_DOWNLOADS_PER_DAY['4'] | string) + '</span><strong class="text-[#ff005b]">' + ((MEMBERSHIP_DOWNLOADS_PER_DAY['4']*2) | string) + '</strong>') if g.is_membership_double else ('<strong>' + (MEMBERSHIP_DOWNLOADS_PER_DAY['4'] | string) + '</strong>'))) | safe)) }}{% if g.is_membership_double %} <div class="inline-block text-xs bg-[#ff005b] text-white px-1 rounded">{{ gettext('page.donate.perks.if_you_donate_this_month') }}</div>{% endif %}</li>
-          <li class="relative mb-1"><span class="icon-[ion--checkmark-outline] absolute top-1 -left-5"></span> 😼 {{ gettext('page.donate.perks.exclusive_telegram') }}</li>
-        </ul>
-      </div>
-      <div class="md:min-w-[240px] w-[calc(50%-6px)] md:w-[29%] px-2 py-4 bg-white border border-gray-200 aria-selected:border-[#09008e] rounded-lg shadow mb-3 js-membership-tier js-membership-tier-5" aria-selected="false">
-        <div class="js-membership-name-tier whitespace-nowrap text-center mb-2"></div>
-        <div class="js-membership-cost-tier text-center font-bold text-xl mb-2"></div>
-        <button onclick="window.membershipTierToggle('5')" class="text-center mb-1 block bg-[#0195ff] hover:bg-blue-600 [[aria-selected=true]_&]:bg-[#09008e] px-2 py-1 rounded-md text-white w-full">
-          <span class="[[aria-selected=true]_&]:hidden">{{ gettext('page.donate.buttons.join') }}</span>
-          <span class="[[aria-selected=false]_&]:hidden"><span class="icon-[ion--checkmark-circle-sharp] text-lg align-text-bottom"></span> {{ gettext('page.donate.buttons.selected') }}</span>
-        </button>
-        <div class="text-xs text-gray-500 text-center mb-4">{{ gettext('page.donate.buttons.up_to_discounts', percentage=MEMBERSHIP_DURATION_DISCOUNTS['96']+10) }}</div>
-        <ul class="pl-5">
-          <li class="text-sm relative mb-1">{{ gettext('page.donate.perks.previous_plus') }}</li>
-          <li class="relative mb-1"><span class="icon-[ion--checkmark-outline] absolute top-1 -left-5"></span> 🚀 {{ gettext('page.donate.perks.fast_downloads', number=(((('<span class="line-through mr-1">' + (MEMBERSHIP_DOWNLOADS_PER_DAY['5'] | string) + '</span><strong class="text-[#ff005b]">' + ((MEMBERSHIP_DOWNLOADS_PER_DAY['5']*2) | string) + '</strong>') if g.is_membership_double else ('<strong>' + (MEMBERSHIP_DOWNLOADS_PER_DAY['5'] | string) + '</strong>'))) | safe)) }}{% if g.is_membership_double %} <div class="inline-block text-xs bg-[#ff005b] text-white px-1 rounded">{{ gettext('page.donate.perks.if_you_donate_this_month') }}</div>{% endif %}</li>
-          <!-- <li class="relative mb-1"><span class="icon-[ion--checkmark-outline] absolute top-1 -left-5"></span> 🤗 {{ gettext('page.donate.perks.adopt', div_months=(' class="text-gray-500 text-sm" ' | safe)) }}</li> -->
-          <li class="relative mb-1"><span class="icon-[ion--checkmark-outline] absolute top-1 -left-5"></span> 🤯 {{ gettext('page.donate.perks.legendary') }}</li>
-        </ul>
-      </div>
+      {% call membership_tier('2', 'md:min-w-[170px] md:w-[21%]') %}
+        <li class="relative mb-1">{{ checkmark_icon | safe }} 🚀 {{ fast_downloads(MEMBERSHIP_DOWNLOADS_PER_DAY['2'], 2.0) | safe }}</li>
+        <li class="relative mb-1">{{ checkmark_icon | safe }} 🧬&nbsp;{{ gettext('page.donate.perks.scidb') }}</li>
+        <li class="relative mb-1">{{ checkmark_icon | safe }} 👩‍💻 {{ gettext('page.donate.perks.jsonapi', a_api=(a.faqs_api | xmlattr)) }}</li>
+      {% endcall %}
+
+      {% call membership_tier('3', 'md:min-w-[180px] md:w-[21%]') %}
+        <li class="text-sm relative mb-1">{{ gettext('page.donate.perks.previous_plus') }}</li>
+        <li class="relative mb-1">{{ checkmark_icon | safe }} 🚀 {{ fast_downloads(MEMBERSHIP_DOWNLOADS_PER_DAY['3'], 2.0) | safe }}</li>
+      {% endcall %}
+
+      {% call membership_tier('4', 'md:min-w-[180px] md:w-[23%]') %}
+        <li class="text-sm relative mb-1">{{ gettext('page.donate.perks.previous_plus') }}</li>
+        <li class="relative mb-1">{{ checkmark_icon | safe }} 🚀 {{ fast_downloads(MEMBERSHIP_DOWNLOADS_PER_DAY['4'], 2.0) | safe }}</li>
+        <li class="relative mb-1">{{ checkmark_icon | safe }} 😼 {{ gettext('page.donate.perks.exclusive_telegram') }}</li>
+      {% endcall %}
+
+      {% call membership_tier('5', 'md:min-w-[240px] md:w-[29%]') %}
+        <li class="text-sm relative mb-1">{{ gettext('page.donate.perks.previous_plus') }}</li>
+        <li class="relative mb-1">{{ checkmark_icon | safe }} 🚀 {{ fast_downloads(MEMBERSHIP_DOWNLOADS_PER_DAY['5'], 2.0) | safe }}</li>
+        <li class="relative mb-1">{{ checkmark_icon | safe }} 🤯 {{ gettext('page.donate.perks.legendary') }}</li>
+      {% endcall %}
     </div>
 
     <div class="px-2 py-3 bg-white border border-gray-200 aria-selected:border-[#09008e] rounded-lg shadow mb-3 flex items-center justify-between flex-col md:flex-row">
@@ -217,7 +210,7 @@
 
       <p class="mb-4">
         {{ gettext(
-          'page.donate.payment.desc.crypto_suggestion', 
+          'page.donate.payment.desc.crypto_suggestion',
           options=(format_list([
             (a.html_a(gettext('page.donate.payment.processor.binance'), **a.binance) | safe),
             (a.html_a(gettext('page.donate.payment.processor.coinbase'), **a.coinbase) | safe),
@@ -470,7 +463,6 @@
 
   <script>
     (function() {
-      const membershipTierNames = {{ membership_tier_names | tojson }};
       const MEMBERSHIP_TIER_COSTS = {{ MEMBERSHIP_TIER_COSTS | tojson }};
       const MEMBERSHIP_METHOD_DISCOUNTS = {{ MEMBERSHIP_METHOD_DISCOUNTS | tojson }};
       const MEMBERSHIP_DURATION_DISCOUNTS = {{ MEMBERSHIP_DURATION_DISCOUNTS | tojson }};
@@ -513,11 +505,6 @@
           document.querySelector(`.js-membership-duration-${membershipParams.duration}`).setAttribute('aria-selected', 'true');
         } else {
           document.querySelector('.js-membership-duration-1').setAttribute('aria-selected', 'true');
-        }
-
-        for (const tier of Object.keys(MEMBERSHIP_TIER_COSTS)) {
-          document.querySelector(`.js-membership-tier-${tier} .js-membership-name-tier`).innerHTML = membershipTierNames[tier].replace(' ', '<br>');
-          document.querySelector(`.js-membership-tier-${tier} .js-membership-cost-tier`).innerText = `\$${MEMBERSHIP_TIER_COSTS[tier]} / month`;
         }
 
         const membershipParamsStr = [membershipParams.tier, membershipParams.method, membershipParams.duration || "1"].join(',');
