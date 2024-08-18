@@ -151,6 +151,8 @@ def mysql_build_aac_tables_internal():
     print("Building aac tables...")
     file_data_files_by_collection = collections.defaultdict(list)
 
+    COLLECTIONS_WITH_MULTIPLE_MD5 = ['magzdb_records', 'nexusstc_records']
+
     for filename in os.listdir(allthethings.utils.aac_path_prefix()):
         if not (filename.startswith('annas_archive_meta__aacid__') and filename.endswith('.jsonl.seekable.zst')):
             continue
@@ -212,10 +214,15 @@ def mysql_build_aac_tables_internal():
                     # Remove if it's not md5.
                     md5 = None
 
+                multiple_md5s = None
+                if collection in COLLECTIONS_WITH_MULTIPLE_MD5:
+                    multiple_md5s = re.findall(rb'"md5":"([^"]+)"', line)
+
                 return_data = { 
                     'aacid': aacid.decode(), 
                     'primary_id': primary_id.decode(), 
-                    'md5': md5.decode() if md5 is not None else None, 
+                    'md5': md5.decode() if md5 is not None else None,
+                    'multiple_md5s': multiple_md5s if multiple_md5s is not None and len(multiple_md5s) > 1 else None,
                     'byte_offset': byte_offset,
                     'byte_length': len(line),
                 }
@@ -252,20 +259,33 @@ def mysql_build_aac_tables_internal():
             insert_extra_names = ''.join([f', {index_name}' for index_name, index_type in extra_index_fields.items()])
             insert_extra_values = ''.join([f', %({index_name})s' for index_name, index_type in extra_index_fields.items()])
 
-            cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
-            cursor.execute(f"CREATE TABLE {table_name} (`aacid` VARCHAR(250) NOT NULL, `primary_id` VARCHAR(250) NULL, `md5` char(32) CHARACTER SET ascii NULL, `byte_offset` BIGINT NOT NULL, `byte_length` BIGINT NOT NULL {table_extra_fields}, PRIMARY KEY (`aacid`), INDEX `primary_id` (`primary_id`), INDEX `md5` (`md5`) {table_extra_index}) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin")
+            tables = []
 
-            cursor.execute(f"LOCK TABLES {table_name} WRITE")
+            cursor.execute(f"DROP TABLE IF EXISTS {table_name}")
+            cursor.execute(f"CREATE TABLE {table_name} (`aacid` VARCHAR(250) CHARACTER SET ascii NOT NULL, `primary_id` VARCHAR(250) NULL, `md5` CHAR(32) CHARACTER SET ascii NULL, `byte_offset` BIGINT NOT NULL, `byte_length` BIGINT NOT NULL {table_extra_fields}, PRIMARY KEY (`aacid`), INDEX `primary_id` (`primary_id`), INDEX `md5` (`md5`) {table_extra_index}) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin")
+            tables.append(table_name)
+
+            if collection in COLLECTIONS_WITH_MULTIPLE_MD5:
+                cursor.execute(f"DROP TABLE IF EXISTS {table_name}__multiple_md5")
+                cursor.execute(f"CREATE TABLE {table_name}__multiple_md5 (`md5` CHAR(32) CHARACTER SET ascii NOT NULL, `aacid` VARCHAR(250) CHARACTER SET ascii NOT NULL, PRIMARY KEY (`md5`, `aacid`), INDEX `aacid_md5` (`aacid`, `md5`)) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin")
+                tables.append(f"{table_name}__multiple_md5")
+
+            cursor.execute(f"LOCK TABLES {' WRITE, '.join(tables)} WRITE")
             # From https://github.com/indygreg/python-zstandard/issues/13#issuecomment-1544313739
             with tqdm.tqdm(total=uncompressed_size, bar_format='{l_bar}{bar}{r_bar} {eta}', unit='B', unit_scale=True) as pbar:
                 byte_offset = 0
                 for lines in more_itertools.ichunked(file, CHUNK_SIZE):
                     bytes_in_batch = 0
-                    insert_data = [] 
+                    insert_data = []
+                    insert_data_multiple_md5s = []
                     for line in lines:
                         allthethings.utils.aac_spot_check_line_bytes(line, {})
                         insert_data_line = build_insert_data(line, byte_offset)
                         if insert_data_line is not None:
+                            if insert_data_line['multiple_md5s'] is not None:
+                                for md5 in insert_data_line['multiple_md5s']:
+                                    insert_data_multiple_md5s.append({ "md5": md5, "aacid": insert_data_line['aacid'] })
+                            del insert_data_line['multiple_md5s']
                             insert_data.append(insert_data_line)
                         line_len = len(line)
                         byte_offset += line_len
@@ -277,6 +297,10 @@ def mysql_build_aac_tables_internal():
                     if len(insert_data) > 0:
                         connection.connection.ping(reconnect=True)
                         cursor.executemany(f'{action} INTO {table_name} (aacid, primary_id, md5, byte_offset, byte_length {insert_extra_names}) VALUES (%(aacid)s, %(primary_id)s, %(md5)s, %(byte_offset)s, %(byte_length)s {insert_extra_values})', insert_data)
+                    if len(insert_data_multiple_md5s) > 0:
+                        print(f"{insert_data_multiple_md5s=}")
+                        connection.connection.ping(reconnect=True)
+                        cursor.executemany(f'{action} INTO {table_name}__multiple_md5 (md5, aacid) VALUES (%(md5)s, %(aacid)s)', insert_data_multiple_md5s)
                     pbar.update(bytes_in_batch)
             connection.connection.ping(reconnect=True)
             cursor.execute(f"UNLOCK TABLES")
