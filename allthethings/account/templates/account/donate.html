@@ -214,15 +214,12 @@
 
       <p class="mb-4">
         {{ gettext(
-          'page.donate.payment.desc.crypto_suggestion',
+          'page.donate.payment.desc.crypto_suggestion_dynamic',
           options=(format_list([
             (a.html_a(gettext('page.donate.payment.processor.binance'), **a.binance) | safe),
             (a.html_a(gettext('page.donate.payment.processor.coinbase'), **a.coinbase) | safe),
             (a.html_a(gettext('page.donate.payment.processor.kraken'), **a.kraken) | safe),
           ], style='or') | safe),
-          option1=('<a href="https://www.binance.com/en" rel="noopener noreferrer nofollow" target="_blank">Binance</a>' | safe),
-          option2=('<a href="https://www.coinbase.com" rel="noopener noreferrer nofollow" target="_blank">Coinbase</a>' | safe),
-          option3=('<a href="https://www.kraken.com" rel="noopener noreferrer nofollow" target="_blank">Kraken</a>' | safe),
         ) }}
       </p>
     </div>
@@ -333,15 +330,12 @@
         {% call definition_item(gettext('page.donate.payment.buttons.crypto', bitcoin_icon='')) %}
           {{ gettext('page.donate.ccexp.crypto') }}
           {{ gettext(
-            'page.donate.payment.desc.crypto_suggestion',
+            'page.donate.payment.desc.crypto_suggestion_dynamic',
             options=(format_list([
               (a.html_a(gettext('page.donate.payment.processor.binance'), **a.binance) | safe),
               (a.html_a(gettext('page.donate.payment.processor.coinbase'), **a.coinbase) | safe),
               (a.html_a(gettext('page.donate.payment.processor.kraken'), **a.kraken) | safe),
             ], style='or') | safe),
-            option1='',
-            option2='',
-            option3=''
           ) | safe }}
         {% endcall %}
       </dl>
