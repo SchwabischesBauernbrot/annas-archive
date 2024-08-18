@@ -366,13 +366,13 @@ msgid "page.donate.payment.select_method"
 msgstr "Зинһар, түләү ысулын һайлағыҙ."
 
 #: allthethings/account/templates/account/donate.html:129
-#: allthethings/account/templates/account/donate.html:370
+#: allthethings/account/templates/account/donate.html:364
 #, fuzzy
 msgid "page.donate.discount"
 msgstr "-%(percentage)s%%"
 
 #: allthethings/account/templates/account/donate.html:135
-#: allthethings/account/templates/account/donate.html:324
+#: allthethings/account/templates/account/donate.html:321
 #, fuzzy
 msgid "page.donate.payment.buttons.amazon"
 msgstr "Amazon бүләк картаһы"
@@ -380,7 +380,7 @@ msgstr "Amazon бүләк картаһы"
 #: allthethings/account/templates/account/donate.html:136
 #: allthethings/account/templates/account/donate.html:146
 #: allthethings/account/templates/account/donate.html:147
-#: allthethings/account/templates/account/donate.html:333
+#: allthethings/account/templates/account/donate.html:330
 #, fuzzy
 msgid "page.donate.payment.buttons.crypto"
 msgstr "Крипто %(bitcoin_icon)s"
@@ -411,7 +411,7 @@ msgstr ""
 #: allthethings/account/templates/account/donate.html:144
 #: allthethings/account/templates/account/donate.html:160
 #: allthethings/account/templates/account/donate.html:168
-#: allthethings/account/templates/account/donate.html:327
+#: allthethings/account/templates/account/donate.html:324
 #, fuzzy
 msgid "page.donate.payment.buttons.alipay"
 msgstr "Alipay"
@@ -460,7 +460,7 @@ msgstr "Alipay 支付宝 / WeChat 微信"
 
 #: allthethings/account/templates/account/donate.html:162
 #: allthethings/account/templates/account/donate.html:169
-#: allthethings/account/templates/account/donate.html:330
+#: allthethings/account/templates/account/donate.html:327
 #, fuzzy
 msgid "page.donate.payment.buttons.wechat"
 msgstr "WeChat"
@@ -481,340 +481,339 @@ msgid "page.donate.payment.desc.crypto2"
 msgstr "Криптовалюта менән һеҙ BTC, ETH, XMR һәм башҡа төрҙәрен ҡулланып иғәнә яһай алаһығыҙ."
 
 #: allthethings/account/templates/account/donate.html:216
-#: allthethings/account/templates/account/donate.html:335
-#, fuzzy
-msgid "page.donate.payment.desc.crypto_suggestion"
-msgstr "Әгәр һеҙ криптовалютаны тәүге тапҡыр ҡулланаһығыҙ икән, Bitcoin (иң тәүге һәм иң киң ҡулланылған криптовалюта) һатып алып иғәнә яһау өсөн %(option1)s, %(option2)s, йәки %(option3)s ҡулланыуҙы тәҡдим итәбеҙ."
+#: allthethings/account/templates/account/donate.html:332
+msgid "page.donate.payment.desc.crypto_suggestion_dynamic"
+msgstr ""
 
 #: allthethings/account/templates/account/donate.html:219
-#: allthethings/account/templates/account/donate.html:338
+#: allthethings/account/templates/account/donate.html:335
 msgid "page.donate.payment.processor.binance"
 msgstr ""
 
 #: allthethings/account/templates/account/donate.html:220
-#: allthethings/account/templates/account/donate.html:339
+#: allthethings/account/templates/account/donate.html:336
 msgid "page.donate.payment.processor.coinbase"
 msgstr ""
 
 #: allthethings/account/templates/account/donate.html:221
-#: allthethings/account/templates/account/donate.html:340
+#: allthethings/account/templates/account/donate.html:337
 msgid "page.donate.payment.processor.kraken"
 msgstr ""
 
-#: allthethings/account/templates/account/donate.html:232
+#: allthethings/account/templates/account/donate.html:229
 #, fuzzy
 msgid "page.donate.payment.desc.paypal"
 msgstr "PayPal US ҡулланып иғәнә яһау өсөн, беҙ PayPal Crypto ҡулланасаҡбыҙ, был беҙгә аноним булып ҡалырға мөмкинлек бирә. Был ысулды өйрәнеү өсөн ваҡыт бүлгәнегеҙ өсөн рәхмәт, сөнки был беҙгә ҙур ярҙам буласаҡ."
 
-#: allthethings/account/templates/account/donate.html:233
+#: allthethings/account/templates/account/donate.html:230
 #, fuzzy
 msgid "page.donate.payment.desc.paypal_short"
 msgstr "PayPal ҡулланып иғәнә яһағыҙ."
 
-#: allthethings/account/templates/account/donate.html:239
+#: allthethings/account/templates/account/donate.html:236
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp"
 msgstr "Cash App ҡулланып иғәнә яһағыҙ."
 
-#: allthethings/account/templates/account/donate.html:240
+#: allthethings/account/templates/account/donate.html:237
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_easy"
 msgstr "Әгәр һеҙҙә Cash App бар икән, был иғәнә яһауҙың иң еңел ысулы!"
 
-#: allthethings/account/templates/account/donate.html:243
-#: allthethings/account/templates/account/donate.html:253
+#: allthethings/account/templates/account/donate.html:240
+#: allthethings/account/templates/account/donate.html:250
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_fee"
 msgstr "Иғәнә күләме %(amount)s аҫтында булғанда, Cash App %(fee)s комиссияһын ала. %(amount)s йәки күберәк булғанда, был бушлай!"
 
-#: allthethings/account/templates/account/donate.html:249
+#: allthethings/account/templates/account/donate.html:246
 msgid "page.donate.payment.desc.revolut"
 msgstr ""
 
-#: allthethings/account/templates/account/donate.html:250
+#: allthethings/account/templates/account/donate.html:247
 msgid "page.donate.payment.desc.revolut_easy"
 msgstr ""
 
-#: allthethings/account/templates/account/donate.html:259
-#: allthethings/account/templates/account/donate.html:313
+#: allthethings/account/templates/account/donate.html:256
+#: allthethings/account/templates/account/donate.html:310
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit"
 msgstr "Кредит йәки дебет картаһы менән иғәнә яһағыҙ."
 
-#: allthethings/account/templates/account/donate.html:260
+#: allthethings/account/templates/account/donate.html:257
 #, fuzzy
 msgid "page.donate.payment.desc.google_apple"
 msgstr "Google Pay һәм Apple Pay шулай уҡ эшләргә мөмкин."
 
-#: allthethings/account/templates/account/donate.html:261
+#: allthethings/account/templates/account/donate.html:258
 #, fuzzy
 msgid "page.donate.payment.desc.elimate_discount"
 msgstr "Иғәнәләрҙең бәләкәй булыуын иҫәпкә алып, кредит картаһы комиссиялары беҙҙең %(discount)s%% ташламаһын юҡҡа сығара ала, шуға күрә оҙайлы яҙылыуҙарҙы тәҡдим итәбеҙ."
 
-#: allthethings/account/templates/account/donate.html:262
+#: allthethings/account/templates/account/donate.html:259
 #, fuzzy
 msgid "page.donate.payment.desc.longer_subs"
 msgstr "Иғәнәләрҙең бәләкәй булыуын иҫәпкә алып, комиссиялар юғары, шуға күрә оҙайлы яҙылыуҙарҙы тәҡдим итәбеҙ."
 
-#: allthethings/account/templates/account/donate.html:268
+#: allthethings/account/templates/account/donate.html:265
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p1"
 msgstr "Binance менән, һеҙ кредит/дебет картаһы йәки банк иҫәбенән Bitcoin һатып алаһығыҙ, һәм шунан һуң беҙгә шул Bitcoin-ды бүләк итәһегеҙ. Был ысул менән беҙ һеҙҙең бүләктәрегеҙҙе ҡабул иткәндә хәүефһеҙ һәм аноним булып ҡала алабыҙ."
 
-#: allthethings/account/templates/account/donate.html:272
+#: allthethings/account/templates/account/donate.html:269
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p2"
 msgstr "Binance тиерлек һәр илдә бар, һәм күпселек банк һәм кредит/дебет карталарын хуплай. Был беҙҙең төп тәҡдимебеҙ. Был ысул менән нисек бүләк итеүҙе өйрәнеү өсөн ваҡыт бүлгәнегеҙ өсөн рәхмәт, сөнки был беҙгә бик ярҙам итә."
 
-#: allthethings/account/templates/account/donate.html:278
+#: allthethings/account/templates/account/donate.html:275
 msgid "page.donate.payment.desc.paypalreg"
 msgstr ""
 
-#: allthethings/account/templates/account/donate.html:284
-#: allthethings/account/templates/account/donate.html:290
+#: allthethings/account/templates/account/donate.html:281
+#: allthethings/account/templates/account/donate.html:287
 #, fuzzy
 msgid "page.donate.payment.desc.alipay_wechat"
 msgstr "Alipay йәки WeChat ҡулланып бүләк итегеҙ. Киләһе биттә былар араһынан һайлай алаһығыҙ."
 
-#: allthethings/account/templates/account/donate.html:296
+#: allthethings/account/templates/account/donate.html:293
 #, fuzzy
 msgid "page.donate.payment.desc.givebutter"
 msgstr "Кредит/дебет картаһы, PayPal йәки Venmo ҡулланып бүләк итегеҙ. Киләһе биттә былар араһынан һайлай алаһығыҙ."
 
-#: allthethings/account/templates/account/donate.html:302
+#: allthethings/account/templates/account/donate.html:299
 #, fuzzy
 msgid "page.donate.payment.desc.amazon"
 msgstr "Amazon бүләк картаһы ҡулланып бүләк итегеҙ."
 
-#: allthethings/account/templates/account/donate.html:303
+#: allthethings/account/templates/account/donate.html:300
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_round"
 msgstr "Иҫегеҙҙә тотоғоҙ, беҙгә һатыусылар ҡабул иткән суммаға түңәрәкләргә кәрәк (минимум %(minimum)s)."
 
-#: allthethings/account/templates/account/donate.html:307
+#: allthethings/account/templates/account/donate.html:304
 #: allthethings/account/templates/account/donation.html:370
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_com"
 msgstr "<strong>МӨҺИМ:</strong> Беҙ тик Amazon.com-ды ғына хуплайбыҙ, башҡа Amazon веб-сайттарын түгел. Мәҫәлән, .de, .co.uk, .ca, ХУПЛАНМАЙ."
 
-#: allthethings/account/templates/account/donate.html:314
+#: allthethings/account/templates/account/donate.html:311
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_backup"
 msgstr "Был ысул криптовалюта провайдерын аралаш конверсия итеп ҡуллана. Был бер аҙ буталсыҡ булыуы мөмкин, шуға күрә был ысулды тик башҡа түләү ысулдары эшләмәһә генә ҡулланығыҙ. Шулай уҡ был бөтә илдәрҙә лә эшләмәй."
 
-#: allthethings/account/templates/account/donate.html:320
+#: allthethings/account/templates/account/donate.html:317
 msgid "page.donate.payment.desc.credit_debit_explained"
 msgstr ""
 
-#: allthethings/account/templates/account/donate.html:325
+#: allthethings/account/templates/account/donate.html:322
 #, fuzzy
 msgid "page.donate.ccexp.amazon_com"
 msgstr "Кредит/дебет картаһы ҡулланып Amazon.com бүләк карталарын ебәрегеҙ."
 
-#: allthethings/account/templates/account/donate.html:328
+#: allthethings/account/templates/account/donate.html:325
 msgid "page.donate.ccexp.alipay"
 msgstr ""
 
-#: allthethings/account/templates/account/donate.html:331
+#: allthethings/account/templates/account/donate.html:328
 #, fuzzy
 msgid "page.donate.ccexp.wechat"
 msgstr "WeChat (Weixin Pay) халыҡ-ара кредит/дебет карталарын хуплай. WeChat ҡушымтаһында, “Мин => Хеҙмәттәр => Кәштә => Картаны өҫтәү” бүлегенә барығыҙ. Әгәр был күренмәһә, “Мин => Көйләүҙәр => Дөйөм => Ҡоралдар => Weixin Pay => Ҡулланыу” бүлегендә уны ҡулланыуҙы мөмкин итегеҙ."
 
-#: allthethings/account/templates/account/donate.html:334
+#: allthethings/account/templates/account/donate.html:331
 #, fuzzy
 msgid "page.donate.ccexp.crypto"
 msgstr "Кредит/дебет карталарын ҡулланып криптовалюта һатып ала алаһығыҙ."
 
-#: allthethings/account/templates/account/donate.html:352
+#: allthethings/account/templates/account/donate.html:346
 #, fuzzy
 msgid "page.donate.payment.desc.bmc"
 msgstr "Кредит карталары, дебет карталары, Apple Pay һәм Google Pay өсөн, беҙ “Buy Me a Coffee” (BMC <span class=\"icon-[ph--coffee-fill] text-lg align-text-bottom\"></span>) ҡулланабыҙ. Уларҙың системаһында, бер “кофе” $5-ҡа тиң, шуға күрә һеҙҙең бүләгегеҙ 5-кә яҡынлаштырыласаҡ."
 
-#: allthethings/account/templates/account/donate.html:359
+#: allthethings/account/templates/account/donate.html:353
 #, fuzzy
 msgid "page.donate.duration.intro"
 msgstr "Нисә ваҡытҡа яҙылырға теләгәнегеҙҙе һайлағыҙ."
 
-#: allthethings/account/templates/account/donate.html:376
+#: allthethings/account/templates/account/donate.html:370
 #, fuzzy
 msgid "page.donate.duration.1_mo"
 msgstr "1 ай"
 
-#: allthethings/account/templates/account/donate.html:377
+#: allthethings/account/templates/account/donate.html:371
 #, fuzzy
 msgid "page.donate.duration.3_mo"
 msgstr "3 ай"
 
-#: allthethings/account/templates/account/donate.html:378
+#: allthethings/account/templates/account/donate.html:372
 #, fuzzy
 msgid "page.donate.duration.6_mo"
 msgstr "6 ай"
 
-#: allthethings/account/templates/account/donate.html:379
+#: allthethings/account/templates/account/donate.html:373
 #, fuzzy
 msgid "page.donate.duration.12_mo"
 msgstr "12 ай"
 
-#: allthethings/account/templates/account/donate.html:380
+#: allthethings/account/templates/account/donate.html:374
 #, fuzzy
 msgid "page.donate.duration.24_mo"
 msgstr "24 ай"
 
-#: allthethings/account/templates/account/donate.html:381
+#: allthethings/account/templates/account/donate.html:375
 #, fuzzy
 msgid "page.donate.duration.48_mo"
 msgstr "48 ай"
 
-#: allthethings/account/templates/account/donate.html:382
+#: allthethings/account/templates/account/donate.html:376
 #, fuzzy
 msgid "page.donate.duration.96_mo"
 msgstr "96 ай"
 
-#: allthethings/account/templates/account/donate.html:385
+#: allthethings/account/templates/account/donate.html:379
 #, fuzzy
 msgid "page.donate.duration.summary"
 msgstr "<div %(div_monthly_cost)s></div><div %(div_after)s>жеңілдіктерден кейін <span %(span_discount)s></span></div><div %(div_total)s></div><div %(div_duration)s></div>"
 
-#: allthethings/account/templates/account/donate.html:392
+#: allthethings/account/templates/account/donate.html:386
 #, fuzzy
 msgid "page.donate.payment.minimum_method"
 msgstr "Бұл төлем әдісі үшін ең аз мөлшер %(amount)s қажет. Басқа мерзімді немесе төлем әдісін таңдаңыз."
 
-#: allthethings/account/templates/account/donate.html:393
-#: allthethings/account/templates/account/donate.html:397
+#: allthethings/account/templates/account/donate.html:387
+#: allthethings/account/templates/account/donate.html:391
 #, fuzzy
 msgid "page.donate.buttons.donate"
 msgstr "Иғәнә"
 
-#: allthethings/account/templates/account/donate.html:396
+#: allthethings/account/templates/account/donate.html:390
 #, fuzzy
 msgid "page.donate.payment.maximum_method"
 msgstr "Бұл төлем әдісі үшін ең көп мөлшер %(amount)s ғана рұқсат етіледі. Басқа мерзімді немесе төлем әдісін таңдаңыз."
 
-#: allthethings/account/templates/account/donate.html:403
+#: allthethings/account/templates/account/donate.html:397
 #, fuzzy
 msgid "page.donate.login2"
 msgstr "Мүше болу үшін, өтінеміз <a %(a_login)s>Кіру немесе Тіркелу</a>. Қолдауыңызға рахмет!"
 
-#: allthethings/account/templates/account/donate.html:410
+#: allthethings/account/templates/account/donate.html:404
 #, fuzzy
 msgid "page.donate.payment.crypto_select"
 msgstr "Таңдаулы криптовалютаны таңдаңыз:"
 
-#: allthethings/account/templates/account/donate.html:415
+#: allthethings/account/templates/account/donate.html:409
 #, fuzzy
 msgid "page.donate.currency_lowest_minimum"
 msgstr "(ең төменгі мөлшер)"
 
-#: allthethings/account/templates/account/donate.html:429
+#: allthethings/account/templates/account/donate.html:423
+#: allthethings/account/templates/account/donate.html:424
+#: allthethings/account/templates/account/donate.html:428
 #: allthethings/account/templates/account/donate.html:430
-#: allthethings/account/templates/account/donate.html:434
-#: allthethings/account/templates/account/donate.html:436
 #, fuzzy
 msgid "page.donate.currency_warning_high_minimum"
 msgstr "(ескерту: жоғары ең төменгі мөлшер)"
 
-#: allthethings/account/templates/account/donate.html:445
+#: allthethings/account/templates/account/donate.html:439
 #, fuzzy
 msgid "page.donate.submit.confirm"
 msgstr "Бұл қайырымдылықты растау үшін \"Қайырымдылық жасау\" түймесін басыңыз."
 
-#: allthethings/account/templates/account/donate.html:453
+#: allthethings/account/templates/account/donate.html:447
 #, fuzzy
 msgid "page.donate.submit.button"
 msgstr "Қайырымдылық жасау <span %(span_cost)s></span> <span %(span_label)s></span>"
 
-#: allthethings/account/templates/account/donate.html:458
+#: allthethings/account/templates/account/donate.html:452
 #, fuzzy
 msgid "page.donate.submit.cancel_note"
 msgstr "Сіз әлі де төлем кезінде қайырымдылықты болдырмауға болады."
 
-#: allthethings/account/templates/account/donate.html:462
+#: allthethings/account/templates/account/donate.html:456
 #, fuzzy
 msgid "page.donate.submit.success"
 msgstr "✅ Қайырымдылық бетіне бағытталуда…"
 
-#: allthethings/account/templates/account/donate.html:463
+#: allthethings/account/templates/account/donate.html:457
 #, fuzzy
 msgid "page.donate.submit.failure"
 msgstr "❌ Қате орын алды. Бетті қайта жүктеп, қайтадан көріңіз."
 
-#: allthethings/account/templates/account/donate.html:517
+#: allthethings/account/templates/account/donate.html:511
 #, fuzzy
 msgid "page.donate.duration.summary.discount"
 msgstr "%(percentage)s%%"
 
-#: allthethings/account/templates/account/donate.html:518
+#: allthethings/account/templates/account/donate.html:512
 #, fuzzy
 msgid "page.donate.duration.summary.monthly_cost"
 msgstr "%(monthly_cost)s / ай"
 
-#: allthethings/account/templates/account/donate.html:521
+#: allthethings/account/templates/account/donate.html:515
 #, fuzzy
 msgid "page.donate.duration.summary.duration.1_mo"
 msgstr "1 айға"
 
-#: allthethings/account/templates/account/donate.html:522
+#: allthethings/account/templates/account/donate.html:516
 #, fuzzy
 msgid "page.donate.duration.summary.duration.3_mo"
 msgstr "3 айға"
 
-#: allthethings/account/templates/account/donate.html:523
+#: allthethings/account/templates/account/donate.html:517
 #, fuzzy
 msgid "page.donate.duration.summary.duration.6_mo"
 msgstr "6 айға"
 
-#: allthethings/account/templates/account/donate.html:524
+#: allthethings/account/templates/account/donate.html:518
 #, fuzzy
 msgid "page.donate.duration.summary.duration.12_mo"
 msgstr "12 айға"
 
-#: allthethings/account/templates/account/donate.html:525
+#: allthethings/account/templates/account/donate.html:519
 #, fuzzy
 msgid "page.donate.duration.summary.duration.24_mo"
 msgstr "24 айға"
 
-#: allthethings/account/templates/account/donate.html:526
+#: allthethings/account/templates/account/donate.html:520
 #, fuzzy
 msgid "page.donate.duration.summary.duration.48_mo"
 msgstr "48 айға"
 
-#: allthethings/account/templates/account/donate.html:527
+#: allthethings/account/templates/account/donate.html:521
 #, fuzzy
 msgid "page.donate.duration.summary.duration.96_mo"
 msgstr "96 айға"
 
-#: allthethings/account/templates/account/donate.html:531
+#: allthethings/account/templates/account/donate.html:525
 #, fuzzy
 msgid "page.donate.submit.button.label.1_mo"
 msgstr "1 айға “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:532
+#: allthethings/account/templates/account/donate.html:526
 #, fuzzy
 msgid "page.donate.submit.button.label.3_mo"
 msgstr "3 айға “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:533
+#: allthethings/account/templates/account/donate.html:527
 #, fuzzy
 msgid "page.donate.submit.button.label.6_mo"
 msgstr "6 айға “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:534
+#: allthethings/account/templates/account/donate.html:528
 #, fuzzy
 msgid "page.donate.submit.button.label.12_mo"
 msgstr "12 айға “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:535
+#: allthethings/account/templates/account/donate.html:529
 #, fuzzy
 msgid "page.donate.submit.button.label.24_mo"
 msgstr "24 айға “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:536
+#: allthethings/account/templates/account/donate.html:530
 #, fuzzy
 msgid "page.donate.submit.button.label.48_mo"
 msgstr "48 айға “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:537
+#: allthethings/account/templates/account/donate.html:531
 #, fuzzy
 msgid "page.donate.submit.button.label.96_mo"
 msgstr "96 айға “%(tier_name)s”"
@@ -4947,4 +4946,7 @@ msgstr "Киләһе"
 
 #~ msgid "page.md5.box.download.header_generic"
 #~ msgstr "Тейәүҙәр"
+
+#~ msgid "page.donate.payment.desc.crypto_suggestion"
+#~ msgstr "Әгәр һеҙ криптовалютаны тәүге тапҡыр ҡулланаһығыҙ икән, Bitcoin (иң тәүге һәм иң киң ҡулланылған криптовалюта) һатып алып иғәнә яһау өсөн %(option1)s, %(option2)s, йәки %(option3)s ҡулланыуҙы тәҡдим итәбеҙ."
 

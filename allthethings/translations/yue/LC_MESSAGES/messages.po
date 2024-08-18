@@ -367,13 +367,13 @@ msgid "page.donate.payment.select_method"
 msgstr "請選擇一個付款方式。"
 
 #: allthethings/account/templates/account/donate.html:129
-#: allthethings/account/templates/account/donate.html:370
+#: allthethings/account/templates/account/donate.html:364
 #, fuzzy
 msgid "page.donate.discount"
 msgstr "-%(percentage)s%%"
 
 #: allthethings/account/templates/account/donate.html:135
-#: allthethings/account/templates/account/donate.html:324
+#: allthethings/account/templates/account/donate.html:321
 #, fuzzy
 msgid "page.donate.payment.buttons.amazon"
 msgstr "亞馬遜禮品卡"
@@ -381,7 +381,7 @@ msgstr "亞馬遜禮品卡"
 #: allthethings/account/templates/account/donate.html:136
 #: allthethings/account/templates/account/donate.html:146
 #: allthethings/account/templates/account/donate.html:147
-#: allthethings/account/templates/account/donate.html:333
+#: allthethings/account/templates/account/donate.html:330
 #, fuzzy
 msgid "page.donate.payment.buttons.crypto"
 msgstr "加密貨幣 %(bitcoin_icon)s"
@@ -415,7 +415,7 @@ msgstr "信用卡/借記卡/Apple/Google（BMC）"
 #: allthethings/account/templates/account/donate.html:144
 #: allthethings/account/templates/account/donate.html:160
 #: allthethings/account/templates/account/donate.html:168
-#: allthethings/account/templates/account/donate.html:327
+#: allthethings/account/templates/account/donate.html:324
 #, fuzzy
 msgid "page.donate.payment.buttons.alipay"
 msgstr "支付寶"
@@ -466,7 +466,7 @@ msgstr "支付寶 支付宝 / 微信 微信"
 
 #: allthethings/account/templates/account/donate.html:162
 #: allthethings/account/templates/account/donate.html:169
-#: allthethings/account/templates/account/donate.html:330
+#: allthethings/account/templates/account/donate.html:327
 #, fuzzy
 msgid "page.donate.payment.buttons.wechat"
 msgstr "微信"
@@ -487,348 +487,347 @@ msgid "page.donate.payment.desc.crypto2"
 msgstr "用加密貨幣捐款，您可以使用 BTC、ETH、XMR 等。"
 
 #: allthethings/account/templates/account/donate.html:216
-#: allthethings/account/templates/account/donate.html:335
-#, fuzzy
-msgid "page.donate.payment.desc.crypto_suggestion"
-msgstr "如果您第一次使用加密貨幣，我們建議使用 %(option1)s、%(option2)s 或 %(option3)s 購買和捐贈比特幣（最原始和最常用的加密貨幣）。"
+#: allthethings/account/templates/account/donate.html:332
+msgid "page.donate.payment.desc.crypto_suggestion_dynamic"
+msgstr ""
 
 #: allthethings/account/templates/account/donate.html:219
-#: allthethings/account/templates/account/donate.html:338
+#: allthethings/account/templates/account/donate.html:335
 #, fuzzy
 msgid "page.donate.payment.processor.binance"
 msgstr "幣安"
 
 #: allthethings/account/templates/account/donate.html:220
-#: allthethings/account/templates/account/donate.html:339
+#: allthethings/account/templates/account/donate.html:336
 #, fuzzy
 msgid "page.donate.payment.processor.coinbase"
 msgstr "Coinbase"
 
 #: allthethings/account/templates/account/donate.html:221
-#: allthethings/account/templates/account/donate.html:340
+#: allthethings/account/templates/account/donate.html:337
 #, fuzzy
 msgid "page.donate.payment.processor.kraken"
 msgstr "Kraken"
 
-#: allthethings/account/templates/account/donate.html:232
+#: allthethings/account/templates/account/donate.html:229
 #, fuzzy
 msgid "page.donate.payment.desc.paypal"
 msgstr "要使用 PayPal US 捐款，我們會使用 PayPal Crypto，這樣可以保持匿名。感謝您花時間學習如何使用這種方法捐款，這對我們幫助很大。"
 
-#: allthethings/account/templates/account/donate.html:233
+#: allthethings/account/templates/account/donate.html:230
 #, fuzzy
 msgid "page.donate.payment.desc.paypal_short"
 msgstr "使用 PayPal 捐款。"
 
-#: allthethings/account/templates/account/donate.html:239
+#: allthethings/account/templates/account/donate.html:236
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp"
 msgstr "使用 Cash App 捐款。"
 
-#: allthethings/account/templates/account/donate.html:240
+#: allthethings/account/templates/account/donate.html:237
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_easy"
 msgstr "如果您有 Cash App，這是最簡單的捐款方式！"
 
-#: allthethings/account/templates/account/donate.html:243
-#: allthethings/account/templates/account/donate.html:253
+#: allthethings/account/templates/account/donate.html:240
+#: allthethings/account/templates/account/donate.html:250
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_fee"
 msgstr "請注意，對於低於 %(amount)s 的交易，Cash App 可能會收取 %(fee)s 費用。對於 %(amount)s 或以上的交易，是免費的！"
 
-#: allthethings/account/templates/account/donate.html:249
+#: allthethings/account/templates/account/donate.html:246
 #, fuzzy
 msgid "page.donate.payment.desc.revolut"
 msgstr "用 Revolut 捐款。"
 
-#: allthethings/account/templates/account/donate.html:250
+#: allthethings/account/templates/account/donate.html:247
 #, fuzzy
 msgid "page.donate.payment.desc.revolut_easy"
 msgstr "如果你有 Revolut，呢個係最簡單嘅捐款方法！"
 
-#: allthethings/account/templates/account/donate.html:259
-#: allthethings/account/templates/account/donate.html:313
+#: allthethings/account/templates/account/donate.html:256
+#: allthethings/account/templates/account/donate.html:310
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit"
 msgstr "使用信用卡或借記卡捐款。"
 
-#: allthethings/account/templates/account/donate.html:260
+#: allthethings/account/templates/account/donate.html:257
 #, fuzzy
 msgid "page.donate.payment.desc.google_apple"
 msgstr "Google Pay 同 Apple Pay 都可能適用。"
 
-#: allthethings/account/templates/account/donate.html:261
+#: allthethings/account/templates/account/donate.html:258
 #, fuzzy
 msgid "page.donate.payment.desc.elimate_discount"
 msgstr "請注意，小額捐款嘅信用卡手續費可能會抵消我哋嘅%(discount)s%%折扣，所以我哋建議選擇較長嘅訂閱期。"
 
-#: allthethings/account/templates/account/donate.html:262
+#: allthethings/account/templates/account/donate.html:259
 #, fuzzy
 msgid "page.donate.payment.desc.longer_subs"
 msgstr "請注意，小額捐款嘅手續費比較高，所以我哋建議選擇較長嘅訂閱期。"
 
-#: allthethings/account/templates/account/donate.html:268
+#: allthethings/account/templates/account/donate.html:265
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p1"
 msgstr "用 Binance，你可以用信用卡/借記卡或者銀行賬戶買 Bitcoin，然後將 Bitcoin 捐畀我哋。咁樣我哋可以喺接受你嘅捐款時保持安全同匿名。"
 
-#: allthethings/account/templates/account/donate.html:272
+#: allthethings/account/templates/account/donate.html:269
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p2"
 msgstr "Binance 幾乎喺每個國家都可以用，並且支持大部分銀行同信用卡/借記卡。呢個係我哋目前嘅主要推薦方法。我哋感謝你花時間學習點樣用呢個方法捐款，因為呢個對我哋幫助好大。"
 
-#: allthethings/account/templates/account/donate.html:278
+#: allthethings/account/templates/account/donate.html:275
 #, fuzzy
 msgid "page.donate.payment.desc.paypalreg"
 msgstr "用你嘅常規 PayPal 賬戶捐款。"
 
-#: allthethings/account/templates/account/donate.html:284
-#: allthethings/account/templates/account/donate.html:290
+#: allthethings/account/templates/account/donate.html:281
+#: allthethings/account/templates/account/donate.html:287
 #, fuzzy
 msgid "page.donate.payment.desc.alipay_wechat"
 msgstr "用 Alipay 或 WeChat 捐款。你可以喺下一頁選擇其中一個。"
 
-#: allthethings/account/templates/account/donate.html:296
+#: allthethings/account/templates/account/donate.html:293
 #, fuzzy
 msgid "page.donate.payment.desc.givebutter"
 msgstr "用信用卡/借記卡、PayPal 或 Venmo 捐款。你可以喺下一頁選擇其中一個。"
 
-#: allthethings/account/templates/account/donate.html:302
+#: allthethings/account/templates/account/donate.html:299
 #, fuzzy
 msgid "page.donate.payment.desc.amazon"
 msgstr "用 Amazon 禮品卡捐款。"
 
-#: allthethings/account/templates/account/donate.html:303
+#: allthethings/account/templates/account/donate.html:300
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_round"
 msgstr "請注意，我哋需要將金額四捨五入到我哋轉售商接受嘅金額（最低%(minimum)s）。"
 
-#: allthethings/account/templates/account/donate.html:307
+#: allthethings/account/templates/account/donate.html:304
 #: allthethings/account/templates/account/donation.html:370
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_com"
 msgstr "<strong>重要提示：</strong> 我哋只支持 Amazon.com，唔支持其他 Amazon 網站。例如，.de、.co.uk、.ca 都唔支持。"
 
-#: allthethings/account/templates/account/donate.html:314
+#: allthethings/account/templates/account/donate.html:311
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_backup"
 msgstr "呢個方法使用加密貨幣供應商作為中間轉換。呢個可能有啲混亂，所以請只喺其他支付方法唔適用嘅情況下使用呢個方法。呢個方法亦唔適用於所有國家。"
 
-#: allthethings/account/templates/account/donate.html:320
+#: allthethings/account/templates/account/donate.html:317
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_explained"
 msgstr "我哋唔能夠直接支持信用卡/借記卡，因為銀行唔想同我哋合作。☹ 不過，仲有幾個方法可以用信用卡/借記卡，通過其他支付方式："
 
-#: allthethings/account/templates/account/donate.html:325
+#: allthethings/account/templates/account/donate.html:322
 #, fuzzy
 msgid "page.donate.ccexp.amazon_com"
 msgstr "用你嘅信用卡/借記卡發送 Amazon.com 禮品卡畀我哋。"
 
-#: allthethings/account/templates/account/donate.html:328
+#: allthethings/account/templates/account/donate.html:325
 #, fuzzy
 msgid "page.donate.ccexp.alipay"
 msgstr "Alipay 支持國際信用卡/借記卡。睇吓<a %(a_alipay)s>呢個指南</a>了解更多資訊。"
 
-#: allthethings/account/templates/account/donate.html:331
+#: allthethings/account/templates/account/donate.html:328
 #, fuzzy
 msgid "page.donate.ccexp.wechat"
 msgstr "WeChat（Weixin Pay）支持國際信用卡/借記卡。喺 WeChat 應用程式中，去“我 => 服務 => 錢包 => 添加卡”。如果你睇唔到呢個選項，請通過“我 => 設置 => 通用 => 工具 => Weixin Pay => 啟用”啟用佢。"
 
-#: allthethings/account/templates/account/donate.html:334
+#: allthethings/account/templates/account/donate.html:331
 #, fuzzy
 msgid "page.donate.ccexp.crypto"
 msgstr "你可以用信用卡/借記卡買加密貨幣。"
 
-#: allthethings/account/templates/account/donate.html:352
+#: allthethings/account/templates/account/donate.html:346
 #, fuzzy
 msgid "page.donate.payment.desc.bmc"
 msgstr "對於信用卡、借記卡、Apple Pay 同 Google Pay，我哋使用“Buy Me a Coffee”（BMC <span class=\"icon-[ph--coffee-fill] text-lg align-text-bottom\"></span>）。喺佢哋嘅系統中，一“咖啡”等於 $5，所以你嘅捐款會四捨五入到最接近嘅 5 倍數。"
 
-#: allthethings/account/templates/account/donate.html:359
+#: allthethings/account/templates/account/donate.html:353
 #, fuzzy
 msgid "page.donate.duration.intro"
 msgstr "選擇你想訂閱嘅時長。"
 
-#: allthethings/account/templates/account/donate.html:376
+#: allthethings/account/templates/account/donate.html:370
 #, fuzzy
 msgid "page.donate.duration.1_mo"
 msgstr "1 個月"
 
-#: allthethings/account/templates/account/donate.html:377
+#: allthethings/account/templates/account/donate.html:371
 #, fuzzy
 msgid "page.donate.duration.3_mo"
 msgstr "3個月"
 
-#: allthethings/account/templates/account/donate.html:378
+#: allthethings/account/templates/account/donate.html:372
 #, fuzzy
 msgid "page.donate.duration.6_mo"
 msgstr "6個月"
 
-#: allthethings/account/templates/account/donate.html:379
+#: allthethings/account/templates/account/donate.html:373
 #, fuzzy
 msgid "page.donate.duration.12_mo"
 msgstr "12個月"
 
-#: allthethings/account/templates/account/donate.html:380
+#: allthethings/account/templates/account/donate.html:374
 #, fuzzy
 msgid "page.donate.duration.24_mo"
 msgstr "24個月"
 
-#: allthethings/account/templates/account/donate.html:381
+#: allthethings/account/templates/account/donate.html:375
 #, fuzzy
 msgid "page.donate.duration.48_mo"
 msgstr "48個月"
 
-#: allthethings/account/templates/account/donate.html:382
+#: allthethings/account/templates/account/donate.html:376
 #, fuzzy
 msgid "page.donate.duration.96_mo"
 msgstr "96個月"
 
-#: allthethings/account/templates/account/donate.html:385
+#: allthethings/account/templates/account/donate.html:379
 #, fuzzy
 msgid "page.donate.duration.summary"
 msgstr "<div %(div_monthly_cost)s></div><div %(div_after)s>扣除 <span %(span_discount)s></span> 折扣後</div><div %(div_total)s></div><div %(div_duration)s></div>"
 
-#: allthethings/account/templates/account/donate.html:392
+#: allthethings/account/templates/account/donate.html:386
 #, fuzzy
 msgid "page.donate.payment.minimum_method"
 msgstr "此付款方式需要最低 %(amount)s。請選擇其他時長或付款方式。"
 
-#: allthethings/account/templates/account/donate.html:393
-#: allthethings/account/templates/account/donate.html:397
+#: allthethings/account/templates/account/donate.html:387
+#: allthethings/account/templates/account/donate.html:391
 #, fuzzy
 msgid "page.donate.buttons.donate"
 msgstr "捐款"
 
-#: allthethings/account/templates/account/donate.html:396
+#: allthethings/account/templates/account/donate.html:390
 #, fuzzy
 msgid "page.donate.payment.maximum_method"
 msgstr "此付款方式只允許最高 %(amount)s。請選擇其他時長或付款方式。"
 
-#: allthethings/account/templates/account/donate.html:403
+#: allthethings/account/templates/account/donate.html:397
 #, fuzzy
 msgid "page.donate.login2"
 msgstr "要成為會員，請 <a %(a_login)s>登入或註冊</a>。多謝您嘅支持！"
 
-#: allthethings/account/templates/account/donate.html:410
+#: allthethings/account/templates/account/donate.html:404
 #, fuzzy
 msgid "page.donate.payment.crypto_select"
 msgstr "選擇您偏好嘅加密貨幣："
 
-#: allthethings/account/templates/account/donate.html:415
+#: allthethings/account/templates/account/donate.html:409
 #, fuzzy
 msgid "page.donate.currency_lowest_minimum"
 msgstr "（最低金額）"
 
-#: allthethings/account/templates/account/donate.html:429
+#: allthethings/account/templates/account/donate.html:423
+#: allthethings/account/templates/account/donate.html:424
+#: allthethings/account/templates/account/donate.html:428
 #: allthethings/account/templates/account/donate.html:430
-#: allthethings/account/templates/account/donate.html:434
-#: allthethings/account/templates/account/donate.html:436
 #, fuzzy
 msgid "page.donate.currency_warning_high_minimum"
 msgstr "（警告：高最低金額）"
 
-#: allthethings/account/templates/account/donate.html:445
+#: allthethings/account/templates/account/donate.html:439
 #, fuzzy
 msgid "page.donate.submit.confirm"
 msgstr "點擊捐款按鈕確認此捐款。"
 
-#: allthethings/account/templates/account/donate.html:453
+#: allthethings/account/templates/account/donate.html:447
 #, fuzzy
 msgid "page.donate.submit.button"
 msgstr "捐款 <span %(span_cost)s></span> <span %(span_label)s></span>"
 
-#: allthethings/account/templates/account/donate.html:458
+#: allthethings/account/templates/account/donate.html:452
 #, fuzzy
 msgid "page.donate.submit.cancel_note"
 msgstr "您仍然可以在結帳時取消捐款。"
 
-#: allthethings/account/templates/account/donate.html:462
+#: allthethings/account/templates/account/donate.html:456
 #, fuzzy
 msgid "page.donate.submit.success"
 msgstr "✅ 正在重定向到捐款頁面…"
 
-#: allthethings/account/templates/account/donate.html:463
+#: allthethings/account/templates/account/donate.html:457
 #, fuzzy
 msgid "page.donate.submit.failure"
 msgstr "❌ 出現錯誤。請重新加載頁面並重試。"
 
-#: allthethings/account/templates/account/donate.html:517
+#: allthethings/account/templates/account/donate.html:511
 #, fuzzy
 msgid "page.donate.duration.summary.discount"
 msgstr "%(percentage)s%%"
 
-#: allthethings/account/templates/account/donate.html:518
+#: allthethings/account/templates/account/donate.html:512
 #, fuzzy
 msgid "page.donate.duration.summary.monthly_cost"
 msgstr "%(monthly_cost)s / 月"
 
-#: allthethings/account/templates/account/donate.html:521
+#: allthethings/account/templates/account/donate.html:515
 #, fuzzy
 msgid "page.donate.duration.summary.duration.1_mo"
 msgstr "1 個月"
 
-#: allthethings/account/templates/account/donate.html:522
+#: allthethings/account/templates/account/donate.html:516
 #, fuzzy
 msgid "page.donate.duration.summary.duration.3_mo"
 msgstr "3 個月"
 
-#: allthethings/account/templates/account/donate.html:523
+#: allthethings/account/templates/account/donate.html:517
 #, fuzzy
 msgid "page.donate.duration.summary.duration.6_mo"
 msgstr "6 個月"
 
-#: allthethings/account/templates/account/donate.html:524
+#: allthethings/account/templates/account/donate.html:518
 #, fuzzy
 msgid "page.donate.duration.summary.duration.12_mo"
 msgstr "12 個月"
 
-#: allthethings/account/templates/account/donate.html:525
+#: allthethings/account/templates/account/donate.html:519
 #, fuzzy
 msgid "page.donate.duration.summary.duration.24_mo"
 msgstr "24 個月"
 
-#: allthethings/account/templates/account/donate.html:526
+#: allthethings/account/templates/account/donate.html:520
 #, fuzzy
 msgid "page.donate.duration.summary.duration.48_mo"
 msgstr "48 個月"
 
-#: allthethings/account/templates/account/donate.html:527
+#: allthethings/account/templates/account/donate.html:521
 #, fuzzy
 msgid "page.donate.duration.summary.duration.96_mo"
 msgstr "96 個月"
 
-#: allthethings/account/templates/account/donate.html:531
+#: allthethings/account/templates/account/donate.html:525
 #, fuzzy
 msgid "page.donate.submit.button.label.1_mo"
 msgstr "1 個月“%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:532
+#: allthethings/account/templates/account/donate.html:526
 #, fuzzy
 msgid "page.donate.submit.button.label.3_mo"
 msgstr "3 個月 “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:533
+#: allthethings/account/templates/account/donate.html:527
 #, fuzzy
 msgid "page.donate.submit.button.label.6_mo"
 msgstr "6 個月 “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:534
+#: allthethings/account/templates/account/donate.html:528
 #, fuzzy
 msgid "page.donate.submit.button.label.12_mo"
 msgstr "12 個月 “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:535
+#: allthethings/account/templates/account/donate.html:529
 #, fuzzy
 msgid "page.donate.submit.button.label.24_mo"
 msgstr "24 個月 “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:536
+#: allthethings/account/templates/account/donate.html:530
 #, fuzzy
 msgid "page.donate.submit.button.label.48_mo"
 msgstr "48 個月 “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:537
+#: allthethings/account/templates/account/donate.html:531
 #, fuzzy
 msgid "page.donate.submit.button.label.96_mo"
 msgstr "96 個月 “%(tier_name)s”"
@@ -4981,4 +4980,7 @@ msgstr "下一頁"
 
 #~ msgid "page.md5.box.download.header_generic"
 #~ msgstr "下載"
+
+#~ msgid "page.donate.payment.desc.crypto_suggestion"
+#~ msgstr "如果您第一次使用加密貨幣，我們建議使用 %(option1)s、%(option2)s 或 %(option3)s 購買和捐贈比特幣（最原始和最常用的加密貨幣）。"
 

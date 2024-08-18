@@ -366,13 +366,13 @@ msgid "page.donate.payment.select_method"
 msgstr "សូមជ្រើសរើសវិធីទូទាត់។"
 
 #: allthethings/account/templates/account/donate.html:129
-#: allthethings/account/templates/account/donate.html:370
+#: allthethings/account/templates/account/donate.html:364
 #, fuzzy
 msgid "page.donate.discount"
 msgstr "-%(percentage)s%%"
 
 #: allthethings/account/templates/account/donate.html:135
-#: allthethings/account/templates/account/donate.html:324
+#: allthethings/account/templates/account/donate.html:321
 #, fuzzy
 msgid "page.donate.payment.buttons.amazon"
 msgstr "កាតអំណោយ Amazon"
@@ -380,7 +380,7 @@ msgstr "កាតអំណោយ Amazon"
 #: allthethings/account/templates/account/donate.html:136
 #: allthethings/account/templates/account/donate.html:146
 #: allthethings/account/templates/account/donate.html:147
-#: allthethings/account/templates/account/donate.html:333
+#: allthethings/account/templates/account/donate.html:330
 #, fuzzy
 msgid "page.donate.payment.buttons.crypto"
 msgstr "គ្រីបតូ %(bitcoin_icon)s"
@@ -411,7 +411,7 @@ msgstr ""
 #: allthethings/account/templates/account/donate.html:144
 #: allthethings/account/templates/account/donate.html:160
 #: allthethings/account/templates/account/donate.html:168
-#: allthethings/account/templates/account/donate.html:327
+#: allthethings/account/templates/account/donate.html:324
 #, fuzzy
 msgid "page.donate.payment.buttons.alipay"
 msgstr "Alipay"
@@ -460,7 +460,7 @@ msgstr "Alipay 支付宝 / WeChat 微信"
 
 #: allthethings/account/templates/account/donate.html:162
 #: allthethings/account/templates/account/donate.html:169
-#: allthethings/account/templates/account/donate.html:330
+#: allthethings/account/templates/account/donate.html:327
 #, fuzzy
 msgid "page.donate.payment.buttons.wechat"
 msgstr "WeChat"
@@ -481,340 +481,339 @@ msgid "page.donate.payment.desc.crypto2"
 msgstr "ជាមួយគ្រឿងបន្លាស់អេឡិចត្រូនិច អ្នកអាចបរិច្ចាគដោយប្រើ BTC, ETH, XMR, និងផ្សេងទៀត។"
 
 #: allthethings/account/templates/account/donate.html:216
-#: allthethings/account/templates/account/donate.html:335
-#, fuzzy
-msgid "page.donate.payment.desc.crypto_suggestion"
-msgstr "ប្រសិនបើអ្នកប្រើគ្រឿងបន្លាស់អេឡិចត្រូនិចជាលើកដំបូង យើងស្នើសុំឱ្យប្រើ %(option1)s, %(option2)s, ឬ %(option3)s ដើម្បីទិញនិងបរិច្ចាគ Bitcoin (គ្រឿងបន្លាស់អេឡិចត្រូនិចដើមនិងប្រើប្រាស់ច្រើនបំផុត)។"
+#: allthethings/account/templates/account/donate.html:332
+msgid "page.donate.payment.desc.crypto_suggestion_dynamic"
+msgstr ""
 
 #: allthethings/account/templates/account/donate.html:219
-#: allthethings/account/templates/account/donate.html:338
+#: allthethings/account/templates/account/donate.html:335
 msgid "page.donate.payment.processor.binance"
 msgstr ""
 
 #: allthethings/account/templates/account/donate.html:220
-#: allthethings/account/templates/account/donate.html:339
+#: allthethings/account/templates/account/donate.html:336
 msgid "page.donate.payment.processor.coinbase"
 msgstr ""
 
 #: allthethings/account/templates/account/donate.html:221
-#: allthethings/account/templates/account/donate.html:340
+#: allthethings/account/templates/account/donate.html:337
 msgid "page.donate.payment.processor.kraken"
 msgstr ""
 
-#: allthethings/account/templates/account/donate.html:232
+#: allthethings/account/templates/account/donate.html:229
 #, fuzzy
 msgid "page.donate.payment.desc.paypal"
 msgstr "ដើម្បីបរិច្ចាគដោយប្រើ PayPal US យើងនឹងប្រើ PayPal Crypto ដែលអនុញ្ញាតឱ្យយើងនៅក្នុងភាពអនាមិក។ យើងសូមអរគុណចំពោះការយកពេលវេលាសិក្សាដើម្បីបរិច្ចាគដោយប្រើវិធីនេះ ព្រោះវាជួយយើងបានច្រើន។"
 
-#: allthethings/account/templates/account/donate.html:233
+#: allthethings/account/templates/account/donate.html:230
 #, fuzzy
 msgid "page.donate.payment.desc.paypal_short"
 msgstr "បរិច្ចាគដោយប្រើ PayPal។"
 
-#: allthethings/account/templates/account/donate.html:239
+#: allthethings/account/templates/account/donate.html:236
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp"
 msgstr "បរិច្ចាគដោយប្រើកម្មវិធី Cash។"
 
-#: allthethings/account/templates/account/donate.html:240
+#: allthethings/account/templates/account/donate.html:237
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_easy"
 msgstr "ប្រសិនបើអ្នកមានកម្មវិធី Cash នេះជាវិធីងាយបំផុតដើម្បីបរិច្ចាគ!"
 
-#: allthethings/account/templates/account/donate.html:243
-#: allthethings/account/templates/account/donate.html:253
+#: allthethings/account/templates/account/donate.html:240
+#: allthethings/account/templates/account/donate.html:250
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_fee"
 msgstr "សូមចំណាំថាសម្រាប់ប្រតិបត្តិការក្រោម %(amount)s កម្មវិធី Cash អាចគិតថ្លៃ %(fee)s។ សម្រាប់ %(amount)s ឬខ្ពស់ជាងនេះ វាឥតគិតថ្លៃ!"
 
-#: allthethings/account/templates/account/donate.html:249
+#: allthethings/account/templates/account/donate.html:246
 msgid "page.donate.payment.desc.revolut"
 msgstr ""
 
-#: allthethings/account/templates/account/donate.html:250
+#: allthethings/account/templates/account/donate.html:247
 msgid "page.donate.payment.desc.revolut_easy"
 msgstr ""
 
-#: allthethings/account/templates/account/donate.html:259
-#: allthethings/account/templates/account/donate.html:313
+#: allthethings/account/templates/account/donate.html:256
+#: allthethings/account/templates/account/donate.html:310
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit"
 msgstr "បរិច្ចាគដោយប្រើកាតឥណទាន ឬឥណពន្ធ។"
 
-#: allthethings/account/templates/account/donate.html:260
+#: allthethings/account/templates/account/donate.html:257
 #, fuzzy
 msgid "page.donate.payment.desc.google_apple"
 msgstr "Google Pay និង Apple Pay ក៏អាចប្រើបានដែរ។"
 
-#: allthethings/account/templates/account/donate.html:261
+#: allthethings/account/templates/account/donate.html:258
 #, fuzzy
 msgid "page.donate.payment.desc.elimate_discount"
 msgstr "សូមចំណាំថាសម្រាប់ការបរិច្ចាគតូចៗ ការបង់ថ្លៃកាតឥណទានអាចលុបបំបាត់ការបញ្ចុះតម្លៃ %(discount)s%% របស់យើង ដូច្នេះយើងសូមណែនាំឱ្យជាវប្រចាំរយៈពេលវែង។"
 
-#: allthethings/account/templates/account/donate.html:262
+#: allthethings/account/templates/account/donate.html:259
 #, fuzzy
 msgid "page.donate.payment.desc.longer_subs"
 msgstr "សូមចំណាំថាសម្រាប់ការបរិច្ចាគតូចៗ ថ្លៃសេវាគឺខ្ពស់ ដូច្នេះយើងស្នើសុំឱ្យជាវជាអំឡុងពេលវែង។"
 
-#: allthethings/account/templates/account/donate.html:268
+#: allthethings/account/templates/account/donate.html:265
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p1"
 msgstr "ជាមួយ Binance អ្នកទិញ Bitcoin ដោយប្រើកាតឥណទាន/ឥណពន្ធ ឬគណនីធនាគារ ហើយបន្ទាប់មកបរិច្ចាគ Bitcoin នោះមកយើង។ វិធីនេះអាចធ្វើឱ្យយើងមានសុវត្ថិភាព និងអនាមិកនៅពេលទទួលការបរិច្ចាគរបស់អ្នក។"
 
-#: allthethings/account/templates/account/donate.html:272
+#: allthethings/account/templates/account/donate.html:269
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p2"
 msgstr "Binance មាននៅក្នុងប្រទេសជាងគ្រប់គ្រាន់ ហើយគាំទ្រធនាគារនិងកាតឥណទាន/ឥណពន្ធភាគច្រើន។ នេះជាការផ្តល់អនុសាសន៍ចម្បងរបស់យើង។ យើងសូមអរគុណចំពោះការយកពេលវេលាសិក្សាដើម្បីបរិច្ចាគដោយប្រើវិធីនេះ ព្រោះវាជួយយើងបានច្រើន។"
 
-#: allthethings/account/templates/account/donate.html:278
+#: allthethings/account/templates/account/donate.html:275
 msgid "page.donate.payment.desc.paypalreg"
 msgstr ""
 
-#: allthethings/account/templates/account/donate.html:284
-#: allthethings/account/templates/account/donate.html:290
+#: allthethings/account/templates/account/donate.html:281
+#: allthethings/account/templates/account/donate.html:287
 #, fuzzy
 msgid "page.donate.payment.desc.alipay_wechat"
 msgstr "បរិច្ចាគដោយប្រើ Alipay ឬ WeChat។ អ្នកអាចជ្រើសរើសរវាងទាំងនេះនៅលើទំព័របន្ទាប់។"
 
-#: allthethings/account/templates/account/donate.html:296
+#: allthethings/account/templates/account/donate.html:293
 #, fuzzy
 msgid "page.donate.payment.desc.givebutter"
 msgstr "បរិច្ចាគដោយប្រើកាតឥណទាន/ឥណពន្ធ, PayPal, ឬ Venmo។ អ្នកអាចជ្រើសរើសរវាងទាំងនេះនៅលើទំព័របន្ទាប់។"
 
-#: allthethings/account/templates/account/donate.html:302
+#: allthethings/account/templates/account/donate.html:299
 #, fuzzy
 msgid "page.donate.payment.desc.amazon"
 msgstr "បរិច្ចាគដោយប្រើកាតអំណោយ Amazon។"
 
-#: allthethings/account/templates/account/donate.html:303
+#: allthethings/account/templates/account/donate.html:300
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_round"
 msgstr "សូមចំណាំថាយើងត្រូវការបង្គត់ទៅចំនួនទឹកប្រាក់ដែលអ្នកលក់ដុំយល់ព្រម (អប្បបរមា %(minimum)s)។"
 
-#: allthethings/account/templates/account/donate.html:307
+#: allthethings/account/templates/account/donate.html:304
 #: allthethings/account/templates/account/donation.html:370
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_com"
 msgstr "<strong>សំខាន់៖</strong> យើងគាំទ្រ Amazon.com ប៉ុណ្ណោះ មិនមែនគេហទំព័រ Amazon ផ្សេងទៀតទេ។ ឧទាហរណ៍ .de, .co.uk, .ca មិនត្រូវបានគាំទ្រ។"
 
-#: allthethings/account/templates/account/donate.html:314
+#: allthethings/account/templates/account/donate.html:311
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_backup"
 msgstr "វិធីសាស្រ្តនេះប្រើអ្នកផ្តល់សេវាគ្រប់គ្រងលុយឌីជីថលជាអ្នកបំរើកណ្តាល។ វាអាចនឹងបណ្តាលឱ្យមានការភាន់ច្រឡំខ្លះ ដូច្នេះសូមប្រើវិធីសាស្រ្តនេះបើមានវិធីបង់ប្រាក់ផ្សេងទៀតមិនដំណើរការ។ វាក៏មិនដំណើរការនៅគ្រប់ប្រទេសទាំងអស់ដែរ។"
 
-#: allthethings/account/templates/account/donate.html:320
+#: allthethings/account/templates/account/donate.html:317
 msgid "page.donate.payment.desc.credit_debit_explained"
 msgstr ""
 
-#: allthethings/account/templates/account/donate.html:325
+#: allthethings/account/templates/account/donate.html:322
 #, fuzzy
 msgid "page.donate.ccexp.amazon_com"
 msgstr "ផ្ញើកាតអំណោយ Amazon.com មកយើងដោយប្រើកាតឥណទាន/ឥណពន្ធរបស់អ្នក។"
 
-#: allthethings/account/templates/account/donate.html:328
+#: allthethings/account/templates/account/donate.html:325
 msgid "page.donate.ccexp.alipay"
 msgstr ""
 
-#: allthethings/account/templates/account/donate.html:331
+#: allthethings/account/templates/account/donate.html:328
 #, fuzzy
 msgid "page.donate.ccexp.wechat"
 msgstr "WeChat (Weixin Pay) គាំទ្រកាតឥណទាន/ឥណពន្ធអន្តរជាតិ។ នៅក្នុងកម្មវិធី WeChat ចូលទៅកាន់ “Me => Services => Wallet => Add a Card”។ ប្រសិនបើអ្នកមិនឃើញវា សូមបើកវាដោយប្រើ “Me => Settings => General => Tools => Weixin Pay => Enable”។"
 
-#: allthethings/account/templates/account/donate.html:334
+#: allthethings/account/templates/account/donate.html:331
 #, fuzzy
 msgid "page.donate.ccexp.crypto"
 msgstr "អ្នកអាចទិញគ្រប់គ្រងលុយឌីជីថលដោយប្រើកាតឥណទាន/ឥណពន្ធ។"
 
-#: allthethings/account/templates/account/donate.html:352
+#: allthethings/account/templates/account/donate.html:346
 #, fuzzy
 msgid "page.donate.payment.desc.bmc"
 msgstr "សម្រាប់កាតឥណទាន កាតឥណពន្ធ Apple Pay និង Google Pay យើងប្រើ “Buy Me a Coffee” (BMC <span class=\"icon-[ph--coffee-fill] text-lg align-text-bottom\"></span>)។ នៅក្នុងប្រព័ន្ធរបស់ពួកគេ មួយ “coffee” ស្មើនឹង $5 ដូច្នេះការបរិច្ចាករបស់អ្នកនឹងត្រូវបានបង្គត់ទៅជាចំនួនច្រើនបំផុតនៃ 5។"
 
-#: allthethings/account/templates/account/donate.html:359
+#: allthethings/account/templates/account/donate.html:353
 #, fuzzy
 msgid "page.donate.duration.intro"
 msgstr "ជ្រើសរើសរយៈពេលដែលអ្នកចង់ជាវ។"
 
-#: allthethings/account/templates/account/donate.html:376
+#: allthethings/account/templates/account/donate.html:370
 #, fuzzy
 msgid "page.donate.duration.1_mo"
 msgstr "១ ខែ"
 
-#: allthethings/account/templates/account/donate.html:377
+#: allthethings/account/templates/account/donate.html:371
 #, fuzzy
 msgid "page.donate.duration.3_mo"
 msgstr "3 ខែ"
 
-#: allthethings/account/templates/account/donate.html:378
+#: allthethings/account/templates/account/donate.html:372
 #, fuzzy
 msgid "page.donate.duration.6_mo"
 msgstr "៦ ខែ"
 
-#: allthethings/account/templates/account/donate.html:379
+#: allthethings/account/templates/account/donate.html:373
 #, fuzzy
 msgid "page.donate.duration.12_mo"
 msgstr "12 ខែ"
 
-#: allthethings/account/templates/account/donate.html:380
+#: allthethings/account/templates/account/donate.html:374
 #, fuzzy
 msgid "page.donate.duration.24_mo"
 msgstr "24 ខែ"
 
-#: allthethings/account/templates/account/donate.html:381
+#: allthethings/account/templates/account/donate.html:375
 #, fuzzy
 msgid "page.donate.duration.48_mo"
 msgstr "48 ខែ"
 
-#: allthethings/account/templates/account/donate.html:382
+#: allthethings/account/templates/account/donate.html:376
 #, fuzzy
 msgid "page.donate.duration.96_mo"
 msgstr "96 ខែ"
 
-#: allthethings/account/templates/account/donate.html:385
+#: allthethings/account/templates/account/donate.html:379
 #, fuzzy
 msgid "page.donate.duration.summary"
 msgstr "<div %(div_monthly_cost)s></div><div %(div_after)s>បន្ទាប់ពី <span %(span_discount)s></span> បញ្ចុះតម្លៃ</div><div %(div_total)s></div><div %(div_duration)s></div>"
 
-#: allthethings/account/templates/account/donate.html:392
+#: allthethings/account/templates/account/donate.html:386
 #, fuzzy
 msgid "page.donate.payment.minimum_method"
 msgstr "វិធីសាស្រ្តបង់ប្រាក់នេះត្រូវការចំនួនអប្បបរមា %(amount)s។ សូមជ្រើសរើសរយៈពេលផ្សេង ឬវិធីសាស្រ្តបង់ប្រាក់ផ្សេង។"
 
-#: allthethings/account/templates/account/donate.html:393
-#: allthethings/account/templates/account/donate.html:397
+#: allthethings/account/templates/account/donate.html:387
+#: allthethings/account/templates/account/donate.html:391
 #, fuzzy
 msgid "page.donate.buttons.donate"
 msgstr "បរិច្ចាគ"
 
-#: allthethings/account/templates/account/donate.html:396
+#: allthethings/account/templates/account/donate.html:390
 #, fuzzy
 msgid "page.donate.payment.maximum_method"
 msgstr "វិធីសាស្រ្តបង់ប្រាក់នេះអនុញ្ញាតឱ្យមានចំនួនអតិបរមា %(amount)s។ សូមជ្រើសរើសរយៈពេលផ្សេង ឬវិធីសាស្រ្តបង់ប្រាក់ផ្សេង។"
 
-#: allthethings/account/templates/account/donate.html:403
+#: allthethings/account/templates/account/donate.html:397
 #, fuzzy
 msgid "page.donate.login2"
 msgstr "ដើម្បីក្លាយជាសមាជិក សូម<a %(a_login)s>ចូលគណនី ឬ ចុះឈ្មោះ</a>។ អរគុណសម្រាប់ការគាំទ្រ!"
 
-#: allthethings/account/templates/account/donate.html:410
+#: allthethings/account/templates/account/donate.html:404
 #, fuzzy
 msgid "page.donate.payment.crypto_select"
 msgstr "ជ្រើសរើសគ្រប់គ្រងលុយឌីជីថលដែលអ្នកចូលចិត្ត៖"
 
-#: allthethings/account/templates/account/donate.html:415
+#: allthethings/account/templates/account/donate.html:409
 #, fuzzy
 msgid "page.donate.currency_lowest_minimum"
 msgstr "(ចំនួនអប្បបរមាតិចបំផុត)"
 
-#: allthethings/account/templates/account/donate.html:429
+#: allthethings/account/templates/account/donate.html:423
+#: allthethings/account/templates/account/donate.html:424
+#: allthethings/account/templates/account/donate.html:428
 #: allthethings/account/templates/account/donate.html:430
-#: allthethings/account/templates/account/donate.html:434
-#: allthethings/account/templates/account/donate.html:436
 #, fuzzy
 msgid "page.donate.currency_warning_high_minimum"
 msgstr "(ការព្រមាន៖ ចំនួនអប្បបរមាខ្ពស់)"
 
-#: allthethings/account/templates/account/donate.html:445
+#: allthethings/account/templates/account/donate.html:439
 #, fuzzy
 msgid "page.donate.submit.confirm"
 msgstr "ចុចប៊ូតុងបរិច្ចាគដើម្បីបញ្ជាក់ការបរិច្ចាកនេះ។"
 
-#: allthethings/account/templates/account/donate.html:453
+#: allthethings/account/templates/account/donate.html:447
 #, fuzzy
 msgid "page.donate.submit.button"
 msgstr "បរិច្ចាគ <span %(span_cost)s></span> <span %(span_label)s></span>"
 
-#: allthethings/account/templates/account/donate.html:458
+#: allthethings/account/templates/account/donate.html:452
 #, fuzzy
 msgid "page.donate.submit.cancel_note"
 msgstr "អ្នកនៅតែអាចបោះបង់ការបរិច្ចាគនៅពេលធ្វើការទូទាត់។"
 
-#: allthethings/account/templates/account/donate.html:462
+#: allthethings/account/templates/account/donate.html:456
 #, fuzzy
 msgid "page.donate.submit.success"
 msgstr "✅ កំពុងបញ្ជូនទៅទំព័របរិច្ចាគ…"
 
-#: allthethings/account/templates/account/donate.html:463
+#: allthethings/account/templates/account/donate.html:457
 #, fuzzy
 msgid "page.donate.submit.failure"
 msgstr "សរុប: [X7X] <span [X23X]>([X41X] / ខែសម្រាប់ [X76X] ខែ)</span>"
 
-#: allthethings/account/templates/account/donate.html:517
+#: allthethings/account/templates/account/donate.html:511
 #, fuzzy
 msgid "page.donate.duration.summary.discount"
 msgstr "%(percentage)s%%"
 
-#: allthethings/account/templates/account/donate.html:518
+#: allthethings/account/templates/account/donate.html:512
 #, fuzzy
 msgid "page.donate.duration.summary.monthly_cost"
 msgstr "%(monthly_cost)s / ខែ"
 
-#: allthethings/account/templates/account/donate.html:521
+#: allthethings/account/templates/account/donate.html:515
 #, fuzzy
 msgid "page.donate.duration.summary.duration.1_mo"
 msgstr "រយៈពេល 1 ខែ"
 
-#: allthethings/account/templates/account/donate.html:522
+#: allthethings/account/templates/account/donate.html:516
 #, fuzzy
 msgid "page.donate.duration.summary.duration.3_mo"
 msgstr "រយៈពេល 3 ខែ"
 
-#: allthethings/account/templates/account/donate.html:523
+#: allthethings/account/templates/account/donate.html:517
 #, fuzzy
 msgid "page.donate.duration.summary.duration.6_mo"
 msgstr "សម្រាប់ ៦ ខែ"
 
-#: allthethings/account/templates/account/donate.html:524
+#: allthethings/account/templates/account/donate.html:518
 #, fuzzy
 msgid "page.donate.duration.summary.duration.12_mo"
 msgstr "រយៈពេល 12 ខែ"
 
-#: allthethings/account/templates/account/donate.html:525
+#: allthethings/account/templates/account/donate.html:519
 #, fuzzy
 msgid "page.donate.duration.summary.duration.24_mo"
 msgstr "រយៈពេល 24 ខែ"
 
-#: allthethings/account/templates/account/donate.html:526
+#: allthethings/account/templates/account/donate.html:520
 #, fuzzy
 msgid "page.donate.duration.summary.duration.48_mo"
 msgstr "រយៈពេល 48 ខែ"
 
-#: allthethings/account/templates/account/donate.html:527
+#: allthethings/account/templates/account/donate.html:521
 #, fuzzy
 msgid "page.donate.duration.summary.duration.96_mo"
 msgstr "រយៈពេល 96 ខែ"
 
-#: allthethings/account/templates/account/donate.html:531
+#: allthethings/account/templates/account/donate.html:525
 #, fuzzy
 msgid "page.donate.submit.button.label.1_mo"
 msgstr "រយៈពេល 1 ខែ “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:532
+#: allthethings/account/templates/account/donate.html:526
 #, fuzzy
 msgid "page.donate.submit.button.label.3_mo"
 msgstr "រយៈពេល 3 ខែ “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:533
+#: allthethings/account/templates/account/donate.html:527
 #, fuzzy
 msgid "page.donate.submit.button.label.6_mo"
 msgstr "រយៈពេល 6 ខែ “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:534
+#: allthethings/account/templates/account/donate.html:528
 #, fuzzy
 msgid "page.donate.submit.button.label.12_mo"
 msgstr "រយៈពេល 12 ខែ “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:535
+#: allthethings/account/templates/account/donate.html:529
 #, fuzzy
 msgid "page.donate.submit.button.label.24_mo"
 msgstr "រយៈពេល 24 ខែ “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:536
+#: allthethings/account/templates/account/donate.html:530
 #, fuzzy
 msgid "page.donate.submit.button.label.48_mo"
 msgstr "រយៈពេល 48 ខែ “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:537
+#: allthethings/account/templates/account/donate.html:531
 #, fuzzy
 msgid "page.donate.submit.button.label.96_mo"
 msgstr "រយៈពេល 96 ខែ “%(tier_name)s”"
@@ -4956,4 +4955,7 @@ msgstr "បន្ទាប់"
 
 #~ msgid "page.md5.box.download.header_generic"
 #~ msgstr "ទាញយក"
+
+#~ msgid "page.donate.payment.desc.crypto_suggestion"
+#~ msgstr "ប្រសិនបើអ្នកប្រើគ្រឿងបន្លាស់អេឡិចត្រូនិចជាលើកដំបូង យើងស្នើសុំឱ្យប្រើ %(option1)s, %(option2)s, ឬ %(option3)s ដើម្បីទិញនិងបរិច្ចាគ Bitcoin (គ្រឿងបន្លាស់អេឡិចត្រូនិចដើមនិងប្រើប្រាស់ច្រើនបំផុត)។"
 

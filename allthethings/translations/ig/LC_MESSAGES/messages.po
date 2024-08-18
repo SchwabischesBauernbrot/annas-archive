@@ -367,13 +367,13 @@ msgid "page.donate.payment.select_method"
 msgstr "Biko họrọ ụzọ ịkwụ ụgwọ."
 
 #: allthethings/account/templates/account/donate.html:129
-#: allthethings/account/templates/account/donate.html:370
+#: allthethings/account/templates/account/donate.html:364
 #, fuzzy
 msgid "page.donate.discount"
 msgstr "-%(percentage)s%%"
 
 #: allthethings/account/templates/account/donate.html:135
-#: allthethings/account/templates/account/donate.html:324
+#: allthethings/account/templates/account/donate.html:321
 #, fuzzy
 msgid "page.donate.payment.buttons.amazon"
 msgstr "Kaadị onyinye Amazon"
@@ -381,7 +381,7 @@ msgstr "Kaadị onyinye Amazon"
 #: allthethings/account/templates/account/donate.html:136
 #: allthethings/account/templates/account/donate.html:146
 #: allthethings/account/templates/account/donate.html:147
-#: allthethings/account/templates/account/donate.html:333
+#: allthethings/account/templates/account/donate.html:330
 #, fuzzy
 msgid "page.donate.payment.buttons.crypto"
 msgstr "Crypto %(bitcoin_icon)s"
@@ -415,7 +415,7 @@ msgstr "Kaadị akwụmụgwọ/kaadị akwụ ụgwọ/Apple/Google (BMC)"
 #: allthethings/account/templates/account/donate.html:144
 #: allthethings/account/templates/account/donate.html:160
 #: allthethings/account/templates/account/donate.html:168
-#: allthethings/account/templates/account/donate.html:327
+#: allthethings/account/templates/account/donate.html:324
 #, fuzzy
 msgid "page.donate.payment.buttons.alipay"
 msgstr "Alipay"
@@ -466,7 +466,7 @@ msgstr "Alipay 支付宝 / WeChat 微信"
 
 #: allthethings/account/templates/account/donate.html:162
 #: allthethings/account/templates/account/donate.html:169
-#: allthethings/account/templates/account/donate.html:330
+#: allthethings/account/templates/account/donate.html:327
 #, fuzzy
 msgid "page.donate.payment.buttons.wechat"
 msgstr "WeChat"
@@ -487,348 +487,347 @@ msgid "page.donate.payment.desc.crypto2"
 msgstr "Na crypto, ị nwere ike inye onyinye site na BTC, ETH, XMR, na ndị ọzọ."
 
 #: allthethings/account/templates/account/donate.html:216
-#: allthethings/account/templates/account/donate.html:335
-#, fuzzy
-msgid "page.donate.payment.desc.crypto_suggestion"
-msgstr "Ọ bụrụ na ị na-eji crypto maka oge mbụ, anyị na-atụ aro ka ị jiri %(option1)s, %(option2)s, ma ọ bụ %(option3)s zụta na inye onyinye Bitcoin (cryptocurrency mbụ na nke a na-ejikarị)."
+#: allthethings/account/templates/account/donate.html:332
+msgid "page.donate.payment.desc.crypto_suggestion_dynamic"
+msgstr ""
 
 #: allthethings/account/templates/account/donate.html:219
-#: allthethings/account/templates/account/donate.html:338
+#: allthethings/account/templates/account/donate.html:335
 #, fuzzy
 msgid "page.donate.payment.processor.binance"
 msgstr "Binance"
 
 #: allthethings/account/templates/account/donate.html:220
-#: allthethings/account/templates/account/donate.html:339
+#: allthethings/account/templates/account/donate.html:336
 #, fuzzy
 msgid "page.donate.payment.processor.coinbase"
 msgstr "Coinbase"
 
 #: allthethings/account/templates/account/donate.html:221
-#: allthethings/account/templates/account/donate.html:340
+#: allthethings/account/templates/account/donate.html:337
 #, fuzzy
 msgid "page.donate.payment.processor.kraken"
 msgstr "Kraken"
 
-#: allthethings/account/templates/account/donate.html:232
+#: allthethings/account/templates/account/donate.html:229
 #, fuzzy
 msgid "page.donate.payment.desc.paypal"
 msgstr "Iji nye onyinye site na PayPal US, anyị ga-eji PayPal Crypto, nke na-enye anyị ohere ịnọgide na-anọghị aha. Anyị na-ekele gị maka iwepụta oge ịmụta otu esi enye onyinye site na usoro a, ebe ọ na-enyere anyị aka nke ukwuu."
 
-#: allthethings/account/templates/account/donate.html:233
+#: allthethings/account/templates/account/donate.html:230
 #, fuzzy
 msgid "page.donate.payment.desc.paypal_short"
 msgstr "Nye onyinye site na PayPal."
 
-#: allthethings/account/templates/account/donate.html:239
+#: allthethings/account/templates/account/donate.html:236
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp"
 msgstr "Nye onyinye site na Cash App."
 
-#: allthethings/account/templates/account/donate.html:240
+#: allthethings/account/templates/account/donate.html:237
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_easy"
 msgstr "Ọ bụrụ na ị nwere Cash App, nke a bụ ụzọ kachasị mfe inye onyinye!"
 
-#: allthethings/account/templates/account/donate.html:243
-#: allthethings/account/templates/account/donate.html:253
+#: allthethings/account/templates/account/donate.html:240
+#: allthethings/account/templates/account/donate.html:250
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_fee"
 msgstr "Rịba ama na maka azụmahịa n'okpuru %(amount)s, Cash App nwere ike ịgba ụgwọ %(fee)s. Maka %(amount)s ma ọ bụ karịa, ọ bụ n'efu!"
 
-#: allthethings/account/templates/account/donate.html:249
+#: allthethings/account/templates/account/donate.html:246
 #, fuzzy
 msgid "page.donate.payment.desc.revolut"
 msgstr "Nyefee ego site na Revolut."
 
-#: allthethings/account/templates/account/donate.html:250
+#: allthethings/account/templates/account/donate.html:247
 #, fuzzy
 msgid "page.donate.payment.desc.revolut_easy"
 msgstr "Ọ bụrụ na ị nwere Revolut, nke a bụ ụzọ kachasị mfe isi nyefee ego!"
 
-#: allthethings/account/templates/account/donate.html:259
-#: allthethings/account/templates/account/donate.html:313
+#: allthethings/account/templates/account/donate.html:256
+#: allthethings/account/templates/account/donate.html:310
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit"
 msgstr "Nye onyinye site na kaadị kredit ma ọ bụ debit."
 
-#: allthethings/account/templates/account/donate.html:260
+#: allthethings/account/templates/account/donate.html:257
 #, fuzzy
 msgid "page.donate.payment.desc.google_apple"
 msgstr "Google Pay na Apple Pay nwekwara ike ịrụ ọrụ."
 
-#: allthethings/account/templates/account/donate.html:261
+#: allthethings/account/templates/account/donate.html:258
 #, fuzzy
 msgid "page.donate.payment.desc.elimate_discount"
 msgstr "Rịba ama na maka obere onyinye ụgwọ kaadị kredit nwere ike wepụ %(discount)s%% mbelata anyị, ya mere anyị na-atụ aro ka ịdenye aha ogologo oge."
 
-#: allthethings/account/templates/account/donate.html:262
+#: allthethings/account/templates/account/donate.html:259
 #, fuzzy
 msgid "page.donate.payment.desc.longer_subs"
 msgstr "Rịba ama na maka obere onyinye ụgwọ dị elu, ya mere anyị na-atụ aro ka ịdenye aha ogologo oge."
 
-#: allthethings/account/templates/account/donate.html:268
+#: allthethings/account/templates/account/donate.html:265
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p1"
 msgstr "Site Binance, ị na-azụta Bitcoin site na kaadị kredit/debit ma ọ bụ akaụntụ ụlọ akụ, wee nyeere anyị onyinye Bitcoin ahụ. N'ụzọ dị otú a, anyị nwere ike ịnọgide na-adị nchebe na nke nzuzo mgbe anyị na-anabata onyinye gị."
 
-#: allthethings/account/templates/account/donate.html:272
+#: allthethings/account/templates/account/donate.html:269
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p2"
 msgstr "Binance dị na fọrọ nke nta ka ọ bụrụ mba niile, na-akwado ọtụtụ ụlọ akụ na kaadị kredit/debit. Nke a bụ ihe anyị na-akwado ugbu a. Anyị na-ekele gị maka ịnakwere oge ịmụ otú e si enye onyinye site na usoro a, ebe ọ na-enyere anyị aka nke ukwuu."
 
-#: allthethings/account/templates/account/donate.html:278
+#: allthethings/account/templates/account/donate.html:275
 #, fuzzy
 msgid "page.donate.payment.desc.paypalreg"
 msgstr "Nyefee ego site na akaụntụ PayPal gị ọdịnala."
 
-#: allthethings/account/templates/account/donate.html:284
-#: allthethings/account/templates/account/donate.html:290
+#: allthethings/account/templates/account/donate.html:281
+#: allthethings/account/templates/account/donate.html:287
 #, fuzzy
 msgid "page.donate.payment.desc.alipay_wechat"
 msgstr "Nyere onyinye site na Alipay ma ọ bụ WeChat. Ị nwere ike ịhọrọ n'etiti ndị a na ibe na-esote."
 
-#: allthethings/account/templates/account/donate.html:296
+#: allthethings/account/templates/account/donate.html:293
 #, fuzzy
 msgid "page.donate.payment.desc.givebutter"
 msgstr "Nyere onyinye site na kaadị kredit/debit, PayPal, ma ọ bụ Venmo. Ị nwere ike ịhọrọ n'etiti ndị a na ibe na-esote."
 
-#: allthethings/account/templates/account/donate.html:302
+#: allthethings/account/templates/account/donate.html:299
 #, fuzzy
 msgid "page.donate.payment.desc.amazon"
 msgstr "Nyere onyinye site na kaadị onyinye Amazon."
 
-#: allthethings/account/templates/account/donate.html:303
+#: allthethings/account/templates/account/donate.html:300
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_round"
 msgstr "Biko mara na anyị ga-edozi ego ndị a na-anabata site n'aka ndị na-ere ahịa anyị (opekempe %(minimum)s)."
 
-#: allthethings/account/templates/account/donate.html:307
+#: allthethings/account/templates/account/donate.html:304
 #: allthethings/account/templates/account/donation.html:370
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_com"
 msgstr "<strong>MKPATARA NDỊ MKPA:</strong> Anyị na-akwado naanị Amazon.com, ọ bụghị weebụsaịtị Amazon ndị ọzọ. Dịka ọmụmaatụ, .de, .co.uk, .ca, anaghị akwado."
 
-#: allthethings/account/templates/account/donate.html:314
+#: allthethings/account/templates/account/donate.html:311
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_backup"
 msgstr "Usoro a na-eji onye na-enye ego cryptocurrency dị ka ntụgharị n'etiti. Nke a nwere ike ịbụ ihe mgbagwoju anya, yabụ biko jiri usoro a naanị ma ọ bụrụ na ụzọ ịkwụ ụgwọ ndị ọzọ anaghị arụ ọrụ. Ọ naghị arụ ọrụ na mba niile."
 
-#: allthethings/account/templates/account/donate.html:320
+#: allthethings/account/templates/account/donate.html:317
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_explained"
 msgstr "Anyị enweghị ike ịkwado kaadị akwụmụgwọ/kaadị akwụ ụgwọ ozugbo, n’ihi na ụlọ akụ achọghị ịrụ ọrụ na anyị. ☹ Otú ọ dị, e nwere ọtụtụ ụzọ iji kaadị akwụmụgwọ/kaadị akwụ ụgwọ, site n'iji ụzọ ịkwụ ụgwọ ndị ọzọ:"
 
-#: allthethings/account/templates/account/donate.html:325
+#: allthethings/account/templates/account/donate.html:322
 #, fuzzy
 msgid "page.donate.ccexp.amazon_com"
 msgstr "Zipụ anyị kaadị onyinye Amazon.com site na iji kaadị kredit/debit gị."
 
-#: allthethings/account/templates/account/donate.html:328
+#: allthethings/account/templates/account/donate.html:325
 #, fuzzy
 msgid "page.donate.ccexp.alipay"
 msgstr "Alipay na-akwado kaadị akwụmụgwọ/kaadị akwụ ụgwọ mba ụwa. Lee <a %(a_alipay)s>nduzi a</a> maka ozi ndị ọzọ."
 
-#: allthethings/account/templates/account/donate.html:331
+#: allthethings/account/templates/account/donate.html:328
 #, fuzzy
 msgid "page.donate.ccexp.wechat"
 msgstr "WeChat (Weixin Pay) na-akwado kaadị kredit/debit mba ụwa. Na ngwa WeChat, gaa na “Me => Services => Wallet => Add a Card”. Ọ bụrụ na ị naghị ahụ nke ahụ, mee ka ọ dị site na “Me => Settings => General => Tools => Weixin Pay => Enable”."
 
-#: allthethings/account/templates/account/donate.html:334
+#: allthethings/account/templates/account/donate.html:331
 #, fuzzy
 msgid "page.donate.ccexp.crypto"
 msgstr "Ị nwere ike ịzụta crypto site na iji kaadị kredit/debit."
 
-#: allthethings/account/templates/account/donate.html:352
+#: allthethings/account/templates/account/donate.html:346
 #, fuzzy
 msgid "page.donate.payment.desc.bmc"
 msgstr "Maka kaadị kredit, kaadị debit, Apple Pay, na Google Pay, anyị na-eji “Buy Me a Coffee” (BMC <span class=\"icon-[ph--coffee-fill] text-lg align-text-bottom\"></span>). Na usoro ha, otu “coffee” hà nhata $5, yabụ onyinye gị ga-edozi na ọnụ ọgụgụ nke 5 kacha nso."
 
-#: allthethings/account/templates/account/donate.html:359
+#: allthethings/account/templates/account/donate.html:353
 #, fuzzy
 msgid "page.donate.duration.intro"
 msgstr "Họrọ oge ị chọrọ ịdenye aha."
 
-#: allthethings/account/templates/account/donate.html:376
+#: allthethings/account/templates/account/donate.html:370
 #, fuzzy
 msgid "page.donate.duration.1_mo"
 msgstr "ọnwa 1"
 
-#: allthethings/account/templates/account/donate.html:377
+#: allthethings/account/templates/account/donate.html:371
 #, fuzzy
 msgid "page.donate.duration.3_mo"
 msgstr "ọnwa 3"
 
-#: allthethings/account/templates/account/donate.html:378
+#: allthethings/account/templates/account/donate.html:372
 #, fuzzy
 msgid "page.donate.duration.6_mo"
 msgstr "ọnwa 6"
 
-#: allthethings/account/templates/account/donate.html:379
+#: allthethings/account/templates/account/donate.html:373
 #, fuzzy
 msgid "page.donate.duration.12_mo"
 msgstr "ọnwa 12"
 
-#: allthethings/account/templates/account/donate.html:380
+#: allthethings/account/templates/account/donate.html:374
 #, fuzzy
 msgid "page.donate.duration.24_mo"
 msgstr "Afọ 24"
 
-#: allthethings/account/templates/account/donate.html:381
+#: allthethings/account/templates/account/donate.html:375
 #, fuzzy
 msgid "page.donate.duration.48_mo"
 msgstr "Afọ 48"
 
-#: allthethings/account/templates/account/donate.html:382
+#: allthethings/account/templates/account/donate.html:376
 #, fuzzy
 msgid "page.donate.duration.96_mo"
 msgstr "Afọ 96"
 
-#: allthethings/account/templates/account/donate.html:385
+#: allthethings/account/templates/account/donate.html:379
 #, fuzzy
 msgid "page.donate.duration.summary"
 msgstr "<div %(div_monthly_cost)s></div><div %(div_after)s>mgbe ebelata <span %(span_discount)s></span> ego</div><div %(div_total)s></div><div %(div_duration)s></div>"
 
-#: allthethings/account/templates/account/donate.html:392
+#: allthethings/account/templates/account/donate.html:386
 #, fuzzy
 msgid "page.donate.payment.minimum_method"
 msgstr "Usoro ịkwụ ụgwọ a chọrọ ka ọ dịkarịa ala %(amount)s. Biko họrọ ogologo oge dị iche ma ọ bụ usoro ịkwụ ụgwọ dị iche."
 
-#: allthethings/account/templates/account/donate.html:393
-#: allthethings/account/templates/account/donate.html:397
+#: allthethings/account/templates/account/donate.html:387
+#: allthethings/account/templates/account/donate.html:391
 #, fuzzy
 msgid "page.donate.buttons.donate"
 msgstr "Nyefee ego"
 
-#: allthethings/account/templates/account/donate.html:396
+#: allthethings/account/templates/account/donate.html:390
 #, fuzzy
 msgid "page.donate.payment.maximum_method"
 msgstr "Usoro ịkwụ ụgwọ a na-ekwe ka ọ bụrụ naanị %(amount)s. Biko họrọ ogologo oge dị iche ma ọ bụ usoro ịkwụ ụgwọ dị iche."
 
-#: allthethings/account/templates/account/donate.html:403
+#: allthethings/account/templates/account/donate.html:397
 #, fuzzy
 msgid "page.donate.login2"
 msgstr "Iji bụrụ onye otu, biko <a %(a_login)s>Banye ma ọ bụ Debanye aha</a>. Daalụ maka nkwado gị!"
 
-#: allthethings/account/templates/account/donate.html:410
+#: allthethings/account/templates/account/donate.html:404
 #, fuzzy
 msgid "page.donate.payment.crypto_select"
 msgstr "Họrọ ego crypto masịrị gị:"
 
-#: allthethings/account/templates/account/donate.html:415
+#: allthethings/account/templates/account/donate.html:409
 #, fuzzy
 msgid "page.donate.currency_lowest_minimum"
 msgstr "(nke kacha nta)"
 
-#: allthethings/account/templates/account/donate.html:429
+#: allthethings/account/templates/account/donate.html:423
+#: allthethings/account/templates/account/donate.html:424
+#: allthethings/account/templates/account/donate.html:428
 #: allthethings/account/templates/account/donate.html:430
-#: allthethings/account/templates/account/donate.html:434
-#: allthethings/account/templates/account/donate.html:436
 #, fuzzy
 msgid "page.donate.currency_warning_high_minimum"
 msgstr "(ịdọ aka ná ntị: nnukwu ego kacha nta)"
 
-#: allthethings/account/templates/account/donate.html:445
+#: allthethings/account/templates/account/donate.html:439
 #, fuzzy
 msgid "page.donate.submit.confirm"
 msgstr "Pịa bọtịnụ onyinye iji kwado onyinye a."
 
-#: allthethings/account/templates/account/donate.html:453
+#: allthethings/account/templates/account/donate.html:447
 #, fuzzy
 msgid "page.donate.submit.button"
 msgstr "Nyefee <span %(span_cost)s></span> <span %(span_label)s></span>"
 
-#: allthethings/account/templates/account/donate.html:458
+#: allthethings/account/templates/account/donate.html:452
 #, fuzzy
 msgid "page.donate.submit.cancel_note"
 msgstr "Ị ka nwere ike kagbuo onyinye ahụ n'oge ịkwụ ụgwọ."
 
-#: allthethings/account/templates/account/donate.html:462
+#: allthethings/account/templates/account/donate.html:456
 #, fuzzy
 msgid "page.donate.submit.success"
 msgstr "✅ Na-eduga na ibe onyinye…"
 
-#: allthethings/account/templates/account/donate.html:463
+#: allthethings/account/templates/account/donate.html:457
 #, fuzzy
 msgid "page.donate.submit.failure"
 msgstr "❌ Ihe mere na-ezighi ezi. Biko bufee ibe ahụ ọzọ ma nwalee ọzọ."
 
-#: allthethings/account/templates/account/donate.html:517
+#: allthethings/account/templates/account/donate.html:511
 #, fuzzy
 msgid "page.donate.duration.summary.discount"
 msgstr "%(percentage)s%%"
 
-#: allthethings/account/templates/account/donate.html:518
+#: allthethings/account/templates/account/donate.html:512
 #, fuzzy
 msgid "page.donate.duration.summary.monthly_cost"
 msgstr "%(monthly_cost)s / ọnwa"
 
-#: allthethings/account/templates/account/donate.html:521
+#: allthethings/account/templates/account/donate.html:515
 #, fuzzy
 msgid "page.donate.duration.summary.duration.1_mo"
 msgstr "n’ime ọnwa 1"
 
-#: allthethings/account/templates/account/donate.html:522
+#: allthethings/account/templates/account/donate.html:516
 #, fuzzy
 msgid "page.donate.duration.summary.duration.3_mo"
 msgstr "n’ime ọnwa 3"
 
-#: allthethings/account/templates/account/donate.html:523
+#: allthethings/account/templates/account/donate.html:517
 #, fuzzy
 msgid "page.donate.duration.summary.duration.6_mo"
 msgstr "ọgụ ọnwa isii"
 
-#: allthethings/account/templates/account/donate.html:524
+#: allthethings/account/templates/account/donate.html:518
 #, fuzzy
 msgid "page.donate.duration.summary.duration.12_mo"
 msgstr "ọgụ ọnwa iri na abụọ"
 
-#: allthethings/account/templates/account/donate.html:525
+#: allthethings/account/templates/account/donate.html:519
 #, fuzzy
 msgid "page.donate.duration.summary.duration.24_mo"
 msgstr "ọgụ ọnwa iri abụọ na anọ"
 
-#: allthethings/account/templates/account/donate.html:526
+#: allthethings/account/templates/account/donate.html:520
 #, fuzzy
 msgid "page.donate.duration.summary.duration.48_mo"
 msgstr "ọgụ ọnwa iri anọ na asatọ"
 
-#: allthethings/account/templates/account/donate.html:527
+#: allthethings/account/templates/account/donate.html:521
 #, fuzzy
 msgid "page.donate.duration.summary.duration.96_mo"
 msgstr "ọgụ ọnwa iri itoolu na isii"
 
-#: allthethings/account/templates/account/donate.html:531
+#: allthethings/account/templates/account/donate.html:525
 #, fuzzy
 msgid "page.donate.submit.button.label.1_mo"
 msgstr "n’ime ọnwa 1 “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:532
+#: allthethings/account/templates/account/donate.html:526
 #, fuzzy
 msgid "page.donate.submit.button.label.3_mo"
 msgstr "ọgụ ọnwa atọ “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:533
+#: allthethings/account/templates/account/donate.html:527
 #, fuzzy
 msgid "page.donate.submit.button.label.6_mo"
 msgstr "ọgụ ọnwa isii “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:534
+#: allthethings/account/templates/account/donate.html:528
 #, fuzzy
 msgid "page.donate.submit.button.label.12_mo"
 msgstr "ọgụ ọnwa iri na abụọ “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:535
+#: allthethings/account/templates/account/donate.html:529
 #, fuzzy
 msgid "page.donate.submit.button.label.24_mo"
 msgstr "ọgụ ọnwa iri abụọ na anọ “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:536
+#: allthethings/account/templates/account/donate.html:530
 #, fuzzy
 msgid "page.donate.submit.button.label.48_mo"
 msgstr "ọgụ ọnwa iri anọ na asatọ “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:537
+#: allthethings/account/templates/account/donate.html:531
 #, fuzzy
 msgid "page.donate.submit.button.label.96_mo"
 msgstr "ọgụ ọnwa iri itoolu na isii “%(tier_name)s”"
@@ -4981,4 +4980,7 @@ msgstr "Osote"
 
 #~ msgid "page.md5.box.download.header_generic"
 #~ msgstr "Nbudata"
+
+#~ msgid "page.donate.payment.desc.crypto_suggestion"
+#~ msgstr "Ọ bụrụ na ị na-eji crypto maka oge mbụ, anyị na-atụ aro ka ị jiri %(option1)s, %(option2)s, ma ọ bụ %(option3)s zụta na inye onyinye Bitcoin (cryptocurrency mbụ na nke a na-ejikarị)."
 

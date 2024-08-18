@@ -367,13 +367,13 @@ msgid "page.donate.payment.select_method"
 msgstr "Molimo odaberite način plaćanja."
 
 #: allthethings/account/templates/account/donate.html:129
-#: allthethings/account/templates/account/donate.html:370
+#: allthethings/account/templates/account/donate.html:364
 #, fuzzy
 msgid "page.donate.discount"
 msgstr "-%(percentage)s%%"
 
 #: allthethings/account/templates/account/donate.html:135
-#: allthethings/account/templates/account/donate.html:324
+#: allthethings/account/templates/account/donate.html:321
 #, fuzzy
 msgid "page.donate.payment.buttons.amazon"
 msgstr "Amazon poklon kartica"
@@ -381,7 +381,7 @@ msgstr "Amazon poklon kartica"
 #: allthethings/account/templates/account/donate.html:136
 #: allthethings/account/templates/account/donate.html:146
 #: allthethings/account/templates/account/donate.html:147
-#: allthethings/account/templates/account/donate.html:333
+#: allthethings/account/templates/account/donate.html:330
 #, fuzzy
 msgid "page.donate.payment.buttons.crypto"
 msgstr "Crypto %(bitcoin_icon)s"
@@ -415,7 +415,7 @@ msgstr "Kreditna/debitna/Apple/Google (BMC)"
 #: allthethings/account/templates/account/donate.html:144
 #: allthethings/account/templates/account/donate.html:160
 #: allthethings/account/templates/account/donate.html:168
-#: allthethings/account/templates/account/donate.html:327
+#: allthethings/account/templates/account/donate.html:324
 #, fuzzy
 msgid "page.donate.payment.buttons.alipay"
 msgstr "Alipay"
@@ -466,7 +466,7 @@ msgstr "Alipay 支付宝 / WeChat 微信"
 
 #: allthethings/account/templates/account/donate.html:162
 #: allthethings/account/templates/account/donate.html:169
-#: allthethings/account/templates/account/donate.html:330
+#: allthethings/account/templates/account/donate.html:327
 #, fuzzy
 msgid "page.donate.payment.buttons.wechat"
 msgstr "WeChat"
@@ -487,348 +487,347 @@ msgid "page.donate.payment.desc.crypto2"
 msgstr "S kriptovalutama možete donirati koristeći BTC, ETH, XMR i više."
 
 #: allthethings/account/templates/account/donate.html:216
-#: allthethings/account/templates/account/donate.html:335
-#, fuzzy
-msgid "page.donate.payment.desc.crypto_suggestion"
-msgstr "Ako prvi put koristite kriptovalute, predlažemo da koristite %(option1)s, %(option2)s ili %(option3)s za kupnju i doniranje Bitcoina (originalne i najkorištenije kriptovalute)."
+#: allthethings/account/templates/account/donate.html:332
+msgid "page.donate.payment.desc.crypto_suggestion_dynamic"
+msgstr ""
 
 #: allthethings/account/templates/account/donate.html:219
-#: allthethings/account/templates/account/donate.html:338
+#: allthethings/account/templates/account/donate.html:335
 #, fuzzy
 msgid "page.donate.payment.processor.binance"
 msgstr "Binance"
 
 #: allthethings/account/templates/account/donate.html:220
-#: allthethings/account/templates/account/donate.html:339
+#: allthethings/account/templates/account/donate.html:336
 #, fuzzy
 msgid "page.donate.payment.processor.coinbase"
 msgstr "Coinbase"
 
 #: allthethings/account/templates/account/donate.html:221
-#: allthethings/account/templates/account/donate.html:340
+#: allthethings/account/templates/account/donate.html:337
 #, fuzzy
 msgid "page.donate.payment.processor.kraken"
 msgstr "Kraken"
 
-#: allthethings/account/templates/account/donate.html:232
+#: allthethings/account/templates/account/donate.html:229
 #, fuzzy
 msgid "page.donate.payment.desc.paypal"
 msgstr "Za doniranje putem PayPal US, koristit ćemo PayPal Crypto, što nam omogućuje da ostanemo anonimni. Cijenimo što ste odvojili vrijeme da naučite kako donirati koristeći ovu metodu, jer nam to puno pomaže."
 
-#: allthethings/account/templates/account/donate.html:233
+#: allthethings/account/templates/account/donate.html:230
 #, fuzzy
 msgid "page.donate.payment.desc.paypal_short"
 msgstr "Donirajte putem PayPala."
 
-#: allthethings/account/templates/account/donate.html:239
+#: allthethings/account/templates/account/donate.html:236
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp"
 msgstr "Donirajte putem Cash Appa."
 
-#: allthethings/account/templates/account/donate.html:240
+#: allthethings/account/templates/account/donate.html:237
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_easy"
 msgstr "Ako imate Cash App, ovo je najlakši način za donaciju!"
 
-#: allthethings/account/templates/account/donate.html:243
-#: allthethings/account/templates/account/donate.html:253
+#: allthethings/account/templates/account/donate.html:240
+#: allthethings/account/templates/account/donate.html:250
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_fee"
 msgstr "Napominjemo da za transakcije ispod %(amount)s, Cash App može naplatiti naknadu od %(fee)s. Za %(amount)s ili više, besplatno je!"
 
-#: allthethings/account/templates/account/donate.html:249
+#: allthethings/account/templates/account/donate.html:246
 #, fuzzy
 msgid "page.donate.payment.desc.revolut"
 msgstr "Donirajte koristeći Revolut."
 
-#: allthethings/account/templates/account/donate.html:250
+#: allthethings/account/templates/account/donate.html:247
 #, fuzzy
 msgid "page.donate.payment.desc.revolut_easy"
 msgstr "Ako imate Revolut, ovo je najlakši način za doniranje!"
 
-#: allthethings/account/templates/account/donate.html:259
-#: allthethings/account/templates/account/donate.html:313
+#: allthethings/account/templates/account/donate.html:256
+#: allthethings/account/templates/account/donate.html:310
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit"
 msgstr "Donirajte kreditnom ili debitnom karticom."
 
-#: allthethings/account/templates/account/donate.html:260
+#: allthethings/account/templates/account/donate.html:257
 #, fuzzy
 msgid "page.donate.payment.desc.google_apple"
 msgstr "Google Pay i Apple Pay također mogu raditi."
 
-#: allthethings/account/templates/account/donate.html:261
+#: allthethings/account/templates/account/donate.html:258
 #, fuzzy
 msgid "page.donate.payment.desc.elimate_discount"
 msgstr "Napominjemo da za male donacije naknade za kreditne kartice mogu eliminirati naš %(discount)s%% popust, stoga preporučujemo duže pretplate."
 
-#: allthethings/account/templates/account/donate.html:262
+#: allthethings/account/templates/account/donate.html:259
 #, fuzzy
 msgid "page.donate.payment.desc.longer_subs"
 msgstr "Napominjemo da su za male donacije naknade visoke, stoga preporučujemo duže pretplate."
 
-#: allthethings/account/templates/account/donate.html:268
+#: allthethings/account/templates/account/donate.html:265
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p1"
 msgstr "S Binanceom, kupujete Bitcoin kreditnom/debitnom karticom ili bankovnim računom, a zatim donirate taj Bitcoin nama. Na taj način možemo ostati sigurni i anonimni prilikom prihvaćanja vaše donacije."
 
-#: allthethings/account/templates/account/donate.html:272
+#: allthethings/account/templates/account/donate.html:269
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p2"
 msgstr "Binance je dostupan u gotovo svakoj zemlji i podržava većinu banaka i kreditnih/debitnih kartica. Ovo je trenutno naša glavna preporuka. Cijenimo što ste odvojili vrijeme da naučite kako donirati koristeći ovu metodu, jer nam to puno pomaže."
 
-#: allthethings/account/templates/account/donate.html:278
+#: allthethings/account/templates/account/donate.html:275
 #, fuzzy
 msgid "page.donate.payment.desc.paypalreg"
 msgstr "Donirajte koristeći svoj redovni PayPal račun."
 
-#: allthethings/account/templates/account/donate.html:284
-#: allthethings/account/templates/account/donate.html:290
+#: allthethings/account/templates/account/donate.html:281
+#: allthethings/account/templates/account/donate.html:287
 #, fuzzy
 msgid "page.donate.payment.desc.alipay_wechat"
 msgstr "Donirajte koristeći Alipay ili WeChat. Možete birati između ovih opcija na sljedećoj stranici."
 
-#: allthethings/account/templates/account/donate.html:296
+#: allthethings/account/templates/account/donate.html:293
 #, fuzzy
 msgid "page.donate.payment.desc.givebutter"
 msgstr "Donirajte koristeći kreditnu/debitnu karticu, PayPal ili Venmo. Možete birati između ovih opcija na sljedećoj stranici."
 
-#: allthethings/account/templates/account/donate.html:302
+#: allthethings/account/templates/account/donate.html:299
 #, fuzzy
 msgid "page.donate.payment.desc.amazon"
 msgstr "Donirajte koristeći Amazon poklon karticu."
 
-#: allthethings/account/templates/account/donate.html:303
+#: allthethings/account/templates/account/donate.html:300
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_round"
 msgstr "Napominjemo da moramo zaokružiti na iznose koje prihvaćaju naši preprodavači (minimalno %(minimum)s)."
 
-#: allthethings/account/templates/account/donate.html:307
+#: allthethings/account/templates/account/donate.html:304
 #: allthethings/account/templates/account/donation.html:370
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_com"
 msgstr "<strong>VAŽNO:</strong> Podržavamo samo Amazon.com, ne i druge Amazon web stranice. Na primjer, .de, .co.uk, .ca, NISU podržane."
 
-#: allthethings/account/templates/account/donate.html:314
+#: allthethings/account/templates/account/donate.html:311
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_backup"
 msgstr "Ova metoda koristi pružatelja usluga kriptovaluta kao posrednika za konverziju. Ovo može biti malo zbunjujuće, stoga koristite ovu metodu samo ako druge metode plaćanja ne rade. Također, ne radi u svim zemljama."
 
-#: allthethings/account/templates/account/donate.html:320
+#: allthethings/account/templates/account/donate.html:317
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_explained"
 msgstr "Ne možemo izravno podržati kreditne/debitne kartice jer banke ne žele surađivati s nama. ☹ Međutim, postoji nekoliko načina za korištenje kreditnih/debitnih kartica putem drugih metoda plaćanja:"
 
-#: allthethings/account/templates/account/donate.html:325
+#: allthethings/account/templates/account/donate.html:322
 #, fuzzy
 msgid "page.donate.ccexp.amazon_com"
 msgstr "Pošaljite nam Amazon.com poklon kartice koristeći vašu kreditnu/debitnu karticu."
 
-#: allthethings/account/templates/account/donate.html:328
+#: allthethings/account/templates/account/donate.html:325
 #, fuzzy
 msgid "page.donate.ccexp.alipay"
 msgstr "Alipay podržava međunarodne kreditne/debitne kartice. Pogledajte <a %(a_alipay)s>ovaj vodič</a> za više informacija."
 
-#: allthethings/account/templates/account/donate.html:331
+#: allthethings/account/templates/account/donate.html:328
 #, fuzzy
 msgid "page.donate.ccexp.wechat"
 msgstr "WeChat (Weixin Pay) podržava međunarodne kreditne/debitne kartice. U aplikaciji WeChat idite na “Me => Services => Wallet => Add a Card”. Ako to ne vidite, omogućite ga putem “Me => Settings => General => Tools => Weixin Pay => Enable”."
 
-#: allthethings/account/templates/account/donate.html:334
+#: allthethings/account/templates/account/donate.html:331
 #, fuzzy
 msgid "page.donate.ccexp.crypto"
 msgstr "Možete kupiti kriptovalute koristeći kreditne/debitne kartice."
 
-#: allthethings/account/templates/account/donate.html:352
+#: allthethings/account/templates/account/donate.html:346
 #, fuzzy
 msgid "page.donate.payment.desc.bmc"
 msgstr "Za kreditne kartice, debitne kartice, Apple Pay i Google Pay koristimo “Buy Me a Coffee” (BMC <span class=\"icon-[ph--coffee-fill] text-lg align-text-bottom\"></span>). U njihovom sustavu, jedna “kava” je jednaka $5, tako da će vaša donacija biti zaokružena na najbliži višekratnik od 5."
 
-#: allthethings/account/templates/account/donate.html:359
+#: allthethings/account/templates/account/donate.html:353
 #, fuzzy
 msgid "page.donate.duration.intro"
 msgstr "Odaberite koliko dugo želite pretplatiti se."
 
-#: allthethings/account/templates/account/donate.html:376
+#: allthethings/account/templates/account/donate.html:370
 #, fuzzy
 msgid "page.donate.duration.1_mo"
 msgstr "1 mjesec"
 
-#: allthethings/account/templates/account/donate.html:377
+#: allthethings/account/templates/account/donate.html:371
 #, fuzzy
 msgid "page.donate.duration.3_mo"
 msgstr "3 mjeseca"
 
-#: allthethings/account/templates/account/donate.html:378
+#: allthethings/account/templates/account/donate.html:372
 #, fuzzy
 msgid "page.donate.duration.6_mo"
 msgstr "6 mjeseci"
 
-#: allthethings/account/templates/account/donate.html:379
+#: allthethings/account/templates/account/donate.html:373
 #, fuzzy
 msgid "page.donate.duration.12_mo"
 msgstr "12 mjeseci"
 
-#: allthethings/account/templates/account/donate.html:380
+#: allthethings/account/templates/account/donate.html:374
 #, fuzzy
 msgid "page.donate.duration.24_mo"
 msgstr "24 mjeseca"
 
-#: allthethings/account/templates/account/donate.html:381
+#: allthethings/account/templates/account/donate.html:375
 #, fuzzy
 msgid "page.donate.duration.48_mo"
 msgstr "48 mjeseci"
 
-#: allthethings/account/templates/account/donate.html:382
+#: allthethings/account/templates/account/donate.html:376
 #, fuzzy
 msgid "page.donate.duration.96_mo"
 msgstr "96 mjeseci"
 
-#: allthethings/account/templates/account/donate.html:385
+#: allthethings/account/templates/account/donate.html:379
 #, fuzzy
 msgid "page.donate.duration.summary"
 msgstr "<div %(div_monthly_cost)s></div><div %(div_after)s>nakon <span %(span_discount)s></span> popusta</div><div %(div_total)s></div><div %(div_duration)s></div>"
 
-#: allthethings/account/templates/account/donate.html:392
+#: allthethings/account/templates/account/donate.html:386
 #, fuzzy
 msgid "page.donate.payment.minimum_method"
 msgstr "Ova metoda plaćanja zahtijeva minimalno %(amount)s. Molimo odaberite drugačije trajanje ili metodu plaćanja."
 
-#: allthethings/account/templates/account/donate.html:393
-#: allthethings/account/templates/account/donate.html:397
+#: allthethings/account/templates/account/donate.html:387
+#: allthethings/account/templates/account/donate.html:391
 #, fuzzy
 msgid "page.donate.buttons.donate"
 msgstr "Donirajte"
 
-#: allthethings/account/templates/account/donate.html:396
+#: allthethings/account/templates/account/donate.html:390
 #, fuzzy
 msgid "page.donate.payment.maximum_method"
 msgstr "Ova metoda plaćanja dopušta maksimalno %(amount)s. Molimo odaberite drugačije trajanje ili metodu plaćanja."
 
-#: allthethings/account/templates/account/donate.html:403
+#: allthethings/account/templates/account/donate.html:397
 #, fuzzy
 msgid "page.donate.login2"
 msgstr "Da biste postali član, molimo <a %(a_login)s>Prijavite se ili Registrirajte</a>. Hvala na vašoj podršci!"
 
-#: allthethings/account/templates/account/donate.html:410
+#: allthethings/account/templates/account/donate.html:404
 #, fuzzy
 msgid "page.donate.payment.crypto_select"
 msgstr "Odaberite svoju preferiranu kriptovalutu:"
 
-#: allthethings/account/templates/account/donate.html:415
+#: allthethings/account/templates/account/donate.html:409
 #, fuzzy
 msgid "page.donate.currency_lowest_minimum"
 msgstr "(najniži minimalni iznos)"
 
-#: allthethings/account/templates/account/donate.html:429
+#: allthethings/account/templates/account/donate.html:423
+#: allthethings/account/templates/account/donate.html:424
+#: allthethings/account/templates/account/donate.html:428
 #: allthethings/account/templates/account/donate.html:430
-#: allthethings/account/templates/account/donate.html:434
-#: allthethings/account/templates/account/donate.html:436
 #, fuzzy
 msgid "page.donate.currency_warning_high_minimum"
 msgstr "(upozorenje: visoki minimalni iznos)"
 
-#: allthethings/account/templates/account/donate.html:445
+#: allthethings/account/templates/account/donate.html:439
 #, fuzzy
 msgid "page.donate.submit.confirm"
 msgstr "Kliknite gumb za donaciju kako biste potvrdili ovu donaciju."
 
-#: allthethings/account/templates/account/donate.html:453
+#: allthethings/account/templates/account/donate.html:447
 #, fuzzy
 msgid "page.donate.submit.button"
 msgstr "Donirajte <span %(span_cost)s></span> <span %(span_label)s></span>"
 
-#: allthethings/account/templates/account/donate.html:458
+#: allthethings/account/templates/account/donate.html:452
 #, fuzzy
 msgid "page.donate.submit.cancel_note"
 msgstr "Još uvijek možete otkazati donaciju tijekom naplate."
 
-#: allthethings/account/templates/account/donate.html:462
+#: allthethings/account/templates/account/donate.html:456
 #, fuzzy
 msgid "page.donate.submit.success"
 msgstr "✅ Preusmjeravanje na stranicu za donacije…"
 
-#: allthethings/account/templates/account/donate.html:463
+#: allthethings/account/templates/account/donate.html:457
 #, fuzzy
 msgid "page.donate.submit.failure"
 msgstr "❌ Nešto je pošlo po zlu. Molimo ponovno učitajte stranicu i pokušajte ponovno."
 
-#: allthethings/account/templates/account/donate.html:517
+#: allthethings/account/templates/account/donate.html:511
 #, fuzzy
 msgid "page.donate.duration.summary.discount"
 msgstr "%(percentage)s%%"
 
-#: allthethings/account/templates/account/donate.html:518
+#: allthethings/account/templates/account/donate.html:512
 #, fuzzy
 msgid "page.donate.duration.summary.monthly_cost"
 msgstr "%(monthly_cost)s / mjesec"
 
-#: allthethings/account/templates/account/donate.html:521
+#: allthethings/account/templates/account/donate.html:515
 #, fuzzy
 msgid "page.donate.duration.summary.duration.1_mo"
 msgstr "za 1 mjesec"
 
-#: allthethings/account/templates/account/donate.html:522
+#: allthethings/account/templates/account/donate.html:516
 #, fuzzy
 msgid "page.donate.duration.summary.duration.3_mo"
 msgstr "za 3 mjeseca"
 
-#: allthethings/account/templates/account/donate.html:523
+#: allthethings/account/templates/account/donate.html:517
 #, fuzzy
 msgid "page.donate.duration.summary.duration.6_mo"
 msgstr "za 6 mjeseci"
 
-#: allthethings/account/templates/account/donate.html:524
+#: allthethings/account/templates/account/donate.html:518
 #, fuzzy
 msgid "page.donate.duration.summary.duration.12_mo"
 msgstr "za 12 mjeseci"
 
-#: allthethings/account/templates/account/donate.html:525
+#: allthethings/account/templates/account/donate.html:519
 #, fuzzy
 msgid "page.donate.duration.summary.duration.24_mo"
 msgstr "za 24 mjeseca"
 
-#: allthethings/account/templates/account/donate.html:526
+#: allthethings/account/templates/account/donate.html:520
 #, fuzzy
 msgid "page.donate.duration.summary.duration.48_mo"
 msgstr "za 48 mjeseci"
 
-#: allthethings/account/templates/account/donate.html:527
+#: allthethings/account/templates/account/donate.html:521
 #, fuzzy
 msgid "page.donate.duration.summary.duration.96_mo"
 msgstr "za 96 mjeseci"
 
-#: allthethings/account/templates/account/donate.html:531
+#: allthethings/account/templates/account/donate.html:525
 #, fuzzy
 msgid "page.donate.submit.button.label.1_mo"
 msgstr "za 1 mjesec “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:532
+#: allthethings/account/templates/account/donate.html:526
 #, fuzzy
 msgid "page.donate.submit.button.label.3_mo"
 msgstr "za 3 mjeseca “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:533
+#: allthethings/account/templates/account/donate.html:527
 #, fuzzy
 msgid "page.donate.submit.button.label.6_mo"
 msgstr "za 6 mjeseci “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:534
+#: allthethings/account/templates/account/donate.html:528
 #, fuzzy
 msgid "page.donate.submit.button.label.12_mo"
 msgstr "za 12 mjeseci “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:535
+#: allthethings/account/templates/account/donate.html:529
 #, fuzzy
 msgid "page.donate.submit.button.label.24_mo"
 msgstr "za 24 mjeseca “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:536
+#: allthethings/account/templates/account/donate.html:530
 #, fuzzy
 msgid "page.donate.submit.button.label.48_mo"
 msgstr "za 48 mjeseci “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:537
+#: allthethings/account/templates/account/donate.html:531
 #, fuzzy
 msgid "page.donate.submit.button.label.96_mo"
 msgstr "za 96 mjeseci “%(tier_name)s”"
@@ -4983,4 +4982,7 @@ msgstr "Sljedeće"
 
 #~ msgid "page.md5.box.download.header_generic"
 #~ msgstr "Preuzimanja"
+
+#~ msgid "page.donate.payment.desc.crypto_suggestion"
+#~ msgstr "Ako prvi put koristite kriptovalute, predlažemo da koristite %(option1)s, %(option2)s ili %(option3)s za kupnju i doniranje Bitcoina (originalne i najkorištenije kriptovalute)."
 

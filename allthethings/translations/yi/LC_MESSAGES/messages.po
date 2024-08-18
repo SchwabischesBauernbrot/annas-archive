@@ -367,13 +367,13 @@ msgid "page.donate.payment.select_method"
 msgstr "ביטע קלייַבט אויס אַ צאָלונג מעטאָד."
 
 #: allthethings/account/templates/account/donate.html:129
-#: allthethings/account/templates/account/donate.html:370
+#: allthethings/account/templates/account/donate.html:364
 #, fuzzy
 msgid "page.donate.discount"
 msgstr "-%(percentage)s%%"
 
 #: allthethings/account/templates/account/donate.html:135
-#: allthethings/account/templates/account/donate.html:324
+#: allthethings/account/templates/account/donate.html:321
 #, fuzzy
 msgid "page.donate.payment.buttons.amazon"
 msgstr "אַמאַזאָן גיפט קאַרטל"
@@ -381,7 +381,7 @@ msgstr "אַמאַזאָן גיפט קאַרטל"
 #: allthethings/account/templates/account/donate.html:136
 #: allthethings/account/templates/account/donate.html:146
 #: allthethings/account/templates/account/donate.html:147
-#: allthethings/account/templates/account/donate.html:333
+#: allthethings/account/templates/account/donate.html:330
 #, fuzzy
 msgid "page.donate.payment.buttons.crypto"
 msgstr "קריפּטאָ %(bitcoin_icon)s"
@@ -415,7 +415,7 @@ msgstr "קרעדיט/דעביט/עפּל/גוגל (BMC)"
 #: allthethings/account/templates/account/donate.html:144
 #: allthethings/account/templates/account/donate.html:160
 #: allthethings/account/templates/account/donate.html:168
-#: allthethings/account/templates/account/donate.html:327
+#: allthethings/account/templates/account/donate.html:324
 #, fuzzy
 msgid "page.donate.payment.buttons.alipay"
 msgstr "Alipay"
@@ -466,7 +466,7 @@ msgstr "Alipay 支付宝 / WeChat 微信"
 
 #: allthethings/account/templates/account/donate.html:162
 #: allthethings/account/templates/account/donate.html:169
-#: allthethings/account/templates/account/donate.html:330
+#: allthethings/account/templates/account/donate.html:327
 #, fuzzy
 msgid "page.donate.payment.buttons.wechat"
 msgstr "WeChat"
@@ -487,348 +487,347 @@ msgid "page.donate.payment.desc.crypto2"
 msgstr "מיט קריפּטאָ קענט איר דאָנירן ניצן BTC, ETH, XMR, און מער."
 
 #: allthethings/account/templates/account/donate.html:216
-#: allthethings/account/templates/account/donate.html:335
-#, fuzzy
-msgid "page.donate.payment.desc.crypto_suggestion"
-msgstr "אויב איר ניצט קריפּטאָ צום ערשטן מאָל, פֿארשלאגן מיר צו ניצן %(option1)s, %(option2)s, אָדער %(option3)s צו קויפן און דאָנירן ביטקאָין (די אָריגינעלע און מערסט גענוצטע קריפּטאָקוררענסי)."
+#: allthethings/account/templates/account/donate.html:332
+msgid "page.donate.payment.desc.crypto_suggestion_dynamic"
+msgstr ""
 
 #: allthethings/account/templates/account/donate.html:219
-#: allthethings/account/templates/account/donate.html:338
+#: allthethings/account/templates/account/donate.html:335
 #, fuzzy
 msgid "page.donate.payment.processor.binance"
 msgstr "בינאַנס"
 
 #: allthethings/account/templates/account/donate.html:220
-#: allthethings/account/templates/account/donate.html:339
+#: allthethings/account/templates/account/donate.html:336
 #, fuzzy
 msgid "page.donate.payment.processor.coinbase"
 msgstr "Coinbase"
 
 #: allthethings/account/templates/account/donate.html:221
-#: allthethings/account/templates/account/donate.html:340
+#: allthethings/account/templates/account/donate.html:337
 #, fuzzy
 msgid "page.donate.payment.processor.kraken"
 msgstr "Kraken"
 
-#: allthethings/account/templates/account/donate.html:232
+#: allthethings/account/templates/account/donate.html:229
 #, fuzzy
 msgid "page.donate.payment.desc.paypal"
 msgstr "צו דאָנירן ניצן PayPal US, וועלן מיר ניצן PayPal Crypto, וואָס ערלויבט אונדז צו בלייבן אַנאָנימוס. מיר אָפּשאַצן אַז איר נעמט די צייט צו לערנען ווי צו דאָנירן ניצן דעם מעטאָד, זינט עס העלפֿט אונדז אַ סך."
 
-#: allthethings/account/templates/account/donate.html:233
+#: allthethings/account/templates/account/donate.html:230
 #, fuzzy
 msgid "page.donate.payment.desc.paypal_short"
 msgstr "דאָנירן ניצן PayPal."
 
-#: allthethings/account/templates/account/donate.html:239
+#: allthethings/account/templates/account/donate.html:236
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp"
 msgstr "דאָנירן ניצן Cash App."
 
-#: allthethings/account/templates/account/donate.html:240
+#: allthethings/account/templates/account/donate.html:237
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_easy"
 msgstr "אויב איר האָט Cash App, איז דאָס דער גרינגסטער וועג צו דאָנירן!"
 
-#: allthethings/account/templates/account/donate.html:243
-#: allthethings/account/templates/account/donate.html:253
+#: allthethings/account/templates/account/donate.html:240
+#: allthethings/account/templates/account/donate.html:250
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_fee"
 msgstr "באַמערקט אַז פֿאַר טראַנזאַקשאַנז אונטער %(amount)s, קען Cash App אָפּצאָלן אַ %(fee)s אָפּצאָל. פֿאַר %(amount)s אָדער העכער, איז עס פריי!"
 
-#: allthethings/account/templates/account/donate.html:249
+#: allthethings/account/templates/account/donate.html:246
 #, fuzzy
 msgid "page.donate.payment.desc.revolut"
 msgstr "דאנירן ניצן Revolut."
 
-#: allthethings/account/templates/account/donate.html:250
+#: allthethings/account/templates/account/donate.html:247
 #, fuzzy
 msgid "page.donate.payment.desc.revolut_easy"
 msgstr "אויב איר האָט Revolut, איז דאָס דער גרינגסטער וועג צו דאנירן!"
 
-#: allthethings/account/templates/account/donate.html:259
-#: allthethings/account/templates/account/donate.html:313
+#: allthethings/account/templates/account/donate.html:256
+#: allthethings/account/templates/account/donate.html:310
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit"
 msgstr "דאָנירן מיט אַ קרעדיט אָדער דעביט קארטל."
 
-#: allthethings/account/templates/account/donate.html:260
+#: allthethings/account/templates/account/donate.html:257
 #, fuzzy
 msgid "page.donate.payment.desc.google_apple"
 msgstr "Google Pay און Apple Pay קען אויך אַרבעטן."
 
-#: allthethings/account/templates/account/donate.html:261
+#: allthethings/account/templates/account/donate.html:258
 #, fuzzy
 msgid "page.donate.payment.desc.elimate_discount"
 msgstr "באַמערקונג אַז פֿאַר קליינע דאָוניישאַנז קען די קרעדיט קאַרטל פיז עלימינירן אונדזער %(discount)s%% אַראָפּרעכענען, אַזוי מיר רעקאָמענדירן לענגערע אַבאָנעמענטן."
 
-#: allthethings/account/templates/account/donate.html:262
+#: allthethings/account/templates/account/donate.html:259
 #, fuzzy
 msgid "page.donate.payment.desc.longer_subs"
 msgstr "באַמערקונג אַז פֿאַר קליינע דאָוניישאַנז זענען די פיז הויך, אַזוי מיר רעקאָמענדירן לענגערע אַבאָנעמענטן."
 
-#: allthethings/account/templates/account/donate.html:268
+#: allthethings/account/templates/account/donate.html:265
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p1"
 msgstr "מיט Binance, קויפן איר Bitcoin מיט אַ קרעדיט/דעביט קאַרטל אָדער באַנק אַקאַונט, און דעמאָלט דאָונייט אַז Bitcoin צו אונדז. אַזוי קענען מיר בלייבן זיכער און אַנאַנאַמאַס ווען מיר אָננעמען אייער דאָוניישאַן."
 
-#: allthethings/account/templates/account/donate.html:272
+#: allthethings/account/templates/account/donate.html:269
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p2"
 msgstr "Binance איז בנימצא אין כּמעט יעדער לאַנד, און שטיצט רובֿ באַנקס און קרעדיט/דעביט קאַרדס. דאָס איז דערווייַל אונדזער הויפּט רעקאָמענדאַציע. מיר אָפּשאַצן איר נעמען די צייט צו לערנען ווי צו דאָונייט ניצן דעם מעטאָד, זינט עס העלפּס אונדז אַ סך."
 
-#: allthethings/account/templates/account/donate.html:278
+#: allthethings/account/templates/account/donate.html:275
 #, fuzzy
 msgid "page.donate.payment.desc.paypalreg"
 msgstr "דאנירן ניצן אייער רעגולער PayPal חשבון."
 
-#: allthethings/account/templates/account/donate.html:284
-#: allthethings/account/templates/account/donate.html:290
+#: allthethings/account/templates/account/donate.html:281
+#: allthethings/account/templates/account/donate.html:287
 #, fuzzy
 msgid "page.donate.payment.desc.alipay_wechat"
 msgstr "דאָונייט ניצן Alipay אָדער WeChat. איר קענט אויסקלייַבן צווישן די אויף דער ווייַטער בלאַט."
 
-#: allthethings/account/templates/account/donate.html:296
+#: allthethings/account/templates/account/donate.html:293
 #, fuzzy
 msgid "page.donate.payment.desc.givebutter"
 msgstr "דאָונייט ניצן אַ קרעדיט/דעביט קאַרטל, PayPal, אָדער Venmo. איר קענט אויסקלייַבן צווישן די אויף דער ווייַטער בלאַט."
 
-#: allthethings/account/templates/account/donate.html:302
+#: allthethings/account/templates/account/donate.html:299
 #, fuzzy
 msgid "page.donate.payment.desc.amazon"
 msgstr "דאָונייט ניצן אַן Amazon גיפט קאַרטל."
 
-#: allthethings/account/templates/account/donate.html:303
+#: allthethings/account/templates/account/donate.html:300
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_round"
 msgstr "באַמערקונג אַז מיר דאַרפֿן צו ראַונד צו אַמאַונץ אנגענומען דורך אונדזער ריסעלערז (מינימום %(minimum)s)."
 
-#: allthethings/account/templates/account/donate.html:307
+#: allthethings/account/templates/account/donate.html:304
 #: allthethings/account/templates/account/donation.html:370
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_com"
 msgstr "<strong>וויכטיק:</strong> מיר שטיצן בלויז Amazon.com, נישט אנדערע Amazon וועבסיטעס. פֿאַר בייַשפּיל, .de, .co.uk, .ca, זענען נישט געשטיצט."
 
-#: allthethings/account/templates/account/donate.html:314
+#: allthethings/account/templates/account/donate.html:311
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_backup"
 msgstr "דער מעטאָד ניצט אַ קריפּטאָקוררענסי פּראַוויידער ווי אַן ינטערמידייט קאַנווערזשאַן. דאָס קען זיין אַ ביסל צעמישט, אַזוי ביטע נוצן דעם מעטאָד בלויז אויב אנדערע צאָלונג מעטהאָדס טאָן ניט אַרבעטן. עס אַרבעט אויך נישט אין אַלע לענדער."
 
-#: allthethings/account/templates/account/donate.html:320
+#: allthethings/account/templates/account/donate.html:317
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_explained"
 msgstr "מיר קענען נישט שטיצן קרעדיט/דעביט קאַרדס דירעקט, ווייל די באַנקס ווילן נישט אַרבעטן מיט אונדז. ☹ אָבער, עס זענען עטלעכע וועגן צו נוצן קרעדיט/דעביט קאַרדס אין יעדער פאַל, ניצן אנדערע צאָלונג מעטאָדן:"
 
-#: allthethings/account/templates/account/donate.html:325
+#: allthethings/account/templates/account/donate.html:322
 #, fuzzy
 msgid "page.donate.ccexp.amazon_com"
 msgstr "שיקט אונדז Amazon.com גיפט קאַרדס ניצן אייער קרעדיט/דעביט קאַרטל."
 
-#: allthethings/account/templates/account/donate.html:328
+#: allthethings/account/templates/account/donate.html:325
 #, fuzzy
 msgid "page.donate.ccexp.alipay"
 msgstr "Alipay שטיצט אינטערנאַציאָנאַלע קרעדיט/דעביט קאַרדס. זעט <a %(a_alipay)s>דעם גייד</a> פֿאַר מער אינפֿאָרמאַציע."
 
-#: allthethings/account/templates/account/donate.html:331
+#: allthethings/account/templates/account/donate.html:328
 #, fuzzy
 msgid "page.donate.ccexp.wechat"
 msgstr "WeChat (Weixin Pay) שטיצט אינטערנאַציאָנאַלע קרעדיט/דעביט קאַרדס. אין דער WeChat אַפּ, גיין צו “Me => Services => Wallet => Add a Card”. אויב איר זען נישט דאָס, געבן עס דורך “Me => Settings => General => Tools => Weixin Pay => Enable”."
 
-#: allthethings/account/templates/account/donate.html:334
+#: allthethings/account/templates/account/donate.html:331
 #, fuzzy
 msgid "page.donate.ccexp.crypto"
 msgstr "איר קענט קויפן קריפּטאָ ניצן קרעדיט/דעביט קאַרדס."
 
-#: allthethings/account/templates/account/donate.html:352
+#: allthethings/account/templates/account/donate.html:346
 #, fuzzy
 msgid "page.donate.payment.desc.bmc"
 msgstr "פֿאַר קרעדיט קאַרדס, דעביט קאַרדס, Apple Pay, און Google Pay, מיר נוצן “Buy Me a Coffee” (BMC <span class=\"icon-[ph--coffee-fill] text-lg align-text-bottom\"></span>). אין זייער סיסטעם, איין “coffee” איז גלייַך צו $5, אַזוי אייער דאָוניישאַן וועט זיין ראַונדיד צו דער ניראַסט קייפל פון 5."
 
-#: allthethings/account/templates/account/donate.html:359
+#: allthethings/account/templates/account/donate.html:353
 #, fuzzy
 msgid "page.donate.duration.intro"
 msgstr "אויסקלייַבן ווי לאַנג איר ווילט אַבאָנירן."
 
-#: allthethings/account/templates/account/donate.html:376
+#: allthethings/account/templates/account/donate.html:370
 #, fuzzy
 msgid "page.donate.duration.1_mo"
 msgstr "1 חודש"
 
-#: allthethings/account/templates/account/donate.html:377
+#: allthethings/account/templates/account/donate.html:371
 #, fuzzy
 msgid "page.donate.duration.3_mo"
 msgstr "3 חדשים"
 
-#: allthethings/account/templates/account/donate.html:378
+#: allthethings/account/templates/account/donate.html:372
 #, fuzzy
 msgid "page.donate.duration.6_mo"
 msgstr "6 חדשים"
 
-#: allthethings/account/templates/account/donate.html:379
+#: allthethings/account/templates/account/donate.html:373
 #, fuzzy
 msgid "page.donate.duration.12_mo"
 msgstr "12 חדשים"
 
-#: allthethings/account/templates/account/donate.html:380
+#: allthethings/account/templates/account/donate.html:374
 #, fuzzy
 msgid "page.donate.duration.24_mo"
 msgstr "24 חדשים"
 
-#: allthethings/account/templates/account/donate.html:381
+#: allthethings/account/templates/account/donate.html:375
 #, fuzzy
 msgid "page.donate.duration.48_mo"
 msgstr "48 חדשים"
 
-#: allthethings/account/templates/account/donate.html:382
+#: allthethings/account/templates/account/donate.html:376
 #, fuzzy
 msgid "page.donate.duration.96_mo"
 msgstr "96 חדשים"
 
-#: allthethings/account/templates/account/donate.html:385
+#: allthethings/account/templates/account/donate.html:379
 #, fuzzy
 msgid "page.donate.duration.summary"
 msgstr "<div %(div_monthly_cost)s></div><div %(div_after)s>נאָך <span %(span_discount)s></span> אַראָפּרעכענונגען</div><div %(div_total)s></div><div %(div_duration)s></div>"
 
-#: allthethings/account/templates/account/donate.html:392
+#: allthethings/account/templates/account/donate.html:386
 #, fuzzy
 msgid "page.donate.payment.minimum_method"
 msgstr "די צאָלונג מעטאָד פארלאנגט אַ מינימום פון %(amount)s. ביטע אויסקלייַבן אַ אַנדערע דויער אָדער צאָלונג מעטאָד."
 
-#: allthethings/account/templates/account/donate.html:393
-#: allthethings/account/templates/account/donate.html:397
+#: allthethings/account/templates/account/donate.html:387
+#: allthethings/account/templates/account/donate.html:391
 #, fuzzy
 msgid "page.donate.buttons.donate"
 msgstr "דאנירן"
 
-#: allthethings/account/templates/account/donate.html:396
+#: allthethings/account/templates/account/donate.html:390
 #, fuzzy
 msgid "page.donate.payment.maximum_method"
 msgstr "די צאָלונג מעטאָד ערלויבט בלויז אַ מאַקסימום פון %(amount)s. ביטע אויסקלייַבן אַ אַנדערע דויער אָדער צאָלונג מעטאָד."
 
-#: allthethings/account/templates/account/donate.html:403
+#: allthethings/account/templates/account/donate.html:397
 #, fuzzy
 msgid "page.donate.login2"
 msgstr "צו ווערן אַ מיטגליד, ביטע <a %(a_login)s>לאָגין אָדער רעגיסטרירן</a>. א דאנק פֿאַר אייער שטיצע!"
 
-#: allthethings/account/templates/account/donate.html:410
+#: allthethings/account/templates/account/donate.html:404
 #, fuzzy
 msgid "page.donate.payment.crypto_select"
 msgstr "אויסקלייַבן אייער געבעטן קריפּטאָ מאָנעט:"
 
-#: allthethings/account/templates/account/donate.html:415
+#: allthethings/account/templates/account/donate.html:409
 #, fuzzy
 msgid "page.donate.currency_lowest_minimum"
 msgstr "(נידעריקסטער מינימום סומע)"
 
-#: allthethings/account/templates/account/donate.html:429
+#: allthethings/account/templates/account/donate.html:423
+#: allthethings/account/templates/account/donate.html:424
+#: allthethings/account/templates/account/donate.html:428
 #: allthethings/account/templates/account/donate.html:430
-#: allthethings/account/templates/account/donate.html:434
-#: allthethings/account/templates/account/donate.html:436
 #, fuzzy
 msgid "page.donate.currency_warning_high_minimum"
 msgstr "(ווארענונג: הויך מינימום סומע)"
 
-#: allthethings/account/templates/account/donate.html:445
+#: allthethings/account/templates/account/donate.html:439
 #, fuzzy
 msgid "page.donate.submit.confirm"
 msgstr "דריקט דעם דאנירן קנעפּל צו באַשטעטיקן די דאָונאַציע."
 
-#: allthethings/account/templates/account/donate.html:453
+#: allthethings/account/templates/account/donate.html:447
 #, fuzzy
 msgid "page.donate.submit.button"
 msgstr "דאנירן <span %(span_cost)s></span> <span %(span_label)s></span>"
 
-#: allthethings/account/templates/account/donate.html:458
+#: allthethings/account/templates/account/donate.html:452
 #, fuzzy
 msgid "page.donate.submit.cancel_note"
 msgstr "איר קענט נאָך אָפּזאָגן די דאָונאַציע בעשאַס די אָפּצאָל פּראָצעס."
 
-#: allthethings/account/templates/account/donate.html:462
+#: allthethings/account/templates/account/donate.html:456
 #, fuzzy
 msgid "page.donate.submit.success"
 msgstr "✅ רידיירעקטינג צו די דאָונאַציע בלאַט…"
 
-#: allthethings/account/templates/account/donate.html:463
+#: allthethings/account/templates/account/donate.html:457
 #, fuzzy
 msgid "page.donate.submit.failure"
 msgstr "❌ עפּעס איז פאַלש. ביטע רילאָד די בלאַט און פּרובירן ווידער."
 
-#: allthethings/account/templates/account/donate.html:517
+#: allthethings/account/templates/account/donate.html:511
 #, fuzzy
 msgid "page.donate.duration.summary.discount"
 msgstr "%(percentage)s%%"
 
-#: allthethings/account/templates/account/donate.html:518
+#: allthethings/account/templates/account/donate.html:512
 #, fuzzy
 msgid "page.donate.duration.summary.monthly_cost"
 msgstr "%(monthly_cost)s / חודש"
 
-#: allthethings/account/templates/account/donate.html:521
+#: allthethings/account/templates/account/donate.html:515
 #, fuzzy
 msgid "page.donate.duration.summary.duration.1_mo"
 msgstr "פֿאַר 1 חודש"
 
-#: allthethings/account/templates/account/donate.html:522
+#: allthethings/account/templates/account/donate.html:516
 #, fuzzy
 msgid "page.donate.duration.summary.duration.3_mo"
 msgstr "פֿאַר 3 חדשים"
 
-#: allthethings/account/templates/account/donate.html:523
+#: allthethings/account/templates/account/donate.html:517
 #, fuzzy
 msgid "page.donate.duration.summary.duration.6_mo"
 msgstr "פֿאַר 6 חדשים"
 
-#: allthethings/account/templates/account/donate.html:524
+#: allthethings/account/templates/account/donate.html:518
 #, fuzzy
 msgid "page.donate.duration.summary.duration.12_mo"
 msgstr "פֿאַר 12 חדשים"
 
-#: allthethings/account/templates/account/donate.html:525
+#: allthethings/account/templates/account/donate.html:519
 #, fuzzy
 msgid "page.donate.duration.summary.duration.24_mo"
 msgstr "פֿאַר 24 חדשים"
 
-#: allthethings/account/templates/account/donate.html:526
+#: allthethings/account/templates/account/donate.html:520
 #, fuzzy
 msgid "page.donate.duration.summary.duration.48_mo"
 msgstr "פֿאַר 48 חדשים"
 
-#: allthethings/account/templates/account/donate.html:527
+#: allthethings/account/templates/account/donate.html:521
 #, fuzzy
 msgid "page.donate.duration.summary.duration.96_mo"
 msgstr "פֿאַר 96 חדשים"
 
-#: allthethings/account/templates/account/donate.html:531
+#: allthethings/account/templates/account/donate.html:525
 #, fuzzy
 msgid "page.donate.submit.button.label.1_mo"
 msgstr "פֿאַר 1 חודש “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:532
+#: allthethings/account/templates/account/donate.html:526
 #, fuzzy
 msgid "page.donate.submit.button.label.3_mo"
 msgstr "פֿאַר 3 חדשים “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:533
+#: allthethings/account/templates/account/donate.html:527
 #, fuzzy
 msgid "page.donate.submit.button.label.6_mo"
 msgstr "פֿאַר 6 חדשים “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:534
+#: allthethings/account/templates/account/donate.html:528
 #, fuzzy
 msgid "page.donate.submit.button.label.12_mo"
 msgstr "פֿאַר 12 חדשים “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:535
+#: allthethings/account/templates/account/donate.html:529
 #, fuzzy
 msgid "page.donate.submit.button.label.24_mo"
 msgstr "פֿאַר 24 חדשים “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:536
+#: allthethings/account/templates/account/donate.html:530
 #, fuzzy
 msgid "page.donate.submit.button.label.48_mo"
 msgstr "פֿאַר 48 חדשים “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:537
+#: allthethings/account/templates/account/donate.html:531
 #, fuzzy
 msgid "page.donate.submit.button.label.96_mo"
 msgstr "פֿאַר 96 חדשים “%(tier_name)s”"
@@ -4981,4 +4980,7 @@ msgstr "ווייַטער"
 
 #~ msgid "page.md5.box.download.header_generic"
 #~ msgstr "אראפקאפיעס"
+
+#~ msgid "page.donate.payment.desc.crypto_suggestion"
+#~ msgstr "אויב איר ניצט קריפּטאָ צום ערשטן מאָל, פֿארשלאגן מיר צו ניצן %(option1)s, %(option2)s, אָדער %(option3)s צו קויפן און דאָנירן ביטקאָין (די אָריגינעלע און מערסט גענוצטע קריפּטאָקוררענסי)."
 

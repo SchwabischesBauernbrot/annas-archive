@@ -367,13 +367,13 @@ msgid "page.donate.payment.select_method"
 msgstr "ದಯವಿಟ್ಟು ಪಾವತಿ ವಿಧಾನವನ್ನು ಆಯ್ಕೆಮಾಡಿ."
 
 #: allthethings/account/templates/account/donate.html:129
-#: allthethings/account/templates/account/donate.html:370
+#: allthethings/account/templates/account/donate.html:364
 #, fuzzy
 msgid "page.donate.discount"
 msgstr "-%(percentage)s%%"
 
 #: allthethings/account/templates/account/donate.html:135
-#: allthethings/account/templates/account/donate.html:324
+#: allthethings/account/templates/account/donate.html:321
 #, fuzzy
 msgid "page.donate.payment.buttons.amazon"
 msgstr "ಅಮೆಜಾನ್ ಗಿಫ್ಟ್ ಕಾರ್ಡ್"
@@ -381,7 +381,7 @@ msgstr "ಅಮೆಜಾನ್ ಗಿಫ್ಟ್ ಕಾರ್ಡ್"
 #: allthethings/account/templates/account/donate.html:136
 #: allthethings/account/templates/account/donate.html:146
 #: allthethings/account/templates/account/donate.html:147
-#: allthethings/account/templates/account/donate.html:333
+#: allthethings/account/templates/account/donate.html:330
 #, fuzzy
 msgid "page.donate.payment.buttons.crypto"
 msgstr "ಕ್ರಿಪ್ಟೋ %(bitcoin_icon)s"
@@ -415,7 +415,7 @@ msgstr "ಕ್ರೆಡಿಟ್/ಡೆಬಿಟ್/ಆಪಲ್/ಗೂಗಲ್
 #: allthethings/account/templates/account/donate.html:144
 #: allthethings/account/templates/account/donate.html:160
 #: allthethings/account/templates/account/donate.html:168
-#: allthethings/account/templates/account/donate.html:327
+#: allthethings/account/templates/account/donate.html:324
 #, fuzzy
 msgid "page.donate.payment.buttons.alipay"
 msgstr "ಅಲಿಪೇ"
@@ -466,7 +466,7 @@ msgstr "Alipay 支付宝 / WeChat 微信"
 
 #: allthethings/account/templates/account/donate.html:162
 #: allthethings/account/templates/account/donate.html:169
-#: allthethings/account/templates/account/donate.html:330
+#: allthethings/account/templates/account/donate.html:327
 #, fuzzy
 msgid "page.donate.payment.buttons.wechat"
 msgstr "WeChat"
@@ -487,348 +487,347 @@ msgid "page.donate.payment.desc.crypto2"
 msgstr "ಕ್ರಿಪ್ಟೊ ಬಳಸಿ ನೀವು BTC, ETH, XMR, ಮತ್ತು ಇನ್ನಷ್ಟು ಬಳಸಿ ದೇಣಿಗೆ ನೀಡಬಹುದು."
 
 #: allthethings/account/templates/account/donate.html:216
-#: allthethings/account/templates/account/donate.html:335
-#, fuzzy
-msgid "page.donate.payment.desc.crypto_suggestion"
-msgstr "ನೀವು ಮೊದಲ ಬಾರಿಗೆ ಕ್ರಿಪ್ಟೋ ಬಳಸುತ್ತಿದ್ದರೆ, Bitcoin (ಮೂಲ ಮತ್ತು ಹೆಚ್ಚು ಬಳಸುವ ಕ್ರಿಪ್ಟೋಕರೆನ್ಸಿ) ಖರೀದಿಸಲು ಮತ್ತು ದೇಣಿಗೆ ನೀಡಲು %(option1)s, %(option2)s, ಅಥವಾ %(option3)s ಬಳಸಲು ನಾವು ಶಿಫಾರಸು ಮಾಡುತ್ತೇವೆ."
+#: allthethings/account/templates/account/donate.html:332
+msgid "page.donate.payment.desc.crypto_suggestion_dynamic"
+msgstr ""
 
 #: allthethings/account/templates/account/donate.html:219
-#: allthethings/account/templates/account/donate.html:338
+#: allthethings/account/templates/account/donate.html:335
 #, fuzzy
 msgid "page.donate.payment.processor.binance"
 msgstr "ಬೈನಾನ್ಸ್"
 
 #: allthethings/account/templates/account/donate.html:220
-#: allthethings/account/templates/account/donate.html:339
+#: allthethings/account/templates/account/donate.html:336
 #, fuzzy
 msgid "page.donate.payment.processor.coinbase"
 msgstr "ಕಾಯ್ನ್‌ಬೇಸ್"
 
 #: allthethings/account/templates/account/donate.html:221
-#: allthethings/account/templates/account/donate.html:340
+#: allthethings/account/templates/account/donate.html:337
 #, fuzzy
 msgid "page.donate.payment.processor.kraken"
 msgstr "ಕ್ರಾಕನ್"
 
-#: allthethings/account/templates/account/donate.html:232
+#: allthethings/account/templates/account/donate.html:229
 #, fuzzy
 msgid "page.donate.payment.desc.paypal"
 msgstr "PayPal US ಬಳಸಿ ದೇಣಿಗೆ ನೀಡಲು, ನಾವು PayPal Crypto ಅನ್ನು ಬಳಸುತ್ತೇವೆ, ಇದು ನಮಗೆ ಅನಾಮಧೇಯವಾಗಿರಲು ಅನುಮತಿಸುತ್ತದೆ. ಈ ವಿಧಾನವನ್ನು ಬಳಸಿಕೊಂಡು ದೇಣಿಗೆ ನೀಡುವುದು ಹೇಗೆ ಎಂಬುದನ್ನು ಕಲಿಯಲು ನೀವು ಸಮಯ ತೆಗೆದುಕೊಳ್ಳುತ್ತಿರುವುದಕ್ಕೆ ನಾವು ಮೆಚ್ಚುಗೆ ವ್ಯಕ್ತಪಡಿಸುತ್ತೇವೆ, ಏಕೆಂದರೆ ಇದು ನಮಗೆ ಬಹಳ ಸಹಾಯ ಮಾಡುತ್ತದೆ."
 
-#: allthethings/account/templates/account/donate.html:233
+#: allthethings/account/templates/account/donate.html:230
 #, fuzzy
 msgid "page.donate.payment.desc.paypal_short"
 msgstr "PayPal ಬಳಸಿ ದೇಣಿಗೆ ನೀಡಿ."
 
-#: allthethings/account/templates/account/donate.html:239
+#: allthethings/account/templates/account/donate.html:236
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp"
 msgstr "Cash App ಬಳಸಿ ದೇಣಿಗೆ ನೀಡಿ."
 
-#: allthethings/account/templates/account/donate.html:240
+#: allthethings/account/templates/account/donate.html:237
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_easy"
 msgstr "ನಿಮ್ಮ ಬಳಿ ಕ್ಯಾಶ್ ಆಪ್ ಇದ್ದರೆ, ದೇಣಿಗೆ ನೀಡಲು ಇದು ಸುಲಭವಾದ ಮಾರ್ಗ!"
 
-#: allthethings/account/templates/account/donate.html:243
-#: allthethings/account/templates/account/donate.html:253
+#: allthethings/account/templates/account/donate.html:240
+#: allthethings/account/templates/account/donate.html:250
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_fee"
 msgstr "%(amount)s ಕ್ಕಿಂತ ಕಡಿಮೆ ವ್ಯವಹಾರಗಳಿಗೆ, ಕ್ಯಾಶ್ ಆಪ್ %(fee)s ಶುಲ್ಕವನ್ನು ವಿಧಿಸಬಹುದು. %(amount)s ಅಥವಾ ಅದಕ್ಕಿಂತ ಹೆಚ್ಚು, ಇದು ಉಚಿತ!"
 
-#: allthethings/account/templates/account/donate.html:249
+#: allthethings/account/templates/account/donate.html:246
 #, fuzzy
 msgid "page.donate.payment.desc.revolut"
 msgstr "ರೆವೊಲ್ಯೂಟ್ ಬಳಸಿ ದೇಣಿಗೆ ನೀಡಿ."
 
-#: allthethings/account/templates/account/donate.html:250
+#: allthethings/account/templates/account/donate.html:247
 #, fuzzy
 msgid "page.donate.payment.desc.revolut_easy"
 msgstr "ನಿಮ್ಮ ಬಳಿ ರೆವೊಲ್ಯೂಟ್ ಇದ್ದರೆ, ದೇಣಿಗೆ ನೀಡಲು ಇದು ಸುಲಭವಾದ ಮಾರ್ಗ!"
 
-#: allthethings/account/templates/account/donate.html:259
-#: allthethings/account/templates/account/donate.html:313
+#: allthethings/account/templates/account/donate.html:256
+#: allthethings/account/templates/account/donate.html:310
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit"
 msgstr "ಕ್ರೆಡಿಟ್ ಅಥವಾ ಡೆಬಿಟ್ ಕಾರ್ಡ್‌ನೊಂದಿಗೆ ದೇಣಿಗೆ ನೀಡಿ."
 
-#: allthethings/account/templates/account/donate.html:260
+#: allthethings/account/templates/account/donate.html:257
 #, fuzzy
 msgid "page.donate.payment.desc.google_apple"
 msgstr "Google Pay ಮತ್ತು Apple Pay ಕೂಡ ಕೆಲಸ ಮಾಡಬಹುದು."
 
-#: allthethings/account/templates/account/donate.html:261
+#: allthethings/account/templates/account/donate.html:258
 #, fuzzy
 msgid "page.donate.payment.desc.elimate_discount"
 msgstr "ಸಣ್ಣ ದೇಣಿಗೆಗಳಿಗೆ ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್ ಶುಲ್ಕಗಳು ನಮ್ಮ %(discount)s%% ರಿಯಾಯಿತಿಯನ್ನು ನಿವಾರಿಸಬಹುದು, ಆದ್ದರಿಂದ ನಾವು ದೀರ್ಘಾವಧಿಯ ಚಂದಾದಾರಿಕೆಗಳನ್ನು ಶಿಫಾರಸು ಮಾಡುತ್ತೇವೆ."
 
-#: allthethings/account/templates/account/donate.html:262
+#: allthethings/account/templates/account/donate.html:259
 #, fuzzy
 msgid "page.donate.payment.desc.longer_subs"
 msgstr "ಸಣ್ಣ ದೇಣಿಗೆಗಳಿಗೆ ಶುಲ್ಕಗಳು ಹೆಚ್ಚು, ಆದ್ದರಿಂದ ನಾವು ದೀರ್ಘಾವಧಿಯ ಚಂದಾದಾರಿಕೆಗಳನ್ನು ಶಿಫಾರಸು ಮಾಡುತ್ತೇವೆ."
 
-#: allthethings/account/templates/account/donate.html:268
+#: allthethings/account/templates/account/donate.html:265
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p1"
 msgstr "Binance ನೊಂದಿಗೆ, ನೀವು ಕ್ರೆಡಿಟ್/ಡೆಬಿಟ್ ಕಾರ್ಡ್ ಅಥವಾ ಬ್ಯಾಂಕ್ ಖಾತೆಯೊಂದಿಗೆ ಬಿಟ್‌ಕಾಯಿನ್ ಖರೀದಿಸಿ, ನಂತರ ಆ ಬಿಟ್‌ಕಾಯಿನ್ ಅನ್ನು ನಮಗೆ ದಾನ ಮಾಡಬಹುದು. ಈ ರೀತಿಯಾಗಿ, ನಿಮ್ಮ ದಾನವನ್ನು ಸ್ವೀಕರಿಸುವಾಗ ನಾವು ಸುರಕ್ಷಿತ ಮತ್ತು ಅನಾಮಧೇಯವಾಗಿರಬಹುದು."
 
-#: allthethings/account/templates/account/donate.html:272
+#: allthethings/account/templates/account/donate.html:269
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p2"
 msgstr "Binance ಬಹುತೇಕ ಪ್ರತಿಯೊಂದು ದೇಶದಲ್ಲೂ ಲಭ್ಯವಿದೆ, ಮತ್ತು ಹೆಚ್ಚಿನ ಬ್ಯಾಂಕುಗಳು ಮತ್ತು ಕ್ರೆಡಿಟ್/ಡೆಬಿಟ್ ಕಾರ್ಡ್‌ಗಳನ್ನು ಬೆಂಬಲಿಸುತ್ತದೆ. ಇದು ಪ್ರಸ್ತುತ ನಮ್ಮ ಮುಖ್ಯ ಶಿಫಾರಸು. ಈ ವಿಧಾನವನ್ನು ಬಳಸಿಕೊಂಡು ದಾನ ಮಾಡುವುದನ್ನು ಕಲಿಯಲು ನೀವು ತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯವನ್ನು ನಾವು ಮೆಚ್ಚುತ್ತೇವೆ, ಏಕೆಂದರೆ ಇದು ನಮಗೆ ಬಹಳ ಸಹಾಯ ಮಾಡುತ್ತದೆ."
 
-#: allthethings/account/templates/account/donate.html:278
+#: allthethings/account/templates/account/donate.html:275
 #, fuzzy
 msgid "page.donate.payment.desc.paypalreg"
 msgstr "ನಿಮ್ಮ ಸಾಮಾನ್ಯ ಪೇಪಾಲ್ ಖಾತೆಯನ್ನು ಬಳಸಿ ದೇಣಿಗೆ ನೀಡಿ."
 
-#: allthethings/account/templates/account/donate.html:284
-#: allthethings/account/templates/account/donate.html:290
+#: allthethings/account/templates/account/donate.html:281
+#: allthethings/account/templates/account/donate.html:287
 #, fuzzy
 msgid "page.donate.payment.desc.alipay_wechat"
 msgstr "Alipay ಅಥವಾ WeChat ಬಳಸಿ ದೇಣಿಗೆ ನೀಡಿ. ನೀವು ಮುಂದಿನ ಪುಟದಲ್ಲಿ ಇವುಗಳ ನಡುವೆ ಆಯ್ಕೆ ಮಾಡಬಹುದು."
 
-#: allthethings/account/templates/account/donate.html:296
+#: allthethings/account/templates/account/donate.html:293
 #, fuzzy
 msgid "page.donate.payment.desc.givebutter"
 msgstr "ಕ್ರೆಡಿಟ್/ಡೆಬಿಟ್ ಕಾರ್ಡ್, ಪೇಪಾಲ್ ಅಥವಾ ವೆನ್ಮೋ ಬಳಸಿ ದೇಣಿಗೆ ನೀಡಿ. ನೀವು ಮುಂದಿನ ಪುಟದಲ್ಲಿ ಇವುಗಳ ನಡುವೆ ಆಯ್ಕೆ ಮಾಡಬಹುದು."
 
-#: allthethings/account/templates/account/donate.html:302
+#: allthethings/account/templates/account/donate.html:299
 #, fuzzy
 msgid "page.donate.payment.desc.amazon"
 msgstr "ಅಮೆಜಾನ್ ಗಿಫ್ಟ್ ಕಾರ್ಡ್ ಬಳಸಿ ದೇಣಿಗೆ ನೀಡಿ."
 
-#: allthethings/account/templates/account/donate.html:303
+#: allthethings/account/templates/account/donate.html:300
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_round"
 msgstr "ನಮ್ಮ ಪುನರ್ವಿಕ್ರೇತಾರರು ಸ್ವೀಕರಿಸುವ ಮೊತ್ತಗಳಿಗೆ ನಾವು ಸುತ್ತುವರೆಯಬೇಕೆಂದು ಗಮನಿಸಿ (ಕನಿಷ್ಠ %(minimum)s)."
 
-#: allthethings/account/templates/account/donate.html:307
+#: allthethings/account/templates/account/donate.html:304
 #: allthethings/account/templates/account/donation.html:370
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_com"
 msgstr "<strong>ಮುಖ್ಯವಾದುದು:</strong> ನಾವು Amazon.com ಅನ್ನು ಮಾತ್ರ ಬೆಂಬಲಿಸುತ್ತೇವೆ, ಇತರ Amazon ವೆಬ್‌ಸೈಟ್‌ಗಳನ್ನು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ. ಉದಾಹರಣೆಗೆ, .de, .co.uk, .ca, ಬೆಂಬಲಿಸಲಾಗುವುದಿಲ್ಲ."
 
-#: allthethings/account/templates/account/donate.html:314
+#: allthethings/account/templates/account/donate.html:311
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_backup"
 msgstr "ಈ ವಿಧಾನವು ಮಧ್ಯಂತರ ಪರಿವರ್ತನೆಗಾಗಿ ಕ್ರಿಪ್ಟೋಕರೆನ್ಸಿ ಪೂರೈಕೆದಾರರನ್ನು ಬಳಸುತ್ತದೆ. ಇದು ಸ್ವಲ್ಪ ಗೊಂದಲಕಾರಿಯಾಗಬಹುದು, ಆದ್ದರಿಂದ ದಯವಿಟ್ಟು ಇತರ ಪಾವತಿ ವಿಧಾನಗಳು ಕೆಲಸ ಮಾಡದಿದ್ದರೆ ಮಾತ್ರ ಈ ವಿಧಾನವನ್ನು ಬಳಸಿರಿ. ಇದು ಎಲ್ಲಾ ದೇಶಗಳಲ್ಲಿ ಕೆಲಸ ಮಾಡುವುದಿಲ್ಲ."
 
-#: allthethings/account/templates/account/donate.html:320
+#: allthethings/account/templates/account/donate.html:317
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_explained"
 msgstr "ನಾವು ಕ್ರೆಡಿಟ್/ಡೆಬಿಟ್ ಕಾರ್ಡ್‌ಗಳನ್ನು ನೇರವಾಗಿ ಬೆಂಬಲಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ, ಏಕೆಂದರೆ ಬ್ಯಾಂಕ್‌ಗಳು ನಮ್ಮೊಂದಿಗೆ ಕೆಲಸ ಮಾಡಲು ಇಚ್ಛಿಸುವುದಿಲ್ಲ. ☹ ಆದರೆ, ಇತರ ಪಾವತಿ ವಿಧಾನಗಳನ್ನು ಬಳಸಿಕೊಂಡು ಕ್ರೆಡಿಟ್/ಡೆಬಿಟ್ ಕಾರ್ಡ್‌ಗಳನ್ನು ಬಳಸುವ ಹಲವು ಮಾರ್ಗಗಳಿವೆ:"
 
-#: allthethings/account/templates/account/donate.html:325
+#: allthethings/account/templates/account/donate.html:322
 #, fuzzy
 msgid "page.donate.ccexp.amazon_com"
 msgstr "ನಿಮ್ಮ ಕ್ರೆಡಿಟ್/ಡೆಬಿಟ್ ಕಾರ್ಡ್ ಬಳಸಿ Amazon.com ಗಿಫ್ಟ್ ಕಾರ್ಡ್‌ಗಳನ್ನು ನಮಗೆ ಕಳುಹಿಸಿ."
 
-#: allthethings/account/templates/account/donate.html:328
+#: allthethings/account/templates/account/donate.html:325
 #, fuzzy
 msgid "page.donate.ccexp.alipay"
 msgstr "ಅಲಿಪೇ ಅಂತರರಾಷ್ಟ್ರೀಯ ಕ್ರೆಡಿಟ್/ಡೆಬಿಟ್ ಕಾರ್ಡ್‌ಗಳನ್ನು ಬೆಂಬಲಿಸುತ್ತದೆ. ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ <a %(a_alipay)s>ಈ ಮಾರ್ಗದರ್ಶಿಯನ್ನು</a> ನೋಡಿ."
 
-#: allthethings/account/templates/account/donate.html:331
+#: allthethings/account/templates/account/donate.html:328
 #, fuzzy
 msgid "page.donate.ccexp.wechat"
 msgstr "WeChat (Weixin Pay) ಅಂತರರಾಷ್ಟ್ರೀಯ ಕ್ರೆಡಿಟ್/ಡೆಬಿಟ್ ಕಾರ್ಡ್‌ಗಳನ್ನು ಬೆಂಬಲಿಸುತ್ತದೆ. WeChat ಆಪ್‌ನಲ್ಲಿ, “Me => Services => Wallet => Add a Card” ಗೆ ಹೋಗಿ. ನೀವು ಅದನ್ನು ಕಾಣದಿದ್ದರೆ, “Me => Settings => General => Tools => Weixin Pay => Enable” ಬಳಸಿ ಅದನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ."
 
-#: allthethings/account/templates/account/donate.html:334
+#: allthethings/account/templates/account/donate.html:331
 #, fuzzy
 msgid "page.donate.ccexp.crypto"
 msgstr "ನೀವು ಕ್ರೆಡಿಟ್/ಡೆಬಿಟ್ ಕಾರ್ಡ್‌ಗಳನ್ನು ಬಳಸಿಕೊಂಡು ಕ್ರಿಪ್ಟೋ ಖರೀದಿಸಬಹುದು."
 
-#: allthethings/account/templates/account/donate.html:352
+#: allthethings/account/templates/account/donate.html:346
 #, fuzzy
 msgid "page.donate.payment.desc.bmc"
 msgstr "ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್‌ಗಳು, ಡೆಬಿಟ್ ಕಾರ್ಡ್‌ಗಳು, ಆಪಲ್ ಪೇ ಮತ್ತು ಗೂಗಲ್ ಪೇಗಾಗಿ, ನಾವು “Buy Me a Coffee” (BMC <span class=\"icon-[ph--coffee-fill] text-lg align-text-bottom\"></span>) ಅನ್ನು ಬಳಸುತ್ತೇವೆ. ಅವರ ವ್ಯವಸ್ಥೆಯಲ್ಲಿ, ಒಂದು “ಕಾಫಿ” $5 ಗೆ ಸಮಾನವಾಗಿರುತ್ತದೆ, ಆದ್ದರಿಂದ ನಿಮ್ಮ ದೇಣಿಗೆ 5 ರ ಬಹುಗುಣಾಕಾರಕ್ಕೆ ಸಮೀಪದ ಸಂಖ್ಯೆಗೆ ಸುತ್ತಿಕೊಳ್ಳಲಾಗುತ್ತದೆ."
 
-#: allthethings/account/templates/account/donate.html:359
+#: allthethings/account/templates/account/donate.html:353
 #, fuzzy
 msgid "page.donate.duration.intro"
 msgstr "ನೀವು ಎಷ್ಟು ಸಮಯದವರೆಗೆ ಚಂದಾದಾರರಾಗಲು ಬಯಸುತ್ತೀರಿ ಎಂಬುದನ್ನು ಆಯ್ಕೆಮಾಡಿ."
 
-#: allthethings/account/templates/account/donate.html:376
+#: allthethings/account/templates/account/donate.html:370
 #, fuzzy
 msgid "page.donate.duration.1_mo"
 msgstr "1 ತಿಂಗಳು"
 
-#: allthethings/account/templates/account/donate.html:377
+#: allthethings/account/templates/account/donate.html:371
 #, fuzzy
 msgid "page.donate.duration.3_mo"
 msgstr "3 ತಿಂಗಳು"
 
-#: allthethings/account/templates/account/donate.html:378
+#: allthethings/account/templates/account/donate.html:372
 #, fuzzy
 msgid "page.donate.duration.6_mo"
 msgstr "6 ತಿಂಗಳು"
 
-#: allthethings/account/templates/account/donate.html:379
+#: allthethings/account/templates/account/donate.html:373
 #, fuzzy
 msgid "page.donate.duration.12_mo"
 msgstr "12 ತಿಂಗಳು"
 
-#: allthethings/account/templates/account/donate.html:380
+#: allthethings/account/templates/account/donate.html:374
 #, fuzzy
 msgid "page.donate.duration.24_mo"
 msgstr "24 ತಿಂಗಳು"
 
-#: allthethings/account/templates/account/donate.html:381
+#: allthethings/account/templates/account/donate.html:375
 #, fuzzy
 msgid "page.donate.duration.48_mo"
 msgstr "48 ತಿಂಗಳು"
 
-#: allthethings/account/templates/account/donate.html:382
+#: allthethings/account/templates/account/donate.html:376
 #, fuzzy
 msgid "page.donate.duration.96_mo"
 msgstr "96 ತಿಂಗಳು"
 
-#: allthethings/account/templates/account/donate.html:385
+#: allthethings/account/templates/account/donate.html:379
 #, fuzzy
 msgid "page.donate.duration.summary"
 msgstr "<div %(div_monthly_cost)s></div><div %(div_after)s><span %(span_discount)s></span> ರಿಯಾಯಿತಿಗಳ ನಂತರ</div><div %(div_total)s></div><div %(div_duration)s></div>"
 
-#: allthethings/account/templates/account/donate.html:392
+#: allthethings/account/templates/account/donate.html:386
 #, fuzzy
 msgid "page.donate.payment.minimum_method"
 msgstr "ಈ ಪಾವತಿ ವಿಧಾನವು ಕನಿಷ್ಠ %(amount)s ಅಗತ್ಯವಿದೆ. ದಯವಿಟ್ಟು ವಿಭಿನ್ನ ಅವಧಿ ಅಥವಾ ಪಾವತಿ ವಿಧಾನವನ್ನು ಆಯ್ಕೆಮಾಡಿ."
 
-#: allthethings/account/templates/account/donate.html:393
-#: allthethings/account/templates/account/donate.html:397
+#: allthethings/account/templates/account/donate.html:387
+#: allthethings/account/templates/account/donate.html:391
 #, fuzzy
 msgid "page.donate.buttons.donate"
 msgstr "ದಾನ ಮಾಡಿ"
 
-#: allthethings/account/templates/account/donate.html:396
+#: allthethings/account/templates/account/donate.html:390
 #, fuzzy
 msgid "page.donate.payment.maximum_method"
 msgstr "ಈ ಪಾವತಿ ವಿಧಾನವು ಗರಿಷ್ಠ %(amount)s ಮಾತ್ರ ಅನುಮತಿಸುತ್ತದೆ. ದಯವಿಟ್ಟು ವಿಭಿನ್ನ ಅವಧಿ ಅಥವಾ ಪಾವತಿ ವಿಧಾನವನ್ನು ಆಯ್ಕೆಮಾಡಿ."
 
-#: allthethings/account/templates/account/donate.html:403
+#: allthethings/account/templates/account/donate.html:397
 #, fuzzy
 msgid "page.donate.login2"
 msgstr "ಸದಸ್ಯರಾಗಲು, ದಯವಿಟ್ಟು <a %(a_login)s>ಲಾಗಿನ್ ಅಥವಾ ನೋಂದಣಿ</a> ಮಾಡಿ. ನಿಮ್ಮ ಬೆಂಬಲಕ್ಕೆ ಧನ್ಯವಾದಗಳು!"
 
-#: allthethings/account/templates/account/donate.html:410
+#: allthethings/account/templates/account/donate.html:404
 #, fuzzy
 msgid "page.donate.payment.crypto_select"
 msgstr "ನೀವು ಇಷ್ಟಪಡುವ ಕ್ರಿಪ್ಟೋ ನಾಣ್ಯವನ್ನು ಆಯ್ಕೆಮಾಡಿ:"
 
-#: allthethings/account/templates/account/donate.html:415
+#: allthethings/account/templates/account/donate.html:409
 #, fuzzy
 msgid "page.donate.currency_lowest_minimum"
 msgstr "(ಕನಿಷ್ಠ ಮೊತ್ತ)"
 
-#: allthethings/account/templates/account/donate.html:429
+#: allthethings/account/templates/account/donate.html:423
+#: allthethings/account/templates/account/donate.html:424
+#: allthethings/account/templates/account/donate.html:428
 #: allthethings/account/templates/account/donate.html:430
-#: allthethings/account/templates/account/donate.html:434
-#: allthethings/account/templates/account/donate.html:436
 #, fuzzy
 msgid "page.donate.currency_warning_high_minimum"
 msgstr "(ಎಚ್ಚರಿಕೆ: ಕನಿಷ್ಠ ಮೊತ್ತ ಹೆಚ್ಚು)"
 
-#: allthethings/account/templates/account/donate.html:445
+#: allthethings/account/templates/account/donate.html:439
 #, fuzzy
 msgid "page.donate.submit.confirm"
 msgstr "ಈ ದೇಣಿಗೆಯನ್ನು ದೃಢೀಕರಿಸಲು ದೇಣಿಗೆ ಬಟನ್ ಕ್ಲಿಕ್ ಮಾಡಿ."
 
-#: allthethings/account/templates/account/donate.html:453
+#: allthethings/account/templates/account/donate.html:447
 #, fuzzy
 msgid "page.donate.submit.button"
 msgstr "ದಾನ ಮಾಡಿ <span %(span_cost)s></span> <span %(span_label)s></span>"
 
-#: allthethings/account/templates/account/donate.html:458
+#: allthethings/account/templates/account/donate.html:452
 #, fuzzy
 msgid "page.donate.submit.cancel_note"
 msgstr "ಚೆಕ್ಔಟ್ ಸಮಯದಲ್ಲಿ ದೇಣಿಗೆ ರದ್ದುಗೊಳಿಸಲು ನೀವು ಇನ್ನೂ ಸಾಧ್ಯ."
 
-#: allthethings/account/templates/account/donate.html:462
+#: allthethings/account/templates/account/donate.html:456
 #, fuzzy
 msgid "page.donate.submit.success"
 msgstr "✅ ದೇಣಿಗೆ ಪುಟಕ್ಕೆ ಮರುನಿರ್ದೇಶನ ಮಾಡಲಾಗುತ್ತಿದೆ…"
 
-#: allthethings/account/templates/account/donate.html:463
+#: allthethings/account/templates/account/donate.html:457
 #, fuzzy
 msgid "page.donate.submit.failure"
 msgstr "❌ ಏನೋ ತಪ್ಪಾಗಿದೆ. ದಯವಿಟ್ಟು ಪುಟವನ್ನು ಮರುಲೋಡ್ ಮಾಡಿ ಮತ್ತು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
 
-#: allthethings/account/templates/account/donate.html:517
+#: allthethings/account/templates/account/donate.html:511
 #, fuzzy
 msgid "page.donate.duration.summary.discount"
 msgstr "%(percentage)s%%"
 
-#: allthethings/account/templates/account/donate.html:518
+#: allthethings/account/templates/account/donate.html:512
 #, fuzzy
 msgid "page.donate.duration.summary.monthly_cost"
 msgstr "%(monthly_cost)s / ತಿಂಗಳು"
 
-#: allthethings/account/templates/account/donate.html:521
+#: allthethings/account/templates/account/donate.html:515
 #, fuzzy
 msgid "page.donate.duration.summary.duration.1_mo"
 msgstr "1 ತಿಂಗಳ ಕಾಲ"
 
-#: allthethings/account/templates/account/donate.html:522
+#: allthethings/account/templates/account/donate.html:516
 #, fuzzy
 msgid "page.donate.duration.summary.duration.3_mo"
 msgstr "3 ತಿಂಗಳುಗಳ ಕಾಲ"
 
-#: allthethings/account/templates/account/donate.html:523
+#: allthethings/account/templates/account/donate.html:517
 #, fuzzy
 msgid "page.donate.duration.summary.duration.6_mo"
 msgstr "6 ತಿಂಗಳುಗಳ ಕಾಲ"
 
-#: allthethings/account/templates/account/donate.html:524
+#: allthethings/account/templates/account/donate.html:518
 #, fuzzy
 msgid "page.donate.duration.summary.duration.12_mo"
 msgstr "12 ತಿಂಗಳುಗಳ ಕಾಲ"
 
-#: allthethings/account/templates/account/donate.html:525
+#: allthethings/account/templates/account/donate.html:519
 #, fuzzy
 msgid "page.donate.duration.summary.duration.24_mo"
 msgstr "24 ತಿಂಗಳ ಕಾಲ"
 
-#: allthethings/account/templates/account/donate.html:526
+#: allthethings/account/templates/account/donate.html:520
 #, fuzzy
 msgid "page.donate.duration.summary.duration.48_mo"
 msgstr "48 ತಿಂಗಳ ಕಾಲ"
 
-#: allthethings/account/templates/account/donate.html:527
+#: allthethings/account/templates/account/donate.html:521
 #, fuzzy
 msgid "page.donate.duration.summary.duration.96_mo"
 msgstr "96 ತಿಂಗಳುಗಳ ಕಾಲ"
 
-#: allthethings/account/templates/account/donate.html:531
+#: allthethings/account/templates/account/donate.html:525
 #, fuzzy
 msgid "page.donate.submit.button.label.1_mo"
 msgstr "1 ತಿಂಗಳ “%(tier_name)s” ಗೆ"
 
-#: allthethings/account/templates/account/donate.html:532
+#: allthethings/account/templates/account/donate.html:526
 #, fuzzy
 msgid "page.donate.submit.button.label.3_mo"
 msgstr "3 ತಿಂಗಳು “%(tier_name)s” ಗೆ"
 
-#: allthethings/account/templates/account/donate.html:533
+#: allthethings/account/templates/account/donate.html:527
 #, fuzzy
 msgid "page.donate.submit.button.label.6_mo"
 msgstr "6 ತಿಂಗಳ ಕಾಲ “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:534
+#: allthethings/account/templates/account/donate.html:528
 #, fuzzy
 msgid "page.donate.submit.button.label.12_mo"
 msgstr "12 ತಿಂಗಳುಗಳ “%(tier_name)s”ಗಾಗಿ"
 
-#: allthethings/account/templates/account/donate.html:535
+#: allthethings/account/templates/account/donate.html:529
 #, fuzzy
 msgid "page.donate.submit.button.label.24_mo"
 msgstr "24 ತಿಂಗಳುಗಳ “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:536
+#: allthethings/account/templates/account/donate.html:530
 #, fuzzy
 msgid "page.donate.submit.button.label.48_mo"
 msgstr "48 ತಿಂಗಳುಗಳ ಕಾಲ “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:537
+#: allthethings/account/templates/account/donate.html:531
 #, fuzzy
 msgid "page.donate.submit.button.label.96_mo"
 msgstr "96 ತಿಂಗಳುಗಳ ಕಾಲ “%(tier_name)s”"
@@ -4981,4 +4980,7 @@ msgstr "ಮುಂದೆ"
 
 #~ msgid "page.md5.box.download.header_generic"
 #~ msgstr "ಡೌನ್‌ಲೋಡ್ಗಳು"
+
+#~ msgid "page.donate.payment.desc.crypto_suggestion"
+#~ msgstr "ನೀವು ಮೊದಲ ಬಾರಿಗೆ ಕ್ರಿಪ್ಟೋ ಬಳಸುತ್ತಿದ್ದರೆ, Bitcoin (ಮೂಲ ಮತ್ತು ಹೆಚ್ಚು ಬಳಸುವ ಕ್ರಿಪ್ಟೋಕರೆನ್ಸಿ) ಖರೀದಿಸಲು ಮತ್ತು ದೇಣಿಗೆ ನೀಡಲು %(option1)s, %(option2)s, ಅಥವಾ %(option3)s ಬಳಸಲು ನಾವು ಶಿಫಾರಸು ಮಾಡುತ್ತೇವೆ."
 

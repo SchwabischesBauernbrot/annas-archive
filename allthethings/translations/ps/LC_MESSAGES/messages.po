@@ -367,13 +367,13 @@ msgid "page.donate.payment.select_method"
 msgstr "مهرباني وکړئ د تادیې یوه طریقه وټاکئ."
 
 #: allthethings/account/templates/account/donate.html:129
-#: allthethings/account/templates/account/donate.html:370
+#: allthethings/account/templates/account/donate.html:364
 #, fuzzy
 msgid "page.donate.discount"
 msgstr "-%(percentage)s%%"
 
 #: allthethings/account/templates/account/donate.html:135
-#: allthethings/account/templates/account/donate.html:324
+#: allthethings/account/templates/account/donate.html:321
 #, fuzzy
 msgid "page.donate.payment.buttons.amazon"
 msgstr "د امازون ډالۍ کارت"
@@ -381,7 +381,7 @@ msgstr "د امازون ډالۍ کارت"
 #: allthethings/account/templates/account/donate.html:136
 #: allthethings/account/templates/account/donate.html:146
 #: allthethings/account/templates/account/donate.html:147
-#: allthethings/account/templates/account/donate.html:333
+#: allthethings/account/templates/account/donate.html:330
 #, fuzzy
 msgid "page.donate.payment.buttons.crypto"
 msgstr "کریپټو %(bitcoin_icon)s"
@@ -415,7 +415,7 @@ msgstr "کریډیټ/ډیبیټ/Apple/Google (BMC)"
 #: allthethings/account/templates/account/donate.html:144
 #: allthethings/account/templates/account/donate.html:160
 #: allthethings/account/templates/account/donate.html:168
-#: allthethings/account/templates/account/donate.html:327
+#: allthethings/account/templates/account/donate.html:324
 #, fuzzy
 msgid "page.donate.payment.buttons.alipay"
 msgstr "Alipay"
@@ -466,7 +466,7 @@ msgstr "Alipay 支付宝 / WeChat 微信"
 
 #: allthethings/account/templates/account/donate.html:162
 #: allthethings/account/templates/account/donate.html:169
-#: allthethings/account/templates/account/donate.html:330
+#: allthethings/account/templates/account/donate.html:327
 #, fuzzy
 msgid "page.donate.payment.buttons.wechat"
 msgstr "WeChat"
@@ -487,348 +487,347 @@ msgid "page.donate.payment.desc.crypto2"
 msgstr "د کریپټو سره تاسو کولی شئ د BTC، ETH، XMR، او نورو په کارولو سره مرسته وکړئ."
 
 #: allthethings/account/templates/account/donate.html:216
-#: allthethings/account/templates/account/donate.html:335
-#, fuzzy
-msgid "page.donate.payment.desc.crypto_suggestion"
-msgstr "که تاسو لومړی ځل د کریپټو کاروئ، موږ وړاندیز کوو چې %(option1)s، %(option2)s، یا %(option3)s وکاروئ ترڅو Bitcoin (اصلي او تر ټولو کارول شوې کریپټو کرنسۍ) واخلئ او مرسته وکړئ."
+#: allthethings/account/templates/account/donate.html:332
+msgid "page.donate.payment.desc.crypto_suggestion_dynamic"
+msgstr ""
 
 #: allthethings/account/templates/account/donate.html:219
-#: allthethings/account/templates/account/donate.html:338
+#: allthethings/account/templates/account/donate.html:335
 #, fuzzy
 msgid "page.donate.payment.processor.binance"
 msgstr "بایننس"
 
 #: allthethings/account/templates/account/donate.html:220
-#: allthethings/account/templates/account/donate.html:339
+#: allthethings/account/templates/account/donate.html:336
 #, fuzzy
 msgid "page.donate.payment.processor.coinbase"
 msgstr "Coinbase"
 
 #: allthethings/account/templates/account/donate.html:221
-#: allthethings/account/templates/account/donate.html:340
+#: allthethings/account/templates/account/donate.html:337
 #, fuzzy
 msgid "page.donate.payment.processor.kraken"
 msgstr "Kraken"
 
-#: allthethings/account/templates/account/donate.html:232
+#: allthethings/account/templates/account/donate.html:229
 #, fuzzy
 msgid "page.donate.payment.desc.paypal"
 msgstr "د PayPal US په کارولو سره مرسته کولو لپاره، موږ به PayPal Crypto وکاروو، کوم چې موږ ته اجازه راکوي چې نامعلوم پاتې شو. موږ ستاسو د دې میتود په کارولو سره د مرستې کولو زده کولو لپاره وخت اخیستلو ستاینه کوو، ځکه چې دا موږ سره ډیره مرسته کوي."
 
-#: allthethings/account/templates/account/donate.html:233
+#: allthethings/account/templates/account/donate.html:230
 #, fuzzy
 msgid "page.donate.payment.desc.paypal_short"
 msgstr "د PayPal په کارولو سره مرسته وکړئ."
 
-#: allthethings/account/templates/account/donate.html:239
+#: allthethings/account/templates/account/donate.html:236
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp"
 msgstr "د Cash App په کارولو سره مرسته وکړئ."
 
-#: allthethings/account/templates/account/donate.html:240
+#: allthethings/account/templates/account/donate.html:237
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_easy"
 msgstr "که تاسو Cash App لرئ، دا د مرستې کولو تر ټولو اسانه لاره ده!"
 
-#: allthethings/account/templates/account/donate.html:243
-#: allthethings/account/templates/account/donate.html:253
+#: allthethings/account/templates/account/donate.html:240
+#: allthethings/account/templates/account/donate.html:250
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_fee"
 msgstr "یادونه وکړئ چې د %(amount)s څخه کمې معاملې لپاره، Cash App ممکن %(fee)s فیس واخلي. د %(amount)s یا پورته لپاره، دا وړیا دی!"
 
-#: allthethings/account/templates/account/donate.html:249
+#: allthethings/account/templates/account/donate.html:246
 #, fuzzy
 msgid "page.donate.payment.desc.revolut"
 msgstr "د Revolut په کارولو سره مرسته وکړئ."
 
-#: allthethings/account/templates/account/donate.html:250
+#: allthethings/account/templates/account/donate.html:247
 #, fuzzy
 msgid "page.donate.payment.desc.revolut_easy"
 msgstr "که تاسو Revolut لرئ، دا د مرستې کولو تر ټولو اسانه لاره ده!"
 
-#: allthethings/account/templates/account/donate.html:259
-#: allthethings/account/templates/account/donate.html:313
+#: allthethings/account/templates/account/donate.html:256
+#: allthethings/account/templates/account/donate.html:310
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit"
 msgstr "د کریډیټ یا ډیبیټ کارت سره مرسته وکړئ."
 
-#: allthethings/account/templates/account/donate.html:260
+#: allthethings/account/templates/account/donate.html:257
 #, fuzzy
 msgid "page.donate.payment.desc.google_apple"
 msgstr "Google Pay او Apple Pay هم کار کولی شي."
 
-#: allthethings/account/templates/account/donate.html:261
+#: allthethings/account/templates/account/donate.html:258
 #, fuzzy
 msgid "page.donate.payment.desc.elimate_discount"
 msgstr "یادونه وکړئ چې د کوچنیو مرستو لپاره د کریډیټ کارت فیسونه ممکن زموږ %(discount)s%% تخفیف له منځه یوسي، نو موږ اوږدمهاله ګډونونه وړاندیز کوو."
 
-#: allthethings/account/templates/account/donate.html:262
+#: allthethings/account/templates/account/donate.html:259
 #, fuzzy
 msgid "page.donate.payment.desc.longer_subs"
 msgstr "یادونه وکړئ چې د کوچنیو مرستو لپاره فیسونه لوړ دي، نو موږ اوږدمهاله ګډونونه وړاندیز کوو."
 
-#: allthethings/account/templates/account/donate.html:268
+#: allthethings/account/templates/account/donate.html:265
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p1"
 msgstr "د Binance سره، تاسو د کریډیټ/ډیبیټ کارت یا بانک حساب سره Bitcoin اخلئ، او بیا هغه Bitcoin موږ ته مرسته کوئ. په دې توګه موږ ستاسو مرسته په خوندي او نامعلوم ډول ترلاسه کولی شو."
 
-#: allthethings/account/templates/account/donate.html:272
+#: allthethings/account/templates/account/donate.html:269
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p2"
 msgstr "Binance په نږدې هر هیواد کې شتون لري، او د ډیرو بانکونو او کریډیټ/ډیبیټ کارتونو ملاتړ کوي. دا اوس مهال زموږ اصلي وړاندیز دی. موږ ستاسو د دې طریقې د زده کړې لپاره وخت اخیستلو څخه مننه کوو، ځکه چې دا موږ سره ډیره مرسته کوي."
 
-#: allthethings/account/templates/account/donate.html:278
+#: allthethings/account/templates/account/donate.html:275
 #, fuzzy
 msgid "page.donate.payment.desc.paypalreg"
 msgstr "د خپل منظم PayPal حساب په کارولو سره مرسته وکړئ."
 
-#: allthethings/account/templates/account/donate.html:284
-#: allthethings/account/templates/account/donate.html:290
+#: allthethings/account/templates/account/donate.html:281
+#: allthethings/account/templates/account/donate.html:287
 #, fuzzy
 msgid "page.donate.payment.desc.alipay_wechat"
 msgstr "د Alipay یا WeChat په کارولو مرسته وکړئ. تاسو کولی شئ په راتلونکې پاڼه کې د دې ترمنځ انتخاب وکړئ."
 
-#: allthethings/account/templates/account/donate.html:296
+#: allthethings/account/templates/account/donate.html:293
 #, fuzzy
 msgid "page.donate.payment.desc.givebutter"
 msgstr "د کریډیټ/ډیبیټ کارت، PayPal، یا Venmo په کارولو مرسته وکړئ. تاسو کولی شئ په راتلونکې پاڼه کې د دې ترمنځ انتخاب وکړئ."
 
-#: allthethings/account/templates/account/donate.html:302
+#: allthethings/account/templates/account/donate.html:299
 #, fuzzy
 msgid "page.donate.payment.desc.amazon"
 msgstr "د Amazon ډالۍ کارت په کارولو مرسته وکړئ."
 
-#: allthethings/account/templates/account/donate.html:303
+#: allthethings/account/templates/account/donate.html:300
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_round"
 msgstr "یادونه وکړئ چې موږ اړتیا لرو چې هغه مقدارونه چې زموږ د پلورونکو لخوا منل شوي دي (لږترلږه %(minimum)s) ته نږدې کړو."
 
-#: allthethings/account/templates/account/donate.html:307
+#: allthethings/account/templates/account/donate.html:304
 #: allthethings/account/templates/account/donation.html:370
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_com"
 msgstr "<strong>مهم:</strong> موږ یوازې Amazon.com ملاتړ کوو، نور Amazon ویب پاڼې نه. د مثال په توګه، .de، .co.uk، .ca، ملاتړ نه کیږي."
 
-#: allthethings/account/templates/account/donate.html:314
+#: allthethings/account/templates/account/donate.html:311
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_backup"
 msgstr "دا طریقه د منځګړي تبادلې لپاره د کریپټو کرنسي چمتو کونکي کاروي. دا ممکن یو څه مغشوش وي، نو مهرباني وکړئ یوازې دا طریقه وکاروئ که نورې تادیې طریقې کار نه کوي. دا هم په ټولو هیوادونو کې کار نه کوي."
 
-#: allthethings/account/templates/account/donate.html:320
+#: allthethings/account/templates/account/donate.html:317
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_explained"
 msgstr "موږ نشو کولی مستقیم کریډیټ/ډیبیټ کارتونه ملاتړ وکړو، ځکه چې بانکونه نه غواړي زموږ سره کار وکړي. ☹ په هرصورت، د کریډیټ/ډیبیټ کارتونو کارولو لپاره څو لارې شتون لري، د نورو تادیې میتودونو په کارولو سره:"
 
-#: allthethings/account/templates/account/donate.html:325
+#: allthethings/account/templates/account/donate.html:322
 #, fuzzy
 msgid "page.donate.ccexp.amazon_com"
 msgstr "موږ ته د Amazon.com ډالۍ کارتونه د خپل کریډیټ/ډیبیټ کارت په کارولو سره واستوئ."
 
-#: allthethings/account/templates/account/donate.html:328
+#: allthethings/account/templates/account/donate.html:325
 #, fuzzy
 msgid "page.donate.ccexp.alipay"
 msgstr "Alipay نړیوال کریډیټ/ډیبیټ کارتونه ملاتړ کوي. د نورو معلوماتو لپاره <a %(a_alipay)s>دا لارښود</a> وګورئ."
 
-#: allthethings/account/templates/account/donate.html:331
+#: allthethings/account/templates/account/donate.html:328
 #, fuzzy
 msgid "page.donate.ccexp.wechat"
 msgstr "WeChat (Weixin Pay) د نړیوالو کریډیټ/ډیبیټ کارتونو ملاتړ کوي. په WeChat اپلیکیشن کې، \"Me => Services => Wallet => Add a Card\" ته لاړ شئ. که تاسو دا ونه ګورئ، نو دا د \"Me => Settings => General => Tools => Weixin Pay => Enable\" په کارولو سره فعال کړئ."
 
-#: allthethings/account/templates/account/donate.html:334
+#: allthethings/account/templates/account/donate.html:331
 #, fuzzy
 msgid "page.donate.ccexp.crypto"
 msgstr "تاسو کولی شئ کریپټو د کریډیټ/ډیبیټ کارتونو په کارولو سره واخلئ."
 
-#: allthethings/account/templates/account/donate.html:352
+#: allthethings/account/templates/account/donate.html:346
 #, fuzzy
 msgid "page.donate.payment.desc.bmc"
 msgstr "د کریډیټ کارتونو، ډیبیټ کارتونو، Apple Pay، او Google Pay لپاره، موږ \"Buy Me a Coffee\" (BMC <span class=\"icon-[ph--coffee-fill] text-lg align-text-bottom\"></span>) کاروو. په دوی سیستم کې، یو \"کافي\" د $5 سره مساوي دی، نو ستاسو مرسته به تر نږدې څو 5 پورې نږدې شي."
 
-#: allthethings/account/templates/account/donate.html:359
+#: allthethings/account/templates/account/donate.html:353
 #, fuzzy
 msgid "page.donate.duration.intro"
 msgstr "انتخاب کړئ چې څومره وخت لپاره غواړئ ګډون وکړئ."
 
-#: allthethings/account/templates/account/donate.html:376
+#: allthethings/account/templates/account/donate.html:370
 #, fuzzy
 msgid "page.donate.duration.1_mo"
 msgstr "1 میاشت"
 
-#: allthethings/account/templates/account/donate.html:377
+#: allthethings/account/templates/account/donate.html:371
 #, fuzzy
 msgid "page.donate.duration.3_mo"
 msgstr "3 میاشتې"
 
-#: allthethings/account/templates/account/donate.html:378
+#: allthethings/account/templates/account/donate.html:372
 #, fuzzy
 msgid "page.donate.duration.6_mo"
 msgstr "۶ میاشتې"
 
-#: allthethings/account/templates/account/donate.html:379
+#: allthethings/account/templates/account/donate.html:373
 #, fuzzy
 msgid "page.donate.duration.12_mo"
 msgstr "۱۲ میاشتې"
 
-#: allthethings/account/templates/account/donate.html:380
+#: allthethings/account/templates/account/donate.html:374
 #, fuzzy
 msgid "page.donate.duration.24_mo"
 msgstr "۲۴ میاشتې"
 
-#: allthethings/account/templates/account/donate.html:381
+#: allthethings/account/templates/account/donate.html:375
 #, fuzzy
 msgid "page.donate.duration.48_mo"
 msgstr "۴۸ میاشتې"
 
-#: allthethings/account/templates/account/donate.html:382
+#: allthethings/account/templates/account/donate.html:376
 #, fuzzy
 msgid "page.donate.duration.96_mo"
 msgstr "۹۶ میاشتې"
 
-#: allthethings/account/templates/account/donate.html:385
+#: allthethings/account/templates/account/donate.html:379
 #, fuzzy
 msgid "page.donate.duration.summary"
 msgstr "<div %(div_monthly_cost)s></div><div %(div_after)s>وروسته <span %(span_discount)s></span> تخفیفونه</div><div %(div_total)s></div><div %(div_duration)s></div>"
 
-#: allthethings/account/templates/account/donate.html:392
+#: allthethings/account/templates/account/donate.html:386
 #, fuzzy
 msgid "page.donate.payment.minimum_method"
 msgstr "دا د تادیې طریقه لږ تر لږه %(amount)s ته اړتیا لري. مهرباني وکړئ بله موده یا د تادیې بله طریقه وټاکئ."
 
-#: allthethings/account/templates/account/donate.html:393
-#: allthethings/account/templates/account/donate.html:397
+#: allthethings/account/templates/account/donate.html:387
+#: allthethings/account/templates/account/donate.html:391
 #, fuzzy
 msgid "page.donate.buttons.donate"
 msgstr "مرسته وکړئ"
 
-#: allthethings/account/templates/account/donate.html:396
+#: allthethings/account/templates/account/donate.html:390
 #, fuzzy
 msgid "page.donate.payment.maximum_method"
 msgstr "دا د تادیې طریقه یوازې تر %(amount)s پورې اجازه ورکوي. مهرباني وکړئ بله موده یا د تادیې بله طریقه وټاکئ."
 
-#: allthethings/account/templates/account/donate.html:403
+#: allthethings/account/templates/account/donate.html:397
 #, fuzzy
 msgid "page.donate.login2"
 msgstr "د غړي کیدو لپاره، مهرباني وکړئ <a %(a_login)s>ننوزئ یا ثبت نام وکړئ</a>. ستاسو د ملاتړ څخه مننه!"
 
-#: allthethings/account/templates/account/donate.html:410
+#: allthethings/account/templates/account/donate.html:404
 #, fuzzy
 msgid "page.donate.payment.crypto_select"
 msgstr "خپل غوره کریپټو سکه وټاکئ:"
 
-#: allthethings/account/templates/account/donate.html:415
+#: allthethings/account/templates/account/donate.html:409
 #, fuzzy
 msgid "page.donate.currency_lowest_minimum"
 msgstr "(تر ټولو ټیټه لږه اندازه)"
 
-#: allthethings/account/templates/account/donate.html:429
+#: allthethings/account/templates/account/donate.html:423
+#: allthethings/account/templates/account/donate.html:424
+#: allthethings/account/templates/account/donate.html:428
 #: allthethings/account/templates/account/donate.html:430
-#: allthethings/account/templates/account/donate.html:434
-#: allthethings/account/templates/account/donate.html:436
 #, fuzzy
 msgid "page.donate.currency_warning_high_minimum"
 msgstr "(خبرداری: لوړه لږه اندازه)"
 
-#: allthethings/account/templates/account/donate.html:445
+#: allthethings/account/templates/account/donate.html:439
 #, fuzzy
 msgid "page.donate.submit.confirm"
 msgstr "د دې مرستې تایید لپاره د مرستې تڼۍ کلیک کړئ."
 
-#: allthethings/account/templates/account/donate.html:453
+#: allthethings/account/templates/account/donate.html:447
 #, fuzzy
 msgid "page.donate.submit.button"
 msgstr "مرسته وکړئ <span %(span_cost)s></span> <span %(span_label)s></span>"
 
-#: allthethings/account/templates/account/donate.html:458
+#: allthethings/account/templates/account/donate.html:452
 #, fuzzy
 msgid "page.donate.submit.cancel_note"
 msgstr "تاسو لا هم کولی شئ د تادیې په وخت کې مرسته لغوه کړئ."
 
-#: allthethings/account/templates/account/donate.html:462
+#: allthethings/account/templates/account/donate.html:456
 #, fuzzy
 msgid "page.donate.submit.success"
 msgstr "✅ د مرستې پاڼې ته مخه کول…"
 
-#: allthethings/account/templates/account/donate.html:463
+#: allthethings/account/templates/account/donate.html:457
 #, fuzzy
 msgid "page.donate.submit.failure"
 msgstr "❌ یو څه غلط شو. مهرباني وکړئ پاڼه بیا تازه کړئ او بیا هڅه وکړئ."
 
-#: allthethings/account/templates/account/donate.html:517
+#: allthethings/account/templates/account/donate.html:511
 #, fuzzy
 msgid "page.donate.duration.summary.discount"
 msgstr "%(percentage)s%%"
 
-#: allthethings/account/templates/account/donate.html:518
+#: allthethings/account/templates/account/donate.html:512
 #, fuzzy
 msgid "page.donate.duration.summary.monthly_cost"
 msgstr "%(monthly_cost)s / میاشت"
 
-#: allthethings/account/templates/account/donate.html:521
+#: allthethings/account/templates/account/donate.html:515
 #, fuzzy
 msgid "page.donate.duration.summary.duration.1_mo"
 msgstr "د 1 میاشت لپاره"
 
-#: allthethings/account/templates/account/donate.html:522
+#: allthethings/account/templates/account/donate.html:516
 #, fuzzy
 msgid "page.donate.duration.summary.duration.3_mo"
 msgstr "د 3 میاشتو لپاره"
 
-#: allthethings/account/templates/account/donate.html:523
+#: allthethings/account/templates/account/donate.html:517
 #, fuzzy
 msgid "page.donate.duration.summary.duration.6_mo"
 msgstr "د 6 میاشتو لپاره"
 
-#: allthethings/account/templates/account/donate.html:524
+#: allthethings/account/templates/account/donate.html:518
 #, fuzzy
 msgid "page.donate.duration.summary.duration.12_mo"
 msgstr "د 12 میاشتو لپاره"
 
-#: allthethings/account/templates/account/donate.html:525
+#: allthethings/account/templates/account/donate.html:519
 #, fuzzy
 msgid "page.donate.duration.summary.duration.24_mo"
 msgstr "د 24 میاشتو لپاره"
 
-#: allthethings/account/templates/account/donate.html:526
+#: allthethings/account/templates/account/donate.html:520
 #, fuzzy
 msgid "page.donate.duration.summary.duration.48_mo"
 msgstr "د 48 میاشتو لپاره"
 
-#: allthethings/account/templates/account/donate.html:527
+#: allthethings/account/templates/account/donate.html:521
 #, fuzzy
 msgid "page.donate.duration.summary.duration.96_mo"
 msgstr "د 96 میاشتو لپاره"
 
-#: allthethings/account/templates/account/donate.html:531
+#: allthethings/account/templates/account/donate.html:525
 #, fuzzy
 msgid "page.donate.submit.button.label.1_mo"
 msgstr "د 1 میاشت لپاره “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:532
+#: allthethings/account/templates/account/donate.html:526
 #, fuzzy
 msgid "page.donate.submit.button.label.3_mo"
 msgstr "د 3 میاشتو لپاره “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:533
+#: allthethings/account/templates/account/donate.html:527
 #, fuzzy
 msgid "page.donate.submit.button.label.6_mo"
 msgstr "د 6 میاشتو لپاره “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:534
+#: allthethings/account/templates/account/donate.html:528
 #, fuzzy
 msgid "page.donate.submit.button.label.12_mo"
 msgstr "د 12 میاشتو لپاره “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:535
+#: allthethings/account/templates/account/donate.html:529
 #, fuzzy
 msgid "page.donate.submit.button.label.24_mo"
 msgstr "د 24 میاشتو لپاره “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:536
+#: allthethings/account/templates/account/donate.html:530
 #, fuzzy
 msgid "page.donate.submit.button.label.48_mo"
 msgstr "د 48 میاشتو لپاره “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:537
+#: allthethings/account/templates/account/donate.html:531
 #, fuzzy
 msgid "page.donate.submit.button.label.96_mo"
 msgstr "د 96 میاشتو لپاره “%(tier_name)s”"
@@ -4981,4 +4980,7 @@ msgstr "بل"
 
 #~ msgid "page.md5.box.download.header_generic"
 #~ msgstr "ډاونلوډونه"
+
+#~ msgid "page.donate.payment.desc.crypto_suggestion"
+#~ msgstr "که تاسو لومړی ځل د کریپټو کاروئ، موږ وړاندیز کوو چې %(option1)s، %(option2)s، یا %(option3)s وکاروئ ترڅو Bitcoin (اصلي او تر ټولو کارول شوې کریپټو کرنسۍ) واخلئ او مرسته وکړئ."
 
