@@ -70,11 +70,14 @@
         <li class="relative mb-1">{{ checkmark_icon | safe }} 🚀 {{ fast_downloads(MEMBERSHIP_DOWNLOADS_PER_DAY['2'], 2.0) | safe }}</li>
         <li class="relative mb-1">{{ checkmark_icon | safe }} 🧬&nbsp;{{ gettext('page.donate.perks.scidb') }}</li>
         <li class="relative mb-1">{{ checkmark_icon | safe }} 👩‍💻 {{ gettext('page.donate.perks.jsonapi', a_api=(a.faqs_api | xmlattr)) }}</li>
+        <!-- <li class="relative mb-1">{{ checkmark_icon | safe }} 💁‍♀️ {{ gettext('page.donate.perks.refer', percentage=50, a_refer=(a.refer | xmlattr)) }}</li> -->
+        <!-- <li class="relative mb-1">{{ checkmark_icon | safe }} {{ gettext('page.donate.perks.credits') }}</li> -->
       {% endcall %}
 
       {% call membership_tier('3', 'md:min-w-[180px] md:w-[21%]') %}
         <li class="text-sm relative mb-1">{{ gettext('page.donate.perks.previous_plus') }}</li>
         <li class="relative mb-1">{{ checkmark_icon | safe }} 🚀 {{ fast_downloads(MEMBERSHIP_DOWNLOADS_PER_DAY['3'], 2.0) | safe }}</li>
+        <!-- <li class="relative mb-1">{{ checkmark_icon | safe }} {{ gettext('page.donate.perks.early_access') }}</li> -->
       {% endcall %}
 
       {% call membership_tier('4', 'md:min-w-[180px] md:w-[23%]') %}
@@ -86,6 +89,7 @@
       {% call membership_tier('5', 'md:min-w-[240px] md:w-[29%]') %}
         <li class="text-sm relative mb-1">{{ gettext('page.donate.perks.previous_plus') }}</li>
         <li class="relative mb-1">{{ checkmark_icon | safe }} 🚀 {{ fast_downloads(MEMBERSHIP_DOWNLOADS_PER_DAY['5'], 2.0) | safe }}</li>
+        <!-- <li class="relative mb-1">{{ checkmark_icon | safe }} 🤗 {{ gettext('page.donate.perks.adopt', div_months=(' class="text-gray-500 text-sm" ' | safe)) }}</li> -->
         <li class="relative mb-1">{{ checkmark_icon | safe }} 🤯 {{ gettext('page.donate.perks.legendary') }}</li>
       {% endcall %}
     </div>
