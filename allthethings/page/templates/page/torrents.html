@@ -55,6 +55,44 @@
         <em>“The lost cannot be recovered; but let us save what remains: not by vaults and locks which fence them from the public eye and use, in consigning them to the waste of time, but by such a multiplication of copies, as shall place them beyond the reach of accident.”</em><div class="text-sm">— Thomas Jefferson, 1791</div>
       </div>
 
+      <div class="mt-8 group"><span class="text-xl font-bold" id="stats">Stats</span> <a href="#stats" class="custom-a invisible group-hover:visible text-gray-400 hover:text-gray-500 text-sm align-[2px]">§</a></div>
+
+      <p class="mb-1">
+        You can help out enormously by seeding torrents that are low on seeders. If everyone who reads this chips in, we can preserve these collections forever. This is the current breakdown, excluding embargoed torrents, but including external torrents:
+      </p>
+
+      <table class="mb-2">
+        <tr><td>🔴 {{ torrents_data.seeder_size_strings[0] }}</td><td class="text-sm text-gray-500 pl-4">{{ gettext('page.home.torrents.legend_less', count=4) }}</td></tr>
+        <tr><td>🟡 {{ torrents_data.seeder_size_strings[1] }}</td><td class="text-sm text-gray-500 pl-4">{{ gettext('page.home.torrents.legend_range', count_min=4, count_max=10) }}</td></tr>
+        <tr><td>🟢 {{ torrents_data.seeder_size_strings[2] }}</td><td class="text-sm text-gray-500 pl-4">{{ gettext('page.home.torrents.legend_greater', count=10) }}</td></tr>
+      </table>
+
+      <div class="js-torrents-chart h-[300px]"></div>
+      <div class="mb-1 text-xs text-gray-500">Scraped from <a href="https://opentrackr.org">opentrackr.org</a>.</div>
+
+      <script>
+        new Promise((resolve, reject) => document.addEventListener("DOMContentLoaded", () => { resolve () })).then(() => {
+          const seedingHistogram = {{ histogram | tojson }};
+
+          const colorsBySeederGroup = ['rgb(240,85,79)', 'rgb(255,218,1)', 'rgb(1,180,1)'];
+
+          Plotly.newPlot(document.querySelector(".js-torrents-chart"), [2,1,0].map((seederGroup) => {
+            const seederGroupData = seedingHistogram.filter((item) => item.seeder_group === seederGroup);
+            return {
+              type: "scatter",
+              x: seederGroupData.map((item) => item.day),
+              y: seederGroupData.map((item) => item.total_tb),
+              marker: {color: colorsBySeederGroup[seederGroup]},
+              stackgroup: 'one',
+            };
+          }), {
+            margin: { l: 50, r: 16, b: 50, t: 0, pad: 4 },
+            showlegend: false,
+                yaxis: { ticksuffix: "TB" },
+          }, {staticPlot: true});
+        });
+      </script>
+
       <div class="mt-8 group"><span class="text-xl font-bold" id="generate_torrent_list"><span class="underline">HELP SEED</span> — Torrent List Generator</span> <a href="#generate_torrent_list" class="custom-a invisible group-hover:visible text-gray-400 hover:text-gray-500 text-sm align-[2px]">§</a></div>
 
       <p class="mb-4">
@@ -95,44 +133,6 @@
       <p class="mb-4">
         <strong>IMPORTANT:</strong> If you seed large amounts of our collection (50TB or more), please <a href="/contact">contact us</a> so we can let you know when we deprecate any large torrents.
       </p>
-
-      <div class="mt-8 group"><span class="text-xl font-bold" id="stats">Stats</span> <a href="#stats" class="custom-a invisible group-hover:visible text-gray-400 hover:text-gray-500 text-sm align-[2px]">§</a></div>
-
-      <p class="mb-1">
-        You can help out enormously by seeding torrents that are low on seeders. If everyone who reads this chips in, we can preserve these collections forever. This is the current breakdown, excluding embargoed torrents, but including external torrents:
-      </p>
-
-      <table class="mb-2">
-        <tr><td>🔴 {{ torrents_data.seeder_size_strings[0] }}</td><td class="text-sm text-gray-500 pl-4">{{ gettext('page.home.torrents.legend_less', count=4) }}</td></tr>
-        <tr><td>🟡 {{ torrents_data.seeder_size_strings[1] }}</td><td class="text-sm text-gray-500 pl-4">{{ gettext('page.home.torrents.legend_range', count_min=4, count_max=10) }}</td></tr>
-        <tr><td>🟢 {{ torrents_data.seeder_size_strings[2] }}</td><td class="text-sm text-gray-500 pl-4">{{ gettext('page.home.torrents.legend_greater', count=10) }}</td></tr>
-      </table>
-
-      <div class="js-torrents-chart h-[300px]"></div>
-      <div class="mb-1 text-xs text-gray-500">Scraped from <a href="https://opentrackr.org">opentrackr.org</a>.</div>
-
-      <script>
-        new Promise((resolve, reject) => document.addEventListener("DOMContentLoaded", () => { resolve () })).then(() => {
-          const seedingHistogram = {{ histogram | tojson }};
-
-          const colorsBySeederGroup = ['rgb(240,85,79)', 'rgb(255,218,1)', 'rgb(1,180,1)'];
-
-          Plotly.newPlot(document.querySelector(".js-torrents-chart"), [2,1,0].map((seederGroup) => {
-            const seederGroupData = seedingHistogram.filter((item) => item.seeder_group === seederGroup);
-            return {
-              type: "scatter",
-              x: seederGroupData.map((item) => item.day),
-              y: seederGroupData.map((item) => item.total_tb),
-              marker: {color: colorsBySeederGroup[seederGroup]},
-              stackgroup: 'one',
-            };
-          }), {
-            margin: { l: 50, r: 16, b: 50, t: 0, pad: 4 },
-            showlegend: false,
-                yaxis: { ticksuffix: "TB" },
-          }, {staticPlot: true});
-        });
-      </script>
 
 <!--       <div class="mt-8 group"><span class="text-xl font-bold" id="long_term_seeders">Long Term Seeders</span> <a href="#long_term_seeders" class="custom-a invisible group-hover:visible text-gray-400 hover:text-gray-500 text-sm align-[2px]">§</a></div>
 
