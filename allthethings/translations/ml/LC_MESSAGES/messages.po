@@ -138,16 +138,16 @@ msgstr "കണ്ണഞ്ചിപ്പിക്കുന്ന വിവര�
 msgid "common.membership.tier_name.5"
 msgstr "വിസ്മയിപ്പിക്കുന്ന ഗ്രന്ഥശാലാധികാരി"
 
-#: allthethings/utils.py:552
+#: allthethings/utils.py:554
 #, fuzzy
 msgid "common.membership.format_currency.total_with_usd"
 msgstr "%(amount)s (%(amount_usd)s) ആകെ"
 
-#: allthethings/utils.py:554 allthethings/utils.py:555
+#: allthethings/utils.py:556 allthethings/utils.py:557
 msgid "common.membership.format_currency.amount_with_usd"
 msgstr "%(amount)s (%(amount_usd)s)"
 
-#: allthethings/utils.py:566
+#: allthethings/utils.py:568
 #, fuzzy
 msgid "common.membership.format_currency.total"
 msgstr "%(amount)s ആകെ"
@@ -310,7 +310,7 @@ msgid "page.donate.expert.contact_us"
 msgstr "ഞങ്ങളെ ബന്ധപ്പെടുക"
 
 #: allthethings/account/templates/account/donate.html:103
-#: allthethings/account/templates/account/donation.html:579
+#: allthethings/account/templates/account/donation.html:624
 #: allthethings/page/templates/page/contact.html:21
 #, fuzzy
 msgid "page.donate.small_team"
@@ -375,14 +375,14 @@ msgid "page.donate.payment.select_method"
 msgstr "ദയവായി ഒരു പേയ്മെന്റ് രീതിയ തിരഞ്ഞെടുക്കുക."
 
 #: allthethings/account/templates/account/donate.html:130
-#: allthethings/account/templates/account/donate.html:296
+#: allthethings/account/templates/account/donate.html:309
 #, fuzzy
 msgid "page.donate.payment.buttons.amazon"
 msgstr "അമസോൺ ഗിഫ്റ്റ് കാർഡ്"
 
 #: allthethings/account/templates/account/donate.html:131
 #: allthethings/account/templates/account/donate.html:141
-#: allthethings/account/templates/account/donate.html:298
+#: allthethings/account/templates/account/donate.html:313
 msgid "page.donate.payment.buttons.crypto"
 msgstr "ക്രിപ്‌റ്റോ %(bitcoin_icon)s"
 
@@ -393,14 +393,15 @@ msgstr "ക്രിപ്‌റ്റോ %(bitcoin_icon)s"
 #: allthethings/account/templates/account/donate.html:142
 #: allthethings/account/templates/account/donate.html:145
 #: allthethings/account/templates/account/donate.html:146
-#: allthethings/account/templates/account/donate.html:149
-#: allthethings/account/templates/account/donate.html:152
-#: allthethings/account/templates/account/donate.html:317
-#: allthethings/account/templates/account/donate.html:318
-#: allthethings/account/templates/account/donate.html:319
-#: allthethings/account/templates/account/donate.html:320
-#: allthethings/account/templates/account/donate.html:321
-#: allthethings/account/templates/account/donate.html:322
+#: allthethings/account/templates/account/donate.html:147
+#: allthethings/account/templates/account/donate.html:150
+#: allthethings/account/templates/account/donate.html:153
+#: allthethings/account/templates/account/donate.html:332
+#: allthethings/account/templates/account/donate.html:333
+#: allthethings/account/templates/account/donate.html:334
+#: allthethings/account/templates/account/donate.html:335
+#: allthethings/account/templates/account/donate.html:336
+#: allthethings/account/templates/account/donate.html:337
 msgid "page.donate.discount"
 msgstr "-%(percentage)s%%"
 
@@ -409,8 +410,9 @@ msgid "page.donate.payment.buttons.paypal"
 msgstr "പേയ്പാൽ (യു.എസ്) %(bitcoin_icon)s"
 
 #: allthethings/account/templates/account/donate.html:139
-#: allthethings/account/templates/account/donate.html:155
-#: allthethings/account/templates/account/donate.html:162
+#: allthethings/account/templates/account/donate.html:156
+#: allthethings/account/templates/account/donate.html:163
+#: allthethings/account/templates/account/donate.html:311
 msgid "page.donate.payment.buttons.alipay"
 msgstr "അലിപേ"
 
@@ -423,340 +425,341 @@ msgstr "പിക്സ് (ബ്രസീൽ)"
 msgid "page.donate.payment.buttons.cashapp"
 msgstr "കാഷ് ആപ്പ്"
 
-#: allthethings/account/templates/account/donate.html:146
+#: allthethings/account/templates/account/donate.html:147
 #, fuzzy
 msgid "page.donate.payment.buttons.paypal_plain"
 msgstr "PayPal"
 
-#: allthethings/account/templates/account/donate.html:147
+#: allthethings/account/templates/account/donate.html:148
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit"
 msgstr "ക്രെഡിറ്റ്/ഡെബിറ്റ് കാർഡ്"
 
-#: allthethings/account/templates/account/donate.html:148
+#: allthethings/account/templates/account/donate.html:149
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit_backup"
 msgstr "ക്രെഡിറ്റ്/ഡെബിറ്റ് കാർഡ് (ബാക്കപ്പ്)"
 
-#: allthethings/account/templates/account/donate.html:149
+#: allthethings/account/templates/account/donate.html:150
 #, fuzzy
 msgid "page.donate.payment.buttons.credit_debit2"
 msgstr "ക്രെഡിറ്റ്/ഡെബിറ്റ് കാർഡ് 2"
 
-#: allthethings/account/templates/account/donate.html:156
-#: allthethings/account/templates/account/donate.html:164
-#: allthethings/account/templates/account/donate.html:173
-#: allthethings/account/templates/account/donate.html:181
-#: allthethings/account/templates/account/donate.html:188
+#: allthethings/account/templates/account/donate.html:157
+#: allthethings/account/templates/account/donate.html:165
+#: allthethings/account/templates/account/donate.html:174
+#: allthethings/account/templates/account/donate.html:182
+#: allthethings/account/templates/account/donate.html:189
 #, fuzzy
 msgid "page.donate.payment.buttons.alipay_wechat"
 msgstr "Alipay 支付宝 / WeChat 微信"
 
-#: allthethings/account/templates/account/donate.html:157
-#: allthethings/account/templates/account/donate.html:163
-#: allthethings/account/templates/account/donate.html:297
+#: allthethings/account/templates/account/donate.html:158
+#: allthethings/account/templates/account/donate.html:164
+#: allthethings/account/templates/account/donate.html:312
 #, fuzzy
 msgid "page.donate.payment.buttons.wechat"
 msgstr "WeChat"
 
-#: allthethings/account/templates/account/donate.html:188
+#: allthethings/account/templates/account/donate.html:189
 #, fuzzy
 msgid "page.donate.payment.buttons.temporarily_unavailable"
 msgstr "(താൽക്കാലികമായി ലഭ്യമല്ല)"
 
-#: allthethings/account/templates/account/donate.html:195
+#: allthethings/account/templates/account/donate.html:196
 msgid "page.donate.payment.desc.crypto"
 msgstr "ക്രിപ്‌റ്റോ ഉപയോഗിച്ച് നിങ്ങൾക്ക് BTC, ETH, XMR, SOL എന്നിവ ഉപയോഗിച്ച് സംഭാവന നൽകാം. നിങ്ങൾക്ക് ഇതിനകം ക്രിപ്‌റ്റോകറൻസി പരിചിതമാണെങ്കിൽ ഈ മാർഗം സ്വീകരിക്കുക."
 
-#: allthethings/account/templates/account/donate.html:201
+#: allthethings/account/templates/account/donate.html:202
 #, fuzzy
 msgid "page.donate.payment.desc.crypto2"
 msgstr "ക്രിപ്റ്റോ ഉപയോഗിച്ച് നിങ്ങൾക്ക് BTC, ETH, XMR, എന്നിവ ഉപയോഗിച്ച് സംഭാവന ചെയ്യാം."
 
-#: allthethings/account/templates/account/donate.html:205
-#: allthethings/account/templates/account/donate.html:298
+#: allthethings/account/templates/account/donate.html:206
+#: allthethings/account/templates/account/donate.html:313
 #, fuzzy
 msgid "page.donate.payment.desc.crypto_suggestion"
 msgstr "നിങ്ങൾ ആദ്യമായി ക്രിപ്റ്റോ ഉപയോഗിക്കുന്നുവെങ്കിൽ, ബിറ്റ്‌കോയിൻ (മൂലവും ഏറ്റവും കൂടുതൽ ഉപയോഗിക്കുന്ന ക്രിപ്റ്റോകറൻസി) വാങ്ങാനും സംഭാവന ചെയ്യാനും %(option1)s, %(option2)s, അല്ലെങ്കിൽ %(option3)s ഉപയോഗിക്കാൻ ഞങ്ങൾ നിർദ്ദേശിക്കുന്നു."
 
-#: allthethings/account/templates/account/donate.html:211
+#: allthethings/account/templates/account/donate.html:212
 msgid "page.donate.payment.desc.paypal"
 msgstr "പേയ്പാൽ (യു.എസ്) ഉപയോഗിച്ച് സംഭാവന നൽകാൻ, ഞങ്ങൾ പേയ്പാൽ ക്രിപ്‌റ്റോ ഉപയോഗിക്കാൻ പോകുന്നു, അത് ഞങ്ങളെ അജ്ഞാതരായി തുടരാൻ അനുവദിക്കുന്നു. ഈ രീതി ഉപയോഗിച്ച് എങ്ങനെ സംഭാവന നൽകാമെന്ന് മനസിലാക്കാൻ നിങ്ങൾ സമയം ചെലവഴിക്കുന്നത് ഞങ്ങൾ അഭിനന്ദിക്കുന്നു, കാരണം ഇത് ഞങ്ങളെ വളരെയധികം സഹായിക്കുന്നു."
 
-#: allthethings/account/templates/account/donate.html:212
+#: allthethings/account/templates/account/donate.html:213
 #, fuzzy
 msgid "page.donate.payment.desc.paypal_short"
 msgstr "PayPal ഉപയോഗിച്ച് സംഭാവന ചെയ്യുക."
 
-#: allthethings/account/templates/account/donate.html:218
+#: allthethings/account/templates/account/donate.html:219
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp"
 msgstr "Cash App ഉപയോഗിച്ച് സംഭാവന ചെയ്യുക."
 
-#: allthethings/account/templates/account/donate.html:218
+#: allthethings/account/templates/account/donate.html:219
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_easy"
 msgstr "താങ്കൾക്ക് ക്യാഷ് ആപ്പ് ഉണ്ടെങ്കിൽ, സംഭാവന ചെയ്യാനുള്ള ഏറ്റവും എളുപ്പവഴി ഇതാണ്!"
 
-#: allthethings/account/templates/account/donate.html:221
+#: allthethings/account/templates/account/donate.html:222
+#: allthethings/account/templates/account/donate.html:234
 #, fuzzy
 msgid "page.donate.payment.desc.cashapp_fee"
 msgstr "%(amount)sൽ താഴെയുള്ള ഇടപാടുകൾക്കായി, കാഷ് ആപ്പ് %(fee)s ഫീസ് ഈടാക്കാം. %(amount)sൽ മുകളിലുള്ളവയ്ക്ക്, ഇത് സൗജന്യമാണ്!"
 
-#: allthethings/account/templates/account/donate.html:227
-#: allthethings/account/templates/account/donate.html:281
+#: allthethings/account/templates/account/donate.html:240
+#: allthethings/account/templates/account/donate.html:294
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit"
 msgstr "ക്രെഡിറ്റ് അല്ലെങ്കിൽ ഡെബിറ്റ് കാർഡ് ഉപയോഗിച്ച് സംഭാവന ചെയ്യുക."
 
-#: allthethings/account/templates/account/donate.html:228
+#: allthethings/account/templates/account/donate.html:241
 #, fuzzy
 msgid "page.donate.payment.desc.google_apple"
 msgstr "Google Pay, Apple Pay എന്നിവയും പ്രവർത്തിക്കാം."
 
-#: allthethings/account/templates/account/donate.html:229
+#: allthethings/account/templates/account/donate.html:242
 #, fuzzy
 msgid "page.donate.payment.desc.elimate_discount"
 msgstr "ചെറിയ സംഭാവനകൾക്കായി ക്രെഡിറ്റ് കാർഡ് ഫീസ് ഞങ്ങളുടെ %(discount)s%% ഇളവ് ഇല്ലാതാക്കാൻ സാധ്യതയുള്ളതിനാൽ, ദീർഘകാല സബ്സ്ക്രിപ്ഷനുകൾ ശുപാർശ ചെയ്യുന്നു."
 
-#: allthethings/account/templates/account/donate.html:230
+#: allthethings/account/templates/account/donate.html:243
 #, fuzzy
 msgid "page.donate.payment.desc.longer_subs"
 msgstr "ചെറിയ സംഭാവനകൾക്കായി ഫീസ് കൂടുതലായിരിക്കും, അതിനാൽ ദീർഘകാല സബ്സ്ക്രിപ്ഷനുകൾ ശുപാർശ ചെയ്യുന്നു."
 
-#: allthethings/account/templates/account/donate.html:236
+#: allthethings/account/templates/account/donate.html:249
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p1"
 msgstr "ബിനാൻസ് ഉപയോഗിച്ച്, നിങ്ങൾ ക്രെഡിറ്റ്/ഡെബിറ്റ് കാർഡ് അല്ലെങ്കിൽ ബാങ്ക് അക്കൗണ്ട് ഉപയോഗിച്ച് ബിറ്റ്കോയിൻ വാങ്ങി, അത് ഞങ്ങൾക്ക് സംഭാവന ചെയ്യാം. ഈ രീതിയിൽ, നിങ്ങളുടെ സംഭാവന സ്വീകരിക്കുമ്പോൾ ഞങ്ങൾ സുരക്ഷിതവും അനാമികവുമാകാം."
 
-#: allthethings/account/templates/account/donate.html:240
+#: allthethings/account/templates/account/donate.html:253
 #, fuzzy
 msgid "page.donate.payment.desc.binance_p2"
 msgstr "ബിനാൻസ് മിക്ക രാജ്യങ്ങളിലും ലഭ്യമാണ്, കൂടാതെ മിക്ക ബാങ്കുകളും ക്രെഡിറ്റ്/ഡെബിറ്റ് കാർഡുകളും പിന്തുണയ്ക്കുന്നു. ഇത് നിലവിൽ ഞങ്ങളുടെ പ്രധാന ശുപാർശയാണ്. ഈ രീതി ഉപയോഗിച്ച് സംഭാവന ചെയ്യുന്നത് എങ്ങനെ എന്നറിയാൻ നിങ്ങൾ സമയം ചെലവഴിക്കുന്നതിന് ഞങ്ങൾ നന്ദിയുള്ളവരാണ്, കാരണം ഇത് ഞങ്ങളെ വളരെ സഹായിക്കുന്നു."
 
-#: allthethings/account/templates/account/donate.html:252
-#: allthethings/account/templates/account/donate.html:258
+#: allthethings/account/templates/account/donate.html:265
+#: allthethings/account/templates/account/donate.html:271
 #, fuzzy
 msgid "page.donate.payment.desc.alipay_wechat"
 msgstr "Alipay അല്ലെങ്കിൽ WeChat ഉപയോഗിച്ച് സംഭാവന ചെയ്യുക. അടുത്ത പേജിൽ നിങ്ങൾക്ക് ഇതിൽ നിന്ന് തിരഞ്ഞെടുക്കാം."
 
-#: allthethings/account/templates/account/donate.html:264
+#: allthethings/account/templates/account/donate.html:277
 #, fuzzy
 msgid "page.donate.payment.desc.givebutter"
 msgstr "ക്രെഡിറ്റ്/ഡെബിറ്റ് കാർഡ്, പേപാൽ, അല്ലെങ്കിൽ വെൻമോ ഉപയോഗിച്ച് സംഭാവന ചെയ്യുക. അടുത്ത പേജിൽ നിങ്ങൾക്ക് ഇവയിൽ നിന്ന് തിരഞ്ഞെടുക്കാം."
 
-#: allthethings/account/templates/account/donate.html:270
+#: allthethings/account/templates/account/donate.html:283
 #, fuzzy
 msgid "page.donate.payment.desc.amazon"
 msgstr "Amazon ഗിഫ്റ്റ് കാർഡ് ഉപയോഗിച്ച് സംഭാവന ചെയ്യുക."
 
-#: allthethings/account/templates/account/donate.html:271
+#: allthethings/account/templates/account/donate.html:284
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_round"
 msgstr "ഞങ്ങളുടെ റിസെല്ലർമാർ അംഗീകരിക്കുന്ന തുകയിലേക്ക് (കുറഞ്ഞത് %(minimum)s) ഞങ്ങൾ റൗണ്ട് ചെയ്യേണ്ടതുണ്ട്."
 
-#: allthethings/account/templates/account/donate.html:275
-#: allthethings/account/templates/account/donation.html:325
+#: allthethings/account/templates/account/donate.html:288
+#: allthethings/account/templates/account/donation.html:370
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_com"
 msgstr "<strong>പ്രധാനപ്പെട്ടത്:</strong> ഞങ്ങൾ Amazon.com നെ മാത്രമേ പിന്തുണയ്ക്കുന്നുള്ളൂ, മറ്റ് ആമസോൺ വെബ്സൈറ്റുകൾ അല്ല. ഉദാഹരണത്തിന്, .de, .co.uk, .ca എന്നിവ പിന്തുണയ്ക്കുന്നില്ല."
 
-#: allthethings/account/templates/account/donate.html:282
+#: allthethings/account/templates/account/donate.html:295
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_backup"
 msgstr "ഈ രീതി ഇടനില കൺവർഷനായി ഒരു ക്രിപ്‌റ്റോകറൻസി പ്രൊവൈഡറെ ഉപയോഗിക്കുന്നു. ഇത് കുറച്ച് കുഴപ്പമുണ്ടാക്കാം, അതിനാൽ മറ്റ് പേയ്മെന്റ് രീതികൾ പ്രവർത്തിക്കാത്ത പക്ഷം മാത്രം ഈ രീതി ഉപയോഗിക്കുക. ഇത് എല്ലാ രാജ്യങ്ങളിലും പ്രവർത്തിക്കുന്നില്ല."
 
-#: allthethings/account/templates/account/donate.html:288
+#: allthethings/account/templates/account/donate.html:301
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_p1"
 msgstr "ബാങ്കുകൾ ഞങ്ങളുമായി പ്രവർത്തിക്കാൻ ആഗ്രഹിക്കുന്നില്ലാത്തതിനാൽ, ഞങ്ങൾ നേരിട്ട് ക്രെഡിറ്റ്/ഡെബിറ്റ് കാർഡുകൾ പിന്തുണയ്ക്കാൻ കഴിയില്ല. :("
 
-#: allthethings/account/templates/account/donate.html:292
+#: allthethings/account/templates/account/donate.html:305
 #, fuzzy
 msgid "page.donate.payment.desc.credit_debit_p2"
 msgstr "എങ്കിലും, ഞങ്ങളുടെ മറ്റ് പേയ്മെന്റ് രീതികൾ ഉപയോഗിച്ച് എങ്കിലും ക്രെഡിറ്റ്/ഡെബിറ്റ് കാർഡുകൾ ഉപയോഗിക്കാൻ നിരവധി മാർഗങ്ങൾ ഉണ്ട്:"
 
-#: allthethings/account/templates/account/donate.html:296
+#: allthethings/account/templates/account/donate.html:309
 #, fuzzy
 msgid "page.donate.ccexp.amazon_com"
 msgstr "നിങ്ങളുടെ ക്രെഡിറ്റ്/ഡെബിറ്റ് കാർഡ് ഉപയോഗിച്ച് Amazon.com ഗിഫ്റ്റ് കാർഡുകൾ ഞങ്ങൾക്ക് അയയ്ക്കുക."
 
-#: allthethings/account/templates/account/donate.html:297
+#: allthethings/account/templates/account/donate.html:312
 #, fuzzy
 msgid "page.donate.ccexp.wechat"
 msgstr "WeChat (Weixin Pay) അന്താരാഷ്ട്ര ക്രെഡിറ്റ്/ഡെബിറ്റ് കാർഡുകൾ പിന്തുണയ്ക്കുന്നു. WeChat ആപ്പിൽ, “Me => Services => Wallet => Add a Card” എന്നതിലേക്ക് പോകുക. അത് കാണുന്നില്ലെങ്കിൽ, “Me => Settings => General => Tools => Weixin Pay => Enable” ഉപയോഗിച്ച് അത് സജീവമാക്കുക."
 
-#: allthethings/account/templates/account/donate.html:298
+#: allthethings/account/templates/account/donate.html:313
 #, fuzzy
 msgid "page.donate.ccexp.crypto"
 msgstr "നിങ്ങൾക്ക് ക്രെഡിറ്റ്/ഡെബിറ്റ് കാർഡുകൾ ഉപയോഗിച്ച് ക്രിപ്‌റ്റോ വാങ്ങാം."
 
-#: allthethings/account/templates/account/donate.html:304
+#: allthethings/account/templates/account/donate.html:319
 #, fuzzy
 msgid "page.donate.payment.desc.bmc"
 msgstr "ക്രെഡിറ്റ് കാർഡുകൾ, ഡെബിറ്റ് കാർഡുകൾ, ആപ്പിൾ പേ, ഗൂഗിൾ പേ എന്നിവയ്ക്കായി, ഞങ്ങൾ “ബൈ മീ എ കോഫി” (BMC <span class=\"icon-[ph--coffee-fill] text-lg align-text-bottom\"></span>) ഉപയോഗിക്കുന്നു. അവരുടെ സിസ്റ്റത്തിൽ, ഒരു “കോഫി” $5 ന് തുല്യമാണ്, അതിനാൽ നിങ്ങളുടെ സംഭാവന 5 ന്റെ ഏറ്റവും അടുത്ത ഗുണിതത്തിലേക്ക് റൗണ്ട് ചെയ്യപ്പെടും."
 
-#: allthethings/account/templates/account/donate.html:311
+#: allthethings/account/templates/account/donate.html:326
 msgid "page.donate.duration.intro"
 msgstr "നിങ്ങൾ എത്ര കാലത്തേക്ക് വരിക്കാരൻ ആകുന്നു എന്ന് തിരഞ്ഞെടുക്കുക."
 
-#: allthethings/account/templates/account/donate.html:316
+#: allthethings/account/templates/account/donate.html:331
 msgid "page.donate.duration.1_mo"
 msgstr "1 മാസം"
 
-#: allthethings/account/templates/account/donate.html:317
+#: allthethings/account/templates/account/donate.html:332
 msgid "page.donate.duration.3_mo"
 msgstr "3 മാസങ്ങൾ"
 
-#: allthethings/account/templates/account/donate.html:318
+#: allthethings/account/templates/account/donate.html:333
 msgid "page.donate.duration.6_mo"
 msgstr "6 മാസങ്ങൾ"
 
-#: allthethings/account/templates/account/donate.html:319
+#: allthethings/account/templates/account/donate.html:334
 msgid "page.donate.duration.12_mo"
 msgstr "12 മാസങ്ങൾ"
 
-#: allthethings/account/templates/account/donate.html:320
+#: allthethings/account/templates/account/donate.html:335
 msgid "page.donate.duration.24_mo"
 msgstr "24 മാസങ്ങൾ"
 
-#: allthethings/account/templates/account/donate.html:321
+#: allthethings/account/templates/account/donate.html:336
 #, fuzzy
 msgid "page.donate.duration.48_mo"
 msgstr "48 മാസം"
 
-#: allthethings/account/templates/account/donate.html:322
+#: allthethings/account/templates/account/donate.html:337
 #, fuzzy
 msgid "page.donate.duration.96_mo"
 msgstr "96 മാസം"
 
-#: allthethings/account/templates/account/donate.html:325
+#: allthethings/account/templates/account/donate.html:340
 msgid "page.donate.duration.summary"
 msgstr "<div %(div_monthly_cost)s></div> <div %(div_after)s> <span %(span_discount)s></span> കിഴിവുകൾക്ക് ശേഷം</div><div %(div_total)s></div> <div %(div_duration)s></div>"
 
-#: allthethings/account/templates/account/donate.html:332
+#: allthethings/account/templates/account/donate.html:347
 #, fuzzy
 msgid "page.donate.payment.minimum_method"
 msgstr "ഈ പേയ്മെന്റ് രീതിക്ക് കുറഞ്ഞത് %(amount)s ആവശ്യമാണ്. ദയവായി വേറൊരു കാലയളവ് അല്ലെങ്കിൽ പേയ്മെന്റ് രീതി തിരഞ്ഞെടുക്കുക."
 
-#: allthethings/account/templates/account/donate.html:333
-#: allthethings/account/templates/account/donate.html:337
+#: allthethings/account/templates/account/donate.html:348
+#: allthethings/account/templates/account/donate.html:352
 #, fuzzy
 msgid "page.donate.buttons.donate"
 msgstr "സംഭാവന ചെയ്യുക"
 
-#: allthethings/account/templates/account/donate.html:336
+#: allthethings/account/templates/account/donate.html:351
 #, fuzzy
 msgid "page.donate.payment.maximum_method"
 msgstr "ഈ പേയ്മെന്റ് രീതിയിൽ പരമാവധി %(amount)s മാത്രമേ അനുവദിക്കൂ. ദയവായി വ്യത്യസ്ത കാലയളവ് അല്ലെങ്കിൽ പേയ്മെന്റ് രീതി തിരഞ്ഞെടുക്കുക."
 
-#: allthethings/account/templates/account/donate.html:343
+#: allthethings/account/templates/account/donate.html:358
 #, fuzzy
 msgid "page.donate.login2"
 msgstr "അംഗമാകാൻ, ദയവായി <a %(a_login)s>ലോഗിൻ ചെയ്യുക അല്ലെങ്കിൽ രജിസ്റ്റർ ചെയ്യുക</a>. നിങ്ങളുടെ പിന്തുണയ്ക്ക് നന്ദി!"
 
-#: allthethings/account/templates/account/donate.html:350
+#: allthethings/account/templates/account/donate.html:365
 #, fuzzy
 msgid "page.donate.payment.crypto_select"
 msgstr "നിങ്ങളുടെ ഇഷ്ടപ്പെട്ട ക്രിപ്റ്റോ നാണയം തിരഞ്ഞെടുക്കുക:"
 
-#: allthethings/account/templates/account/donate.html:355
+#: allthethings/account/templates/account/donate.html:370
 #, fuzzy
 msgid "page.donate.currency_lowest_minimum"
 msgstr "(കുറഞ്ഞത് കുറഞ്ഞ തുക)"
 
-#: allthethings/account/templates/account/donate.html:369
-#: allthethings/account/templates/account/donate.html:370
-#: allthethings/account/templates/account/donate.html:374
-#: allthethings/account/templates/account/donate.html:376
+#: allthethings/account/templates/account/donate.html:384
+#: allthethings/account/templates/account/donate.html:385
+#: allthethings/account/templates/account/donate.html:389
+#: allthethings/account/templates/account/donate.html:391
 #, fuzzy
 msgid "page.donate.currency_warning_high_minimum"
 msgstr "(മിനിമം തുക ഉയർന്നിരിക്കുന്നു: മുന്നറിയിപ്പ്)"
 
-#: allthethings/account/templates/account/donate.html:385
+#: allthethings/account/templates/account/donate.html:400
 msgid "page.donate.submit.confirm"
 msgstr "ഈ സംഭാവന സ്ഥിരീകരിക്കാൻ സംഭാവന ബട്ടൺ അമര്‍ത്തുക."
 
-#: allthethings/account/templates/account/donate.html:393
+#: allthethings/account/templates/account/donate.html:408
 msgid "page.donate.submit.button"
 msgstr "സംഭാവന ചെയ്യുക <span %(span_cost)s></span> <span %(span_label)s></span>"
 
-#: allthethings/account/templates/account/donate.html:398
+#: allthethings/account/templates/account/donate.html:413
 msgid "page.donate.submit.cancel_note"
 msgstr "ചെക്ക്ഔട്ട് സമയത്തും നിങ്ങൾക്ക് സംഭാവന റദ്ദാക്കാം."
 
-#: allthethings/account/templates/account/donate.html:402
+#: allthethings/account/templates/account/donate.html:417
 msgid "page.donate.submit.success"
 msgstr "✅ സംഭാവന താളിലേക്ക് പുനഃപ്രേഷണം ചെയ്യുന്നു…"
 
-#: allthethings/account/templates/account/donate.html:403
+#: allthethings/account/templates/account/donate.html:418
 msgid "page.donate.submit.failure"
 msgstr "❌ എന്തോ കുഴപ്പം സംഭവിച്ചു. താൾ വീണ്ടും നിറച്ചതിനു ശേഷം വീണ്ടും ശ്രമിക്കുക."
 
-#: allthethings/account/templates/account/donate.html:463
+#: allthethings/account/templates/account/donate.html:478
 msgid "page.donate.duration.summary.discount"
 msgstr "%(percentage)s%%"
 
-#: allthethings/account/templates/account/donate.html:464
+#: allthethings/account/templates/account/donate.html:479
 msgid "page.donate.duration.summary.monthly_cost"
 msgstr "%(monthly_cost)s പ്രതി മാസം"
 
-#: allthethings/account/templates/account/donate.html:467
+#: allthethings/account/templates/account/donate.html:482
 msgid "page.donate.duration.summary.duration.1_mo"
 msgstr "1 മാസത്തേക്ക്"
 
-#: allthethings/account/templates/account/donate.html:468
+#: allthethings/account/templates/account/donate.html:483
 msgid "page.donate.duration.summary.duration.3_mo"
 msgstr "3 മാസത്തേക്ക്"
 
-#: allthethings/account/templates/account/donate.html:469
+#: allthethings/account/templates/account/donate.html:484
 msgid "page.donate.duration.summary.duration.6_mo"
 msgstr "6 മാസത്തേക്ക്"
 
-#: allthethings/account/templates/account/donate.html:470
+#: allthethings/account/templates/account/donate.html:485
 msgid "page.donate.duration.summary.duration.12_mo"
 msgstr "12 മാസത്തേക്ക്"
 
-#: allthethings/account/templates/account/donate.html:471
+#: allthethings/account/templates/account/donate.html:486
 msgid "page.donate.duration.summary.duration.24_mo"
 msgstr "24 മാസത്തേക്ക്"
 
-#: allthethings/account/templates/account/donate.html:472
+#: allthethings/account/templates/account/donate.html:487
 #, fuzzy
 msgid "page.donate.duration.summary.duration.48_mo"
 msgstr "48 മാസത്തേക്ക്"
 
-#: allthethings/account/templates/account/donate.html:473
+#: allthethings/account/templates/account/donate.html:488
 #, fuzzy
 msgid "page.donate.duration.summary.duration.96_mo"
 msgstr "96 മാസത്തേക്ക്"
 
-#: allthethings/account/templates/account/donate.html:477
+#: allthethings/account/templates/account/donate.html:492
 msgid "page.donate.submit.button.label.1_mo"
 msgstr "1 മാസത്തേക്ക് “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:478
+#: allthethings/account/templates/account/donate.html:493
 msgid "page.donate.submit.button.label.3_mo"
 msgstr "3 മാസത്തേക്ക് “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:479
+#: allthethings/account/templates/account/donate.html:494
 msgid "page.donate.submit.button.label.6_mo"
 msgstr "6 മാസത്തേക്ക് “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:480
+#: allthethings/account/templates/account/donate.html:495
 msgid "page.donate.submit.button.label.12_mo"
 msgstr "12 മാസത്തേക്ക് “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:481
+#: allthethings/account/templates/account/donate.html:496
 msgid "page.donate.submit.button.label.24_mo"
 msgstr "24 മാസത്തേക്ക് “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:482
+#: allthethings/account/templates/account/donate.html:497
 #, fuzzy
 msgid "page.donate.submit.button.label.48_mo"
 msgstr "48 മാസങ്ങൾക്ക് “%(tier_name)s”"
 
-#: allthethings/account/templates/account/donate.html:483
+#: allthethings/account/templates/account/donate.html:498
 #, fuzzy
 msgid "page.donate.submit.button.label.96_mo"
 msgstr "96 മാസങ്ങൾക്ക് “%(tier_name)s”"
@@ -851,15 +854,16 @@ msgstr "<strong>പ്രധാനമായ കുറിപ്പ്:</strong> �
 #: allthethings/account/templates/account/donation.html:115
 #: allthethings/account/templates/account/donation.html:166
 #: allthethings/account/templates/account/donation.html:206
-#: allthethings/account/templates/account/donation.html:251
-#: allthethings/account/templates/account/donation.html:292
-#: allthethings/account/templates/account/donation.html:354
-#: allthethings/account/templates/account/donation.html:370
-#: allthethings/account/templates/account/donation.html:388
-#: allthethings/account/templates/account/donation.html:404
-#: allthethings/account/templates/account/donation.html:421
-#: allthethings/account/templates/account/donation.html:456
-#: allthethings/account/templates/account/donation.html:482
+#: allthethings/account/templates/account/donation.html:250
+#: allthethings/account/templates/account/donation.html:296
+#: allthethings/account/templates/account/donation.html:337
+#: allthethings/account/templates/account/donation.html:399
+#: allthethings/account/templates/account/donation.html:415
+#: allthethings/account/templates/account/donation.html:433
+#: allthethings/account/templates/account/donation.html:449
+#: allthethings/account/templates/account/donation.html:466
+#: allthethings/account/templates/account/donation.html:501
+#: allthethings/account/templates/account/donation.html:527
 #, fuzzy
 msgid "page.donation.expired"
 msgstr "ഈ സംഭാവന കാലഹരണപ്പെട്ടു. ദയവായി റദ്ദാക്കി, പുതിയത് സൃഷ്ടിക്കുക."
@@ -902,7 +906,7 @@ msgid "page.donation.payment.paypal.text5"
 msgstr "സ്വീകർത്താവായി ഞങ്ങളുടെ ബിറ്റ്കോയിൻ (ബിടിസി) വിലാസം നൽകുക, നിങ്ങളുടെ സംഭാവന %(total)s അയയ്‌ക്കുന്നതിനുള്ള നിർദ്ദേശങ്ങൾ പാലിക്കുക:"
 
 #: allthethings/account/templates/account/donation.html:139
-#: allthethings/account/templates/account/donation.html:247
+#: allthethings/account/templates/account/donation.html:292
 #, fuzzy
 msgid "page.donation.credit_debit_card_instructions"
 msgstr "ക്രെഡിറ്റ് / ഡെബിറ്റ് കാർഡ് നിർദ്ദേശങ്ങൾ"
@@ -924,85 +928,92 @@ msgstr "താഴെ നൽകിയിരിക്കുന്ന ഘട്ട�
 
 #: allthethings/account/templates/account/donation.html:148
 #: allthethings/account/templates/account/donation.html:191
-#: allthethings/account/templates/account/donation.html:234
-#: allthethings/account/templates/account/donation.html:275
-#: allthethings/account/templates/account/donation.html:304
-#: allthethings/account/templates/account/donation.html:335
-#: allthethings/account/templates/account/donation.html:441
-#: allthethings/account/templates/account/donation.html:468
+#: allthethings/account/templates/account/donation.html:235
+#: allthethings/account/templates/account/donation.html:279
+#: allthethings/account/templates/account/donation.html:320
+#: allthethings/account/templates/account/donation.html:349
+#: allthethings/account/templates/account/donation.html:380
+#: allthethings/account/templates/account/donation.html:486
+#: allthethings/account/templates/account/donation.html:513
 #, fuzzy
 msgid "page.donation.status_header"
 msgstr "സ്ഥിതി:"
 
 #: allthethings/account/templates/account/donation.html:148
 #: allthethings/account/templates/account/donation.html:191
-#: allthethings/account/templates/account/donation.html:234
-#: allthethings/account/templates/account/donation.html:275
-#: allthethings/account/templates/account/donation.html:304
-#: allthethings/account/templates/account/donation.html:441
-#: allthethings/account/templates/account/donation.html:468
+#: allthethings/account/templates/account/donation.html:235
+#: allthethings/account/templates/account/donation.html:279
+#: allthethings/account/templates/account/donation.html:320
+#: allthethings/account/templates/account/donation.html:349
+#: allthethings/account/templates/account/donation.html:486
+#: allthethings/account/templates/account/donation.html:513
 #, fuzzy
 msgid "page.donation.waiting_for_confirmation_refresh"
 msgstr "സ്ഥിരീകരണത്തിനായി കാത്തിരിക്കുന്നു (സ്ഥിതി പരിശോധിക്കാൻ പേജ് പുതുക്കുക)…"
 
 #: allthethings/account/templates/account/donation.html:148
 #: allthethings/account/templates/account/donation.html:191
-#: allthethings/account/templates/account/donation.html:234
-#: allthethings/account/templates/account/donation.html:275
-#: allthethings/account/templates/account/donation.html:304
-#: allthethings/account/templates/account/donation.html:441
-#: allthethings/account/templates/account/donation.html:468
+#: allthethings/account/templates/account/donation.html:235
+#: allthethings/account/templates/account/donation.html:279
+#: allthethings/account/templates/account/donation.html:320
+#: allthethings/account/templates/account/donation.html:349
+#: allthethings/account/templates/account/donation.html:486
+#: allthethings/account/templates/account/donation.html:513
 #, fuzzy
 msgid "page.donation.waiting_for_transfer_refresh"
 msgstr "ട്രാൻസ്ഫർക്ക് കാത്തിരിക്കുന്നു (ചെക്ക് ചെയ്യാൻ പേജ് റിഫ്രെഷ് ചെയ്യുക)…"
 
 #: allthethings/account/templates/account/donation.html:149
 #: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:276
-#: allthethings/account/templates/account/donation.html:305
-#: allthethings/account/templates/account/donation.html:442
-#: allthethings/account/templates/account/donation.html:469
+#: allthethings/account/templates/account/donation.html:236
+#: allthethings/account/templates/account/donation.html:280
+#: allthethings/account/templates/account/donation.html:321
+#: allthethings/account/templates/account/donation.html:350
+#: allthethings/account/templates/account/donation.html:487
+#: allthethings/account/templates/account/donation.html:514
 #, fuzzy
 msgid "page.donation.time_left_header"
 msgstr "ബാക്കി സമയം:"
 
 #: allthethings/account/templates/account/donation.html:149
 #: allthethings/account/templates/account/donation.html:192
-#: allthethings/account/templates/account/donation.html:235
-#: allthethings/account/templates/account/donation.html:276
-#: allthethings/account/templates/account/donation.html:305
-#: allthethings/account/templates/account/donation.html:442
-#: allthethings/account/templates/account/donation.html:469
+#: allthethings/account/templates/account/donation.html:236
+#: allthethings/account/templates/account/donation.html:280
+#: allthethings/account/templates/account/donation.html:321
+#: allthethings/account/templates/account/donation.html:350
+#: allthethings/account/templates/account/donation.html:487
+#: allthethings/account/templates/account/donation.html:514
 #, fuzzy
 msgid "page.donation.might_want_to_cancel"
 msgstr "(നിങ്ങൾക്ക് റദ്ദാക്കുകയും പുതിയ സംഭാവന സൃഷ്ടിക്കുകയും ചെയ്യാൻ ആഗ്രഹിക്കാം)"
 
 #: allthethings/account/templates/account/donation.html:153
 #: allthethings/account/templates/account/donation.html:196
-#: allthethings/account/templates/account/donation.html:239
-#: allthethings/account/templates/account/donation.html:280
-#: allthethings/account/templates/account/donation.html:309
-#: allthethings/account/templates/account/donation.html:446
-#: allthethings/account/templates/account/donation.html:473
+#: allthethings/account/templates/account/donation.html:240
+#: allthethings/account/templates/account/donation.html:284
+#: allthethings/account/templates/account/donation.html:325
+#: allthethings/account/templates/account/donation.html:354
+#: allthethings/account/templates/account/donation.html:491
+#: allthethings/account/templates/account/donation.html:518
 #, fuzzy
 msgid "page.donation.reset_timer"
 msgstr "ടൈമർ റീസെറ്റ് ചെയ്യാൻ, ഒരു പുതിയ സംഭാവന സൃഷ്ടിക്കുക."
 
 #: allthethings/account/templates/account/donation.html:157
 #: allthethings/account/templates/account/donation.html:200
-#: allthethings/account/templates/account/donation.html:243
-#: allthethings/account/templates/account/donation.html:284
-#: allthethings/account/templates/account/donation.html:313
-#: allthethings/account/templates/account/donation.html:339
-#: allthethings/account/templates/account/donation.html:450
-#: allthethings/account/templates/account/donation.html:477
+#: allthethings/account/templates/account/donation.html:244
+#: allthethings/account/templates/account/donation.html:288
+#: allthethings/account/templates/account/donation.html:329
+#: allthethings/account/templates/account/donation.html:358
+#: allthethings/account/templates/account/donation.html:384
+#: allthethings/account/templates/account/donation.html:495
+#: allthethings/account/templates/account/donation.html:522
 #, fuzzy
 msgid "page.donation.refresh_status"
 msgstr "സ്ഥിതി പുതുക്കുക"
 
 #: allthethings/account/templates/account/donation.html:161
-#: allthethings/account/templates/account/donation.html:577
+#: allthethings/account/templates/account/donation.html:622
 #, fuzzy
 msgid "page.donation.footer.issues_contact"
 msgstr "നിങ്ങൾക്ക് എന്തെങ്കിലും പ്രശ്നങ്ങൾ നേരിടേണ്ടി വന്നാൽ, %(email)s എന്ന വിലാസത്തിൽ ഞങ്ങളെ ബന്ധപ്പെടുക, കൂടുതൽ വിവരങ്ങൾ (സ്ക്രീൻഷോട്ടുകൾ പോലുള്ളവ) ഉൾപ്പെടുത്തുക."
@@ -1028,202 +1039,203 @@ msgid "page.donation.pyusd.transfer"
 msgstr "നിങ്ങളുടെ PayPal ആപ്പ് അല്ലെങ്കിൽ വെബ്സൈറ്റിലെ “PYUSD” പേജിലേക്ക് പോകുക. “Transfer” ബട്ടൺ %(icon)s അമർത്തുക, തുടർന്ന് “Send” അമർത്തുക."
 
 #: allthethings/account/templates/account/donation.html:187
-#: allthethings/account/templates/account/donation.html:226
-#: allthethings/account/templates/account/donation.html:296
+#: allthethings/account/templates/account/donation.html:227
+#: allthethings/account/templates/account/donation.html:271
+#: allthethings/account/templates/account/donation.html:341
 #, fuzzy
 msgid "page.donation.transfer_amount_to"
 msgstr "%(amount)s നെ %(account)s ലേക്ക് ട്രാൻസ്ഫർ ചെയ്യുക"
 
-#: allthethings/account/templates/account/donation.html:288
+#: allthethings/account/templates/account/donation.html:333
 #, fuzzy
 msgid "page.donation.crypto_instructions"
 msgstr "%(coin_name)s നിർദ്ദേശങ്ങൾ"
 
-#: allthethings/account/templates/account/donation.html:300
+#: allthethings/account/templates/account/donation.html:345
 #, fuzzy
 msgid "page.donation.crypto_standard"
 msgstr "ഞങ്ങൾ ക്രിപ്റ്റോ നാണയങ്ങളുടെ സ്റ്റാൻഡേർഡ് പതിപ്പുകൾ മാത്രമേ പിന്തുണയ്ക്കൂ, അപൂർവമായ നെറ്റ്വർക്കുകൾ അല്ലെങ്കിൽ നാണയങ്ങളുടെ പതിപ്പുകൾ അല്ല. നാണയത്തിന്റെ അടിസ്ഥാനത്തിൽ ഇടപാട് സ്ഥിരീകരിക്കാൻ ഒരു മണിക്കൂർ വരെ എടുക്കാം."
 
-#: allthethings/account/templates/account/donation.html:317
+#: allthethings/account/templates/account/donation.html:362
 #, fuzzy
 msgid "page.donation.amazon.header"
 msgstr "Amazon ഗിഫ്റ്റ് കാർഡ്"
 
-#: allthethings/account/templates/account/donation.html:320
+#: allthethings/account/templates/account/donation.html:365
 #, fuzzy
 msgid "page.donation.amazon.form_instructions"
 msgstr "ഞങ്ങൾക്ക് ഒരു സമ്മാന കാർഡ് അയയ്ക്കാൻ <a %(a_form)s>അധികൃത Amazon.com ഫോമിൽ</a> ഉപയോഗിക്കുക %(amount)s താഴെ കാണുന്ന ഇമെയിൽ വിലാസത്തിലേക്ക്."
 
-#: allthethings/account/templates/account/donation.html:321
+#: allthethings/account/templates/account/donation.html:366
 #, fuzzy
 msgid "page.donation.amazon.only_official"
 msgstr "ഞങ്ങൾ മറ്റ് രീതിയിലുള്ള ഗിഫ്റ്റ് കാർഡുകൾ സ്വീകരിക്കാൻ കഴിയില്ല, <strong>Amazon.com ലെ ഔദ്യോഗിക ഫോമിൽ നിന്ന് നേരിട്ട് അയച്ചതല്ലെങ്കിൽ മാത്രം</strong>. ഈ ഫോം ഉപയോഗിക്കാത്ത പക്ഷം നിങ്ങളുടെ ഗിഫ്റ്റ് കാർഡ് തിരികെ നൽകാൻ കഴിയില്ല."
 
-#: allthethings/account/templates/account/donation.html:326
+#: allthethings/account/templates/account/donation.html:371
 #, fuzzy
 msgid "page.donate.payment.desc.amazon_message"
 msgstr "ദയവായി നിങ്ങളുടെ സ്വന്തം സന്ദേശം എഴുതരുത്."
 
-#: allthethings/account/templates/account/donation.html:330
+#: allthethings/account/templates/account/donation.html:375
 #, fuzzy
 msgid "page.donation.amazon.form_to"
 msgstr "ഫോമിലെ \"To\" സ്വീകരിക്കുന്നവരുടെ ഇമെയിൽ:"
 
-#: allthethings/account/templates/account/donation.html:331
+#: allthethings/account/templates/account/donation.html:376
 #, fuzzy
 msgid "page.donation.amazon.unique"
 msgstr "നിങ്ങളുടെ അക്കൗണ്ടിനുള്ളത്, പങ്കിടരുത്."
 
-#: allthethings/account/templates/account/donation.html:335
+#: allthethings/account/templates/account/donation.html:380
 #, fuzzy
 msgid "page.donation.amazon.waiting_gift_card"
 msgstr "ഗിഫ്റ്റ് കാർഡിനായി കാത്തിരിക്കുന്നു… (ചെക്ക് ചെയ്യാൻ പേജ് റിഫ്രെഷ് ചെയ്യുക)"
 
-#: allthethings/account/templates/account/donation.html:343
+#: allthethings/account/templates/account/donation.html:388
 #, fuzzy
 msgid "page.donation.amazon.confirm_automated"
 msgstr "നിങ്ങളുടെ ഗിഫ്റ്റ് കാർഡ് അയച്ചതിന് ശേഷം, ഞങ്ങളുടെ ഓട്ടോമേറ്റഡ് സിസ്റ്റം അത് കുറച്ച് മിനിറ്റുകൾക്കുള്ളിൽ സ്ഥിരീകരിക്കും. ഇത് പ്രവർത്തിക്കാത്ത പക്ഷം, നിങ്ങളുടെ ഗിഫ്റ്റ് കാർഡ് വീണ്ടും അയക്കാൻ ശ്രമിക്കുക (<a %(a_instr)s>നിർദ്ദേശങ്ങൾ</a>)."
 
-#: allthethings/account/templates/account/donation.html:344
+#: allthethings/account/templates/account/donation.html:389
 #, fuzzy
 msgid "page.donation.amazon.doesnt_work"
 msgstr "അത് ഇപ്പോഴും പ്രവർത്തിക്കുന്നില്ലെങ്കിൽ, ദയവായി ഞങ്ങൾക്ക് ഇമെയിൽ അയയ്ക്കുക, അന്ന അത് കൈമാറി പരിശോധിക്കും (ഇത് കുറച്ച് ദിവസങ്ങൾ എടുക്കാം), നിങ്ങൾ വീണ്ടും അയച്ചിട്ടുണ്ടോ എന്ന് ഉറപ്പാക്കുക."
 
-#: allthethings/account/templates/account/donation.html:347
+#: allthethings/account/templates/account/donation.html:392
 #, fuzzy
 msgid "page.donation.amazon.example"
 msgstr "ഉദാഹരണം:"
 
-#: allthethings/account/templates/account/donation.html:383
-#: allthethings/account/templates/account/donation.html:400
-#: allthethings/account/templates/account/donation.html:416
-#: allthethings/account/templates/account/donation.html:437
-#: allthethings/account/templates/account/donation.html:494
+#: allthethings/account/templates/account/donation.html:428
+#: allthethings/account/templates/account/donation.html:445
+#: allthethings/account/templates/account/donation.html:461
+#: allthethings/account/templates/account/donation.html:482
+#: allthethings/account/templates/account/donation.html:539
 msgid "page.donate.strange_account"
 msgstr "ശ്രദ്ധിക്കുക: അക്കൗണ്ടിന്റെ പേരോ ചിത്രമോ വിചിത്രമായി തോന്നിയേക്കാവുന്നത് ആണ് . വിഷമിക്കേണ്ടതില്ല! ഈ അക്കൗണ്ടുകൾ നിയന്ത്രിക്കുന്നത് ഞങ്ങളുടെ സംഭാവന പങ്കാളികളാണ്. ഞങ്ങളുടെ അക്കൗണ്ടുകൾ ഹാക്ക് ചെയ്യപ്പെട്ടിട്ടില്ല."
 
-#: allthethings/account/templates/account/donation.html:407
-#: allthethings/account/templates/account/donation.html:424
+#: allthethings/account/templates/account/donation.html:452
+#: allthethings/account/templates/account/donation.html:469
 msgid "page.donation.payment.alipay.top_header"
 msgstr "അലിപേ നിർദ്ദേശങ്ങൾ"
 
-#: allthethings/account/templates/account/donation.html:409
-#: allthethings/account/templates/account/donation.html:426
+#: allthethings/account/templates/account/donation.html:454
+#: allthethings/account/templates/account/donation.html:471
 msgid "page.donation.payment.alipay.header1"
 msgstr "<span %(span_circle)s>1</spam>അലിപേ-യിൽ സംഭാവന ചെയ്യുക"
 
-#: allthethings/account/templates/account/donation.html:412
-#: allthethings/account/templates/account/donation.html:429
+#: allthethings/account/templates/account/donation.html:457
+#: allthethings/account/templates/account/donation.html:474
 #, fuzzy
 msgid "page.donation.payment.alipay.text1_new"
 msgstr "<a %(a_account)s>ഈ Alipay അക്കൗണ്ട്</a> ഉപയോഗിച്ച് മൊത്തം തുക %(total)s സംഭാവന ചെയ്യുക"
 
-#: allthethings/account/templates/account/donation.html:433
+#: allthethings/account/templates/account/donation.html:478
 #, fuzzy
 msgid "page.donation.payment.alipay.error"
 msgstr "ദുരഭാഗ്യവശാൽ, Alipay പേജ് പലപ്പോഴും <strong>ചൈനയുടെ മെയിൻലാൻഡിൽ</strong> നിന്ന് മാത്രമേ ആക്സസ് ചെയ്യാൻ കഴിയൂ. താൽക്കാലികമായി നിങ്ങളുടെ VPN അപ്രാപ്തമാക്കേണ്ടി വരാം, അല്ലെങ്കിൽ ചൈനയുടെ മെയിൻലാൻഡിലേക്ക് VPN ഉപയോഗിക്കേണ്ടി വരാം (അല്ലെങ്കിൽ ചിലപ്പോൾ ഹോങ്കോങ്ങും പ്രവർത്തിക്കും)."
 
-#: allthethings/account/templates/account/donation.html:459
+#: allthethings/account/templates/account/donation.html:504
 #, fuzzy
 msgid "page.donation.payment.wechat.top_header"
 msgstr "WeChat നിർദ്ദേശങ്ങൾ"
 
-#: allthethings/account/templates/account/donation.html:461
+#: allthethings/account/templates/account/donation.html:506
 #, fuzzy
 msgid "page.donation.payment.wechat.header1"
 msgstr "<span %(span_circle)s>1</span>WeChat-ൽ സംഭാവന ചെയ്യുക"
 
-#: allthethings/account/templates/account/donation.html:464
+#: allthethings/account/templates/account/donation.html:509
 #, fuzzy
 msgid "page.donation.payment.wechat.text1"
 msgstr "%(total)sന്റെ മൊത്തം തുക <a %(a_account)s>ഈ WeChat അക്കൗണ്ട്</a> ഉപയോഗിച്ച് സംഭാവന ചെയ്യുക"
 
-#: allthethings/account/templates/account/donation.html:485
+#: allthethings/account/templates/account/donation.html:530
 msgid "page.donation.payment.pix.top_header"
 msgstr "പിക്ക്സ് നിർദ്ദേശങ്ങൾ"
 
-#: allthethings/account/templates/account/donation.html:487
+#: allthethings/account/templates/account/donation.html:532
 msgid "page.donation.payment.pix.header1"
 msgstr "<span %(span_circle)s>1</spam>പിക്ക്സ്-ൽ സംഭാവന ചെയ്യുക"
 
-#: allthethings/account/templates/account/donation.html:490
+#: allthethings/account/templates/account/donation.html:535
 msgid "page.donation.payment.pix.text1"
 msgstr "<a %(a_account)s>ഈ പിക്ക്സ് അക്കൗണ്ട് ഉപയോഗിച്ച് %(total)s ആകെ തുക സംഭാവന ചെയ്യുക"
 
-#: allthethings/account/templates/account/donation.html:499
+#: allthethings/account/templates/account/donation.html:544
 msgid "page.donation.footer.header"
 msgstr "<span %(span_circle)s>%(circle_number)s</spam> രസീത് ഞങ്ങൾക്ക് ഇമെയിൽ ചെയ്യുക"
 
-#: allthethings/account/templates/account/donation.html:505
+#: allthethings/account/templates/account/donation.html:550
 msgid "page.donation.footer.text1"
 msgstr "നിങ്ങളുടെ സ്വകാര്യ സ്ഥിരീകരണ വിലാസത്തിലേക്ക് ഒരു രസീത് അല്ലെങ്കിൽ സ്ക്രീൻഷോട്ട് അയയ്ക്കുക:"
 
-#: allthethings/account/templates/account/donation.html:515
+#: allthethings/account/templates/account/donation.html:560
 msgid "page.donation.footer.crypto_note"
 msgstr "ഇടപാട് സമയത്ത് ക്രിപ്‌റ്റോ എക്‌സ്‌ചേഞ്ച് നിരക്കിൽ ഏറ്റക്കുറച്ചിലുണ്ടെങ്കിൽ, യഥാർത്ഥ വിനിമയ നിരക്ക് കാണിക്കുന്ന രസീത് ഉൾപ്പെടുത്തുന്നത് ഉറപ്പാക്കുക. ക്രിപ്‌റ്റോ ഉപയോഗിക്കുന്നതിന് നിങ്ങൾ ബുദ്ധിമുട്ടുന്നതിനെ ഞങ്ങൾ ശരിക്കും അഭിനന്ദിക്കുന്നു, ഇത് ഞങ്ങളെ വളരെയധികം സഹായിക്കുന്നു!"
 
-#: allthethings/account/templates/account/donation.html:520
+#: allthethings/account/templates/account/donation.html:565
 msgid "page.donation.footer.text2"
 msgstr "നിങ്ങൾ രസീത് ഇമെയിൽ ചെയ്തുകഴിഞ്ഞാൽ, ഈ ബട്ടൺ അമർത്തുക, അതുവഴി അന്നയ്ക്ക് അത് നേരിട്ട് അവലോകനം ചെയ്യാൻ കഴിയും (ഇതിന് കുറച്ച് ദിവസമെടുത്തേക്കാം):"
 
-#: allthethings/account/templates/account/donation.html:530
+#: allthethings/account/templates/account/donation.html:575
 msgid "page.donation.footer.button"
 msgstr "അതെ, ഞാൻ എന്റെ രസീത് ഇമെയിൽ ചെയ്തു"
 
-#: allthethings/account/templates/account/donation.html:533
+#: allthethings/account/templates/account/donation.html:578
 msgid "page.donation.footer.success"
 msgstr "✅ നിങ്ങളുടെ സംഭാവനയ്ക്ക് നന്ദി! ഏതാനും ദിവസങ്ങൾക്കുള്ളിൽ അന്ന നിങ്ങളുടെ അംഗത്വം നേരിട്ട് സജീവമാക്കും."
 
-#: allthethings/account/templates/account/donation.html:534
+#: allthethings/account/templates/account/donation.html:579
 msgid "page.donation.footer.failure"
 msgstr "❌ എന്തോ കുഴപ്പം സംഭവിച്ചു. പേജ് വീണ്ടും ലോഡുചെയ്‌ത് വീണ്ടും ശ്രമിക്കുക."
 
-#: allthethings/account/templates/account/donation.html:539
+#: allthethings/account/templates/account/donation.html:584
 #, fuzzy
 msgid "page.donation.stepbystep"
 msgstr "ഘട്ടം ഘട്ടമായുള്ള മാർഗ്ഗനിർദ്ദേശം"
 
-#: allthethings/account/templates/account/donation.html:541
+#: allthethings/account/templates/account/donation.html:586
 #, fuzzy
 msgid "page.donation.crypto_dont_worry"
 msgstr "ചില ഘട്ടങ്ങളിൽ ക്രിപ്റ്റോ വാലറ്റുകൾ പരാമർശിച്ചേക്കാം, പക്ഷേ ആശങ്കപ്പെടേണ്ടതില്ല, ക്രിപ്റ്റോയെക്കുറിച്ച് നിങ്ങൾക്ക് ഒന്നും പഠിക്കേണ്ടതില്ല."
 
-#: allthethings/account/templates/account/donation.html:543
+#: allthethings/account/templates/account/donation.html:588
 #, fuzzy
 msgid "page.donation.hoodpay.step1"
 msgstr "1. നിങ്ങളുടെ ഇമെയിൽ നൽകുക."
 
-#: allthethings/account/templates/account/donation.html:549
+#: allthethings/account/templates/account/donation.html:594
 #, fuzzy
 msgid "page.donation.hoodpay.step2"
 msgstr "2. നിങ്ങളുടെ പേയ്മെന്റ് രീതിയെ തിരഞ്ഞെടുക്കുക."
 
-#: allthethings/account/templates/account/donation.html:555
+#: allthethings/account/templates/account/donation.html:600
 #, fuzzy
 msgid "page.donation.hoodpay.step3"
 msgstr "3. നിങ്ങളുടെ പേയ്മെന്റ് രീതിയെ വീണ്ടും തിരഞ്ഞെടുക്കുക."
 
-#: allthethings/account/templates/account/donation.html:561
+#: allthethings/account/templates/account/donation.html:606
 #, fuzzy
 msgid "page.donation.hoodpay.step4"
 msgstr "4. “സ്വയം-ഹോസ്റ്റഡ്” വാലറ്റ് തിരഞ്ഞെടുക്കുക."
 
-#: allthethings/account/templates/account/donation.html:567
+#: allthethings/account/templates/account/donation.html:612
 #, fuzzy
 msgid "page.donation.hoodpay.step5"
 msgstr "5. “ഞാൻ ഉടമസ്ഥാവകാശം സ്ഥിരീകരിക്കുന്നു” ക്ലിക്ക് ചെയ്യുക."
 
-#: allthethings/account/templates/account/donation.html:573
+#: allthethings/account/templates/account/donation.html:618
 #, fuzzy
 msgid "page.donation.hoodpay.step6"
 msgstr "6. നിങ്ങൾക്ക് ഒരു ഇമെയിൽ രസീത് ലഭിക്കണം. അത് ഞങ്ങൾക്ക് അയയ്ക്കുക, ഞങ്ങൾ നിങ്ങളുടെ സംഭാവന ככלവേഗം സ്ഥിരീകരിക്കും."
 
-#: allthethings/account/templates/account/donation.html:578
+#: allthethings/account/templates/account/donation.html:623
 #, fuzzy
 msgid "page.donate.wait"
 msgstr "ഞങ്ങളെ ബന്ധപ്പെടുന്നതിന് മുമ്പ് കുറഞ്ഞത് <span %(span_hours)s>രണ്ട് മണിക്കൂർ</span> കാത്തിരിക്കുക (ഈ പേജ് റിഫ്രെഷ് ചെയ്യുക)."
 
-#: allthethings/account/templates/account/donation.html:579
+#: allthethings/account/templates/account/donation.html:624
 #, fuzzy
 msgid "page.donate.mistake"
 msgstr "പേയ്മെന്റിനിടെ പിഴവ് സംഭവിച്ചാൽ, ഞങ്ങൾ റീഫണ്ടുകൾ ചെയ്യാൻ കഴിയില്ല, പക്ഷേ അത് ശരിയാക്കാൻ ഞങ്ങൾ ശ്രമിക്കും."
@@ -1571,23 +1583,23 @@ msgstr "ഇനിയും ലിസ്റ്റുകൾ ഇല്ല"
 msgid "page.profile.lists.new_list"
 msgstr "ഒരു ഫയൽ കണ്ടെത്തി “ലിസ്റ്റുകൾ” ടാബ് തുറന്ന് പുതിയ ലിസ്റ്റ് സൃഷ്ടിക്കുക."
 
-#: allthethings/dyn/views.py:855 allthethings/dyn/views.py:884
-#: allthethings/dyn/views.py:895
+#: allthethings/dyn/views.py:855 allthethings/dyn/views.py:887
+#: allthethings/dyn/views.py:898
 #, fuzzy
 msgid "dyn.buy_membership.error.unknown"
 msgstr "ഒരു അറിയാത്ത പിശക് സംഭവിച്ചു. ദയവായി %(email)s എന്ന വിലാസത്തിൽ ഞങ്ങളെ ബന്ധപ്പെടുക, ഒരു സ്ക്രീൻഷോട്ട് സഹിതം."
 
-#: allthethings/dyn/views.py:881
-#, fuzzy
-msgid "dyn.buy_membership.error.try_again"
-msgstr "അഭ്യർത്ഥന പൂർത്തിയാക്കാൻ കഴിഞ്ഞില്ല. കുറച്ച് മിനിറ്റുകൾക്കുശേഷം വീണ്ടും ശ്രമിക്കുക, ഇത് തുടർന്നും സംഭവിച്ചാൽ, ഒരു സ്ക്രീൻഷോട്ടുമായി %(email)s എന്ന വിലാസത്തിൽ ഞങ്ങളെ ബന്ധപ്പെടുക."
-
-#: allthethings/dyn/views.py:889
+#: allthethings/dyn/views.py:872 allthethings/dyn/views.py:892
 #, fuzzy
 msgid "dyn.buy_membership.error.minimum"
 msgstr "ഈ നാണയത്തിന് സാധാരണയേക്കാൾ ഉയർന്ന കുറഞ്ഞത് ഉണ്ട്. ദയവായി ഒരു വ്യത്യസ്ത കാലയളവ് അല്ലെങ്കിൽ ഒരു വ്യത്യസ്ത നാണയം തിരഞ്ഞെടുക്കുക."
 
-#: allthethings/dyn/views.py:892
+#: allthethings/dyn/views.py:884
+#, fuzzy
+msgid "dyn.buy_membership.error.try_again"
+msgstr "അഭ്യർത്ഥന പൂർത്തിയാക്കാൻ കഴിഞ്ഞില്ല. കുറച്ച് മിനിറ്റുകൾക്കുശേഷം വീണ്ടും ശ്രമിക്കുക, ഇത് തുടർന്നും സംഭവിച്ചാൽ, ഒരു സ്ക്രീൻഷോട്ടുമായി %(email)s എന്ന വിലാസത്തിൽ ഞങ്ങളെ ബന്ധപ്പെടുക."
+
+#: allthethings/dyn/views.py:895
 #, fuzzy
 msgid "dyn.buy_membership.error.wait"
 msgstr "പേയ്മെന്റ് പ്രോസസ്സിംഗിൽ പിശക്. ഒരു നിമിഷം കാത്തിരിക്കുക, വീണ്ടും ശ്രമിക്കുക. പ്രശ്നം 24 മണിക്കൂറിൽ കൂടുതൽ തുടരുകയാണെങ്കിൽ, ഒരു സ്ക്രീൻഷോട്ടുമായി %(email)s എന്ന വിലാസത്തിൽ ഞങ്ങളെ ബന്ധപ്പെടുക."
@@ -1901,7 +1913,7 @@ msgstr "തുറന്ന സോഴ്‌സ് ചെയ്ത തീയതി
 msgid "page.md5.box.download.temporarily_unavailable"
 msgstr "ഈ ഫയലിനായി പങ്കാളി സെർവർ ഡൗൺലോഡുകൾ താൽക്കാലികമായി ലഭ്യമല്ല."
 
-#: allthethings/page/views.py:5070 allthethings/page/views.py:5254
+#: allthethings/page/views.py:5070 allthethings/page/views.py:5258
 #, fuzzy
 msgid "page.md5.box.download.scihub"
 msgstr "Sci-Hub: %(doi)s"
@@ -1938,107 +1950,107 @@ msgstr "Libgen.li"
 msgid "page.md5.box.download.libgen_ads"
 msgstr "അവരുടെ പരസ്യങ്ങളിൽ ദുഷിത സോഫ്റ്റ്വെയർ അടങ്ങിയിരിക്കുന്നതായി അറിയപ്പെടുന്നു, അതിനാൽ ഒരു പരസ്യ തടയൽ ഉപകരണം ഉപയോഗിക്കുക അല്ലെങ്കിൽ പരസ്യങ്ങൾ ക്ലിക്ക് ചെയ്യരുത്"
 
-#: allthethings/page/views.py:5251
+#: allthethings/page/views.py:5255
 #, fuzzy
 msgid "page.md5.box.download.ia_borrow"
 msgstr "ഇന്റർനെറ്റ് ആർക്കൈവിൽ നിന്ന് വായിക്കുക"
 
-#: allthethings/page/views.py:5251
+#: allthethings/page/views.py:5255
 #, fuzzy
 msgid "page.md5.box.download.print_disabled_only"
 msgstr "(മുദ്രണം അപ്രാപ്തമാക്കിയ ഉപയോക്താക്കൾക്ക് മാത്രം)"
 
-#: allthethings/page/views.py:5254
+#: allthethings/page/views.py:5258
 #, fuzzy
 msgid "page.md5.box.download.scihub_maybe"
 msgstr "(ബന്ധപ്പെട്ട DOI Sci-Hub-ൽ ലഭ്യമാകാതിരിക്കാൻ സാധ്യതയുണ്ട്)"
 
-#: allthethings/page/views.py:5260
+#: allthethings/page/views.py:5264
 #, fuzzy
 msgid "page.md5.box.download.collection"
 msgstr "ശേഖരം"
 
-#: allthethings/page/views.py:5261
+#: allthethings/page/views.py:5265
 #, fuzzy
 msgid "page.md5.box.download.torrent"
 msgstr "ടോറന്റ്"
 
-#: allthethings/page/views.py:5267
+#: allthethings/page/views.py:5271
 #, fuzzy
 msgid "page.md5.box.download.bulk_torrents"
 msgstr "ബൾക്ക് ടോറന്റ് ഡൗൺലോഡുകൾ"
 
-#: allthethings/page/views.py:5267
+#: allthethings/page/views.py:5271
 #, fuzzy
 msgid "page.md5.box.download.experts_only"
 msgstr "(വിദഗ്ധർക്ക് മാത്രം)"
 
-#: allthethings/page/views.py:5274
+#: allthethings/page/views.py:5278
 #, fuzzy
 msgid "page.md5.box.download.aa_isbn"
 msgstr "ISBN-നായി Anna’s Archive തിരയുക"
 
-#: allthethings/page/views.py:5275
+#: allthethings/page/views.py:5279
 #, fuzzy
 msgid "page.md5.box.download.other_isbn"
 msgstr "ISBN-നായി വിവിധ മറ്റ് ഡാറ്റാബേസുകൾ തിരയുക"
 
-#: allthethings/page/views.py:5277
+#: allthethings/page/views.py:5281
 #, fuzzy
 msgid "page.md5.box.download.original_isbndb"
 msgstr "ISBNdb-ൽ യഥാർത്ഥ രേഖ കണ്ടെത്തുക"
 
-#: allthethings/page/views.py:5279
+#: allthethings/page/views.py:5283
 #, fuzzy
 msgid "page.md5.box.download.aa_openlib"
 msgstr "ഓപ്പൺ ലൈബ്രറി ഐഡിക്ക് വേണ്ടി അന്നയുടെ ആർക്കൈവ് തിരയുക"
 
-#: allthethings/page/views.py:5281
+#: allthethings/page/views.py:5285
 #, fuzzy
 msgid "page.md5.box.download.original_openlib"
 msgstr "ഓപ്പൺ ലൈബ്രറിയിൽ യഥാർത്ഥ രേഖ കണ്ടെത്തുക"
 
-#: allthethings/page/views.py:5283
+#: allthethings/page/views.py:5287
 #, fuzzy
 msgid "page.md5.box.download.aa_oclc"
 msgstr "OCLC (WorldCat) നമ്പറിനായി Anna’s Archive-ൽ തിരയുക"
 
-#: allthethings/page/views.py:5284
+#: allthethings/page/views.py:5288
 #, fuzzy
 msgid "page.md5.box.download.original_oclc"
 msgstr "WorldCat ൽ യഥാർത്ഥ റെക്കോർഡ് കണ്ടെത്തുക"
 
-#: allthethings/page/views.py:5286
+#: allthethings/page/views.py:5290
 #, fuzzy
 msgid "page.md5.box.download.aa_duxiu"
 msgstr "Anna’s Archive ൽ DuXiu SSID നമ്പർ തിരയുക"
 
-#: allthethings/page/views.py:5287
+#: allthethings/page/views.py:5291
 #, fuzzy
 msgid "page.md5.box.download.original_duxiu"
 msgstr "DuXiu-യിൽ കൈമാറി തിരയുക"
 
-#: allthethings/page/views.py:5289
+#: allthethings/page/views.py:5293
 #, fuzzy
 msgid "page.md5.box.download.aa_cadal"
 msgstr "CADAL SSNO നമ്പറിനായി Anna’s Archive-ൽ തിരയുക"
 
-#: allthethings/page/views.py:5290
+#: allthethings/page/views.py:5294
 #, fuzzy
 msgid "page.md5.box.download.original_cadal"
 msgstr "CADAL-ൽ യഥാർത്ഥ രേഖ കണ്ടെത്തുക"
 
-#: allthethings/page/views.py:5294
+#: allthethings/page/views.py:5298
 #, fuzzy
 msgid "page.md5.box.download.aa_dxid"
 msgstr "DuXiu DXID നമ്പറിനായി Anna’s Archive-ൽ തിരയുക"
 
-#: allthethings/page/views.py:5299 allthethings/page/views.py:5300
+#: allthethings/page/views.py:5303 allthethings/page/views.py:5304
 #, fuzzy
 msgid "page.md5.box.download.scidb"
 msgstr "അന്നയുടെ ആർക്കൈവ് 🧬 SciDB"
 
-#: allthethings/page/views.py:5299 allthethings/page/views.py:5300
+#: allthethings/page/views.py:5303 allthethings/page/views.py:5304
 #, fuzzy
 msgid "common.md5.servers.no_browser_verification"
 msgstr "(ബ്രൗസർ പരിശോധന ആവശ്യമില്ല)"
