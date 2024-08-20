@@ -546,7 +546,7 @@
 
       <p class="mb-4">
         {% if donation_dict.json.method == 'paypalreg' %}
-          Send a receipt or screenshot to your personal verification address. Do NOT use this email address for your PayPal donation.
+          {{ gettext('page.donation.footer.verification') }}
         {% else %}
           {{ gettext('page.donation.footer.text1') }}
         {% endif %}
