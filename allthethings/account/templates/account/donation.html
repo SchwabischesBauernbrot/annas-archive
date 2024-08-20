@@ -251,20 +251,20 @@
         </p>
       {% else %}
         <!-- TODO:TRANSLATE -->
-        <p class="mb-4 mt-6 font-bold"><span class="inline-block font-light rounded-full text-white bg-[#0195ff] w-[1.5em] h-[1.5em] text-center mr-1.5">1</span>Buy Bitcoin (BTC) on Revolut</p>
+        <p class="mb-4 mt-6 font-bold"><span class="inline-block font-light rounded-full text-white bg-[#0195ff] w-[1.5em] h-[1.5em] text-center mr-1.5">{{ gettext('page.donation.step1') }}</span>{{ gettext('page.donation.revolut.step1') }}</p>
 
         <p class="mb-4">
-          Go to the “Crypto” page in Cash App to buy Bitcoin (BTC).
+          {{ gettext('page.donation.revolut.step1.text1') }}
         </p>
 
         <p class="mb-4">
-          Buy a bit more (we recommend $4 more) than the amount that you’re donating ({{ donation_dict.formatted_native_currency.cost_cents_native_currency_str_donation_page_instructions }}), to cover transaction fees. You will keep anything left over.
+          {{ gettext('page.donation.revolut.step1.more', more='$4', amount=donation_dict.formatted_native_currency.cost_cents_native_currency_str_donation_page_instructions) }}
         </p>
 
-        <p class="mb-4 mt-6 font-bold"><span class="inline-block font-light rounded-full text-white bg-[#0195ff] w-[1.5em] h-[1.5em] text-center mr-1.5">2</span>Transfer the Bitcoin to our address</p>
+        <p class="mb-4 mt-6 font-bold"><span class="inline-block font-light rounded-full text-white bg-[#0195ff] w-[1.5em] h-[1.5em] text-center mr-1.5">{{ gettext('page.donation.step2') }}</span>{{ gettext('page.donation.revolut.step2') }}</p>
 
         <p class="mb-4">
-          Click the “Send bitcoin” button to make a “withdrawal”. Switch from euros to BTC by pressing the <span class="icon-[cil--transfer] align-middle"></span> icon. Enter the BTC amount below and click “Send”. See <a href="https://www.youtube.com/watch?v=iYMtrm5SViE">this video</a> if you get stuck.
+          {{ gettext('page.donation.revolut.step2.transfer', icon=('<span class="icon-[cil--transfer] align-middle"></span>' | safe), help_video=(dict(href="https://youtu.be/iYMtrm5SViE") | xmlattr)) }}
         </p>
 
         <p class="mb-4">
@@ -272,7 +272,7 @@
         </p>
 
         <!-- <p class="mb-4">
-          For small donations (under $25) you might need to use Rush or Priority.
+          {{ gettext('page.donation.revolut.step2.rush_priority') }}
         </p> -->
 
         <p class="mb-4">
