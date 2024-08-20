@@ -1,3 +1,19 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-20 23:01+0000\n"
+"PO-Revision-Date: 2024-08-20 23:01+0000\n"
+"Last-Translator: OpenAI <noreply-mt-openai@weblate.org>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: gl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: ENCODING\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.7\n"
+
 #: allthethings/app.py:209
 msgid "layout.index.invalid_request"
 msgstr "Petición Inválida. Visita %(websites)s."
@@ -201,8 +217,9 @@ msgid "page.donate.perks.if_you_donate_this_month"
 msgstr "se doas este mes!"
 
 #: allthethings/account/templates/account/donate.html:55
+#, fuzzy
 msgid "page.donate.membership_per_month"
-msgstr ""
+msgstr "$%(cost)s / mes"
 
 #: allthethings/account/templates/account/donate.html:57
 msgid "page.donate.buttons.join"
@@ -325,16 +342,19 @@ msgid "page.donate.payment.buttons.paypal"
 msgstr "PayPal (EEUU) %(bitcoin_icon)s"
 
 #: allthethings/account/templates/account/donate.html:140
+#, fuzzy
 msgid "page.donate.payment.buttons.paypalreg"
-msgstr ""
+msgstr "PayPal (regular)"
 
 #: allthethings/account/templates/account/donate.html:141
+#, fuzzy
 msgid "page.donate.payment.buttons.givebutter"
-msgstr ""
+msgstr "Tarxeta / PayPal / Venmo"
 
 #: allthethings/account/templates/account/donate.html:143
+#, fuzzy
 msgid "page.donate.payment.buttons.bmc"
-msgstr ""
+msgstr "Crédito/débito/Apple/Google (BMC)"
 
 #: allthethings/account/templates/account/donate.html:144
 #: allthethings/account/templates/account/donate.html:160
@@ -2297,16 +2317,19 @@ msgid "page.codes.why_cloudflare"
 msgstr ""
 
 #: allthethings/page/templates/page/codes.html:22
+#, fuzzy
 msgid "page.codes.dont_scrape"
-msgstr ""
+msgstr "Recomendamos non rastrexar estas páxinas. En vez diso, suxerimos <a %(a_import)s>xerar</a> ou <a %(a_download)s>descargar</a> as nosas bases de datos de ElasticSearch e MariaDB, e executar o noso <a %(a_software)s>código de código aberto</a>. Os datos en bruto pódense explorar manualmente a través de ficheiros JSON como <a %(a_json_file)s>este</a>."
 
 #: allthethings/page/templates/page/codes.html:33
+#, fuzzy
 msgid "page.codes.prefix"
-msgstr ""
+msgstr "Prefixo"
 
 #: allthethings/page/templates/page/codes.html:34
+#, fuzzy
 msgid "common.form.go"
-msgstr ""
+msgstr "Ir"
 
 #: allthethings/page/templates/page/codes.html:35
 #, fuzzy
@@ -4580,3 +4603,102 @@ msgstr "Seguinte"
 #~ msgid "page.donate.payment.desc.crypto_suggestion"
 #~ msgstr "Se estás empregando criptomonedas por primeira vez, suxerímoste %(option1)s, %(option2)s, ou %(option3)s para comprar e donar Bitcoin (a criptomoneda orixinal e a máis empregada)."
 
+#: allthethings/account/templates/account/donation.html:231
+#, fuzzy
+msgid "page.donation.cash_app_btc.step2.rush_priority"
+msgstr "Para doazóns pequenas (menos de $25), pode que necesite usar Rush ou Priority."
+
+#: allthethings/account/templates/account/donation.html:254
+#, fuzzy
+msgid "page.donation.revolut.step1"
+msgstr "Mercar Bitcoin (BTC) en Revolut"
+
+#: allthethings/account/templates/account/donation.html:257
+#, fuzzy
+msgid "page.donation.revolut.step1.text1"
+msgstr "Vaia á páxina de “Crypto” en Revolut para mercar Bitcoin (BTC)."
+
+#: allthethings/account/templates/account/donation.html:261
+#, fuzzy
+msgid "page.donation.revolut.step1.more"
+msgstr "Compre un pouco máis (recomendamos $(more)s máis) do importe que está a doar (%(amount)s), para cubrir as taxas de transacción. Gardará o que sobre."
+
+#: allthethings/account/templates/account/donation.html:264
+#, fuzzy
+msgid "page.donation.revolut.step2"
+msgstr "Transfira o Bitcoin ao noso enderezo"
+
+#: allthethings/account/templates/account/donation.html:267
+#, fuzzy
+msgid "page.donation.revolut.step2.transfer"
+msgstr "Faga clic no botón “Enviar bitcoin” para facer unha “retirada”. Cambie de euros a BTC premendo na icona %(icon)s. Introduza o importe en BTC a continuación e faga clic en “Enviar”. Vexa <a %(help_video)s>este vídeo</a> se se atopa con dificultades."
+
+#: allthethings/account/templates/account/donation.html:275
+#, fuzzy
+msgid "page.donation.revolut.step2.rush_priority"
+msgstr "Para doazóns pequenas (menos de $25) pode que necesite usar Rush ou Priority."
+
+#: allthethings/account/templates/account/donation.html:299
+#, fuzzy
+msgid "page.donation.payment2cc.cc2btc"
+msgstr "Use calquera dos seguintes servizos exprés de “tarxeta de crédito a Bitcoin”, que só levan uns minutos:"
+
+#: allthethings/account/templates/account/donation.html:302
+#, fuzzy
+msgid "page.donation.payment2cc.method.paybis"
+msgstr "(mínimo: %(minimum)s)"
+
+#: allthethings/account/templates/account/donation.html:303
+#, fuzzy
+msgid "page.donation.payment2cc.method.switchere"
+msgstr "(mínimo: %(minimum)s dependendo do país, sen verificación para a primeira transacción)"
+
+#: allthethings/account/templates/account/donation.html:304
+#, fuzzy
+msgid "page.donation.payment2cc.method.munzen"
+msgstr "(mínimo: %(minimum)s, sen verificación para a primeira transacción)"
+
+#: allthethings/account/templates/account/donation.html:305
+#, fuzzy
+msgid "page.donation.payment2cc.method.mercuryo"
+msgstr "(mínimo: %(minimum)s)"
+
+#: allthethings/account/templates/account/donation.html:306
+#, fuzzy
+msgid "page.donation.payment2cc.method.moonpay"
+msgstr "(mínimo: %(minimum)s)"
+
+#: allthethings/account/templates/account/donation.html:307
+#, fuzzy
+msgid "page.donation.payment2cc.method.coingate"
+msgstr "(mínimo: %(minimum)s)"
+
+#: allthethings/account/templates/account/donation.html:309
+#, fuzzy
+msgid "page.donation.payment2cc.cc2btc.outdated"
+msgstr "Se algunha desta información está desactualizada, envíenos un correo electrónico para informarnos."
+
+#: allthethings/account/templates/account/donation.html:312
+#, fuzzy
+msgid "page.donation.payment2cc.cc2btc.form"
+msgstr "Encha os seguintes detalles no formulario:"
+
+#: allthethings/account/templates/account/donation.html:316
+#, fuzzy
+msgid "page.donation.payment2cc.cc2btc.btc_amount"
+msgstr "Importe de BTC / Bitcoin:"
+
+#: allthethings/account/templates/account/donation.html:316
+#, fuzzy
+msgid "page.donation.payment2cc.exact_amount"
+msgstr "Utilice este <span %(underline)s>importe exacto</span>. O seu custo total pode ser maior debido ás taxas da tarxeta de crédito. Para importes pequenos, isto pode ser máis que o noso desconto, desafortunadamente."
+
+#: allthethings/account/templates/account/donation.html:317
+#, fuzzy
+msgid "page.donation.payment2cc.cc2btc.btc_address"
+msgstr "Enderezo de BTC / Bitcoin (carteira externa):"
+
+#: allthethings/account/templates/account/donation.html:549
+#, fuzzy
+msgid "page.donation.footer.verification"
+msgstr "Envía un recibo ou captura de pantalla ao seu enderezo de verificación persoal. NON use este enderezo de correo electrónico para a súa doazón por PayPal."
