@@ -196,10 +196,10 @@
   <div class="mb-4"></div>
 
   {% macro definition_item(term) -%}
-    <dt class="col-start-1 border-t border-zinc-950/5 pt-3 text-zinc-800 first:border-none sm:border-t sm:border-zinc-950/5 sm:py-3 dark:border-white/5 dark:text-zinc-200 sm:dark:border-white/5 font-semibold">
+    <dt class="col-start-1 border-t border-zinc-950/5 pt-3 text-zinc-800 first:border-none sm:border-t sm:border-zinc-950/5 sm:py-3 font-semibold">
       {{ term }}
     </dt>
-    <dd class="pb-3 pt-1 text-zinc-950 sm:border-t sm:border-zinc-950/5 sm:py-3 dark:text-white dark:sm:border-white/5 sm:[&:nth-child(2)]:border-none">
+    <dd class="pb-3 pt-1 text-zinc-950 sm:border-t sm:border-zinc-950/5 sm:py-3 sm:[&:nth-child(2)]:border-none">
       {{ caller() | safe }}
     </dd>
   {%- endmacro %}
