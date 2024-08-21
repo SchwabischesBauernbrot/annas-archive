@@ -2660,6 +2660,74 @@ msgstr "We combine all the above sources into one unified database that we use t
 msgid "page.datasets.unified_database.text2"
 msgstr "If you’d like to explore our data before running those scripts locally, you can look at our JSON files, which link further to other JSON files. <a %(a_json)s>This file</a> is a good starting point."
 
+#: allthethings/page/templates/page/datasets_ia.html:10
+msgid "page.datasets.ia.intro"
+msgstr "If you are interested in mirroring this dataset for <a %(a_archival)s>archival</a> or <a %(a_llm)s>LLM training</a> purposes, please contact us."
+
+#: allthethings/page/templates/page/datasets_ia.html:14
+msgid "page.datasets.ia.description"
+msgstr "This dataset is closely related to the <a %(a_datasets_openlib)s>Open Library dataset</a>. It contains a scrape of all metadata and a large portion of files from the IA’s Controlled Digital Lending Library. Updates get released in the <a %(a_aac)s>Anna’s Archive Containers format</a>."
+
+#: allthethings/page/templates/page/datasets_ia.html:18
+msgid "page.datasets.ia.description2"
+msgstr "These records are being referred to directly from the Open Library dataset, but also contains records that are not in Open Library. We also have a number of data files scraped by community members over the years."
+
+#: allthethings/page/templates/page/datasets_ia.html:22
+msgid "page.datasets.ia.description3"
+msgstr "The collection consists of two parts. You need both parts to get all data (except superseded torrents, which are crossed out on the torrents page)."
+
+#: allthethings/page/templates/page/datasets_ia.html:26
+msgid "page.datasets.ia.part1"
+msgstr "our first release, before we standardized on the <a %(a_aac)s>Anna’s Archive Containers (AAC) format</a>. Contains metadata (as json and xml), pdfs (from acsm and lcpdf digital lending systems), and cover thumbnails."
+
+#: allthethings/page/templates/page/datasets_ia.html:27
+msgid "page.datasets.ia.part2"
+msgstr "incremental new releases, using AAC. Only contains metadata with timestamps after 2023-01-01, since the rest is covered already by “ia”. Also all pdf files, this time from the acsm and “bookreader” (IA’s web reader) lending systems. Despite the name not being exactly right, we still populate bookreader files into the ia2_acsmpdf_files collection, since they are mutually exclusive."
+
+#: allthethings/page/templates/page/datasets_ia.html:32
+msgid "page.datasets.common.total_files"
+msgstr "Total files: %(count)s"
+
+#: allthethings/page/templates/page/datasets_ia.html:33
+msgid "page.datasets.common.total_filesize"
+msgstr "Total filesize: %(size)s"
+
+#: allthethings/page/templates/page/datasets_ia.html:34
+msgid "page.datasets.common.mirrored_file_count"
+msgstr "Files mirrored by Anna’s Archive: %(count)s (%(percent)s%%)"
+
+#: allthethings/page/templates/page/datasets_ia.html:35
+msgid "page.datasets.common.last_updated"
+msgstr "Last updated: %(date)s"
+
+#: allthethings/page/templates/page/datasets_ia.html:36
+msgid "page.datasets.common.aa_torrents"
+msgstr "Torrents by Anna’s Archive"
+
+#: allthethings/page/templates/page/datasets_ia.html:37
+msgid "page.datasets.common.aa_example_record"
+msgstr "Example record on Anna’s Archive"
+
+#: allthethings/page/templates/page/datasets_ia.html:38
+msgid "page.datasets.ia.ia_main_website"
+msgstr "Main website"
+
+#: allthethings/page/templates/page/datasets_ia.html:39
+msgid "page.datasets.ia.ia_lending"
+msgstr "Digital Lending Library"
+
+#: allthethings/page/templates/page/datasets_ia.html:40
+msgid "page.datasets.common.metadata_docs"
+msgstr "Metadata documentation (most fields)"
+
+#: allthethings/page/templates/page/datasets_ia.html:41
+msgid "page.datasets.common.import_scripts"
+msgstr "Scripts for importing metadata"
+
+#: allthethings/page/templates/page/datasets_ia.html:42
+msgid "page.datasets.common.aac"
+msgstr "Anna’s Archive Containers format"
+
 #: allthethings/page/templates/page/datasets_isbn_ranges.html:3
 #: allthethings/page/templates/page/datasets_isbn_ranges.html:6
 msgid "page.datasets/isbn_ranges.title"
