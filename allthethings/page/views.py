@@ -324,7 +324,7 @@ def faq_page():
         "md5:6963187473f4f037a28e2fe1153ca793", # How music got free
         "md5:6ed2d768ec1668c73e4fa742e3df78d6", # Physics
     ]
-    with Session(engine) as session:
+    with Session(engine):
         aarecords = (get_aarecords_elasticsearch(popular_ids) or [])
         aarecords.sort(key=lambda aarecord: popular_ids.index(aarecord['id']))
 
@@ -570,7 +570,7 @@ def get_torrents_data():
 
             torrent_group_data = torrent_group_data_from_file_path(small_file['file_path'])
             group = torrent_group_data['group']
-            if torrent_group_data['aac_meta_group'] != None:
+            if torrent_group_data['aac_meta_group'] is not None:
                 aac_meta_file_paths_grouped[torrent_group_data['aac_meta_group']].append(small_file['file_path'])
 
             scrape_row = scrapes_by_file_path.get(small_file['file_path'])
@@ -579,7 +579,7 @@ def get_torrents_data():
             if scrape_row is not None:
                 scrape_created = scrape_row['created']
                 scrape_metadata = orjson.loads(scrape_row['metadata'])
-                if (metadata.get('embargo') or False) == False:
+                if (metadata.get('embargo') or False) is False:
                     if scrape_metadata['scrape']['seeders'] < 4:
                         seeder_sizes[0] += metadata['data_size']
                     elif scrape_metadata['scrape']['seeders'] < 11:
@@ -905,7 +905,7 @@ def codes_page():
         prefix_b64 = request.args.get('prefix_b64') or ''
         try:
             prefix_bytes = base64.b64decode(prefix_b64.replace(' ', '+'))
-        except:
+        except Exception:
             return "Invalid prefix_b64", 404
 
         connection.connection.ping(reconnect=True)
@@ -986,7 +986,7 @@ def codes_page():
         bad_unicode = False
         try:
             prefix_bytes.decode()
-        except:
+        except Exception:
             bad_unicode = True
 
         prefix_label = prefix_bytes.decode(errors='replace')
@@ -1462,10 +1462,10 @@ def extract_ol_str_field(field):
     return str(field.get('value')) or ""
 
 def extract_ol_author_field(field):
-    if type(field) == str:
+    if type(field) is str:
         return field
     elif 'author' in field:
-        if type(field['author']) == str:
+        if type(field['author']) is str:
             return field['author']
         elif 'key' in field['author']:
             return field['author']['key']
@@ -2316,7 +2316,6 @@ def get_isbndb_dicts(session, canonical_isbn13s):
 
     isbn_dicts = []
     for canonical_isbn13 in canonical_isbn13s:
-        isbn13_mask = isbnlib.mask(canonical_isbn13)
         isbn_dict = {
             "ean13": isbnlib.ean13(canonical_isbn13),
             "isbn10": isbnlib.to_isbn10(canonical_isbn13),
@@ -2772,7 +2771,7 @@ def get_duxiu_dicts(session, key, values, include_deep_transitive_md5s_size_path
                 serialized_file['aa_derived_deserialized_gbk'] = ''
                 try:
                     serialized_file['aa_derived_deserialized_gbk'] = base64.b64decode(serialized_file['data_base64']).decode('gbk')
-                except:
+                except Exception:
                     pass
 
             new_aac_record["metadata"]["record"]["aa_derived_ini_values"] = {}
@@ -3188,7 +3187,7 @@ def get_duxiu_dicts(session, key, values, include_deep_transitive_md5s_size_path
             langdetect_response = {}
             try:
                 langdetect_response = fast_langdetect.detect(language_detect_string)
-            except:
+            except Exception:
                 pass
             duxiu_dict['aa_duxiu_derived']['debug_language_codes'] = { 'langdetect_response': langdetect_response }
 
@@ -3204,7 +3203,7 @@ def get_duxiu_dicts(session, key, values, include_deep_transitive_md5s_size_path
         duxiu_dict['aa_duxiu_derived']['filesize_best'] = next(iter(duxiu_dict['aa_duxiu_derived']['filesize_multiple']), 0)
         duxiu_dict['aa_duxiu_derived']['filepath_best'] = next(iter(duxiu_dict['aa_duxiu_derived']['filepath_multiple']), '')
         duxiu_dict['aa_duxiu_derived']['description_best'] = '\n\n'.join(list(dict.fromkeys(duxiu_dict['aa_duxiu_derived']['description_cumulative'])))
-        sources_joined = '\n'.join(sort_by_length_and_filter_subsequences_with_longest_string_and_normalize_unicode(duxiu_dict['aa_duxiu_derived']['source_multiple']))
+        _sources_joined = '\n'.join(sort_by_length_and_filter_subsequences_with_longest_string_and_normalize_unicode(duxiu_dict['aa_duxiu_derived']['source_multiple']))
         related_files_joined = '\n'.join(sort_by_length_and_filter_subsequences_with_longest_string_and_normalize_unicode([" — ".join([f"{key}:{related_file[key]}" for key in ["filepath", "md5", "filesize"] if related_file[key] is not None]) for related_file in duxiu_dict['aa_duxiu_derived']['related_files']]))
         duxiu_dict['aa_duxiu_derived']['combined_comments'] = list(dict.fromkeys(filter(len, duxiu_dict['aa_duxiu_derived']['comments_cumulative'] + [
             # TODO: pass through comments metadata in a structured way so we can add proper translations.
@@ -3484,10 +3483,10 @@ def get_aac_upload_book_dicts(session, key, values):
             if create_date_field != '':
                 try:
                     file_created_date = datetime.datetime.strptime(create_date_field, "%Y:%m:%d %H:%M:%S%z").astimezone(datetime.timezone.utc).replace(tzinfo=None).isoformat().split('T', 1)[0]
-                except:
+                except Exception:
                     try:
                         file_created_date = datetime.datetime.strptime(create_date_field, "%Y:%m:%d %H:%M:%S").isoformat().split('T', 1)[0]
-                    except:
+                    except Exception:
                         pass
             if file_created_date is not None:
                 aac_upload_book_dict['aa_upload_derived']['added_date_unified']['file_created_date'] = min(file_created_date, aac_upload_book_dict['aa_upload_derived']['added_date_unified'].get('file_created_date') or file_created_date)
@@ -3880,7 +3879,7 @@ def get_aarecords_elasticsearch(aarecord_ids):
             try:
                 search_results_raw += es_handle.mget(docs=docs)['docs']
                 break
-            except:
+            except Exception:
                 print(f"Warning: another attempt during get_aarecords_elasticsearch {es_handle=} {aarecord_ids=}")
                 if attempt >= 3:
                     number_of_get_aarecords_elasticsearch_exceptions += 1
@@ -4590,7 +4589,7 @@ def get_aarecords_mysql(session, aarecord_ids):
                     aarecord['file_unified_data']['language_codes_detected'] = [get_bcp47_lang_codes(language_detection)[0]]
                     aarecord['file_unified_data']['language_codes'] = aarecord['file_unified_data']['language_codes_detected']
                     aarecord['file_unified_data']['most_likely_language_codes'] = aarecord['file_unified_data']['language_codes']
-            except:
+            except Exception:
                 pass
 
         for lang_code in aarecord['file_unified_data']['language_codes']:
@@ -4962,7 +4961,7 @@ def get_aarecords_mysql(session, aarecord_ids):
             'search_description_comments': ('\n'.join([aarecord['file_unified_data']['stripped_description_best']] + (aarecord['file_unified_data'].get('comments_multiple') or [])))[:10000],
             'search_text': search_text,
             'search_access_types': [
-                *(['external_download'] if any([((aarecord.get(field) is not None) and (type(aarecord[field]) != list or len(aarecord[field]) > 0)) for field in ['lgrsnf_book', 'lgrsfic_book', 'lgli_file', 'zlib_book', 'aac_zlib3_book', 'scihub_doi', 'aac_magzdb']]) else []),
+                *(['external_download'] if any([((aarecord.get(field) is not None) and (type(aarecord[field]) is not list or len(aarecord[field]) > 0)) for field in ['lgrsnf_book', 'lgrsfic_book', 'lgli_file', 'zlib_book', 'aac_zlib3_book', 'scihub_doi', 'aac_magzdb']]) else []),
                 *(['external_borrow'] if (aarecord.get('ia_record') and (not aarecord['ia_record']['aa_ia_derived']['printdisabled_only'])) else []),
                 *(['external_borrow_printdisabled'] if (aarecord.get('ia_record') and (aarecord['ia_record']['aa_ia_derived']['printdisabled_only'])) else []),
                 *(['aa_download'] if aarecord['file_unified_data']['has_aa_downloads'] == 1 else []),
@@ -5226,7 +5225,7 @@ def get_additional_for_aarecord(aarecord):
 
     torrents_json_aa_currently_seeding_by_torrent_path = allthethings.utils.get_torrents_json_aa_currently_seeding_by_torrent_path()
 
-    temporarily_unavailable = gettext('page.md5.box.download.temporarily_unavailable') # Keeping translation
+    _temporarily_unavailable = gettext('page.md5.box.download.temporarily_unavailable') # Keeping translation
 
     for scihub_doi in aarecord.get('scihub_doi') or []:
         doi = scihub_doi['doi']
@@ -5541,7 +5540,7 @@ def render_aarecord(record_id):
     if allthethings.utils.DOWN_FOR_MAINTENANCE:
         return render_template("page/maintenance.html", header_active="")
 
-    with Session(engine) as session:
+    with Session(engine):
         ids = [record_id]
         if not allthethings.utils.validate_aarecord_ids(ids):
             return render_template("page/aarecord_not_found.html", header_active="search", not_found_field=record_id), 404
@@ -5609,7 +5608,7 @@ def scidb_page(doi_input):
     # if not verified:
     #     return redirect(f"/scidb/{doi_input}?scidb_verified=1", code=302)
 
-    with Session(engine) as session:
+    with Session(engine):
         try:
             search_results_raw1 = es_aux.search(
                 index=allthethings.utils.all_virtshards_for_index("aarecords_journals"),
@@ -5720,7 +5719,7 @@ def md5_fast_download(md5_input, path_index, domain_index):
         if account_fast_download_info is None:
             return redirect("/fast_download_not_member", code=302)
 
-        with Session(engine) as session:
+        with Session(engine):
             aarecords = get_aarecords_elasticsearch([f"md5:{canonical_md5}"])
             if aarecords is None:
                 return render_template("page/aarecord_issue.html", header_active="search"), 500
@@ -5730,7 +5729,7 @@ def md5_fast_download(md5_input, path_index, domain_index):
             try:
                 domain = allthethings.utils.FAST_DOWNLOAD_DOMAINS[domain_index]
                 path_info = aarecord['additional']['partner_url_paths'][path_index]
-            except:
+            except Exception:
                 return redirect(f"/md5/{md5_input}", code=302)
             url = 'https://' + domain + '/' + allthethings.utils.make_anon_download_uri(False, 20000, path_info['path'], aarecord['additional']['filename'], domain)
 
@@ -5798,7 +5797,7 @@ def md5_slow_download(md5_input, path_index, domain_index):
         domain_slow = allthethings.utils.SLOW_DOWNLOAD_DOMAINS[domain_index]
         domain_slowest = allthethings.utils.SLOWEST_DOWNLOAD_DOMAINS[domain_index]
         path_info = aarecord['additional']['partner_url_paths'][path_index]
-    except:
+    except Exception:
         return redirect(f"/md5/{md5_input}", code=302)
 
     daily_download_count_from_ip = get_daily_download_count_from_ip(data_pseudo_ipv4)
@@ -5884,7 +5883,7 @@ def ipfs_downloads(md5_input):
     aarecord = aarecords[0]
     try:
         ipfs_urls = aarecord['additional']['ipfs_urls']
-    except:
+    except Exception:
         return redirect(f"/md5/{md5_input}", code=302)
 
     return render_template(
@@ -5907,7 +5906,7 @@ def search_query_aggs(search_index_long):
 def all_search_aggs(display_lang, search_index_long):
     try:
         search_results_raw = allthethings.utils.SEARCH_INDEX_TO_ES_MAPPING[search_index_long].search(index=allthethings.utils.all_virtshards_for_index(search_index_long), size=0, aggs=search_query_aggs(search_index_long), timeout=ES_TIMEOUT_ALL_AGG)
-    except:
+    except Exception:
         # Simple retry, just once.
         search_results_raw = allthethings.utils.SEARCH_INDEX_TO_ES_MAPPING[search_index_long].search(index=allthethings.utils.all_virtshards_for_index(search_index_long), size=0, aggs=search_query_aggs(search_index_long), timeout=ES_TIMEOUT_ALL_AGG)
 
@@ -5924,7 +5923,7 @@ def all_search_aggs(display_lang, search_index_long):
     content_type_buckets = list(search_results_raw['aggregations']['search_content_type']['buckets'])
     md5_content_type_mapping = get_md5_content_type_mapping(display_lang)
     all_aggregations['search_content_type'] = [{ 'key': bucket['key'], 'label': md5_content_type_mapping[bucket['key']], 'doc_count': bucket['doc_count'] } for bucket in content_type_buckets]
-    content_type_keys_present = set([bucket['key'] for bucket in content_type_buckets])
+    # content_type_keys_present = set([bucket['key'] for bucket in content_type_buckets])
     # for key, label in md5_content_type_mapping.items():
     #     if key not in content_type_keys_present:
     #         all_aggregations['search_content_type'].append({ 'key': key, 'label': label, 'doc_count': 0 })
@@ -5942,7 +5941,7 @@ def all_search_aggs(display_lang, search_index_long):
     access_types_buckets = list(search_results_raw['aggregations']['search_access_types']['buckets'])
     access_types_mapping = get_access_types_mapping(display_lang)
     all_aggregations['search_access_types'] = [{ 'key': bucket['key'], 'label': access_types_mapping[bucket['key']], 'doc_count': bucket['doc_count'] } for bucket in access_types_buckets]
-    content_type_keys_present = set([bucket['key'] for bucket in access_types_buckets])
+    # content_type_keys_present = set([bucket['key'] for bucket in access_types_buckets])
     # for key, label in access_types_mapping.items():
     #     if key not in content_type_keys_present:
     #         all_aggregations['search_access_types'].append({ 'key': key, 'label': label, 'doc_count': 0 })
@@ -5952,7 +5951,7 @@ def all_search_aggs(display_lang, search_index_long):
     record_sources_buckets = list(search_results_raw['aggregations']['search_record_sources']['buckets'])
     record_sources_mapping = get_record_sources_mapping(display_lang)
     all_aggregations['search_record_sources'] = [{ 'key': bucket['key'], 'label': record_sources_mapping[bucket['key']], 'doc_count': bucket['doc_count'] } for bucket in record_sources_buckets]
-    content_type_keys_present = set([bucket['key'] for bucket in record_sources_buckets])
+    # content_type_keys_present = set([bucket['key'] for bucket in record_sources_buckets])
     # for key, label in record_sources_mapping.items():
     #     if key not in content_type_keys_present:
     #         all_aggregations['search_record_sources'].append({ 'key': key, 'label': label, 'doc_count': 0 })
@@ -5989,7 +5988,7 @@ def search_page():
     page_value = 1
     try:
         page_value = int(page_value_str)
-    except:
+    except Exception:
         pass
     sort_value = request.args.get("sort", "").strip()
     search_index_short = request.args.get("index", "").strip()
@@ -6162,7 +6161,7 @@ def search_page():
     display_lang = allthethings.utils.get_base_lang_code(get_locale())
     try:
         all_aggregations, all_aggregations_es_stat = all_search_aggs(display_lang, search_index_long)
-    except:
+    except Exception:
         return 'Page loading issue', 500
     es_stats.append(all_aggregations_es_stat)
 

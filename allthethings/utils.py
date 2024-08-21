@@ -89,7 +89,7 @@ def validate_magzdb_ids(magzdb_ids):
 def validate_aarecord_ids(aarecord_ids):
     try:
         split_ids = split_aarecord_ids(aarecord_ids)
-    except:
+    except Exception:
         return False
     return validate_canonical_md5s(split_ids['md5']) and validate_ol_editions(split_ids['ol']) and validate_oclc_ids(split_ids['oclc']) and validate_duxiu_ssids(split_ids['duxiu_ssid']) and validate_magzdb_ids(split_ids['magzdb'])
 
@@ -704,7 +704,7 @@ def payment2_check(cursor, payment_id):
             payment2_request.raise_for_status()
             payment2_status = payment2_request.json()
             break
-        except:
+        except Exception:
             if attempt == 5:
                 raise
             time.sleep(1)
@@ -733,7 +733,7 @@ def payment3_check(cursor, donation_id):
             if str(payment3_status['code']) != '1':
                 raise Exception(f"Invalid payment3_status {donation_id=}: {payment3_status}")
             break
-        except:
+        except Exception:
             if attempt == 5:
                 raise
             time.sleep(1)
@@ -1200,7 +1200,7 @@ def normalize_isbn(string):
     try: 
         if (not isbnlib.is_isbn10(isbnlib.to_isbn10(canonical_isbn13))) or len(canonical_isbn13) != 13 or len(isbnlib.info(canonical_isbn13)) == 0:
             return ''
-    except:
+    except Exception:
         return ''
     return canonical_isbn13
 
@@ -1278,7 +1278,7 @@ def get_aarecord_search_indexes_for_id_prefix(id_prefix):
     elif id_prefix in ['md5', 'doi']:
         return ['aarecords', 'aarecords_journals']
     else:
-        raise Exception(f"Unknown aarecord_id prefix: {aarecord_id}")
+        raise Exception(f"Unknown aarecord_id prefix: {id_prefix}")
 def get_aarecord_search_index(id_prefix, content_type):
     if get_aarecord_id_prefix_is_metadata(id_prefix):
         return 'aarecords_metadata'
@@ -1290,7 +1290,7 @@ def get_aarecord_search_index(id_prefix, content_type):
         else:
             return 'aarecords'
     else:
-        raise Exception(f"Unknown aarecord_id prefix: {aarecord_id}")
+        raise Exception(f"Unknown aarecord_id prefix: {id_prefix}")
 SEARCH_INDEX_TO_ES_MAPPING = {
     'aarecords': es,
     'aarecords_journals': es_aux,
@@ -1310,7 +1310,7 @@ def all_virtshards_for_index(index_name):
 def attempt_fix_chinese_uninterrupted_text(text):
     try:
         return text.encode().decode('gbk')
-    except:
+    except Exception:
         return text
 
 def attempt_fix_chinese_filepath(filepath):

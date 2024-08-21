@@ -102,7 +102,7 @@ def extensions(app):
         try:
             with Session(engine) as session:
                 session.execute('SELECT 1')
-        except:
+        except Exception:
             print("mariadb not yet online, restarting")
             time.sleep(3)
             sys.exit(1)
@@ -110,7 +110,7 @@ def extensions(app):
         try:
             with Session(mariapersist_engine) as mariapersist_session:
                 mariapersist_session.execute('SELECT 1')
-        except:
+        except Exception:
             if os.getenv("DATA_IMPORTS_MODE", "") == "1":
                 print("Ignoring mariapersist not being online because DATA_IMPORTS_MODE=1")
             else:
@@ -120,7 +120,7 @@ def extensions(app):
 
         try:
             Reflected.prepare(engine)
-        except:
+        except Exception:
             if os.getenv("DATA_IMPORTS_MODE", "") == "1":
                 print("Ignoring mariadb problems because DATA_IMPORTS_MODE=1")
             else:
@@ -129,7 +129,7 @@ def extensions(app):
 
         try:
             ReflectedMariapersist.prepare(mariapersist_engine)
-        except:
+        except Exception:
             if os.getenv("DATA_IMPORTS_MODE", "") == "1":
                 print("Ignoring mariapersist problems because DATA_IMPORTS_MODE=1")
             else:
@@ -183,13 +183,6 @@ def extensions(app):
                 values['hash'] = hash_cache[filename] = filehash
 
     @functools.cache
-    def get_display_name_for_lang(lang_code, display_lang):
-        result = langcodes.Language.make(lang_code).display_name(display_lang)
-        if '[' not in result:
-            result = result + ' [' + lang_code + ']'
-        return result.replace(' []', '')
-
-    @functools.cache
     def last_data_refresh_date():
         with engine.connect() as conn:
             libgenrs_statement = select(LibgenrsUpdated.TimeLastModified).order_by(LibgenrsUpdated.ID.desc()).limit(1)
@@ -197,7 +190,7 @@ def extensions(app):
             try:
                 libgenrs_time = conn.execute(libgenrs_statement).scalars().first()
                 libgenli_time = conn.execute(libgenli_statement).scalars().first()
-            except:
+            except Exception:
                 return ''
             latest_time = max([libgenrs_time, libgenli_time])
             return latest_time.date()
@@ -246,7 +239,7 @@ def extensions(app):
         try:
             ipaddress.ip_address(request.headers['Host'])
             host_is_ip = True
-        except:
+        except Exception:
             pass
         if (not host_is_ip) and (request.headers['Host'] != full_hostname):
             redir_path = f"{g.full_domain}{request.full_path}"
@@ -270,8 +263,8 @@ def extensions(app):
         new_header_tagline_scihub = gettext('layout.index.header.tagline_scihub')
         new_header_tagline_libgen = gettext('layout.index.header.tagline_libgen')
         new_header_tagline_zlib = gettext('layout.index.header.tagline_zlib')
-        new_header_tagline_openlib = gettext('layout.index.header.tagline_openlib')
-        new_header_tagline_ia = gettext('layout.index.header.tagline_ia')
+        _new_header_tagline_openlib = gettext('layout.index.header.tagline_openlib')
+        _new_header_tagline_ia = gettext('layout.index.header.tagline_ia')
         new_header_tagline_duxiu = gettext('layout.index.header.tagline_duxiu')
         new_header_tagline_separator = gettext('layout.index.header.tagline_separator')
         new_header_tagline_and = gettext('layout.index.header.tagline_and')
@@ -304,7 +297,6 @@ def extensions(app):
         today = datetime.date.today().day
         currentYear = datetime.date.today().year
         currentMonth = datetime.date.today().month
-        currentMonthName = calendar.month_name[currentMonth]
         monthrange = calendar.monthrange(currentYear, currentMonth)[1]
         g.fraction_of_the_month = today / monthrange
 

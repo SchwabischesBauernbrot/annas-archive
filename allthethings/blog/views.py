@@ -1,5 +1,5 @@
 import datetime
-from rfeed import *
+from rfeed import Item, Feed
 from flask import Blueprint, render_template, make_response
 
 import allthethings.utils

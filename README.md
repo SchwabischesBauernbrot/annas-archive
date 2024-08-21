@@ -153,8 +153,10 @@ To report bugs or suggest new ideas, please file an ["issue"](https://software.a
 To contribute code, also file an [issue](https://software.annas-archive.se/AnnaArchivist/annas-archive/-/issues), and include your `git diff` inline (you can use \`\`\`diff to get some syntax highlighting on the diff). Merge requests are currently disabled for security purposes — if you make consistently useful contributions you might get access.
 
 For larger projects, please contact Anna first on [Reddit](https://www.reddit.com/r/Annas_Archive/).
-## License
 
+Please run `./bin/check` before committing to ensure that your changes pass the automated checks. You can also run `./bin/fix` to apply some automatic fixes to common lint issues.
+
+## License
 
 Released in the public domain under the terms of [CC0](./LICENSE). By contributing you agree to license your code under the same license.
 

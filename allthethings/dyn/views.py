@@ -60,7 +60,7 @@ def databases():
             raise Exception("es.ping failed!")
         # if not es_aux.ping():
         #     raise Exception("es_aux.ping failed!")
-    except:
+    except Exception:
         number_of_db_exceptions += 1
         if number_of_db_exceptions > 10:
             raise
@@ -114,7 +114,7 @@ def api_md5_fast_download():
     try:
         domain = allthethings.utils.FAST_DOWNLOAD_DOMAINS[domain_index]
         path_info = aarecord['additional']['partner_url_paths'][path_index]
-    except:
+    except Exception:
         return api_md5_fast_download_get_json(None, { "error": "Invalid domain_index or path_index" }), 400, {'Content-Type': 'text/json; charset=utf-8'}
     url = 'https://' + domain + '/' + allthethings.utils.make_anon_download_uri(False, 20000, path_info['path'], aarecord['additional']['filename'], domain)
 
@@ -184,7 +184,7 @@ def generate_torrents_page():
     max_tb = 10000000
     try:
         max_tb = float(request.args.get('max_tb'))
-    except:
+    except Exception:
         pass
     if max_tb < 0.00001:
         max_tb = 10000000
@@ -897,7 +897,6 @@ def account_buy_membership():
         # if existing_unpaid_donations_counts > 0:
         #     raise Exception(f"Existing unpaid or manualconfirm donations open")
 
-        data_ip = allthethings.utils.canonical_ip_bytes(request.remote_addr)
         data = {
             'donation_id': donation_id,
             'account_id': account_id,
@@ -953,7 +952,7 @@ def account_cancel_donation(donation_id):
 @allthethings.utils.public_cache(minutes=1, cloudflare_minutes=1)
 @cross_origin()
 def recent_downloads():
-    with Session(engine) as session:
+    with Session(engine):
         with Session(mariapersist_engine) as mariapersist_session:
             downloads = mariapersist_session.connection().execute(
                 select(MariapersistDownloads)
