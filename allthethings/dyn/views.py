@@ -952,7 +952,7 @@ def account_cancel_donation(donation_id):
 @allthethings.utils.public_cache(minutes=1, cloudflare_minutes=1)
 @cross_origin()
 def recent_downloads():
-    with Session(engine) as session:
+    with Session(engine):
         with Session(mariapersist_engine) as mariapersist_session:
             downloads = mariapersist_session.connection().execute(
                 select(MariapersistDownloads)

@@ -324,7 +324,7 @@ def faq_page():
         "md5:6963187473f4f037a28e2fe1153ca793", # How music got free
         "md5:6ed2d768ec1668c73e4fa742e3df78d6", # Physics
     ]
-    with Session(engine) as session:
+    with Session(engine):
         aarecords = (get_aarecords_elasticsearch(popular_ids) or [])
         aarecords.sort(key=lambda aarecord: popular_ids.index(aarecord['id']))
 
@@ -5353,7 +5353,7 @@ def render_aarecord(record_id):
     if allthethings.utils.DOWN_FOR_MAINTENANCE:
         return render_template("page/maintenance.html", header_active="")
 
-    with Session(engine) as session:
+    with Session(engine):
         ids = [record_id]
         if not allthethings.utils.validate_aarecord_ids(ids):
             return render_template("page/aarecord_not_found.html", header_active="search", not_found_field=record_id), 404
@@ -5421,7 +5421,7 @@ def scidb_page(doi_input):
     # if not verified:
     #     return redirect(f"/scidb/{doi_input}?scidb_verified=1", code=302)
 
-    with Session(engine) as session:
+    with Session(engine):
         try:
             search_results_raw1 = es_aux.search(
                 index=allthethings.utils.all_virtshards_for_index("aarecords_journals"),
@@ -5531,7 +5531,7 @@ def md5_fast_download(md5_input, path_index, domain_index):
         if account_fast_download_info is None:
             return redirect("/fast_download_not_member", code=302)
 
-        with Session(engine) as session:
+        with Session(engine):
             aarecords = get_aarecords_elasticsearch([f"md5:{canonical_md5}"])
             if aarecords is None:
                 return render_template("page/aarecord_issue.html", header_active="search"), 500
