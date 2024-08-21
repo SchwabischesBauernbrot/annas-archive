@@ -311,10 +311,10 @@ CLOUDFLARE_NETWORKS = [ipaddress.ip_network(row) for row in [
 
 def is_canonical_ip_cloudflare(canonical_ip_bytes):
     if not isinstance(canonical_ip_bytes, bytes):
-        raise Exception(f"Bad instance in is_canonical_ip_cloudflare")
+        raise Exception("Bad instance in is_canonical_ip_cloudflare")
     ipv6 = ipaddress.ip_address(canonical_ip_bytes)
     if ipv6.version != 6:
-        raise Exception(f"Bad ipv6.version in is_canonical_ip_cloudflare")
+        raise Exception("Bad ipv6.version in is_canonical_ip_cloudflare")
     if ipv6.sixtofour is not None:
         for network in CLOUDFLARE_NETWORKS:
             if ipv6.sixtofour in network:

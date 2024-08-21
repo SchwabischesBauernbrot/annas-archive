@@ -36,7 +36,7 @@ account = Blueprint("account", __name__, template_folder="templates")
 @allthethings.utils.no_cache()
 def account_index_page():
     if (request.args.get('key', '') != '') and (not bool(re.match(r"^[a-zA-Z\d]+$", request.args.get('key')))):
-        return redirect(f"/account/", code=302)
+        return redirect("/account/", code=302)
 
     account_id = allthethings.utils.get_account_id(request.cookies)
     if account_id is None:
@@ -97,7 +97,7 @@ def account_secret_key_page():
 def account_downloaded_page():
     account_id = allthethings.utils.get_account_id(request.cookies)
     if account_id is None:
-        return redirect(f"/account/", code=302)
+        return redirect("/account/", code=302)
 
     with Session(mariapersist_engine) as mariapersist_session:
         downloads = mariapersist_session.connection().execute(select(MariapersistDownloads).where(MariapersistDownloads.account_id == account_id).order_by(MariapersistDownloads.timestamp.desc()).limit(1000)).all()
@@ -148,7 +148,7 @@ def account_index_post_page():
             key=SECRET_KEY,
             algorithm="HS256"
         )
-        resp = make_response(redirect(f"/account/", code=302))
+        resp = make_response(redirect("/account/", code=302))
         resp.set_cookie(
             key=allthethings.utils.ACCOUNT_COOKIE_NAME,
             value=allthethings.utils.strip_jwt_prefix(account_token),
@@ -184,13 +184,13 @@ def account_register_page():
 @account.get("/account/request")
 @allthethings.utils.no_cache()
 def request_page():
-    return redirect(f"/faq#request", code=301)
+    return redirect("/faq#request", code=301)
 
 
 @account.get("/account/upload")
 @allthethings.utils.no_cache()
 def upload_page():
-    return redirect(f"/faq#upload", code=301)
+    return redirect("/faq#upload", code=301)
 
 @account.get("/list/<string:list_id>")
 @allthethings.utils.no_cache()
@@ -294,7 +294,7 @@ def donate_page():
 @account.get("/donation_faq")
 @allthethings.utils.no_cache()
 def donation_faq_page():
-    return redirect(f"/faq#donate", code=301)
+    return redirect("/faq#donate", code=301)
 
 @functools.cache
 def get_order_processing_status_labels(locale):

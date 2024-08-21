@@ -802,7 +802,7 @@ def account_buy_membership():
 
     cost_cents_usd_verification = request.form['costCentsUsdVerification']
     if str(membership_costs['cost_cents_usd']) != cost_cents_usd_verification:
-        raise Exception(f"Invalid costCentsUsdVerification")
+        raise Exception("Invalid costCentsUsdVerification")
 
     donation_type = 0 # manual
     if method in ['payment1', 'payment1_alipay', 'payment1_wechat', 'payment1b', 'payment1bb', 'payment2', 'payment2paypal', 'payment2cashapp', 'payment2revolut', 'payment2cc', 'amazon', 'hoodpay', 'payment3a', 'payment3b']:

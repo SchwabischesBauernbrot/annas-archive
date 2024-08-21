@@ -320,13 +320,13 @@ def home_page():
 @page.get("/login")
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
 def login_page():
-    return redirect(f"/account", code=301)
+    return redirect("/account", code=301)
     # return render_template("page/login.html", header_active="account")
 
 @page.get("/about")
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
 def about_page():
-    return redirect(f"/faq", code=301)
+    return redirect("/faq", code=301)
 
 @page.get("/faq")
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
@@ -351,12 +351,12 @@ def faq_page():
 @page.get("/security")
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
 def security_page():
-    return redirect(f"/faq#security", code=301)
+    return redirect("/faq#security", code=301)
 
 @page.get("/mobile")
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
 def mobile_page():
-    return redirect(f"/faq#mobile", code=301)
+    return redirect("/faq#mobile", code=301)
 
 @page.get("/llm")
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
@@ -1053,7 +1053,7 @@ def zlib_add_edition_varia_normalized(zlib_book_dict):
 
 def zlib_cover_url_guess(md5):
     # return f"https://static.z-lib.gs/covers/books/{md5[0:2]}/{md5[2:4]}/{md5[4:6]}/{md5}.jpg"
-    return f""
+    return ""
 
 def get_zlib_book_dicts(session, key, values):
     if len(values) == 0:
@@ -2414,7 +2414,7 @@ def get_scihub_doi_dicts(session, key, values):
     try:
         session.connection().connection.ping(reconnect=True)
         cursor = session.connection().connection.cursor(pymysql.cursors.DictCursor)
-        cursor.execute(f'SELECT doi FROM scihub_dois WHERE doi IN %(values)s', { "values": [str(value) for value in values] })
+        cursor.execute('SELECT doi FROM scihub_dois WHERE doi IN %(values)s', { "values": [str(value) for value in values] })
         scihub_dois = list(cursor.fetchall())
     except Exception as err:
         print(f"Error in get_scihub_doi_dicts when querying {key}; {values}")
@@ -2741,11 +2741,11 @@ def get_duxiu_dicts(session, key, values, include_deep_transitive_md5s_size_path
         session.connection().connection.ping(reconnect=True)
         cursor = session.connection().connection.cursor(pymysql.cursors.DictCursor)
         if key == 'md5':
-            cursor.execute(f'SELECT annas_archive_meta__aacid__duxiu_records.byte_offset, annas_archive_meta__aacid__duxiu_records.byte_length, annas_archive_meta__aacid__duxiu_files.primary_id, annas_archive_meta__aacid__duxiu_files.byte_offset AS generated_file_byte_offset, annas_archive_meta__aacid__duxiu_files.byte_length AS generated_file_byte_length FROM annas_archive_meta__aacid__duxiu_records JOIN annas_archive_meta__aacid__duxiu_files ON (CONCAT("md5_", annas_archive_meta__aacid__duxiu_files.md5) = annas_archive_meta__aacid__duxiu_records.primary_id) WHERE annas_archive_meta__aacid__duxiu_files.primary_id IN %(values)s', { "values": values })
+            cursor.execute('SELECT annas_archive_meta__aacid__duxiu_records.byte_offset, annas_archive_meta__aacid__duxiu_records.byte_length, annas_archive_meta__aacid__duxiu_files.primary_id, annas_archive_meta__aacid__duxiu_files.byte_offset AS generated_file_byte_offset, annas_archive_meta__aacid__duxiu_files.byte_length AS generated_file_byte_length FROM annas_archive_meta__aacid__duxiu_records JOIN annas_archive_meta__aacid__duxiu_files ON (CONCAT("md5_", annas_archive_meta__aacid__duxiu_files.md5) = annas_archive_meta__aacid__duxiu_records.primary_id) WHERE annas_archive_meta__aacid__duxiu_files.primary_id IN %(values)s', { "values": values })
         elif key == 'filename_decoded_basename':
-            cursor.execute(f'SELECT byte_offset, byte_length, filename_decoded_basename AS primary_id FROM annas_archive_meta__aacid__duxiu_records WHERE filename_decoded_basename IN %(values)s', { "values": values })
+            cursor.execute('SELECT byte_offset, byte_length, filename_decoded_basename AS primary_id FROM annas_archive_meta__aacid__duxiu_records WHERE filename_decoded_basename IN %(values)s', { "values": values })
         else:
-            cursor.execute(f'SELECT primary_id, byte_offset, byte_length FROM annas_archive_meta__aacid__duxiu_records WHERE primary_id IN %(values)s', { "values": [f'{primary_id_prefix}{value}' for value in values] })
+            cursor.execute('SELECT primary_id, byte_offset, byte_length FROM annas_archive_meta__aacid__duxiu_records WHERE primary_id IN %(values)s', { "values": [f'{primary_id_prefix}{value}' for value in values] })
     except Exception as err:
         print(f"Error in get_duxiu_dicts when querying {key}; {values}")
         print(repr(err))
@@ -4904,7 +4904,7 @@ def get_specific_search_fields_mapping(display_lang):
 
 def format_filesize(num):
     if num < 100000:
-        return f"0.1MB"
+        return "0.1MB"
     elif num < 1000000:
         return f"{num/1000000:3.1f}MB"
     else:
@@ -5288,7 +5288,7 @@ def get_additional_for_aarecord(aarecord):
         additional['download_urls'].append((gettext('page.md5.box.download.original_oclc'), f"https://worldcat.org/title/{aarecord_id_split[1]}", ""))
     if aarecord_id_split[0] == 'duxiu_ssid':
         additional['download_urls'].append((gettext('page.md5.box.download.aa_duxiu'), f'/search?q="duxiu_ssid:{aarecord_id_split[1]}"', ""))
-        additional['download_urls'].append((gettext('page.md5.box.download.original_duxiu'), f'https://www.duxiu.com/bottom/about.html', ""))
+        additional['download_urls'].append((gettext('page.md5.box.download.original_duxiu'), 'https://www.duxiu.com/bottom/about.html', ""))
     if aarecord_id_split[0] == 'cadal_ssno':
         additional['download_urls'].append((gettext('page.md5.box.download.aa_cadal'), f'/search?q="cadal_ssno:{aarecord_id_split[1]}"', ""))
         additional['download_urls'].append((gettext('page.md5.box.download.original_cadal'), f'https://cadal.edu.cn/cardpage/bookCardPage?ssno={aarecord_id_split[1]}', ""))
@@ -5539,12 +5539,12 @@ def md5_fast_download(md5_input, path_index, domain_index):
     
     account_id = allthethings.utils.get_account_id(request.cookies)
     if account_id is None:
-        return redirect(f"/fast_download_not_member", code=302)
+        return redirect("/fast_download_not_member", code=302)
 
     with Session(mariapersist_engine) as mariapersist_session:
         account_fast_download_info = allthethings.utils.get_account_fast_download_info(mariapersist_session, account_id)
         if account_fast_download_info is None:
-            return redirect(f"/fast_download_not_member", code=302)
+            return redirect("/fast_download_not_member", code=302)
 
         with Session(engine) as session:
             aarecords = get_aarecords_elasticsearch([f"md5:{canonical_md5}"])
@@ -5562,7 +5562,7 @@ def md5_fast_download(md5_input, path_index, domain_index):
 
         if canonical_md5 not in account_fast_download_info['recently_downloaded_md5s']:
             if account_fast_download_info['downloads_left'] <= 0:
-                return redirect(f"/fast_download_no_more", code=302)
+                return redirect("/fast_download_no_more", code=302)
             data_md5 = bytes.fromhex(canonical_md5)
             data_ip = allthethings.utils.canonical_ip_bytes(request.remote_addr)
             mariapersist_session.connection().execute(text('INSERT INTO mariapersist_fast_download_access (md5, ip, account_id) VALUES (:md5, :ip, :account_id)').bindparams(md5=data_md5, ip=data_ip, account_id=account_id))
