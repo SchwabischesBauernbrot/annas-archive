@@ -576,8 +576,8 @@ def membership_costs_data(locale):
             raise Exception("Invalid fields")
 
         discounts = MEMBERSHIP_METHOD_DISCOUNTS[method] + MEMBERSHIP_DURATION_DISCOUNTS[duration]
-        monthly_cents = round(MEMBERSHIP_TIER_COSTS[tier]*(100-discounts));
-        cost_cents_usd = monthly_cents * int(duration);
+        monthly_cents = round(MEMBERSHIP_TIER_COSTS[tier]*(100-discounts))
+        cost_cents_usd = monthly_cents * int(duration)
 
         native_currency_code = 'USD'
         cost_cents_native_currency = cost_cents_usd
