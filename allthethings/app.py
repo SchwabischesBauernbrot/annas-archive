@@ -183,13 +183,6 @@ def extensions(app):
                 values['hash'] = hash_cache[filename] = filehash
 
     @functools.cache
-    def get_display_name_for_lang(lang_code, display_lang):
-        result = langcodes.Language.make(lang_code).display_name(display_lang)
-        if '[' not in result:
-            result = result + ' [' + lang_code + ']'
-        return result.replace(' []', '')
-
-    @functools.cache
     def last_data_refresh_date():
         with engine.connect() as conn:
             libgenrs_statement = select(LibgenrsUpdated.TimeLastModified).order_by(LibgenrsUpdated.ID.desc()).limit(1)
