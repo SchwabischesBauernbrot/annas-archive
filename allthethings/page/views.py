@@ -3951,7 +3951,7 @@ def aarecord_sources(aarecord):
         *(['lgli']      if aarecord['lgli_file'] is not None else []),
         *(['lgrs']      if aarecord['lgrsfic_book'] is not None else []),
         *(['lgrs']      if aarecord['lgrsnf_book'] is not None else []),
-        *(['magzdb']    if aarecord['aac_magzdb'] is not None else []),
+        *(['magzdb']    if aarecord.get('aac_magzdb') is not None else []),
         *(['oclc']      if (aarecord_id_split[0] == 'oclc' and len(aarecord['oclc'] or []) > 0) else []),
         *(['ol']        if (aarecord_id_split[0] == 'ol' and len(aarecord['ol'] or []) > 0) else []),
         *(['scihub']    if len(aarecord['scihub_doi']) > 0 else []),
