@@ -153,8 +153,15 @@ To report bugs or suggest new ideas, please file an ["issue"](https://software.a
 To contribute code, also file an [issue](https://software.annas-archive.se/AnnaArchivist/annas-archive/-/issues), and include your `git diff` inline (you can use \`\`\`diff to get some syntax highlighting on the diff). Merge requests are currently disabled for security purposes — if you make consistently useful contributions you might get access.
 
 For larger projects, please contact Anna first on [Reddit](https://www.reddit.com/r/Annas_Archive/).
+
+## Testing
+
+To check that all pages are working, you can start your docker-compose stack, then run `bash ./bin/smoke-test`.
+
+You can also run `bash ./bin/smoke-test <language-code>` to check a single language.
+
+The script will output .html files in the current directory named `<language>--<path>.html`, where path is the url-encoded pathname that errored. You can open that file to see the error.
+
 ## License
 
-
 Released in the public domain under the terms of [CC0](./LICENSE). By contributing you agree to license your code under the same license.
-
