@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -eu -o pipefail
+
+# lint the code
+ruff check
+
+# enforce formatting
+# ruff format --diff
+
+# run the tests
+# pytest 

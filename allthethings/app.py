@@ -102,7 +102,7 @@ def extensions(app):
         try:
             with Session(engine) as session:
                 session.execute('SELECT 1')
-        except:
+        except Exception:
             print("mariadb not yet online, restarting")
             time.sleep(3)
             sys.exit(1)
@@ -110,7 +110,7 @@ def extensions(app):
         try:
             with Session(mariapersist_engine) as mariapersist_session:
                 mariapersist_session.execute('SELECT 1')
-        except:
+        except Exception:
             if os.getenv("DATA_IMPORTS_MODE", "") == "1":
                 print("Ignoring mariapersist not being online because DATA_IMPORTS_MODE=1")
             else:
@@ -120,7 +120,7 @@ def extensions(app):
 
         try:
             Reflected.prepare(engine)
-        except:
+        except Exception:
             if os.getenv("DATA_IMPORTS_MODE", "") == "1":
                 print("Ignoring mariadb problems because DATA_IMPORTS_MODE=1")
             else:
@@ -129,7 +129,7 @@ def extensions(app):
 
         try:
             ReflectedMariapersist.prepare(mariapersist_engine)
-        except:
+        except Exception:
             if os.getenv("DATA_IMPORTS_MODE", "") == "1":
                 print("Ignoring mariapersist problems because DATA_IMPORTS_MODE=1")
             else:
@@ -197,7 +197,7 @@ def extensions(app):
             try:
                 libgenrs_time = conn.execute(libgenrs_statement).scalars().first()
                 libgenli_time = conn.execute(libgenli_statement).scalars().first()
-            except:
+            except Exception:
                 return ''
             latest_time = max([libgenrs_time, libgenli_time])
             return latest_time.date()
@@ -246,7 +246,7 @@ def extensions(app):
         try:
             ipaddress.ip_address(request.headers['Host'])
             host_is_ip = True
-        except:
+        except Exception:
             pass
         if (not host_is_ip) and (request.headers['Host'] != full_hostname):
             redir_path = f"{g.full_domain}{request.full_path}"

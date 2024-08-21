@@ -904,7 +904,7 @@ def codes_page():
         prefix_b64 = request.args.get('prefix_b64') or ''
         try:
             prefix_bytes = base64.b64decode(prefix_b64.replace(' ', '+'))
-        except:
+        except Exception:
             return "Invalid prefix_b64", 404
 
         connection.connection.ping(reconnect=True)
@@ -985,7 +985,7 @@ def codes_page():
         bad_unicode = False
         try:
             prefix_bytes.decode()
-        except:
+        except Exception:
             bad_unicode = True
 
         prefix_label = prefix_bytes.decode(errors='replace')
@@ -2769,7 +2769,7 @@ def get_duxiu_dicts(session, key, values, include_deep_transitive_md5s_size_path
                 serialized_file['aa_derived_deserialized_gbk'] = ''
                 try:
                     serialized_file['aa_derived_deserialized_gbk'] = base64.b64decode(serialized_file['data_base64']).decode('gbk')
-                except:
+                except Exception:
                     pass
 
             new_aac_record["metadata"]["record"]["aa_derived_ini_values"] = {}
@@ -3185,7 +3185,7 @@ def get_duxiu_dicts(session, key, values, include_deep_transitive_md5s_size_path
             langdetect_response = {}
             try:
                 langdetect_response = fast_langdetect.detect(language_detect_string)
-            except:
+            except Exception:
                 pass
             duxiu_dict['aa_duxiu_derived']['debug_language_codes'] = { 'langdetect_response': langdetect_response }
 
@@ -3481,10 +3481,10 @@ def get_aac_upload_book_dicts(session, key, values):
             if create_date_field != '':
                 try:
                     file_created_date = datetime.datetime.strptime(create_date_field, "%Y:%m:%d %H:%M:%S%z").astimezone(datetime.timezone.utc).replace(tzinfo=None).isoformat().split('T', 1)[0]
-                except:
+                except Exception:
                     try:
                         file_created_date = datetime.datetime.strptime(create_date_field, "%Y:%m:%d %H:%M:%S").isoformat().split('T', 1)[0]
-                    except:
+                    except Exception:
                         pass
             if file_created_date is not None:
                 aac_upload_book_dict['aa_upload_derived']['added_date_unified']['file_created_date'] = min(file_created_date, aac_upload_book_dict['aa_upload_derived']['added_date_unified'].get('file_created_date') or file_created_date)
@@ -3731,7 +3731,7 @@ def get_aarecords_elasticsearch(aarecord_ids):
             try:
                 search_results_raw += es_handle.mget(docs=docs)['docs']
                 break
-            except:
+            except Exception:
                 print(f"Warning: another attempt during get_aarecords_elasticsearch {es_handle=} {aarecord_ids=}")
                 if attempt >= 3:
                     number_of_get_aarecords_elasticsearch_exceptions += 1
@@ -4426,7 +4426,7 @@ def get_aarecords_mysql(session, aarecord_ids):
                     aarecord['file_unified_data']['language_codes_detected'] = [get_bcp47_lang_codes(language_detection)[0]]
                     aarecord['file_unified_data']['language_codes'] = aarecord['file_unified_data']['language_codes_detected']
                     aarecord['file_unified_data']['most_likely_language_codes'] = aarecord['file_unified_data']['language_codes']
-            except:
+            except Exception:
                 pass
 
         for lang_code in aarecord['file_unified_data']['language_codes']:
@@ -5542,7 +5542,7 @@ def md5_fast_download(md5_input, path_index, domain_index):
             try:
                 domain = allthethings.utils.FAST_DOWNLOAD_DOMAINS[domain_index]
                 path_info = aarecord['additional']['partner_url_paths'][path_index]
-            except:
+            except Exception:
                 return redirect(f"/md5/{md5_input}", code=302)
             url = 'https://' + domain + '/' + allthethings.utils.make_anon_download_uri(False, 20000, path_info['path'], aarecord['additional']['filename'], domain)
 
@@ -5610,7 +5610,7 @@ def md5_slow_download(md5_input, path_index, domain_index):
         domain_slow = allthethings.utils.SLOW_DOWNLOAD_DOMAINS[domain_index]
         domain_slowest = allthethings.utils.SLOWEST_DOWNLOAD_DOMAINS[domain_index]
         path_info = aarecord['additional']['partner_url_paths'][path_index]
-    except:
+    except Exception:
         return redirect(f"/md5/{md5_input}", code=302)
 
     daily_download_count_from_ip = get_daily_download_count_from_ip(data_pseudo_ipv4)
@@ -5696,7 +5696,7 @@ def ipfs_downloads(md5_input):
     aarecord = aarecords[0]
     try:
         ipfs_urls = aarecord['additional']['ipfs_urls']
-    except:
+    except Exception:
         return redirect(f"/md5/{md5_input}", code=302)
 
     return render_template(
@@ -5719,7 +5719,7 @@ def search_query_aggs(search_index_long):
 def all_search_aggs(display_lang, search_index_long):
     try:
         search_results_raw = allthethings.utils.SEARCH_INDEX_TO_ES_MAPPING[search_index_long].search(index=allthethings.utils.all_virtshards_for_index(search_index_long), size=0, aggs=search_query_aggs(search_index_long), timeout=ES_TIMEOUT_ALL_AGG)
-    except:
+    except Exception:
         # Simple retry, just once.
         search_results_raw = allthethings.utils.SEARCH_INDEX_TO_ES_MAPPING[search_index_long].search(index=allthethings.utils.all_virtshards_for_index(search_index_long), size=0, aggs=search_query_aggs(search_index_long), timeout=ES_TIMEOUT_ALL_AGG)
 
@@ -5801,7 +5801,7 @@ def search_page():
     page_value = 1
     try:
         page_value = int(page_value_str)
-    except:
+    except Exception:
         pass
     sort_value = request.args.get("sort", "").strip()
     search_index_short = request.args.get("index", "").strip()
@@ -5974,7 +5974,7 @@ def search_page():
     display_lang = allthethings.utils.get_base_lang_code(get_locale())
     try:
         all_aggregations, all_aggregations_es_stat = all_search_aggs(display_lang, search_index_long)
-    except:
+    except Exception:
         return 'Page loading issue', 500
     es_stats.append(all_aggregations_es_stat)
 

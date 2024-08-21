@@ -11,7 +11,7 @@ for line in sys.stdin:
     record = {}
     try:
         record = orjson.loads(line)
-    except:
+    except Exception:
         print("Error parsing JSON.", file=sys.stderr)
         print(line, file=sys.stderr)
         continue
