@@ -2419,6 +2419,71 @@ msgstr "When asking account or donation questions, add your account ID, screensh
 msgid "page.contact.checkboxes.show_email_button"
 msgstr "Show email"
 
+#: allthethings/page/templates/page/copyright.html:3
+#: allthethings/page/templates/page/copyright.html:6
+msgid "page.copyright.title"
+msgstr "DMCA / Copyright claim form"
+
+#: allthethings/page/templates/page/copyright.html:8
+msgid "page.copyright.intro"
+msgstr "If you have a DCMA or other copyright claim, please fill out this form as precisely as possible. If you run into any issues, please contact us at our dedicated DMCA address: %(email)s. Note that claims emailed to this address will not be processed, it is only for questions. Please use the form below to submit your claims."
+
+#: allthethings/page/templates/page/copyright.html:12
+msgid "page.copyright.form.aa_urls"
+msgstr "URLs on Anna’s Archive (required). One per line. Please only include URLs that describe the exact same edition of a book. If you want to make a claim for multiple books or multiple editions, please submit this form multiple times."
+
+#: allthethings/page/templates/page/copyright.html:12
+msgid "page.copyright.form.aa_urls.note"
+msgstr "Claims that bundle multiple books or editions together will be rejected."
+
+#: allthethings/page/templates/page/copyright.html:15
+msgid "page.copyright.form.name"
+msgstr "Your name (required)"
+
+#: allthethings/page/templates/page/copyright.html:18
+msgid "page.copyright.form.address"
+msgstr "Address (required)"
+
+#: allthethings/page/templates/page/copyright.html:21
+msgid "page.copyright.form.phone"
+msgstr "Phone number (required)"
+
+#: allthethings/page/templates/page/copyright.html:24
+msgid "page.copyright.form.email"
+msgstr "E-mail (required)"
+
+#: allthethings/page/templates/page/copyright.html:27
+msgid "page.copyright.form.description"
+msgstr "Clear description of the source material (required)"
+
+#: allthethings/page/templates/page/copyright.html:30
+msgid "page.copyright.form.isbns"
+msgstr "ISBNs of source material (if applicable). One per line. Please only include those that exactly match the edition for which you are reporting a copyright claim."
+
+#: allthethings/page/templates/page/copyright.html:33
+msgid "page.copyright.form.openlib_urls"
+msgstr "<a %(a_openlib)s>Open Library</a> URLs of source material, one per line. Please take a moment to search Open Library for your source material. This will help us verify your claim."
+
+#: allthethings/page/templates/page/copyright.html:36
+msgid "page.copyright.form.external_urls"
+msgstr "URLs to source material, one per line (required). Please include as many as possible, to help us verify your claim (e.g. Amazon, WorldCat, Google Books, DOI)."
+
+#: allthethings/page/templates/page/copyright.html:39
+msgid "page.copyright.form.statement"
+msgstr "Statement and signature (required)"
+
+#: allthethings/page/templates/page/copyright.html:43
+msgid "page.copyright.form.submit_claim"
+msgstr "Submit claim"
+
+#: allthethings/page/templates/page/copyright.html:47
+msgid "page.copyright.form.on_success"
+msgstr "✅ Thank you for submitting your copyright claim. We will review it as soon as possible. Please reload the page to file another one."
+
+#: allthethings/page/templates/page/copyright.html:48
+msgid "page.copyright.form.on_failure"
+msgstr "❌ Something went wrong. Please reload the page and try again."
+
 #: allthethings/page/templates/page/datasets.html:3
 #: allthethings/page/templates/page/datasets.html:18
 #: allthethings/page/templates/page/datasets_isbn_ranges.html:3
@@ -2594,6 +2659,74 @@ msgstr "We combine all the above sources into one unified database that we use t
 #: allthethings/page/templates/page/datasets.html:226
 msgid "page.datasets.unified_database.text2"
 msgstr "If you’d like to explore our data before running those scripts locally, you can look at our JSON files, which link further to other JSON files. <a %(a_json)s>This file</a> is a good starting point."
+
+#: allthethings/page/templates/page/datasets_ia.html:10
+msgid "page.datasets.ia.intro"
+msgstr "If you are interested in mirroring this dataset for <a %(a_archival)s>archival</a> or <a %(a_llm)s>LLM training</a> purposes, please contact us."
+
+#: allthethings/page/templates/page/datasets_ia.html:14
+msgid "page.datasets.ia.description"
+msgstr "This dataset is closely related to the <a %(a_datasets_openlib)s>Open Library dataset</a>. It contains a scrape of all metadata and a large portion of files from the IA’s Controlled Digital Lending Library. Updates get released in the <a %(a_aac)s>Anna’s Archive Containers format</a>."
+
+#: allthethings/page/templates/page/datasets_ia.html:18
+msgid "page.datasets.ia.description2"
+msgstr "These records are being referred to directly from the Open Library dataset, but also contains records that are not in Open Library. We also have a number of data files scraped by community members over the years."
+
+#: allthethings/page/templates/page/datasets_ia.html:22
+msgid "page.datasets.ia.description3"
+msgstr "The collection consists of two parts. You need both parts to get all data (except superseded torrents, which are crossed out on the torrents page)."
+
+#: allthethings/page/templates/page/datasets_ia.html:26
+msgid "page.datasets.ia.part1"
+msgstr "our first release, before we standardized on the <a %(a_aac)s>Anna’s Archive Containers (AAC) format</a>. Contains metadata (as json and xml), pdfs (from acsm and lcpdf digital lending systems), and cover thumbnails."
+
+#: allthethings/page/templates/page/datasets_ia.html:27
+msgid "page.datasets.ia.part2"
+msgstr "incremental new releases, using AAC. Only contains metadata with timestamps after 2023-01-01, since the rest is covered already by “ia”. Also all pdf files, this time from the acsm and “bookreader” (IA’s web reader) lending systems. Despite the name not being exactly right, we still populate bookreader files into the ia2_acsmpdf_files collection, since they are mutually exclusive."
+
+#: allthethings/page/templates/page/datasets_ia.html:32
+msgid "page.datasets.common.total_files"
+msgstr "Total files: %(count)s"
+
+#: allthethings/page/templates/page/datasets_ia.html:33
+msgid "page.datasets.common.total_filesize"
+msgstr "Total filesize: %(size)s"
+
+#: allthethings/page/templates/page/datasets_ia.html:34
+msgid "page.datasets.common.mirrored_file_count"
+msgstr "Files mirrored by Anna’s Archive: %(count)s (%(percent)s%%)"
+
+#: allthethings/page/templates/page/datasets_ia.html:35
+msgid "page.datasets.common.last_updated"
+msgstr "Last updated: %(date)s"
+
+#: allthethings/page/templates/page/datasets_ia.html:36
+msgid "page.datasets.common.aa_torrents"
+msgstr "Torrents by Anna’s Archive"
+
+#: allthethings/page/templates/page/datasets_ia.html:37
+msgid "page.datasets.common.aa_example_record"
+msgstr "Example record on Anna’s Archive"
+
+#: allthethings/page/templates/page/datasets_ia.html:38
+msgid "page.datasets.ia.ia_main_website"
+msgstr "Main website"
+
+#: allthethings/page/templates/page/datasets_ia.html:39
+msgid "page.datasets.ia.ia_lending"
+msgstr "Digital Lending Library"
+
+#: allthethings/page/templates/page/datasets_ia.html:40
+msgid "page.datasets.common.metadata_docs"
+msgstr "Metadata documentation (most fields)"
+
+#: allthethings/page/templates/page/datasets_ia.html:41
+msgid "page.datasets.common.import_scripts"
+msgstr "Scripts for importing metadata"
+
+#: allthethings/page/templates/page/datasets_ia.html:42
+msgid "page.datasets.common.aac"
+msgstr "Anna’s Archive Containers format"
 
 #: allthethings/page/templates/page/datasets_isbn_ranges.html:3
 #: allthethings/page/templates/page/datasets_isbn_ranges.html:6
