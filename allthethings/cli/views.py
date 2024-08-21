@@ -1,23 +1,11 @@
 import os
-import json
 import orjson
 import re
-import zlib
 import isbnlib
-import httpx
-import functools
 import collections
-import barcode
-import io
-import langcodes
 import tqdm
 import concurrent
-import threading
-import yappi
 import multiprocessing
-import gc
-import random
-import slugify
 import elasticsearch.helpers
 import time
 import pathlib
@@ -32,10 +20,9 @@ import zstandard
 
 import allthethings.utils
 
-from flask import Blueprint, __version__, render_template, make_response, redirect, request
-from allthethings.extensions import engine, mariadb_url, mariadb_url_no_timeout, es, es_aux, Reflected, mail, mariapersist_url
-from sqlalchemy import select, func, text, create_engine
-from sqlalchemy.dialects.mysql import match
+from flask import Blueprint
+from allthethings.extensions import engine, mariadb_url_no_timeout, Reflected, mail, mariapersist_url
+from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 from pymysql.constants import CLIENT
 from config.settings import SLOW_DATA_IMPORTS
@@ -303,9 +290,9 @@ def mysql_build_aac_tables_internal():
                         cursor.executemany(f'{action} INTO {table_name}__multiple_md5 (md5, aacid) VALUES (%(md5)s, %(aacid)s)', insert_data_multiple_md5s)
                     pbar.update(bytes_in_batch)
             connection.connection.ping(reconnect=True)
-            cursor.execute(f"UNLOCK TABLES")
-            cursor.execute(f"REPLACE INTO annas_archive_meta_aac_filenames (collection, filename) VALUES (%(collection)s, %(filename)s)", { "collection": collection, "filename": filepath.rsplit('/', 1)[-1] })
-            cursor.execute(f"COMMIT")
+            cursor.execute("UNLOCK TABLES")
+            cursor.execute("REPLACE INTO annas_archive_meta_aac_filenames (collection, filename) VALUES (%(collection)s, %(filename)s)", { "collection": collection, "filename": filepath.rsplit('/', 1)[-1] })
+            cursor.execute("COMMIT")
             print(f"[{collection}] Done!")
 
 
@@ -665,7 +652,7 @@ def elastic_build_aarecords_job(aarecord_ids):
                     # Avoiding IGNORE / ON DUPLICATE KEY here because of locking.
                     # WARNING: when trying to optimize this (e.g. if you see this in SHOW PROCESSLIST) know that this is a bit of a bottleneck, but
                     # not a huge one. Commenting out all these inserts doesn't speed up the job by that much.
-                    cursor.executemany(f'INSERT DELAYED INTO aarecords_all_md5 (md5, json_compressed) VALUES (%(md5)s, %(json_compressed)s)', aarecords_all_md5_insert_data)
+                    cursor.executemany('INSERT DELAYED INTO aarecords_all_md5 (md5, json_compressed) VALUES (%(md5)s, %(json_compressed)s)', aarecords_all_md5_insert_data)
                     cursor.execute('COMMIT')
 
                 if len(isbn13_oclc_insert_data) > 0:
@@ -673,7 +660,7 @@ def elastic_build_aarecords_job(aarecord_ids):
                     # Avoiding IGNORE / ON DUPLICATE KEY here because of locking.
                     # WARNING: when trying to optimize this (e.g. if you see this in SHOW PROCESSLIST) know that this is a bit of a bottleneck, but
                     # not a huge one. Commenting out all these inserts doesn't speed up the job by that much.
-                    cursor.executemany(f'INSERT DELAYED INTO isbn13_oclc (isbn13, oclc_id) VALUES (%(isbn13)s, %(oclc_id)s)', isbn13_oclc_insert_data)
+                    cursor.executemany('INSERT DELAYED INTO isbn13_oclc (isbn13, oclc_id) VALUES (%(isbn13)s, %(oclc_id)s)', isbn13_oclc_insert_data)
                     cursor.execute('COMMIT')
 
                 if len(temp_md5_with_doi_seen_insert_data) > 0:
@@ -681,7 +668,7 @@ def elastic_build_aarecords_job(aarecord_ids):
                     # Avoiding IGNORE / ON DUPLICATE KEY here because of locking.
                     # WARNING: when trying to optimize this (e.g. if you see this in SHOW PROCESSLIST) know that this is a bit of a bottleneck, but
                     # not a huge one. Commenting out all these inserts doesn't speed up the job by that much.
-                    cursor.executemany(f'INSERT DELAYED INTO temp_md5_with_doi_seen (doi) VALUES (%(doi)s)', temp_md5_with_doi_seen_insert_data)
+                    cursor.executemany('INSERT DELAYED INTO temp_md5_with_doi_seen (doi) VALUES (%(doi)s)', temp_md5_with_doi_seen_insert_data)
                     cursor.execute('COMMIT')
 
                 for codes_table_name, aarecords_codes_insert_data in aarecords_codes_insert_data_by_codes_table_name.items():
@@ -769,7 +756,7 @@ def elastic_build_aarecords_ia_internal():
         if len(sanity_check_result) > 0:
             raise Exception(f"Sanity check failed: libgen records found in annas_archive_meta__aacid__ia2_records {sanity_check_result=}")
 
-        print(f"Generating table temp_ia_ids")
+        print("Generating table temp_ia_ids")
         cursor.execute('DROP TABLE IF EXISTS temp_ia_ids')
         cursor.execute('CREATE TABLE temp_ia_ids (ia_id VARCHAR(250) NOT NULL, PRIMARY KEY(ia_id)) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin SELECT ia_id FROM (SELECT ia_id, libgen_md5 FROM aa_ia_2023_06_metadata UNION SELECT primary_id AS ia_id, NULL AS libgen_md5 FROM annas_archive_meta__aacid__ia2_records) combined LEFT JOIN aa_ia_2023_06_files USING (ia_id) LEFT JOIN annas_archive_meta__aacid__ia2_acsmpdf_files ON (combined.ia_id = annas_archive_meta__aacid__ia2_acsmpdf_files.primary_id) WHERE aa_ia_2023_06_files.md5 IS NULL AND annas_archive_meta__aacid__ia2_acsmpdf_files.md5 IS NULL AND combined.libgen_md5 IS NULL')
 
@@ -795,9 +782,9 @@ def elastic_build_aarecords_ia_internal():
                     pbar.update(len(batch))
                     current_ia_id = batch[-1]['ia_id']
 
-        print(f"Removing table temp_ia_ids")
+        print("Removing table temp_ia_ids")
         cursor.execute('DROP TABLE IF EXISTS temp_ia_ids')
-        print(f"Done with IA!")
+        print("Done with IA!")
 
 
 #################################################################################################
@@ -848,7 +835,7 @@ def elastic_build_aarecords_isbndb_internal():
                     last_map = executor.map_async(elastic_build_aarecords_job, more_itertools.ichunked(list(isbn13s), CHUNK_SIZE))
                     pbar.update(len(batch))
                     current_isbn13 = batch[-1]['isbn13']
-        print(f"Done with ISBNdb!")
+        print("Done with ISBNdb!")
 
 #################################################################################################
 # ./run flask cli elastic_build_aarecords_ol
@@ -887,7 +874,7 @@ def elastic_build_aarecords_ol_internal():
                     last_map = executor.map_async(elastic_build_aarecords_job, more_itertools.ichunked([f"ol:{item['ol_key'].replace('/books/','')}" for item in batch if allthethings.utils.validate_ol_editions([item['ol_key'].replace('/books/','')])], CHUNK_SIZE))
                     pbar.update(len(batch))
                     current_ol_key = batch[-1]['ol_key']
-        print(f"Done with OpenLib!")
+        print("Done with OpenLib!")
 
 #################################################################################################
 # ./run flask cli elastic_build_aarecords_duxiu
@@ -954,7 +941,7 @@ def elastic_build_aarecords_duxiu_internal():
                     last_map = executor.map_async(elastic_build_aarecords_job, more_itertools.ichunked(ids, CHUNK_SIZE))
                     pbar.update(len(batch))
                     current_primary_id = batch[-1]['primary_id']
-        print(f"Done with annas_archive_meta__aacid__duxiu_records!")
+        print("Done with annas_archive_meta__aacid__duxiu_records!")
 
 #################################################################################################
 # ./run flask cli elastic_build_aarecords_oclc
@@ -1002,7 +989,7 @@ def elastic_build_aarecords_oclc_internal():
                     last_map = executor.map_async(elastic_build_aarecords_job, more_itertools.ichunked([f"oclc:{row['primary_id']}" for row in batch], CHUNK_SIZE))
                     pbar.update(sum([row['count'] for row in batch]))
                     current_primary_id = batch[-1]['primary_id']
-        print(f"Done with annas_archive_meta__aacid__worldcat!")
+        print("Done with annas_archive_meta__aacid__worldcat!")
 
 #################################################################################################
 # ./run flask cli elastic_build_aarecords_main
@@ -1134,7 +1121,7 @@ def elastic_build_aarecords_main_internal():
         cursor = session.connection().connection.cursor(pymysql.cursors.DictCursor)
         cursor.execute('DROP TABLE temp_md5_with_doi_seen')
 
-    print(f"Done with main!")
+    print("Done with main!")
 
 #################################################################################################
 # ./run flask cli elastic_build_aarecords_forcemerge

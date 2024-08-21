@@ -1,14 +1,9 @@
 import time
-import json
 import orjson
-import flask_mail
 import datetime
-import jwt
 import re
 import collections
 import shortuuid
-import urllib.parse
-import base64
 import pymysql
 import hashlib
 import hmac
@@ -21,14 +16,14 @@ import babel.numbers as babel_numbers
 import io
 import random
 
-from flask import Blueprint, request, g, make_response, render_template, redirect, send_file
+from flask import Blueprint, request, g, make_response, render_template, send_file
 from flask_cors import cross_origin
-from sqlalchemy import select, func, text, inspect
+from sqlalchemy import select, func, text
 from sqlalchemy.orm import Session
-from flask_babel import format_timedelta, gettext, get_locale
+from flask_babel import gettext, get_locale
 
-from allthethings.extensions import es, es_aux, engine, mariapersist_engine, MariapersistDownloadsTotalByMd5, mail, MariapersistDownloadsHourlyByMd5, MariapersistDownloadsHourly, MariapersistMd5Report, MariapersistAccounts, MariapersistComments, MariapersistReactions, MariapersistLists, MariapersistListEntries, MariapersistDonations, MariapersistDownloads, MariapersistFastDownloadAccess, MariapersistSmallFiles
-from config.settings import SECRET_KEY, PAYMENT1_KEY, PAYMENT1B_KEY, PAYMENT2_URL, PAYMENT2_API_KEY, PAYMENT2_PROXIES, PAYMENT2_HMAC, PAYMENT2_SIG_HEADER, GC_NOTIFY_SIG, HOODPAY_URL, HOODPAY_AUTH, PAYMENT3_DOMAIN, PAYMENT3_KEY
+from allthethings.extensions import es, engine, mariapersist_engine, MariapersistDownloadsTotalByMd5, MariapersistDownloadsHourlyByMd5, MariapersistDownloadsHourly, MariapersistMd5Report, MariapersistAccounts, MariapersistComments, MariapersistReactions, MariapersistLists, MariapersistListEntries, MariapersistDonations, MariapersistDownloads, MariapersistSmallFiles
+from config.settings import PAYMENT1_KEY, PAYMENT1B_KEY, PAYMENT2_URL, PAYMENT2_API_KEY, PAYMENT2_PROXIES, PAYMENT2_HMAC, PAYMENT2_SIG_HEADER, GC_NOTIFY_SIG, HOODPAY_URL, HOODPAY_AUTH, PAYMENT3_DOMAIN, PAYMENT3_KEY
 from allthethings.page.views import get_aarecords_elasticsearch, ES_TIMEOUT_PRIMARY, get_torrents_data
 
 import allthethings.utils
@@ -778,7 +773,7 @@ def search_counts_page():
                     total_by_index_long[multi_searches[i*2]['index'][0].split('__', 1)[0]]['timed_out'] = True
                     any_timeout = True
                 total_by_index_long[multi_searches[i*2]['index'][0].split('__', 1)[0]]['took'] = result['took']
-    except Exception as err:
+    except Exception:
         pass
 
     r = make_response(orjson.dumps(total_by_index_long))
@@ -802,7 +797,7 @@ def account_buy_membership():
 
     cost_cents_usd_verification = request.form['costCentsUsdVerification']
     if str(membership_costs['cost_cents_usd']) != cost_cents_usd_verification:
-        raise Exception(f"Invalid costCentsUsdVerification")
+        raise Exception("Invalid costCentsUsdVerification")
 
     donation_type = 0 # manual
     if method in ['payment1', 'payment1_alipay', 'payment1_wechat', 'payment1b', 'payment1bb', 'payment2', 'payment2paypal', 'payment2cashapp', 'payment2revolut', 'payment2cc', 'amazon', 'hoodpay', 'payment3a', 'payment3b']:
@@ -880,7 +875,7 @@ def account_buy_membership():
                     "order_id": donation_id,
                 })
                 donation_json['payment2_request'] = response.json()
-            except httpx.HTTPError as err:
+            except httpx.HTTPError:
                 return orjson.dumps({ 'error': gettext('dyn.buy_membership.error.try_again', email="https://annas-archive.se/contact") })
             except Exception as err:
                 print(f"Warning: unknown error in payment2 http request: {repr(err)} /// {traceback.format_exc()}")

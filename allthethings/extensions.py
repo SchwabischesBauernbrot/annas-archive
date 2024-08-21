@@ -4,7 +4,7 @@ import random
 from flask_babel import Babel
 from flask_debugtoolbar import DebugToolbarExtension
 from flask_static_digest import FlaskStaticDigest
-from sqlalchemy import Column, Integer, ForeignKey, inspect, create_engine, Text
+from sqlalchemy import Column, Integer, ForeignKey, inspect, create_engine
 from sqlalchemy.orm import declarative_base, relationship
 from sqlalchemy.ext.declarative import DeferredReflection
 from elasticsearch import Elasticsearch

@@ -4,7 +4,6 @@ import ipaddress
 import flask
 import functools
 import datetime
-import forex_python.converter
 import cachetools
 import babel.numbers
 import babel
@@ -16,7 +15,6 @@ import urllib.parse
 import orjson
 import isbnlib
 import math
-import bip_utils
 import shortuuid
 import pymysql
 import httpx
@@ -24,18 +22,13 @@ import indexed_zstd
 import threading
 import traceback
 import time
-import langcodes
 
 from flask_babel import gettext, get_babel, force_locale
 
-from flask import Blueprint, request, g, make_response, render_template
-from flask_cors import cross_origin
-from sqlalchemy import select, func, text, inspect
-from sqlalchemy.orm import Session
-from flask_babel import format_timedelta
+from sqlalchemy import select
 
-from allthethings.extensions import es, es_aux, engine, mariapersist_engine, MariapersistDownloadsTotalByMd5, mail, MariapersistDownloadsHourlyByMd5, MariapersistDownloadsHourly, MariapersistMd5Report, MariapersistAccounts, MariapersistComments, MariapersistReactions, MariapersistLists, MariapersistListEntries, MariapersistDonations, MariapersistDownloads, MariapersistFastDownloadAccess
-from config.settings import SECRET_KEY, DOWNLOADS_SECRET_KEY, MEMBERS_TELEGRAM_URL, FLASK_DEBUG, PAYMENT2_URL, PAYMENT2_API_KEY, PAYMENT2_PROXIES, FAST_PARTNER_SERVER1, HOODPAY_URL, HOODPAY_AUTH, PAYMENT3_DOMAIN, PAYMENT3_KEY, AACID_SMALL_DATA_IMPORTS
+from allthethings.extensions import es, es_aux, engine, MariapersistFastDownloadAccess
+from config.settings import SECRET_KEY, DOWNLOADS_SECRET_KEY, MEMBERS_TELEGRAM_URL, PAYMENT2_URL, PAYMENT2_API_KEY, PAYMENT2_PROXIES, FAST_PARTNER_SERVER1, HOODPAY_URL, HOODPAY_AUTH, PAYMENT3_DOMAIN, PAYMENT3_KEY, AACID_SMALL_DATA_IMPORTS
 
 FEATURE_FLAGS = {}
 
@@ -311,10 +304,10 @@ CLOUDFLARE_NETWORKS = [ipaddress.ip_network(row) for row in [
 
 def is_canonical_ip_cloudflare(canonical_ip_bytes):
     if not isinstance(canonical_ip_bytes, bytes):
-        raise Exception(f"Bad instance in is_canonical_ip_cloudflare")
+        raise Exception("Bad instance in is_canonical_ip_cloudflare")
     ipv6 = ipaddress.ip_address(canonical_ip_bytes)
     if ipv6.version != 6:
-        raise Exception(f"Bad ipv6.version in is_canonical_ip_cloudflare")
+        raise Exception("Bad ipv6.version in is_canonical_ip_cloudflare")
     if ipv6.sixtofour is not None:
         for network in CLOUDFLARE_NETWORKS:
             if ipv6.sixtofour in network:
@@ -583,8 +576,8 @@ def membership_costs_data(locale):
             raise Exception("Invalid fields")
 
         discounts = MEMBERSHIP_METHOD_DISCOUNTS[method] + MEMBERSHIP_DURATION_DISCOUNTS[duration]
-        monthly_cents = round(MEMBERSHIP_TIER_COSTS[tier]*(100-discounts));
-        cost_cents_usd = monthly_cents * int(duration);
+        monthly_cents = round(MEMBERSHIP_TIER_COSTS[tier]*(100-discounts))
+        cost_cents_usd = monthly_cents * int(duration)
 
         native_currency_code = 'USD'
         cost_cents_native_currency = cost_cents_usd

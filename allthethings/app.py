@@ -25,7 +25,7 @@ from allthethings.blog.views import blog
 from allthethings.page.views import page, all_search_aggs
 from allthethings.dyn.views import dyn
 from allthethings.cli.views import cli
-from allthethings.extensions import engine, mariapersist_engine, babel, debug_toolbar, flask_static_digest, Base, Reflected, ReflectedMariapersist, mail, LibgenrsUpdated, LibgenliFiles
+from allthethings.extensions import engine, mariapersist_engine, babel, debug_toolbar, flask_static_digest, Reflected, ReflectedMariapersist, mail, LibgenrsUpdated, LibgenliFiles
 from config.settings import SECRET_KEY, DOWNLOADS_SECRET_KEY, X_AA_SECRET
 
 import allthethings.utils
