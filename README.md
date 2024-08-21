@@ -156,6 +156,8 @@ For larger projects, please contact Anna first on [Reddit](https://www.reddit.co
 
 ## Testing
 
+Please run `./bin/check` before committing to ensure that your changes pass the automated checks. You can also run `./bin/fix` to apply some automatic fixes to common lint issues.
+
 To check that all pages are working, you can start your docker-compose stack, then run `bash ./bin/smoke-test`.
 
 You can also run `bash ./bin/smoke-test <language-code>` to check a single language.
@@ -164,4 +166,5 @@ The script will output .html files in the current directory named `<language>--<
 
 ## License
 
+>>>>>>> README.md
 Released in the public domain under the terms of [CC0](./LICENSE). By contributing you agree to license your code under the same license.

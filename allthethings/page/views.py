@@ -324,7 +324,7 @@ def faq_page():
         "md5:6963187473f4f037a28e2fe1153ca793", # How music got free
         "md5:6ed2d768ec1668c73e4fa742e3df78d6", # Physics
     ]
-    with Session(engine) as session:
+    with Session(engine):
         aarecords = (get_aarecords_elasticsearch(popular_ids) or [])
         aarecords.sort(key=lambda aarecord: popular_ids.index(aarecord['id']))
 
@@ -481,6 +481,7 @@ def get_stats_data():
             'ia': {'count': 0, 'filesize': 0, 'aa_count': 0, 'torrent_count': 0},
             'duxiu': {'count': 0, 'filesize': 0, 'aa_count': 0, 'torrent_count': 0},
             'upload': {'count': 0, 'filesize': 0, 'aa_count': 0, 'torrent_count': 0},
+            'magzdb': {'count': 0, 'filesize': 0, 'aa_count': 0, 'torrent_count': 0},
         }
         for bucket in stats_data_es['responses'][2]['aggregations']['search_record_sources']['buckets']:
             stats_by_group[bucket['key']] = {
@@ -569,7 +570,7 @@ def get_torrents_data():
 
             torrent_group_data = torrent_group_data_from_file_path(small_file['file_path'])
             group = torrent_group_data['group']
-            if torrent_group_data['aac_meta_group'] != None:
+            if torrent_group_data['aac_meta_group'] is not None:
                 aac_meta_file_paths_grouped[torrent_group_data['aac_meta_group']].append(small_file['file_path'])
 
             scrape_row = scrapes_by_file_path.get(small_file['file_path'])
@@ -578,7 +579,7 @@ def get_torrents_data():
             if scrape_row is not None:
                 scrape_created = scrape_row['created']
                 scrape_metadata = orjson.loads(scrape_row['metadata'])
-                if (metadata.get('embargo') or False) == False:
+                if (metadata.get('embargo') or False) is False:
                     if scrape_metadata['scrape']['seeders'] < 4:
                         seeder_sizes[0] += metadata['data_size']
                     elif scrape_metadata['scrape']['seeders'] < 11:
@@ -904,7 +905,7 @@ def codes_page():
         prefix_b64 = request.args.get('prefix_b64') or ''
         try:
             prefix_bytes = base64.b64decode(prefix_b64.replace(' ', '+'))
-        except:
+        except Exception:
             return "Invalid prefix_b64", 404
 
         connection.connection.ping(reconnect=True)
@@ -985,7 +986,7 @@ def codes_page():
         bad_unicode = False
         try:
             prefix_bytes.decode()
-        except:
+        except Exception:
             bad_unicode = True
 
         prefix_label = prefix_bytes.decode(errors='replace')
@@ -1461,10 +1462,10 @@ def extract_ol_str_field(field):
     return str(field.get('value')) or ""
 
 def extract_ol_author_field(field):
-    if type(field) == str:
+    if type(field) is str:
         return field
     elif 'author' in field:
-        if type(field['author']) == str:
+        if type(field['author']) is str:
             return field['author']
         elif 'key' in field['author']:
             return field['author']['key']
@@ -2173,6 +2174,8 @@ def get_lgli_file_dicts(session, key, values):
                         allthethings.utils.add_classification_unified(edition_dict, allthethings.utils.LGLI_CLASSIFICATIONS_MAPPING.get(key, key), value)
             allthethings.utils.add_isbns_unified(edition_dict, edition_dict['descriptions_mapped'].get('isbn') or [])
             allthethings.utils.add_isbns_unified(edition_dict, allthethings.utils.get_isbnlike('\n'.join(edition_dict['descriptions_mapped'].get('description') or [])))
+            if len((edition_dict['issue_series_issn'] or '').strip()) > 0:
+                allthethings.utils.add_issn_unified(edition_dict, edition_dict['issue_series_issn'].strip())
 
             edition_dict['stripped_description'] = ''
             if len(edition_dict['descriptions_mapped'].get('description') or []) > 0:
@@ -2313,7 +2316,6 @@ def get_isbndb_dicts(session, canonical_isbn13s):
 
     isbn_dicts = []
     for canonical_isbn13 in canonical_isbn13s:
-        isbn13_mask = isbnlib.mask(canonical_isbn13)
         isbn_dict = {
             "ean13": isbnlib.ean13(canonical_isbn13),
             "isbn10": isbnlib.to_isbn10(canonical_isbn13),
@@ -2656,7 +2658,7 @@ def get_oclc_dicts(session, key, values):
         allthethings.utils.add_identifier_unified(oclc_dict['aa_oclc_derived'], 'oclc', oclc_id)
         allthethings.utils.add_isbns_unified(oclc_dict['aa_oclc_derived'], oclc_dict['aa_oclc_derived']['isbn_multiple'])
         for issn in oclc_dict['aa_oclc_derived']['issn_multiple']:
-            allthethings.utils.add_identifier_unified(oclc_dict['aa_oclc_derived'], 'issn', issn)
+            allthethings.utils.add_issn_unified(oclc_dict['aa_oclc_derived'], issn)
         for doi in oclc_dict['aa_oclc_derived']['doi_multiple']:
             allthethings.utils.add_identifier_unified(oclc_dict['aa_oclc_derived'], 'doi', doi)
         for aac_record in aac_records:
@@ -2769,7 +2771,7 @@ def get_duxiu_dicts(session, key, values, include_deep_transitive_md5s_size_path
                 serialized_file['aa_derived_deserialized_gbk'] = ''
                 try:
                     serialized_file['aa_derived_deserialized_gbk'] = base64.b64decode(serialized_file['data_base64']).decode('gbk')
-                except:
+                except Exception:
                     pass
 
             new_aac_record["metadata"]["record"]["aa_derived_ini_values"] = {}
@@ -3154,7 +3156,7 @@ def get_duxiu_dicts(session, key, values, include_deep_transitive_md5s_size_path
         for cadal_ssno in duxiu_dict['aa_duxiu_derived']['cadal_ssno_multiple']:
             allthethings.utils.add_identifier_unified(duxiu_dict['aa_duxiu_derived'], 'cadal_ssno', cadal_ssno)
         for issn in duxiu_dict['aa_duxiu_derived']['issn_multiple']:
-            allthethings.utils.add_identifier_unified(duxiu_dict['aa_duxiu_derived'], 'issn', issn)
+            allthethings.utils.add_issn_unified(duxiu_dict['aa_duxiu_derived'], issn)
         for ean13 in duxiu_dict['aa_duxiu_derived']['ean13_multiple']:
             allthethings.utils.add_identifier_unified(duxiu_dict['aa_duxiu_derived'], 'ean13', ean13)
         for dxid in duxiu_dict['aa_duxiu_derived']['dxid_multiple']:
@@ -3185,7 +3187,7 @@ def get_duxiu_dicts(session, key, values, include_deep_transitive_md5s_size_path
             langdetect_response = {}
             try:
                 langdetect_response = fast_langdetect.detect(language_detect_string)
-            except:
+            except Exception:
                 pass
             duxiu_dict['aa_duxiu_derived']['debug_language_codes'] = { 'langdetect_response': langdetect_response }
 
@@ -3201,7 +3203,7 @@ def get_duxiu_dicts(session, key, values, include_deep_transitive_md5s_size_path
         duxiu_dict['aa_duxiu_derived']['filesize_best'] = next(iter(duxiu_dict['aa_duxiu_derived']['filesize_multiple']), 0)
         duxiu_dict['aa_duxiu_derived']['filepath_best'] = next(iter(duxiu_dict['aa_duxiu_derived']['filepath_multiple']), '')
         duxiu_dict['aa_duxiu_derived']['description_best'] = '\n\n'.join(list(dict.fromkeys(duxiu_dict['aa_duxiu_derived']['description_cumulative'])))
-        sources_joined = '\n'.join(sort_by_length_and_filter_subsequences_with_longest_string_and_normalize_unicode(duxiu_dict['aa_duxiu_derived']['source_multiple']))
+        _sources_joined = '\n'.join(sort_by_length_and_filter_subsequences_with_longest_string_and_normalize_unicode(duxiu_dict['aa_duxiu_derived']['source_multiple']))
         related_files_joined = '\n'.join(sort_by_length_and_filter_subsequences_with_longest_string_and_normalize_unicode([" — ".join([f"{key}:{related_file[key]}" for key in ["filepath", "md5", "filesize"] if related_file[key] is not None]) for related_file in duxiu_dict['aa_duxiu_derived']['related_files']]))
         duxiu_dict['aa_duxiu_derived']['combined_comments'] = list(dict.fromkeys(filter(len, duxiu_dict['aa_duxiu_derived']['comments_cumulative'] + [
             # TODO: pass through comments metadata in a structured way so we can add proper translations.
@@ -3481,10 +3483,10 @@ def get_aac_upload_book_dicts(session, key, values):
             if create_date_field != '':
                 try:
                     file_created_date = datetime.datetime.strptime(create_date_field, "%Y:%m:%d %H:%M:%S%z").astimezone(datetime.timezone.utc).replace(tzinfo=None).isoformat().split('T', 1)[0]
-                except:
+                except Exception:
                     try:
                         file_created_date = datetime.datetime.strptime(create_date_field, "%Y:%m:%d %H:%M:%S").isoformat().split('T', 1)[0]
-                    except:
+                    except Exception:
                         pass
             if file_created_date is not None:
                 aac_upload_book_dict['aa_upload_derived']['added_date_unified']['file_created_date'] = min(file_created_date, aac_upload_book_dict['aa_upload_derived']['added_date_unified'].get('file_created_date') or file_created_date)
@@ -3556,6 +3558,152 @@ def aac_upload_book_json(md5):
         if len(aac_upload_book_dicts) == 0:
             return "{}", 404
         return allthethings.utils.nice_json(aac_upload_book_dicts[0]), {'Content-Type': 'text/json; charset=utf-8'}
+
+
+def get_aac_magzdb_book_dicts(session, key, values):
+    if len(values) == 0:
+        return []
+
+    try:
+        session.connection().connection.ping(reconnect=True)
+        cursor = session.connection().connection.cursor(pymysql.cursors.DictCursor)
+        if key == 'magzdb_id':
+            cursor.execute(f'SELECT byte_offset, byte_length, primary_id, SUBSTRING(primary_id, 8) AS requested_value FROM annas_archive_meta__aacid__magzdb_records WHERE primary_id IN %(values)s', { "values": [f"record_{value}" for value in values] })
+        elif key == 'md5':
+            cursor.execute(f'SELECT byte_offset, byte_length, primary_id, annas_archive_meta__aacid__magzdb_records__multiple_md5.md5 as requested_value FROM annas_archive_meta__aacid__magzdb_records JOIN annas_archive_meta__aacid__magzdb_records__multiple_md5 USING (aacid) WHERE annas_archive_meta__aacid__magzdb_records__multiple_md5.md5 IN %(values)s', { "values": values })
+        else:
+            raise Exception(f"Unexpected 'key' in get_aac_magzdb_book_dicts: '{key}'")
+    except Exception as err:
+        print(f"Error in get_aac_magzdb_book_dicts when querying {key}; {values}")
+        print(repr(err))
+        traceback.print_tb(err.__traceback__)
+
+    record_offsets_and_lengths = []
+    requested_values = []
+    for row_index, row in enumerate(list(cursor.fetchall())):
+        record_offsets_and_lengths.append((row['byte_offset'], row['byte_length']))
+        requested_values.append(row['requested_value'])
+
+    if len(record_offsets_and_lengths) == 0:
+        return []
+
+    aac_records_by_requested_value = {}
+    publication_ids = set()
+    for index, line_bytes in enumerate(allthethings.utils.get_lines_from_aac_file(cursor, 'magzdb_records', record_offsets_and_lengths)):
+        aac_record = orjson.loads(line_bytes)
+        aac_records_by_requested_value[requested_values[index]] = aac_record
+        publication_ids.add(aac_record['metadata']['record']['publicationId'])
+
+    publication_offsets_and_lengths = []
+    if len(publication_ids) > 0:
+        session.connection().connection.ping(reconnect=True)
+        cursor = session.connection().connection.cursor(pymysql.cursors.DictCursor)
+        cursor.execute(f'SELECT byte_offset, byte_length FROM annas_archive_meta__aacid__magzdb_records WHERE primary_id IN %(values)s', { "values": [f"publication_{pubid}" for pubid in publication_ids] })
+        for row in cursor.fetchall():
+            publication_offsets_and_lengths.append((row['byte_offset'], row['byte_length']))
+    publication_aac_records_by_id = {}
+    for line_bytes in allthethings.utils.get_lines_from_aac_file(cursor, 'magzdb_records', publication_offsets_and_lengths):
+        aac_record = orjson.loads(line_bytes)
+        publication_aac_records_by_id[aac_record['metadata']['record']['id']] = aac_record
+    
+    values_set = set(values)
+    aac_magzdb_book_dicts = []
+    for requested_value, aac_record in aac_records_by_requested_value.items():
+        publication_aac_record = publication_aac_records_by_id[aac_record['metadata']['record']['publicationId']]
+
+        aac_magzdb_book_dict = {
+            "requested_value": requested_value,
+            "id": aac_record['metadata']['record']['id'],
+            "aa_magzdb_derived": {
+                "filesize": 0,
+                "extension": "",
+                "title_best": '',
+                "title_multiple": [],
+                "filepath_multiple": [],
+                "edition_varia_normalized": '',
+                "year": '',
+                "stripped_description": '',
+                "combined_comments": [],
+                "language_codes": [],
+                "added_date_unified": { "magzdb_meta_scrape": datetime.datetime.strptime(aac_record['aacid'].split('__')[2], "%Y%m%dT%H%M%SZ").isoformat().split('T', 1)[0] },
+            },
+            "aac_record": aac_record,
+            "publication_aac_record": publication_aac_record,
+        }
+
+        allthethings.utils.init_identifiers_and_classification_unified(aac_magzdb_book_dict['aa_magzdb_derived'])
+        allthethings.utils.add_classification_unified(aac_magzdb_book_dict['aa_magzdb_derived'], 'collection', 'magzdb')
+        allthethings.utils.add_identifier_unified(aac_magzdb_book_dict['aa_magzdb_derived'], 'aacid', aac_record['aacid'])
+        allthethings.utils.add_identifier_unified(aac_magzdb_book_dict['aa_magzdb_derived'], 'aacid', publication_aac_record['aacid'])
+        allthethings.utils.add_identifier_unified(aac_magzdb_book_dict['aa_magzdb_derived'], 'magzdb', aac_record['metadata']['record']['id'])
+        allthethings.utils.add_identifier_unified(aac_magzdb_book_dict['aa_magzdb_derived'], 'magzdb_pub', publication_aac_record['metadata']['record']['id'])
+
+        for keyword in (publication_aac_record['metadata']['record']['topic'] or '').split(';'):
+            keyword_stripped = keyword.strip()
+            if keyword_stripped != '':
+                allthethings.utils.add_classification_unified(aac_magzdb_book_dict['aa_magzdb_derived'], 'magzdb_keyword', keyword_stripped)
+
+        issn_stripped = (publication_aac_record['metadata']['record']['issn'] or '').strip()
+        if issn_stripped != '':
+            allthethings.utils.add_issn_unified(aac_magzdb_book_dict['aa_magzdb_derived'], issn_stripped)
+        
+        aac_magzdb_book_dict['aa_magzdb_derived']['title_best'] = f"{publication_aac_record['metadata']['record']['title'].strip()} {aac_record['metadata']['record']['year'] or ''} № {aac_record['metadata']['record']['edition'].strip()}"
+        aac_magzdb_book_dict['aa_magzdb_derived']['title_multiple'] = []
+        for aka in (publication_aac_record['metadata']['record']['aka'] or '').split(';'):
+            aka_stripped = aka.strip()
+            if aka_stripped != '':
+                aac_magzdb_book_dict['aa_magzdb_derived']['title_multiple'].append(f"{aka_stripped} {aac_record['metadata']['record']['year'] or ''} № {aac_record['metadata']['record']['edition'].strip()}")
+
+        if (aac_record['metadata']['record']['year'] or 0) != 0:
+            aac_magzdb_book_dict['aa_magzdb_derived']['year'] = str(aac_record['metadata']['record']['year'])
+
+        aac_magzdb_book_dict['aa_magzdb_derived']['language_codes'] = combine_bcp47_lang_codes([get_bcp47_lang_codes(language.strip()) for language in publication_aac_record['metadata']['record']['language'].split(';')])
+
+        place_of_publication_stripped = (publication_aac_record['metadata']['record']['placeOfPublication'] or '').strip()
+        if place_of_publication_stripped != '':
+            aac_magzdb_book_dict['aa_magzdb_derived']['edition_varia_normalized'] = place_of_publication_stripped
+
+        stripped_description = strip_description(publication_aac_record['metadata']['record']['description'] or '')
+        if stripped_description != '':
+            aac_magzdb_book_dict['aa_magzdb_derived']['stripped_description'] = stripped_description
+
+        year_range_stripped = (publication_aac_record['metadata']['record']['yearRange'] or '').strip()
+        if year_range_stripped != '':
+            aac_magzdb_book_dict['aa_magzdb_derived']['combined_comments'].append(year_range_stripped)
+
+        for upload in aac_record['metadata']['record']['uploads']:
+            if key == 'md5':
+                if (upload['md5'] or '') != requested_value:
+                    continue
+                aac_magzdb_book_dict['aa_magzdb_derived']['extension'] = upload['format'] or ''
+                aac_magzdb_book_dict['aa_magzdb_derived']['filesize'] = upload['sizeB'] or 0
+                content_type_stripped = (upload['contentType'] or '').strip()
+                if content_type_stripped != '':
+                    aac_magzdb_book_dict['aa_magzdb_derived']['combined_comments'].append(content_type_stripped)
+                author_stripped = (upload['author'] or '').strip()
+                if author_stripped != '':
+                    aac_magzdb_book_dict['aa_magzdb_derived']['combined_comments'].append(f"Uploaded by: {author_stripped}")
+                note_stripped = (upload['note'] or '').strip()
+                if note_stripped != '':
+                    aac_magzdb_book_dict['aa_magzdb_derived']['combined_comments'].append(note_stripped)
+
+            extension_with_dot = f".{upload['format']}" if upload['format'] != '' else ''
+            aac_magzdb_book_dict['aa_magzdb_derived']['filepath_multiple'].append(f"{publication_aac_record['metadata']['record']['title'].strip()}/{aac_record['metadata']['record']['year']}/{aac_record['metadata']['record']['edition'].strip()}/{upload['md5']}{extension_with_dot}")
+
+            if (upload['md5'] or '') != '':
+                allthethings.utils.add_identifier_unified(aac_magzdb_book_dict['aa_magzdb_derived'], 'md5', upload['md5'])
+
+        aac_magzdb_book_dicts.append(aac_magzdb_book_dict)
+    return aac_magzdb_book_dicts
+
+@page.get("/db/aac_magzdb/<string:magzdb_id>.json")
+@allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
+def aac_magzdb_book_json(magzdb_id):
+    with Session(engine) as session:
+        aac_magzdb_book_dicts = get_aac_magzdb_book_dicts(session, "magzdb_id", [magzdb_id])
+        if len(aac_magzdb_book_dicts) == 0:
+            return "{}", 404
+        return allthethings.utils.nice_json(aac_magzdb_book_dicts[0]), {'Content-Type': 'text/json; charset=utf-8'}
 
 # def get_embeddings_for_aarecords(session, aarecords):
 #     filtered_aarecord_ids = [aarecord['id'] for aarecord in aarecords if aarecord['id'].startswith('md5:')]
@@ -3731,7 +3879,7 @@ def get_aarecords_elasticsearch(aarecord_ids):
             try:
                 search_results_raw += es_handle.mget(docs=docs)['docs']
                 break
-            except:
+            except Exception:
                 print(f"Warning: another attempt during get_aarecords_elasticsearch {es_handle=} {aarecord_ids=}")
                 if attempt >= 3:
                     number_of_get_aarecords_elasticsearch_exceptions += 1
@@ -3803,13 +3951,14 @@ def aarecord_sources(aarecord):
         *(['lgli']      if aarecord['lgli_file'] is not None else []),
         *(['lgrs']      if aarecord['lgrsfic_book'] is not None else []),
         *(['lgrs']      if aarecord['lgrsnf_book'] is not None else []),
+        *(['magzdb']    if aarecord['aac_magzdb'] is not None else []),
         *(['oclc']      if (aarecord_id_split[0] == 'oclc' and len(aarecord['oclc'] or []) > 0) else []),
         *(['ol']        if (aarecord_id_split[0] == 'ol' and len(aarecord['ol'] or []) > 0) else []),
         *(['scihub']    if len(aarecord['scihub_doi']) > 0 else []),
         *(['upload']    if aarecord.get('aac_upload') is not None else []),
-        *(['zlibzh']    if (aarecord['aac_zlib3_book'] is not None) and ((aarecord['aac_zlib3_book'].get('storage') or '') == 'chinese') else []),
         *(['zlib']      if (aarecord['aac_zlib3_book'] is not None) and ((aarecord['aac_zlib3_book'].get('storage') or '') != 'chinese') else []),
         *(['zlib']      if aarecord['zlib_book'] is not None else []),
+        *(['zlibzh']    if (aarecord['aac_zlib3_book'] is not None) and ((aarecord['aac_zlib3_book'].get('storage') or '') == 'chinese') else []),
     ]))
 
 # Dummy translation to keep this msgid around. TODO: fix see below.
@@ -3840,6 +3989,8 @@ def get_aarecords_mysql(session, aarecord_ids):
     duxiu_dicts2 = {('cadal_ssno:' + item['cadal_ssno']): item for item in get_duxiu_dicts(session, 'cadal_ssno', split_ids['cadal_ssno'], include_deep_transitive_md5s_size_path=True)}
     duxiu_dicts3 = {('md5:' + item['md5']): item for item in get_duxiu_dicts(session, 'md5', split_ids['md5'], include_deep_transitive_md5s_size_path=False)}
     aac_upload_md5_dicts = {('md5:' + item['md5']): item for item in get_aac_upload_book_dicts(session, 'md5', split_ids['md5'])}
+    aac_magzdb_book_dicts = {('md5:' + item['requested_value']): item for item in get_aac_magzdb_book_dicts(session, 'md5', split_ids['md5'])}
+    aac_magzdb_book_dicts2 = {('magzdb:' + item['requested_value']): item for item in get_aac_magzdb_book_dicts(session, 'magzdb_id', split_ids['magzdb'])}
     ol_book_dicts_primary_linked = {('md5:' + md5): item for md5, item in get_ol_book_dicts_by_annas_archive_md5(session, split_ids['md5']).items()}
 
     # First pass, so we can fetch more dependencies.
@@ -3870,6 +4021,7 @@ def get_aarecords_mysql(session, aarecord_ids):
         aarecord['oclc'] = list(oclc_dicts.get(aarecord_id) or [])
         aarecord['duxiu'] = duxiu_dicts.get(aarecord_id) or duxiu_dicts2.get(aarecord_id) or duxiu_dicts3.get(aarecord_id)
         aarecord['aac_upload'] = aac_upload_md5_dicts.get(aarecord_id)
+        aarecord['aac_magzdb'] = aac_magzdb_book_dicts.get(aarecord_id) or aac_magzdb_book_dicts2.get(aarecord_id)
         aarecord['ol_book_dicts_primary_linked'] = list(ol_book_dicts_primary_linked.get(aarecord_id) or [])
         aarecord['duxius_nontransitive_meta_only'] = []
         
@@ -3894,6 +4046,7 @@ def get_aarecords_mysql(session, aarecord_ids):
             *[oclc['aa_oclc_derived']['identifiers_unified'] for oclc in aarecord['oclc']],
             (((aarecord['duxiu'] or {}).get('aa_duxiu_derived') or {}).get('identifiers_unified') or {}),
             (((aarecord['aac_upload'] or {}).get('aa_upload_derived') or {}).get('identifiers_unified') or {}),
+            (((aarecord['aac_magzdb'] or {}).get('aa_magzdb_derived') or {}).get('identifiers_unified') or {}),
             *[duxiu_record['aa_duxiu_derived']['identifiers_unified'] for duxiu_record in aarecord['duxius_nontransitive_meta_only']],
         ])
         # TODO: This `if` is not necessary if we make sure that the fields of the primary records get priority.
@@ -4056,13 +4209,14 @@ def get_aarecords_mysql(session, aarecord_ids):
             *[allthethings.utils.prefix_filepath('lgrsfic', filepath) for filepath in filter(len, [((aarecord['lgrsfic_book'] or {}).get('locator') or '').strip()])],
             *[allthethings.utils.prefix_filepath('lgli', filepath) for filepath in filter(len, [((aarecord['lgli_file'] or {}).get('locator') or '').strip()])],
             *[allthethings.utils.prefix_filepath('lgli', filename.strip()) for filename in (((aarecord['lgli_file'] or {}).get('descriptions_mapped') or {}).get('library_filename') or [])],
-            *[allthethings.utils.prefix_filepath('scimag', filepath) for filepath in filter(len, [((aarecord['lgli_file'] or {}).get('scimag_archive_path_decoded') or '').strip()])],
             *[allthethings.utils.prefix_filepath('ia', filepath) for filepath in filter(len, [(((aarecord['ia_record'] or {}).get('aa_ia_derived') or {}).get('original_filename') or '').strip()])],
             *[allthethings.utils.prefix_filepath('duxiu', filepath) for filepath in filter(len, [(((aarecord['duxiu'] or {}).get('aa_duxiu_derived') or {}).get('filepath_best') or '').strip()])],
+            *[allthethings.utils.prefix_filepath('magzdb', filepath) for filepath in filter(len, [(((aarecord['aac_magzdb'] or {}).get('aa_magzdb_derived') or {}).get('filename') or '').strip()])],
+            *[allthethings.utils.prefix_filepath('scimag', filepath) for filepath in filter(len, [((aarecord['lgli_file'] or {}).get('scimag_archive_path_decoded') or '').strip()])],
             *[allthethings.utils.prefix_filepath('upload', filepath) for filepath in filter(len, [(((aarecord['aac_upload'] or {}).get('aa_upload_derived') or {}).get('filename_best') or '').strip()])],
         ]
-        original_filename_multiple_processed = sort_by_length_and_filter_subsequences_with_longest_string_and_normalize_unicode(original_filename_multiple) # Before selecting best, since the best might otherwise get filtered.
-        aarecord['file_unified_data']['original_filename_best'] = min(original_filename_multiple_processed, key=len) if len(original_filename_multiple_processed) > 0 else ''
+        original_filename_multiple_processed = list(dict.fromkeys(filter(len, original_filename_multiple))) # Before selecting best, since the best might otherwise get filtered.
+        aarecord['file_unified_data']['original_filename_best'] = (original_filename_multiple_processed + [''])[0]
         original_filename_multiple += [allthethings.utils.prefix_filepath('ia', filepath) for filepath in filter(len, [(ia_record['aa_ia_derived']['original_filename'] or '').strip() for ia_record in aarecord['ia_records_meta_only']])]
         original_filename_multiple += [allthethings.utils.prefix_filepath('scihub', f"{scihub_doi['doi'].strip()}.pdf") for scihub_doi in aarecord['scihub_doi']]
         original_filename_multiple += [allthethings.utils.prefix_filepath('duxiu', filepath) for filepath in (((aarecord['duxiu'] or {}).get('aa_duxiu_derived') or {}).get('filepath_multiple') or [])]
@@ -4070,8 +4224,8 @@ def get_aarecords_mysql(session, aarecord_ids):
         for duxiu_record in aarecord['duxius_nontransitive_meta_only']:
             original_filename_multiple += [allthethings.utils.prefix_filepath('duxiu', filepath) for filepath in duxiu_record['aa_duxiu_derived']['filepath_multiple']]
         if aarecord['file_unified_data']['original_filename_best'] == '':
-            original_filename_multiple_processed = sort_by_length_and_filter_subsequences_with_longest_string_and_normalize_unicode(original_filename_multiple) # Before selecting best, since the best might otherwise get filtered.
-            aarecord['file_unified_data']['original_filename_best'] = min(original_filename_multiple_processed, key=len) if len(original_filename_multiple_processed) > 0 else ''
+            original_filename_multiple_processed = list(dict.fromkeys(filter(len, original_filename_multiple))) # Before selecting best, since the best might otherwise get filtered.
+            aarecord['file_unified_data']['original_filename_best'] = (original_filename_multiple_processed + [''])[0]
         aarecord['file_unified_data']['original_filename_additional'] = [s for s in original_filename_multiple_processed if s != aarecord['file_unified_data']['original_filename_best']]
         aarecord['file_unified_data']['original_filename_best_name_only'] = re.split(r'[\\/]', aarecord['file_unified_data']['original_filename_best'])[-1] if not aarecord['file_unified_data']['original_filename_best'].startswith('10.') else aarecord['file_unified_data']['original_filename_best']
         for filepath in original_filename_multiple:
@@ -4113,6 +4267,7 @@ def get_aarecords_mysql(session, aarecord_ids):
             ((aarecord['lgrsfic_book'] or {}).get('extension') or '').strip().lower(),
             ((aarecord['lgli_file'] or {}).get('extension') or '').strip().lower(),
             (((aarecord['duxiu'] or {}).get('duxiu_file') or {}).get('extension') or '').strip().lower(),
+            (((aarecord['aac_magzdb'] or {}).get('aa_magzdb_derived') or {}).get('extension') or '').strip(),
             (((aarecord['aac_upload'] or {}).get('aa_upload_derived') or {}).get('extension_best') or '').strip(),
             ('pdf' if aarecord_id_split[0] == 'doi' else ''),
         ]
@@ -4133,6 +4288,7 @@ def get_aarecords_mysql(session, aarecord_ids):
             (aarecord['lgrsfic_book'] or {}).get('filesize') or 0,
             (aarecord['lgli_file'] or {}).get('filesize') or 0,
             ((aarecord['duxiu'] or {}).get('aa_duxiu_derived') or {}).get('filesize_best') or 0,
+            ((aarecord['aac_magzdb'] or {}).get('aa_magzdb_derived') or {}).get('filesize') or 0,
             ((aarecord['aac_upload'] or {}).get('aa_upload_derived') or {}).get('filesize_best') or 0,
         ]
         aarecord['file_unified_data']['filesize_best'] = max(filesize_multiple)
@@ -4163,6 +4319,7 @@ def get_aarecords_mysql(session, aarecord_ids):
             ((aarecord['aac_zlib3_book'] or aarecord['zlib_book'] or {}).get('title') or '').strip(),
             (((aarecord['ia_record'] or {}).get('aa_ia_derived') or {}).get('title') or '').strip(),
             (((aarecord['duxiu'] or {}).get('aa_duxiu_derived') or {}).get('title_best') or '').strip(),
+            (((aarecord['aac_magzdb'] or {}).get('aa_magzdb_derived') or {}).get('title_best') or '').strip(),
             (((aarecord['aac_upload'] or {}).get('aa_upload_derived') or {}).get('title_best') or '').strip(),
         ]
         title_multiple = sort_by_length_and_filter_subsequences_with_longest_string_and_normalize_unicode(title_multiple) # Before selecting best, since the best might otherwise get filtered.
@@ -4175,6 +4332,7 @@ def get_aarecords_mysql(session, aarecord_ids):
         title_multiple += [(isbndb.get('title_normalized') or '').strip() for isbndb in aarecord['isbndb']]
         title_multiple += [ia_record['aa_ia_derived']['title'].strip() for ia_record in aarecord['ia_records_meta_only']]
         title_multiple += (((aarecord['duxiu'] or {}).get('aa_duxiu_derived') or {}).get('title_multiple') or [])
+        title_multiple += (((aarecord['aac_magzdb'] or {}).get('aa_magzdb_derived') or {}).get('title_multiple') or [])
         title_multiple += (((aarecord['aac_upload'] or {}).get('aa_upload_derived') or {}).get('title_multiple') or [])
         for oclc in aarecord['oclc']:
             title_multiple += oclc['aa_oclc_derived']['title_multiple']
@@ -4261,6 +4419,7 @@ def get_aarecords_mysql(session, aarecord_ids):
             ((aarecord['aac_zlib3_book'] or aarecord['zlib_book'] or {}).get('edition_varia_normalized') or '').strip(),
             (((aarecord['ia_record'] or {}).get('aa_ia_derived') or {}).get('edition_varia_normalized') or '').strip(),
             (((aarecord['duxiu'] or {}).get('aa_duxiu_derived') or {}).get('edition_varia_normalized') or '').strip(),
+            (((aarecord['aac_magzdb'] or {}).get('aa_magzdb_derived') or {}).get('edition_varia_normalized') or '').strip(),
         ]
         edition_varia_multiple = sort_by_length_and_filter_subsequences_with_longest_string_and_normalize_unicode(edition_varia_multiple) # Before selecting best, since the best might otherwise get filtered.
         if aarecord['file_unified_data']['edition_varia_best'] == '':
@@ -4292,6 +4451,7 @@ def get_aarecords_mysql(session, aarecord_ids):
             ((aarecord['aac_zlib3_book'] or aarecord['zlib_book'] or {}).get('year') or '').strip(),
             (((aarecord['ia_record'] or {}).get('aa_ia_derived') or {}).get('year') or '').strip(),
             (((aarecord['duxiu'] or {}).get('aa_duxiu_derived') or {}).get('year_best') or '').strip(),
+            (((aarecord['aac_magzdb'] or {}).get('aa_magzdb_derived') or {}).get('year') or '').strip(),
         ]
         # Filter out years in for which we surely don't have books (famous last words..)
         # WARNING duplicated above
@@ -4333,6 +4493,7 @@ def get_aarecords_mysql(session, aarecord_ids):
             *(((aarecord['ia_record'] or {}).get('aa_ia_derived') or {}).get('combined_comments') or []),
             *[comment for ia_record in aarecord['ia_records_meta_only'] for comment in ia_record['aa_ia_derived']['combined_comments']],
             *(((aarecord['duxiu'] or {}).get('aa_duxiu_derived') or {}).get('combined_comments') or []),
+            *(((aarecord['aac_magzdb'] or {}).get('aa_magzdb_derived') or {}).get('combined_comments') or []),
             *(((aarecord['aac_upload'] or {}).get('aa_upload_derived') or {}).get('combined_comments') or []),
         ]
         comments_multiple += [(edition.get('comments_normalized') or '').strip() for edition in lgli_all_editions]
@@ -4363,6 +4524,7 @@ def get_aarecords_mysql(session, aarecord_ids):
             ((lgli_single_edition or {}).get('stripped_description') or '').strip()[0:5000],
             ((aarecord['aac_zlib3_book'] or aarecord['zlib_book'] or {}).get('stripped_description') or '').strip()[0:5000],
             (((aarecord['duxiu'] or {}).get('aa_duxiu_derived') or {}).get('description_best') or '').strip(),
+            (((aarecord['aac_magzdb'] or {}).get('aa_magzdb_derived') or {}).get('stripped_description') or '').strip(),
             (((aarecord['aac_upload'] or {}).get('aa_upload_derived') or {}).get('description_best') or '').strip(),
         ]
         stripped_description_multiple = sort_by_length_and_filter_subsequences_with_longest_string_and_normalize_unicode(stripped_description_multiple) # Before selecting best, since the best might otherwise get filtered.
@@ -4394,6 +4556,7 @@ def get_aarecords_mysql(session, aarecord_ids):
             ((aarecord['aac_zlib3_book'] or aarecord['zlib_book'] or {}).get('language_codes') or []),
             (((aarecord['ia_record'] or {}).get('aa_ia_derived') or {}).get('language_codes') or []),
             (((aarecord['duxiu'] or {}).get('aa_duxiu_derived') or {}).get('language_codes') or []),
+            (((aarecord['aac_magzdb'] or {}).get('aa_magzdb_derived') or {}).get('language_codes') or []),
             (((aarecord['aac_upload'] or {}).get('aa_upload_derived') or {}).get('language_codes') or []),
         ])
         if len(aarecord['file_unified_data']['most_likely_language_codes']) == 0:
@@ -4426,7 +4589,7 @@ def get_aarecords_mysql(session, aarecord_ids):
                     aarecord['file_unified_data']['language_codes_detected'] = [get_bcp47_lang_codes(language_detection)[0]]
                     aarecord['file_unified_data']['language_codes'] = aarecord['file_unified_data']['language_codes_detected']
                     aarecord['file_unified_data']['most_likely_language_codes'] = aarecord['file_unified_data']['language_codes']
-            except:
+            except Exception:
                 pass
 
         for lang_code in aarecord['file_unified_data']['language_codes']:
@@ -4450,6 +4613,7 @@ def get_aarecords_mysql(session, aarecord_ids):
             *[ol_book_dict['added_date_unified'] for ol_book_dict in aarecord['ol_book_dicts_primary_linked']],
             *[oclc['aa_oclc_derived']['added_date_unified'] for oclc in aarecord['oclc']],
             (((aarecord['duxiu'] or {}).get('aa_duxiu_derived') or {}).get('added_date_unified') or {}),
+            (((aarecord['aac_magzdb'] or {}).get('aa_magzdb_derived') or {}).get('added_date_unified') or {}),
             (((aarecord['aac_upload'] or {}).get('aa_upload_derived') or {}).get('added_date_unified') or {}),
         ]))
         for prefix, date in aarecord['file_unified_data']['added_date_unified'].items():
@@ -4472,6 +4636,7 @@ def get_aarecords_mysql(session, aarecord_ids):
             *[oclc['aa_oclc_derived']['identifiers_unified'] for oclc in aarecord['oclc']],
             (((aarecord['duxiu'] or {}).get('aa_duxiu_derived') or {}).get('identifiers_unified') or {}),
             (((aarecord['aac_upload'] or {}).get('aa_upload_derived') or {}).get('identifiers_unified') or {}),
+            (((aarecord['aac_magzdb'] or {}).get('aa_magzdb_derived') or {}).get('identifiers_unified') or {}),
             *[duxiu_record['aa_duxiu_derived']['identifiers_unified'] for duxiu_record in aarecord['duxius_nontransitive_meta_only']],
         ])
         aarecord['file_unified_data']['classifications_unified'] = allthethings.utils.merge_unified_fields([
@@ -4487,6 +4652,7 @@ def get_aarecords_mysql(session, aarecord_ids):
             *[ol_book_dict['classifications_unified'] for ol_book_dict in aarecord['ol_book_dicts_primary_linked']],
             *[scihub_doi['classifications_unified'] for scihub_doi in aarecord['scihub_doi']],
             (((aarecord['aac_upload'] or {}).get('aa_upload_derived') or {}).get('classifications_unified') or {}),
+            (((aarecord['aac_magzdb'] or {}).get('aa_magzdb_derived') or {}).get('classifications_unified') or {}),
             *[duxiu_record['aa_duxiu_derived']['classifications_unified'] for duxiu_record in aarecord['duxius_nontransitive_meta_only']],
         ])
 
@@ -4523,6 +4689,9 @@ def get_aarecords_mysql(session, aarecord_ids):
         elif aarecord_id_split[0] == 'cadal_ssno':
             if 'duxiu_meta_scrape' in aarecord['file_unified_data']['added_date_unified']:
                 aarecord['file_unified_data']['added_date_best'] = aarecord['file_unified_data']['added_date_unified']['duxiu_meta_scrape']
+        elif aarecord_id_split[0] == 'magzdb':
+            if 'magzdb_meta_scrape' in aarecord['file_unified_data']['added_date_unified']:
+                aarecord['file_unified_data']['added_date_best'] = aarecord['file_unified_data']['added_date_unified']['magzdb_meta_scrape']
         else:
             raise Exception(f"Unknown {aarecord_id_split[0]=}")
 
@@ -4581,6 +4750,8 @@ def get_aarecords_mysql(session, aarecord_ids):
                 aarecord['file_unified_data']['content_type'] = 'magazine'
             if aarecord['lgli_file']['libgen_topic'] == 'c':
                 aarecord['file_unified_data']['content_type'] = 'book_comic'
+        if (aarecord['file_unified_data']['content_type'] is None) and aarecord['aac_magzdb']:
+            aarecord['file_unified_data']['content_type'] = 'magazine'
         if (aarecord['file_unified_data']['content_type'] is None) and aarecord['lgrsnf_book'] and (not aarecord['lgrsfic_book']):
             aarecord['file_unified_data']['content_type'] = 'book_nonfiction'
         if (aarecord['file_unified_data']['content_type'] is None) and (not aarecord['lgrsnf_book']) and aarecord['lgrsfic_book']:
@@ -4724,6 +4895,10 @@ def get_aarecords_mysql(session, aarecord_ids):
                 'md5': aarecord['aac_upload']['md5'],
                 'files': aarecord['aac_upload']['files'],
             }
+        if aarecord.get('aac_magzdb') is not None:
+            aarecord['aac_magzdb'] = {
+                'id': aarecord['aac_magzdb']['id'],
+            }
 
         search_content_type = aarecord['file_unified_data']['content_type']
         # Once we have the content type.
@@ -4786,7 +4961,7 @@ def get_aarecords_mysql(session, aarecord_ids):
             'search_description_comments': ('\n'.join([aarecord['file_unified_data']['stripped_description_best']] + (aarecord['file_unified_data'].get('comments_multiple') or [])))[:10000],
             'search_text': search_text,
             'search_access_types': [
-                *(['external_download'] if any([((aarecord.get(field) is not None) and (type(aarecord[field]) != list or len(aarecord[field]) > 0)) for field in ['lgrsnf_book', 'lgrsfic_book', 'lgli_file', 'zlib_book', 'aac_zlib3_book', 'scihub_doi']]) else []),
+                *(['external_download'] if any([((aarecord.get(field) is not None) and (type(aarecord[field]) is not list or len(aarecord[field]) > 0)) for field in ['lgrsnf_book', 'lgrsfic_book', 'lgli_file', 'zlib_book', 'aac_zlib3_book', 'scihub_doi', 'aac_magzdb']]) else []),
                 *(['external_borrow'] if (aarecord.get('ia_record') and (not aarecord['ia_record']['aa_ia_derived']['printdisabled_only'])) else []),
                 *(['external_borrow_printdisabled'] if (aarecord.get('ia_record') and (aarecord['ia_record']['aa_ia_derived']['printdisabled_only'])) else []),
                 *(['aa_download'] if aarecord['file_unified_data']['has_aa_downloads'] == 1 else []),
@@ -4874,6 +5049,7 @@ def get_record_sources_mapping(display_lang):
             "oclc": gettext("common.record_sources_mapping.oclc"),
             "duxiu": gettext("common.record_sources_mapping.duxiu"),
             "upload": gettext("common.record_sources_mapping.uploads"),
+            "magzdb": "MagzDB", # TODO:TRANSLATE
         }
 
 def get_specific_search_fields_mapping(display_lang):
@@ -5049,7 +5225,7 @@ def get_additional_for_aarecord(aarecord):
 
     torrents_json_aa_currently_seeding_by_torrent_path = allthethings.utils.get_torrents_json_aa_currently_seeding_by_torrent_path()
 
-    temporarily_unavailable = gettext('page.md5.box.download.temporarily_unavailable') # Keeping translation
+    _temporarily_unavailable = gettext('page.md5.box.download.temporarily_unavailable') # Keeping translation
 
     for scihub_doi in aarecord.get('scihub_doi') or []:
         doi = scihub_doi['doi']
@@ -5231,10 +5407,15 @@ def get_additional_for_aarecord(aarecord):
         additional['torrent_paths'].append({ "collection": "zlib", "torrent_path": f"managed_by_aa/annas_archive_data__aacid/{aarecord['aac_zlib3_book']['file_data_folder']}.torrent", "file_level1": aarecord['aac_zlib3_book']['file_aacid'], "file_level2": "" })
     if aarecord.get('aac_zlib3_book') is not None:
         # additional['download_urls'].append((gettext('page.md5.box.download.zlib_tor'), f"http://loginzlib2vrak5zzpcocc3ouizykn6k5qecgj2tzlnab5wcbqhembyd.onion/md5/{aarecord['aac_zlib3_book']['md5_reported'].lower()}", gettext('page.md5.box.download.zlib_tor_extra')))
+        # TODO:TRANSLATE
         additional['download_urls'].append(("Z-Library", f"https://z-lib.gs/md5/{aarecord['aac_zlib3_book']['md5_reported'].lower()}", ""))
     if (aarecord.get('zlib_book') is not None) and (aarecord.get('aac_zlib3_book') is None):
         # additional['download_urls'].append((gettext('page.md5.box.download.zlib_tor'), f"http://loginzlib2vrak5zzpcocc3ouizykn6k5qecgj2tzlnab5wcbqhembyd.onion/md5/{aarecord['zlib_book']['md5_reported'].lower()}", gettext('page.md5.box.download.zlib_tor_extra')))
+        # TODO:TRANSLATE
         additional['download_urls'].append(("Z-Library", f"https://z-lib.gs/md5/{aarecord['zlib_book']['md5_reported'].lower()}", ""))
+    if aarecord.get('aac_magzdb') is not None:
+        # TODO:TRANSLATE
+        additional['download_urls'].append(("MagzDB", f"http://magzdb.org/num/{aarecord['aac_magzdb']['id']}", ""))
     if aarecord.get('ia_record') is not None:
         ia_id = aarecord['ia_record']['ia_id']
         printdisabled_only = aarecord['ia_record']['aa_ia_derived']['printdisabled_only']
@@ -5335,26 +5516,31 @@ def ol_page(ol_input):
 def doi_page(doi_input):
     return render_aarecord(f"doi:{doi_input}")
 
-@page.get("/oclc/<path:oclc_input>")
+@page.get("/oclc/<string:oclc_input>")
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
 def oclc_page(oclc_input):
     return render_aarecord(f"oclc:{oclc_input}")
 
-@page.get("/duxiu_ssid/<path:duxiu_ssid_input>")
+@page.get("/duxiu_ssid/<string:duxiu_ssid_input>")
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
 def duxiu_ssid_page(duxiu_ssid_input):
     return render_aarecord(f"duxiu_ssid:{duxiu_ssid_input}")
 
-@page.get("/cadal_ssno/<path:cadal_ssno_input>")
+@page.get("/cadal_ssno/<string:cadal_ssno_input>")
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
 def cadal_ssno_page(cadal_ssno_input):
     return render_aarecord(f"cadal_ssno:{cadal_ssno_input}")
+
+@page.get("/magzdb/<string:magzdb_id>")
+@allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
+def magzdb_page(magzdb_id):
+    return render_aarecord(f"magzdb:{magzdb_id}")
 
 def render_aarecord(record_id):
     if allthethings.utils.DOWN_FOR_MAINTENANCE:
         return render_template("page/maintenance.html", header_active="")
 
-    with Session(engine) as session:
+    with Session(engine):
         ids = [record_id]
         if not allthethings.utils.validate_aarecord_ids(ids):
             return render_template("page/aarecord_not_found.html", header_active="search", not_found_field=record_id), 404
@@ -5422,7 +5608,7 @@ def scidb_page(doi_input):
     # if not verified:
     #     return redirect(f"/scidb/{doi_input}?scidb_verified=1", code=302)
 
-    with Session(engine) as session:
+    with Session(engine):
         try:
             search_results_raw1 = es_aux.search(
                 index=allthethings.utils.all_virtshards_for_index("aarecords_journals"),
@@ -5501,6 +5687,7 @@ def md5_json(aarecord_id):
         "oclc": ("before", ["Source data at: https://annas-archive.se/db/oclc/<oclc>.json"]),
         "duxiu": ("before", ["Source data at: https://annas-archive.se/db/duxiu_ssid/<duxiu_ssid>.json or https://annas-archive.se/db/cadal_ssno/<cadal_ssno>.json or https://annas-archive.se/db/duxiu_md5/<md5>.json"]),
         "aac_upload": ("before", ["Source data at: https://annas-archive.se/db/aac_upload/<md5>.json"]),
+        "aac_magzdb": ("before", ["Source data at: https://annas-archive.se/db/aac_magzdb/<md5>.json"]),
         "file_unified_data": ("before", ["Combined data by Anna's Archive from the various source collections, attempting to get pick the best field where possible."]),
         "ipfs_infos": ("before", ["Data about the IPFS files."]),
         "search_only_fields": ("before", ["Data that is used during searching."]),
@@ -5532,7 +5719,7 @@ def md5_fast_download(md5_input, path_index, domain_index):
         if account_fast_download_info is None:
             return redirect("/fast_download_not_member", code=302)
 
-        with Session(engine) as session:
+        with Session(engine):
             aarecords = get_aarecords_elasticsearch([f"md5:{canonical_md5}"])
             if aarecords is None:
                 return render_template("page/aarecord_issue.html", header_active="search"), 500
@@ -5542,7 +5729,7 @@ def md5_fast_download(md5_input, path_index, domain_index):
             try:
                 domain = allthethings.utils.FAST_DOWNLOAD_DOMAINS[domain_index]
                 path_info = aarecord['additional']['partner_url_paths'][path_index]
-            except:
+            except Exception:
                 return redirect(f"/md5/{md5_input}", code=302)
             url = 'https://' + domain + '/' + allthethings.utils.make_anon_download_uri(False, 20000, path_info['path'], aarecord['additional']['filename'], domain)
 
@@ -5610,7 +5797,7 @@ def md5_slow_download(md5_input, path_index, domain_index):
         domain_slow = allthethings.utils.SLOW_DOWNLOAD_DOMAINS[domain_index]
         domain_slowest = allthethings.utils.SLOWEST_DOWNLOAD_DOMAINS[domain_index]
         path_info = aarecord['additional']['partner_url_paths'][path_index]
-    except:
+    except Exception:
         return redirect(f"/md5/{md5_input}", code=302)
 
     daily_download_count_from_ip = get_daily_download_count_from_ip(data_pseudo_ipv4)
@@ -5696,7 +5883,7 @@ def ipfs_downloads(md5_input):
     aarecord = aarecords[0]
     try:
         ipfs_urls = aarecord['additional']['ipfs_urls']
-    except:
+    except Exception:
         return redirect(f"/md5/{md5_input}", code=302)
 
     return render_template(
@@ -5719,7 +5906,7 @@ def search_query_aggs(search_index_long):
 def all_search_aggs(display_lang, search_index_long):
     try:
         search_results_raw = allthethings.utils.SEARCH_INDEX_TO_ES_MAPPING[search_index_long].search(index=allthethings.utils.all_virtshards_for_index(search_index_long), size=0, aggs=search_query_aggs(search_index_long), timeout=ES_TIMEOUT_ALL_AGG)
-    except:
+    except Exception:
         # Simple retry, just once.
         search_results_raw = allthethings.utils.SEARCH_INDEX_TO_ES_MAPPING[search_index_long].search(index=allthethings.utils.all_virtshards_for_index(search_index_long), size=0, aggs=search_query_aggs(search_index_long), timeout=ES_TIMEOUT_ALL_AGG)
 
@@ -5736,7 +5923,7 @@ def all_search_aggs(display_lang, search_index_long):
     content_type_buckets = list(search_results_raw['aggregations']['search_content_type']['buckets'])
     md5_content_type_mapping = get_md5_content_type_mapping(display_lang)
     all_aggregations['search_content_type'] = [{ 'key': bucket['key'], 'label': md5_content_type_mapping[bucket['key']], 'doc_count': bucket['doc_count'] } for bucket in content_type_buckets]
-    content_type_keys_present = set([bucket['key'] for bucket in content_type_buckets])
+    # content_type_keys_present = set([bucket['key'] for bucket in content_type_buckets])
     # for key, label in md5_content_type_mapping.items():
     #     if key not in content_type_keys_present:
     #         all_aggregations['search_content_type'].append({ 'key': key, 'label': label, 'doc_count': 0 })
@@ -5754,7 +5941,7 @@ def all_search_aggs(display_lang, search_index_long):
     access_types_buckets = list(search_results_raw['aggregations']['search_access_types']['buckets'])
     access_types_mapping = get_access_types_mapping(display_lang)
     all_aggregations['search_access_types'] = [{ 'key': bucket['key'], 'label': access_types_mapping[bucket['key']], 'doc_count': bucket['doc_count'] } for bucket in access_types_buckets]
-    content_type_keys_present = set([bucket['key'] for bucket in access_types_buckets])
+    # content_type_keys_present = set([bucket['key'] for bucket in access_types_buckets])
     # for key, label in access_types_mapping.items():
     #     if key not in content_type_keys_present:
     #         all_aggregations['search_access_types'].append({ 'key': key, 'label': label, 'doc_count': 0 })
@@ -5764,7 +5951,7 @@ def all_search_aggs(display_lang, search_index_long):
     record_sources_buckets = list(search_results_raw['aggregations']['search_record_sources']['buckets'])
     record_sources_mapping = get_record_sources_mapping(display_lang)
     all_aggregations['search_record_sources'] = [{ 'key': bucket['key'], 'label': record_sources_mapping[bucket['key']], 'doc_count': bucket['doc_count'] } for bucket in record_sources_buckets]
-    content_type_keys_present = set([bucket['key'] for bucket in record_sources_buckets])
+    # content_type_keys_present = set([bucket['key'] for bucket in record_sources_buckets])
     # for key, label in record_sources_mapping.items():
     #     if key not in content_type_keys_present:
     #         all_aggregations['search_record_sources'].append({ 'key': key, 'label': label, 'doc_count': 0 })
@@ -5801,7 +5988,7 @@ def search_page():
     page_value = 1
     try:
         page_value = int(page_value_str)
-    except:
+    except Exception:
         pass
     sort_value = request.args.get("sort", "").strip()
     search_index_short = request.args.get("index", "").strip()
@@ -5974,7 +6161,7 @@ def search_page():
     display_lang = allthethings.utils.get_base_lang_code(get_locale())
     try:
         all_aggregations, all_aggregations_es_stat = all_search_aggs(display_lang, search_index_long)
-    except:
+    except Exception:
         return 'Page loading issue', 500
     es_stats.append(all_aggregations_es_stat)
 
