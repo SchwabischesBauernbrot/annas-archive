@@ -83,12 +83,15 @@ def validate_oclc_ids(oclc_ids):
 def validate_duxiu_ssids(duxiu_ssids):
     return all([str(duxiu_ssid).isdigit() for duxiu_ssid in duxiu_ssids])
 
+def validate_magzdb_ids(magzdb_ids):
+    return all([str(magzdb_id).isdigit() for magzdb_id in magzdb_ids])
+
 def validate_aarecord_ids(aarecord_ids):
     try:
         split_ids = split_aarecord_ids(aarecord_ids)
     except:
         return False
-    return validate_canonical_md5s(split_ids['md5']) and validate_ol_editions(split_ids['ol']) and validate_oclc_ids(split_ids['oclc']) and validate_duxiu_ssids(split_ids['duxiu_ssid'])
+    return validate_canonical_md5s(split_ids['md5']) and validate_ol_editions(split_ids['ol']) and validate_oclc_ids(split_ids['oclc']) and validate_duxiu_ssids(split_ids['duxiu_ssid']) and validate_magzdb_ids(split_ids['magzdb'])
 
 def split_aarecord_ids(aarecord_ids):
     ret = {
@@ -100,6 +103,7 @@ def split_aarecord_ids(aarecord_ids):
         'oclc': [],
         'duxiu_ssid': [],
         'cadal_ssno': [],
+        'magzdb': [],
     }
     for aarecord_id in aarecord_ids:
         split_aarecord_id = aarecord_id.split(':', 1)
@@ -944,7 +948,6 @@ UNIFIED_IDENTIFIERS = {
     "lgrsfic": { "label": "Libgen.rs Fiction", "url": "https://libgen.rs/fiction/", "description": "Repository ID for the fiction repository in Libgen.rs. Directly taken from the 'id' field in the 'fiction' table. Corresponds to the 'thousands folder' torrents.", "website": "/datasets/libgen_rs" },
     "lgli": { "label": "Libgen.li File", "url": "https://libgen.li/file.php?id=%s", "description": "Global file ID in Libgen.li. Directly taken from the 'f_id' field in the 'files' table.", "website": "/datasets/libgen_li" },
     "zlib": { "label": "Z-Library", "url": "https://z-lib.gs/", "description": "", "website": "/datasets/zlib" },
-    # TODO: Add URL/description for these.
     "csbn": { "label": "CSBN", "url": "", "description": "China Standard Book Number, predecessor of ISBN in China", "website": "https://zh.wikipedia.org/zh-cn/%E7%BB%9F%E4%B8%80%E4%B9%A6%E5%8F%B7" },
     "ean13": { "label": "EAN-13", "url": "", "description": "", "website": "https://en.wikipedia.org/wiki/International_Article_Number" },
     "duxiu_ssid": { "label": "DuXiu SSID", "url": "", "description": "", "website": "/datasets/duxiu" },
@@ -960,6 +963,8 @@ UNIFIED_IDENTIFIERS = {
     "filepath": { "label": "Filepath", "description": "Original filepath in source library." },
     "server_path": { "label": "Server Path", "description": "Path on Anna’s Archive partner servers." },
     "aacid": { "label": "AacId", "website": "/blog/annas-archive-containers.html", "description": "Anna’s Archive Container identifier." },
+    "magzdb": { "label": "MagzDB Edition ID", "url": "http://magzdb.org/num/%s", "description": "ID of an individual edition of a magazine in MagzDB.", "website": "/datasets/magzdb" },
+    "magzdb_pub": { "label": "MagzDB Publication ID", "url": "http://magzdb.org/j/%s", "description": "ID of a publication in MagzDB.", "website": "/datasets/magzdb" },
     **{LGLI_IDENTIFIERS_MAPPING.get(key, key): value for key, value in LGLI_IDENTIFIERS.items()},
     # Plus more added below!
 }
@@ -983,6 +988,8 @@ UNIFIED_CLASSIFICATIONS = {
     "ol_source": { "label": "OpenLib 'created' Date", "website": "/datasets/libgen_li", "description": "The 'created' metadata field on the Open Library, indicating when the first version of this record was created." },
     "upload_record_date": { "label": "Upload Collection Date", "website": "/datasets/upload", "description": "Date Anna’s Archive indexed this file in our 'upload' collection." },
     "zlib_source": { "label": "Z-Library Source Date", "website": "/datasets/zlib", "description": "Date Z-Library published this file." },
+    "magzdb_meta_scrape": { "label": "MagzDB Source Scrape Date", "website": "/datasets/magzdb", "description": "Date we scraped the MagzDB metadata." },
+    "magzdb_keyword": { "label": "MagzDB Keyword", "url": "", "description": "Publication keyword in MagzDB (in Russian).", "website": "/datasets/magzdb" },
     **{LGLI_CLASSIFICATIONS_MAPPING.get(key, key): value for key, value in LGLI_CLASSIFICATIONS.items()},
     # Plus more added below!
 }
@@ -1220,6 +1227,9 @@ def add_isbns_unified(output_dict, potential_isbns):
     for csbn in csbns:
         add_identifier_unified(output_dict, 'csbn', csbn)
 
+def add_issn_unified(output_dict, issn):
+    add_identifier_unified(output_dict, 'issn', issn.replace('-', '').strip())
+
 def merge_unified_fields(list_of_fields_unified):
     merged_sets = {}
     for fields_unified in list_of_fields_unified:
@@ -1259,7 +1269,7 @@ SEARCH_INDEX_SHORT_LONG_MAPPING = {
     'meta': 'aarecords_metadata',
 }
 def get_aarecord_id_prefix_is_metadata(id_prefix):
-    return (id_prefix in ['isbn', 'ol', 'oclc', 'duxiu_ssid', 'cadal_ssno'])
+    return (id_prefix in ['isbn', 'ol', 'oclc', 'duxiu_ssid', 'cadal_ssno', 'magzdb'])
 def get_aarecord_search_indexes_for_id_prefix(id_prefix):
     if get_aarecord_id_prefix_is_metadata(id_prefix):
         return ['aarecords_metadata']
