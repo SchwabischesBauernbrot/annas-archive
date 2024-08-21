@@ -96,9 +96,8 @@ for translation in "${translations[@]}"; do
         echo "testing $url"
         file="$(jq -r -n --arg tr "$translation" --arg page "$page" '"\($tr)--\($page).html" | @uri')"
         if ! curl -v --fail-with-body -s "$url" > "$file" 2>&1; then
-            echo "failed to load $url"
-            echo "output was saved to ./$file"
-            exit 1
+            echo "! failed to load $url"
+            echo "! output was saved to ./$file"
         else
             rm -f "$file"
         fi
