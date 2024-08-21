@@ -76,8 +76,15 @@ pages=(
 # tell the user how many pages we are testing
 echo "testing ${#pages[@]} pages"
 
-translations_str=$(curl --fail-with-body -s http://localtest.me:8000/dyn/translations/ | jq -r '.translations|@sh')
-declare -a translations="($translations_str)"
+# take the translations from the command line arguments
+declare -a translations=("${@:-}")
+
+# if no translations were provided, get them from the server
+if [ ${#translations[@]} -eq 0 ]; then
+    echo "no translations provided, getting them from the server"
+    translations_str="$(curl --fail-with-body -s http://localtest.me:8000/dyn/translations/ | jq -r '.translations|@sh')"
+    declare -a translations="($translations_str)"
+fi
 
 echo "testing ${#translations[@]} translations: ${translations[*]}"
 
