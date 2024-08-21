@@ -5436,7 +5436,7 @@ def scidb_page(doi_input):
                 query={ "term": { "search_only_fields.search_doi": doi_input } },
                 timeout="2s",
             )
-        except Exception as err:
+        except Exception:
             return redirect(f'/search?index=journals&q="doi:{doi_input}"', code=302)
         aarecords = [add_additional_to_aarecord(aarecord) for aarecord in (search_results_raw1['hits']['hits']+search_results_raw2['hits']['hits'])]
         aarecords_and_infos = [(aarecord, allthethings.utils.scidb_info(aarecord)) for aarecord in aarecords if allthethings.utils.scidb_info(aarecord) is not None]
@@ -6088,7 +6088,7 @@ def search_page():
                     ]
                 ))
                 break
-            except Exception as err:
+            except Exception:
                 if attempt < 2:
                     print(f"Warning: another attempt during secondary ES search {search_input=}")
                 else:

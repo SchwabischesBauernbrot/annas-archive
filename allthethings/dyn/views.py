@@ -773,7 +773,7 @@ def search_counts_page():
                     total_by_index_long[multi_searches[i*2]['index'][0].split('__', 1)[0]]['timed_out'] = True
                     any_timeout = True
                 total_by_index_long[multi_searches[i*2]['index'][0].split('__', 1)[0]]['took'] = result['took']
-    except Exception as err:
+    except Exception:
         pass
 
     r = make_response(orjson.dumps(total_by_index_long))
@@ -875,7 +875,7 @@ def account_buy_membership():
                     "order_id": donation_id,
                 })
                 donation_json['payment2_request'] = response.json()
-            except httpx.HTTPError as err:
+            except httpx.HTTPError:
                 return orjson.dumps({ 'error': gettext('dyn.buy_membership.error.try_again', email="https://annas-archive.se/contact") })
             except Exception as err:
                 print(f"Warning: unknown error in payment2 http request: {repr(err)} /// {traceback.format_exc()}")
