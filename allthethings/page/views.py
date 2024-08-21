@@ -2,24 +2,12 @@ import os
 import json
 import orjson
 import re
-import zlib
 import isbnlib
-import httpx
 import functools
 import collections
-import barcode
-import io
 import langcodes
-import tqdm
-import concurrent
 import threading
-import yappi
-import multiprocessing
-import gc
 import random
-import slugify
-import elasticsearch
-import elasticsearch.helpers
 import fast_langdetect
 import traceback
 import urllib.parse
@@ -31,19 +19,17 @@ import shortuuid
 import pymysql.cursors
 import cachetools
 import time
-import struct
 import natsort
 import unicodedata
 # import tiktoken
 # import openai
 
-from flask import g, Blueprint, __version__, render_template, make_response, redirect, request, send_file
-from allthethings.extensions import engine, es, es_aux, babel, mariapersist_engine, ZlibBook, ZlibIsbn, IsbndbIsbns, LibgenliEditions, LibgenliEditionsAddDescr, LibgenliEditionsToFiles, LibgenliElemDescr, LibgenliFiles, LibgenliFilesAddDescr, LibgenliPublishers, LibgenliSeries, LibgenliSeriesAddDescr, LibgenrsDescription, LibgenrsFiction, LibgenrsFictionDescription, LibgenrsFictionHashes, LibgenrsHashes, LibgenrsTopics, LibgenrsUpdated, OlBase, AaIa202306Metadata, AaIa202306Files, Ia2Records, Ia2AcsmpdfFiles, MariapersistSmallFiles
-from sqlalchemy import select, func, text
-from sqlalchemy.dialects.mysql import match
+from flask import g, Blueprint, render_template, make_response, redirect, request
+from allthethings.extensions import engine, es, es_aux, mariapersist_engine, ZlibBook, IsbndbIsbns, LibgenliElemDescr, LibgenliFiles, LibgenrsDescription, LibgenrsFiction, LibgenrsFictionDescription, LibgenrsFictionHashes, LibgenrsHashes, LibgenrsTopics, LibgenrsUpdated, OlBase, AaIa202306Metadata, AaIa202306Files, Ia2Records, Ia2AcsmpdfFiles
+from sqlalchemy import select, text
 from sqlalchemy.orm import defaultload, Session
-from flask_babel import gettext, ngettext, force_locale, get_locale
-from config.settings import AA_EMAIL, DOWNLOADS_SECRET_KEY, AACID_SMALL_DATA_IMPORTS, SLOW_DATA_IMPORTS
+from flask_babel import gettext, force_locale, get_locale
+from config.settings import AA_EMAIL, DOWNLOADS_SECRET_KEY, AACID_SMALL_DATA_IMPORTS
 
 import allthethings.utils
 

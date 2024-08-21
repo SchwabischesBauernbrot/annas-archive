@@ -1,23 +1,11 @@
 import os
-import json
 import orjson
 import re
-import zlib
 import isbnlib
-import httpx
-import functools
 import collections
-import barcode
-import io
-import langcodes
 import tqdm
 import concurrent
-import threading
-import yappi
 import multiprocessing
-import gc
-import random
-import slugify
 import elasticsearch.helpers
 import time
 import pathlib
@@ -32,10 +20,9 @@ import zstandard
 
 import allthethings.utils
 
-from flask import Blueprint, __version__, render_template, make_response, redirect, request
-from allthethings.extensions import engine, mariadb_url, mariadb_url_no_timeout, es, es_aux, Reflected, mail, mariapersist_url
-from sqlalchemy import select, func, text, create_engine
-from sqlalchemy.dialects.mysql import match
+from flask import Blueprint
+from allthethings.extensions import engine, mariadb_url_no_timeout, Reflected, mail, mariapersist_url
+from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 from pymysql.constants import CLIENT
 from config.settings import SLOW_DATA_IMPORTS
