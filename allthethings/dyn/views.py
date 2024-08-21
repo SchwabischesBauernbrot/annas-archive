@@ -31,6 +31,11 @@ import allthethings.utils
 
 dyn = Blueprint("dyn", __name__, template_folder="templates", url_prefix="/dyn")
 
+@dyn.get("/translations/")
+@allthethings.utils.no_cache()
+def language_codes():
+    return orjson.dumps({ "translations": sorted(str(t) for t in allthethings.utils.list_translations()) })
+
 
 @dyn.get("/up/")
 @allthethings.utils.no_cache()
