@@ -569,7 +569,7 @@ def get_torrents_data():
 
             torrent_group_data = torrent_group_data_from_file_path(small_file['file_path'])
             group = torrent_group_data['group']
-            if torrent_group_data['aac_meta_group'] != None:
+            if torrent_group_data['aac_meta_group'] is not None:
                 aac_meta_file_paths_grouped[torrent_group_data['aac_meta_group']].append(small_file['file_path'])
 
             scrape_row = scrapes_by_file_path.get(small_file['file_path'])
@@ -578,7 +578,7 @@ def get_torrents_data():
             if scrape_row is not None:
                 scrape_created = scrape_row['created']
                 scrape_metadata = orjson.loads(scrape_row['metadata'])
-                if (metadata.get('embargo') or False) == False:
+                if (metadata.get('embargo') or False) is False:
                     if scrape_metadata['scrape']['seeders'] < 4:
                         seeder_sizes[0] += metadata['data_size']
                     elif scrape_metadata['scrape']['seeders'] < 11:
@@ -1461,10 +1461,10 @@ def extract_ol_str_field(field):
     return str(field.get('value')) or ""
 
 def extract_ol_author_field(field):
-    if type(field) == str:
+    if type(field) is str:
         return field
     elif 'author' in field:
-        if type(field['author']) == str:
+        if type(field['author']) is str:
             return field['author']
         elif 'key' in field['author']:
             return field['author']['key']
@@ -4786,7 +4786,7 @@ def get_aarecords_mysql(session, aarecord_ids):
             'search_description_comments': ('\n'.join([aarecord['file_unified_data']['stripped_description_best']] + (aarecord['file_unified_data'].get('comments_multiple') or [])))[:10000],
             'search_text': search_text,
             'search_access_types': [
-                *(['external_download'] if any([((aarecord.get(field) is not None) and (type(aarecord[field]) != list or len(aarecord[field]) > 0)) for field in ['lgrsnf_book', 'lgrsfic_book', 'lgli_file', 'zlib_book', 'aac_zlib3_book', 'scihub_doi']]) else []),
+                *(['external_download'] if any([((aarecord.get(field) is not None) and (type(aarecord[field]) is not list or len(aarecord[field]) > 0)) for field in ['lgrsnf_book', 'lgrsfic_book', 'lgli_file', 'zlib_book', 'aac_zlib3_book', 'scihub_doi']]) else []),
                 *(['external_borrow'] if (aarecord.get('ia_record') and (not aarecord['ia_record']['aa_ia_derived']['printdisabled_only'])) else []),
                 *(['external_borrow_printdisabled'] if (aarecord.get('ia_record') and (aarecord['ia_record']['aa_ia_derived']['printdisabled_only'])) else []),
                 *(['aa_download'] if aarecord['file_unified_data']['has_aa_downloads'] == 1 else []),
