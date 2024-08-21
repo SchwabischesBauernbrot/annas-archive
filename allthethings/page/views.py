@@ -2313,7 +2313,6 @@ def get_isbndb_dicts(session, canonical_isbn13s):
 
     isbn_dicts = []
     for canonical_isbn13 in canonical_isbn13s:
-        isbn13_mask = isbnlib.mask(canonical_isbn13)
         isbn_dict = {
             "ean13": isbnlib.ean13(canonical_isbn13),
             "isbn10": isbnlib.to_isbn10(canonical_isbn13),
@@ -3201,7 +3200,7 @@ def get_duxiu_dicts(session, key, values, include_deep_transitive_md5s_size_path
         duxiu_dict['aa_duxiu_derived']['filesize_best'] = next(iter(duxiu_dict['aa_duxiu_derived']['filesize_multiple']), 0)
         duxiu_dict['aa_duxiu_derived']['filepath_best'] = next(iter(duxiu_dict['aa_duxiu_derived']['filepath_multiple']), '')
         duxiu_dict['aa_duxiu_derived']['description_best'] = '\n\n'.join(list(dict.fromkeys(duxiu_dict['aa_duxiu_derived']['description_cumulative'])))
-        sources_joined = '\n'.join(sort_by_length_and_filter_subsequences_with_longest_string_and_normalize_unicode(duxiu_dict['aa_duxiu_derived']['source_multiple']))
+        _sources_joined = '\n'.join(sort_by_length_and_filter_subsequences_with_longest_string_and_normalize_unicode(duxiu_dict['aa_duxiu_derived']['source_multiple']))
         related_files_joined = '\n'.join(sort_by_length_and_filter_subsequences_with_longest_string_and_normalize_unicode([" — ".join([f"{key}:{related_file[key]}" for key in ["filepath", "md5", "filesize"] if related_file[key] is not None]) for related_file in duxiu_dict['aa_duxiu_derived']['related_files']]))
         duxiu_dict['aa_duxiu_derived']['combined_comments'] = list(dict.fromkeys(filter(len, duxiu_dict['aa_duxiu_derived']['comments_cumulative'] + [
             # TODO: pass through comments metadata in a structured way so we can add proper translations.
@@ -5049,7 +5048,7 @@ def get_additional_for_aarecord(aarecord):
 
     torrents_json_aa_currently_seeding_by_torrent_path = allthethings.utils.get_torrents_json_aa_currently_seeding_by_torrent_path()
 
-    temporarily_unavailable = gettext('page.md5.box.download.temporarily_unavailable') # Keeping translation
+    _temporarily_unavailable = gettext('page.md5.box.download.temporarily_unavailable') # Keeping translation
 
     for scihub_doi in aarecord.get('scihub_doi') or []:
         doi = scihub_doi['doi']
@@ -5736,7 +5735,7 @@ def all_search_aggs(display_lang, search_index_long):
     content_type_buckets = list(search_results_raw['aggregations']['search_content_type']['buckets'])
     md5_content_type_mapping = get_md5_content_type_mapping(display_lang)
     all_aggregations['search_content_type'] = [{ 'key': bucket['key'], 'label': md5_content_type_mapping[bucket['key']], 'doc_count': bucket['doc_count'] } for bucket in content_type_buckets]
-    content_type_keys_present = set([bucket['key'] for bucket in content_type_buckets])
+    # content_type_keys_present = set([bucket['key'] for bucket in content_type_buckets])
     # for key, label in md5_content_type_mapping.items():
     #     if key not in content_type_keys_present:
     #         all_aggregations['search_content_type'].append({ 'key': key, 'label': label, 'doc_count': 0 })
@@ -5754,7 +5753,7 @@ def all_search_aggs(display_lang, search_index_long):
     access_types_buckets = list(search_results_raw['aggregations']['search_access_types']['buckets'])
     access_types_mapping = get_access_types_mapping(display_lang)
     all_aggregations['search_access_types'] = [{ 'key': bucket['key'], 'label': access_types_mapping[bucket['key']], 'doc_count': bucket['doc_count'] } for bucket in access_types_buckets]
-    content_type_keys_present = set([bucket['key'] for bucket in access_types_buckets])
+    # content_type_keys_present = set([bucket['key'] for bucket in access_types_buckets])
     # for key, label in access_types_mapping.items():
     #     if key not in content_type_keys_present:
     #         all_aggregations['search_access_types'].append({ 'key': key, 'label': label, 'doc_count': 0 })
@@ -5764,7 +5763,7 @@ def all_search_aggs(display_lang, search_index_long):
     record_sources_buckets = list(search_results_raw['aggregations']['search_record_sources']['buckets'])
     record_sources_mapping = get_record_sources_mapping(display_lang)
     all_aggregations['search_record_sources'] = [{ 'key': bucket['key'], 'label': record_sources_mapping[bucket['key']], 'doc_count': bucket['doc_count'] } for bucket in record_sources_buckets]
-    content_type_keys_present = set([bucket['key'] for bucket in record_sources_buckets])
+    # content_type_keys_present = set([bucket['key'] for bucket in record_sources_buckets])
     # for key, label in record_sources_mapping.items():
     #     if key not in content_type_keys_present:
     #         all_aggregations['search_record_sources'].append({ 'key': key, 'label': label, 'doc_count': 0 })

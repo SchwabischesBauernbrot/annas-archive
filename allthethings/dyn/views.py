@@ -897,7 +897,6 @@ def account_buy_membership():
         # if existing_unpaid_donations_counts > 0:
         #     raise Exception(f"Existing unpaid or manualconfirm donations open")
 
-        data_ip = allthethings.utils.canonical_ip_bytes(request.remote_addr)
         data = {
             'donation_id': donation_id,
             'account_id': account_id,

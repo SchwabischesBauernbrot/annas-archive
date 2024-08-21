@@ -270,8 +270,8 @@ def extensions(app):
         new_header_tagline_scihub = gettext('layout.index.header.tagline_scihub')
         new_header_tagline_libgen = gettext('layout.index.header.tagline_libgen')
         new_header_tagline_zlib = gettext('layout.index.header.tagline_zlib')
-        new_header_tagline_openlib = gettext('layout.index.header.tagline_openlib')
-        new_header_tagline_ia = gettext('layout.index.header.tagline_ia')
+        _new_header_tagline_openlib = gettext('layout.index.header.tagline_openlib')
+        _new_header_tagline_ia = gettext('layout.index.header.tagline_ia')
         new_header_tagline_duxiu = gettext('layout.index.header.tagline_duxiu')
         new_header_tagline_separator = gettext('layout.index.header.tagline_separator')
         new_header_tagline_and = gettext('layout.index.header.tagline_and')
@@ -304,7 +304,6 @@ def extensions(app):
         today = datetime.date.today().day
         currentYear = datetime.date.today().year
         currentMonth = datetime.date.today().month
-        currentMonthName = calendar.month_name[currentMonth]
         monthrange = calendar.monthrange(currentYear, currentMonth)[1]
         g.fraction_of_the_month = today / monthrange
 
