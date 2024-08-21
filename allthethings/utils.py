@@ -1268,7 +1268,7 @@ def get_aarecord_search_indexes_for_id_prefix(id_prefix):
     elif id_prefix in ['md5', 'doi']:
         return ['aarecords', 'aarecords_journals']
     else:
-        raise Exception(f"Unknown aarecord_id prefix: {aarecord_id}")
+        raise Exception(f"Unknown aarecord_id prefix: {id_prefix}")
 def get_aarecord_search_index(id_prefix, content_type):
     if get_aarecord_id_prefix_is_metadata(id_prefix):
         return 'aarecords_metadata'
@@ -1280,7 +1280,7 @@ def get_aarecord_search_index(id_prefix, content_type):
         else:
             return 'aarecords'
     else:
-        raise Exception(f"Unknown aarecord_id prefix: {aarecord_id}")
+        raise Exception(f"Unknown aarecord_id prefix: {id_prefix}")
 SEARCH_INDEX_TO_ES_MAPPING = {
     'aarecords': es,
     'aarecords_journals': es_aux,
