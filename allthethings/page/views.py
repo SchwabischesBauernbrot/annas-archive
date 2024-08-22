@@ -1010,7 +1010,7 @@ zlib_book_dict_comments = {
     **allthethings.utils.COMMON_DICT_COMMENTS,
     "zlibrary_id": ("before", ["This is a file from the Z-Library collection of Anna's Archive.",
                       "More details at https://annas-archive.se/datasets/zlib",
-                      "The source URL is http://loginzlib2vrak5zzpcocc3ouizykn6k5qecgj2tzlnab5wcbqhembyd.onion/md5/<md5_reported>",
+                      "The source URL is http://bookszlibb74ugqojhzhg2a63w5i2atv5bqarulgczawnbmsb6s6qead.onion/md5/<md5_reported>",
                       allthethings.utils.DICT_COMMENTS_NO_API_DISCLAIMER]),
     "edition_varia_normalized": ("after", ["Anna's Archive version of the 'series', 'volume', 'edition', and 'year' fields; combining them into a single field for display and search."]),
     "in_libgen": ("after", ["Whether at the time of indexing, the book was also available in Libgen."]),
@@ -5408,11 +5408,11 @@ def get_additional_for_aarecord(aarecord):
     if aarecord.get('aac_zlib3_book') is not None:
         # TODO:TRANSLATE
         additional['download_urls'].append(("Z-Library", f"https://z-lib.gs/md5/{aarecord['aac_zlib3_book']['md5_reported'].lower()}", ""))
-        additional['download_urls'].append((gettext('page.md5.box.download.zlib_tor'), f"http://loginzlib2vrak5zzpcocc3ouizykn6k5qecgj2tzlnab5wcbqhembyd.onion/md5/{aarecord['aac_zlib3_book']['md5_reported'].lower()}", gettext('page.md5.box.download.zlib_tor_extra')))
+        additional['download_urls'].append((gettext('page.md5.box.download.zlib_tor'), f"http://bookszlibb74ugqojhzhg2a63w5i2atv5bqarulgczawnbmsb6s6qead.onion/md5/{aarecord['aac_zlib3_book']['md5_reported'].lower()}", gettext('page.md5.box.download.zlib_tor_extra')))
     if (aarecord.get('zlib_book') is not None) and (aarecord.get('aac_zlib3_book') is None):
         # TODO:TRANSLATE
         additional['download_urls'].append(("Z-Library", f"https://z-lib.gs/md5/{aarecord['zlib_book']['md5_reported'].lower()}", ""))
-        additional['download_urls'].append((gettext('page.md5.box.download.zlib_tor'), f"http://loginzlib2vrak5zzpcocc3ouizykn6k5qecgj2tzlnab5wcbqhembyd.onion/md5/{aarecord['zlib_book']['md5_reported'].lower()}", gettext('page.md5.box.download.zlib_tor_extra')))
+        additional['download_urls'].append((gettext('page.md5.box.download.zlib_tor'), f"http://bookszlibb74ugqojhzhg2a63w5i2atv5bqarulgczawnbmsb6s6qead.onion/md5/{aarecord['zlib_book']['md5_reported'].lower()}", gettext('page.md5.box.download.zlib_tor_extra')))
     if aarecord.get('aac_magzdb') is not None:
         # TODO:TRANSLATE
         additional['download_urls'].append(("MagzDB", f"http://magzdb.org/num/{aarecord['aac_magzdb']['id']}", ""))
