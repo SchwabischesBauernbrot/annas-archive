@@ -3671,6 +3671,13 @@ def get_aac_magzdb_book_dicts(session, key, values):
         if year_range_stripped != '':
             aac_magzdb_book_dict['aa_magzdb_derived']['combined_comments'].append(year_range_stripped)
 
+        for previous_edition in (publication_aac_record['metadata']['record']['previousEditions'] or []):
+            aac_magzdb_book_dict['aa_magzdb_derived']['combined_comments'].append(f"Previous edition: magzdb_pub:{previous_edition}")
+        for subsequent_edition in (publication_aac_record['metadata']['record']['subsequentEditions'] or []):
+            aac_magzdb_book_dict['aa_magzdb_derived']['combined_comments'].append(f"Subsequent edition: magzdb_pub:{subsequent_edition}")
+        for supplementary_edition in (publication_aac_record['metadata']['record']['supplementaryEditions'] or []):
+            aac_magzdb_book_dict['aa_magzdb_derived']['combined_comments'].append(f"Supplementary edition: magzdb_pub:{supplementary_edition}")
+
         for upload in aac_record['metadata']['record']['uploads']:
             if key == 'md5':
                 if (upload['md5'] or '') != requested_value:
