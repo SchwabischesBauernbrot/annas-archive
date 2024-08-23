@@ -356,6 +356,11 @@
                 ❌ {{ gettext('page.search.too_inaccurate', a_reload=('href="javascript:location.reload()"' | safe)) }}
               {% else %}
                 {{ gettext('page.search.results.none', classname=(' class="font-bold"' | safe)) }}
+
+                <div class="mt-4">
+                  <!-- TODO:TRANSLATE -->
+                  ➡️ Sometimes this happens incorrectly when the search server is slow. In such cases, <a href="javascript:location.reload()">reloading</a> can help.
+                </div>
               {% endif %}
             </div>
 

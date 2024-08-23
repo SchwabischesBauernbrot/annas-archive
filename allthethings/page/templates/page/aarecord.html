@@ -228,7 +228,10 @@
     {% if (aarecord.additional.fast_partner_urls | length) > 0 %}
       <div class="mb-4">
         <h3 class="mt-4 mb-1 text-xl font-bold">{{ gettext('page.md5.box.download.header_fast_only') }}</h3>
-        <p class="mb-1 js-fast-download-no-member-header">{{ gettext('page.md5.box.download.header_fast_no_member', a_membership=(' href="/donate"' | safe)) }}</p>
+        <div class="mb-1 js-fast-download-no-member-header">
+          {{ gettext('page.md5.box.download.header_fast_no_member', a_membership=(' href="/donate"' | safe)) }}
+          {% if g.is_membership_double %}<div class="inline-block px-1 bg-[#ff005b]">{{ gettext('layout.index.header.banner.fundraiser.this_month') }}</div>{% endif %}
+        </div>
         <p class="mb-1 hidden js-fast-download-member-header-remaining">{{ gettext('page.md5.box.download.header_fast_member', remaining='XXXXXX') }}</p>
         <p class="mb-1 hidden js-fast-download-member-header-no-remaining">{{ gettext('page.md5.box.download.header_fast_member_no_remaining_new') }}</p>
         <p class="mb-1 hidden js-fast-download-member-header-valid-for">{{ gettext('page.md5.box.download.header_fast_member_valid_for') }}</p>
