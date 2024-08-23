@@ -156,11 +156,11 @@ For larger projects, please contact Anna first on [Reddit](https://www.reddit.co
 
 ## Testing
 
-Please run `./bin/check` before committing to ensure that your changes pass the automated checks. You can also run `./bin/fix` to apply some automatic fixes to common lint issues.
+Please run `docker exec -it web bin/check` before committing to ensure that your changes pass the automated checks. You can also run `./bin/fix` to apply some automatic fixes to common lint issues.
 
-To check that all pages are working, you can start your docker-compose stack, then run `bash ./bin/smoke-test`.
+To check that all pages are working, you can start your docker-compose stack, then run `docker exec -it web bin/smoke-test`.
 
-You can also run `bash ./bin/smoke-test <language-code>` to check a single language.
+You can also run `docker exec -it web bin/smoke-test <language-code>` to check a single language.
 
 The script will output .html files in the current directory named `<language>--<path>.html`, where path is the url-encoded pathname that errored. You can open that file to see the error.
 
