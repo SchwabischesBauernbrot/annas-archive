@@ -209,7 +209,7 @@ def mysql_build_aac_tables_internal():
                     'aacid': aacid.decode(), 
                     'primary_id': primary_id.decode(), 
                     'md5': md5.decode() if md5 is not None else None,
-                    'multiple_md5s': multiple_md5s if multiple_md5s is not None and len(multiple_md5s) > 1 else None,
+                    'multiple_md5s': multiple_md5s if multiple_md5s is not None and len(multiple_md5s) > 0 else None,
                     'byte_offset': byte_offset,
                     'byte_length': len(line),
                 }
