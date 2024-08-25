@@ -86,12 +86,15 @@ def validate_duxiu_ssids(duxiu_ssids):
 def validate_magzdb_ids(magzdb_ids):
     return all([str(magzdb_id).isdigit() for magzdb_id in magzdb_ids])
 
+def validate_nexusstc_ids(nexusstc_ids):
+    return all([bool(re.match(r"^[a-z\d]{25}$", nexusstc_id)) for nexusstc_id in nexusstc_ids])
+
 def validate_aarecord_ids(aarecord_ids):
     try:
         split_ids = split_aarecord_ids(aarecord_ids)
     except Exception:
         return False
-    return validate_canonical_md5s(split_ids['md5']) and validate_ol_editions(split_ids['ol']) and validate_oclc_ids(split_ids['oclc']) and validate_duxiu_ssids(split_ids['duxiu_ssid']) and validate_magzdb_ids(split_ids['magzdb'])
+    return validate_canonical_md5s(split_ids['md5']) and validate_ol_editions(split_ids['ol']) and validate_oclc_ids(split_ids['oclc']) and validate_duxiu_ssids(split_ids['duxiu_ssid']) and validate_magzdb_ids(split_ids['magzdb']) and validate_nexusstc_ids(split_ids['nexusstc'])
 
 def split_aarecord_ids(aarecord_ids):
     ret = {
@@ -104,6 +107,7 @@ def split_aarecord_ids(aarecord_ids):
         'duxiu_ssid': [],
         'cadal_ssno': [],
         'magzdb': [],
+        'nexusstc': [],
     }
     for aarecord_id in aarecord_ids:
         split_aarecord_id = aarecord_id.split(':', 1)
@@ -113,6 +117,10 @@ def split_aarecord_ids(aarecord_ids):
 def path_for_aarecord_id(aarecord_id):
     aarecord_id_split = aarecord_id.split(':', 1)
     return '/' + aarecord_id_split[0].replace('isbn', 'isbndb') + '/' + aarecord_id_split[1]
+
+def validate_year(year):
+    year_str = str(year)
+    return year_str.isdigit() and int(year_str) >= 1600 and int(year_str) < 2100
 
 def doi_is_isbn(doi):
     return doi.startswith('10.978.') or doi.startswith('10.979.')
@@ -947,7 +955,7 @@ UNIFIED_IDENTIFIERS = {
     "lgrsnf": { "label": "Libgen.rs Non-Fiction", "url": "https://libgen.rs/json.php?fields=*&ids=%s", "description": "Repository ID for the non-fiction ('libgen') repository in Libgen.rs. Directly taken from the 'id' field in the 'updated' table. Corresponds to the 'thousands folder' torrents.", "website": "/datasets/libgen_rs" },
     "lgrsfic": { "label": "Libgen.rs Fiction", "url": "https://libgen.rs/fiction/", "description": "Repository ID for the fiction repository in Libgen.rs. Directly taken from the 'id' field in the 'fiction' table. Corresponds to the 'thousands folder' torrents.", "website": "/datasets/libgen_rs" },
     "lgli": { "label": "Libgen.li File", "url": "https://libgen.li/file.php?id=%s", "description": "Global file ID in Libgen.li. Directly taken from the 'f_id' field in the 'files' table.", "website": "/datasets/libgen_li" },
-    "zlib": { "label": "Z-Library", "url": "https://z-lib.gs/", "description": "", "website": "/datasets/zlib" },
+    "zlib": { "label": "Z-Library", "url": "https://z-lib.gs/", "description": "ID in Z-Library.", "website": "/datasets/zlib" },
     "csbn": { "label": "CSBN", "url": "", "description": "China Standard Book Number, predecessor of ISBN in China", "website": "https://zh.wikipedia.org/zh-cn/%E7%BB%9F%E4%B8%80%E4%B9%A6%E5%8F%B7" },
     "ean13": { "label": "EAN-13", "url": "", "description": "", "website": "https://en.wikipedia.org/wiki/International_Article_Number" },
     "duxiu_ssid": { "label": "DuXiu SSID", "url": "", "description": "", "website": "/datasets/duxiu" },
@@ -964,7 +972,11 @@ UNIFIED_IDENTIFIERS = {
     "server_path": { "label": "Server Path", "description": "Path on Anna’s Archive partner servers." },
     "aacid": { "label": "AacId", "website": "/blog/annas-archive-containers.html", "description": "Anna’s Archive Container identifier." },
     "magzdb": { "label": "MagzDB Edition ID", "url": "http://magzdb.org/num/%s", "description": "ID of an individual edition of a magazine in MagzDB.", "website": "/datasets/magzdb" },
-    "magzdb_pub": { "label": "MagzDB Publication ID", "url": "http://magzdb.org/j/%s", "description": "ID of a publication in MagzDB.", "website": "/datasets/magzdb" },
+    "nexusstc": { "label": "Nexus/STC ID", "url": "https://libstc.cc/#/stc/nid:%s", "description": "ID of an individual edition of a file in Nexus/STC.", "website": "/datasets/nexusstc" },
+    "ipfs_cid": { "label": "IPFS CID", "url": "ipfs://%s", "description": "Content Identifier (CID) of the InterPlanetary File System (IPFS).", "website": "https://ipfs.tech/" },
+    "manualslib": { "label": "ManualsLib", "url": "https://www.manualslib.com/manual/%s/manual.html", "description": "File ID in ManualsLib", "website": "https://www.manualslib.com/" },
+    "iso": { "label": "ISO", "url": "https://iso.org/standard/%s.html", "description": "ISO standard number.", "website": "https://iso.org/" },
+    "british_standard": { "label": "British Standard", "url": "", "description": "British Standards (BS) are the standards produced by the BSI Group.", "website": "https://en.wikipedia.org/wiki/British_Standards" },
     **{LGLI_IDENTIFIERS_MAPPING.get(key, key): value for key, value in LGLI_IDENTIFIERS.items()},
     # Plus more added below!
 }
@@ -988,8 +1000,13 @@ UNIFIED_CLASSIFICATIONS = {
     "ol_source": { "label": "OpenLib 'created' Date", "website": "/datasets/libgen_li", "description": "The 'created' metadata field on the Open Library, indicating when the first version of this record was created." },
     "upload_record_date": { "label": "Upload Collection Date", "website": "/datasets/upload", "description": "Date Anna’s Archive indexed this file in our 'upload' collection." },
     "zlib_source": { "label": "Z-Library Source Date", "website": "/datasets/zlib", "description": "Date Z-Library published this file." },
+    "magzdb_pub": { "label": "MagzDB Publication ID", "url": "http://magzdb.org/j/%s", "description": "ID of a publication in MagzDB.", "website": "/datasets/magzdb" },
     "magzdb_meta_scrape": { "label": "MagzDB Source Scrape Date", "website": "/datasets/magzdb", "description": "Date we scraped the MagzDB metadata." },
     "magzdb_keyword": { "label": "MagzDB Keyword", "url": "", "description": "Publication keyword in MagzDB (in Russian).", "website": "/datasets/magzdb" },
+    "nexusstc_source_issued_at_date": { "label": "Nexus/STC Source issued_at Date", "website": "/datasets/nexusstc", "description": "Date Nexus/STC reports in their issued_at field, which is the “issuing time of the item described by record.”" },
+    "nexusstc_source_update_date": { "label": "Nexus/STC Source Updated Date", "website": "/datasets/nexusstc", "description": "Date Nexus/STC last updated this record." },
+    "nexusstc_tag": { "label": "Nexus/STC tag", "url": "", "description": "Tag in Nexus/STC.", "website": "/datasets/nexusstc" },
+    "orcid": { "label": "ORCID", "url": "https://orcid.org/%s", "description": "Open Researcher and Contributor ID.", "website": "https://orcid.org/" },
     **{LGLI_CLASSIFICATIONS_MAPPING.get(key, key): value for key, value in LGLI_CLASSIFICATIONS.items()},
     # Plus more added below!
 }
@@ -1230,6 +1247,9 @@ def add_isbns_unified(output_dict, potential_isbns):
 def add_issn_unified(output_dict, issn):
     add_identifier_unified(output_dict, 'issn', issn.replace('-', '').strip())
 
+def add_orcid_unified(output_dict, orcid):
+    add_classification_unified(output_dict, 'orcid', orcid.replace('-', '').strip())
+
 def merge_unified_fields(list_of_fields_unified):
     merged_sets = {}
     for fields_unified in list_of_fields_unified:
@@ -1269,7 +1289,7 @@ SEARCH_INDEX_SHORT_LONG_MAPPING = {
     'meta': 'aarecords_metadata',
 }
 def get_aarecord_id_prefix_is_metadata(id_prefix):
-    return (id_prefix in ['isbn', 'ol', 'oclc', 'duxiu_ssid', 'cadal_ssno', 'magzdb'])
+    return (id_prefix in ['isbn', 'ol', 'oclc', 'duxiu_ssid', 'cadal_ssno', 'magzdb', 'nexusstc'])
 def get_aarecord_search_indexes_for_id_prefix(id_prefix):
     if get_aarecord_id_prefix_is_metadata(id_prefix):
         return ['aarecords_metadata']
@@ -1316,7 +1336,7 @@ def attempt_fix_chinese_uninterrupted_text(text):
 def attempt_fix_chinese_filepath(filepath):
     return '/'.join([attempt_fix_chinese_uninterrupted_text(part) for part in filepath.split('/')])
 
-FILEPATH_PREFIXES = [ 'duxiu', 'ia', 'lgli', 'lgrsfic', 'lgrsnf', 'scihub', 'scimag', 'upload' ]
+FILEPATH_PREFIXES = ['duxiu', 'ia', 'lgli', 'lgrsfic', 'lgrsnf', 'scihub', 'scimag', 'upload', 'magzdb', 'nexusstc']
 def prefix_filepath(prefix, filepath):
     if prefix not in FILEPATH_PREFIXES:
         raise Exception(f"prefix_filepath: {prefix=} not in {FILEPATH_PREFIXES=}")

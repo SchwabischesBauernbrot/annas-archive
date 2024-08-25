@@ -183,6 +183,12 @@ def mysql_build_aac_tables_internal():
                 if collection == 'worldcat':
                     if (b'not_found_title_json' in line) or (b'redirect_title_json' in line):
                         return None
+                elif collection == 'nexusstc_records':
+                    if b'"type":["wiki"]' in line:
+                        return None
+                    if line.startswith(b'{"aacid":"aacid__nexusstc_records__20240516T181305Z__78xFBbXdi1dSBZxyoVNAdn","metadata":{"nexus_id":"6etg0wq0q8nsoufh9gtj4n9s5","record":{"abstract":[],"authors":[{"family":"Fu","given":"Ke-Ang","sequence":"first"},{"family":"Wang","given":"Jiangfeng","sequence":"additional"}],"ctr":[0.1],"custom_score":[1.0],"embeddings":[],"id":[{"dois":["10.1080/03610926.2022.2027451"],"nexus_id":"6etg0wq0q8nsoufh9gtj4n9s5"}],"issued_at":[1642982400],"languages":["en"],"links":[],"metadata":[{"container_title":"Communications in Statistics - Theory and Methods","first_page":6266,"issns":["0361-0926","1532-415X"],"issue":"17","last_page":6274,"publisher":"Informa UK Limited","volume":"52"}],"navigational_facets":[],"page_rank":[0.15],"reference_texts":[],"referenced_by_count":[0],"references":[{"doi":"10.1080/03461230802700897","type":"reference"},{"doi":"10.1239/jap/1238592120","type":"reference"},{"doi":"10.1016/j.insmatheco.2012.06.010","type":"reference"},{"doi":"10.1016/j.insmatheco.2020.12.003","type":"reference"},{"doi":"10.1007/s11009-019-09722-8","type":"reference"},{"doi":"10.1016/0304-4149(94)90113-9","type":"reference"},{"doi":"10.1016/j.insmatheco.2008.08.009","type":"reference"},{"doi":"10.1080/03610926.2015.1060338","type":"reference"},{"doi":"10.3150/17-bej948","type":"reference"},{"doi":"10.1093/biomet/58.1.83"("type":"reference"},{"doi":"10.1239/aap/1293113154","type":"reference"},{"doi":"10.1016/j.spl.2020.108857","type":"reference"},{"doi":"10.1007/s11424-019-8159-3","type":"reference"},{"doi":"10.1007/s11425-010-4012-9","type":"reference"},{"doi":"10.1007/s10114-017-6433-7","type":"reference"},{"doi":"10.1016/j.spl.2011.08.024","type":"reference"},{"doi":"10.1007/s11009-008-9110-6","type":"reference"},{"doi":"10.1016/j.insmatheco.2020.12.005","type":"reference"},{"doi":"10.1016/j.spa.2003.07.001","type":"reference"},{"doi":"10.1016/j.insmatheco.2013.08.008","type":"reference"}],"signature":[],"tags":["Statistics and Probability"],"title":["Moderate deviations for a Hawkes-type risk model with arbitrary dependence between claim sizes and waiting times"],"type":["journal-article"],"updated_at":[1715883185]}}}'):
+                        # Bad record
+                        return None
 
                 md5 = matches[6]
                 if ('duxiu_files' in collection and b'"original_md5"' in line):
@@ -369,6 +375,10 @@ def mysql_build_computed_all_md5s_internal():
     cursor.execute('LOAD INDEX INTO CACHE annas_archive_meta__aacid__upload_records, annas_archive_meta__aacid__magzdb_records__multiple_md5')
     print("Inserting from 'annas_archive_meta__aacid__magzdb_records__multiple_md5'")
     cursor.execute('INSERT IGNORE INTO computed_all_md5s (md5, first_source) SELECT UNHEX(md5), 13 FROM annas_archive_meta__aacid__magzdb_records__multiple_md5')
+    print("Load indexes of annas_archive_meta__aacid__upload_records and annas_archive_meta__aacid__nexusstc_records__multiple_md5")
+    cursor.execute('LOAD INDEX INTO CACHE annas_archive_meta__aacid__upload_records, annas_archive_meta__aacid__nexusstc_records__multiple_md5')
+    print("Inserting from 'annas_archive_meta__aacid__nexusstc_records__multiple_md5'")
+    cursor.execute('INSERT IGNORE INTO computed_all_md5s (md5, first_source) SELECT UNHEX(md5), 14 FROM annas_archive_meta__aacid__nexusstc_records__multiple_md5')
     cursor.close()
     print("Done mysql_build_computed_all_md5s_internal!")
     # engine_multi = create_engine(mariadb_url_no_timeout, connect_args={"client_flag": CLIENT.MULTI_STATEMENTS})
@@ -541,6 +551,7 @@ AARECORD_ID_PREFIX_TO_CODES_TABLE_NAME = {
     'cadal_ssno': 'aarecords_codes_duxiu',
     'oclc': 'aarecords_codes_oclc',
     'magzdb': 'aarecords_codes_magzdb',
+    'nexusstc': 'aarecords_codes_nexusstc',
     'md5': 'aarecords_codes_main',
     'doi': 'aarecords_codes_main',
 }
@@ -725,6 +736,7 @@ def elastic_build_aarecords_all():
 def elastic_build_aarecords_all_internal():
     elastic_build_aarecords_oclc_internal() # OCLC first since we use isbn13_oclc table in later steps.
     elastic_build_aarecords_magzdb_internal()
+    elastic_build_aarecords_nexusstc_internal()
     elastic_build_aarecords_ia_internal()
     elastic_build_aarecords_isbndb_internal()
     elastic_build_aarecords_ol_internal()
@@ -1038,6 +1050,46 @@ def elastic_build_aarecords_magzdb_internal():
         print(f"Done with annas_archive_meta__aacid__magzdb_records!")
 
 #################################################################################################
+# ./run flask cli elastic_build_aarecords_nexusstc
+@cli.cli.command('elastic_build_aarecords_nexusstc')
+def elastic_build_aarecords_nexusstc():
+    elastic_build_aarecords_nexusstc_internal()
+
+def elastic_build_aarecords_nexusstc_internal():
+    # WARNING! Update the upload excludes, and dump_mariadb_omit_tables.txt, when changing aarecords_codes_* temp tables.
+    new_tables_internal('aarecords_codes_nexusstc')
+
+    before_first_primary_id = ''
+    # before_first_primary_id = '123'
+
+    with engine.connect() as connection:
+        print("Processing from annas_archive_meta__aacid__nexusstc_records")
+        connection.connection.ping(reconnect=True)
+        cursor = connection.connection.cursor(pymysql.cursors.SSDictCursor)
+        cursor.execute('SELECT COUNT(primary_id) AS count FROM annas_archive_meta__aacid__nexusstc_records WHERE primary_id > %(from)s ORDER BY primary_id LIMIT 1', { "from": before_first_primary_id })
+        total = list(cursor.fetchall())[0]['count']
+        with tqdm.tqdm(total=total, bar_format='{l_bar}{bar}{r_bar} {eta}') as pbar:
+            with multiprocessing.Pool(THREADS, initializer=elastic_build_aarecords_job_init_pool) as executor:
+                current_primary_id = before_first_primary_id
+                last_map = None
+                while True:
+                    connection.connection.ping(reconnect=True)
+                    cursor = connection.connection.cursor(pymysql.cursors.SSDictCursor)
+                    cursor.execute('SELECT primary_id FROM annas_archive_meta__aacid__nexusstc_records WHERE primary_id > %(from)s ORDER BY primary_id LIMIT %(limit)s', { "from": current_primary_id, "limit": BATCH_SIZE })
+                    batch = list(cursor.fetchall())
+                    if last_map is not None:
+                        if any(last_map.get()):
+                            print("Error detected; exiting")
+                            os._exit(1)
+                    if len(batch) == 0:
+                        break
+                    print(f"Processing with {THREADS=} {len(batch)=} aarecords from annas_archive_meta__aacid__nexusstc_records ( starting primary_id: {batch[0]['primary_id']} , ending primary_id: {batch[-1]['primary_id']} )...")
+                    last_map = executor.map_async(elastic_build_aarecords_job, more_itertools.ichunked([f"nexusstc:{row['primary_id']}" for row in batch], CHUNK_SIZE))
+                    pbar.update(len(batch))
+                    current_primary_id = batch[-1]['primary_id']
+        print(f"Done with annas_archive_meta__aacid__nexusstc_records!")
+
+#################################################################################################
 # ./run flask cli elastic_build_aarecords_main
 @cli.cli.command('elastic_build_aarecords_main')
 def elastic_build_aarecords_main():
@@ -1202,7 +1254,7 @@ def mysql_build_aarecords_codes_numbers_internal():
 
         # WARNING! Update the upload excludes, and dump_mariadb_omit_tables.txt, when changing aarecords_codes_* temp tables.
         print("Creating fresh table aarecords_codes_new")
-        cursor.execute(f'CREATE TABLE aarecords_codes_new (code VARBINARY({allthethings.utils.AARECORDS_CODES_CODE_LENGTH}) NOT NULL, aarecord_id VARBINARY({allthethings.utils.AARECORDS_CODES_AARECORD_ID_LENGTH}) NOT NULL, aarecord_id_prefix VARBINARY({allthethings.utils.AARECORDS_CODES_AARECORD_ID_PREFIX_LENGTH}) NOT NULL, row_number_order_by_code BIGINT NOT NULL, dense_rank_order_by_code BIGINT NOT NULL, row_number_partition_by_aarecord_id_prefix_order_by_code BIGINT NOT NULL, dense_rank_partition_by_aarecord_id_prefix_order_by_code BIGINT NOT NULL, PRIMARY KEY (code, aarecord_id), INDEX aarecord_id_prefix (aarecord_id_prefix, code, aarecord_id)) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin SELECT code, aarecord_id, SUBSTRING_INDEX(aarecord_id, ":", 1) AS aarecord_id_prefix, (ROW_NUMBER() OVER (ORDER BY code, aarecord_id)) AS row_number_order_by_code, (DENSE_RANK() OVER (ORDER BY code, aarecord_id)) AS dense_rank_order_by_code, (ROW_NUMBER() OVER (PARTITION BY aarecord_id_prefix ORDER BY code, aarecord_id)) AS row_number_partition_by_aarecord_id_prefix_order_by_code, (DENSE_RANK() OVER (PARTITION BY aarecord_id_prefix ORDER BY code, aarecord_id)) AS dense_rank_partition_by_aarecord_id_prefix_order_by_code FROM (SELECT code, aarecord_id FROM aarecords_codes_ia UNION ALL SELECT code, aarecord_id FROM aarecords_codes_isbndb UNION ALL SELECT code, aarecord_id FROM aarecords_codes_ol UNION ALL SELECT code, aarecord_id FROM aarecords_codes_duxiu UNION ALL SELECT code, aarecord_id FROM aarecords_codes_oclc UNION ALL SELECT code, aarecord_id FROM aarecords_codes_magzdb UNION ALL SELECT code, aarecord_id FROM aarecords_codes_main) x')
+        cursor.execute(f'CREATE TABLE aarecords_codes_new (code VARBINARY({allthethings.utils.AARECORDS_CODES_CODE_LENGTH}) NOT NULL, aarecord_id VARBINARY({allthethings.utils.AARECORDS_CODES_AARECORD_ID_LENGTH}) NOT NULL, aarecord_id_prefix VARBINARY({allthethings.utils.AARECORDS_CODES_AARECORD_ID_PREFIX_LENGTH}) NOT NULL, row_number_order_by_code BIGINT NOT NULL, dense_rank_order_by_code BIGINT NOT NULL, row_number_partition_by_aarecord_id_prefix_order_by_code BIGINT NOT NULL, dense_rank_partition_by_aarecord_id_prefix_order_by_code BIGINT NOT NULL, PRIMARY KEY (code, aarecord_id), INDEX aarecord_id_prefix (aarecord_id_prefix, code, aarecord_id)) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin SELECT code, aarecord_id, SUBSTRING_INDEX(aarecord_id, ":", 1) AS aarecord_id_prefix, (ROW_NUMBER() OVER (ORDER BY code, aarecord_id)) AS row_number_order_by_code, (DENSE_RANK() OVER (ORDER BY code, aarecord_id)) AS dense_rank_order_by_code, (ROW_NUMBER() OVER (PARTITION BY aarecord_id_prefix ORDER BY code, aarecord_id)) AS row_number_partition_by_aarecord_id_prefix_order_by_code, (DENSE_RANK() OVER (PARTITION BY aarecord_id_prefix ORDER BY code, aarecord_id)) AS dense_rank_partition_by_aarecord_id_prefix_order_by_code FROM (SELECT code, aarecord_id FROM aarecords_codes_ia UNION ALL SELECT code, aarecord_id FROM aarecords_codes_isbndb UNION ALL SELECT code, aarecord_id FROM aarecords_codes_ol UNION ALL SELECT code, aarecord_id FROM aarecords_codes_duxiu UNION ALL SELECT code, aarecord_id FROM aarecords_codes_oclc UNION ALL SELECT code, aarecord_id FROM aarecords_codes_magzdb UNION ALL SELECT code, aarecord_id FROM aarecords_codes_nexusstc UNION ALL SELECT code, aarecord_id FROM aarecords_codes_main) x')
         cursor.execute(f'CREATE TABLE aarecords_codes_prefixes_new (code_prefix VARBINARY({allthethings.utils.AARECORDS_CODES_CODE_LENGTH}) NOT NULL, PRIMARY KEY (code_prefix)) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin SELECT DISTINCT SUBSTRING_INDEX(code, ":", 1) AS code_prefix FROM aarecords_codes_new')
 
         cursor.execute('SELECT table_rows FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = "allthethings" and TABLE_NAME = "aarecords_codes_new" LIMIT 1')
