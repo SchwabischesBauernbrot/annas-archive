@@ -3781,7 +3781,7 @@ def get_aac_nexusstc_book_dicts(session, key, values):
             "aa_nexusstc_derived": {
                 "filesize": 0,
                 "extension": '',
-                "ipfs_cid": '',
+                "ipfs_cids": [],
                 "title_best": '',
                 "author_best": '',
                 "publisher_best": '',
@@ -4001,7 +4001,8 @@ def get_aac_nexusstc_book_dicts(session, key, values):
             if key == 'md5':
                 if (link['md5'] or '') != requested_value:
                     continue
-                aac_nexusstc_book_dict['aa_nexusstc_derived']['ipfs_cid'] = link['cid'] or ''
+                if link['cid'] is not None:
+                    aac_nexusstc_book_dict['aa_nexusstc_derived']['ipfs_cids'].append(link['cid'])
                 aac_nexusstc_book_dict['aa_nexusstc_derived']['extension'] = link['extension'] or ''
                 aac_nexusstc_book_dict['aa_nexusstc_derived']['filesize'] = link['filesize'] or 0
 
@@ -4543,8 +4544,9 @@ def get_aarecords_mysql(session, aarecord_ids):
             aarecord['ipfs_infos'].append({ 'ipfs_cid': aarecord['aac_zlib3_book']['ipfs_cid'], 'from': 'zlib_ipfs_cid' })
         if aarecord['aac_zlib3_book'] and ((aarecord['aac_zlib3_book'].get('ipfs_cid_blake2b') or '') != ''):
             aarecord['ipfs_infos'].append({ 'ipfs_cid': aarecord['aac_zlib3_book']['ipfs_cid_blake2b'], 'from': 'zlib_ipfs_cid_blake2b' })
-        if aarecord['aac_nexusstc'] and (aarecord['aac_nexusstc']['aa_nexusstc_derived']['ipfs_cid'] != ''):
-            aarecord['ipfs_infos'].append({ 'ipfs_cid': aarecord['aac_nexusstc']['aa_nexusstc_derived']['ipfs_cid'], 'from': 'nexusstc' })
+        if aarecord['aac_nexusstc']:
+            for ipfs_cid in aarecord['aac_nexusstc']['aa_nexusstc_derived']['ipfs_cids']:
+                aarecord['ipfs_infos'].append({ 'ipfs_cid': ipfs_cid, 'from': 'nexusstc' })
         for ipfs_info in aarecord['ipfs_infos']:
             allthethings.utils.add_identifier_unified(aarecord['file_unified_data'], 'ipfs_cid', ipfs_info['ipfs_cid'])
 

@@ -209,7 +209,7 @@ def mysql_build_aac_tables_internal():
 
                 multiple_md5s = None
                 if collection in COLLECTIONS_WITH_MULTIPLE_MD5:
-                    multiple_md5s = re.findall(rb'"md5":"([^"]+)"', line)
+                    multiple_md5s = list(set(re.findall(rb'"md5":"([^"]+)"', line)))
 
                 return_data = { 
                     'aacid': aacid.decode(), 
@@ -291,7 +291,6 @@ def mysql_build_aac_tables_internal():
                         connection.connection.ping(reconnect=True)
                         cursor.executemany(f'{action} INTO {table_name} (aacid, primary_id, md5, byte_offset, byte_length {insert_extra_names}) VALUES (%(aacid)s, %(primary_id)s, %(md5)s, %(byte_offset)s, %(byte_length)s {insert_extra_values})', insert_data)
                     if len(insert_data_multiple_md5s) > 0:
-                        print(f"{insert_data_multiple_md5s=}")
                         connection.connection.ping(reconnect=True)
                         cursor.executemany(f'{action} INTO {table_name}__multiple_md5 (md5, aacid) VALUES (%(md5)s, %(aacid)s)', insert_data_multiple_md5s)
                     pbar.update(bytes_in_batch)
