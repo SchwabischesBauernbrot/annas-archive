@@ -3682,7 +3682,7 @@ def get_aac_magzdb_book_dicts(session, key, values):
 
         for upload in aac_record['metadata']['record']['uploads']:
             if key == 'md5':
-                if (upload['md5'] or '') != requested_value:
+                if (upload['md5'] or '').lower() != requested_value:
                     continue
                 aac_magzdb_book_dict['aa_magzdb_derived']['extension'] = upload['format'] or ''
                 aac_magzdb_book_dict['aa_magzdb_derived']['filesize'] = upload['sizeB'] or 0
@@ -3697,10 +3697,10 @@ def get_aac_magzdb_book_dicts(session, key, values):
                     aac_magzdb_book_dict['aa_magzdb_derived']['combined_comments'].append(note_stripped)
 
             extension_with_dot = f".{upload['format']}" if upload['format'] != '' else ''
-            aac_magzdb_book_dict['aa_magzdb_derived']['filepath_multiple'].append(f"{publication_aac_record['metadata']['record']['title'].strip()}/{aac_record['metadata']['record']['year']}/{aac_record['metadata']['record']['edition'].strip()}/{upload['md5']}{extension_with_dot}")
+            aac_magzdb_book_dict['aa_magzdb_derived']['filepath_multiple'].append(f"{publication_aac_record['metadata']['record']['title'].strip()}/{aac_record['metadata']['record']['year']}/{aac_record['metadata']['record']['edition'].strip()}/{upload['md5'].lower()}{extension_with_dot}")
 
             if (upload['md5'] or '') != '':
-                allthethings.utils.add_identifier_unified(aac_magzdb_book_dict['aa_magzdb_derived'], 'md5', upload['md5'])
+                allthethings.utils.add_identifier_unified(aac_magzdb_book_dict['aa_magzdb_derived'], 'md5', upload['md5'].lower())
 
         aac_magzdb_book_dict['aa_magzdb_derived']['filepath_best'] = next(iter(aac_magzdb_book_dict['aa_magzdb_derived']['filepath_multiple']), '')
         aac_magzdb_book_dicts.append(aac_magzdb_book_dict)
@@ -3999,7 +3999,7 @@ def get_aac_nexusstc_book_dicts(session, key, values):
 
         for link in aac_record['metadata']['record']['links']:
             if key == 'md5':
-                if (link['md5'] or '') != requested_value:
+                if (link['md5'] or '').lower() != requested_value:
                     continue
                 if link['cid'] is not None:
                     aac_nexusstc_book_dict['aa_nexusstc_derived']['ipfs_cids'].append(link['cid'])
@@ -4007,10 +4007,10 @@ def get_aac_nexusstc_book_dicts(session, key, values):
                 aac_nexusstc_book_dict['aa_nexusstc_derived']['filesize'] = link['filesize'] or 0
 
             extension_with_dot = f".{link['extension']}" if link['extension'] != '' else ''
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['filepath_multiple'].append(f"{title_stripped + '/' if title_stripped != '' else ''}{link['md5']}{extension_with_dot}")
+            aac_nexusstc_book_dict['aa_nexusstc_derived']['filepath_multiple'].append(f"{title_stripped + '/' if title_stripped != '' else ''}{link['md5'].lower()}{extension_with_dot}")
 
             if (link['md5'] or '') != '':
-                allthethings.utils.add_identifier_unified(aac_nexusstc_book_dict['aa_nexusstc_derived'], 'md5', link['md5'])
+                allthethings.utils.add_identifier_unified(aac_nexusstc_book_dict['aa_nexusstc_derived'], 'md5', link['md5'].lower())
             if (link['cid'] or '') != '':
                 allthethings.utils.add_identifier_unified(aac_nexusstc_book_dict['aa_nexusstc_derived'], 'ipfs_cid', link['cid'])
 

@@ -207,15 +207,15 @@ def mysql_build_aac_tables_internal():
                     # Remove if it's not md5.
                     md5 = None
 
-                multiple_md5s = None
+                multiple_md5s = []
                 if collection in COLLECTIONS_WITH_MULTIPLE_MD5:
-                    multiple_md5s = list(set(re.findall(rb'"md5":"([^"]+)"', line)))
+                    multiple_md5s = list(set([md5.lower() for md5 in re.findall(rb'"md5":"([^"]+)"', line)]))
 
                 return_data = { 
                     'aacid': aacid.decode(), 
                     'primary_id': primary_id.decode(), 
                     'md5': md5.decode() if md5 is not None else None,
-                    'multiple_md5s': multiple_md5s if multiple_md5s is not None and len(multiple_md5s) > 0 else None,
+                    'multiple_md5s': multiple_md5s,
                     'byte_offset': byte_offset,
                     'byte_length': len(line),
                 }
@@ -275,9 +275,8 @@ def mysql_build_aac_tables_internal():
                         allthethings.utils.aac_spot_check_line_bytes(line, {})
                         insert_data_line = build_insert_data(line, byte_offset)
                         if insert_data_line is not None:
-                            if insert_data_line['multiple_md5s'] is not None:
-                                for md5 in insert_data_line['multiple_md5s']:
-                                    insert_data_multiple_md5s.append({ "md5": md5, "aacid": insert_data_line['aacid'] })
+                            for md5 in insert_data_line['multiple_md5s']:
+                                insert_data_multiple_md5s.append({ "md5": md5, "aacid": insert_data_line['aacid'] })
                             del insert_data_line['multiple_md5s']
                             insert_data.append(insert_data_line)
                         line_len = len(line)
