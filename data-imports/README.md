@@ -46,6 +46,8 @@ docker exec -it aa-data-import--web /scripts/download_aac_duxiu_files.sh # CANNO
 docker exec -it aa-data-import--web /scripts/download_aac_duxiu_records.sh # CANNOT BE SKIPPED
 docker exec -it aa-data-import--web /scripts/download_aac_ia2_acsmpdf_files.sh # CANNOT BE SKIPPED
 docker exec -it aa-data-import--web /scripts/download_aac_ia2_records.sh # CANNOT BE SKIPPED
+docker exec -it aa-data-import--web /scripts/download_aac_magzdb_records.sh # CANNOT BE SKIPPED
+docker exec -it aa-data-import--web /scripts/download_aac_nexusstc_records.sh # CANNOT BE SKIPPED
 docker exec -it aa-data-import--web /scripts/download_aac_upload_files.sh # CANNOT BE SKIPPED
 docker exec -it aa-data-import--web /scripts/download_aac_upload_records.sh # CANNOT BE SKIPPED
 docker exec -it aa-data-import--web /scripts/download_aac_worldcat.sh # CANNOT BE SKIPPED
@@ -63,6 +65,8 @@ docker exec -it aa-data-import--web /scripts/load_aac_duxiu_files.sh # CANNOT BE
 docker exec -it aa-data-import--web /scripts/load_aac_duxiu_records.sh # CANNOT BE SKIPPED
 docker exec -it aa-data-import--web /scripts/load_aac_ia2_acsmpdf_files.sh # CANNOT BE SKIPPED
 docker exec -it aa-data-import--web /scripts/load_aac_ia2_records.sh # CANNOT BE SKIPPED
+docker exec -it aa-data-import--web /scripts/load_aac_magzdb_records.sh # CANNOT BE SKIPPED
+docker exec -it aa-data-import--web /scripts/load_aac_nexusstc_records.sh # CANNOT BE SKIPPED
 docker exec -it aa-data-import--web /scripts/load_aac_upload_files.sh # CANNOT BE SKIPPED
 docker exec -it aa-data-import--web /scripts/load_aac_upload_records.sh # CANNOT BE SKIPPED
 docker exec -it aa-data-import--web /scripts/load_aac_worldcat.sh # CANNOT BE SKIPPED
