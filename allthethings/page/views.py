@@ -4545,8 +4545,8 @@ def get_aarecords_mysql(session, aarecord_ids):
         if aarecord['aac_zlib3_book'] and ((aarecord['aac_zlib3_book'].get('ipfs_cid_blake2b') or '') != ''):
             aarecord['ipfs_infos'].append({ 'ipfs_cid': aarecord['aac_zlib3_book']['ipfs_cid_blake2b'], 'from': 'zlib_ipfs_cid_blake2b' })
         if aarecord['aac_nexusstc']:
-            for ipfs_cid in aarecord['aac_nexusstc']['aa_nexusstc_derived']['ipfs_cids']:
-                aarecord['ipfs_infos'].append({ 'ipfs_cid': ipfs_cid, 'from': 'nexusstc' })
+            for index, ipfs_cid in enumerate(aarecord['aac_nexusstc']['aa_nexusstc_derived']['ipfs_cids']):
+                aarecord['ipfs_infos'].append({ 'ipfs_cid': ipfs_cid, 'from': f"nexusstc{index+1}" })
         for ipfs_info in aarecord['ipfs_infos']:
             allthethings.utils.add_identifier_unified(aarecord['file_unified_data'], 'ipfs_cid', ipfs_info['ipfs_cid'])
 
