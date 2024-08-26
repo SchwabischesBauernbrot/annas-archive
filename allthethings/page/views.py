@@ -3744,7 +3744,7 @@ def get_aac_nexusstc_book_dicts(session, key, values):
     try:
         session.connection().connection.ping(reconnect=True)
         cursor = session.connection().connection.cursor(pymysql.cursors.DictCursor)
-        if key == 'nexusstc_id':
+        if key in ['nexusstc_id', 'nexusstc_id_download']:
             cursor.execute(f'SELECT byte_offset, byte_length, primary_id, primary_id AS requested_value FROM annas_archive_meta__aacid__nexusstc_records WHERE primary_id IN %(values)s', { "values": values })
         elif key == 'md5':
             cursor.execute(f'SELECT byte_offset, byte_length, primary_id, annas_archive_meta__aacid__nexusstc_records__multiple_md5.md5 as requested_value FROM annas_archive_meta__aacid__nexusstc_records JOIN annas_archive_meta__aacid__nexusstc_records__multiple_md5 USING (aacid) WHERE annas_archive_meta__aacid__nexusstc_records__multiple_md5.md5 IN %(values)s', { "values": values })
@@ -3886,6 +3886,12 @@ def get_aac_nexusstc_book_dicts(session, key, values):
                 family_stripped = author['family'].strip()
                 if family_stripped != '':
                     authors.append(family_stripped)
+            elif 'given' in author:
+                given_stripped = author['given'].strip()
+                if given_stripped != '':
+                    authors.append(given_stripped)
+            elif list(author.keys()) == ['sequence']:
+                pass
             else:
                 raise Exception(f"Unexpected {author=}")
         if len(authors) > 0:
@@ -4027,6 +4033,12 @@ def get_aac_nexusstc_book_dicts(session, key, values):
                     aac_nexusstc_book_dict['aa_nexusstc_derived']['ipfs_cids'].append(link['cid'])
                 aac_nexusstc_book_dict['aa_nexusstc_derived']['extension'] = link['extension'] or ''
                 aac_nexusstc_book_dict['aa_nexusstc_derived']['filesize'] = link['filesize'] or 0
+            elif key == 'nexusstc_id_download':
+                if (link['cid'] or '') != '':
+                    aac_nexusstc_book_dict['aa_nexusstc_derived']['ipfs_cids'].append(link['cid'])
+                # This will overwrite/combine different link records if they exist, but that's okay.
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['extension'] = link.get('extension') or ''
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['filesize'] = link.get('filesize') or 0
 
             if (link.get('md5') or '') != '':
                 allthethings.utils.add_identifier_unified(aac_nexusstc_book_dict['aa_nexusstc_derived'], 'md5', link['md5'].lower())
@@ -4356,7 +4368,7 @@ def get_aarecords_mysql(session, aarecord_ids):
     aac_magzdb_book_dicts2 = {('magzdb:' + item['requested_value']): item for item in get_aac_magzdb_book_dicts(session, 'magzdb_id', split_ids['magzdb'])}
     aac_nexusstc_book_dicts = {('md5:' + item['requested_value']): item for item in get_aac_nexusstc_book_dicts(session, 'md5', split_ids['md5'])}
     aac_nexusstc_book_dicts2 = {('nexusstc:' + item['requested_value']): item for item in get_aac_nexusstc_book_dicts(session, 'nexusstc_id', split_ids['nexusstc'])}
-    aac_nexusstc_book_dicts3 = {('nexusstc_download:' + item['requested_value']): item for item in get_aac_nexusstc_book_dicts(session, 'nexusstc_id', split_ids['nexusstc_download'])}
+    aac_nexusstc_book_dicts3 = {('nexusstc_download:' + item['requested_value']): item for item in get_aac_nexusstc_book_dicts(session, 'nexusstc_id_download', split_ids['nexusstc_download'])}
     ol_book_dicts_primary_linked = {('md5:' + md5): item for md5, item in get_ol_book_dicts_by_annas_archive_md5(session, split_ids['md5']).items()}
 
     # First pass, so we can fetch more dependencies.
