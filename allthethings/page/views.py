@@ -3850,9 +3850,10 @@ def get_aac_nexusstc_book_dicts(session, key, values):
                 aac_nexusstc_book_dict["aa_nexusstc_derived"]["year"] = potential_year
 
         for tag in (aac_record['metadata']['record']['tags'] or []):
-            tag_stripped = tag.strip()
-            if tag_stripped != '':
-                allthethings.utils.add_classification_unified(aac_nexusstc_book_dict['aa_nexusstc_derived'], 'nexusstc_tag', tag_stripped)
+            for sub_tag in tag.split(','):
+                sub_tag_stripped = sub_tag.strip()[0:50]
+                if sub_tag_stripped != '':
+                    allthethings.utils.add_classification_unified(aac_nexusstc_book_dict['aa_nexusstc_derived'], 'nexusstc_tag', sub_tag_stripped)
 
         title_stripped = aac_record['metadata']['record']['title'][0].strip() if len(aac_record['metadata']['record']['title']) > 0 else ''
         if title_stripped != '':
@@ -3961,6 +3962,8 @@ def get_aac_nexusstc_book_dicts(session, key, values):
             elif aac_record['metadata']['record']['type'][0] == 'proceedings-article':
                 aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'journal_article'
             elif aac_record['metadata']['record']['type'][0] == 'proceedings':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'magazine'
+            elif aac_record['metadata']['record']['type'][0] == 'proceedings-series':
                 aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'magazine'
             elif aac_record['metadata']['record']['type'][0] == 'dataset':
                 aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'

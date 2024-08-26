@@ -602,7 +602,11 @@ def md5_reports(md5_input):
             ).all()
         report_dicts_by_resource = {}
         for r in reports:
-            report_dicts_by_resource[f"md5_report:{r.md5_report_id}"] = dict(r)
+            report_dict = dict(r)
+            if better_md5 := report_dict.get("better_md5"):
+                report_dict["better_md5"] = better_md5.hex()
+            report_dicts_by_resource[f"md5_report:{report_dict['md5_report_id']}"] = report_dict
+
 
         comment_dicts = [{ 
             **comment_dict,
