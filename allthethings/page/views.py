@@ -3649,12 +3649,12 @@ def get_aac_magzdb_book_dicts(session, key, values):
         if issn_stripped != '':
             allthethings.utils.add_issn_unified(aac_magzdb_book_dict['aa_magzdb_derived'], issn_stripped)
         
-        aac_magzdb_book_dict['aa_magzdb_derived']['title_best'] = f"{publication_aac_record['metadata']['record']['title'].strip()} {aac_record['metadata']['record']['year'] or ''} № {aac_record['metadata']['record']['edition'].strip()}"
+        aac_magzdb_book_dict['aa_magzdb_derived']['title_best'] = f"{publication_aac_record['metadata']['record']['title'].strip()} {aac_record['metadata']['record']['year'] or ''} № {(aac_record['metadata']['record']['edition'] or '').strip()}"
         aac_magzdb_book_dict['aa_magzdb_derived']['title_multiple'] = []
         for aka in (publication_aac_record['metadata']['record']['aka'] or '').split(';'):
             aka_stripped = aka.strip()
             if aka_stripped != '':
-                aac_magzdb_book_dict['aa_magzdb_derived']['title_multiple'].append(f"{aka_stripped} {aac_record['metadata']['record']['year'] or ''} № {aac_record['metadata']['record']['edition'].strip()}")
+                aac_magzdb_book_dict['aa_magzdb_derived']['title_multiple'].append(f"{aka_stripped} {aac_record['metadata']['record']['year'] or ''} № {(aac_record['metadata']['record']['edition'] or '').strip()}")
 
         if (aac_record['metadata']['record']['year'] or 0) != 0:
             aac_magzdb_book_dict['aa_magzdb_derived']['year'] = str(aac_record['metadata']['record']['year'])
@@ -3697,7 +3697,7 @@ def get_aac_magzdb_book_dicts(session, key, values):
                     aac_magzdb_book_dict['aa_magzdb_derived']['combined_comments'].append(note_stripped)
 
             extension_with_dot = f".{upload['format']}" if upload['format'] != '' else ''
-            aac_magzdb_book_dict['aa_magzdb_derived']['filepath_multiple'].append(f"{publication_aac_record['metadata']['record']['title'].strip()}/{aac_record['metadata']['record']['year']}/{aac_record['metadata']['record']['edition'].strip()}/{upload['md5'].lower()}{extension_with_dot}")
+            aac_magzdb_book_dict['aa_magzdb_derived']['filepath_multiple'].append(f"{publication_aac_record['metadata']['record']['title'].strip()}/{aac_record['metadata']['record']['year']}/{(aac_record['metadata']['record']['edition'] or '').strip()}/{upload['md5'].lower()}{extension_with_dot}")
 
             if (upload['md5'] or '') != '':
                 allthethings.utils.add_identifier_unified(aac_magzdb_book_dict['aa_magzdb_derived'], 'md5', upload['md5'].lower())
