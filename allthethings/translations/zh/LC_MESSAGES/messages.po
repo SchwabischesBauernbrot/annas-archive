@@ -1,14 +1,30 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-26 05:05+0000\n"
+"PO-Revision-Date: 2024-08-26 05:05+0000\n"
+"Last-Translator: X Zhao <zx0@mail.ustc.edu.cn>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: ENCODING\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.7\n"
+
 #: allthethings/app.py:202
 msgid "layout.index.invalid_request"
 msgstr "无效的请求。访问 %(websites)s。"
 
 #: allthethings/app.py:263
 msgid "layout.index.header.tagline_scihub"
-msgstr "科学中心"
+msgstr "Sci-Hub"
 
 #: allthethings/app.py:264
 msgid "layout.index.header.tagline_libgen"
-msgstr "LibGens"
+msgstr "LibGen"
 
 #: allthethings/app.py:265
 msgid "layout.index.header.tagline_zlib"
@@ -16,11 +32,11 @@ msgstr "Z-Lib"
 
 #: allthethings/app.py:266
 msgid "layout.index.header.tagline_openlib"
-msgstr "开放图书馆"
+msgstr "OpenLib"
 
 #: allthethings/app.py:267
 msgid "layout.index.header.tagline_ia"
-msgstr "Internet Archive 借阅书库"
+msgstr "Internet Archive Lending Library"
 
 #: allthethings/app.py:268
 msgid "layout.index.header.tagline_duxiu"
@@ -97,7 +113,7 @@ msgstr "其他"
 
 #: allthethings/utils.py:395
 msgid "common.membership.tier_name.bonus"
-msgstr "奖励加速"
+msgstr "额外下载"
 
 #: allthethings/utils.py:396
 msgid "common.membership.tier_name.2"
@@ -162,7 +178,7 @@ msgstr "捐赠"
 
 #: allthethings/account/templates/account/donate.html:12
 msgid "page.donate.header.existing_unpaid_donation"
-msgstr "你目前还有一个<a %(a_donation)s>未完成的捐赠</a>。在捐赠新的一笔之前，请先完成或取消那笔捐赠。"
+msgstr "你目前还有一个<a %(a_donation)s>正在进行的捐赠</a>。在捐赠新的一笔之前，请先完成或取消那笔捐赠。"
 
 #: allthethings/account/templates/account/donate.html:14
 msgid "page.donate.header.existing_unpaid_donation_view_all"
@@ -201,9 +217,8 @@ msgid "page.donate.perks.if_you_donate_this_month"
 msgstr "如果您在本月捐款！"
 
 #: allthethings/account/templates/account/donate.html:55
-#, fuzzy
 msgid "page.donate.membership_per_month"
-msgstr "%(cost)s / 月"
+msgstr "$%(cost)s / 月"
 
 #: allthethings/account/templates/account/donate.html:57
 msgid "page.donate.buttons.join"
@@ -255,7 +270,7 @@ msgstr "“认领一个种子”：把你的用户名或指定信息添加到一
 
 #: allthethings/account/templates/account/donate.html:93
 msgid "page.donate.perks.legendary"
-msgstr "保存人类知识和文化的传奇地位"
+msgstr "保存人类知识和文化方面的传奇地位"
 
 #: allthethings/account/templates/account/donate.html:99
 msgid "page.donate.expert.title"
@@ -285,7 +300,7 @@ msgstr "企业级捐赠或交换新书集（例如：新扫描版、有 OCR 的�
 
 #: allthethings/account/templates/account/donate.html:113
 msgid "page.donate.header.large_donations_wealthy"
-msgstr "我们欢迎富裕的个人和机构提供大额捐赠。 "
+msgstr "我们欢迎富裕的个人或机构提供大额捐赠。 "
 
 #: allthethings/account/templates/account/donate.html:114
 msgid "page.donate.header.large_donations"
@@ -477,11 +492,11 @@ msgstr "请注意，小额捐赠的费用较高，因此我们建议长期订阅
 
 #: allthethings/account/templates/account/donate.html:265
 msgid "page.donate.payment.desc.binance_p1"
-msgstr "使用Binance，您可以使用信用卡/借记卡或银行账户购买比特币，然后将比特币捐赠给我们。 通过这种方式，我们在接受您的捐赠时可以保持安全和匿名。"
+msgstr "使用币安，您可以使用信用卡/借记卡或银行账户购买比特币，然后将比特币捐赠给我们。 通过这种方式，我们在接受您的捐赠时可以保持安全和匿名。"
 
 #: allthethings/account/templates/account/donate.html:269
 msgid "page.donate.payment.desc.binance_p2"
-msgstr "Binance 几乎在每个国家都可用，并支持大多数银行和信用/借记卡。这是我们目前的主要推荐。感谢您花时间学习如何使用这种方法捐赠，因为这对我们帮助很大。"
+msgstr "币安几乎在每个国家都可用，并支持大多数银行和信用/借记卡。这是我们目前的主要推荐。感谢您花时间学习如何使用这种方法捐赠，因为这对我们帮助很大。"
 
 #: allthethings/account/templates/account/donate.html:275
 #, fuzzy
@@ -545,7 +560,7 @@ msgstr "对于信用卡、借记卡、Apple Pay 和 Google Pay，我们使用“
 
 #: allthethings/account/templates/account/donate.html:353
 msgid "page.donate.duration.intro"
-msgstr "选择您想订阅多久。"
+msgstr "选择您的订阅时长。"
 
 #: allthethings/account/templates/account/donate.html:370
 msgid "page.donate.duration.1_mo"
@@ -601,7 +616,7 @@ msgstr "加入会员，请<a %(a_login)s>登录或注册</a>。感谢您的支�
 
 #: allthethings/account/templates/account/donate.html:404
 msgid "page.donate.payment.crypto_select"
-msgstr "选择您喜欢的加密货币："
+msgstr "选择您首选的加密货币："
 
 #: allthethings/account/templates/account/donate.html:409
 msgid "page.donate.currency_lowest_minimum"
@@ -640,7 +655,7 @@ msgstr "%(percentage)s%%"
 
 #: allthethings/account/templates/account/donate.html:512
 msgid "page.donate.duration.summary.monthly_cost"
-msgstr "每月 %(monthly_cost)s"
+msgstr "%(monthly_cost)s / 月"
 
 #: allthethings/account/templates/account/donate.html:515
 msgid "page.donate.duration.summary.duration.1_mo"
@@ -2122,9 +2137,8 @@ msgid "page.md5.box.download.header_fast_only"
 msgstr "🚀 快速下载"
 
 #: allthethings/page/templates/page/aarecord.html:235
-#, fuzzy
 msgid "page.md5.box.download.header_fast_no_member"
-msgstr "<strong>🚀高速下载</strong> 成为<a %(a_membership)s>会员</a>以支持书籍、论文等的长期保存。为了感谢您对我们的支持，您将获得高速下载权益。❤️"
+msgstr "成为<a %(a_membership)s>会员</a>以支持书籍、论文等的长期保存。为了感谢您对我们的支持，您将获得高速下载权益。❤️"
 
 #: allthethings/page/templates/page/aarecord.html:236
 #: allthethings/templates/layouts/index.html:213
@@ -2133,19 +2147,16 @@ msgid "layout.index.header.banner.fundraiser.this_month"
 msgstr "如果您在本月捐款，您将获得<strong>双倍</strong>的快速下载次数。"
 
 #: allthethings/page/templates/page/aarecord.html:238
-#, fuzzy
 msgid "page.md5.box.download.header_fast_member"
-msgstr "<strong>🚀 高速下载</strong> 今日还剩 %(remaining)s 次。感谢您成为会员！❤️"
+msgstr "今日下载剩余 %(remaining)s 次。感谢您成为会员！❤️"
 
 #: allthethings/page/templates/page/aarecord.html:239
-#, fuzzy
 msgid "page.md5.box.download.header_fast_member_no_remaining_new"
-msgstr "<strong>🚀 高速下载</strong> 你已经用完了今日的高速下载次数。"
+msgstr "你已经用完了今日的高速下载次数。"
 
 #: allthethings/page/templates/page/aarecord.html:240
-#, fuzzy
 msgid "page.md5.box.download.header_fast_member_valid_for"
-msgstr "<strong>🚀 高速下载</strong> 你最近下载过此文件。链接在一段时间内仍然有效。"
+msgstr "你最近下载过此文件。链接在一段时间内仍然有效。"
 
 #: allthethings/page/templates/page/aarecord.html:244
 #: allthethings/page/templates/page/aarecord.html:258
@@ -2922,9 +2933,8 @@ msgid "page.datasets.common.total_filesize"
 msgstr "文件总大小：%(size)s"
 
 #: allthethings/page/templates/page/datasets_ia.html:34
-#, fuzzy
 msgid "page.datasets.common.mirrored_file_count"
-msgstr "Anna’s Archive镜像的文件：%(count)s（%(percent)s%%）"
+msgstr "安娜的档案镜像的文件：%(count)s（%(percent)s%%）"
 
 #: allthethings/page/templates/page/datasets_ia.html:35
 #, fuzzy
@@ -2932,14 +2942,12 @@ msgid "page.datasets.common.last_updated"
 msgstr "最后更新：%(date)s"
 
 #: allthethings/page/templates/page/datasets_ia.html:36
-#, fuzzy
 msgid "page.datasets.common.aa_torrents"
-msgstr "Anna’s Archive的种子文件"
+msgstr "安娜的档案的种子文件"
 
 #: allthethings/page/templates/page/datasets_ia.html:37
-#, fuzzy
 msgid "page.datasets.common.aa_example_record"
-msgstr "Anna’s Archive上的示例记录"
+msgstr "安娜的档案上的示例记录"
 
 #: allthethings/page/templates/page/datasets_ia.html:38
 #, fuzzy
@@ -5141,4 +5149,3 @@ msgstr "下一页"
 
 #~ msgid "page.donate.payment.desc.crypto_suggestion"
 #~ msgstr "如果你第一次使用加密货币，我们推荐使用 %(option1)s、%(option2)s 或 %(option3)s 购买并捐赠比特币（首创且为最常用的加密货币）。"
-
