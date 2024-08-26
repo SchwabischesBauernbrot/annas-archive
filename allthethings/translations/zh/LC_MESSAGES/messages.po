@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-26 05:05+0000\n"
-"PO-Revision-Date: 2024-08-26 09:02+0000\n"
+"PO-Revision-Date: 2024-08-27 09:18+0000\n"
 "Last-Translator: X Zhao <zx0@mail.ustc.edu.cn>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: zh\n"
@@ -279,7 +279,7 @@ msgstr "联系我们"
 #: allthethings/account/templates/account/donation.html:625
 #: allthethings/page/templates/page/contact.html:21
 msgid "page.donate.small_team"
-msgstr "由于我们是一个由志愿者组成的小团队，或许需要1-2周时间来回复。"
+msgstr "由于我们是一个由志愿者组成的小型团队，或许需要1-2周时间来回复。"
 
 #: allthethings/account/templates/account/donate.html:104
 msgid "page.donate.expert.unlimited_access"
@@ -340,9 +340,8 @@ msgid "page.donate.payment.buttons.paypalreg"
 msgstr "PayPal（常规）"
 
 #: allthethings/account/templates/account/donate.html:141
-#, fuzzy
 msgid "page.donate.payment.buttons.givebutter"
-msgstr "卡 / PayPal / Venmo"
+msgstr "银行卡 / PayPal / Venmo"
 
 #: allthethings/account/templates/account/donate.html:143
 msgid "page.donate.payment.buttons.bmc"
@@ -490,11 +489,11 @@ msgstr "使用您的常规PayPal账户捐款。"
 #: allthethings/account/templates/account/donate.html:281
 #: allthethings/account/templates/account/donate.html:287
 msgid "page.donate.payment.desc.alipay_wechat"
-msgstr "使用支付宝或微信捐赠。您可以在下一页进行选择。"
+msgstr "使用支付宝或微信捐赠。您可以在跳转后的页面进行选择。"
 
 #: allthethings/account/templates/account/donate.html:293
 msgid "page.donate.payment.desc.givebutter"
-msgstr "在下一页，您可以选择使用信用卡/借记卡，PayPal或Venmo向我们捐赠。"
+msgstr "在跳转后的页面，您可以选择使用信用卡/借记卡，PayPal或Venmo向我们捐赠。"
 
 #: allthethings/account/templates/account/donate.html:299
 msgid "page.donate.payment.desc.amazon"
@@ -536,7 +535,7 @@ msgstr "你可以使用信用卡/借记卡购买加密货币。"
 #: allthethings/account/templates/account/donate.html:346
 #, fuzzy
 msgid "page.donate.payment.desc.bmc"
-msgstr "对于信用卡、借记卡、Apple Pay 和 Google Pay，我们使用“Buy Me a Coffee”（BMC <span class=\"icon-[ph--coffee-fill] text-lg align-text-bottom\"></span>）。在他们程序的系统中，一杯“咖啡”相当于 5 美元，因此您的捐款将四舍五入到最接近的 5 的倍数。"
+msgstr "对于信用卡、借记卡、Apple Pay 和 Google Pay，我们使用“Buy Me a Coffee”（BMC <span class=\"icon-[ph--coffee-fill] text-lg align-text-bottom\"></span>）。在他们的系统中，一杯“咖啡”相当于 5 美元，因此您的捐款将四舍五入到最接近的 5 的倍数。"
 
 #: allthethings/account/templates/account/donate.html:353
 msgid "page.donate.duration.intro"
@@ -655,14 +654,12 @@ msgid "page.donate.duration.summary.duration.24_mo"
 msgstr "24 个月"
 
 #: allthethings/account/templates/account/donate.html:520
-#, fuzzy
 msgid "page.donate.duration.summary.duration.48_mo"
-msgstr "48 个月"
+msgstr "48个月"
 
 #: allthethings/account/templates/account/donate.html:521
-#, fuzzy
 msgid "page.donate.duration.summary.duration.96_mo"
-msgstr "96 个月"
+msgstr "96个月"
 
 #: allthethings/account/templates/account/donate.html:525
 msgid "page.donate.submit.button.label.1_mo"
@@ -685,12 +682,10 @@ msgid "page.donate.submit.button.label.24_mo"
 msgstr "24 个月“%(tier_name)s”"
 
 #: allthethings/account/templates/account/donate.html:530
-#, fuzzy
 msgid "page.donate.submit.button.label.48_mo"
 msgstr "48个月“%(tier_name)s”"
 
 #: allthethings/account/templates/account/donate.html:531
-#, fuzzy
 msgid "page.donate.submit.button.label.96_mo"
 msgstr "96个月“%(tier_name)s”"
 
@@ -976,18 +971,16 @@ msgid "page.donation.cash_app_btc.step1.text1"
 msgstr "进入 Cash App 中的“比特币” (BTC) 页面。"
 
 #: allthethings/account/templates/account/donation.html:217
-#, fuzzy
 msgid "page.donation.cash_app_btc.step1.more"
-msgstr "购买比您捐赠的金额 (%(amount)s) 多一点（我们建议多买 %(more)s），以覆盖交易费用。剩余的部分将归您所有。"
+msgstr "购买比你想捐赠的数量（%(amount)s）稍微多一点的币（我们推荐 %(more)s）以支付交易手续费，剩下的币你可以存着。"
 
 #: allthethings/account/templates/account/donation.html:220
 msgid "page.donation.cash_app_btc.step2"
 msgstr "将比特币转至我们的账户"
 
 #: allthethings/account/templates/account/donation.html:223
-#, fuzzy
 msgid "page.donation.cash_app_btc.step2.transfer"
-msgstr "点击“发送比特币”按钮进行“提现”。通过按 %(icon)s 图标从美元切换到 BTC。输入下面的 BTC 金额并点击“发送”。如果遇到困难，请参阅 <a %(help_video)s>此视频</a>。"
+msgstr "点击“发送比特币”按钮进行“提现”。通过按%(icon)s图标从美元切换到BTC。在下方输入BTC金额并点击“发送”。如果遇到问题，请参阅<a %(help_video)s>此视频</a>。"
 
 #: allthethings/account/templates/account/donation.html:231
 msgid "page.donation.cash_app_btc.step2.rush_priority"
@@ -1002,18 +995,16 @@ msgid "page.donation.revolut.step1.text1"
 msgstr "进入 Revolut 中的“加密货币”页面购买比特币 (BTC)。"
 
 #: allthethings/account/templates/account/donation.html:260
-#, fuzzy
 msgid "page.donation.revolut.step1.more"
-msgstr "购买比您捐赠的金额 (%(amount)s) 多一点（我们建议多买 %(more)s），以覆盖交易费用。剩余的部分将归您所有。"
+msgstr "购买比你想捐赠的数量（%(amount)s）稍微多一点的币（我们推荐 %(more)s）以支付交易手续费，剩下的币你可以存着。"
 
 #: allthethings/account/templates/account/donation.html:263
 msgid "page.donation.revolut.step2"
 msgstr "将比特币转至我们的账户"
 
 #: allthethings/account/templates/account/donation.html:266
-#, fuzzy
 msgid "page.donation.revolut.step2.transfer"
-msgstr "点击“发送比特币”按钮进行“提现”。通过按 %(icon)s 图标从欧元切换到 BTC。输入下面的 BTC 金额并点击“发送”。如果遇到困难，请参阅 <a %(help_video)s>此视频</a>。"
+msgstr "点击“发送比特币”按钮进行“提现”。通过按%(icon)s图标从欧元切换到BTC。在下方输入BTC金额并点击“发送”。如果遇到问题，请参阅<a %(help_video)s>此视频</a>。"
 
 #: allthethings/account/templates/account/donation.html:274
 msgid "page.donation.revolut.step2.rush_priority"
@@ -1028,9 +1019,8 @@ msgid "page.donation.payment2cc.method.paybis"
 msgstr "（最低：%(minimum)s）"
 
 #: allthethings/account/templates/account/donation.html:303
-#, fuzzy
 msgid "page.donation.payment2cc.method.switchere"
-msgstr "（最低：%(minimum)s，根据国家而定，首次交易无需验证）"
+msgstr "（最低：%(minimum)s，在首次交易中是否需要验证取决于所在国家）"
 
 #: allthethings/account/templates/account/donation.html:304
 msgid "page.donation.payment2cc.method.munzen"
@@ -1053,19 +1043,17 @@ msgid "page.donation.payment2cc.cc2btc.outdated"
 msgstr "如果有任何过时的信息，请发送电子邮件告知我们。"
 
 #: allthethings/account/templates/account/donation.html:312
-#, fuzzy
 msgid "page.donation.payment2cc.cc2btc.form"
-msgstr "在表格中填写以下详细信息："
+msgstr "请在表格中填写以下详细信息："
 
 #: allthethings/account/templates/account/donation.html:316
-#, fuzzy
 msgid "page.donation.payment2cc.cc2btc.btc_amount"
 msgstr "BTC / 比特币金额："
 
 #: allthethings/account/templates/account/donation.html:316
 #, fuzzy
 msgid "page.donation.payment2cc.exact_amount"
-msgstr "请使用这个<span %(underline)s>确切金额</span>。由于信用卡费用，您的总费用可能会更高。对于小额支付，这可能会超过我们的折扣，不幸的是。"
+msgstr "请使用此 <span %(underline)s>确切金额</span>。由于信用卡的手续费，您的总费用可能会更高。对于小额支付，这可能会超过我们的折扣，不便之处，敬请谅解。"
 
 #: allthethings/account/templates/account/donation.html:317
 msgid "page.donation.payment2cc.cc2btc.btc_address"
@@ -1139,7 +1127,6 @@ msgstr "<span %(span_circle)s>1</span>在支付宝上捐款"
 
 #: allthethings/account/templates/account/donation.html:458
 #: allthethings/account/templates/account/donation.html:475
-#, fuzzy
 msgid "page.donation.payment.alipay.text1_new"
 msgstr "使用<a %(a_account)s>此支付宝账户</a>捐赠总金额%(total)s"
 
@@ -1291,14 +1278,12 @@ msgid "page.downloaded.no_files"
 msgstr "还没有下载过文件。"
 
 #: allthethings/account/templates/account/downloaded.html:16
-#, fuzzy
 msgid "page.downloaded.last_18_hours"
 msgstr "最近18小时"
 
 #: allthethings/account/templates/account/downloaded.html:21
-#, fuzzy
 msgid "page.downloaded.earlier"
-msgstr "更早"
+msgstr "较早"
 
 #: allthethings/account/templates/account/index.html:5
 #: allthethings/account/templates/account/index.html:15
@@ -1685,7 +1670,6 @@ msgid "common.record_sources_mapping.zlibzh"
 msgstr "Z-Library中文"
 
 #: allthethings/page/views.py:5418
-#, fuzzy
 msgid "common.record_sources_mapping.ia"
 msgstr "IA"
 
@@ -1751,23 +1735,20 @@ msgid "common.md5.servers.fast_partner"
 msgstr "高速服务器（合作方提供） #%(number)s"
 
 #: allthethings/page/views.py:5463
-#, fuzzy
 msgid "common.md5.servers.no_browser_verification_or_waitlists"
-msgstr "（无浏览器验证或等待名单）"
+msgstr "（无需浏览器验证或排队等候）"
 
 #: allthethings/page/views.py:5466 allthethings/page/views.py:5468
 msgid "common.md5.servers.slow_partner"
 msgstr "低速服务器（合作方提供） #%(number)s"
 
 #: allthethings/page/views.py:5466
-#, fuzzy
 msgid "common.md5.servers.faster_with_waitlist"
-msgstr "（稍快但有等待名单）"
+msgstr "（稍快但需要排队）"
 
 #: allthethings/page/views.py:5468
-#, fuzzy
 msgid "common.md5.servers.slow_no_waitlist"
-msgstr "（没有等待名单，但可能非常慢）"
+msgstr "（无需排队，但可能非常慢）"
 
 #: allthethings/page/views.py:5557
 msgid "page.md5.box.descr_title"
@@ -1985,28 +1966,24 @@ msgid "page.md5.header.meta_desc"
 msgstr "这是元数据记录，而非可下载的文件。你可以使用这个链接来<a %(a_request)s>请求文件</a>。"
 
 #: allthethings/page/templates/page/aarecord.html:56
-#, fuzzy
 msgid "page.md5.text.linked_metadata"
-msgstr "来自链接记录的元数据"
+msgstr "来自关联记录的元数据"
 
 #: allthethings/page/templates/page/aarecord.html:57
-#, fuzzy
 msgid "page.md5.text.linked_metadata_openlib"
 msgstr "在Open Library上改进元数据"
 
 #: allthethings/page/templates/page/aarecord.html:60
-#, fuzzy
 msgid "page.md5.warning.multiple_links"
-msgstr "警告：多个链接记录："
+msgstr "警告：多个关联记录："
 
 #: allthethings/page/templates/page/aarecord.html:68
 msgid "page.md5.header.improve_metadata"
 msgstr "改进元数据"
 
 #: allthethings/page/templates/page/aarecord.html:70
-#, fuzzy
 msgid "page.md5.text.report_quality"
-msgstr "报告文件质量"
+msgstr "反馈文件质量"
 
 #: allthethings/page/templates/page/aarecord.html:78
 msgid "page.md5.box.descr_read_more"
@@ -2140,7 +2117,6 @@ msgid "common.md5.servers.browser_verification_unlimited"
 msgstr "（可能需要<a %(a_browser)s>验证浏览器</a>——无限次下载！）"
 
 #: allthethings/page/templates/page/aarecord.html:270
-#, fuzzy
 msgid "page.md5.box.external_downloads"
 msgstr "显示外部下载"
 
@@ -2157,14 +2133,13 @@ msgid "page.md5.box.download.no_issues_notice"
 msgstr "所有选项下载的文件都相同，应该可以安全使用。即使这样，从互联网下载文件时始终要小心。例如，确保您的设备更新及时。"
 
 #: allthethings/page/templates/page/aarecord.html:297
-#, fuzzy
 msgid "page.md5.box.download.convert"
-msgstr "转换：使用在线工具在格式之间进行转换。 例如，要在epub和pdf之间转换，请使用<a %(a_cloudconvert)s>CloudConvert</a>。"
+msgstr "转换：使用在线工具进行格式转换。 例如，要在epub和pdf之间转换，请使用<a %(a_cloudconvert)s>CloudConvert</a>。"
 
 #: allthethings/page/templates/page/aarecord.html:298
 #, fuzzy
 msgid "page.md5.box.download.kindle"
-msgstr "Kindle：下载文件（支持pdf或epub格式），然后使用网页、应用程序或电子邮件<a %(a_kindle)s>发送到Kindle</a>。 有用的工具：<a %(a_kobosend)s rel=\"noopener noreferrer nofollow\">1</a>。"
+msgstr "Kindle：下载文件（支持pdf或epub格式），然后通过网页、应用或电子邮件<a %(a_kindle)s>发送到Kindle</a>。有用的工具：<a %(a_kobosend)s rel=\"noopener noreferrer nofollow\">1</a>。"
 
 #: allthethings/page/templates/page/aarecord.html:299
 msgid "page.md5.box.download.support_authors"
@@ -2179,19 +2154,16 @@ msgid "page.md5.quality.header"
 msgstr "文件质量"
 
 #: allthethings/page/templates/page/aarecord.html:333
-#, fuzzy
 msgid "page.md5.quality.report"
-msgstr "通过报告此文件的质量来帮助社区！ 🙌"
+msgstr "通过反馈此文件的质量来改进社区！ 🙌"
 
 #: allthethings/page/templates/page/aarecord.html:337
-#, fuzzy
 msgid "page.md5.quality.report_issue"
-msgstr "报告文件问题 (%(count)s)"
+msgstr "反馈文件问题 (%(count)s)"
 
 #: allthethings/page/templates/page/aarecord.html:339
-#, fuzzy
 msgid "page.md5.quality.great_quality"
-msgstr "文件质量优秀 (%(count)s)"
+msgstr "极佳的文件质量（%(count)s）"
 
 #: allthethings/page/templates/page/aarecord.html:339
 msgid "page.md5.quality.add_comment"
@@ -2210,7 +2182,6 @@ msgid "page.md5.quality.copyright"
 msgstr "请使用<a %(a_copyright)s>数字千年版权法 / 版权声明表格</a>。"
 
 #: allthethings/page/templates/page/aarecord.html:361
-#, fuzzy
 msgid "page.md5.quality.describe_the_issue"
 msgstr "描述问题（必填）"
 
@@ -2224,9 +2195,8 @@ msgid "page.md5.quality.better_md5.text1"
 msgstr "此文件更好版本的MD5（如果适用）。"
 
 #: allthethings/page/templates/page/aarecord.html:366
-#, fuzzy
 msgid "page.md5.quality.better_md5.text2"
-msgstr "如果有另一个文件与此文件非常匹配（相同版本，相同文件扩展名，如果可以找到的话），人们应该使用该文件而不是此文件。如果您知道Anna’s Archive之外有更好的版本，请<a %(a_upload)s>上传</a>。"
+msgstr "如果有另一个文件与此文件非常匹配（相同版本，相同文件扩展名），人们应该使用该文件而不是此文件。如果你有安娜的档案未保存的更好的版本，请<a %(a_upload)s>上传</a>。"
 
 #: allthethings/page/templates/page/aarecord.html:369
 #, fuzzy
@@ -2234,9 +2204,8 @@ msgid "page.md5.quality.better_md5.line1"
 msgstr "您可以从URL中获取md5，例如"
 
 #: allthethings/page/templates/page/aarecord.html:376
-#, fuzzy
 msgid "page.md5.quality.submit_report"
-msgstr "提交报告"
+msgstr "提交反馈"
 
 #: allthethings/page/templates/page/aarecord.html:381
 #, fuzzy
@@ -2244,37 +2213,30 @@ msgid "page.md5.quality.improve_the_metadata"
 msgstr "了解如何自己<a %(a_metadata)s>改进此文件的元数据</a>。"
 
 #: allthethings/page/templates/page/aarecord.html:385
-#, fuzzy
 msgid "page.md5.quality.report_thanks"
 msgstr "感谢您提交报告。它将显示在此页面上，并由Anna手动审核（直到我们有一个合适的审核系统）。"
 
 #: allthethings/page/templates/page/aarecord.html:386
-#, fuzzy
 msgid "page.md5.quality.report_error"
 msgstr "出了点问题。请重新加载页面并重试。"
 
 #: allthethings/page/templates/page/aarecord.html:392
-#, fuzzy
 msgid "page.md5.quality.great.summary"
-msgstr "如果这个文件质量很好，您可以在这里讨论任何相关内容！如果不是，请使用“报告文件问题”按钮。"
+msgstr "如果这个文件质量很好，您可以在此处讨论任何相关内容！如果不是，请点击“反馈文件问题”。"
 
 #: allthethings/page/templates/page/aarecord.html:394
-#, fuzzy
 msgid "page.md5.quality.loved_the_book"
 msgstr "我喜欢这本书！"
 
 #: allthethings/page/templates/page/aarecord.html:396
-#, fuzzy
 msgid "page.md5.quality.submit_comment"
 msgstr "留下评论"
 
 #: allthethings/page/templates/page/aarecord.html:400
-#, fuzzy
 msgid "page.md5.quality.comment_thanks"
-msgstr "您已留下评论。可能需要一分钟才能显示出来。"
+msgstr "您留下了一条评论。可能需要一分钟才能显示。"
 
 #: allthethings/page/templates/page/aarecord.html:401
-#, fuzzy
 msgid "page.md5.quality.comment_error"
 msgstr "出了点问题。请重新加载页面并重试。"
 
@@ -2304,7 +2266,6 @@ msgid "common.english_only"
 msgstr "下面的文字仅以英文继续。"
 
 #: allthethings/page/templates/page/aarecord.html:433
-#, fuzzy
 msgid "page.md5.text.stats.total_downloads"
 msgstr "总下载量：%(total)s"
 
@@ -2316,7 +2277,7 @@ msgstr "“文件MD5”是从文件内容计算出的哈希值，并且基于该
 #: allthethings/page/templates/page/aarecord.html:469
 #, fuzzy
 msgid "page.md5.text.md5_info.text2"
-msgstr "一个文件可能出现在多个影子图书馆中。有关我们编译的各种Datasets的信息，请参见<a %(a_datasets)s>Datasets页面</a>。"
+msgstr "一个文件可能会出现在多个影子图书馆中。有关我们编译的各种数据集的信息，请参见<a %(a_datasets)s>数据集页面</a>。"
 
 #: allthethings/page/templates/page/aarecord.html:473
 #, fuzzy
@@ -2324,19 +2285,16 @@ msgid "page.md5.text.ia_info.text1"
 msgstr "这是由<a %(a_ia)s>IA的受控数字借阅</a>图书馆管理的文件，并由Anna’s Archive索引以供搜索。有关我们编译的各种Datasets的信息，请参见<a %(a_datasets)s>Datasets页面</a>。"
 
 #: allthethings/page/templates/page/aarecord.html:478
-#, fuzzy
 msgid "page.md5.text.file_info.text1"
-msgstr "有关此特定文件的信息，请查看其<a %(a_href)s>JSON文件</a>。"
+msgstr "有关此文件的详细信息，请查看其<a %(a_href)s>JSON 文件</a>。"
 
 #: allthethings/page/templates/page/aarecord_issue.html:5
-#, fuzzy
 msgid "page.aarecord_issue.title"
 msgstr "🔥 加载此页面时出现问题"
 
 #: allthethings/page/templates/page/aarecord_issue.html:7
-#, fuzzy
 msgid "page.aarecord_issue.text"
-msgstr "请刷新重试。如果问题持续数小时，请<a %(a_contact)s>联系我们</a>。"
+msgstr "请刷新重试。如果问题几个小时以内还未解决，请<a %(a_contact)s>联系我们</a>。"
 
 #: allthethings/page/templates/page/aarecord_not_found.html:4
 msgid "page.md5.invalid.header"
@@ -2353,7 +2311,6 @@ msgid "page.login.title"
 msgstr "登录/注册"
 
 #: allthethings/page/templates/page/browser_verification.html:6
-#, fuzzy
 msgid "page.browserverification.header"
 msgstr "浏览器验证"
 
@@ -2373,14 +2330,12 @@ msgid "page.login.text3"
 msgstr "它还可能有助于关闭广告拦截器和其他浏览器扩展。"
 
 #: allthethings/page/templates/page/codes.html:5
-#, fuzzy
 msgid "page.codes.title"
 msgstr "代码"
 
 #: allthethings/page/templates/page/codes.html:10
-#, fuzzy
 msgid "page.codes.heading"
-msgstr "代码探索者"
+msgstr "代码浏览器"
 
 #: allthethings/page/templates/page/codes.html:14
 #, fuzzy
@@ -2388,27 +2343,22 @@ msgid "page.codes.intro"
 msgstr "按前缀探索记录标记的代码。“记录”列显示在搜索引擎中标记有给定前缀代码的记录数量（包括仅元数据记录）。“代码”列显示具有给定前缀的实际代码数量。"
 
 #: allthethings/page/templates/page/codes.html:18
-#, fuzzy
 msgid "page.codes.why_cloudflare"
-msgstr "此页面可能需要一段时间生成，因此需要Cloudflare验证码。<a %(a_donate)s>会员</a>可以跳过验证码。"
+msgstr "此页面生成可能需要一些时间，因此需要通过Cloudflare验证码。<a %(a_donate)s>会员</a>可以跳过验证码。"
 
 #: allthethings/page/templates/page/codes.html:22
-#, fuzzy
 msgid "page.codes.dont_scrape"
-msgstr "请不要抓取这些页面。相反，我们建议<a %(a_import)s>生成</a>或<a %(a_download)s>下载</a>我们的ElasticSearch和MariaDB数据库，并运行我们的<a %(a_software)s>开源代码</a>。原始数据可以通过JSON文件手动探索，例如<a %(a_json_file)s>这个</a>。"
+msgstr "请不要爬取这些页面。我们建议<a %(a_import)s>生成</a>或<a %(a_download)s>下载</a>我们的ElasticSearch和MariaDB数据库，并运行我们的<a %(a_software)s>开源代码</a>。原始数据可以通过<a %(a_json_file)s>这个</a>等JSON文件手动检索。"
 
 #: allthethings/page/templates/page/codes.html:33
-#, fuzzy
 msgid "page.codes.prefix"
 msgstr "前缀"
 
 #: allthethings/page/templates/page/codes.html:34
-#, fuzzy
 msgid "common.form.go"
 msgstr "前往"
 
 #: allthethings/page/templates/page/codes.html:35
-#, fuzzy
 msgid "common.form.reset"
 msgstr "重置"
 
@@ -2418,79 +2368,64 @@ msgid "page.codes.bad_unicode"
 msgstr "警告：代码中包含不正确的Unicode字符，可能在各种情况下表现不正确。可以从URL中的base64表示中解码原始二进制文件。"
 
 #: allthethings/page/templates/page/codes.html:46
-#, fuzzy
 msgid "page.codes.known_code_prefix"
 msgstr "已知代码前缀“%(key)s”"
 
 #: allthethings/page/templates/page/codes.html:48
-#, fuzzy
 msgid "page.codes.code_prefix"
 msgstr "前缀"
 
 #: allthethings/page/templates/page/codes.html:49
-#, fuzzy
 msgid "page.codes.code_label"
 msgstr "标签"
 
 #: allthethings/page/templates/page/codes.html:51
-#, fuzzy
 msgid "page.codes.code_description"
 msgstr "描述"
 
 #: allthethings/page/templates/page/codes.html:55
-#, fuzzy
 msgid "page.codes.code_url"
 msgstr "特定代码的URL"
 
 #: allthethings/page/templates/page/codes.html:55
-#, fuzzy
 msgctxt "the %s should not be changed"
 msgid "page.codes.s_substitution"
 msgstr "“%%s”将被替换为代码的值"
 
 #: allthethings/page/templates/page/codes.html:57
-#, fuzzy
 msgid "page.codes.generic_url"
 msgstr "通用URL"
 
 #: allthethings/page/templates/page/codes.html:61
-#, fuzzy
 msgid "page.codes.code_website"
 msgstr "网站"
 
 #: allthethings/page/templates/page/codes.html:69
-#, fuzzy
 msgid "page.codes.record_starting_with"
 msgid_plural "page.codes.records_starting_with"
 msgstr[0] "%(count)s条记录匹配“%(prefix_label)s”"
 
 #: allthethings/page/templates/page/codes.html:75
-#, fuzzy
 msgid "page.codes.search_archive"
-msgstr "在Anna’s Archive中搜索“%(term)s”"
+msgstr "在安娜的档案中搜索“%(term)s”"
 
 #: allthethings/page/templates/page/codes.html:77
-#, fuzzy
 msgid "page.codes.url_link"
 msgstr "特定代码的URL：“%(url)s”"
 
 #: allthethings/page/templates/page/codes.html:84
-#, fuzzy
 msgid "page.codes.codes_starting_with"
 msgstr "以“%(prefix_label)s”开头的代码"
 
 #: allthethings/page/templates/page/codes.html:92
-#, fuzzy
 msgid "page.codes.records_prefix"
 msgstr "记录"
 
 #: allthethings/page/templates/page/codes.html:93
-#, fuzzy
 msgid "page.codes.records_codes"
 msgstr "代码"
 
 #: allthethings/page/templates/page/codes.html:113
-#, fuzzy
 msgid "page.codes.fewer_than"
 msgstr "少于%(count)s条记录"
 
@@ -2519,9 +2454,8 @@ msgid "layout.index.footer.dont_email"
 msgstr "不要给我们发邮件来<a %(a_request)s>请求图书</a><br>或提供小批量（<1万）<a %(a_upload)s>上传</a>。"
 
 #: allthethings/page/templates/page/contact.html:20
-#, fuzzy
 msgid "page.donate.please_include"
-msgstr "在询问账户或捐赠问题时，请提供您的账户ID、截图、收据以及尽可能多的信息。 我们每1-2周才检查一次电子邮件，因此不包括这些信息将延迟任何解决。"
+msgstr "在询问账户或捐赠问题时，请提供您的账户ID、截图、收据以及尽可能多的信息。我们每1-2周才检查一次电子邮件，因此确实这些信息会导致问题迟迟无法解决。"
 
 #: allthethings/page/templates/page/contact.html:22
 msgid "page.contact.checkboxes.show_email_button"
@@ -2529,9 +2463,8 @@ msgstr "显示邮箱"
 
 #: allthethings/page/templates/page/copyright.html:4
 #: allthethings/page/templates/page/copyright.html:7
-#, fuzzy
 msgid "page.copyright.title"
-msgstr "DMCA / 版权声明表"
+msgstr "数字千年版权法 / 版权声明表"
 
 #: allthethings/page/templates/page/copyright.html:9
 #, fuzzy
@@ -2539,44 +2472,37 @@ msgid "page.copyright.intro"
 msgstr "如果您有数字千年版权法或其他版权声明，请尽可能准确地填写此表格。如果遇到任何问题，请通过我们专门的数字千年版权法地址：%(email)s 联系我们。请注意，发送到此地址的声明将不予处理，仅用于问题咨询。请使用下面的表格提交您的声明。"
 
 #: allthethings/page/templates/page/copyright.html:13
-#, fuzzy
 msgid "page.copyright.form.aa_urls"
-msgstr "Anna’s Archive 上的 URL（必填）。每行一个。请仅包含描述同一版本书籍的 URL。如果您想对多本书或多个版本提出声明，请多次提交此表格。"
+msgstr "安娜的档案上的 URL（必填）。每行一个。请仅包含描述同一版本书籍的 URL。如果您想对多本书或多个版本提出声明，请多次提交此表格。"
 
 #: allthethings/page/templates/page/copyright.html:13
 #, fuzzy
 msgid "page.copyright.form.aa_urls.note"
-msgstr "将多本书或多个版本捆绑在一起的声明将被拒绝。"
+msgstr "将多本书籍或多个版本绑定在一起的请求将被拒绝。"
 
 #: allthethings/page/templates/page/copyright.html:16
-#, fuzzy
 msgid "page.copyright.form.name"
 msgstr "您的姓名（必填）"
 
 #: allthethings/page/templates/page/copyright.html:19
-#, fuzzy
 msgid "page.copyright.form.address"
 msgstr "地址（必填）"
 
 #: allthethings/page/templates/page/copyright.html:22
-#, fuzzy
 msgid "page.copyright.form.phone"
 msgstr "电话号码（必填）"
 
 #: allthethings/page/templates/page/copyright.html:25
-#, fuzzy
 msgid "page.copyright.form.email"
 msgstr "电子邮件（必填）"
 
 #: allthethings/page/templates/page/copyright.html:28
-#, fuzzy
 msgid "page.copyright.form.description"
 msgstr "对源材料的清晰描述（必填）"
 
 #: allthethings/page/templates/page/copyright.html:31
-#, fuzzy
 msgid "page.copyright.form.isbns"
-msgstr "源材料的 ISBN（如适用）。每行一个。请仅包含与您报告版权声明的版本完全匹配的 ISBN。"
+msgstr "如果适用，请提供源材料的ISBN编号。每行一个。请仅包括与您报告版权声明的版本完全匹配的ISBN编号。"
 
 #: allthethings/page/templates/page/copyright.html:34
 #, fuzzy
@@ -2589,7 +2515,6 @@ msgid "page.copyright.form.external_urls"
 msgstr "源材料的 URL，每行一个（必填）。请尽可能多地包含，以帮助我们验证您的声明（例如，亚马逊，WorldCat，Google Books，DOI）。"
 
 #: allthethings/page/templates/page/copyright.html:40
-#, fuzzy
 msgid "page.copyright.form.statement"
 msgstr "声明和签名（必填）"
 
@@ -2599,12 +2524,10 @@ msgid "page.copyright.form.submit_claim"
 msgstr "提交声明"
 
 #: allthethings/page/templates/page/copyright.html:48
-#, fuzzy
 msgid "page.copyright.form.on_success"
-msgstr "✅ 感谢您提交版权声明。我们将尽快审核。请重新加载页面以提交另一个声明。"
+msgstr "✅ 感谢您提交版权声明。我们会尽快审核。请重新加载页面以提交另一个声明。"
 
 #: allthethings/page/templates/page/copyright.html:49
-#, fuzzy
 msgid "page.copyright.form.on_failure"
 msgstr "❌ 出了点问题。请重新加载页面并重试。"
 
@@ -2615,80 +2538,66 @@ msgstr "❌ 出了点问题。请重新加载页面并重试。"
 #: allthethings/page/templates/page/datasets_isbn_ranges.html:3
 #: allthethings/page/templates/page/datasets_isbn_ranges.html:6
 #: allthethings/page/templates/page/datasets_openlib.html:4
-#, fuzzy
 msgid "page.datasets.title"
-msgstr "Datasets"
+msgstr "数据集"
 
 #: allthethings/page/templates/page/datasets.html:7
-#, fuzzy
 msgid "page.datasets.file"
 msgid_plural "page.datasets.files"
 msgstr[0] "%(count)s 文件"
 
 #: allthethings/page/templates/page/datasets.html:21
-#, fuzzy
 msgid "page.datasets.intro.text1"
-msgstr "如果您有兴趣镜像这些Datasets以进行<a %(a_faq)s>存档</a>或<a %(a_llm)s>LLM训练</a>，请联系我们。"
+msgstr "如果您有兴趣镜像这些数据集用于<a %(a_faq)s>档案保存</a>或<a %(a_llm)s>大语言模型训练</a>，请联系我们。"
 
 #: allthethings/page/templates/page/datasets.html:25
-#, fuzzy
 msgid "page.datasets.intro.text2"
-msgstr "我们的使命是存档世界上所有的书籍（以及论文、杂志等），并使它们广泛可访问。我们相信所有书籍都应该被广泛镜像，以确保冗余和弹性。这就是为什么我们汇集了来自各种来源的文件。有些来源是完全开放的，可以批量镜像（如Sci-Hub）。有些是封闭和保护的，所以我们尝试抓取它们以“解放”它们的书籍。还有一些介于两者之间。"
+msgstr "我们的使命是存档世界上所有的书籍（以及论文、杂志等），并使它们触手可及。我们相信所有的书籍都应该被广泛镜像，以确保冗余和弹性。这就是为什么我们从各种来源汇集文件。一些来源是完全开放的，可以批量镜像（例如Sci-Hub）。其他来源是封闭和保护的，所以我们尝试爬取它们以“解放”它们的书籍。还有一些则介于两者之间。"
 
 #: allthethings/page/templates/page/datasets.html:29
-#, fuzzy
 msgid "page.datasets.intro.text3"
-msgstr "我们所有的数据都可以<a %(a_torrents)s>通过种子下载</a>，所有的元数据都可以<a %(a_anna_software)s>生成</a>或<a %(a_elasticsearch)s>下载</a>为ElasticSearch和MariaDB数据库。原始数据可以通过JSON文件手动探索，例如<a %(a_dbrecord)s>这个</a>。"
+msgstr "我们所有的数据都可以<a %(a_torrents)s>通过种子下载</a>，所有的元数据都可以<a %(a_anna_software)s>生成</a>或<a %(a_elasticsearch)s>下载</a>为ElasticSearch和MariaDB数据库。原始数据可以通过<a %(a_dbrecord)s>此</a>类JSON文件手动浏览。"
 
 #: allthethings/page/templates/page/datasets.html:38
-#, fuzzy
 msgid "page.datasets.overview.title"
 msgstr "概述"
 
 #: allthethings/page/templates/page/datasets.html:41
-#, fuzzy
 msgid "page.datasets.overview.text1"
-msgstr "以下是Anna’s Archive上文件来源的快速概述。"
+msgstr "以下是安娜的档案上文件来源的概览。"
 
 #: allthethings/page/templates/page/datasets.html:46
-#, fuzzy
 msgid "page.datasets.overview.source.header"
 msgstr "来源"
 
 #: allthethings/page/templates/page/datasets.html:47
-#, fuzzy
 msgid "page.datasets.overview.size.header"
 msgstr "大小"
 
 #: allthethings/page/templates/page/datasets.html:48
-#, fuzzy
 msgid "page.datasets.overview.mirrored.header"
-msgstr "%%由AA镜像/可用的种子"
+msgstr "%%由安娜的档案镜像/可用的种子"
 
 #: allthethings/page/templates/page/datasets.html:48
 #, fuzzy
 msgid "page.datasets.overview.mirrored.clarification"
-msgstr "文件数量的百分比"
+msgstr "文件数量百分比"
 
 #: allthethings/page/templates/page/datasets.html:49
-#, fuzzy
 msgid "page.datasets.overview.last_updated.header"
 msgstr "最近更新"
 
 #: allthethings/page/templates/page/datasets.html:51
-#, fuzzy
 msgid "common.record_sources_mapping.lgrs.nonfiction_and_fiction"
 msgstr "非小说类和小说类"
 
 #: allthethings/page/templates/page/datasets.html:52
-#, fuzzy
 msgid "common.record_sources_mapping.scihub.via_lgli_scimag"
 msgstr "通过 Libgen.li “scimag”"
 
 #: allthethings/page/templates/page/datasets.html:52
-#, fuzzy
 msgid "page.datasets.scihub_frozen_1"
-msgstr "Sci-Hub：自2021年以来冻结；大部分可通过种子下载"
+msgstr "Sci-Hub：自2021年以来被冻结；大部分可通过种子下载"
 
 #: allthethings/page/templates/page/datasets.html:52
 #, fuzzy
@@ -2696,7 +2605,6 @@ msgid "page.datasets.scihub_frozen_2"
 msgstr "Libgen.li：自那时以来有少量新增</div>"
 
 #: allthethings/page/templates/page/datasets.html:53
-#, fuzzy
 msgid "common.record_sources.mapping.lgli.excluding_scimag"
 msgstr "不包括“scimag”"
 
@@ -2712,39 +2620,33 @@ msgstr "Z-Library中的“中文”收藏似乎与我们的读秀收藏相同，
 
 #: allthethings/page/templates/page/datasets.html:56
 #: allthethings/page/templates/page/datasets.html:129
-#, fuzzy
 msgid "common.record_sources_mapping.iacdl"
-msgstr "IA 控制数字借阅"
+msgstr "IA 受控数字借阅"
 
 #: allthethings/page/templates/page/datasets.html:56
-#, fuzzy
 msgid "page.datasets.iacdl.searchable"
 msgstr "98%%+的文件是可搜索的。"
 
 #: allthethings/page/templates/page/datasets.html:59
-#, fuzzy
 msgid "page.datasets.overview.total"
 msgstr "总计"
 
 #: allthethings/page/templates/page/datasets.html:59
-#, fuzzy
 msgid "page.datasets.overview.excluding_duplicates"
-msgstr "不包括重复项"
+msgstr "排除重复项"
 
 #: allthethings/page/templates/page/datasets.html:63
 #, fuzzy
 msgid "page.datasets.overview.text4"
-msgstr "由于影子图书馆经常相互同步数据，图书馆之间有相当大的重叠。这就是为什么数字加起来不等于总数。"
+msgstr "由于影子图书馆经常相互同步数据，图书馆之间有相当大的重叠。这就是为什么这些数字加起来并不等于总数。"
 
 #: allthethings/page/templates/page/datasets.html:67
-#, fuzzy
 msgid "page.datasets.overview.text5"
-msgstr "“由Anna’s Archive镜像和播种”的百分比显示了我们自己镜像的文件数量。我们通过种子批量播种这些文件，并通过合作网站提供直接下载。"
+msgstr "“由安娜的档案镜像和做种”的百分比显示了我们自己镜像的文件数量。我们通过种子批量做种这些文件，并通过合作网站提供直接下载。"
 
 #: allthethings/page/templates/page/datasets.html:70
-#, fuzzy
 msgid "page.datasets.source_libraries.title"
-msgstr "来源图书馆"
+msgstr "源图书馆"
 
 #: allthethings/page/templates/page/datasets.html:73
 #, fuzzy
@@ -2752,27 +2654,22 @@ msgid "page.datasets.source_libraries.text1"
 msgstr "一些源图书馆通过种子文件推广其数据的批量共享，而其他图书馆则不轻易分享其收藏。在后者的情况下，Anna’s Archive 尝试抓取他们的收藏，并使其可用（请参阅我们的<a %(a_torrents)s>种子文件</a>页面）。也有介于两者之间的情况，例如，源图书馆愿意分享，但没有资源这样做。在这些情况下，我们也会尝试提供帮助。"
 
 #: allthethings/page/templates/page/datasets.html:77
-#, fuzzy
 msgid "page.datasets.source_libraries.text2"
-msgstr "以下是我们如何与不同源图书馆接口的概述。"
+msgstr "以下是我们与不同源图书馆接口的概述。"
 
 #: allthethings/page/templates/page/datasets.html:82
-#, fuzzy
 msgid "page.datasets.sources.source.header"
 msgstr "来源"
 
 #: allthethings/page/templates/page/datasets.html:83
-#, fuzzy
 msgid "page.datasets.sources.metadata.header"
 msgstr "元数据"
 
 #: allthethings/page/templates/page/datasets.html:84
-#, fuzzy
 msgid "page.datasets.sources.files.header"
 msgstr "文件"
 
 #: allthethings/page/templates/page/datasets.html:97
-#, fuzzy
 msgid "common.record_sources_mapping.scihub_scimag"
 msgstr "Sci-Hub / Libgen “scimag”"
 
@@ -2784,7 +2681,7 @@ msgstr "仅元数据来源"
 #: allthethings/page/templates/page/datasets.html:164
 #, fuzzy
 msgid "page.datasets.metadata_only_sources.text1"
-msgstr "我们还通过仅元数据来源丰富我们的收藏，我们可以使用ISBN号码或其他字段将其匹配到文件。以下是这些来源的概述。同样，其中一些来源是完全开放的，而对于其他来源，我们必须抓取它们。"
+msgstr "我们还通过仅元数据来源丰富我们的馆藏，我们可以使用ISBN号码或其他字段将其匹配到文件。以下是这些来源的概述。同样，其中一些来源是完全开放的，而对于其他来源，我们必须抓取它们。"
 
 #: allthethings/page/templates/page/datasets.html:168
 #: allthethings/page/templates/page/faq.html:187
@@ -2810,24 +2707,20 @@ msgid "page.datasets.metadata_only_sources.text2"
 msgstr "请注意，在元数据搜索中，我们显示的是原始记录。我们不进行记录的合并。"
 
 #: allthethings/page/templates/page/datasets.html:215
-#, fuzzy
 msgid "page.datasets.unified_database.title"
 msgstr "统一数据库"
 
 #: allthethings/page/templates/page/datasets.html:218
-#, fuzzy
 msgid "page.datasets.unified_database.text1"
-msgstr "我们将上述所有来源合并到一个统一的数据库中，用于服务此网站。这个统一的数据库不能直接获取，但由于Anna’s Archive是完全开源的，可以相对容易地<a %(a_generated)s>生成</a>或<a %(a_downloaded)s>下载</a>为ElasticSearch和MariaDB数据库。该页面上的脚本将自动从上述提到的来源下载所有必要的元数据。"
+msgstr "我们将上述所有来源合并到一个统一的数据库中，用于服务此网站。这个统一的数据库不能直接获取，但由于安娜的档案是完全开源的，可以相对容易地<a %(a_generated)s>生成</a>或<a %(a_downloaded)s>下载</a>为ElasticSearch和MariaDB数据库。该页面上的脚本将自动从上述提到的来源下载所有必要的元数据。"
 
 #: allthethings/page/templates/page/datasets.html:226
-#, fuzzy
 msgid "page.datasets.unified_database.text2"
-msgstr "如果您想在本地运行这些脚本之前探索我们的数据，可以查看我们的JSON文件，这些文件进一步链接到其他JSON文件。<a %(a_json)s>这个文件</a>是一个很好的起点。"
+msgstr "如果您想在本地运行这些脚本之前浏览我们的数据，可以查看我们的JSON文件，这些文件进一步链接到其他JSON文件。<a %(a_json)s>这个文件</a>是一个很好的起点。"
 
 #: allthethings/page/templates/page/datasets_ia.html:10
-#, fuzzy
 msgid "page.datasets.ia.intro"
-msgstr "如果您有兴趣镜像此数据集以用于<a %(a_archival)s>存档</a>或<a %(a_llm)s>LLM 训练</a>目的，请联系我们。"
+msgstr "如果您有兴趣镜像此数据集以用于<a %(a_archival)s>存档</a>或<a %(a_llm)s>大语言模型训练</a>目的，请联系我们。"
 
 #: allthethings/page/templates/page/datasets_ia.html:14
 #, fuzzy
@@ -2913,9 +2806,8 @@ msgid "page.datasets/isbn_ranges.title"
 msgstr "ISBN国家信息"
 
 #: allthethings/page/templates/page/datasets_isbn_ranges.html:9
-#, fuzzy
 msgid "page.datasets/isbn_ranges.intro"
-msgstr "如果您有兴趣镜像此数据集以用于<a %(a_archival)s>存档</a>或<a %(a_llm)s>LLM训练</a>目的，请联系我们。"
+msgstr "如果您有兴趣镜像此数据集以用于<a %(a_archival)s>存档</a>或<a %(a_llm)s>大语言模型训练</a>目的，请联系我们。"
 
 #: allthethings/page/templates/page/datasets_isbn_ranges.html:13
 #, fuzzy
@@ -3236,9 +3128,8 @@ msgid "page.faq.torrents.q2"
 msgstr "种子下载速度太慢了；我可以直接从你们那里下载数据吗？"
 
 #: allthethings/page/templates/page/faq.html:237
-#, fuzzy
 msgid "page.faq.torrents.a2"
-msgstr "有，请参见 <a %(a_llm)s>LLM 数据</a> 页面。"
+msgstr "是的，请查看<a %(a_llm)s>大语言模型数据</a>页面。"
 
 #: allthethings/page/templates/page/faq.html:241
 #, fuzzy
@@ -3541,14 +3432,12 @@ msgstr "📡对于我们集合的批量镜像，请查看<a %(a_datasets)s >数�
 
 #: allthethings/page/templates/page/llm.html:3
 #: allthethings/page/templates/page/llm.html:6
-#, fuzzy
 msgid "page.llm.title"
-msgstr "LLM数据"
+msgstr "大语言模型数据"
 
 #: allthethings/page/templates/page/llm.html:9
-#, fuzzy
 msgid "page.llm.intro"
-msgstr "众所周知，LLM依赖高质量数据。我们拥有世界上最大的书籍、论文、杂志等收藏，这些都是一些最高质量的文本来源。"
+msgstr "众所周知，大语言模型依赖高质量数据。我们拥有世界上最大的书籍、论文、杂志等收藏，这些都是最高质量的文本来源。"
 
 #: allthethings/page/templates/page/llm.html:12
 #, fuzzy
@@ -4149,7 +4038,7 @@ msgstr "在框内输入文字以搜索我们共%(count)s个可直接下载的文
 
 #: allthethings/page/templates/page/search.html:241
 msgid "page.search.results.help_preserve"
-msgstr "事实上，任何人都可以通过播种我们的<a %(a_torrents)s>统一种子列表</a>来帮助保存这些文件。"
+msgstr "事实上，任何人都可以通过做种我们的<a %(a_torrents)s>统一种子列表</a>来帮助保存这些文件。"
 
 #: allthethings/page/templates/page/search.html:244
 msgid "page.search.results.most_comprehensive"
@@ -4575,7 +4464,6 @@ msgid "layout.index.footer.list2.telegram"
 msgstr "Telegram"
 
 #: allthethings/templates/layouts/index.html:578
-#, fuzzy
 msgid "layout.index.header.nav.advanced"
 msgstr "高级"
 
