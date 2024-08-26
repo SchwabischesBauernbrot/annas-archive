@@ -3792,12 +3792,19 @@ def get_aac_nexusstc_book_dicts(session, key, values):
                 "combined_comments": [],
                 "language_codes": [],
                 "content_type": "",
+                "cid_only_links": [],
                 "added_date_unified": { 
                     "nexusstc_source_update_date": datetime.datetime.fromtimestamp(aac_record['metadata']['record']['updated_at'][0]).isoformat().split('T', 1)[0],
                 },
             },
             "aac_record": aac_record,
         }
+
+        metadata = {}
+        if len(aac_record['metadata']['record']['metadata']) == 1:
+            metadata = aac_record['metadata']['record']['metadata'][0]
+        elif len(aac_record['metadata']['record']['metadata']) > 1:
+            raise Exception(f"Unexpected {aac_record['metadata']['record']['metadata'][0]=}")
 
         allthethings.utils.init_identifiers_and_classification_unified(aac_nexusstc_book_dict['aa_nexusstc_derived'])
         allthethings.utils.add_classification_unified(aac_nexusstc_book_dict['aa_nexusstc_derived'], 'collection', 'nexusstc')
@@ -3818,9 +3825,9 @@ def get_aac_nexusstc_book_dicts(session, key, values):
             allthethings.utils.add_identifier_unified(aac_nexusstc_book_dict['aa_nexusstc_derived'], 'british_standard', british_standard)
         for pubmed_id in get_nexusstc_ids(aac_record['metadata']['record']['id'][0], 'pubmed_id'):
             allthethings.utils.add_identifier_unified(aac_nexusstc_book_dict['aa_nexusstc_derived'], 'pmid', pubmed_id)
-        allthethings.utils.add_isbns_unified(aac_nexusstc_book_dict['aa_nexusstc_derived'], get_nexusstc_ids(aac_record['metadata']['record']['metadata'][0], 'isbns'))
-        allthethings.utils.add_isbns_unified(aac_nexusstc_book_dict['aa_nexusstc_derived'], get_nexusstc_ids(aac_record['metadata']['record']['metadata'][0], 'parent_isbns'))
-        for issn in get_nexusstc_ids(aac_record['metadata']['record']['metadata'][0], 'issns'):
+        allthethings.utils.add_isbns_unified(aac_nexusstc_book_dict['aa_nexusstc_derived'], get_nexusstc_ids(metadata, 'isbns'))
+        allthethings.utils.add_isbns_unified(aac_nexusstc_book_dict['aa_nexusstc_derived'], get_nexusstc_ids(metadata, 'parent_isbns'))
+        for issn in get_nexusstc_ids(metadata, 'issns'):
             allthethings.utils.add_issn_unified(aac_nexusstc_book_dict['aa_nexusstc_derived'], issn)
         for author in aac_record['metadata']['record']['authors']:
             if 'orcid' in author:
@@ -3828,12 +3835,17 @@ def get_aac_nexusstc_book_dicts(session, key, values):
         # `ark_ids` appears to never be present.
 
         if len(aac_record['metadata']['record']['issued_at']) > 0:
-            issued_at = datetime.datetime.fromtimestamp(aac_record['metadata']['record']['issued_at'][0])
-            if allthethings.utils.validate_year(issued_at.year):
-                aac_nexusstc_book_dict["aa_nexusstc_derived"]["added_date_unified"]["nexusstc_source_issued_at_date"] = issued_at.isoformat().split('T', 1)[0]
-                aac_nexusstc_book_dict["aa_nexusstc_derived"]["year"] = str(issued_at.year)
-        if len((((aac_record['metadata']['record']['metadata'] or [{}])[0].get('event') or {}).get('start') or {}).get('date-parts') or []) > 0:
-            potential_year = str(aac_record['metadata']['record']['metadata'][0]['event']['start']['date-parts'][0])
+            issued_at = None
+            try:
+                issued_at = datetime.datetime.fromtimestamp(aac_record['metadata']['record']['issued_at'][0])
+            except:
+                pass
+            if issued_at is not None:
+                if allthethings.utils.validate_year(issued_at.year):
+                    aac_nexusstc_book_dict["aa_nexusstc_derived"]["added_date_unified"]["nexusstc_source_issued_at_date"] = issued_at.isoformat().split('T', 1)[0]
+                    aac_nexusstc_book_dict["aa_nexusstc_derived"]["year"] = str(issued_at.year)
+        if len(((metadata.get('event') or {}).get('start') or {}).get('date-parts') or []) > 0:
+            potential_year = str(metadata['event']['start']['date-parts'][0])
             if allthethings.utils.validate_year(potential_year):
                 aac_nexusstc_book_dict["aa_nexusstc_derived"]["year"] = potential_year
 
@@ -3846,7 +3858,7 @@ def get_aac_nexusstc_book_dicts(session, key, values):
         if title_stripped != '':
             aac_nexusstc_book_dict['aa_nexusstc_derived']['title_best'] = title_stripped
 
-        publisher_stripped = ((aac_record['metadata']['record']['metadata'] or [{}])[0].get('publisher') or '').strip()
+        publisher_stripped = (metadata.get('publisher') or '').strip()
         if publisher_stripped != '':
             aac_nexusstc_book_dict['aa_nexusstc_derived']['publisher_best'] = publisher_stripped
 
@@ -3860,7 +3872,7 @@ def get_aac_nexusstc_book_dicts(session, key, values):
                 name_stripped = author['name'].strip()
                 if name_stripped != '':
                     authors.append(name_stripped)
-            else:
+            elif ('family' in author) and ('given' in author):
                 family_stripped = author['family'].strip()
                 given_stripped = author['given'].strip()
                 name = []
@@ -3870,37 +3882,42 @@ def get_aac_nexusstc_book_dicts(session, key, values):
                     name.append(family_stripped)
                 if len(name) > 0:
                     authors.append(' '.join(name))
+            elif 'family' in author:
+                family_stripped = author['family'].strip()
+                if family_stripped != '':
+                    authors.append(family_stripped)
+            else:
+                raise Exception(f"Unexpected {author=}")
         if len(authors) > 0:
             aac_nexusstc_book_dict['aa_nexusstc_derived']['author_best'] = '; '.join(authors)
 
         edition_varia_normalized = []
-        if len(str((aac_record['metadata']['record']['metadata'] or [{}])[0].get('container_title') or '').strip()) > 0:
-            edition_varia_normalized.append(str(aac_record['metadata']['record']['metadata'][0]['container_title']).strip())
-        if len(str((aac_record['metadata']['record']['metadata'] or [{}])[0].get('series') or '').strip()) > 0:
-            edition_varia_normalized.append(str(aac_record['metadata']['record']['metadata'][0]['series']).strip())
-        if len(str((aac_record['metadata']['record']['metadata'] or [{}])[0].get('volume') or '').strip()) > 0:
-            edition_varia_normalized.append(str(aac_record['metadata']['record']['metadata'][0]['volume']).strip())
-        if len(str((aac_record['metadata']['record']['metadata'] or [{}])[0].get('edition') or '').strip()) > 0:
-            edition_varia_normalized.append(str(aac_record['metadata']['record']['metadata'][0]['edition']).strip())
-        if len(str((aac_record['metadata']['record']['metadata'] or [{}])[0].get('brand_name') or '').strip()) > 0:
-            edition_varia_normalized.append(str(aac_record['metadata']['record']['metadata'][0]['brand_name']).strip())
-        if len((aac_record['metadata']['record']['metadata'] or [{}])[0].get('model_names') or []) > 0:
-            for model_name in aac_record['metadata']['record']['metadata'][0]['model_names']:
+        if len(str(metadata.get('container_title') or '').strip()) > 0:
+            edition_varia_normalized.append(str(metadata['container_title']).strip())
+        if len(str(metadata.get('series') or '').strip()) > 0:
+            edition_varia_normalized.append(str(metadata['series']).strip())
+        if len(str(metadata.get('volume') or '').strip()) > 0:
+            edition_varia_normalized.append(str(metadata['volume']).strip())
+        if len(str(metadata.get('edition') or '').strip()) > 0:
+            edition_varia_normalized.append(str(metadata['edition']).strip())
+        if len(str(metadata.get('brand_name') or '').strip()) > 0:
+            edition_varia_normalized.append(str(metadata['brand_name']).strip())
+        if len(metadata.get('model_names') or []) > 0:
+            for model_name in metadata['model_names']:
                 edition_varia_normalized.append(str(model_name).strip())
-        if len(str((aac_record['metadata']['record']['metadata'] or [{}])[0].get('category') or '').strip()) > 0:
-            edition_varia_normalized.append(str(aac_record['metadata']['record']['metadata'][0]['category']).strip())
-        if len(str(((aac_record['metadata']['record']['metadata'] or [{}])[0].get('event') or {}).get('acronym') or '').strip()) > 0:
-            edition_varia_normalized.append(str(aac_record['metadata']['record']['metadata'][0]['event']['acronym']).strip())
-        if len(str(((aac_record['metadata']['record']['metadata'] or [{}])[0].get('event') or {}).get('name') or '').strip()) > 0:
-            edition_varia_normalized.append(str(aac_record['metadata']['record']['metadata'][0]['event']['name']).strip())
-        if len(str(((aac_record['metadata']['record']['metadata'] or [{}])[0].get('event') or {}).get('location') or '').strip()) > 0:
-            edition_varia_normalized.append(str(aac_record['metadata']['record']['metadata'][0]['event']['location']).strip())
+        if len(str(metadata.get('category') or '').strip()) > 0:
+            edition_varia_normalized.append(str(metadata['category']).strip())
+        if len(str((metadata.get('event') or {}).get('acronym') or '').strip()) > 0:
+            edition_varia_normalized.append(str(metadata['event']['acronym']).strip())
+        if len(str((metadata.get('event') or {}).get('name') or '').strip()) > 0:
+            edition_varia_normalized.append(str(metadata['event']['name']).strip())
+        if len(str((metadata.get('event') or {}).get('location') or '').strip()) > 0:
+            edition_varia_normalized.append(str(metadata['event']['location']).strip())
         if aac_nexusstc_book_dict["aa_nexusstc_derived"]["year"] != '':
             edition_varia_normalized.append(aac_nexusstc_book_dict["aa_nexusstc_derived"]["year"])
         aac_nexusstc_book_dict['aa_nexusstc_derived']['edition_varia_normalized'] = ', '.join(edition_varia_normalized)
 
-        if len(aac_record['metadata']['record']['metadata'] or []) > 0:
-            metadata = aac_record['metadata']['record']['metadata'][0]
+        if metadata != {}:
             aac_nexusstc_book_dict['aa_nexusstc_derived']['combined_comments'].append(orjson.dumps(metadata).decode())
 
         aac_nexusstc_book_dict['aa_nexusstc_derived']['language_codes'] = combine_bcp47_lang_codes([get_bcp47_lang_codes(language.strip()) for language in aac_record['metadata']['record']['languages']])
@@ -3926,93 +3943,102 @@ def get_aac_nexusstc_book_dicts(session, key, values):
         # 647 "magazine"
         # 630 "database"
         # 69 null
-        if aac_record['metadata']['record']['type'][0] == 'journal-article':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'journal_article'
-        elif aac_record['metadata']['record']['type'][0] == 'journal-issue':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'magazine'
-        elif aac_record['metadata']['record']['type'][0] == 'journal-volume':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'magazine'
-        elif aac_record['metadata']['record']['type'][0] == 'journal':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'magazine'
-        elif aac_record['metadata']['record']['type'][0] == 'proceedings-article':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'journal_article'
-        elif aac_record['metadata']['record']['type'][0] == 'proceedings':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'magazine'
-        elif aac_record['metadata']['record']['type'][0] == 'dataset':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'
-        elif aac_record['metadata']['record']['type'][0] == 'component':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'
-        elif aac_record['metadata']['record']['type'][0] == 'report':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'journal_article'
-        elif aac_record['metadata']['record']['type'][0] == 'report-series':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'book_nonfiction'
-        elif aac_record['metadata']['record']['type'][0] == 'standard':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'standards_document'
-        elif aac_record['metadata']['record']['type'][0] == 'standard-series':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'standards_document'
-        elif aac_record['metadata']['record']['type'][0] == 'edited-book':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'book_nonfiction'
-        elif aac_record['metadata']['record']['type'][0] == 'monograph':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'book_nonfiction'
-        elif aac_record['metadata']['record']['type'][0] == 'reference-book':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'book_unknown'
-        elif aac_record['metadata']['record']['type'][0] == 'book':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'book_unknown'
-        elif aac_record['metadata']['record']['type'][0] == 'book-series':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'book_unknown'
-        elif aac_record['metadata']['record']['type'][0] == 'book-set':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'book_unknown'
-        elif aac_record['metadata']['record']['type'][0] == 'book-chapter':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'
-        elif aac_record['metadata']['record']['type'][0] == 'book-section':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'
-        elif aac_record['metadata']['record']['type'][0] == 'book-part':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'
-        elif aac_record['metadata']['record']['type'][0] == 'book-track':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'
-        elif aac_record['metadata']['record']['type'][0] == 'reference-entry':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'
-        elif aac_record['metadata']['record']['type'][0] == 'dissertation':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'book_nonfiction'
-        elif aac_record['metadata']['record']['type'][0] == 'posted-content':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'journal_article'
-        elif aac_record['metadata']['record']['type'][0] == 'peer-review':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'
-        elif aac_record['metadata']['record']['type'][0] == 'other':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'
-        elif aac_record['metadata']['record']['type'][0] == 'magazine':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'magazine'
-        elif aac_record['metadata']['record']['type'][0] == 'chapter':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'
-        elif aac_record['metadata']['record']['type'][0] == 'manual':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'book_nonfiction'
-        elif aac_record['metadata']['record']['type'][0] == 'wiki':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'
-        elif aac_record['metadata']['record']['type'][0] == 'grant':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'
-        elif aac_record['metadata']['record']['type'][0] == 'database':
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'
-        elif aac_record['metadata']['record']['type'][0] is None:
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'
-        else:
-            raise Exception(f"Unexpected {aac_record['metadata']['record']['type'][0]=}")
+        if len(aac_record['metadata']['record']['type']) == 1:
+            if aac_record['metadata']['record']['type'][0] == 'journal-article':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'journal_article'
+            elif aac_record['metadata']['record']['type'][0] == 'journal-issue':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'magazine'
+            elif aac_record['metadata']['record']['type'][0] == 'journal-volume':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'magazine'
+            elif aac_record['metadata']['record']['type'][0] == 'journal':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'magazine'
+            elif aac_record['metadata']['record']['type'][0] == 'proceedings-article':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'journal_article'
+            elif aac_record['metadata']['record']['type'][0] == 'proceedings':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'magazine'
+            elif aac_record['metadata']['record']['type'][0] == 'dataset':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'
+            elif aac_record['metadata']['record']['type'][0] == 'component':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'
+            elif aac_record['metadata']['record']['type'][0] == 'report':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'journal_article'
+            elif aac_record['metadata']['record']['type'][0] == 'report-component':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'journal_article'
+            elif aac_record['metadata']['record']['type'][0] == 'report-series':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'book_nonfiction'
+            elif aac_record['metadata']['record']['type'][0] == 'standard':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'standards_document'
+            elif aac_record['metadata']['record']['type'][0] == 'standard-series':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'standards_document'
+            elif aac_record['metadata']['record']['type'][0] == 'edited-book':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'book_nonfiction'
+            elif aac_record['metadata']['record']['type'][0] == 'monograph':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'book_nonfiction'
+            elif aac_record['metadata']['record']['type'][0] == 'reference-book':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'book_unknown'
+            elif aac_record['metadata']['record']['type'][0] == 'book':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'book_unknown'
+            elif aac_record['metadata']['record']['type'][0] == 'book-series':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'book_unknown'
+            elif aac_record['metadata']['record']['type'][0] == 'book-set':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'book_unknown'
+            elif aac_record['metadata']['record']['type'][0] == 'book-chapter':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'
+            elif aac_record['metadata']['record']['type'][0] == 'book-section':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'
+            elif aac_record['metadata']['record']['type'][0] == 'book-part':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'
+            elif aac_record['metadata']['record']['type'][0] == 'book-track':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'
+            elif aac_record['metadata']['record']['type'][0] == 'reference-entry':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'
+            elif aac_record['metadata']['record']['type'][0] == 'dissertation':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'book_nonfiction'
+            elif aac_record['metadata']['record']['type'][0] == 'posted-content':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'journal_article'
+            elif aac_record['metadata']['record']['type'][0] == 'peer-review':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'
+            elif aac_record['metadata']['record']['type'][0] == 'other':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'
+            elif aac_record['metadata']['record']['type'][0] == 'magazine':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'magazine'
+            elif aac_record['metadata']['record']['type'][0] == 'chapter':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'
+            elif aac_record['metadata']['record']['type'][0] == 'manual':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'book_nonfiction'
+            elif aac_record['metadata']['record']['type'][0] == 'wiki':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'
+            elif aac_record['metadata']['record']['type'][0] == 'grant':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'
+            elif aac_record['metadata']['record']['type'][0] == 'database':
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'
+            elif aac_record['metadata']['record']['type'][0] is None:
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['content_type'] = 'other'
+            else:
+                raise Exception(f"Unexpected {aac_record['metadata']['record']['type'][0]=}")
+        elif len(aac_record['metadata']['record']['type']) > 1:
+            raise Exception(f"Unexpected {aac_record['metadata']['record']['type']=}")
 
         for link in aac_record['metadata']['record']['links']:
             if key == 'md5':
-                if (link['md5'] or '').lower() != requested_value:
+                if (link.get('md5') or '').lower() != requested_value:
                     continue
-                if link['cid'] is not None:
+                if (link['cid'] or '') != '':
                     aac_nexusstc_book_dict['aa_nexusstc_derived']['ipfs_cids'].append(link['cid'])
                 aac_nexusstc_book_dict['aa_nexusstc_derived']['extension'] = link['extension'] or ''
                 aac_nexusstc_book_dict['aa_nexusstc_derived']['filesize'] = link['filesize'] or 0
 
-            extension_with_dot = f".{link['extension']}" if link['extension'] != '' else ''
-            aac_nexusstc_book_dict['aa_nexusstc_derived']['filepath_multiple'].append(f"{title_stripped + '/' if title_stripped != '' else ''}{link['md5'].lower()}{extension_with_dot}")
-
-            if (link['md5'] or '') != '':
+            if (link.get('md5') or '') != '':
                 allthethings.utils.add_identifier_unified(aac_nexusstc_book_dict['aa_nexusstc_derived'], 'md5', link['md5'].lower())
+                extension_with_dot = f".{link['extension']}" if link['extension'] != '' else ''
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['filepath_multiple'].append(f"{title_stripped + '/' if title_stripped != '' else ''}{link['md5'].lower()}{extension_with_dot}")
             if (link['cid'] or '') != '':
                 allthethings.utils.add_identifier_unified(aac_nexusstc_book_dict['aa_nexusstc_derived'], 'ipfs_cid', link['cid'])
+
+            if ((link['cid'] or '') != '') and ((link.get('md5') or '') == ''):
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['cid_only_links'].append(link['cid'])
+
+            # Do something with link['iroh_hash']?
 
         if len(aac_record['metadata']['record']['references'] or []) > 0:
             references = ' '.join([f"doi:{ref['doi']}" for ref in aac_record['metadata']['record']['references']])
@@ -4330,6 +4356,7 @@ def get_aarecords_mysql(session, aarecord_ids):
     aac_magzdb_book_dicts2 = {('magzdb:' + item['requested_value']): item for item in get_aac_magzdb_book_dicts(session, 'magzdb_id', split_ids['magzdb'])}
     aac_nexusstc_book_dicts = {('md5:' + item['requested_value']): item for item in get_aac_nexusstc_book_dicts(session, 'md5', split_ids['md5'])}
     aac_nexusstc_book_dicts2 = {('nexusstc:' + item['requested_value']): item for item in get_aac_nexusstc_book_dicts(session, 'nexusstc_id', split_ids['nexusstc'])}
+    aac_nexusstc_book_dicts3 = {('nexusstc_download:' + item['requested_value']): item for item in get_aac_nexusstc_book_dicts(session, 'nexusstc_id', split_ids['nexusstc_download'])}
     ol_book_dicts_primary_linked = {('md5:' + md5): item for md5, item in get_ol_book_dicts_by_annas_archive_md5(session, split_ids['md5']).items()}
 
     # First pass, so we can fetch more dependencies.
@@ -4361,7 +4388,7 @@ def get_aarecords_mysql(session, aarecord_ids):
         aarecord['duxiu'] = duxiu_dicts.get(aarecord_id) or duxiu_dicts2.get(aarecord_id) or duxiu_dicts3.get(aarecord_id)
         aarecord['aac_upload'] = aac_upload_md5_dicts.get(aarecord_id)
         aarecord['aac_magzdb'] = aac_magzdb_book_dicts.get(aarecord_id) or aac_magzdb_book_dicts2.get(aarecord_id)
-        aarecord['aac_nexusstc'] = aac_nexusstc_book_dicts.get(aarecord_id) or aac_nexusstc_book_dicts2.get(aarecord_id)
+        aarecord['aac_nexusstc'] = aac_nexusstc_book_dicts.get(aarecord_id) or aac_nexusstc_book_dicts2.get(aarecord_id) or aac_nexusstc_book_dicts3.get(aarecord_id)
         aarecord['ol_book_dicts_primary_linked'] = list(ol_book_dicts_primary_linked.get(aarecord_id) or [])
         aarecord['duxius_nontransitive_meta_only'] = []
         
@@ -5054,7 +5081,7 @@ def get_aarecords_mysql(session, aarecord_ids):
         elif aarecord_id_split[0] == 'magzdb':
             if 'magzdb_meta_scrape' in aarecord['file_unified_data']['added_date_unified']:
                 aarecord['file_unified_data']['added_date_best'] = aarecord['file_unified_data']['added_date_unified']['magzdb_meta_scrape']
-        elif aarecord_id_split[0] == 'nexusstc':
+        elif aarecord_id_split[0] in ['nexusstc', 'nexusstc_download']:
             if 'nexusstc_source_update_date' in aarecord['file_unified_data']['added_date_unified']:
                 aarecord['file_unified_data']['added_date_best'] = aarecord['file_unified_data']['added_date_unified']['nexusstc_source_update_date']
         else:
@@ -5121,7 +5148,7 @@ def get_aarecords_mysql(session, aarecord_ids):
             aarecord['file_unified_data']['content_type'] = 'book_nonfiction'
         if (aarecord['file_unified_data']['content_type'] is None) and (not aarecord['lgrsnf_book']) and aarecord['lgrsfic_book']:
             aarecord['file_unified_data']['content_type'] = 'book_fiction'
-        if (aarecord['file_unified_data']['content_type'] is None) and aarecord['aac_nexusstc']:
+        if (aarecord['file_unified_data']['content_type'] is None) and aarecord['aac_nexusstc'] and (aarecord['aac_nexusstc']['aa_nexusstc_derived']['content_type'] != ''):
             aarecord['file_unified_data']['content_type'] = aarecord['aac_nexusstc']['aa_nexusstc_derived']['content_type']
         if aarecord['file_unified_data']['content_type'] is None:
             ia_content_type = (((aarecord['ia_record'] or {}).get('aa_ia_derived') or {}).get('content_type') or 'book_unknown')
@@ -5271,6 +5298,9 @@ def get_aarecords_mysql(session, aarecord_ids):
             aarecord['aac_nexusstc'] = {
                 'requested_value': aarecord['aac_nexusstc']['requested_value'],
                 'id': aarecord['aac_nexusstc']['id'],
+                'aa_nexusstc_derived': {
+                    'cid_only_links': aarecord['aac_nexusstc']['aa_nexusstc_derived']['cid_only_links'],
+                },
             }
 
         search_content_type = aarecord['file_unified_data']['content_type']
@@ -5743,6 +5773,7 @@ def get_additional_for_aarecord(aarecord):
         # additional['download_urls'].append((gettext('page.md5.box.download.ipfs_gateway', num=1), f"https://ipfs.eth.aragon.network/ipfs/{aarecord['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={additional['filename_without_annas_archive']}", gettext('page.md5.box.download.ipfs_gateway_extra')))
 
         for ipfs_info in aarecord['ipfs_infos']:
+            additional['ipfs_urls'].append({ "url": f"https://w3s.link/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
             additional['ipfs_urls'].append({ "url": f"https://cf-ipfs.com/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
             additional['ipfs_urls'].append({ "url": f"https://ipfs.eth.aragon.network/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
             additional['ipfs_urls'].append({ "url": f"https://zerolend.myfilebase.com/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
@@ -5923,6 +5954,11 @@ def magzdb_page(magzdb_id):
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
 def nexusstc_page(nexusstc_id):
     return render_aarecord(f"nexusstc:{nexusstc_id}")
+
+@page.get("/nexusstc_download/<string:nexusstc_id>")
+@allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
+def nexusstc_download_page(nexusstc_id):
+    return render_aarecord(f"nexusstc_download:{nexusstc_id}")
 
 def render_aarecord(record_id):
     if allthethings.utils.DOWN_FOR_MAINTENANCE:

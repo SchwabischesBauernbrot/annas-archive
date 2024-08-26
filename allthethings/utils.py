@@ -87,14 +87,14 @@ def validate_magzdb_ids(magzdb_ids):
     return all([str(magzdb_id).isdigit() for magzdb_id in magzdb_ids])
 
 def validate_nexusstc_ids(nexusstc_ids):
-    return all([bool(re.match(r"^[a-z\d]{25}$", nexusstc_id)) for nexusstc_id in nexusstc_ids])
+    return all([bool(re.match(r"^[a-z\d]+$", nexusstc_id)) for nexusstc_id in nexusstc_ids])
 
 def validate_aarecord_ids(aarecord_ids):
     try:
         split_ids = split_aarecord_ids(aarecord_ids)
     except Exception:
         return False
-    return validate_canonical_md5s(split_ids['md5']) and validate_ol_editions(split_ids['ol']) and validate_oclc_ids(split_ids['oclc']) and validate_duxiu_ssids(split_ids['duxiu_ssid']) and validate_magzdb_ids(split_ids['magzdb']) and validate_nexusstc_ids(split_ids['nexusstc'])
+    return validate_canonical_md5s(split_ids['md5']) and validate_ol_editions(split_ids['ol']) and validate_oclc_ids(split_ids['oclc']) and validate_duxiu_ssids(split_ids['duxiu_ssid']) and validate_magzdb_ids(split_ids['magzdb']) and validate_nexusstc_ids(split_ids['nexusstc']) and validate_nexusstc_ids(split_ids['nexusstc_download'])
 
 def split_aarecord_ids(aarecord_ids):
     ret = {
@@ -108,6 +108,7 @@ def split_aarecord_ids(aarecord_ids):
         'cadal_ssno': [],
         'magzdb': [],
         'nexusstc': [],
+        'nexusstc_download': [],
     }
     for aarecord_id in aarecord_ids:
         split_aarecord_id = aarecord_id.split(':', 1)
@@ -1295,7 +1296,7 @@ def get_aarecord_search_indexes_for_id_prefix(id_prefix):
         return ['aarecords_metadata']
     elif id_prefix == 'ia':
         return ['aarecords_digital_lending']
-    elif id_prefix in ['md5', 'doi']:
+    elif id_prefix in ['md5', 'doi', 'nexusstc_download']:
         return ['aarecords', 'aarecords_journals']
     else:
         raise Exception(f"Unknown aarecord_id prefix: {id_prefix}")
@@ -1304,7 +1305,7 @@ def get_aarecord_search_index(id_prefix, content_type):
         return 'aarecords_metadata'
     elif id_prefix == 'ia':
         return 'aarecords_digital_lending'
-    elif id_prefix in ['md5', 'doi']:
+    elif id_prefix in ['md5', 'doi', 'nexusstc_download']:
         if content_type == 'journal_article':
             return 'aarecords_journals'
         else:

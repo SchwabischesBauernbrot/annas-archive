@@ -552,6 +552,7 @@ AARECORD_ID_PREFIX_TO_CODES_TABLE_NAME = {
     'nexusstc': 'aarecords_codes_nexusstc',
     'md5': 'aarecords_codes_main',
     'doi': 'aarecords_codes_main',
+    'nexusstc_download': 'aarecords_codes_main',
 }
 
 def elastic_build_aarecords_job(aarecord_ids):
@@ -591,6 +592,7 @@ def elastic_build_aarecords_job(aarecord_ids):
                 # print(f"[{os.getpid()}] elastic_build_aarecords_job got aarecords {len(aarecords)}")
                 aarecords_all_md5_insert_data = []
                 isbn13_oclc_insert_data = []
+                nexusstc_cid_only_insert_data = []
                 temp_md5_with_doi_seen_insert_data = []
                 aarecords_codes_insert_data_by_codes_table_name = collections.defaultdict(list)
                 for aarecord in aarecords:
@@ -622,6 +624,9 @@ def elastic_build_aarecords_job(aarecord_ids):
                                     'isbn13': isbn13,
                                     'oclc_id': int(aarecord_id_split[1]),
                                 })
+                    elif aarecord_id_split[0] == 'nexusstc':
+                        if len(aarecord['aac_nexusstc']['aa_nexusstc_derived']['cid_only_links']) > 0:
+                            nexusstc_cid_only_insert_data.append({ "nexusstc_id": aarecord['aac_nexusstc']['id'] })
 
                     for index in aarecord['indexes']:
                         virtshard = allthethings.utils.virtshard_for_hashed_aarecord_id(hashed_aarecord_id)
@@ -677,6 +682,14 @@ def elastic_build_aarecords_job(aarecord_ids):
                     cursor.executemany('INSERT DELAYED INTO isbn13_oclc (isbn13, oclc_id) VALUES (%(isbn13)s, %(oclc_id)s)', isbn13_oclc_insert_data)
                     cursor.execute('COMMIT')
 
+                if len(nexusstc_cid_only_insert_data) > 0:
+                    session.connection().connection.ping(reconnect=True)
+                    # Avoiding IGNORE / ON DUPLICATE KEY here because of locking.
+                    # WARNING: when trying to optimize this (e.g. if you see this in SHOW PROCESSLIST) know that this is a bit of a bottleneck, but
+                    # not a huge one. Commenting out all these inserts doesn't speed up the job by that much.
+                    cursor.executemany('INSERT DELAYED INTO nexusstc_cid_only (nexusstc_id) VALUES (%(nexusstc_id)s)', nexusstc_cid_only_insert_data)
+                    cursor.execute('COMMIT')
+
                 if len(temp_md5_with_doi_seen_insert_data) > 0:
                     session.connection().connection.ping(reconnect=True)
                     # Avoiding IGNORE / ON DUPLICATE KEY here because of locking.
@@ -711,7 +724,7 @@ def elastic_build_aarecords_job(aarecord_ids):
             return True
 
 THREADS = 200
-CHUNK_SIZE = 500
+CHUNK_SIZE = 200
 BATCH_SIZE = 100000
 
 # Locally
@@ -732,9 +745,9 @@ def elastic_build_aarecords_all():
     elastic_build_aarecords_all_internal()
 
 def elastic_build_aarecords_all_internal():
-    elastic_build_aarecords_oclc_internal() # OCLC first since we use isbn13_oclc table in later steps.
+    elastic_build_aarecords_oclc_internal() # OCLC first since we use `isbn13_oclc` table in later steps.
     elastic_build_aarecords_magzdb_internal()
-    elastic_build_aarecords_nexusstc_internal()
+    elastic_build_aarecords_nexusstc_internal() # Nexus before 'main' since we use `nexusstc_cid_only` table in 'main'.
     elastic_build_aarecords_ia_internal()
     elastic_build_aarecords_isbndb_internal()
     elastic_build_aarecords_ol_internal()
@@ -1057,6 +1070,12 @@ def elastic_build_aarecords_nexusstc_internal():
     # WARNING! Update the upload excludes, and dump_mariadb_omit_tables.txt, when changing aarecords_codes_* temp tables.
     new_tables_internal('aarecords_codes_nexusstc')
 
+    with Session(engine) as session:
+        session.connection().connection.ping(reconnect=True)
+        cursor = session.connection().connection.cursor(pymysql.cursors.DictCursor)
+        cursor.execute('DROP TABLE IF EXISTS nexusstc_cid_only')
+        cursor.execute('CREATE TABLE nexusstc_cid_only (nexusstc_id VARCHAR(200) NOT NULL, PRIMARY KEY (nexusstc_id)) ENGINE=MyISAM DEFAULT CHARSET=ascii COLLATE=ascii_bin ROW_FORMAT=FIXED')
+
     before_first_primary_id = ''
     # before_first_primary_id = '123'
 
@@ -1101,6 +1120,8 @@ def elastic_build_aarecords_main_internal():
     # before_first_md5 = 'aaa5a4759e87b0192c1ecde213535ba1'
     before_first_doi = ''
     # before_first_doi = ''
+    before_first_nexusstc_id = ''
+    # before_first_nexusstc_id = ''
 
     if before_first_md5 != '':
         print(f'WARNING!!!!! before_first_md5 is set to {before_first_md5}')
@@ -1190,7 +1211,7 @@ def elastic_build_aarecords_main_internal():
         print("Processing from scihub_dois")
         connection.connection.ping(reconnect=True)
         cursor = connection.connection.cursor(pymysql.cursors.SSDictCursor)
-        cursor.execute('SELECT COUNT(doi) AS count FROM scihub_dois WHERE doi > %(from)s ORDER BY doi LIMIT 1', { "from": before_first_doi })
+        cursor.execute('SELECT COUNT(*) AS count FROM scihub_dois WHERE doi > %(from)s ORDER BY doi LIMIT 1', { "from": before_first_doi })
         total = list(cursor.fetchall())[0]['count']
         with tqdm.tqdm(total=total, bar_format='{l_bar}{bar}{r_bar} {eta}') as pbar:
             with multiprocessing.Pool(THREADS, initializer=elastic_build_aarecords_job_init_pool) as executor:
@@ -1211,6 +1232,31 @@ def elastic_build_aarecords_main_internal():
                     last_map = executor.map_async(elastic_build_aarecords_job, more_itertools.ichunked([f"doi:{item['doi']}" for item in batch], CHUNK_SIZE))
                     pbar.update(len(batch))
                     current_doi = batch[-1]['doi']
+
+        print("Processing from nexusstc_cid_only")
+        connection.connection.ping(reconnect=True)
+        cursor = connection.connection.cursor(pymysql.cursors.SSDictCursor)
+        cursor.execute('SELECT COUNT(*) AS count FROM nexusstc_cid_only WHERE nexusstc_id > %(from)s ORDER BY nexusstc_id LIMIT 1', { "from": before_first_nexusstc_id })
+        total = list(cursor.fetchall())[0]['count']
+        with tqdm.tqdm(total=total, bar_format='{l_bar}{bar}{r_bar} {eta}') as pbar:
+            with multiprocessing.Pool(THREADS, initializer=elastic_build_aarecords_job_init_pool) as executor:
+                current_nexusstc_id = before_first_nexusstc_id
+                last_map = None
+                while True:
+                    connection.connection.ping(reconnect=True)
+                    cursor = connection.connection.cursor(pymysql.cursors.SSDictCursor)
+                    cursor.execute('SELECT nexusstc_id FROM nexusstc_cid_only WHERE nexusstc_id > %(from)s ORDER BY nexusstc_id LIMIT %(limit)s', { "from": current_nexusstc_id, "limit": BATCH_SIZE })
+                    batch = list(cursor.fetchall())
+                    if last_map is not None:
+                        if any(last_map.get()):
+                            print("Error detected; exiting")
+                            os._exit(1)
+                    if len(batch) == 0:
+                        break
+                    print(f"Processing with {THREADS=} {len(batch)=} aarecords from nexusstc_cid_only ( starting nexusstc_id: {batch[0]['nexusstc_id']}, ending nexusstc_id: {batch[-1]['nexusstc_id']} )...")
+                    last_map = executor.map_async(elastic_build_aarecords_job, more_itertools.ichunked([f"nexusstc_download:{item['nexusstc_id']}" for item in batch], CHUNK_SIZE))
+                    pbar.update(len(batch))
+                    current_nexusstc_id = batch[-1]['nexusstc_id']
 
     with Session(engine) as session:
         session.connection().connection.ping(reconnect=True)

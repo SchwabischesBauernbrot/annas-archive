@@ -14,7 +14,6 @@ DESCRIBE annas_archive_meta__aacid__worldcat;
 DESCRIBE annas_archive_meta__aacid__zlib3_files;
 DESCRIBE annas_archive_meta__aacid__zlib3_records;
 DESCRIBE annas_archive_meta_aac_filenames;
-DESCRIBE isbn13_oclc;
 DESCRIBE isbndb_isbns;
 DESCRIBE libgenli_editions;
 DESCRIBE libgenli_editions_add_descr;
