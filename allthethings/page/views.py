@@ -3893,6 +3893,8 @@ def get_aac_nexusstc_book_dicts(session, key, values):
                     authors.append(given_stripped)
             elif list(author.keys()) == ['sequence']:
                 pass
+            elif list(author.keys()) == []:
+                pass
             else:
                 raise Exception(f"Unexpected {author=}")
         if len(authors) > 0:
