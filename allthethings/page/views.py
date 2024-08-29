@@ -1054,6 +1054,7 @@ def get_zlib_book_dicts(session, key, values):
         print(f"Error in get_zlib_book_dicts when querying {key}; {values}")
         print(repr(err))
         traceback.print_tb(err.__traceback__)
+        return []
 
     zlib_book_dicts = []
     for zlib_book in zlib_books:
@@ -1134,6 +1135,7 @@ def get_aac_zlib3_book_dicts(session, key, values):
         print(f"Error in get_aac_zlib3_book_dicts when querying {key}; {values}")
         print(repr(err))
         traceback.print_tb(err.__traceback__)
+        return []
 
     aac_zlib3_book_dicts = []
     for zlib_book in aac_zlib3_books:
@@ -1244,6 +1246,7 @@ def get_ia_record_dicts(session, key, values):
         print(f"Error in get_ia_record_dicts when querying {key}; {values}")
         print(repr(err))
         traceback.print_tb(err.__traceback__)
+        return []
 
     ia_entries_combined = []
     ia2_records_indexes = []
@@ -1840,6 +1843,7 @@ def get_lgrsnf_book_dicts(session, key, values):
         print(f"Error in get_lgrsnf_book_dicts when querying {key}; {values}")
         print(repr(err))
         traceback.print_tb(err.__traceback__)
+        return []
 
     lgrs_book_dicts = []
     for lgrsnf_book in lgrsnf_books:
@@ -1911,6 +1915,7 @@ def get_lgrsfic_book_dicts(session, key, values):
         print(f"Error in get_lgrsfic_book_dicts when querying {key}; {values}")
         print(repr(err))
         traceback.print_tb(err.__traceback__)
+        return []
 
     lgrs_book_dicts = []
 
@@ -2409,6 +2414,7 @@ def get_scihub_doi_dicts(session, key, values):
         print(f"Error in get_scihub_doi_dicts when querying {key}; {values}")
         print(repr(err))
         traceback.print_tb(err.__traceback__)
+        return []
 
     scihub_doi_dicts = []
     for scihub_doi in scihub_dois:
@@ -2739,6 +2745,7 @@ def get_duxiu_dicts(session, key, values, include_deep_transitive_md5s_size_path
         print(f"Error in get_duxiu_dicts when querying {key}; {values}")
         print(repr(err))
         traceback.print_tb(err.__traceback__)
+        return []
 
     top_level_records = []
     duxiu_records_indexes = []
@@ -3361,6 +3368,7 @@ def get_aac_upload_book_dicts(session, key, values):
         print(f"Error in get_aac_upload_book_dicts_raw when querying {key}; {values}")
         print(repr(err))
         traceback.print_tb(err.__traceback__)
+        return []
 
     aac_upload_book_dicts = []
     for aac_upload_book_dict_raw in aac_upload_book_dicts_raw:
@@ -3578,6 +3586,7 @@ def get_aac_magzdb_book_dicts(session, key, values):
         print(f"Error in get_aac_magzdb_book_dicts when querying {key}; {values}")
         print(repr(err))
         traceback.print_tb(err.__traceback__)
+        return []
 
     record_offsets_and_lengths = []
     requested_values = []
@@ -3744,7 +3753,7 @@ def get_aac_nexusstc_book_dicts(session, key, values):
     try:
         session.connection().connection.ping(reconnect=True)
         cursor = session.connection().connection.cursor(pymysql.cursors.DictCursor)
-        if key in ['nexusstc_id', 'nexusstc_id_download']:
+        if key in ['nexusstc_id', 'nexusstc_download']:
             cursor.execute(f'SELECT byte_offset, byte_length, primary_id, primary_id AS requested_value FROM annas_archive_meta__aacid__nexusstc_records WHERE primary_id IN %(values)s', { "values": values })
         elif key == 'md5':
             cursor.execute(f'SELECT byte_offset, byte_length, primary_id, annas_archive_meta__aacid__nexusstc_records__multiple_md5.md5 as requested_value FROM annas_archive_meta__aacid__nexusstc_records JOIN annas_archive_meta__aacid__nexusstc_records__multiple_md5 USING (aacid) WHERE annas_archive_meta__aacid__nexusstc_records__multiple_md5.md5 IN %(values)s', { "values": values })
@@ -3754,6 +3763,7 @@ def get_aac_nexusstc_book_dicts(session, key, values):
         print(f"Error in get_aac_nexusstc_book_dicts when querying {key}; {values}")
         print(repr(err))
         traceback.print_tb(err.__traceback__)
+        return []
 
     record_offsets_and_lengths = []
     requested_values = []
@@ -4031,6 +4041,8 @@ def get_aac_nexusstc_book_dicts(session, key, values):
             raise Exception(f"Unexpected {aac_record['metadata']['record']['type']=}")
 
         for link in aac_record['metadata']['record']['links']:
+            print(f"{key=} {link=}")
+
             if key == 'md5':
                 if (link.get('md5') or '').lower() != requested_value:
                     continue
@@ -4038,7 +4050,7 @@ def get_aac_nexusstc_book_dicts(session, key, values):
                     aac_nexusstc_book_dict['aa_nexusstc_derived']['ipfs_cids'].append(link['cid'])
                 aac_nexusstc_book_dict['aa_nexusstc_derived']['extension'] = link['extension'] or ''
                 aac_nexusstc_book_dict['aa_nexusstc_derived']['filesize'] = link['filesize'] or 0
-            elif key == 'nexusstc_id_download':
+            elif key == 'nexusstc_download':
                 if (link['cid'] or '') != '':
                     aac_nexusstc_book_dict['aa_nexusstc_derived']['ipfs_cids'].append(link['cid'])
                 # This will overwrite/combine different link records if they exist, but that's okay.
@@ -4070,6 +4082,15 @@ def get_aac_nexusstc_book_dicts(session, key, values):
 def aac_nexusstc_book_json(nexusstc_id):
     with Session(engine) as session:
         aac_nexusstc_book_dicts = get_aac_nexusstc_book_dicts(session, "nexusstc_id", [nexusstc_id])
+        if len(aac_nexusstc_book_dicts) == 0:
+            return "{}", 404
+        return allthethings.utils.nice_json(aac_nexusstc_book_dicts[0]), {'Content-Type': 'text/json; charset=utf-8'}
+
+@page.get("/db/aac_nexusstc_download/<string:nexusstc_download>.json")
+@allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
+def aac_nexusstc_download_book_json(nexusstc_download):
+    with Session(engine) as session:
+        aac_nexusstc_book_dicts = get_aac_nexusstc_book_dicts(session, "nexusstc_download", [nexusstc_download])
         if len(aac_nexusstc_book_dicts) == 0:
             return "{}", 404
         return allthethings.utils.nice_json(aac_nexusstc_book_dicts[0]), {'Content-Type': 'text/json; charset=utf-8'}
@@ -4373,7 +4394,7 @@ def get_aarecords_mysql(session, aarecord_ids):
     aac_magzdb_book_dicts2 = {('magzdb:' + item['requested_value']): item for item in get_aac_magzdb_book_dicts(session, 'magzdb_id', split_ids['magzdb'])}
     aac_nexusstc_book_dicts = {('md5:' + item['requested_value']): item for item in get_aac_nexusstc_book_dicts(session, 'md5', split_ids['md5'])}
     aac_nexusstc_book_dicts2 = {('nexusstc:' + item['requested_value']): item for item in get_aac_nexusstc_book_dicts(session, 'nexusstc_id', split_ids['nexusstc'])}
-    aac_nexusstc_book_dicts3 = {('nexusstc_download:' + item['requested_value']): item for item in get_aac_nexusstc_book_dicts(session, 'nexusstc_id_download', split_ids['nexusstc_download'])}
+    aac_nexusstc_book_dicts3 = {('nexusstc_download:' + item['requested_value']): item for item in get_aac_nexusstc_book_dicts(session, 'nexusstc_download', split_ids['nexusstc_download'])}
     ol_book_dicts_primary_linked = {('md5:' + md5): item for md5, item in get_ol_book_dicts_by_annas_archive_md5(session, split_ids['md5']).items()}
 
     # First pass, so we can fetch more dependencies.
@@ -5584,7 +5605,11 @@ def get_additional_for_aarecord(aarecord):
         'top_row': ("✅ " if len(aarecord.get('ol_book_dicts_primary_linked') or []) > 0 else "") + ", ".join([item for item in [
                 *additional['most_likely_language_names'][0:3],
                 f".{aarecord['file_unified_data']['extension_best']}" if len(aarecord['file_unified_data']['extension_best']) > 0 else '',
-                "/".join(filter(len,["🚀" if (aarecord['file_unified_data'].get('has_aa_downloads') == 1) else "", *aarecord_sources(aarecord)])),
+                "/".join(filter(len,[
+                    "🧬" if (aarecord['file_unified_data'].get('has_scidb') == 1) else "", 
+                    "🚀" if (aarecord['file_unified_data'].get('has_aa_downloads') == 1) else "", 
+                    *aarecord_sources(aarecord)
+                ])),
                 format_filesize(aarecord['file_unified_data'].get('filesize_best') or 0) if aarecord['file_unified_data'].get('filesize_best') else '',
                 md5_content_type_mapping[aarecord['file_unified_data']['content_type']],
                 (aarecord['file_unified_data'].get('original_filename_best') or ''),
@@ -5786,32 +5811,32 @@ def get_additional_for_aarecord(aarecord):
 
         additional['download_urls'].append((gettext('page.md5.box.download.lgli'), f"http://libgen.li/ads.php?md5={aarecord['lgli_file']['md5'].lower()}", (gettext('page.md5.box.download.extra_also_click_get') if shown_click_get else gettext('page.md5.box.download.extra_click_get')) + ' <div style="margin-left: 24px" class="text-sm text-gray-500">' + gettext('page.md5.box.download.libgen_ads') + '</div>'))
         shown_click_get = True
-    if (len(aarecord.get('ipfs_infos') or []) > 0) and (aarecord_id_split[0] == 'md5'):
+    if (len(aarecord.get('ipfs_infos') or []) > 0) and (aarecord_id_split[0] in ['md5', 'nexusstc_download']):
         # additional['download_urls'].append((gettext('page.md5.box.download.ipfs_gateway', num=1), f"https://ipfs.eth.aragon.network/ipfs/{aarecord['ipfs_infos'][0]['ipfs_cid'].lower()}?filename={additional['filename_without_annas_archive']}", gettext('page.md5.box.download.ipfs_gateway_extra')))
 
         for ipfs_info in aarecord['ipfs_infos']:
-            additional['ipfs_urls'].append({ "url": f"https://w3s.link/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
-            additional['ipfs_urls'].append({ "url": f"https://cf-ipfs.com/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
-            additional['ipfs_urls'].append({ "url": f"https://ipfs.eth.aragon.network/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
-            additional['ipfs_urls'].append({ "url": f"https://zerolend.myfilebase.com/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
-            additional['ipfs_urls'].append({ "url": f"https://ccgateway.infura-ipfs.io/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
-            additional['ipfs_urls'].append({ "url": f"https://knownorigin.mypinata.cloud/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
-            additional['ipfs_urls'].append({ "url": f"https://storry.tv/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
-            additional['ipfs_urls'].append({ "url": f"https://ipfs-stg.fleek.co/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
-            additional['ipfs_urls'].append({ "url": f"https://cloudflare-ipfs.com/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
-            additional['ipfs_urls'].append({ "url": f"https://ipfs.io/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
-            additional['ipfs_urls'].append({ "url": f"https://snapshot.4everland.link/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
-            additional['ipfs_urls'].append({ "url": f"https://gateway.pinata.cloud/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
-            additional['ipfs_urls'].append({ "url": f"https://dweb.link/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
-            additional['ipfs_urls'].append({ "url": f"https://gw3.io/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
-            additional['ipfs_urls'].append({ "url": f"https://public.w3ipfs.aioz.network/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
-            additional['ipfs_urls'].append({ "url": f"https://ipfsgw.com/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
-            additional['ipfs_urls'].append({ "url": f"https://magic.decentralized-content.com/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
-            additional['ipfs_urls'].append({ "url": f"https://ipfs.raribleuserdata.com/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
-            additional['ipfs_urls'].append({ "url": f"https://www.gstop-content.com/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
-            additional['ipfs_urls'].append({ "url": f"https://atomichub-ipfs.com/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "name": "w3s.link", "url": f"https://w3s.link/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "name": "cf-ipfs.com", "url": f"https://cf-ipfs.com/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "name": "ipfs.eth.aragon.network", "url": f"https://ipfs.eth.aragon.network/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "name": "zerolend.myfilebase.com", "url": f"https://zerolend.myfilebase.com/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "name": "ccgateway.infura-ipfs.io", "url": f"https://ccgateway.infura-ipfs.io/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "name": "knownorigin.mypinata.cloud", "url": f"https://knownorigin.mypinata.cloud/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "name": "storry.tv", "url": f"https://storry.tv/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "name": "ipfs-stg.fleek.co", "url": f"https://ipfs-stg.fleek.co/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "name": "cloudflare-ipfs.com", "url": f"https://cloudflare-ipfs.com/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "name": "ipfs.io", "url": f"https://ipfs.io/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "name": "snapshot.4everland.link", "url": f"https://snapshot.4everland.link/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "name": "gateway.pinata.cloud", "url": f"https://gateway.pinata.cloud/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "name": "dweb.link", "url": f"https://dweb.link/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "name": "gw3.io", "url": f"https://gw3.io/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "name": "public.w3ipfs.aioz.network", "url": f"https://public.w3ipfs.aioz.network/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "name": "ipfsgw.com", "url": f"https://ipfsgw.com/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "name": "magic.decentralized-content.com", "url": f"https://magic.decentralized-content.com/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "name": "ipfs.raribleuserdata.com", "url": f"https://ipfs.raribleuserdata.com/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "name": "www.gstop-content.com", "url": f"https://www.gstop-content.com/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
+            additional['ipfs_urls'].append({ "name": "atomichub-ipfs.com", "url": f"https://atomichub-ipfs.com/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
 
-        additional['download_urls'].append(("IPFS", f"/ipfs_downloads/{aarecord_id_split[1]}", ""))
+        additional['download_urls'].append(("IPFS", f"/ipfs_downloads/{aarecord['id']}", ""))
     if aarecord.get('zlib_book') is not None and len(aarecord['zlib_book']['pilimi_torrent'] or '') > 0:
         zlib_path = make_temp_anon_zlib_path(aarecord['zlib_book']['zlibrary_id'], aarecord['zlib_book']['pilimi_torrent'])
         add_partner_servers(zlib_path, 'aa_exclusive' if (len(additional['fast_partner_urls']) == 0) else '', aarecord, additional)
@@ -5896,10 +5921,10 @@ def get_additional_for_aarecord(aarecord):
                 additional['download_urls'].append((gettext('page.md5.box.download.aa_dxid'), f'/search?q="duxiu_dxid:{duxiu_dxid}"', ""))
 
     additional['has_scidb'] = 0
-    scidb_info = allthethings.utils.scidb_info(aarecord, additional)
-    if scidb_info is not None:
-        additional['fast_partner_urls'] = [(gettext('page.md5.box.download.scidb'), f"/scidb?doi={scidb_info['doi']}", gettext('common.md5.servers.no_browser_verification'))] + additional['fast_partner_urls']
-        additional['slow_partner_urls'] = [(gettext('page.md5.box.download.scidb'), f"/scidb?doi={scidb_info['doi']}", gettext('common.md5.servers.no_browser_verification'))] + additional['slow_partner_urls']
+    additional['scidb_info'] = allthethings.utils.scidb_info(aarecord, additional)
+    if additional['scidb_info'] is not None:
+        additional['fast_partner_urls'] = [(gettext('page.md5.box.download.scidb'), f"/scidb?doi={additional['scidb_info']['doi']}", gettext('common.md5.servers.no_browser_verification'))] + additional['fast_partner_urls']
+        additional['slow_partner_urls'] = [(gettext('page.md5.box.download.scidb'), f"/scidb?doi={additional['scidb_info']['doi']}", gettext('common.md5.servers.no_browser_verification'))] + additional['slow_partner_urls']
         additional['has_scidb'] = 1
 
     return additional
@@ -6066,13 +6091,14 @@ def scidb_page(doi_input):
         except Exception:
             return redirect(f'/search?index=journals&q="doi:{doi_input}"', code=302)
         aarecords = [add_additional_to_aarecord(aarecord) for aarecord in (search_results_raw1['hits']['hits']+search_results_raw2['hits']['hits'])]
-        aarecords_and_infos = [(aarecord, allthethings.utils.scidb_info(aarecord)) for aarecord in aarecords if allthethings.utils.scidb_info(aarecord) is not None]
-        aarecords_and_infos.sort(key=lambda aarecord_and_info: aarecord_and_info[1]['priority'])
+        aarecords = [aarecord for aarecord in aarecords if aarecord['additional']['scidb_info'] is not None]
+        aarecords.sort(key=lambda aarecord: aarecord['additional']['scidb_info']['priority'])
 
-        if len(aarecords_and_infos) == 0:
+        if len(aarecords) == 0:
             return redirect(f'/search?index=journals&q="doi:{doi_input}"', code=302)
 
-        aarecord, scidb_info = aarecords_and_infos[0]
+        aarecord = aarecords[0]
+        scidb_info = aarecord['additional']['scidb_info']
 
         pdf_url = None
         download_url = None
@@ -6099,6 +6125,8 @@ def scidb_page(doi_input):
             "pdf_url": pdf_url,
             "download_url": download_url,
             "scihub_link": scidb_info['scihub_link'],
+            "ipfs_url": scidb_info['ipfs_url'],
+            "nexusstc_id": scidb_info['nexusstc_id'],
             "fast_scidb": fast_scidb,
         }
         return render_template("page/scidb.html", **render_fields)
@@ -6129,7 +6157,7 @@ def md5_json(aarecord_id):
         "duxiu": ("before", ["Source data at: https://annas-archive.se/db/duxiu_ssid/<duxiu_ssid>.json or https://annas-archive.se/db/cadal_ssno/<cadal_ssno>.json or https://annas-archive.se/db/duxiu_md5/<md5>.json"]),
         "aac_upload": ("before", ["Source data at: https://annas-archive.se/db/aac_upload/<md5>.json"]),
         "aac_magzdb": ("before", ["Source data at: https://annas-archive.se/db/aac_magzdb/<requested_value>.json or https://annas-archive.se/db/aac_magzdb_md5/<requested_value>.json"]),
-        "aac_nexusstc": ("before", ["Source data at: https://annas-archive.se/db/aac_nexusstc/<requested_value>.json or https://annas-archive.se/db/aac_nexusstc_md5/<requested_value>.json"]),
+        "aac_nexusstc": ("before", ["Source data at: https://annas-archive.se/db/aac_nexusstc/<requested_value>.json or https://annas-archive.se/db/aac_nexusstc_download/<requested_value>.json or https://annas-archive.se/db/aac_nexusstc_md5/<requested_value>.json"]),
         "file_unified_data": ("before", ["Combined data by Anna's Archive from the various source collections, attempting to get pick the best field where possible."]),
         "ipfs_infos": ("before", ["Data about the IPFS files."]),
         "search_only_fields": ("before", ["Data that is used during searching."]),
@@ -6301,38 +6329,35 @@ def md5_slow_download(md5_input, path_index, domain_index):
         # pseudo_ipv4=f"{data_pseudo_ipv4[0]}.{data_pseudo_ipv4[1]}.{data_pseudo_ipv4[2]}.{data_pseudo_ipv4[3]}",
     )
 
-@page.get("/ipfs_downloads/<string:md5_input>")
+@page.get("/ipfs_downloads/<path:aarecord_id>")
 @allthethings.utils.no_cache()
-def ipfs_downloads(md5_input):
-    md5_input = md5_input[0:50]
-    canonical_md5 = md5_input.strip().lower()[0:32]
+def ipfs_downloads(aarecord_id):
+    # We show the CID on the book page, so no real reason to block this.
+    # if (request.headers.get('cf-worker') or '') != '':
+    #     return redirect(f"/md5/{md5_input}", code=302)
+    # data_ip = allthethings.utils.canonical_ip_bytes(request.remote_addr)
+    # if allthethings.utils.is_canonical_ip_cloudflare(data_ip):
+    #     return redirect(f"/md5/{md5_input}", code=302)
 
-    if (request.headers.get('cf-worker') or '') != '':
-        return redirect(f"/md5/{md5_input}", code=302)
+    if not allthethings.utils.validate_aarecord_ids([aarecord_id]):
+        return render_template("page/aarecord_not_found.html", header_active="search", not_found_field=aarecord_id), 404
 
-    data_ip = allthethings.utils.canonical_ip_bytes(request.remote_addr)
-    if allthethings.utils.is_canonical_ip_cloudflare(data_ip):
-        return redirect(f"/md5/{md5_input}", code=302)
-
-    if not allthethings.utils.validate_canonical_md5s([canonical_md5]) or canonical_md5 != md5_input:
-        return redirect(f"/md5/{md5_input}", code=302)
-
-    aarecords = get_aarecords_elasticsearch([f"md5:{canonical_md5}"])
+    aarecords = get_aarecords_elasticsearch([aarecord_id])
     if aarecords is None:
         return render_template("page/aarecord_issue.html", header_active="search"), 500
     if len(aarecords) == 0:
-        return render_template("page/aarecord_not_found.html", header_active="search", not_found_field=md5_input), 404
+        return render_template("page/aarecord_not_found.html", header_active="search", not_found_field=aarecord_id), 404
     aarecord = aarecords[0]
     try:
         ipfs_urls = aarecord['additional']['ipfs_urls']
     except Exception:
-        return redirect(f"/md5/{md5_input}", code=302)
+        return render_template("page/aarecord_not_found.html", header_active="search", not_found_field=aarecord_id), 404
 
     return render_template(
         "page/ipfs_downloads.html",
         header_active="search",
         ipfs_urls=ipfs_urls,
-        canonical_md5=canonical_md5,
+        original_path=allthethings.utils.path_for_aarecord_id(aarecord_id),
     )
 
 def search_query_aggs(search_index_long):

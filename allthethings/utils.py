@@ -151,14 +151,24 @@ def scidb_info(aarecord, additional=None):
     if len(additional['partner_url_paths']) > 0:
         path_info = additional['partner_url_paths'][0]
 
+    ipfs_url = None
+    if len(additional['ipfs_urls']) > 0:
+        ipfs_url = additional['ipfs_urls'][0]['url']
+
+    nexusstc_id = None
+    if aarecord.get('aac_nexusstc') is not None:
+        nexusstc_id = aarecord['aac_nexusstc']['id']
+
     if path_info:
         priority = 1
     elif scihub_link:
         priority = 2
-    else:
+    elif ipfs_url:
         priority = 3
+    else:
+        return None
 
-    return { "priority": priority, "doi": valid_dois[0], "path_info": path_info, "scihub_link": scihub_link }
+    return { "priority": priority, "doi": valid_dois[0], "path_info": path_info, "scihub_link": scihub_link, "ipfs_url": ipfs_url, "nexusstc_id": "nexusstc_id" }
 
 JWT_PREFIX = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.'
 

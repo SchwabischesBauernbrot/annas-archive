@@ -143,15 +143,6 @@
   {% if aarecord_id_split[0] == 'md5' %}
     <script>
       (function() {
-        window.showExternalDownloads = function() {
-          for (const el of document.querySelectorAll('.js-show-external')) { 
-            el.classList.remove('hidden');
-          }; 
-          for (const el of document.querySelectorAll('.js-show-external-button')) { 
-            el.classList.add('hidden');
-          }; 
-        }
-
         const md5 = {{ aarecord_id_split[1] | tojson }};
 
         function fetchComments() {
@@ -273,6 +264,17 @@
           {# no heading needed, because this list is now right under the "Downloads" tab #}
         {% endif %}
       </div>
+
+      <script>
+        window.showExternalDownloads = function() {
+          for (const el of document.querySelectorAll('.js-show-external')) { 
+            el.classList.remove('hidden');
+          }; 
+          for (const el of document.querySelectorAll('.js-show-external-button')) { 
+            el.classList.add('hidden');
+          }; 
+        }
+      </script>
     {% endif %}
 
     <ul class="list-inside mb-4 ml-1 {% if (aarecord.additional.fast_partner_urls | length) > 0 %}js-show-external hidden{% endif %}">

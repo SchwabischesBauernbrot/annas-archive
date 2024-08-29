@@ -30,6 +30,8 @@
         <li>- <a href="{{ aarecord.additional.path }}">{{ gettext('page.scidb.aa_record') }}</a></li>
         {% if download_url %}<li>- <a href="{{ download_url }}">{{ gettext('page.scidb.download') }}</a></li>{% endif %}
         {% if scihub_link %}<li>- <a href="{{ scihub_link }}" rel="noopener noreferrer nofollow" target="_blank">{{ gettext('page.scidb.scihub') }}</a></li>{% endif %}
+        {% if nexusstc_id %}<li>- <a href="https://libstc.cc/#/stc/nid:{{ nexusstc_id }}" rel="noopener noreferrer nofollow" target="_blank">Nexus/STC<!-- TODO:TRANSLATE--></a></li>{% endif %}
+        {% if ipfs_url %}<li>- <a href="{{ ipfs_url }}" rel="noopener noreferrer nofollow" target="_blank">{{ gettext('page.md5.box.download.ipfs_gateway', num=1) }}</a></li>{% endif %}
         <li>- <a href="https://doi.org/{{ doi_input }}" rel="noopener noreferrer nofollow" target="_blank">doi.org</a></li>
       </ul>
 
@@ -55,6 +57,8 @@
       </script>
     {% elif scihub_link %}
       <iframe class="w-full" src="{{ scihub_link }}">
+    {% elif ipfs_url %}
+      <iframe class="w-full" src="{{ ipfs_url }}">
     {% else %}
       <div class="p-8">{{ gettext('page.scidb.no_preview_new', a_path=((' href="' + aarecord.additional.path + '"') | safe)) }}</div>
     {% endif %}
