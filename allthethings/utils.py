@@ -661,6 +661,23 @@ def membership_costs_data(locale):
     return data
 
 
+def get_cursor_ping(session):
+    session.connection().connection.ping(reconnect=True)
+    return session.connection().connection.cursor(pymysql.cursors.DictCursor)
+
+
+def fetch_one_field(cursor):
+    row = cursor.fetchone()
+    if row is None:
+        return None
+    return next(iter(row))
+
+
+def get_account_by_id(cursor, account_id: str) -> dict | tuple | None:
+    cursor.execute('SELECT * FROM mariapersist_accounts WHERE account_id = %(account_id)s LIMIT 1', {'account_id': account_id})
+    return cursor.fetchone()
+
+
 # Keep in sync.
 def confirm_membership(cursor, donation_id, data_key, data_value):
     cursor.execute('SELECT * FROM mariapersist_donations WHERE donation_id=%(donation_id)s LIMIT 1', { 'donation_id': donation_id })
