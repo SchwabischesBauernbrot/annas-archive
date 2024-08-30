@@ -376,18 +376,32 @@ def md5_summary(md5_input):
     account_id = allthethings.utils.get_account_id(request.cookies)
 
     with Session(mariapersist_engine) as mariapersist_session:
+        cursor = allthethings.utils.get_cursor_ping(mariapersist_session)
+
         data_md5 = bytes.fromhex(canonical_md5)
-        reports_count = mariapersist_session.connection().execute(select(func.count(MariapersistMd5Report.md5_report_id)).where(MariapersistMd5Report.md5 == data_md5).limit(1)).scalar()
-        comments_count = mariapersist_session.connection().execute(select(func.count(MariapersistComments.comment_id)).where(MariapersistComments.resource == f"md5:{canonical_md5}").limit(1)).scalar()
-        lists_count = mariapersist_session.connection().execute(select(func.count(MariapersistListEntries.list_entry_id)).where(MariapersistListEntries.resource == f"md5:{canonical_md5}").limit(1)).scalar()
-        downloads_total = mariapersist_session.connection().execute(select(MariapersistDownloadsTotalByMd5.count).where(MariapersistDownloadsTotalByMd5.md5 == data_md5).limit(1)).scalar() or 0
-        great_quality_count = mariapersist_session.connection().execute(select(func.count(MariapersistReactions.reaction_id)).where(MariapersistReactions.resource == f"md5:{canonical_md5}").limit(1)).scalar()
+
+        cursor.execute('SELECT COUNT(*) FROM mariapersist_md5_report WHERE md5 = %(md5_digest)s LIMIT 1', { 'md5_digest': data_md5 })
+        reports_count = allthethings.utils.fetch_one_field(cursor)
+
+        cursor.execute('SELECT COUNT(*) FROM mariapersist_comments WHERE resource = %(resource)s LIMIT 1', { 'resource': f"md5:{canonical_md5}" })
+        comments_count = allthethings.utils.fetch_one_field(cursor)
+
+        cursor.execute('SELECT COUNT(*) FROM mariapersist_list_entries WHERE resource = %(resource)s LIMIT 1', { 'resource': f"md5:{canonical_md5}" })
+        lists_count = allthethings.utils.fetch_one_field(cursor)
+
+        cursor.execute('SELECT count FROM mariapersist_downloads_total_by_md5 WHERE md5 = %(md5_digest)s LIMIT 1', { 'md5_digest': data_md5 })
+        downloads_total = allthethings.utils.fetch_one_field(cursor)
+
+        cursor.execute('SELECT COUNT(*) FROM mariapersist_reactions WHERE resource = %(resource)s LIMIT 1', { 'resource': f"md5:{canonical_md5}" })
+        great_quality_count = allthethings.utils.fetch_one_field(cursor)
+
         user_reaction = None
         downloads_left = 0
         is_member = 0
         download_still_active = 0
         if account_id is not None:
-            user_reaction = mariapersist_session.connection().execute(select(MariapersistReactions.type).where((MariapersistReactions.resource == f"md5:{canonical_md5}") & (MariapersistReactions.account_id == account_id)).limit(1)).scalar()
+            cursor.execute('SELECT type FROM mariapersist_reactions WHERE resource = %(resource)s AND account_id = %(account_id)s LIMIT 1', { 'resource': f"md5:{canonical_md5}", 'account_id': account_id })
+            user_reaction = allthethings.utils.fetch_one_field(cursor)
 
             account_fast_download_info = allthethings.utils.get_account_fast_download_info(mariapersist_session, account_id)
             if account_fast_download_info is not None:
