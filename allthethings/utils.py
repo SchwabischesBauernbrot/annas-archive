@@ -670,7 +670,7 @@ def fetch_one_field(cursor):
     row = cursor.fetchone()
     if row is None:
         return None
-    return next(iter(row))
+    return row[next(iter(row))]
 
 
 def get_account_by_id(cursor, account_id: str) -> dict | tuple | None:
