@@ -666,6 +666,11 @@ def get_cursor_ping(session):
     return session.connection().connection.cursor(pymysql.cursors.DictCursor)
 
 
+def get_cursor_ping_conn(connection):
+    connection.connection.ping(reconnect=True)
+    return connection.connection.cursor(pymysql.cursors.DictCursor)
+
+
 def fetch_one_field(cursor):
     row = cursor.fetchone()
     if row is None:

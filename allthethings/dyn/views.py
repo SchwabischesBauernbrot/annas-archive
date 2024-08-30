@@ -306,13 +306,17 @@ def downloads_stats_md5(md5_input):
         return "Non-canonical md5", 404
 
     with mariapersist_engine.connect() as mariapersist_conn:
-        total = mariapersist_conn.execute(select(MariapersistDownloadsTotalByMd5.count).where(MariapersistDownloadsTotalByMd5.md5 == bytes.fromhex(canonical_md5)).limit(1)).scalar() or 0
+        cursor = allthethings.utils.get_cursor_ping_conn(mariapersist_conn)
+
+        cursor.execute('SELECT count FROM mariapersist_downloads_total_by_md5 WHERE md5 = %(md5_digest)s LIMIT 1', { 'md5_digest': bytes.fromhex(canonical_md5) })
+        total = allthethings.utils.fetch_one_field(cursor) or 0
         hour_now = int(time.time() / 3600)
         hour_week_ago = hour_now - 24*31
-        timeseries = mariapersist_conn.execute(select(MariapersistDownloadsHourlyByMd5.hour_since_epoch, MariapersistDownloadsHourlyByMd5.count).where((MariapersistDownloadsHourlyByMd5.md5 == bytes.fromhex(canonical_md5)) & (MariapersistDownloadsHourlyByMd5.hour_since_epoch >= hour_week_ago)).limit(hour_week_ago+1)).all()
+        cursor.execute('SELECT hour_since_epoch, count FROM mariapersist_downloads_hourly_by_md5 WHERE md5 = %(md5_digest)s AND hour_since_epoch >= %(hour_week_ago)s LIMIT %(limit)s', { 'md5_digest': bytes.fromhex(canonical_md5), 'hour_week_ago': hour_week_ago, 'limit': hour_week_ago + 1 })
+        timeseries = cursor.fetchall()
         timeseries_by_hour = {}
         for t in timeseries:
-            timeseries_by_hour[t.hour_since_epoch] = t.count
+            timeseries_by_hour[t['hour_since_epoch']] = t['count']
         timeseries_x = list(range(hour_week_ago, hour_now))
         timeseries_y = [timeseries_by_hour.get(x, 0) for x in timeseries_x]
         return orjson.dumps({ "total": int(total), "timeseries_x": timeseries_x, "timeseries_y": timeseries_y })
