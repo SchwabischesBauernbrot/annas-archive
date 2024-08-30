@@ -535,48 +535,69 @@ def put_comment(resource):
 def get_comment_dicts(mariapersist_session, resources):
     account_id = allthethings.utils.get_account_id(request.cookies)
 
-    comments = mariapersist_session.connection().execute(
-            select(MariapersistComments, MariapersistAccounts.display_name, MariapersistReactions.type.label('user_reaction'))
-            .join(MariapersistAccounts, MariapersistAccounts.account_id == MariapersistComments.account_id)
-            .join(MariapersistReactions, (MariapersistReactions.resource == func.concat("comment:",MariapersistComments.comment_id)) & (MariapersistReactions.account_id == account_id), isouter=True)
-            .where(MariapersistComments.resource.in_(resources))
-            .limit(10000)
-        ).all()
-    replies = mariapersist_session.connection().execute(
-            select(MariapersistComments, MariapersistAccounts.display_name, MariapersistReactions.type.label('user_reaction'))
-            .join(MariapersistAccounts, MariapersistAccounts.account_id == MariapersistComments.account_id)
-            .join(MariapersistReactions, (MariapersistReactions.resource == func.concat("comment:",MariapersistComments.comment_id)) & (MariapersistReactions.account_id == account_id), isouter=True)
-            .where(MariapersistComments.resource.in_([f"comment:{comment.comment_id}" for comment in comments]))
-            .order_by(MariapersistComments.comment_id.asc())
-            .limit(10000)
-        ).all()
-    comment_reactions = mariapersist_session.connection().execute(
-            select(MariapersistReactions.resource, MariapersistReactions.type, func.count(MariapersistReactions.account_id).label('count'))
-            .where(MariapersistReactions.resource.in_([f"comment:{comment.comment_id}" for comment in (comments+replies)]))
-            .group_by(MariapersistReactions.resource, MariapersistReactions.type)
-            .limit(10000)
-        ).all()
+    cursor = allthethings.utils.get_cursor_ping(mariapersist_session)
+    cursor.execute('SELECT c.*, a.display_name, r.type AS user_reaction FROM mariapersist_comments c '
+                   'INNER JOIN mariapersist.mariapersist_accounts a USING(account_id) '
+                   'LEFT JOIN mariapersist.mariapersist_reactions r '
+                   '    ON r.resource = CONCAT(\'comment:\', c.comment_id) '
+                   '        AND r.account_id = %(account_id)s '
+                   'WHERE c.resource IN %(resources)s '
+                   'LIMIT 10000',
+                   { 'account_id': account_id, 'resources': resources })
+    comments = cursor.fetchall()
+
+    replies_res = [f"comment:{comment['comment_id']}" for comment in comments]
+    # SQL does not allow empty IN() lists
+    if len(replies_res) <= 0:
+        replies_res.append('x')
+
+    cursor.execute('SELECT c.*, a.display_name, r.type AS user_reaction FROM mariapersist_comments c '
+                   'INNER JOIN mariapersist.mariapersist_accounts a USING(account_id) '
+                   'LEFT JOIN mariapersist.mariapersist_reactions r '
+                   '    ON c.account_id = r.account_id '
+                   '        AND r.resource = CONCAT(\'comment:\', c.comment_id) '
+                   '        AND r.account_id = %(account_id)s '
+                   'WHERE c.resource IN %(resources)s '
+                   'ORDER BY c.comment_id '
+                   'LIMIT 10000',
+                   { 'account_id': account_id, 'resources': replies_res })
+    replies = cursor.fetchall()
+
+    # cursor.fetchall() returns a tuple if there is no results
+    if type(replies) is tuple:
+        replies = []
+
+    reactions_res = [f"comment:{comment['comment_id']}" for comment in (comments+replies)]
+    # SQL does not allow empty IN() lists
+    if len(reactions_res) <= 0:
+        reactions_res.append('x')
+
+    cursor.execute('SELECT resource, type, COUNT(*) as count FROM mariapersist_reactions '
+                   'WHERE resource IN %(resources)s GROUP BY resource, type '
+                   'LIMIT 10000', { 'resources': reactions_res })
+    comment_reactions = cursor.fetchall()
+
     comment_reactions_by_id = collections.defaultdict(dict)
     for reaction in comment_reactions:
         comment_reactions_by_id[int(reaction['resource'][len("comment:"):])][reaction['type']] = reaction['count']
 
     reply_dicts_by_parent_comment_id = collections.defaultdict(list)
     for reply in replies: # Note: these are already sorted chronologically.
-        reply_dicts_by_parent_comment_id[int(reply.resource[len('comment:'):])].append({ 
+        reply_dicts_by_parent_comment_id[int(reply['resource'][len('comment:'):])].append({
             **reply,
-            'created_delta': reply.created - datetime.datetime.now(),
-            'abuse_total': comment_reactions_by_id[reply.comment_id].get(1, 0),
-            'thumbs_up': comment_reactions_by_id[reply.comment_id].get(2, 0),
-            'thumbs_down': comment_reactions_by_id[reply.comment_id].get(3, 0),
+            'created_delta': reply['created'] - datetime.datetime.now(),
+            'abuse_total': comment_reactions_by_id[reply['comment_id']].get(1, 0),
+            'thumbs_up': comment_reactions_by_id[reply['comment_id']].get(2, 0),
+            'thumbs_down': comment_reactions_by_id[reply['comment_id']].get(3, 0),
         })
 
-    comment_dicts = [{ 
+    comment_dicts = [{
         **comment,
-        'created_delta': comment.created - datetime.datetime.now(),
-        'abuse_total': comment_reactions_by_id[comment.comment_id].get(1, 0),
-        'thumbs_up': comment_reactions_by_id[comment.comment_id].get(2, 0),
-        'thumbs_down': comment_reactions_by_id[comment.comment_id].get(3, 0),
-        'reply_dicts': reply_dicts_by_parent_comment_id[comment.comment_id],
+        'created_delta': comment['created'] - datetime.datetime.now(),
+        'abuse_total': comment_reactions_by_id[comment['comment_id']].get(1, 0),
+        'thumbs_up': comment_reactions_by_id[comment['comment_id']].get(2, 0),
+        'thumbs_down': comment_reactions_by_id[comment['comment_id']].get(3, 0),
+        'reply_dicts': reply_dicts_by_parent_comment_id[comment['comment_id']],
         'can_have_replies': True,
     } for comment in comments]
 
