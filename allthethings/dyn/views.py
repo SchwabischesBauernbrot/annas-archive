@@ -931,11 +931,14 @@ def account_mark_manual_donation_sent(donation_id):
         return "", 403
 
     with Session(mariapersist_engine) as mariapersist_session:
-        donation = mariapersist_session.connection().execute(select(MariapersistDonations).where((MariapersistDonations.account_id == account_id) & (MariapersistDonations.processing_status == 0) & (MariapersistDonations.donation_id == donation_id)).limit(1)).first()
+        cursor = allthethings.utils.get_cursor_ping(mariapersist_session)
+
+        cursor.execute('SELECT * FROM mariapersist_donations WHERE account_id = %(account_id)s AND processing_status = 0 AND donation_id = %(donation_id)s LIMIT 1', { 'donation_id': donation_id, 'account_id': account_id })
+        donation = cursor.fetchone()
         if donation is None:
             return "", 403
 
-        mariapersist_session.execute('UPDATE mariapersist_donations SET processing_status = 4 WHERE donation_id = :donation_id AND processing_status = 0 AND account_id = :account_id LIMIT 1', [{ 'donation_id': donation_id, 'account_id': account_id }])
+        cursor.execute('UPDATE mariapersist_donations SET processing_status = 4 WHERE donation_id = %(donation_id)s AND processing_status = 0 AND account_id = %(account_id)s LIMIT 1', { 'donation_id': donation_id, 'account_id': account_id })
         mariapersist_session.commit()
         return "{}"
 
