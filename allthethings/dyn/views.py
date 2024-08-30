@@ -516,17 +516,18 @@ def put_comment(resource):
         if resource_type not in ['md5', 'comment']:
             raise Exception("Invalid resource")
 
+        cursor = allthethings.utils.get_cursor_ping(mariapersist_session)
         if resource_type == 'comment':
-            parent_resource = mariapersist_session.connection().execute(select(MariapersistComments.resource).where(MariapersistComments.comment_id == int(resource[len('comment:'):])).limit(1)).scalar()
+            cursor.execute('SELECT resource FROM mariapersist_comments WHERE comment_id = %(comment_id)s LIMIT 1', { 'comment_id': int(resource[len('comment:'):]) })
+            parent_resource = allthethings.utils.fetch_one_field(cursor)
             if parent_resource is None:
                 raise Exception("No parent comment")
             parent_resource_type = get_resource_type(parent_resource)
             if parent_resource_type == 'comment':
                 raise Exception("Parent comment is itself a reply")
 
-        mariapersist_session.connection().execute(
-            text('INSERT INTO mariapersist_comments (account_id, resource, content) VALUES (:account_id, :resource, :content)')
-                .bindparams(account_id=account_id, resource=resource, content=content))
+        cursor.execute('INSERT INTO mariapersist_comments (account_id, resource, content) VALUES (%(account_id)s, %(resource)s, %(content)s)',
+                       { 'account_id': account_id, 'resource': resource, 'content': content })
         mariapersist_session.commit()
         return "{}"
 
