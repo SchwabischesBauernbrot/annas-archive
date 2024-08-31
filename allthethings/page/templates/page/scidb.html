@@ -45,7 +45,7 @@
       <div class="text-xs text-gray-500">{{ gettext('page.scidb.refresh', a_refresh=(' href="javascript:window.location.reload()" ' | safe)) }}</div>
     </div>
     {% if pdf_url %}
-      <iframe id="pdfembed" src="/pdfjs/web/viewer.html?file={{ pdf_url | urlencode }}" title="webviewer" frameborder="0" class="w-full"></iframe>
+      <iframe src="/pdfjs/web/viewer.html?file={{ pdf_url | urlencode }}" title="webviewer" frameborder="0" class="w-full"></iframe>
       <script>
       </script>
     {% elif scihub_link %}

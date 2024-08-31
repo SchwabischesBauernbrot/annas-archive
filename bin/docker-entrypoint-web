@@ -2,20 +2,8 @@
 
 set -e
 
-curl -L https://github.com/mozilla/pdf.js/releases/download/v4.5.136/pdfjs-4.5.136-dist.zip --output /public/pdfjs-4.5.136-dist.zip
-
-rm -rf /public/pdfjs
-
-mkdir /public/pdfjs
-
-unzip /public/pdfjs-4.5.136-dist.zip -d /public/pdfjs
-
-# Remove lines
-sed -i -e '/if (fileOrigin !== viewerOrigin) {/,+3d' /public/pdfjs/web/viewer.mjs
-
 # Always keep this here as it ensures your latest built assets make their way
 # into your volume persisted public directory.
 cp -r /public /app
-
 
 exec "$@"
