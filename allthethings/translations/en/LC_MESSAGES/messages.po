@@ -2699,6 +2699,8 @@ msgstr "If you’d like to explore our data before running those scripts locally
 
 msgid "page.datasets.ia.title"
 msgstr "IA Controlled Digital Lending"
+msgid "page.datasets.duxiu.title"
+msgstr "DuXiu 读秀"
 
 #: allthethings/page/templates/page/datasets_ia.html:10
 msgid "page.datasets.common.intro"
@@ -2707,14 +2709,20 @@ msgstr "If you are interested in mirroring this dataset for <a %(a_archival)s>ar
 #: allthethings/page/templates/page/datasets_ia.html:14
 msgid "page.datasets.ia.description"
 msgstr "This dataset is closely related to the <a %(a_datasets_openlib)s>Open Library dataset</a>. It contains a scrape of all metadata and a large portion of files from the IA’s Controlled Digital Lending Library. Updates get released in the <a %(a_aac)s>Anna’s Archive Containers format</a>."
+msgid "page.datasets.duxiu.see_blog_post"
+msgstr "Adapted from our <a %(a_href)s>blog post</a>."
 
 #: allthethings/page/templates/page/datasets_ia.html:18
 msgid "page.datasets.ia.description2"
 msgstr "These records are being referred to directly from the Open Library dataset, but also contains records that are not in Open Library. We also have a number of data files scraped by community members over the years."
+msgid "page.datasets.duxiu.description"
+msgstr "<a %(duxiu_link)s>Duxiu</a> is a massive database of scanned books, created by the <a %(superstar_link)s>SuperStar Digital Library Group</a>. Most are academic books, scanned in order to make them available digitally to universities and libraries. For our English-speaking audience, <a %(princeton_link)s>Princeton</a> and the <a %(uw_link)s>University of Washington</a> have good overviews. There is also an excellent article giving more background: <a %(article_link)s>“Digitizing Chinese Books: A Case Study of the SuperStar DuXiu Scholar Search Engine”</a>."
 
 #: allthethings/page/templates/page/datasets_ia.html:22
 msgid "page.datasets.ia.description3"
 msgstr "The collection consists of two parts. You need both parts to get all data (except superseded torrents, which are crossed out on the torrents page)."
+msgid "page.datasets.duxiu.description2"
+msgstr "The books from Duxiu have long been pirated on the Chinese internet. Usually they are being sold for less than a dollar by resellers. They are typically distributed using the Chinese equivalent of Google Drive, which has often been hacked to allow for more storage space. Some technical details can be found <a %(link1)s>here</a> and <a %(link2)s>here</a>."
 
 #: allthethings/page/templates/page/datasets_ia.html:26
 msgid "page.datasets.ia.part1"
@@ -2723,6 +2731,8 @@ msgstr "our first release, before we standardized on the <a %(a_aac)s>Anna’s A
 #: allthethings/page/templates/page/datasets_ia.html:27
 msgid "page.datasets.ia.part2"
 msgstr "incremental new releases, using AAC. Only contains metadata with timestamps after 2023-01-01, since the rest is covered already by “ia”. Also all pdf files, this time from the acsm and “bookreader” (IA’s web reader) lending systems. Despite the name not being exactly right, we still populate bookreader files into the ia2_acsmpdf_files collection, since they are mutually exclusive."
+msgid "page.datasets.duxiu.description3"
+msgstr "Though the books have been semi-publicly distributed, it is quite difficult to obtain them in bulk. We had this high on our TODO-list, and allocated multiple months of full-time work for it. However, in late 2023 an incredible, amazing, and talented volunteer reached out to us, telling us they had done all this work already — at great expense. They shared the full collection with us, without expecting anything in return, except the guarantee of long-term preservation. Truly remarkable."
 
 #: allthethings/page/templates/page/datasets_ia.html:32
 msgid "page.datasets.common.total_files"
@@ -2747,6 +2757,12 @@ msgstr "Torrents by Anna’s Archive"
 #: allthethings/page/templates/page/datasets_ia.html:37
 msgid "page.datasets.common.aa_example_record"
 msgstr "Example record on Anna’s Archive"
+
+msgid "page.datasets.duxiu.blog_post"
+msgstr "Our blog post about this data"
+
+msgid "page.datasets.duxiu.raw_notes.title"
+msgstr "More information from our volunteers (raw notes):"
 
 #: allthethings/page/templates/page/datasets_ia.html:38
 msgid "page.datasets.common.main_website"
