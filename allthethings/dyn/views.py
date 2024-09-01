@@ -714,29 +714,31 @@ def lists_update(resource):
         if resource_type not in ['md5']:
             raise Exception("Invalid resource")
 
-        my_lists = mariapersist_session.connection().execute(
-            select(MariapersistLists.list_id, MariapersistListEntries.list_entry_id)
-            .join(MariapersistListEntries, (MariapersistListEntries.list_id == MariapersistLists.list_id) & (MariapersistListEntries.account_id == account_id) & (MariapersistListEntries.resource == resource), isouter=True)
-            .where(MariapersistLists.account_id == account_id)
-            .order_by(MariapersistLists.updated.desc())
-            .limit(10000)
-        ).all()
+        cursor = allthethings.utils.get_cursor_ping(mariapersist_session)
+        cursor.execute('SELECT l.list_id, le.list_entry_id FROM mariapersist_lists l '
+                       'LEFT JOIN mariapersist_list_entries le USING(list_id)'
+                       'WHERE l.account_id = %(account_id)s AND (le.resource = %(resource)s OR le.resource IS NULL) '
+                       'ORDER BY l.updated DESC '
+                       'LIMIT 10000',
+                       { 'account_id': account_id, 'resource': resource })
+        my_lists = cursor.fetchall()
 
         selected_list_ids = set([list_id for list_id in request.form.keys() if list_id != 'list_new_name' and request.form[list_id] == 'on'])
         list_ids_to_add = []
         list_ids_to_remove = []
         for list_record in my_lists:
-            if list_record.list_entry_id is None and list_record.list_id in selected_list_ids:
-                list_ids_to_add.append(list_record.list_id)
-            elif list_record.list_entry_id is not None and list_record.list_id not in selected_list_ids:
-                list_ids_to_remove.append(list_record.list_id)
+            if list_record['list_entry_id'] is None and list_record['list_id'] in selected_list_ids:
+                list_ids_to_add.append(list_record['list_id'])
+            elif list_record['list_entry_id'] is not None and list_record['list_id'] not in selected_list_ids:
+                list_ids_to_remove.append(list_record['list_id'])
         list_new_name = request.form['list_new_name'].strip()
 
         if len(list_new_name) > 0:
             for _ in range(5):
                 insert_data = { 'list_id': shortuuid.random(length=7), 'account_id': account_id, 'name': list_new_name }
                 try:
-                    mariapersist_session.connection().execute(text('INSERT INTO mariapersist_lists (list_id, account_id, name) VALUES (:list_id, :account_id, :name)').bindparams(**insert_data))
+                    cursor.execute('INSERT INTO mariapersist_lists (list_id, account_id, name) VALUES (%(list_id)s, %(account_id)s, %(name)s)',
+                                   insert_data)
                     list_ids_to_add.append(insert_data['list_id'])
                     break
                 except Exception as err:
@@ -744,10 +746,10 @@ def lists_update(resource):
                     pass
 
         if len(list_ids_to_add) > 0:
-            mariapersist_session.execute('INSERT INTO mariapersist_list_entries (account_id, list_id, resource) VALUES (:account_id, :list_id, :resource)',
+            cursor.executemany('INSERT INTO mariapersist_list_entries (account_id, list_id, resource) VALUES (%(account_id)s, %(list_id)s, %(resource)s)',
                 [{ 'account_id': account_id, 'list_id': list_id, 'resource': resource } for list_id in list_ids_to_add])
         if len(list_ids_to_remove) > 0:
-            mariapersist_session.execute('DELETE FROM mariapersist_list_entries WHERE account_id = :account_id AND resource = :resource AND list_id = :list_id',
+            cursor.executemany('DELETE FROM mariapersist_list_entries WHERE account_id = %(account_id)s AND resource = %(resource)s AND list_id = %(list_id)s',
                 [{ 'account_id': account_id, 'list_id': list_id, 'resource': resource } for list_id in list_ids_to_remove])
         mariapersist_session.commit()
 
