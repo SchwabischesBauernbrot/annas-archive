@@ -34,11 +34,9 @@
       {% elif aarecord_id_split[0] == 'cadal_ssno' %}
         {{ gettext('page.md5.header.meta_cadal_ssno', id=aarecord_id_split[1]) }}
       {% elif aarecord_id_split[0] == 'magzdb' %}
-        <!-- TODO:TRANSLATE -->
-        MagzDB ID {{ aarecord_id_split[1] }} metadata record
+        {{ gettext('page.md5.header.meta_magzdb_id', id=aarecord_id_split[1]) }}
       {% elif aarecord_id_split[0] == 'nexusstc' %}
-        <!-- TODO:TRANSLATE -->
-        Nexus/STC ID {{ aarecord_id_split[1] }} metadata record
+        {{ gettext('page.md5.header.meta_nexus_stc_id', id=aarecord_id_split[1]) }}
       {% endif %}
     </div>
     <p class="mb-4">

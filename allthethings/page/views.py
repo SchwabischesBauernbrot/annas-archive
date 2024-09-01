@@ -5490,8 +5490,8 @@ def get_record_sources_mapping(display_lang):
             "oclc": gettext("common.record_sources_mapping.oclc"),
             "duxiu": gettext("common.record_sources_mapping.duxiu"),
             "upload": gettext("common.record_sources_mapping.uploads"),
-            "magzdb": "MagzDB", # TODO:TRANSLATE
-            "nexusstc": "Nexus/STC", # TODO:TRANSLATE
+            "magzdb": gettext("common.record_sources_mapping.magzdb"),
+            "nexusstc": gettext("common.record_soruces_mapping.nexusstc"),
         }
 
 def get_specific_search_fields_mapping(display_lang):
@@ -5837,6 +5837,7 @@ def get_additional_for_aarecord(aarecord):
             additional['ipfs_urls'].append({ "name": "atomichub-ipfs.com", "url": f"https://atomichub-ipfs.com/ipfs/{ipfs_info['ipfs_cid']}?filename={additional['filename_without_annas_archive']}", "from": ipfs_info['from'] })
 
         additional['download_urls'].append(("IPFS", f"/ipfs_downloads/{aarecord['id']}", ""))
+    
     if aarecord.get('zlib_book') is not None and len(aarecord['zlib_book']['pilimi_torrent'] or '') > 0:
         zlib_path = make_temp_anon_zlib_path(aarecord['zlib_book']['zlibrary_id'], aarecord['zlib_book']['pilimi_torrent'])
         add_partner_servers(zlib_path, 'aa_exclusive' if (len(additional['fast_partner_urls']) == 0) else '', aarecord, additional)
@@ -5844,6 +5845,7 @@ def get_additional_for_aarecord(aarecord):
             additional['torrent_paths'].append({ "collection": "zlib", "torrent_path": f"managed_by_aa/zlib/{aarecord['zlib_book']['pilimi_torrent']}", "file_level1": aarecord['zlib_book']['pilimi_torrent'].replace('.torrent', '.tar'), "file_level2": str(aarecord['zlib_book']['zlibrary_id']) })
         else:
             additional['torrent_paths'].append({ "collection": "zlib", "torrent_path": f"managed_by_aa/zlib/{aarecord['zlib_book']['pilimi_torrent']}", "file_level1": str(aarecord['zlib_book']['zlibrary_id']), "file_level2": "" })
+    
     if (aarecord.get('aac_zlib3_book') is not None) and (aarecord['aac_zlib3_book']['file_aacid'] is not None):
         server = 'u'
         date = aarecord['aac_zlib3_book']['file_data_folder'].split('__')[3][0:8]
@@ -5852,33 +5854,36 @@ def get_additional_for_aarecord(aarecord):
         zlib_path = make_temp_anon_aac_path(f"{server}/zlib3_files", aarecord['aac_zlib3_book']['file_aacid'], aarecord['aac_zlib3_book']['file_data_folder'])
         add_partner_servers(zlib_path, 'aa_exclusive' if (len(additional['fast_partner_urls']) == 0) else '', aarecord, additional)
         additional['torrent_paths'].append({ "collection": "zlib", "torrent_path": f"managed_by_aa/annas_archive_data__aacid/{aarecord['aac_zlib3_book']['file_data_folder']}.torrent", "file_level1": aarecord['aac_zlib3_book']['file_aacid'], "file_level2": "" })
+    
     if aarecord.get('aac_zlib3_book') is not None:
-        # TODO:TRANSLATE
-        additional['download_urls'].append(("Z-Library", f"https://z-lib.gs/md5/{aarecord['aac_zlib3_book']['md5_reported'].lower()}", ""))
+        additional['download_urls'].append((gettext('page.md5.box.download.zlib'), f"https://z-lib.gs/md5/{aarecord['aac_zlib3_book']['md5_reported'].lower()}", ""))
         additional['download_urls'].append((gettext('page.md5.box.download.zlib_tor'), f"http://bookszlibb74ugqojhzhg2a63w5i2atv5bqarulgczawnbmsb6s6qead.onion/md5/{aarecord['aac_zlib3_book']['md5_reported'].lower()}", gettext('page.md5.box.download.zlib_tor_extra')))
+    
     if (aarecord.get('zlib_book') is not None) and (aarecord.get('aac_zlib3_book') is None):
-        # TODO:TRANSLATE
-        additional['download_urls'].append(("Z-Library", f"https://z-lib.gs/md5/{aarecord['zlib_book']['md5_reported'].lower()}", ""))
+        additional['download_urls'].append((gettext('page.md5.box.download.zlib'), f"https://z-lib.gs/md5/{aarecord['zlib_book']['md5_reported'].lower()}", ""))
         additional['download_urls'].append((gettext('page.md5.box.download.zlib_tor'), f"http://bookszlibb74ugqojhzhg2a63w5i2atv5bqarulgczawnbmsb6s6qead.onion/md5/{aarecord['zlib_book']['md5_reported'].lower()}", gettext('page.md5.box.download.zlib_tor_extra')))
+    
     if aarecord.get('aac_magzdb') is not None:
-        # TODO:TRANSLATE
-        additional['download_urls'].append(("MagzDB", f"http://magzdb.org/num/{aarecord['aac_magzdb']['id']}", ""))
+        additional['download_urls'].append((gettext('page.md5.box.download.magzdb'), f"http://magzdb.org/num/{aarecord['aac_magzdb']['id']}", ""))
+    
     if aarecord.get('aac_nexusstc') is not None:
-        # TODO:TRANSLATE
-        additional['download_urls'].append(("Nexus/STC", f"https://libstc.cc/#/stc/nid:{aarecord['aac_nexusstc']['id']}", ""))
+        additional['download_urls'].append((gettext('page.md5.box.download.nexusstc'), f"https://libstc.cc/#/stc/nid:{aarecord['aac_nexusstc']['id']}", ""))
+    
     if aarecord.get('ia_record') is not None:
         ia_id = aarecord['ia_record']['ia_id']
         printdisabled_only = aarecord['ia_record']['aa_ia_derived']['printdisabled_only']
         additional['download_urls'].append((gettext('page.md5.box.download.ia_borrow'), f"https://archive.org/details/{ia_id}", gettext('page.md5.box.download.print_disabled_only') if printdisabled_only else ''))
+    
     for doi in (aarecord['file_unified_data']['identifiers_unified'].get('doi') or []):
         if doi not in linked_dois:
             additional['download_urls'].append((gettext('page.md5.box.download.scihub', doi=doi), f"https://sci-hub.ru/{doi}", gettext('page.md5.box.download.scihub_maybe')))
+    
     for manualslib_id in (aarecord['file_unified_data']['identifiers_unified'].get('manualslib') or []):
-        # TODO:TRANSLATE
-        additional['download_urls'].append(('ManualsLib', f"https://www.manualslib.com/manual/{manualslib_id}/manual.html", ""))
+        additional['download_urls'].append((gettext('page.md5.box.download.manualslib'), f"https://www.manualslib.com/manual/{manualslib_id}/manual.html", ""))
+
     for pmid in (aarecord['file_unified_data']['identifiers_unified'].get('pmid') or []):
-        # TODO:TRANSLATE
-        additional['download_urls'].append(('PubMed', f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/", ""))
+        additional['download_urls'].append((gettext('page.md5.box.download.pubmed'), f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/", ""))
+    
     if aarecord_id_split[0] == 'md5':
         for torrent_path in additional['torrent_paths']:
             # path = "/torrents"
