@@ -532,10 +532,9 @@ def put_comment(resource):
         return "{}"
 
 
-def get_comment_dicts(mariapersist_session, resources):
+def get_comment_dicts(cursor, resources):
     account_id = allthethings.utils.get_account_id(request.cookies)
 
-    cursor = allthethings.utils.get_cursor_ping(mariapersist_session)
     cursor.execute('SELECT c.*, a.display_name, r.type AS user_reaction FROM mariapersist_comments c '
                    'INNER JOIN mariapersist.mariapersist_accounts a USING(account_id) '
                    'LEFT JOIN mariapersist.mariapersist_reactions r '
@@ -634,12 +633,14 @@ def md5_reports(md5_input):
 
     with Session(mariapersist_engine) as mariapersist_session:
         data_md5 = bytes.fromhex(canonical_md5)
-        reports = mariapersist_session.connection().execute(
-                select(MariapersistMd5Report.md5_report_id, MariapersistMd5Report.type, MariapersistMd5Report.better_md5)
-                .where(MariapersistMd5Report.md5 == data_md5)
-                .order_by(MariapersistMd5Report.created.desc())
-                .limit(10000)
-            ).all()
+        cursor = allthethings.utils.get_cursor_ping(mariapersist_session)
+
+        cursor.execute('SELECT md5_report_id, type, better_md5 FROM mariapersist_md5_report '
+                       'WHERE md5 = %(data_md5)s '
+                       'ORDER BY created DESC '
+                       'LIMIT 10000',
+                       { 'data_md5': data_md5 })
+        reports = cursor.fetchall()
         report_dicts_by_resource = {}
         for r in reports:
             report_dict = dict(r)
@@ -651,7 +652,7 @@ def md5_reports(md5_input):
         comment_dicts = [{ 
             **comment_dict,
             'report_dict': report_dicts_by_resource.get(comment_dict['resource'], None),
-        } for comment_dict in get_comment_dicts(mariapersist_session, ([f"md5:{canonical_md5}"] + list(report_dicts_by_resource.keys())))]
+        } for comment_dict in get_comment_dicts(cursor, ([f"md5:{canonical_md5}"] + list(report_dicts_by_resource.keys())))]
 
         return render_template(
             "dyn/comments.html",
