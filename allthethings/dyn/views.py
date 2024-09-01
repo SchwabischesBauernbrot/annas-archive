@@ -760,25 +760,27 @@ def lists_update(resource):
 @allthethings.utils.no_cache()
 def lists(resource):
     with Session(mariapersist_engine) as mariapersist_session:
-        resource_lists = mariapersist_session.connection().execute(
-            select(MariapersistLists.list_id, MariapersistLists.name, MariapersistAccounts.display_name, MariapersistAccounts.account_id)
-            .join(MariapersistListEntries, MariapersistListEntries.list_id == MariapersistLists.list_id)
-            .join(MariapersistAccounts, MariapersistLists.account_id == MariapersistAccounts.account_id)
-            .where(MariapersistListEntries.resource == resource)
-            .order_by(MariapersistLists.updated.desc())
-            .limit(10000)
-        ).all()
+        cursor = allthethings.utils.get_cursor_ping(mariapersist_session)
+
+        cursor.execute('SELECT l.list_id, l.name, a.display_name, a.account_id FROM mariapersist_lists l '
+                       'INNER JOIN mariapersist_list_entries le USING(list_id) '
+                       'INNER JOIN mariapersist_accounts a ON l.account_id = a.account_id '
+                       'WHERE le.resource = %(resource)s '
+                       'ORDER BY l.updated DESC '
+                       'LIMIT 10000',
+                       { 'resource': resource })
+        resource_lists = cursor.fetchall()
 
         my_lists = []
         account_id = allthethings.utils.get_account_id(request.cookies)
         if account_id is not None:
-            my_lists = mariapersist_session.connection().execute(
-                select(MariapersistLists.list_id, MariapersistLists.name, MariapersistListEntries.list_entry_id)
-                .join(MariapersistListEntries, (MariapersistListEntries.list_id == MariapersistLists.list_id) & (MariapersistListEntries.account_id == account_id) & (MariapersistListEntries.resource == resource), isouter=True)
-                .where(MariapersistLists.account_id == account_id)
-                .order_by(MariapersistLists.updated.desc())
-                .limit(10000)
-            ).all()
+            cursor.execute('SELECT l.list_id, l.name, le.list_entry_id FROM mariapersist_lists l '
+                           'LEFT JOIN mariapersist_list_entries le USING(list_id) '
+                           'WHERE l.account_id = %(account_id)s AND (le.resource = %(resource)s OR le.resource IS NULL)' 
+                           'ORDER BY l.updated DESC '
+                           'LIMIT 10000',
+                           { 'account_id': account_id, 'resource': resource })
+            my_lists = cursor.fetchall()
 
         return render_template(
             "dyn/lists.html",
