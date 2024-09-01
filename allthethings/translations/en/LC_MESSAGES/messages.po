@@ -2749,8 +2749,8 @@ msgid "page.datasets.common.aa_example_record"
 msgstr "Example record on Anna’s Archive"
 
 #: allthethings/page/templates/page/datasets_ia.html:38
-msgid "page.datasets.ia.ia_main_website"
-msgstr "Main website"
+msgid "page.datasets.common.main_website_named"
+msgstr "Main %(source)s website"
 
 #: allthethings/page/templates/page/datasets_ia.html:39
 msgid "page.datasets.ia.ia_lending"
@@ -2792,6 +2792,36 @@ msgstr "ISBN website"
 #: allthethings/page/templates/page/datasets_isbn_ranges.html:20
 msgid "page.datasets.isbn_ranges.isbn_metadata"
 msgstr "Metadata"
+
+msgid "page.datasets.isbndb.title"
+msgstr "ISBNdb"
+
+msgid "page.datasets.isbndb.description"
+msgstr "ISBNdb is a company that scrapes various online bookstores to find ISBN metadata. Anna’s Archive has been making backups of the ISBNdb book metadata. This metadata is available through Anna’s Archive (though not currently in search, except if you explicitly search for an ISBN number)."
+
+msgid "page.datasets.isbndb.technical"
+msgstr "For technical details, see below. At some point we can use it to determine which books are still missing from shadow libraries, in order to prioritize which books to find and/or scan."
+
+msgid "page.datasets.isbndb.blog_post"
+msgstr "Our blog post about this data"
+
+msgid "page.datasets.isbndb.scrape.title"
+msgstr "ISBNdb scrape"
+
+msgid "page.datasets.isbndb.release1.title"
+msgstr "Release 1 (2022-10-31)"
+
+msgid "page.datasets.isbndb.release1.text1"
+msgstr "This is a dump of a lot of calls to isbndb.com during September 2022. We tried to cover all ISBN ranges. These are about 30.9 million records. On their website they claim that they actually have 32.6 million records, so we might somehow have missed some, or <em>they</em> could be doing something wrong."
+
+msgid "page.datasets.isbndb.release1.text2"
+msgstr "The JSON responses are pretty much raw from their server. One data quality issue that we noticed, is that for ISBN-13 numbers that start with a different prefix than “978-”, they still include an “isbn” field that simply is the ISBN-13 number with the first 3 numbers chopped off (and the check digit recalculated). This is obviously wrong, but this is how they seem to do it, so we didn't alter it."
+
+msgid "page.datasets.isbndb.release1.text3"
+msgstr "Another potential issue that you might run into, is the fact that the “isbn13” field has duplicates, so you cannot use it as a primary key in a database. “isbn13”+“isbn” fields combined do seem to be unique."
+
+msgid "page.datasets.isbndb.release1.text4"
+msgstr "Currently we have a single torrent, that contains a 4.4GB gzipped <a %(a_jsonl)s>JSON Lines</a> file (20GB unzipped): “isbndb_2022_09.jsonl.gz”. To import a “.jsonl” file into PostgreSQL, you can use something like <a %(a_script)s>this script</a>. You can even pipe it directly using something like %(example_code)s so it decompresses on the fly."
 
 #: allthethings/page/templates/page/faq.html:5
 #: allthethings/page/templates/page/faq.html:8
