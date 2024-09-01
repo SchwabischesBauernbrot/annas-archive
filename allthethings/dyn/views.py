@@ -670,14 +670,17 @@ def put_comment_reaction(reaction_type, resource):
     if account_id is None:
         return "", 403
 
-    with Session(mariapersist_engine) as mariapersist_session:
+    with (Session(mariapersist_engine) as mariapersist_session):
+        cursor = allthethings.utils.get_cursor_ping(mariapersist_session)
         resource_type = get_resource_type(resource)
         if resource_type not in ['md5', 'comment']:
             raise Exception("Invalid resource")
         if resource_type == 'comment':
             if reaction_type not in [0,1,2,3]:
                 raise Exception("Invalid reaction_type")
-            comment_account_id = mariapersist_session.connection().execute(select(MariapersistComments.resource).where(MariapersistComments.comment_id == int(resource[len('comment:'):])).limit(1)).scalar()
+            cursor.execute('SELECT resource FROM mariapersist_comments WHERE comment_id = %(comment_id)s LIMIT 1',
+                           { 'comment_id': int(resource[len('comment:'):]) })
+            comment_account_id = allthethings.utils.fetch_one_field(cursor)
             if comment_account_id is None:
                 raise Exception("No parent comment")
             if comment_account_id == account_id:
@@ -687,9 +690,14 @@ def put_comment_reaction(reaction_type, resource):
                 raise Exception("Invalid reaction_type")
 
         if reaction_type == 0:
-            mariapersist_session.connection().execute(text('DELETE FROM mariapersist_reactions WHERE account_id = :account_id AND resource = :resource').bindparams(account_id=account_id, resource=resource))
+            cursor.execute('DELETE FROM mariapersist_reactions '
+                           'WHERE account_id = %(account_id)s AND resource = %(resource)s',
+                           { 'account_id': account_id, 'resource': resource })
         else:
-            mariapersist_session.connection().execute(text('INSERT INTO mariapersist_reactions (account_id, resource, type) VALUES (:account_id, :resource, :type) ON DUPLICATE KEY UPDATE type = :type').bindparams(account_id=account_id, resource=resource, type=reaction_type))
+            cursor.execute('INSERT INTO mariapersist_reactions (account_id, resource, type) '
+                           'VALUES (%(account_id)s, %(resource)s, %(type)s) '
+                           'ON DUPLICATE KEY UPDATE type = %(type)s',
+                           { 'account_id': account_id, 'resource': resource, 'type': reaction_type })
         mariapersist_session.commit()
         return "{}"
 
