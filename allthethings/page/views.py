@@ -5874,11 +5874,11 @@ def get_additional_for_aarecord(aarecord):
         if doi not in linked_dois:
             additional['download_urls'].append((gettext('page.md5.box.download.scihub', doi=doi), f"https://sci-hub.ru/{doi}", gettext('page.md5.box.download.scihub_maybe')))
     for manualslib_id in (aarecord['file_unified_data']['identifiers_unified'].get('manualslib') or []):
-        # TODO:TRANSLATE
-        additional['download_urls'].append(('ManualsLib', f"https://www.manualslib.com/manual/{manualslib_id}/manual.html", ""))
+        additional['download_urls'].append((gettext('page.md5.box.download.manualslib'), f"https://www.manualslib.com/manual/{manualslib_id}/manual.html", ""))
+
     for pmid in (aarecord['file_unified_data']['identifiers_unified'].get('pmid') or []):
-        # TODO:TRANSLATE
-        additional['download_urls'].append(('PubMed', f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/", ""))
+        additional['download_urls'].append((gettext('page.md5.box.download.pubmed'), f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/", ""))
+    
     if aarecord_id_split[0] == 'md5':
         for torrent_path in additional['torrent_paths']:
             # path = "/torrents"
