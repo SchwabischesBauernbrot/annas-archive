@@ -1137,12 +1137,13 @@ def payment3_notify():
 def hoodpay_notify():
     donation_id = request.json['forPaymentEvents']['metadata']['donation_id']
     with mariapersist_engine.connect() as connection:
-        connection.connection.ping(reconnect=True)
-        donation = connection.execute(select(MariapersistDonations).where(MariapersistDonations.donation_id == donation_id).limit(1)).first()
+        cursor = allthethings.utils.get_cursor_ping_conn(connection)
+
+        cursor.execute('SELECT * FROM mariapersist_donations WHERE donation_id = %(donation_id)s LIMIT 1')
+        donation = cursor.fetchone()
         if donation is None:
             return "", 403
         donation_json = orjson.loads(donation['json'])
-        cursor = connection.connection.cursor(pymysql.cursors.DictCursor)
         hoodpay_status, hoodpay_request_success = allthethings.utils.hoodpay_check(cursor, donation_json['hoodpay_request']['data']['id'], donation_id)
         if not hoodpay_request_success:
             return "Error happened", 404
