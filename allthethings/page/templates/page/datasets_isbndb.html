@@ -4,55 +4,53 @@
 {% block title %}{{ gettext('page.datasets.title') }} ▶ {{ gettext('page.datasets.isbndb.title') }}{% endblock %}
 
 {% block body %}
-  <div lang="en">
-    <div class="mb-4"><a href="/datasets">{{ gettext('page.datasets.title') }}</a> ▶ {{ gettext('page.datasets.isbndb.title') }}</div>
+  <div class="mb-4"><a href="/datasets">{{ gettext('page.datasets.title') }}</a> ▶ {{ gettext('page.datasets.isbndb.title') }}</div>
 
-    <div class="mb-4 p-2 overflow-hidden bg-black/5 break-words">
-      {{ gettext('page.datasets.common.intro', a_archival=(a.faqs_what | xmlattr), a_llm=(a.llm | xmlattr)) }}
-    </div>
-
-    <p class="mb-4">
-      {{ gettext('page.datasets.isbndb.description') }}
-    </p>
-
-    <p class="mb-4">
-      {{ gettext('page.datasets.isbndb.technical') }}
-    </p>
-
-    <p><strong>Resources</strong></p>
-    <ul class="list-inside mb-4 ml-1">
-      <li class="list-disc">{{ gettext('page.datasets.common.last_updated', date=stats_data.isbndb_date) }}</li>
-      <li class="list-disc"><a href="/torrents#isbndb">{{ gettext('page.datasets.common.aa_torrents') }}</a></li>
-      <li class="list-disc"><a href="/db/isbndb/9780060512804.json">{{ gettext('page.datasets.common.aa_example_record') }}</a></li>
-      <li class="list-disc"><a href="https://isbndb.com/">{{ gettext('page.datasets.common.main_website', source=gettext('page.datasets.isbndb.title')) }}</a></li>
-      <li class="list-disc"><a href="https://annas-archive.se/blog/blog-isbndb-dump-how-many-books-are-preserved-forever.html">{{ gettext('page.datasets.isbndb.blog_post') }}</a></li>
-      <li class="list-disc"><a href="https://software.annas-archive.se/AnnaArchivist/annas-archive/-/tree/main/data-imports">{{ gettext('page.datasets.common.import_scripts') }}</a></li>
-      <li class="list-disc"><a href="https://annas-archive.se/blog/annas-archive-containers.html">{{ gettext('page.datasets.common.aac') }}</a></li>
-    </ul>
-
-    <h2 class="mt-4 mb-4 text-3xl font-bold">{{ gettext('page.datasets.isbndb.scrape.title') }}</h2>
-
-    <p><strong>{{ gettext('page.datasets.isbndb.release1.title') }}</strong></p>
-
-    <p class="mb-4">
-      {{ gettext('page.datasets.isbndb.release1.text1') }}
-    </p>
-
-    <p class="mb-4">
-      {{ gettext('page.datasets.isbndb.release1.text2') }}
-    </p>
-
-    <p class="mb-4">
-      {{ gettext('page.datasets.isbndb.release1.text3') }}
-    </p>
-
-    <p class="mb-4">
-      {{ gettext(
-        'page.datasets.isbndb.release1.text4',
-        a_jsonl=(dict(href="https://jsonlines.org/") | xmlattr),
-        a_script=(dict(href="https://gist.github.com/JeffCarpenter/757be2645a8671a2ce92aadc7568e5d0") | xmlattr),
-        example_code=('<code class="text-sm bg-black/5">zcat isbndb_2022_09.jsonl.gz | postgresql-import-jsonl.sh</code>' | safe)
-      ) }}
-    </p>
+  <div class="mb-4 p-2 overflow-hidden bg-black/5 break-words">
+    {{ gettext('page.datasets.common.intro', a_archival=(a.faqs_what | xmlattr), a_llm=(a.llm | xmlattr)) }}
   </div>
+
+  <p class="mb-4">
+    {{ gettext('page.datasets.isbndb.description') }}
+  </p>
+
+  <p class="mb-4">
+    {{ gettext('page.datasets.isbndb.technical') }}
+  </p>
+
+  <p><strong>Resources</strong></p>
+  <ul class="list-inside mb-4 ml-1">
+    <li class="list-disc">{{ gettext('page.datasets.common.last_updated', date=stats_data.isbndb_date) }}</li>
+    <li class="list-disc"><a href="/torrents#isbndb">{{ gettext('page.datasets.common.aa_torrents') }}</a></li>
+    <li class="list-disc"><a href="/db/isbndb/9780060512804.json">{{ gettext('page.datasets.common.aa_example_record') }}</a></li>
+    <li class="list-disc"><a href="https://isbndb.com/">{{ gettext('page.datasets.common.main_website', source=gettext('page.datasets.isbndb.title')) }}</a></li>
+    <li class="list-disc"><a href="https://annas-archive.se/blog/blog-isbndb-dump-how-many-books-are-preserved-forever.html">{{ gettext('page.datasets.isbndb.blog_post') }}</a></li>
+    <li class="list-disc"><a href="https://software.annas-archive.se/AnnaArchivist/annas-archive/-/tree/main/data-imports">{{ gettext('page.datasets.common.import_scripts') }}</a></li>
+    <li class="list-disc"><a href="https://annas-archive.se/blog/annas-archive-containers.html">{{ gettext('page.datasets.common.aac') }}</a></li>
+  </ul>
+
+  <h2 class="mt-4 mb-4 text-3xl font-bold">{{ gettext('page.datasets.isbndb.scrape.title') }}</h2>
+
+  <p><strong>{{ gettext('page.datasets.isbndb.release1.title') }}</strong></p>
+
+  <p class="mb-4">
+    {{ gettext('page.datasets.isbndb.release1.text1') }}
+  </p>
+
+  <p class="mb-4">
+    {{ gettext('page.datasets.isbndb.release1.text2') }}
+  </p>
+
+  <p class="mb-4">
+    {{ gettext('page.datasets.isbndb.release1.text3') }}
+  </p>
+
+  <p class="mb-4">
+    {{ gettext(
+      'page.datasets.isbndb.release1.text4',
+      a_jsonl=(dict(href="https://jsonlines.org/") | xmlattr),
+      a_script=(dict(href="https://gist.github.com/JeffCarpenter/757be2645a8671a2ce92aadc7568e5d0") | xmlattr),
+      example_code=('<code class="text-sm bg-black/5">zcat isbndb_2022_09.jsonl.gz | postgresql-import-jsonl.sh</code>' | safe)
+    ) }}
+  </p>
 {% endblock %}
