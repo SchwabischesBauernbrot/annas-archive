@@ -5856,12 +5856,10 @@ def get_additional_for_aarecord(aarecord):
         additional['torrent_paths'].append({ "collection": "zlib", "torrent_path": f"managed_by_aa/annas_archive_data__aacid/{aarecord['aac_zlib3_book']['file_data_folder']}.torrent", "file_level1": aarecord['aac_zlib3_book']['file_aacid'], "file_level2": "" })
     
     if aarecord.get('aac_zlib3_book') is not None:
-        # TODO:TRANSLATE
         additional['download_urls'].append((gettext('page.md5.box.download.zlib'), f"https://z-lib.gs/md5/{aarecord['aac_zlib3_book']['md5_reported'].lower()}", ""))
         additional['download_urls'].append((gettext('page.md5.box.download.zlib_tor'), f"http://bookszlibb74ugqojhzhg2a63w5i2atv5bqarulgczawnbmsb6s6qead.onion/md5/{aarecord['aac_zlib3_book']['md5_reported'].lower()}", gettext('page.md5.box.download.zlib_tor_extra')))
     
     if (aarecord.get('zlib_book') is not None) and (aarecord.get('aac_zlib3_book') is None):
-        # TODO:TRANSLATE
         additional['download_urls'].append((gettext('page.md5.box.download.zlib'), f"https://z-lib.gs/md5/{aarecord['zlib_book']['md5_reported'].lower()}", ""))
         additional['download_urls'].append((gettext('page.md5.box.download.zlib_tor'), f"http://bookszlibb74ugqojhzhg2a63w5i2atv5bqarulgczawnbmsb6s6qead.onion/md5/{aarecord['zlib_book']['md5_reported'].lower()}", gettext('page.md5.box.download.zlib_tor_extra')))
     
