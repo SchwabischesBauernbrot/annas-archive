@@ -358,8 +358,7 @@
                 {{ gettext('page.search.results.none', classname=(' class="font-bold"' | safe)) }}
 
                 <div class="mt-4">
-                  <!-- TODO:TRANSLATE -->
-                  ➡️ Sometimes this happens incorrectly when the search server is slow. In such cases, <a href="javascript:location.reload()">reloading</a> can help.
+                  {{ gettext('page.search.results.incorrectly_slow', a_attrs=(dict(href="javascript:location.reload()") | xmlattr)) }}
                 </div>
               {% endif %}
             </div>
