@@ -5490,8 +5490,8 @@ def get_record_sources_mapping(display_lang):
             "oclc": gettext("common.record_sources_mapping.oclc"),
             "duxiu": gettext("common.record_sources_mapping.duxiu"),
             "upload": gettext("common.record_sources_mapping.uploads"),
-            "magzdb": "MagzDB", # TODO:TRANSLATE
-            "nexusstc": "Nexus/STC", # TODO:TRANSLATE
+            "magzdb": gettext("common.record_sources_mapping.magzdb"),
+            "nexusstc": gettext("common.record_soruces_mapping.nexusstc"),
         }
 
 def get_specific_search_fields_mapping(display_lang):
