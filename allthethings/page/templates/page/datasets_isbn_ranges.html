@@ -6,7 +6,7 @@
   <h2 class="mt-4 mb-4 text-3xl font-bold"><a href="/datasets">{{ gettext('page.datasets.title') }}</a> ▶ {{ gettext('page.datasets/isbn_ranges.title') }}</h2>
 
   <div class="mb-4 p-2 overflow-hidden bg-black/5 break-words">
-    {{ gettext('page.datasets/isbn_ranges.intro', a_archival=(' href="/faq#what"' | safe), a_llm=(' href="/llm"' | safe)) }}
+    {{ gettext('page.datasets.common.intro', a_archival=(a.faqs_what | xmlattr), a_llm=(a.llm | xmlattr)) }}
   </div>
 
   <p class="mb-4">
