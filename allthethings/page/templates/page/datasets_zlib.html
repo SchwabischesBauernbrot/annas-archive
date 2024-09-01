@@ -11,7 +11,7 @@
     <div class="mb-4"><a href="/datasets">Datasets</a> ▶ Z-Library scrape</div>
 
     <div class="mb-4 p-2 overflow-hidden bg-black/5 break-words">
-      If you are interested in mirroring this dataset for <a href="/faq#what">archival</a> or <a href="/llm">LLM training</a> purposes, please contact us.
+      {{ gettext('page.datasets.common.intro', a_archival=(a.faqs_what | xmlattr), a_llm=(a.llm | xmlattr)) }}
     </div>
 
     <p class="mb-4">
