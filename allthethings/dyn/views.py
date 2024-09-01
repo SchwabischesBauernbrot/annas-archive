@@ -1179,8 +1179,7 @@ def gc_notify():
     donation_id = allthethings.utils.receipt_id_to_donation_id(to_split[1])
 
     with mariapersist_engine.connect() as connection:
-        connection.connection.ping(reconnect=True)
-        cursor = connection.connection.cursor(pymysql.cursors.DictCursor)
+        cursor = allthethings.utils.get_cursor_ping_conn(connection)
         cursor.execute('SELECT * FROM mariapersist_donations WHERE donation_id=%(donation_id)s LIMIT 1', { 'donation_id': donation_id })
         donation = cursor.fetchone()
         if donation is None:
