@@ -1022,11 +1022,10 @@ def account_cancel_donation(donation_id):
 def recent_downloads():
     with Session(engine):
         with Session(mariapersist_engine) as mariapersist_session:
-            downloads = mariapersist_session.connection().execute(
-                select(MariapersistDownloads)
-                .order_by(MariapersistDownloads.timestamp.desc())
-                .limit(50)
-            ).all()
+            cursor = allthethings.utils.get_cursor_ping(mariapersist_session)
+
+            cursor.execute('SELECT * FROM mariapersist_downloads ORDER BY timestamp DESC LIMIT 50')
+            downloads = cursor.fetchall()
 
             aarecords = []
             if len(downloads) > 0:
