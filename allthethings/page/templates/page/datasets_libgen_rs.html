@@ -37,7 +37,7 @@
       As of 2024-03 new torrents are being posted in <a href="https://forum.mhut.org/viewtopic.php?f=17&t=6395&p=217286">this forum thread</a> (blocks IP ranges, VPN might be required).
     </p>
 
-    <p><strong>Resources</strong></p>
+    <p class="font-bold">{{ gettext('page.datasets.common.resources') }}</p>
     <ul class="list-inside mb-4 ml-1">
       <li class="list-disc">Total files: {{ stats_data.stats_by_group.lgrs.count | numberformat }}</li>
       <li class="list-disc">Total filesize: {{ stats_data.stats_by_group.lgrs.filesize | filesizeformat }}</li>
