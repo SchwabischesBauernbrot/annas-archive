@@ -3277,6 +3277,114 @@ msgstr "Torrents by Anna’s Archive"
 msgid "page.datasets.worldcat.blog_announcement"
 msgstr "Our blog post about this data"
 
+msgid "page.datasets.zlib.title"
+msgstr "Z-Library scrape"
+
+msgid "page.datasets.zlib.description.intro"
+msgstr "Z-Library has its roots in the <a %(a_href)s>Library Genesis</a> community, and originally bootstrapped with their data. Since then, it has professionalized considerably, and has a much more modern interface. They are therefore able to get many more donations, both monetarily to keep improving their website, as well as donations of new books. They have amassed a large collection in addition to Library Genesis."
+
+msgid "page.datasets.zlib.description.allegations.title"
+msgstr "Update as of February 2023."
+
+msgid "page.datasets.zlib.description.allegations"
+msgstr "In late 2022, the alleged founders of Z-Library were arrested, and domains were seized by United States authorities. Since then the website has slowly been making its way online again. It is unknown who currently runs it."
+
+msgid "page.datasets.zlib.description.three_parts"
+msgstr "The collection consists of three parts. The original description pages for the first two parts are preserved below. You need all three parts to get all data (except superseded torrents, which are crossed out on the torrents page)."
+
+msgid "page.datasets.zlib.description.three_parts.first"
+msgstr "%(title)s: our first release. This was the very first release of what was then called the “Pirate Library Mirror” (“pilimi”)."
+
+msgid "page.datasets.zlib.description.three_parts.second"
+msgstr "%(title)s: second release, this time with all files wrapped in .tar files."
+
+msgid "page.datasets.zlib.description.three_parts.third_and_incremental"
+msgstr "%(title)s: incremental new releases, using the <a %(a_href)s>Anna’s Archive Containers (AAC) format</a>, now released in collaboration with the Z-Library team."
+
+msgid "page.datasets.zlib.aa_torrents"
+msgstr "Torrents by Anna’s Archive (metadata + content)"
+
+msgid "page.datasets.zlib.aa_example_record.original"
+msgstr "Example record on Anna’s Archive (original collection)"
+
+msgid "page.datasets.zlib.aa_example_record.zlib3"
+msgstr "Example record on Anna’s Archive (“zlib3” collection)"
+
+msgid "page.datasets.zlib.link.zlib"
+msgstr "Main website"
+
+msgid "page.datasets.zlib.link.onion"
+msgstr "Tor domain"
+
+msgid "page.datasets.zlib.blog.release1"
+msgstr "Blog post about Release 1"
+
+msgid "page.datasets.zlib.blog.release2"
+msgstr "Blog post about Release 2"
+
+msgid "page.datasets.zlib.historical.title"
+msgstr "Zlib releases (original description pages)"
+
+msgid "page.datasets.zlib.historical.release1.title"
+msgstr "Release 1 (%(date)s)"
+
+msgid "page.datasets.zlib.historical.release1.description1"
+msgstr "The initial mirror was painstakingly obtained over the course of 2021 and 2022. At this point it is slightly outdated: it reflects the state of the collection in June 2021. We will update this in the future. Right now we are focused on getting this first release out."
+
+msgid "page.datasets.zlib.historical.release1.description2"
+msgstr "Since Library Genesis is already preserved with public torrents, and is included in the Z-Library, we did a basic deduplication against Library Genesis in June 2022. For this we used MD5 hashes. There is likely a lot more duplicate content in the library, such as multiple file formats with the same book. This is hard to detect accurately, so we don't. After the deduplication we are left with over 2 million files, totalling just under 7TB."
+
+msgid "page.datasets.zlib.historical.release1.description3"
+msgstr "The collection consists of two parts: a MySQL “.sql.gz” dump of the metadata, and the 72 torrent files of around 50-100GB each. The metadata contains the data as reported by the Z-Library website (title, author, description, filetype), as well as the actual filesize and md5sum that we observed, since sometimes these do not agree. There seem to be ranges of files for which the Z-Library itself has incorrect metadata. We might also have incorrectly downloaded files in some isolated cases, which we will try to detect and fix in the future."
+
+msgid "page.datasets.zlib.historical.release1.description4"
+msgstr "The large torrent files contain the actual book data, with the Z-Library ID as the filename. The file extensions can be reconstructed using the metadata dump."
+
+msgid "page.datasets.zlib.historical.release1.description5"
+msgstr "The collection is a mix of non-fiction and fiction content (not separated out as in Library Genesis). The quality is also widely varying."
+
+msgid "page.datasets.zlib.historical.release1.description6"
+msgstr "This first release is now fully available. Note that the torrent files are only available through our Tor mirror."
+
+msgid "page.datasets.zlib.historical.release2.title"
+msgstr "Release 2 (%(date)s)"
+
+msgid "page.datasets.zlib.historical.release2.description1"
+msgstr "We have gotten all books that were added to the Z-Library between our last mirror and August 2022. We have also gone back and scraped some books that we missed the first time around. All in all, this new collection is about 24TB. Again, this collection is deduplicated against Library Genesis, since there are already torrents available for that collection."
+
+msgid "page.datasets.zlib.historical.release2.description2"
+msgstr "The data is organized similarly to the first release. There is a MySQL “.sql.gz” dump of the metadata, which also includes all the metadata from the first release, thereby superseding it. We also added some new columns:"
+
+msgid "page.datasets.zlib.historical.release2.field.in_libgen"
+msgstr "%(key)s: whether this file is already in Library Genesis, in either the non-fiction or fiction collection (matched by md5)."
+
+msgid "page.datasets.zlib.historical.release2.field.pilimi_torrent"
+msgstr "%(key)s: which torrent this file is in."
+
+msgid "page.datasets.zlib.historical.release2.field.unavailable"
+msgstr "%(key)s: set when we were unable to download the book."
+
+msgid "page.datasets.zlib.historical.release2.description3"
+msgstr "We mentioned this last time, but just to clarify: “filename” and “md5” are the actual properties of the file, whereas “filename_reported” and “md5_reported” are what we scraped from Z-Library. Sometimes these two don't agree with each other, so we included both."
+
+msgid "page.datasets.zlib.historical.release2.description4"
+msgstr "For this release, we changed the collation to “utf8mb4_unicode_ci”, which should be compatible with older versions of MySQL."
+
+msgid "page.datasets.zlib.historical.release2.description5"
+msgstr "The data files are similar to last time, though they are much bigger. We simply couldn't be bothered creating tons of smaller torrent files. “pilimi-zlib2-0-14679999-extra.torrent” contains all the files that we missed in the last release, while the other torrents are all new ID ranges. "
+
+msgid "page.datasets.zlib.historical.release2.description5.update1"
+msgstr "<strong>Update %(date)s:</strong> We made most of our torrents too big, causing torrent clients to struggle. We have removed them and released new torrents."
+
+msgid "page.datasets.zlib.historical.release2.description5.update2"
+msgstr "<strong>Update %(date)s:</strong> There were still too many files, so we wrapped them in tar files and released new torrents again."
+
+msgid "page.datasets.zlib.historical.release2.addendum.title"
+msgstr "Release 2 addendum (%(date)s)"
+
+msgid "page.datasets.zlib.historical.release2.addendum.description1"
+msgstr "This is a single extra torrent file. It does not contain any new information, but it has some data in it that can take a while to compute. That makes it convenient to have, since downloading this torrent is often faster than computing it from scratch. In particular, it contains SQLite indexes for the tar files, for use with <a %(a_href)s>ratarmount</a>."
+
 #: allthethings/page/templates/page/faq.html:5
 #: allthethings/page/templates/page/faq.html:8
 msgid "page.faq.title"
