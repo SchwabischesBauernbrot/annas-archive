@@ -27,7 +27,7 @@
     <li class="list-disc"><strong>ia2:</strong> {{ gettext('page.datasets.ia.part2') }}</li>
   </ul>
 
-  <p><strong>Resources</strong></p>
+  <p class="font-bold">{{ gettext('page.datasets.common.resources') }}</p>
   <ul class="list-inside mb-4 ml-1">
     <li class="list-disc">{{ gettext('page.datasets.common.total_files', count=(stats_data.stats_by_group.ia.count | numberformat)) }}</li>
     <li class="list-disc">{{ gettext('page.datasets.common.total_filesize', size=(stats_data.stats_by_group.ia.filesize | filesizeformat)) }}</li>
