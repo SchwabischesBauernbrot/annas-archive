@@ -2673,10 +2673,85 @@ msgid "page.datasets.sources.files.header"
 msgstr "Files"
 
 #: allthethings/page/templates/page/datasets.html:98
+msgid "page.datasets.sources.libgen_rs.metadata1"
+msgstr "%(icon)s Daily <a %(dbdumps)s>HTTP database dumps</a>"
+
+msgid "page.datasets.sources.libgen_rs.files1"
+msgstr "%(icon)s Automated torrents for <a %(nonfiction)s>Non-Fiction</a> and <a %(fiction)s>Fiction</a>"
+
+msgid "page.datasets.sources.libgen_rs.files2"
+msgstr "%(icon)s Anna’s Archive manages a collection of <a %(covers)s>book cover torrents</a>"
+
 msgid "common.record_sources_mapping.scihub_scimag"
 msgstr "Sci-Hub / Libgen “scimag”"
 
 #: allthethings/page/templates/page/datasets.html:162
+msgid "page.datasets.sources.scihub.metadata1"
+msgstr "%(icon)s Sci-Hub has frozen new files since 2021."
+
+msgid "page.datasets.sources.scihub.metadata2"
+msgstr "%(icon)s Metadata dumps available <a %(scihub1)s>here</a> and <a %(scihub2)s>here</a>, as well as as part of the <a %(libgenli)s>Libgen.li database</a> (which we use)"
+
+msgid "page.datasets.sources.scihub.files1"
+msgstr "%(icon)s Data torrents available <a %(scihub1)s>here</a>, <a %(scihub2)s>here</a>, and <a %(libgenli)s>here</a>"
+
+msgid "page.datasets.sources.scihub.files2"
+msgstr "%(icon)s Some new files are <a %(libgenrs)s>being</a> <a %(libgenli)s>added</a> to Libgen’s “scimag”, but not enough to warrant new torrents"
+
+msgid "page.datasets.sources.libgen_li.metadata1"
+msgstr "%(icon)s Quarterly <a %(dbdumps)s>HTTP database dumps</a>"
+
+msgid "page.datasets.sources.libgen_li.files1"
+msgstr "%(icon)s Non-Fiction torrents are shared with Libgen.rs (and mirrored <a %(libgenli)s>here</a>)."
+
+msgid "page.datasets.sources.libgen_li.files2"
+msgstr "%(icon)s Fiction collection has diverged but still has <a %(libgenli)s>torrents</a>, though not updated since 2022 (we do have direct downloads)."
+
+msgid "page.datasets.sources.libgen_li.files3"
+msgstr "%(icon)s Anna’s Archive and Libgen.li collaboratively manage collections of <a %(comics)s>comic books</a> and <a %(magazines)s>magazines</a>."
+
+msgid "page.datasets.sources.libgen_li.files4"
+msgstr "%(icon)s No torrents for Russian fiction and standard documents collections."
+
+msgid "page.datasets.sources.zlib.metadata_and_files"
+msgstr "%(icon)s Anna’s Archive and Z-Library collaboratively manage a collection of <a %(metadata)s>Z-Library metadata</a> and <a %(files)s>Z-Library files</a>"
+
+msgid "page.datasets.sources.ia.metadata1"
+msgstr "%(icon)s Some metadata available through <a %(openlib)s>Open Library database dumps</a>, but those don’t cover the entire IA collection"
+
+msgid "page.datasets.sources.ia.metadata2"
+msgstr "%(icon)s No easily accessible metadata dumps available for their entire collection"
+
+msgid "page.datasets.sources.ia.metadata3"
+msgstr "%(icon)s Anna’s Archive manages a collection of <a %(ia)s>IA metadata</a>"
+
+msgid "page.datasets.sources.ia.files1"
+msgstr "%(icon)s Files only available for borrowing on a limited basis, with various access restrictions"
+
+msgid "page.datasets.sources.ia.files2"
+msgstr "%(icon)s Anna’s Archive manages a collection of <a %(ia)s>IA files</a>"
+
+msgid "page.datasets.sources.duxiu.metadata1"
+msgstr "%(icon)s Various metadata databases scattered around the Chinese internet; though often paid databases"
+
+msgid "page.datasets.sources.duxiu.metadata2"
+msgstr "%(icon)s No easily accessible metadata dumps available for their entire collection."
+
+msgid "page.datasets.sources.duxiu.metadata3"
+msgstr "%(icon)s Anna’s Archive manages a collection of <a %(duxiu)s>DuXiu metadata</a>"
+
+msgid "page.datasets.sources.duxiu.files1"
+msgstr "%(icon)s Various file databases scattered around the Chinese internet; though often paid databases"
+
+msgid "page.datasets.sources.duxiu.files2"
+msgstr "%(icon)s Most files only accessible using premium BaiduYun accounts; slow downloading speeds."
+
+msgid "page.datasets.sources.duxiu.files3"
+msgstr "%(icon)s Anna’s Archive manages a collection of <a %(duxiu)s>DuXiu files</a>"
+
+msgid "page.datasets.sources.uploads.metadata_and_files"
+msgstr "%(icon)s Various smaller or one-off sources. We encourage people to upload to other shadow libraries first, but sometimes people have collections that are too big for others to sort through, though not big enough to warrant their own category."
+
 msgid "page.datasets.metadata_only_sources.title"
 msgstr "Metadata-only sources"
 
@@ -2702,11 +2777,32 @@ msgstr "That project has done well, but our unique position allows us to get met
 msgid "page.faq.metadata.inspiration3"
 msgstr "Another inspiration was our desire to know <a %(a_blog)s>how many books there are in the world</a>, so we can calculate how many books we still have left to save."
 
+msgid "page.faq.metadata.inspiration"
+msgstr "Our inspiration for collecting metadata is Aaron Swartz’ goal of “one web page for every book ever published”, for which he created <a %(a_openlib)s>Open Library</a>. That project has done well, but our unique position allows us to get metadata that they can’t. Another inspiration was our desire to know <a %(a_blog)s>how many books there are in the world</a>, so we can calculate how many books we still have left to save."
+
 #: allthethings/page/templates/page/datasets.html:175
 msgid "page.datasets.metadata_only_sources.text2"
 msgstr "Note that in metadata search, we show the original records. We don’t do any merging of records."
 
 #: allthethings/page/templates/page/datasets.html:216
+msgid "page.datasets.sources.last_updated.header"
+msgstr "Last updated"
+
+msgid "page.datasets.sources.openlib.metadata1"
+msgstr "%(icon)s Monthly <a %(dbdumps)s>database dumps</a>"
+
+msgid "page.datasets.sources.isbndb.metadata1"
+msgstr "%(icon)s Not available directly in bulk, only in semi-bulk behind a paywall"
+
+msgid "page.datasets.sources.isbndb.metadata2"
+msgstr "%(icon)s Anna’s Archive manages a collection of <a %(isbndb)s>ISBNdb metadata</a>"
+
+msgid "page.datasets.sources.worldcat.metadata1"
+msgstr "%(icon)s Not available directly in bulk, protected against scraping"
+
+msgid "page.datasets.sources.worldcat.metadata2"
+msgstr "%(icon)s Anna’s Archive manages a collection of <a %(worldcat)s>OCLC (WorldCat) metadata</a>"
+
 msgid "page.datasets.unified_database.title"
 msgstr "Unified database"
 
