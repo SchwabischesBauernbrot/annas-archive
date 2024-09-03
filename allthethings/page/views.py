@@ -357,19 +357,26 @@ def browser_verification_page():
 @cachetools.cached(cache=cachetools.TTLCache(maxsize=30000, ttl=24*60*60), lock=threading.Lock())
 def get_stats_data():
     with engine.connect() as connection:
-        libgenrs_time = connection.execute(select(LibgenrsUpdated.TimeLastModified).order_by(LibgenrsUpdated.ID.desc()).limit(1)).scalars().first()
+        cursor = allthethings.utils.get_cursor_ping_conn(connection)
+
+        cursor.execute('SELECT TimeLastModified FROM libgenrs_updated ORDER BY ID DESC LIMIT 1')
+        libgenrs_time = allthethings.utils.fetch_one_field(cursor)
         libgenrs_date = str(libgenrs_time.date()) if libgenrs_time is not None else ''
-        libgenli_time = connection.execute(select(LibgenliFiles.time_last_modified).order_by(LibgenliFiles.f_id.desc()).limit(1)).scalars().first()
+
+        cursor.execute('SELECT time_last_modified FROM libgenli_files ORDER BY f_id DESC LIMIT 1')
+        libgenli_time = allthethings.utils.fetch_one_field(cursor)
         libgenli_date = str(libgenli_time.date()) if libgenli_time is not None else ''
+
         # OpenLibrary author keys seem randomly distributed, so some random prefix is good enough.
-        openlib_time = connection.execute(select(OlBase.last_modified).where(OlBase.ol_key.like("/authors/OL111%")).order_by(OlBase.last_modified.desc()).limit(1)).scalars().first()
+        cursor.execute("SELECT last_modified FROM ol_base WHERE ol_key LIKE '/authors/OL111%' ORDER BY last_modified DESC LIMIT 1")
+        openlib_time = allthethings.utils.fetch_one_field(cursor)
         openlib_date = str(openlib_time.date()) if openlib_time is not None else ''
-        ia_aacid = connection.execute(select(Ia2AcsmpdfFiles.aacid).order_by(Ia2AcsmpdfFiles.aacid.desc()).limit(1)).scalars().first()
+
+        cursor.execute('SELECT aacid FROM annas_archive_meta__aacid__ia2_acsmpdf_files ORDER BY aacid DESC LIMIT 1')
+        ia_aacid = allthethings.utils.fetch_one_field(cursor)
         ia_date_raw = ia_aacid.split('__')[2][0:8]
         ia_date = f"{ia_date_raw[0:4]}-{ia_date_raw[4:6]}-{ia_date_raw[6:8]}"
 
-        connection.connection.ping(reconnect=True)
-        cursor = connection.connection.cursor(pymysql.cursors.DictCursor)
         # WARNING! Sorting by primary ID does a lexical sort, not numerical. Sorting by zlib3_records.aacid gets records from refreshes. zlib3_files.aacid is most reliable.
         cursor.execute('SELECT annas_archive_meta__aacid__zlib3_records.byte_offset, annas_archive_meta__aacid__zlib3_records.byte_length FROM annas_archive_meta__aacid__zlib3_records JOIN annas_archive_meta__aacid__zlib3_files USING (primary_id) ORDER BY annas_archive_meta__aacid__zlib3_files.aacid DESC LIMIT 1')
         zlib3_record = cursor.fetchone()
