@@ -1,3 +1,5 @@
+from typing import List
+
 import jwt
 import re
 import ipaddress
@@ -676,6 +678,49 @@ def fetch_one_field(cursor):
     if row is None:
         return None
     return row[next(iter(row))]
+
+
+def split_columns_row(row: dict | None, column_count: list[int]) -> tuple | None:
+    """ Splits separate table columns into tuple values
+        Example: SELECT * FROM table1.*, table2.* JOIN table2 USING (id)
+        Returns: tuple( {table1 dict}, {table2 dict} )
+    """
+    if row is None:
+        return None
+
+    column_count_index = 0
+    column_index = 0
+    tuple_values: list[dict | None] = [dict() for _ in column_count]
+    for column in iter(row):
+        tuple_values[column_count_index][column] = row[column]
+        column_index += 1
+
+        if column_count[column_count_index] <= column_index:
+            found_non_none = False
+            for column_value in tuple_values[column_count_index].values():
+                if column_value is not None:
+                    found_non_none = True
+                    break
+
+            if not found_non_none:
+                # Set tuple value to None if the entire list was just containing Nones
+                tuple_values[column_count_index] = None
+
+            column_count_index += 1
+            column_index = 0
+
+    return tuple(tuple_values)
+
+
+def split_columns(rows: list[dict], column_count: list[int]) -> list[tuple]:
+    """ Splits separate table columns into tuple values
+        Example: SELECT * FROM table1.*, table2.* JOIN table2 USING (id)
+        Returns: tuple( {table1 dict}, {table2 dict} )
+    """
+    tuples = []
+    for row in rows:
+        tuples.append(split_columns_row(row, column_count))
+    return tuples
 
 
 def get_account_by_id(cursor, account_id: str) -> dict | tuple | None:

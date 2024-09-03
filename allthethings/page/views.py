@@ -1240,29 +1240,42 @@ def get_ia_record_dicts(session, key, values):
     seen_ia_ids = set()
     ia_entries = []
     ia_entries2 = []
+    cursor = allthethings.utils.get_cursor_ping(session)
     try:
-        base_query = select(AaIa202306Metadata, AaIa202306Files, Ia2AcsmpdfFiles).join(AaIa202306Files, AaIa202306Files.ia_id == AaIa202306Metadata.ia_id, isouter=True).join(Ia2AcsmpdfFiles, Ia2AcsmpdfFiles.primary_id == AaIa202306Metadata.ia_id, isouter=True)
-        base_query2 = select(Ia2Records, AaIa202306Files, Ia2AcsmpdfFiles).join(AaIa202306Files, AaIa202306Files.ia_id == Ia2Records.primary_id, isouter=True).join(Ia2AcsmpdfFiles, Ia2AcsmpdfFiles.primary_id == Ia2Records.primary_id, isouter=True)
+        base_query = ('SELECT DISTINCT m.*, f.*, ia2f.* FROM aa_ia_2023_06_metadata m '
+                          'LEFT JOIN aa_ia_2023_06_files f USING(ia_id) '
+                          'LEFT JOIN annas_archive_meta__aacid__ia2_acsmpdf_files ia2f ON m.ia_id = ia2f.primary_id ')
+        base_query2 = ('SELECT DISTINCT ia2r.*, f.*, ia2f.* FROM annas_archive_meta__aacid__ia2_records ia2r '
+                           'LEFT JOIN aa_ia_2023_06_files f ON f.ia_id = ia2r.primary_id '
+                           'LEFT JOIN annas_archive_meta__aacid__ia2_acsmpdf_files ia2f USING (primary_id) ')
+        column_count_query1 = [4, 4, 5] # aa_ia_2023_06_metadata, aa_ia_2023_06_files, annas_archive_meta__aacid__ia2_acsmpdf_files
+        column_count_query2 = [5, 4, 5] # annas_archive_meta__aacid__ia2_records, aa_ia_2023_06_files, annas_archive_meta__aacid__ia2_acsmpdf_files
+
         if key.lower() in ['md5']:
             # TODO: we should also consider matching on libgen_md5, but we used to do that before and it had bad SQL performance,
             # when combined in a single query, so we'd have to split it up.
-            ia_entries = list(session.execute(
-                base_query.where(AaIa202306Files.md5.in_(values))
-            ).unique().all()) + list(session.execute(
-                base_query.where(Ia2AcsmpdfFiles.md5.in_(values))
-            ).unique().all())
-            ia_entries2 = list(session.execute(
-                base_query2.where(AaIa202306Files.md5.in_(values))
-            ).unique().all()) + list(session.execute(
-                base_query2.where(Ia2AcsmpdfFiles.md5.in_(values))
-            ).unique().all())
+
+            # TODO: Test direct MD5 queries
+            cursor.execute(base_query + 'WHERE f.md5 IN %(values)', { 'values': values })
+            ia_entries = list(cursor.fetchall())
+
+            cusror.execute(base_query + 'WHERE ia2f.md5 IN %(values)', { 'values': values })
+            ia_entries += list(cursor.fetchall())
+
+            cursor.execute(base_query2 + 'WHERE f.md5 IN %(values)', { 'values': values })
+            ia_entries2 = list(cursor.fetchall())
+
+            cusror.execute(base_query2 + 'WHERE ia2f.md5 IN %(values)', { 'values': values })
+            ia_entries2 += list(cursor.fetchall())
+
+            ia_entries = allthethings.utils.split_columns(ia_entries, column_count_query1)
+            ia_entries2 = allthethings.utils.split_columns(ia_entries, column_count_query2)
         else:
-            ia_entries = session.execute(
-                base_query.where(getattr(AaIa202306Metadata, key).in_(values))
-            ).unique().all()
-            ia_entries2 = session.execute(
-                base_query2.where(getattr(Ia2Records, key.replace('ia_id', 'primary_id')).in_(values))
-            ).unique().all()
+            cursor.execute(base_query + 'WHERE m.ia_id IN %(values)s', { 'values': values })
+            ia_entries = allthethings.utils.split_columns(list(cursor.fetchall()), column_count_query1)
+
+            cursor.execute(base_query2 + 'WHERE ia2r.primary_id IN %(values)s', { 'values': values })
+            ia_entries2 = allthethings.utils.split_columns(list(cursor.fetchall()), column_count_query2)
     except Exception as err:
         print(f"Error in get_ia_record_dicts when querying {key}; {values}")
         print(repr(err))
@@ -1277,24 +1290,16 @@ def get_ia_record_dicts(session, key, values):
     index = 0
     # Prioritize ia_entries2 first, because their records are newer. This order matters
     # futher below.
-    for ia_record, ia_file, ia2_acsmpdf_file in ia_entries2 + ia_entries:
-        ia_record_dict = ia_record.to_dict()
+    for ia_record_dict, ia_file_dict, ia2_acsmpdf_file_dict in ia_entries2 + ia_entries:
         if ia_record_dict.get('byte_offset') is not None:
             ia2_records_indexes.append(index)
             ia2_records_offsets_and_lengths.append((ia_record_dict['byte_offset'], ia_record_dict['byte_length']))
-        ia_file_dict = None
-        if ia_file is not None:
-            ia_file_dict = ia_file.to_dict()
-        ia2_acsmpdf_file_dict = None
-        if ia2_acsmpdf_file is not None:
-            ia2_acsmpdf_file_dict = ia2_acsmpdf_file.to_dict()
+        if ia2_acsmpdf_file_dict is not None:
             ia2_acsmpdf_files_indexes.append(index)
             ia2_acsmpdf_files_offsets_and_lengths.append((ia2_acsmpdf_file_dict['byte_offset'], ia2_acsmpdf_file_dict['byte_length']))
         ia_entries_combined.append([ia_record_dict, ia_file_dict, ia2_acsmpdf_file_dict])
         index += 1
 
-    session.connection().connection.ping(reconnect=True)
-    cursor = session.connection().connection.cursor(pymysql.cursors.DictCursor)
     for index, line_bytes in enumerate(allthethings.utils.get_lines_from_aac_file(cursor, 'ia2_records', ia2_records_offsets_and_lengths)):
         ia_entries_combined[ia2_records_indexes[index]][0] = orjson.loads(line_bytes)
     for index, line_bytes in enumerate(allthethings.utils.get_lines_from_aac_file(cursor, 'ia2_acsmpdf_files', ia2_acsmpdf_files_offsets_and_lengths)):
