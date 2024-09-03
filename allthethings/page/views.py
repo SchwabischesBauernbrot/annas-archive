@@ -1113,8 +1113,7 @@ def get_aac_zlib3_book_dicts(session, key, values):
         raise Exception(f"Unexpected 'key' in get_aac_zlib3_book_dicts: '{key}'")
     aac_zlib3_books = []
     try:
-        session.connection().connection.ping(reconnect=True)
-        cursor = session.connection().connection.cursor(pymysql.cursors.DictCursor)
+        cursor = allthethings.utils.get_cursor_ping(session)
         cursor.execute(f'SELECT annas_archive_meta__aacid__zlib3_records.byte_offset AS record_byte_offset, annas_archive_meta__aacid__zlib3_records.byte_length AS record_byte_length, annas_archive_meta__aacid__zlib3_files.byte_offset AS file_byte_offset, annas_archive_meta__aacid__zlib3_files.byte_length AS file_byte_length, annas_archive_meta__aacid__zlib3_records.primary_id AS primary_id FROM annas_archive_meta__aacid__zlib3_records LEFT JOIN annas_archive_meta__aacid__zlib3_files USING (primary_id) WHERE {aac_key} IN %(values)s', { "values": [str(value) for value in values] })
         
         zlib3_rows = []
