@@ -3,13 +3,6 @@
 
 {% block title %}{{ gettext('page.datasets.title') }}{% endblock %}
 
-{% macro stats_row(label, dict, updated, mirrored_note) -%}
-  <td class="p-2 align-top">{{ label }}</td>
-  <td class="p-2 align-top">{{ ngettext('page.datasets.file', 'page.datasets.files', dict.count, count=(dict.count|numberformat)) }}<br>{{ dict.filesize | filesizeformat }}</td>
-  <td class="p-2 align-top whitespace-nowrap">{{ (dict.aa_count/(dict.count+1)*100.0) | decimalformat }}% / {{ (dict.torrent_count/(dict.count+1)*100.0) | decimalformat }}%{% if mirrored_note %}<div class="text-sm text-gray-500 whitespace-normal font-normal">{{ mirrored_note | safe }}</div>{% endif %}</td>
-  <td class="p-2 align-top whitespace-nowrap">{{ updated }}</td>
-{%- endmacro %}
-
 {% block body %}
   {% if gettext('common.english_only') != 'Text below continues in English.' %}
     <p class="mb-4 font-bold">{{ gettext('common.english_only') }}</p>
@@ -49,15 +42,158 @@
         <th class="p-2 align-bottom text-left" width="20%">{{ gettext('page.datasets.overview.mirrored.header') }}<div class="font-normal text-sm text-gray-500">{{ gettext('page.datasets.overview.mirrored.clarification') }}</div></th>
         <th class="p-2 align-bottom text-left" width="22%">{{ gettext('page.datasets.overview.last_updated.header') }}</th>
       </tr>
-      <tr class="even:bg-[#f2f2f2]">{{ stats_row(('<a class="custom-a underline hover:opacity-60" href="/datasets/libgen_rs">' | safe) + gettext('common.record_sources_mapping.lgrs') + ('</a><div class="text-sm text-gray-500">' | safe) + gettext('common.record_sources_mapping.lgrs.nonfiction_and_fiction') + '</div>' | safe, stats_data.stats_by_group.lgrs, stats_data.libgenrs_date, '') }}</tr>
-      <tr class="even:bg-[#f2f2f2]">{{ stats_row(('<a class="custom-a underline hover:opacity-60" href="/datasets/scihub">' | safe) + gettext('common.record_sources_mapping.scihub') + ('</a><div class="text-sm text-gray-500">' | safe) + gettext('common.record_sources_mapping.scihub.via_lgli_scimag') + '</div>' | safe, stats_data.stats_by_group.journals, ('<div class="text-sm text-gray-500 whitespace-normal">' | safe) + gettext('page.datasets.scihub_frozen_1') + ('<br>' | safe) + gettext('page.datasets.scihub_frozen_2') + '</div>' | safe, '') }}</tr>
-      <tr class="even:bg-[#f2f2f2]">{{ stats_row(('<a class="custom-a underline hover:opacity-60" href="/datasets/libgen_li">' | safe) + gettext('common.record_sources_mapping.lgli') + ('</a><div class="text-sm text-gray-500">' | safe) + gettext('common.record_sources.mapping.lgli.excluding_scimag') + '</div>' | safe, stats_data.stats_by_group.lgli, stats_data.libgenli_date, gettext('page.datasets.lgli_fiction_is_behind')) }}</tr>
-      <tr class="even:bg-[#f2f2f2]">{{ stats_row(('<a class="custom-a underline hover:opacity-60" href="/datasets/zlib">' | safe) + gettext('common.record_sources_mapping.zlib') + '</a>' | safe, stats_data.stats_by_group.zlib, stats_data.zlib_date, '') }}</tr>
-      <tr class="even:bg-[#f2f2f2]">{{ stats_row(('<a class="custom-a underline hover:opacity-60" href="/datasets/zlib">' | safe) + gettext('common.record_sources_mapping.zlibzh') + '</a>' | safe, stats_data.stats_by_group.zlibzh, stats_data.zlib_date, gettext('page.datasets.zlibzh.searchable')) }}</tr>
-      <tr class="even:bg-[#f2f2f2]">{{ stats_row(('<a class="custom-a underline hover:opacity-60" href="/datasets/ia">' | safe) + gettext('common.record_sources_mapping.iacdl') + '</a>' | safe, stats_data.stats_by_group.ia, stats_data.ia_date, gettext('page.datasets.iacdl.searchable')) }}</tr>
-      <tr class="even:bg-[#f2f2f2]">{{ stats_row(('<a class="custom-a underline hover:opacity-60" href="/datasets/duxiu">' | safe) + gettext('common.record_sources_mapping.duxiu') + '</a>' | safe, stats_data.stats_by_group.duxiu, stats_data.duxiu_date, '') }}</tr>
-      <tr class="even:bg-[#f2f2f2]">{{ stats_row(('<a class="custom-a underline hover:opacity-60" href="/datasets/upload">' | safe) + gettext('common.record_sources_mapping.uploads') + '</a>' | safe, stats_data.stats_by_group.upload, stats_data.upload_file_date, '') }}</tr>
-      <tr class="even:bg-[#f2f2f2] font-bold">{{ stats_row(gettext('page.datasets.overview.total') + ('<div class="text-sm font-normal text-gray-500">' | safe) + gettext('page.datasets.overview.excluding_duplicates') + '</div>' | safe, stats_data.stats_by_group.total, '', '') }}</tr>
+
+      <tr class="even:bg-[#f2f2f2]">
+        <td class="p-2 align-top">
+          <a class="custom-a underline hover:opacity-60" href="/datasets/libgen_rs">{{ gettext('common.record_sources_mapping.lgrs') }}</a>
+          <div class="text-sm text-gray-500">{{ gettext('common.record_sources_mapping.lgrs.nonfiction_and_fiction') }}</div>
+        </td>
+        <td class="p-2 align-top">
+          {{ ngettext('page.datasets.file', 'page.datasets.files', stats_data.stats_by_group.lgrs.count, count=(stats_data.stats_by_group.lgrs.count|numberformat)) }}<br>
+          {{ stats_data.stats_by_group.lgrs.filesize | filesizeformat }}
+        </td>
+        <td class="p-2 align-top whitespace-nowrap">
+          {{ (stats_data.stats_by_group.lgrs.aa_count/(stats_data.stats_by_group.lgrs.count+1)*100.0) | decimalformat }}% / {{ (stats_data.stats_by_group.lgrs.torrent_count/(stats_data.stats_by_group.lgrs.count+1)*100.0) | decimalformat }}%
+        </td>
+        <td class="p-2 align-top whitespace-nowrap">
+          {{ stats_data.libgenrs_date }}
+        </td>
+      </tr>
+
+      <tr class="even:bg-[#f2f2f2]">
+        <td class="p-2 align-top">
+          <a class="custom-a underline hover:opacity-60" href="/datasets/scihub">{{ gettext('common.record_sources_mapping.scihub') }}</a>
+          <div class="text-sm text-gray-500">{{ gettext('common.record_sources_mapping.scihub.via_lgli_scimag') }}</div>
+        </td>
+        <td class="p-2 align-top">
+          {{ ngettext('page.datasets.file', 'page.datasets.files', stats_data.stats_by_group.journals.count, count=(stats_data.stats_by_group.journals.count|numberformat)) }}<br>
+          {{ stats_data.stats_by_group.journals.filesize | filesizeformat }}
+        </td>
+        <td class="p-2 align-top whitespace-nowrap">
+          {{ (stats_data.stats_by_group.journals.aa_count/(stats_data.stats_by_group.journals.count+1)*100.0) | decimalformat }}% / {{ (stats_data.stats_by_group.journals.torrent_count/(stats_data.stats_by_group.journals.count+1)*100.0) | decimalformat }}%
+        </td>
+        <td class="p-2 align-top whitespace-nowrap">
+          <div class="text-sm text-gray-500 whitespace-normal font-normal">
+            {{ gettext('page.datasets.scihub_frozen_1') }}<br>
+            {{ gettext('page.datasets.scihub_frozen_2') }}
+          </div>
+        </td>
+      </tr>
+
+      <tr class="even:bg-[#f2f2f2]">
+        <td class="p-2 align-top">
+          <a class="custom-a underline hover:opacity-60" href="/datasets/libgen_li">{{ gettext('common.record_sources_mapping.lgli') }}</a>
+          <div class="text-sm text-gray-500">{{ gettext('common.record_sources_mapping.lgli.excluding_scimag') }}</div>
+        </td>
+        <td class="p-2 align-top">
+          {{ ngettext('page.datasets.file', 'page.datasets.files', stats_data.stats_by_group.lgli.count, count=(stats_data.stats_by_group.lgli.count|numberformat)) }}<br>
+          {{ stats_data.stats_by_group.lgli.filesize | filesizeformat }}
+        </td>
+        <td class="p-2 align-top whitespace-nowrap">
+          {{ (stats_data.stats_by_group.lgli.aa_count/(stats_data.stats_by_group.lgli.count+1)*100.0) | decimalformat }}% / {{ (stats_data.stats_by_group.lgli.torrent_count/(stats_data.stats_by_group.lgli.count+1)*100.0) | decimalformat }}%
+          <div class="text-sm text-gray-500 whitespace-normal font-normal">{{ gettext('page.datasets.lgli_fiction_is_behind') }}</div>
+        </td>
+        <td class="p-2 align-top whitespace-nowrap">
+          {{ stats_data.libgenli_date }}
+        </td>
+      </tr>
+
+      <tr class="even:bg-[#f2f2f2]">
+        <td class="p-2 align-top">
+          <a class="custom-a underline hover:opacity-60" href="/datasets/zlib">{{ gettext('common.record_sources_mapping.zlib') }}</a>
+        </td>
+        <td class="p-2 align-top">
+          {{ ngettext('page.datasets.file', 'page.datasets.files', stats_data.stats_by_group.zlib.count, count=(stats_data.stats_by_group.zlib.count|numberformat)) }}<br>
+          {{ stats_data.stats_by_group.zlib.filesize | filesizeformat }}
+        </td>
+        <td class="p-2 align-top whitespace-nowrap">
+          {{ (stats_data.stats_by_group.zlib.aa_count/(stats_data.stats_by_group.zlib.count+1)*100.0) | decimalformat }}% / {{ (stats_data.stats_by_group.zlib.torrent_count/(stats_data.stats_by_group.zlib.count+1)*100.0) | decimalformat }}%
+        </td>
+        <td class="p-2 align-top whitespace-nowrap">
+          {{ stats_data.zlib_date }}
+        </td>
+      </tr>
+
+      <tr class="even:bg-[#f2f2f2]">
+        <td class="p-2 align-top">
+          <a class="custom-a underline hover:opacity-60" href="/datasets/zlib">{{ gettext('common.record_sources_mapping.zlibzh') }}</a>
+        </td>
+        <td class="p-2 align-top">
+          {{ ngettext('page.datasets.file', 'page.datasets.files', stats_data.stats_by_group.zlibzh.count, count=(stats_data.stats_by_group.zlibzh.count|numberformat)) }}<br>
+          {{ stats_data.stats_by_group.zlibzh.filesize | filesizeformat }}
+        </td>
+        <td class="p-2 align-top whitespace-nowrap">
+          {{ (stats_data.stats_by_group.zlibzh.aa_count/(stats_data.stats_by_group.zlibzh.count+1)*100.0) | decimalformat }}% / {{ (stats_data.stats_by_group.zlibzh.torrent_count/(stats_data.stats_by_group.zlibzh.count+1)*100.0) | decimalformat }}%
+          <div class="text-sm text-gray-500 whitespace-normal font-normal">{{ gettext('page.datasets.zlibzh.searchable') }}</div>
+        </td>
+        <td class="p-2 align-top whitespace-nowrap">
+          {{ stats_data.zlib_date }}
+        </td>
+      </tr>
+
+      <tr class="even:bg-[#f2f2f2]">
+        <td class="p-2 align-top">
+          <a class="custom-a underline hover:opacity-60" href="/datasets/ia">{{ gettext('common.record_sources_mapping.iacdl') }}</a>
+        </td>
+        <td class="p-2 align-top">
+          {{ ngettext('page.datasets.file', 'page.datasets.files', stats_data.stats_by_group.ia.count, count=(stats_data.stats_by_group.ia.count|numberformat)) }}<br>
+          {{ stats_data.stats_by_group.ia.filesize | filesizeformat }}
+        </td>
+        <td class="p-2 align-top whitespace-nowrap">
+          {{ (stats_data.stats_by_group.ia.aa_count/(stats_data.stats_by_group.ia.count+1)*100.0) | decimalformat }}% / {{ (stats_data.stats_by_group.ia.torrent_count/(stats_data.stats_by_group.ia.count+1)*100.0) | decimalformat }}%
+          <div class="text-sm text-gray-500 whitespace-normal font-normal">{{ gettext('page.datasets.iacdl.searchable') }}</div>
+        </td>
+        <td class="p-2 align-top whitespace-nowrap">
+          {{ stats_data.ia_date }}
+        </td>
+      </tr>
+
+      <tr class="even:bg-[#f2f2f2]">
+        <td class="p-2 align-top">
+          <a class="custom-a underline hover:opacity-60" href="/datasets/duxiu">{{ gettext('common.record_sources_mapping.duxiu') }}</a>
+        </td>
+        <td class="p-2 align-top">
+          {{ ngettext('page.datasets.file', 'page.datasets.files', stats_data.stats_by_group.duxiu.count, count=(stats_data.stats_by_group.duxiu.count|numberformat)) }}<br>
+          {{ stats_data.stats_by_group.duxiu.filesize | filesizeformat }}
+        </td>
+        <td class="p-2 align-top whitespace-nowrap">
+          {{ (stats_data.stats_by_group.duxiu.aa_count/(stats_data.stats_by_group.duxiu.count+1)*100.0) | decimalformat }}% / {{ (stats_data.stats_by_group.duxiu.torrent_count/(stats_data.stats_by_group.duxiu.count+1)*100.0) | decimalformat }}%
+        </td>
+        <td class="p-2 align-top whitespace-nowrap">
+          {{ stats_data.duxiu_date }}
+        </td>
+      </tr>
+
+      <tr class="even:bg-[#f2f2f2]">
+        <td class="p-2 align-top">
+          <a class="custom-a underline hover:opacity-60" href="/datasets/upload">{{ gettext('common.record_sources_mapping.uploads') }}</a>
+        </td>
+        <td class="p-2 align-top">
+          {{ ngettext('page.datasets.file', 'page.datasets.files', stats_data.stats_by_group.upload.count, count=(stats_data.stats_by_group.upload.count|numberformat)) }}<br>
+          {{ stats_data.stats_by_group.upload.filesize | filesizeformat }}
+        </td>
+        <td class="p-2 align-top whitespace-nowrap">
+          {{ (stats_data.stats_by_group.upload.aa_count/(stats_data.stats_by_group.upload.count+1)*100.0) | decimalformat }}% / {{ (stats_data.stats_by_group.upload.torrent_count/(stats_data.stats_by_group.upload.count+1)*100.0) | decimalformat }}%
+        </td>
+        <td class="p-2 align-top whitespace-nowrap">
+          {{ stats_data.upload_file_date }}
+        </td>
+      </tr>
+
+      <tr class="even:bg-[#f2f2f2] font-bold">
+        <td class="p-2 align-top">
+          {{ gettext('page.datasets.overview.total') }}
+          <div class="text-sm font-normal text-gray-500">{{ gettext('page.datasets.overview.excluding_duplicates') }}</div>
+        </td>
+        <td class="p-2 align-top">
+          {{ ngettext('page.datasets.file', 'page.datasets.files', stats_data.stats_by_group.total.count, count=(stats_data.stats_by_group.total.count|numberformat)) }}<br>
+          {{ stats_data.stats_by_group.total.filesize | filesizeformat }}
+        </td>
+        <td class="p-2 align-top whitespace-nowrap">
+          {{ (stats_data.stats_by_group.total.aa_count/(stats_data.stats_by_group.total.count+1)*100.0) | decimalformat }}% / {{ (stats_data.stats_by_group.total.torrent_count/(stats_data.stats_by_group.total.count+1)*100.0) | decimalformat }}%
+        </td>
+        <td class="p-2 align-top whitespace-nowrap"></td>
+      </tr>
     </table>
 
     <p class="mb-4">
@@ -85,7 +221,9 @@
         <th class="p-2 align-bottom text-left" width="40%">{{ gettext('page.datasets.sources.files.header') }}</th>
       </tr>
       <tr class="even:bg-[#f2f2f2]">
-        <td class="p-2 align-top"><a class="custom-a underline hover:opacity-60" href="/datasets/libgen_rs">{{ gettext('common.record_sources_mapping.lgrs') }}</a></td>
+        <td class="p-2 align-top">
+          <a class="custom-a underline hover:opacity-60" href="/datasets/libgen_rs">{{ gettext('common.record_sources_mapping.lgrs') }}</a>
+        </td>
         <td class="p-2 align-top">
           <div class="my-2 first:mt-0 last:mb-0">✅ Daily <a href="https://data.library.bz/dbdumps/">HTTP database dumps</a>.</div>
         </td>
@@ -95,7 +233,9 @@
         </td>
       </tr>
       <tr class="even:bg-[#f2f2f2]">
-        <td class="p-2 align-top"><a class="custom-a underline hover:opacity-60" href="/datasets/scihub">{{ gettext('common.record_sources_mapping.scihub_scimag') }}</a></td>
+        <td class="p-2 align-top">
+          <a class="custom-a underline hover:opacity-60" href="/datasets/scihub">{{ gettext('common.record_sources_mapping.scihub_scimag') }}</a>
+        </td>
         <td class="p-2 align-top">
           <div class="my-2 first:mt-0 last:mb-0">❌ Sci-Hub has frozen new files since 2021.</div>
           <div class="my-2 first:mt-0 last:mb-0">✅ Metadata dumps available <a href="https://sci-hub.ru/database">here</a> and <a href="https://data.library.bz/dbdumps/">here</a>, as well as as part of the <a href="https://libgen.li/dirlist.php?dir=dbdumps">Libgen.li database</a> (which we use).</div>
@@ -106,7 +246,9 @@
         </td>
       </tr>
       <tr class="even:bg-[#f2f2f2]">
-        <td class="p-2 align-top"><a class="custom-a underline hover:opacity-60" href="/datasets/libgen_li">{{ gettext('common.record_sources_mapping.lgli') }}</a></td>
+        <td class="p-2 align-top">
+          <a class="custom-a underline hover:opacity-60" href="/datasets/libgen_li">{{ gettext('common.record_sources_mapping.lgli') }}</a>
+        </td>
         <td class="p-2 align-top">
           <div class="my-2 first:mt-0 last:mb-0">✅ Quarterly <a href="https://libgen.li/dirlist.php?dir=dbdumps">HTTP database dumps</a>.</div>
         </td>
@@ -118,7 +260,9 @@
         </td>
       </tr>
       <tr class="even:bg-[#f2f2f2]">
-        <td class="p-2 align-top"><a class="custom-a underline hover:opacity-60" href="/datasets/zlib">{{ gettext('common.record_sources_mapping.zlib') }}</a></td>
+        <td class="p-2 align-top">
+          <a class="custom-a underline hover:opacity-60" href="/datasets/zlib">{{ gettext('common.record_sources_mapping.zlib') }}</a>
+        </td>
         <td class="p-2 align-top">
           <div class="my-2 first:mt-0 last:mb-0">👩‍💻 Anna’s Archive and Z-Library collaboratively manage a collection of <a href="/torrents#zlib">Z-Library metadata</a>.
         </td>
@@ -127,7 +271,9 @@
         </td>
       </tr>
       <tr class="even:bg-[#f2f2f2]">
-        <td class="p-2 align-top"><a class="custom-a underline hover:opacity-60" href="/datasets/ia">{{ gettext('common.record_sources_mapping.iacdl') }}</a></td>
+        <td class="p-2 align-top">
+          <a class="custom-a underline hover:opacity-60" href="/datasets/ia">{{ gettext('common.record_sources_mapping.iacdl') }}</a>
+        </td>
         <td class="p-2 align-top">
           <div class="my-2 first:mt-0 last:mb-0">✅ Some metadata available through <a href="https://openlibrary.org/developers/dumps">Open Library database dumps</a>, but those don’t cover the entire IA collection.</div>
           <div class="my-2 first:mt-0 last:mb-0">❌ No easily accessible metadata dumps available for their entire collection.</div>
@@ -139,7 +285,9 @@
         </td>
       </tr>
       <tr class="even:bg-[#f2f2f2]">
-        <td class="p-2 align-top"><a class="custom-a underline hover:opacity-60" href="/datasets/duxiu">{{ gettext('common.record_sources_mapping.duxiu') }}</a></td>
+        <td class="p-2 align-top">
+          <a class="custom-a underline hover:opacity-60" href="/datasets/duxiu">{{ gettext('common.record_sources_mapping.duxiu') }}</a>
+        </td>
         <td class="p-2 align-top">
           <div class="my-2 first:mt-0 last:mb-0">✅ Various metadata databases scattered around the Chinese internet; though often paid databases.</div>
           <div class="my-2 first:mt-0 last:mb-0">❌ No easily accessible metadata dumps available for their entire collection.</div>
