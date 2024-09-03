@@ -1051,9 +1051,25 @@ def get_zlib_book_dicts(session, key, values):
     if len(values) == 0:
         return []
 
+    cursor = allthethings.utils.get_cursor_ping(session)
     zlib_books = []
     try:
-        zlib_books = session.scalars(select(ZlibBook).where(getattr(ZlibBook, key).in_(values))).unique().all()
+        cursor.execute('SELECT DISTINCT * FROM zlib_book WHERE zlibrary_id IN %(values)s', { 'values': values })
+        zlib_books = cursor.fetchall()
+
+        ids = [str(book['zlibrary_id']) for book in zlib_books]
+        cursor.execute('SELECT * FROM zlib_isbn WHERE zlibrary_id IN %(ids)s', { 'ids': ids })
+        zlib_isbns = cursor.fetchall()
+
+        for book in zlib_books:
+            if 'isbns' not in book or book['isbns'] is None:
+                book['isbns'] = []
+
+            for isbn in zlib_isbns:
+                if isbn['zlibrary_id'] == book['zlibrary_id']:
+                    book['isbns'].append(isbn)
+
+        print(zlib_books)
     except Exception as err:
         print(f"Error in get_zlib_book_dicts when querying {key}; {values}")
         print(repr(err))
@@ -1062,7 +1078,9 @@ def get_zlib_book_dicts(session, key, values):
 
     zlib_book_dicts = []
     for zlib_book in zlib_books:
-        zlib_book_dict = zlib_book.to_dict()
+        # zlib_book_dict = zlib_book.to_dict()
+        zlib_book_dict = zlib_book
+        print(zlib_book_dict)
         zlib_book_dict['stripped_description'] = strip_description(zlib_book_dict['description'])
         zlib_book_dict['language_codes'] = get_bcp47_lang_codes(zlib_book_dict['language'] or '')
         zlib_book_dict['cover_url_guess'] = zlib_cover_url_guess(zlib_book_dict['md5_reported'])
@@ -1076,7 +1094,7 @@ def get_zlib_book_dicts(session, key, values):
             allthethings.utils.add_identifier_unified(zlib_book_dict, 'md5', zlib_book_dict['md5'])
         if zlib_book_dict['md5_reported'] is not None:
             allthethings.utils.add_identifier_unified(zlib_book_dict, 'md5', zlib_book_dict['md5_reported'])
-        allthethings.utils.add_isbns_unified(zlib_book_dict, [record.isbn for record in zlib_book.isbns])
+        allthethings.utils.add_isbns_unified(zlib_book_dict, [record['isbn'] for record in zlib_book['isbns']])
         allthethings.utils.add_isbns_unified(zlib_book_dict, allthethings.utils.get_isbnlike(zlib_book_dict['description']))
 
         zlib_book_dicts.append(add_comments_to_dict(zlib_book_dict, zlib_book_dict_comments))
