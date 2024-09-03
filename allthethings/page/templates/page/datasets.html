@@ -29,10 +29,10 @@
     <p class="mb-4">
       {{ gettext(
         'page.datasets.intro.text3',
-        a_torrents=(' href="/torrents"' | safe),
-        a_anna_software=(' href="https://software.annas-archive.se/AnnaArchivist/annas-archive/-/blob/main/data-imports/README.md"' | safe),
-        a_elasticsearch=(' href="/torrents#aa_derived_mirror_metadata"' | safe),
-        a_dbrecord=(' href="/db/aarecord/md5:8336332bf5877e3adbfb60ac70720cd5.json"' | safe)
+        a_torrents=(a.torrents | xmlattr),
+        a_anna_software=(a.anna_data_imports | xmlattr),
+        a_elasticsearch=(a.torrents_derived_metadata | xmlattr),
+        a_dbrecord=(a.example_metadata_record | xmlattr)
       ) }}
     </p>
 
