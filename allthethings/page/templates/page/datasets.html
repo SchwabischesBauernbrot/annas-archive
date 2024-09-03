@@ -1,4 +1,5 @@
 {% extends "layouts/index.html" %}
+{% import 'macros/shared_links.j2' as a %}
 
 {% block title %}{{ gettext('page.datasets.title') }}{% endblock %}
 
@@ -18,7 +19,7 @@
     <h2 class="mt-4 mb-1 text-3xl font-bold">{{ gettext('page.datasets.title') }}</h2>
 
     <div class="mb-4 p-2 overflow-hidden bg-black/5 break-words">
-      {{ gettext('page.datasets.intro.text1', a_faq=(' href="/faq#what"' | safe), a_llm=(' href="/llm"' | safe)) }}
+      {{ gettext('page.datasets.common.intro', a_archival=(a.faqs_what | xmlattr), a_llm=(a.llm | xmlattr)) }}
     </div>
 
     <p class="mb-4">

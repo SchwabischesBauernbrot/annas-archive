@@ -1,60 +1,61 @@
 {% extends "layouts/index.html" %}
+{% import 'macros/shared_links.j2' as a %}
 
-{% block title %}Datasets{% endblock %}
+{% block title %}{{ gettext('page.datasets.title') }}{% endblock %}
+
+{% set dbdumps_https = (dict(href="https://libgen.li/dirlist.php?dir=dbdumps") | xmlattr) %}
+{% set dbdumps_ftp = (dict(href="ftp://ftp.libgen.lc/upload/db") | xmlattr) %}
+{% set libgen_new_db_structure = (dict(href="https://libgen.li/community/app.php/article/new-database-structure-published-oπy6лиĸoвaнa-нoвaя-cтpyĸтypa-6aзƅi-дaннƅix") | xmlattr) %}
 
 {% block body %}
-  {% if gettext('common.english_only') != 'Text below continues in English.' %}
-    <p class="mb-4 font-bold">{{ gettext('common.english_only') }}</p>
-  {% endif %}
+  <div class="mb-4"><a href="/datasets">{{ gettext('page.datasets.title') }}</a> ▶ {{ gettext('page.datasets.libgen_li.title') }}</div>
 
-  <div lang="en">
-    <div class="mb-4"><a href="/datasets">Datasets</a> ▶ Libgen.li</div>
-
-    <div class="mb-4 p-2 overflow-hidden bg-black/5 break-words">
-      If you are interested in mirroring this dataset for <a href="/faq#what">archival</a> or <a href="/llm">LLM training</a> purposes, please contact us.
-    </div>
-
-    <p class="mb-4">
-      For the backstory of the different Library Genesis forks, see the page for the <a href="/datasets/libgen_rs">Libgen.rs</a>.
-    </p>
-
-    <p class="mb-4">
-      The Libgen.li contains most of the same content and metadata as the Libgen.rs, but has some collections on top of this, namely comics, magazines, and standard documents. It has also integrated <a href="/datasets/scihub">Sci-Hub</a> into its metadata and search engine, which is what we use for our database.
-    </p>
-
-    <p class="mb-4">
-      The metadata for this library is freely available <a hre="https://libgen.li/dirlist.php?dir=dbdumps">here</a>. However, this server is slow and doesn’t support resuming broken connections. The same files are also available on <a href="ftp://ftp.libgen.lc/upload/db">FTP</a>, which works better.
-
-    <p class="mb-4">
-      There are no torrents available for the additional content. The torrents that are on the Libgen.li website are mirrors of other torrents listed here. The one exception is fiction torrents starting at <code>f_2201000.torrent</code>. The comics and magazines torrents are released as a collaboration between Anna’s Archive and Libgen.li.
-    </p>
-
-    <p class="mb-4">
-      Note that the torrent files referring to “libgen.is” are explicitly mirrors of <a href="/datasets/libgen_rs">Libgen.rs</a> (“.is” is a different domain used by Libgen.rs).
-    </p>
-
-    <p class="mb-4">
-      A helpful resource in using the metadata is <a href="https://libgen.li/community/app.php/article/new-database-structure-published-o%CF%80y6%D0%BB%D0%B8%C4%B8o%D0%B2a%D0%BDa-%D0%BDo%D0%B2a%D1%8F-c%D1%82py%C4%B8%D1%82ypa-6a%D0%B7%C6%85i-%D0%B4a%D0%BD%D0%BD%C6%85ix">this page</a>.
-    </p>
-
-    <p><strong>Resources</strong></p>
-    <ul class="list-inside mb-4 ml-1">
-      <li class="list-disc">Total files: {{ stats_data.stats_by_group.lgli.count | numberformat }}</li>
-      <li class="list-disc">Total filesize: {{ stats_data.stats_by_group.lgli.filesize | filesizeformat }}</li>
-      <li class="list-disc">Files mirrored by Anna’s Archive: {{ stats_data.stats_by_group.lgli.aa_count | numberformat }} ({{ (stats_data.stats_by_group.lgli.aa_count/stats_data.stats_by_group.lgli.count*100.0) | decimalformat }}%)</li>
-      <li class="list-disc">Last updated: {{ stats_data.libgenli_date }}</li>
-      <li class="list-disc"><a href="/torrents#libgen_li_fic">Fiction torrents on Anna’s Archive</a></li>
-      <li class="list-disc"><a href="/torrents#libgen_li_comics">Comics torrents on Anna’s Archive</a></li>
-      <li class="list-disc"><a href="/torrents#libgen_li_magazines">Magazines torrents on Anna’s Archive</a></li>
-      <li class="list-disc"><a href="/db/lgli/4663167.json">Example record on Anna’s Archive</a></li>
-      <li class="list-disc"><a href="https://libgen.li/">Main website</a></li>
-      <li class="list-disc"><a href="https://libgen.li/dirlist.php?dir=dbdumps">Metadata</a></li>
-      <li class="list-disc"><a href="ftp://ftp.libgen.lc/upload/db">Metadata on FTP</a></li>
-      <li class="list-disc"><a href="https://libgen.li/community/app.php/article/new-database-structure-published-o%CF%80y6%D0%BB%D0%B8%C4%B8o%D0%B2a%D0%BDa-%D0%BDo%D0%B2a%D1%8F-c%D1%82py%C4%B8%D1%82ypa-6a%D0%B7%C6%85i-%D0%B4a%D0%BD%D0%BD%C6%85ix">Metadata field information</a></li>
-      <li class="list-disc"><a href="https://libgen.li/torrents/">Mirror of other torrents (and unique fiction and comics torrents)</a></li>
-      <li class="list-disc"><a href="https://libgen.li/community/">Discussion forum</a></li>
-      <li class="list-disc"><a href="https://annas-archive.se/blog/backed-up-the-worlds-largest-comics-shadow-lib.html">Our blog post about the comic books release</a></li>
-      <li class="list-disc"><a href="https://software.annas-archive.se/AnnaArchivist/annas-archive/-/tree/main/data-imports">Scripts for importing metadata</a></li>
-    </ul>
+  <div class="mb-4 p-2 overflow-hidden bg-black/5 break-words">
+    {{ gettext('page.datasets.common.intro', a_archival=(a.faqs_what | xmlattr), a_llm=(a.llm | xmlattr)) }}
   </div>
+
+  <p class="mb-4">
+    {{ gettext('page.datasets.libgen_li.description1', a_libgen_rs=(dict(href="/datasets/libgen_rs") | xmlattr)) }}
+  </p>
+  
+  <p class="mb-4">
+    {{ gettext('page.datasets.libgen_li.description2', a_scihub=(dict(href="/datasets/scihub") | xmlattr)) }}
+  </p>
+  
+  <p class="mb-4">
+    {{ gettext('page.datasets.libgen_li.description3', a_libgen_li=dbdumps_https, a_ftp=dbdumps_ftp) }}
+  </p>
+    
+  <p class="mb-4">
+    {{ gettext('page.datasets.libgen_li.description4', fiction_starting_point=("<code>f_2201000.torrent</code>" | safe)) }}
+  </p>
+  
+  <p class="mb-4">
+    {{ gettext('page.datasets.libgen_li.description5', a_libgen=(dict(href="/datasets/libgen_rs") | xmlattr)) }}
+  </p>
+  
+  <p class="mb-4">
+    {{ gettext('page.datasets.libgen_li.description6', a_href=libgen_new_db_structure) }}
+  </p>
+
+  <p class="font-bold">{{ gettext('page.datasets.common.resources') }}</p>
+  <ul class="list-inside mb-4 ml-1">
+    <li class="list-disc">{{ gettext('page.datasets.common.total_files', count=(stats_data.stats_by_group.lgli.count | numberformat)) }}</li>
+    <li class="list-disc">{{ gettext('page.datasets.common.total_filesize', size=(stats_data.stats_by_group.lgli.filesize | filesizeformat)) }}</li>
+    <li class="list-disc">{{ gettext('page.datasets.common.mirrored_file_count', count=(stats_data.stats_by_group.lgli.aa_count | numberformat), percent=((stats_data.stats_by_group.lgli.aa_count/stats_data.stats_by_group.lgli.count*100.0) | decimalformat)) }}</li>
+    <li class="list-disc">{{ gettext('page.datasets.common.last_updated', date=stats_data.libgenli_date) }}</li>
+    <li class="list-disc"><a href="/torrents#libgen_li_fic">{{ gettext('page.datasets.libgen_li.fiction_torrents') }}</a></li>
+    <li class="list-disc"><a href="/torrents#libgen_li_comics">{{ gettext('page.datasets.libgen_li.comics_torrents') }}</a></li>
+    <li class="list-disc"><a href="/torrents#libgen_li_magazines">{{ gettext('page.datasets.libgen_li.magazines_torrents') }}</a></li>
+    <li class="list-disc"><a href="/db/lgli/4663167.json">{{ gettext('page.datasets.common.aa_example_record') }}</a></li>
+    <li class="list-disc"><a href="https://libgen.li/">{{ gettext('page.datasets.common.main_website', source=gettext('page.datasets.libgen_li.title')) }}</a></li>
+    <li class="list-disc"><a {{ dbdumps_https }}>{{ gettext('page.datasets.libgen_li.link_metadata') }}</a></li>
+    <li class="list-disc"><a {{ dbdumps_ftp }}>{{ gettext('page.datasets.libgen_li.link_metadata_ftp') }}</a></li>
+    <li class="list-disc"><a {{ libgen_new_db_structure }}>{{ gettext('page.datasets.libgen_li.metadata_structure') }}</a></li>
+    <li class="list-disc"><a href="https://libgen.li/torrents/">{{ gettext('page.datasets.libgen_li.mirrors') }}</a></li>
+    <li class="list-disc"><a href="https://libgen.li/community/">{{ gettext('page.datasets.libgen_li.forum') }}</a></li>
+    <li class="list-disc"><a href="https://annas-archive.se/blog/backed-up-the-worlds-largest-comics-shadow-lib.html">{{ gettext('page.datasets.libgen_li.comics_announcement') }}</a></li>
+    <li class="list-disc"><a href="https://software.annas-archive.se/AnnaArchivist/annas-archive/-/tree/main/data-imports">{{ gettext('page.datasets.common.import_scripts') }}</a></li>
+    <li class="list-disc"><a href="https://annas-archive.se/blog/annas-archive-containers.html">{{ gettext('page.datasets.common.aac') }}</a></li>
+  </ul>
 {% endblock %}

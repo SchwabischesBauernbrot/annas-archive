@@ -1,13 +1,13 @@
 {% extends "layouts/index.html" %}
 {% import 'macros/shared_links.j2' as a %}
 
-{% block title %}{{ gettext('page.datasets.title') }}{% endblock %}
+{% block title %}{{ gettext('page.datasets.title') }} ▶ {{ gettext('page.datasets.ia.title') }}{% endblock %}
 
 {% block body %}
-  <div class="mb-4"><a href="/datasets">{{ gettext('page.datasets.title') }}</a> ▶ IA Controlled Digital Lending</div>
+  <div class="mb-4"><a href="/datasets">{{ gettext('page.datasets.title') }}</a> ▶ {{ gettext('page.datasets.ia.title') }}</div>
 
   <div class="mb-4 p-2 overflow-hidden bg-black/5 break-words">
-    {{ gettext('page.datasets.ia.intro', a_archival=(a.faqs_what | xmlattr), a_llm=(a.llm | xmlattr)) }}
+    {{ gettext('page.datasets.common.intro', a_archival=(a.faqs_what | xmlattr), a_llm=(a.llm | xmlattr)) }}
   </div>
 
   <p class="mb-4">
@@ -27,7 +27,7 @@
     <li class="list-disc"><strong>ia2:</strong> {{ gettext('page.datasets.ia.part2') }}</li>
   </ul>
 
-  <p><strong>Resources</strong></p>
+  <p class="font-bold">{{ gettext('page.datasets.common.resources') }}</p>
   <ul class="list-inside mb-4 ml-1">
     <li class="list-disc">{{ gettext('page.datasets.common.total_files', count=(stats_data.stats_by_group.ia.count | numberformat)) }}</li>
     <li class="list-disc">{{ gettext('page.datasets.common.total_filesize', size=(stats_data.stats_by_group.ia.filesize | filesizeformat)) }}</li>
@@ -35,7 +35,7 @@
     <li class="list-disc">{{ gettext('page.datasets.common.last_updated', date=stats_data.ia_date) }}</li>
     <li class="list-disc"><a href="/torrents#ia">{{ gettext('page.datasets.common.aa_torrents') }}</a></li>
     <li class="list-disc"><a href="/db/ia/100insightslesso0000maie.json">{{ gettext('page.datasets.common.aa_example_record') }}</a></li>
-    <li class="list-disc"><a href="https://archive.org/">{{ gettext('page.datasets.ia.ia_main_website') }}</a></li>
+    <li class="list-disc"><a href="https://archive.org/">{{ gettext('page.datasets.common.main_website', source=gettext('page.datasets.ia.title')) }}</a></li>
     <li class="list-disc"><a href="https://archive.org/details/inlibrary">{{ gettext('page.datasets.ia.ia_lending') }}</a></li>
     <li class="list-disc"><a href="https://archive.org/developers/metadata-schema/index.html">{{ gettext('page.datasets.common.metadata_docs') }}</a></li>
     <li class="list-disc"><a href="https://software.annas-archive.se/AnnaArchivist/annas-archive/-/tree/main/data-imports">{{ gettext('page.datasets.common.import_scripts') }}</a></li>
