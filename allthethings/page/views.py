@@ -914,8 +914,7 @@ def codes_page():
         except Exception:
             return "Invalid prefix_b64", 404
 
-        connection.connection.ping(reconnect=True)
-        cursor = connection.connection.cursor(pymysql.cursors.DictCursor)
+        cursor = allthethings.utils.get_cursor_ping_conn(connection)
 
         # TODO: Since 'code' and 'aarecord_id' are binary, this might not work with multi-byte UTF-8 chars. Test (and fix) that!
 
