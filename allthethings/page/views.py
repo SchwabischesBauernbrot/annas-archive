@@ -1255,21 +1255,20 @@ def get_ia_record_dicts(session, key, values):
             # TODO: we should also consider matching on libgen_md5, but we used to do that before and it had bad SQL performance,
             # when combined in a single query, so we'd have to split it up.
 
-            # TODO: Test direct MD5 queries
-            cursor.execute(base_query + 'WHERE f.md5 IN %(values)', { 'values': values })
+            cursor.execute(base_query + 'WHERE f.md5 IN %(values)s', { 'values': values })
             ia_entries = list(cursor.fetchall())
 
-            cusror.execute(base_query + 'WHERE ia2f.md5 IN %(values)', { 'values': values })
+            cursor.execute(base_query + 'WHERE ia2f.md5 IN %(values)s', { 'values': values })
             ia_entries += list(cursor.fetchall())
 
-            cursor.execute(base_query2 + 'WHERE f.md5 IN %(values)', { 'values': values })
+            cursor.execute(base_query2 + 'WHERE f.md5 IN %(values)s', { 'values': values })
             ia_entries2 = list(cursor.fetchall())
 
-            cusror.execute(base_query2 + 'WHERE ia2f.md5 IN %(values)', { 'values': values })
+            cursor.execute(base_query2 + 'WHERE ia2f.md5 IN %(values)s', { 'values': values })
             ia_entries2 += list(cursor.fetchall())
 
             ia_entries = allthethings.utils.split_columns(ia_entries, column_count_query1)
-            ia_entries2 = allthethings.utils.split_columns(ia_entries, column_count_query2)
+            ia_entries2 = allthethings.utils.split_columns(ia_entries2, column_count_query2)
         else:
             cursor.execute(base_query + 'WHERE m.ia_id IN %(values)s', { 'values': values })
             ia_entries = allthethings.utils.split_columns(list(cursor.fetchall()), column_count_query1)
