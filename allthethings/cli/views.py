@@ -209,12 +209,12 @@ def mysql_build_aac_tables_internal():
 
                 multiple_md5s = []
                 if collection in COLLECTIONS_WITH_MULTIPLE_MD5:
-                    multiple_md5s = list(set([md5.lower() for md5 in re.findall(rb'"md5":"([^"]+)"', line)]))
+                    multiple_md5s = [md5 for md5 in set([md5.decode().lower() for md5 in re.findall(rb'"md5":"([^"]+)"', line)]) if allthethings.utils.validate_canonical_md5s([md5])]
 
                 return_data = { 
                     'aacid': aacid.decode(), 
                     'primary_id': primary_id.decode(), 
-                    'md5': md5.decode() if md5 is not None else None,
+                    'md5': md5.decode().lower() if md5 is not None else None,
                     'multiple_md5s': multiple_md5s,
                     'byte_offset': byte_offset,
                     'byte_length': len(line),
@@ -372,11 +372,11 @@ def mysql_build_computed_all_md5s_internal():
     print("Load indexes of annas_archive_meta__aacid__upload_records and annas_archive_meta__aacid__magzdb_records__multiple_md5")
     cursor.execute('LOAD INDEX INTO CACHE annas_archive_meta__aacid__upload_records, annas_archive_meta__aacid__magzdb_records__multiple_md5')
     print("Inserting from 'annas_archive_meta__aacid__magzdb_records__multiple_md5'")
-    cursor.execute('INSERT IGNORE INTO computed_all_md5s (md5, first_source) SELECT UNHEX(md5), 13 FROM annas_archive_meta__aacid__magzdb_records__multiple_md5')
+    cursor.execute('INSERT IGNORE INTO computed_all_md5s (md5, first_source) SELECT UNHEX(md5), 13 FROM annas_archive_meta__aacid__magzdb_records__multiple_md5 WHERE UNHEX(md5) IS NOT NULL')
     print("Load indexes of annas_archive_meta__aacid__upload_records and annas_archive_meta__aacid__nexusstc_records__multiple_md5")
     cursor.execute('LOAD INDEX INTO CACHE annas_archive_meta__aacid__upload_records, annas_archive_meta__aacid__nexusstc_records__multiple_md5')
     print("Inserting from 'annas_archive_meta__aacid__nexusstc_records__multiple_md5'")
-    cursor.execute('INSERT IGNORE INTO computed_all_md5s (md5, first_source) SELECT UNHEX(md5), 14 FROM annas_archive_meta__aacid__nexusstc_records__multiple_md5')
+    cursor.execute('INSERT IGNORE INTO computed_all_md5s (md5, first_source) SELECT UNHEX(md5), 14 FROM annas_archive_meta__aacid__nexusstc_records__multiple_md5 WHERE UNHEX(md5) IS NOT NULL')
     cursor.close()
     print("Done mysql_build_computed_all_md5s_internal!")
     # engine_multi = create_engine(mariadb_url_no_timeout, connect_args={"client_flag": CLIENT.MULTI_STATEMENTS})

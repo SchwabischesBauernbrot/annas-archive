@@ -1222,9 +1222,11 @@ def get_ia_record_dicts(session, key, values):
     try:
         base_query = select(AaIa202306Metadata, AaIa202306Files, Ia2AcsmpdfFiles).join(AaIa202306Files, AaIa202306Files.ia_id == AaIa202306Metadata.ia_id, isouter=True).join(Ia2AcsmpdfFiles, Ia2AcsmpdfFiles.primary_id == AaIa202306Metadata.ia_id, isouter=True)
         base_query2 = select(Ia2Records, AaIa202306Files, Ia2AcsmpdfFiles).join(AaIa202306Files, AaIa202306Files.ia_id == Ia2Records.primary_id, isouter=True).join(Ia2AcsmpdfFiles, Ia2AcsmpdfFiles.primary_id == Ia2Records.primary_id, isouter=True)
-        if key.lower() in ['md5']:
+        if key == 'md5':
             # TODO: we should also consider matching on libgen_md5, but we used to do that before and it had bad SQL performance,
             # when combined in a single query, so we'd have to split it up.
+            # TODO: We get extra records this way, because we might include files from both AaIa202306Files and
+            # Ia2AcsmpdfFiles if they both exist. It might be better to split this up here so we don't have to filter later.
             ia_entries = list(session.execute(
                 base_query.where(AaIa202306Files.md5.in_(values))
             ).unique().all()) + list(session.execute(
@@ -1235,13 +1237,15 @@ def get_ia_record_dicts(session, key, values):
             ).unique().all()) + list(session.execute(
                 base_query2.where(Ia2AcsmpdfFiles.md5.in_(values))
             ).unique().all())
-        else:
+        elif key == 'ia_id':
             ia_entries = session.execute(
                 base_query.where(getattr(AaIa202306Metadata, key).in_(values))
             ).unique().all()
             ia_entries2 = session.execute(
                 base_query2.where(getattr(Ia2Records, key.replace('ia_id', 'primary_id')).in_(values))
             ).unique().all()
+        else:
+            raise Exception(f"Unexpected 'key' in get_ia_record_dicts: '{key}'")
     except Exception as err:
         print(f"Error in get_ia_record_dicts when querying {key}; {values}")
         print(repr(err))
@@ -1253,24 +1257,32 @@ def get_ia_record_dicts(session, key, values):
     ia2_records_offsets_and_lengths = []
     ia2_acsmpdf_files_indexes = []
     ia2_acsmpdf_files_offsets_and_lengths = []
-    index = 0
     # Prioritize ia_entries2 first, because their records are newer. This order matters
     # futher below.
     for ia_record, ia_file, ia2_acsmpdf_file in ia_entries2 + ia_entries:
         ia_record_dict = ia_record.to_dict()
-        if ia_record_dict.get('byte_offset') is not None:
-            ia2_records_indexes.append(index)
-            ia2_records_offsets_and_lengths.append((ia_record_dict['byte_offset'], ia_record_dict['byte_length']))
-        ia_file_dict = None
+        # There are some rare cases where ia_file AND ia2_acsmpdf_file are set, so make
+        # sure we create an entry for each.
+        # TODO: We get extra records this way, because we might include files from both AaIa202306Files and
+        # Ia2AcsmpdfFiles if they both exist. It might be better to split this up here so we don't have to filter later.
         if ia_file is not None:
-            ia_file_dict = ia_file.to_dict()
-        ia2_acsmpdf_file_dict = None
+            if ia_record_dict.get('byte_offset') is not None:
+                ia2_records_indexes.append(len(ia_entries_combined))
+                ia2_records_offsets_and_lengths.append((ia_record_dict['byte_offset'], ia_record_dict['byte_length']))
+            ia_entries_combined.append([ia_record_dict, ia_file.to_dict(), None])
         if ia2_acsmpdf_file is not None:
+            if ia_record_dict.get('byte_offset') is not None:
+                ia2_records_indexes.append(len(ia_entries_combined))
+                ia2_records_offsets_and_lengths.append((ia_record_dict['byte_offset'], ia_record_dict['byte_length']))
             ia2_acsmpdf_file_dict = ia2_acsmpdf_file.to_dict()
-            ia2_acsmpdf_files_indexes.append(index)
+            ia2_acsmpdf_files_indexes.append(len(ia_entries_combined))
             ia2_acsmpdf_files_offsets_and_lengths.append((ia2_acsmpdf_file_dict['byte_offset'], ia2_acsmpdf_file_dict['byte_length']))
-        ia_entries_combined.append([ia_record_dict, ia_file_dict, ia2_acsmpdf_file_dict])
-        index += 1
+            ia_entries_combined.append([ia_record_dict, None, ia2_acsmpdf_file_dict])
+        if ia_file is None and ia2_acsmpdf_file is None:
+            if ia_record_dict.get('byte_offset') is not None:
+                ia2_records_indexes.append(len(ia_entries_combined))
+                ia2_records_offsets_and_lengths.append((ia_record_dict['byte_offset'], ia_record_dict['byte_length']))
+            ia_entries_combined.append([ia_record_dict, None, None])
 
     session.connection().connection.ping(reconnect=True)
     cursor = session.connection().connection.cursor(pymysql.cursors.DictCursor)
@@ -1278,6 +1290,9 @@ def get_ia_record_dicts(session, key, values):
         ia_entries_combined[ia2_records_indexes[index]][0] = orjson.loads(line_bytes)
     for index, line_bytes in enumerate(allthethings.utils.get_lines_from_aac_file(cursor, 'ia2_acsmpdf_files', ia2_acsmpdf_files_offsets_and_lengths)):
         ia_entries_combined[ia2_acsmpdf_files_indexes[index]][2] = orjson.loads(line_bytes)
+
+    # print(f"{ia_entries_combined=}")
+    # print(orjson.dumps(ia_entries_combined, option=orjson.OPT_INDENT_2 | orjson.OPT_NON_STR_KEYS, default=str).decode('utf-8'))
 
     ia_record_dicts = []
     for ia_record_dict, ia_file_dict, ia2_acsmpdf_file_dict in ia_entries_combined:
@@ -1303,9 +1318,10 @@ def get_ia_record_dicts(session, key, values):
             }
 
         # TODO: When querying by ia_id we can match multiple files. For now we just pick the first one.
-        if ia_record_dict['ia_id'] in seen_ia_ids:
-            continue
-        seen_ia_ids.add(ia_record_dict['ia_id'])
+        if key == 'ia_id':
+            if ia_record_dict['ia_id'] in seen_ia_ids:
+                continue
+            seen_ia_ids.add(ia_record_dict['ia_id'])
 
         ia_record_dict['aa_ia_file'] = None
         added_date_unified_file = {}
@@ -1316,7 +1332,7 @@ def get_ia_record_dicts(session, key, values):
                 added_date_unified_file = { "ia_file_scrape": "2023-06-28" }
             elif ia2_acsmpdf_file_dict is not None:
                 ia_record_dict['aa_ia_file'] = {
-                    'md5': ia2_acsmpdf_file_dict['metadata']['md5'],
+                    'md5': ia2_acsmpdf_file_dict['metadata']['md5'].lower(),
                     'type': 'ia2_acsmpdf',
                     'filesize': ia2_acsmpdf_file_dict['metadata']['filesize'],
                     'ia_id': ia2_acsmpdf_file_dict['metadata']['ia_id'],
@@ -1325,6 +1341,11 @@ def get_ia_record_dicts(session, key, values):
                     'data_folder': ia2_acsmpdf_file_dict['data_folder'],
                 }
                 added_date_unified_file = { "ia_file_scrape": datetime.datetime.strptime(ia2_acsmpdf_file_dict['aacid'].split('__')[2], "%Y%m%dT%H%M%SZ").isoformat().split('T', 1)[0] }
+
+        # TODO: It might be nice to filter this earlier?
+        if key == 'md5':
+            if ia_record_dict['aa_ia_file'] is None or ia_record_dict['aa_ia_file']['md5'] not in values:
+                continue
 
         ia_collections = ((ia_record_dict['json'].get('metadata') or {}).get('collection') or [])
 
@@ -4041,17 +4062,16 @@ def get_aac_nexusstc_book_dicts(session, key, values):
             raise Exception(f"Unexpected {aac_record['metadata']['record']['type']=}")
 
         for link in aac_record['metadata']['record']['links']:
-            print(f"{key=} {link=}")
-
+            # print(f"{key=} {link=}")
             if key == 'md5':
                 if (link.get('md5') or '').lower() != requested_value:
                     continue
-                if (link['cid'] or '') != '':
+                if (link.get('cid') or '') != '':
                     aac_nexusstc_book_dict['aa_nexusstc_derived']['ipfs_cids'].append(link['cid'])
-                aac_nexusstc_book_dict['aa_nexusstc_derived']['extension'] = link['extension'] or ''
-                aac_nexusstc_book_dict['aa_nexusstc_derived']['filesize'] = link['filesize'] or 0
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['extension'] = link.get('extension') or ''
+                aac_nexusstc_book_dict['aa_nexusstc_derived']['filesize'] = link.get('filesize') or 0
             elif key == 'nexusstc_download':
-                if (link['cid'] or '') != '':
+                if (link.get('cid') or '') != '':
                     aac_nexusstc_book_dict['aa_nexusstc_derived']['ipfs_cids'].append(link['cid'])
                 # This will overwrite/combine different link records if they exist, but that's okay.
                 aac_nexusstc_book_dict['aa_nexusstc_derived']['extension'] = link.get('extension') or ''
@@ -4059,12 +4079,12 @@ def get_aac_nexusstc_book_dicts(session, key, values):
 
             if (link.get('md5') or '') != '':
                 allthethings.utils.add_identifier_unified(aac_nexusstc_book_dict['aa_nexusstc_derived'], 'md5', link['md5'].lower())
-                extension_with_dot = f".{link['extension']}" if link['extension'] != '' else ''
+                extension_with_dot = f".{link['extension']}" if (link.get('extension') or '') != '' else ''
                 aac_nexusstc_book_dict['aa_nexusstc_derived']['filepath_multiple'].append(f"{title_stripped + '/' if title_stripped != '' else ''}{link['md5'].lower()}{extension_with_dot}")
-            if (link['cid'] or '') != '':
+            if (link.get('cid') or '') != '':
                 allthethings.utils.add_identifier_unified(aac_nexusstc_book_dict['aa_nexusstc_derived'], 'ipfs_cid', link['cid'])
 
-            if ((link['cid'] or '') != '') and ((link.get('md5') or '') == ''):
+            if ((link.get('cid') or '') != '') and ((link.get('md5') or '') == ''):
                 aac_nexusstc_book_dict['aa_nexusstc_derived']['cid_only_links'].append(link['cid'])
 
             # Do something with link['iroh_hash']?
