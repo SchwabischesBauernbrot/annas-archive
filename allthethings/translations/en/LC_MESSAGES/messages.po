@@ -2612,7 +2612,7 @@ msgid "page.datasets.scihub_frozen_2"
 msgstr "Libgen.li: minor additions since then</div>"
 
 #: allthethings/page/templates/page/datasets.html:54
-msgid "common.record_sources.mapping.lgli.excluding_scimag"
+msgid "common.record_sources_mapping.lgli.excluding_scimag"
 msgstr "Excluding “scimag”"
 
 #: allthethings/page/templates/page/datasets.html:54
@@ -2673,10 +2673,85 @@ msgid "page.datasets.sources.files.header"
 msgstr "Files"
 
 #: allthethings/page/templates/page/datasets.html:98
+msgid "page.datasets.sources.libgen_rs.metadata1"
+msgstr "%(icon)s Daily <a %(dbdumps)s>HTTP database dumps</a>"
+
+msgid "page.datasets.sources.libgen_rs.files1"
+msgstr "%(icon)s Automated torrents for <a %(nonfiction)s>Non-Fiction</a> and <a %(fiction)s>Fiction</a>"
+
+msgid "page.datasets.sources.libgen_rs.files2"
+msgstr "%(icon)s Anna’s Archive manages a collection of <a %(covers)s>book cover torrents</a>"
+
 msgid "common.record_sources_mapping.scihub_scimag"
 msgstr "Sci-Hub / Libgen “scimag”"
 
 #: allthethings/page/templates/page/datasets.html:162
+msgid "page.datasets.sources.scihub.metadata1"
+msgstr "%(icon)s Sci-Hub has frozen new files since 2021."
+
+msgid "page.datasets.sources.scihub.metadata2"
+msgstr "%(icon)s Metadata dumps available <a %(scihub1)s>here</a> and <a %(scihub2)s>here</a>, as well as as part of the <a %(libgenli)s>Libgen.li database</a> (which we use)"
+
+msgid "page.datasets.sources.scihub.files1"
+msgstr "%(icon)s Data torrents available <a %(scihub1)s>here</a>, <a %(scihub2)s>here</a>, and <a %(libgenli)s>here</a>"
+
+msgid "page.datasets.sources.scihub.files2"
+msgstr "%(icon)s Some new files are <a %(libgenrs)s>being</a> <a %(libgenli)s>added</a> to Libgen’s “scimag”, but not enough to warrant new torrents"
+
+msgid "page.datasets.sources.libgen_li.metadata1"
+msgstr "%(icon)s Quarterly <a %(dbdumps)s>HTTP database dumps</a>"
+
+msgid "page.datasets.sources.libgen_li.files1"
+msgstr "%(icon)s Non-Fiction torrents are shared with Libgen.rs (and mirrored <a %(libgenli)s>here</a>)."
+
+msgid "page.datasets.sources.libgen_li.files2"
+msgstr "%(icon)s Fiction collection has diverged but still has <a %(libgenli)s>torrents</a>, though not updated since 2022 (we do have direct downloads)."
+
+msgid "page.datasets.sources.libgen_li.files3"
+msgstr "%(icon)s Anna’s Archive and Libgen.li collaboratively manage collections of <a %(comics)s>comic books</a> and <a %(magazines)s>magazines</a>."
+
+msgid "page.datasets.sources.libgen_li.files4"
+msgstr "%(icon)s No torrents for Russian fiction and standard documents collections."
+
+msgid "page.datasets.sources.zlib.metadata_and_files"
+msgstr "%(icon)s Anna’s Archive and Z-Library collaboratively manage a collection of <a %(metadata)s>Z-Library metadata</a> and <a %(files)s>Z-Library files</a>"
+
+msgid "page.datasets.sources.ia.metadata1"
+msgstr "%(icon)s Some metadata available through <a %(openlib)s>Open Library database dumps</a>, but those don’t cover the entire IA collection"
+
+msgid "page.datasets.sources.ia.metadata2"
+msgstr "%(icon)s No easily accessible metadata dumps available for their entire collection"
+
+msgid "page.datasets.sources.ia.metadata3"
+msgstr "%(icon)s Anna’s Archive manages a collection of <a %(ia)s>IA metadata</a>"
+
+msgid "page.datasets.sources.ia.files1"
+msgstr "%(icon)s Files only available for borrowing on a limited basis, with various access restrictions"
+
+msgid "page.datasets.sources.ia.files2"
+msgstr "%(icon)s Anna’s Archive manages a collection of <a %(ia)s>IA files</a>"
+
+msgid "page.datasets.sources.duxiu.metadata1"
+msgstr "%(icon)s Various metadata databases scattered around the Chinese internet; though often paid databases"
+
+msgid "page.datasets.sources.duxiu.metadata2"
+msgstr "%(icon)s No easily accessible metadata dumps available for their entire collection."
+
+msgid "page.datasets.sources.duxiu.metadata3"
+msgstr "%(icon)s Anna’s Archive manages a collection of <a %(duxiu)s>DuXiu metadata</a>"
+
+msgid "page.datasets.sources.duxiu.files1"
+msgstr "%(icon)s Various file databases scattered around the Chinese internet; though often paid databases"
+
+msgid "page.datasets.sources.duxiu.files2"
+msgstr "%(icon)s Most files only accessible using premium BaiduYun accounts; slow downloading speeds."
+
+msgid "page.datasets.sources.duxiu.files3"
+msgstr "%(icon)s Anna’s Archive manages a collection of <a %(duxiu)s>DuXiu files</a>"
+
+msgid "page.datasets.sources.uploads.metadata_and_files"
+msgstr "%(icon)s Various smaller or one-off sources. We encourage people to upload to other shadow libraries first, but sometimes people have collections that are too big for others to sort through, though not big enough to warrant their own category."
+
 msgid "page.datasets.metadata_only_sources.title"
 msgstr "Metadata-only sources"
 
@@ -2684,29 +2759,35 @@ msgstr "Metadata-only sources"
 msgid "page.datasets.metadata_only_sources.text1"
 msgstr "We also enrich our collection with metadata-only sources, which we can match to files, e.g. using ISBN numbers or other fields. Below is an overview of those. Again, some of these sources are completely open, while for others we have to scrape them."
 
-#: allthethings/page/templates/page/datasets.html:169
+#: allthethings/page/templates/page/datasets.html:418
 #: allthethings/page/templates/page/faq.html:187
 #: allthethings/page/templates/page/search.html:294
-msgid "page.faq.metadata.inspiration1"
-msgstr "Our inspiration for collecting metadata is Aaron Swartz’ goal of “one web page for every book ever published”, for which he created <a %(a_openlib)s>Open Library</a>."
-
-#: allthethings/page/templates/page/datasets.html:170
-#: allthethings/page/templates/page/faq.html:188
-#: allthethings/page/templates/page/search.html:295
-msgid "page.faq.metadata.inspiration2"
-msgstr "That project has done well, but our unique position allows us to get metadata that they can’t."
-
-#: allthethings/page/templates/page/datasets.html:171
-#: allthethings/page/templates/page/faq.html:189
-#: allthethings/page/templates/page/search.html:296
-msgid "page.faq.metadata.inspiration3"
-msgstr "Another inspiration was our desire to know <a %(a_blog)s>how many books there are in the world</a>, so we can calculate how many books we still have left to save."
+msgid "page.faq.metadata.inspiration"
+msgstr "Our inspiration for collecting metadata is Aaron Swartz’ goal of “one web page for every book ever published”, for which he created <a %(a_openlib)s>Open Library</a>. That project has done well, but our unique position allows us to get metadata that they can’t. Another inspiration was our desire to know <a %(a_blog)s>how many books there are in the world</a>, so we can calculate how many books we still have left to save."
 
 #: allthethings/page/templates/page/datasets.html:175
 msgid "page.datasets.metadata_only_sources.text2"
 msgstr "Note that in metadata search, we show the original records. We don’t do any merging of records."
 
 #: allthethings/page/templates/page/datasets.html:216
+msgid "page.datasets.sources.last_updated.header"
+msgstr "Last updated"
+
+msgid "page.datasets.sources.openlib.metadata1"
+msgstr "%(icon)s Monthly <a %(dbdumps)s>database dumps</a>"
+
+msgid "page.datasets.sources.isbndb.metadata1"
+msgstr "%(icon)s Not available directly in bulk, only in semi-bulk behind a paywall"
+
+msgid "page.datasets.sources.isbndb.metadata2"
+msgstr "%(icon)s Anna’s Archive manages a collection of <a %(isbndb)s>ISBNdb metadata</a>"
+
+msgid "page.datasets.sources.worldcat.metadata1"
+msgstr "%(icon)s Not available directly in bulk, protected against scraping"
+
+msgid "page.datasets.sources.worldcat.metadata2"
+msgstr "%(icon)s Anna’s Archive manages a collection of <a %(worldcat)s>OCLC (WorldCat) metadata</a>"
+
 msgid "page.datasets.unified_database.title"
 msgstr "Unified database"
 
@@ -3169,6 +3250,93 @@ msgstr "Wikipedia page"
 msgid "page.datasets.scihub.link_podcast"
 msgstr "Podcast interview"
 
+msgid "page.datasets.upload.title"
+msgstr "Uploads to Anna’s Archive"
+
+msgid "page.datasets.upload.description"
+msgstr "Various smaller or one-off sources. We encourage people to upload to other shadow libraries first, but sometimes people have collections that are too big for others to sort through, though not big enough to warrant their own category."
+
+msgid "page.datasets.upload.subcollections"
+msgstr "The “upload” collection is split up in smaller subcollections, which are indicated in the AACIDs and torrent names. All subcollections were first deduplicated against the main collection, though the metadata “upload_records” JSON files still contain a lot of references to the original files. Non-book files were also removed from most subcollections, and are typically <em>not</em> noted in the “upload_records” JSON."
+
+msgid "page.datasets.upload.subsubcollections"
+msgstr "Many subcollections themselves are comprised of sub-sub-collections (e.g. from different original sources), which are represented as directories in the “filepath” fields."
+
+msgid "page.datasets.upload.subs.heading"
+msgstr "The subcollections are:"
+
+msgid "page.datasets.upload.action.browse"
+msgstr "browse"
+
+msgid "page.datasets.upload.action.search"
+msgstr "search"
+
+msgid "page.datasets.upload.source.aaaaarg"
+msgstr "From <a %(a_href)s>aaaaarg.fail</a>. Appears to be fairly complete. From our volunteer “cgiym”."
+
+msgid "page.datasets.upload.source.acm"
+msgstr "From an <a %(a_href)s><q>ACM Digital Library 2020</q></a> torrent. Has fairly high overlap with existing papers collections, but very few MD5 matches, so we decided to keep it completely."
+
+msgid "page.datasets.upload.source.alexandrina"
+msgstr "From a collection <a %(a_href)s><q>Bibliotheca Alexandrina,</q></a> exact origin unclear. Partly from the-eye.eu, partly from other sources."
+
+msgid "page.datasets.upload.source.bibliotik"
+msgstr "From a private books torrent website, <a %(a_href)s>Bibliotik</a> (often referred to as “Bib”), of which books were bundled into torrents by name (A.torrent, B.torrent) and distributed through the-eye.eu."
+
+msgid "page.datasets.upload.source.bpb9v_cadal"
+msgstr "From our volunteer “bpb9v”. From more information about <a %(a_href)s>CADAL</a>, see the notes in our <a %(a_duxiu)s>DuXiu dataset page</a>."
+
+msgid "page.datasets.upload.source.bpb9v_direct"
+msgstr "More from our volunteer “bpb9v”, mostly DuXiu files, as well as a folder “WenQu” and “SuperStar_Journals” (SuperStar is the company behind DuXiu)."
+
+msgid "page.datasets.upload.source.cgiym_chinese"
+msgstr "From our volunteer “cgiym”, Chinese texts from various sources (represented as subdirectories), including from <a %(a_href)s>China Machine Press</a> (a major Chinese publisher)."
+
+msgid "page.datasets.upload.source.cgiym_more"
+msgstr "Non-Chinese collections (represented as subdirectories) from our volunteer “cgiym”."
+
+msgid "page.datasets.upload.source.degruyter"
+msgstr "Books from academic publishing house <a %(a_href)s>De Gruyter</a>, collected from a few large torrents."
+
+msgid "page.datasets.upload.source.docer"
+msgstr "Scrape of <a %(a_href)s>docer.pl</a>, a polish file sharing website focused on books and other written works. Scraped in late 2023 by volunteer “p”. We don't have good metadata from the original website (not even file extensions), but we filtered for book-like files and were often able to extract metadata from the files themselves."
+
+msgid "page.datasets.upload.source.duxiu_epub"
+msgstr "DuXiu epubs, directly from DuXiu, collected by volunteer “w”. Only recent DuXiu books are available directly through ebooks, so most of these must be recent."
+
+msgid "page.datasets.upload.source.duxiu_main"
+msgstr "Remaining DuXiu files from volunteer “m”, which weren’t in the DuXiu proprietary PDG format (the main <a %(a_href)s>DuXiu dataset</a>). Collected from many original sources, unfortunately without preserving those sources in the filepath."
+
+msgid "page.datasets.upload.source.japanese_manga"
+msgstr "Collection scraped from a Japanese Manga publisher by volunteer “t”."
+
+msgid "page.datasets.upload.source.longquan_archives"
+msgstr "<a %(a_href)s>Selected judicial archives of Longquan</a>, provided by volunteer “c”."
+
+msgid "page.datasets.upload.source.magzdb"
+msgstr "Scrape of <a %(a_href)s>magzdb.org</a>, an ally of Library Genesis (it’s linked on the libgen.rs homepage) but who didn’t want to provide their files directly. Obtained by volunteer “p” in late 2023."
+
+msgid "page.datasets.upload.source.misc"
+msgstr "Various small uploads, too small as their own subcollection, but represented as directories."
+
+msgid "page.datasets.upload.source.polish"
+msgstr "Collection of volunteer “o” who collected Polish books directly from original release (“scene”) websites."
+
+msgid "page.datasets.upload.source.shuge"
+msgstr "Combined collections of <a %(a_href)s>shuge.org</a> by volunteers “cgiym” and “woz9ts”."
+
+msgid "page.datasets.upload.source.trantor"
+msgstr "<a %(a_href)s>“Imperial Library of Trantor”</a> (named after the fictional library), scraped in 2022 by volunteer “t”."
+
+msgid "page.datasets.upload.source.woz9ts_direct"
+msgstr "Sub-sub-collections (represented as directories) from volunteer “woz9ts”: <a %(a_program_think)s>program-think</a>, <a %(a_haodoo)s>haodoo</a>, <a %(a_skqs)s>skqs</a> (by <a %(a_sikuquanshu)s>Dizhi(迪志)</a> in Taiwan), mebook (mebook.cc, 我的小书屋, my little bookroom — woz9ts: “This site mainly focus on sharing high quality ebook files, some of which are typeset by the owner himself. The owner was <a %(a_arrested)s>arrested</a> in 2019 and someone made a collection of files he shared.”)."
+
+msgid "page.datasets.upload.source.woz9ts_duxiu"
+msgstr "Remaining DuXiu files from volunteer “woz9ts”, which weren’t in the DuXiu proprietary PDG format (still to be converted to PDF)."
+
+msgid "page.datasets.upload.aa_torrents"
+msgstr "Torrents by Anna’s Archive"
+
 #: allthethings/page/templates/page/datasets_worldcat.html:7
 #: allthethings/page/templates/page/datasets_worldcat.html:34
 msgid "page.datasets.worldcat.title"
@@ -3189,6 +3357,114 @@ msgstr "Torrents by Anna’s Archive"
 #: allthethings/page/templates/page/datasets_worldcat.html:35
 msgid "page.datasets.worldcat.blog_announcement"
 msgstr "Our blog post about this data"
+
+msgid "page.datasets.zlib.title"
+msgstr "Z-Library scrape"
+
+msgid "page.datasets.zlib.description.intro"
+msgstr "Z-Library has its roots in the <a %(a_href)s>Library Genesis</a> community, and originally bootstrapped with their data. Since then, it has professionalized considerably, and has a much more modern interface. They are therefore able to get many more donations, both monetarily to keep improving their website, as well as donations of new books. They have amassed a large collection in addition to Library Genesis."
+
+msgid "page.datasets.zlib.description.allegations.title"
+msgstr "Update as of February 2023."
+
+msgid "page.datasets.zlib.description.allegations"
+msgstr "In late 2022, the alleged founders of Z-Library were arrested, and domains were seized by United States authorities. Since then the website has slowly been making its way online again. It is unknown who currently runs it."
+
+msgid "page.datasets.zlib.description.three_parts"
+msgstr "The collection consists of three parts. The original description pages for the first two parts are preserved below. You need all three parts to get all data (except superseded torrents, which are crossed out on the torrents page)."
+
+msgid "page.datasets.zlib.description.three_parts.first"
+msgstr "%(title)s: our first release. This was the very first release of what was then called the “Pirate Library Mirror” (“pilimi”)."
+
+msgid "page.datasets.zlib.description.three_parts.second"
+msgstr "%(title)s: second release, this time with all files wrapped in .tar files."
+
+msgid "page.datasets.zlib.description.three_parts.third_and_incremental"
+msgstr "%(title)s: incremental new releases, using the <a %(a_href)s>Anna’s Archive Containers (AAC) format</a>, now released in collaboration with the Z-Library team."
+
+msgid "page.datasets.zlib.aa_torrents"
+msgstr "Torrents by Anna’s Archive (metadata + content)"
+
+msgid "page.datasets.zlib.aa_example_record.original"
+msgstr "Example record on Anna’s Archive (original collection)"
+
+msgid "page.datasets.zlib.aa_example_record.zlib3"
+msgstr "Example record on Anna’s Archive (“zlib3” collection)"
+
+msgid "page.datasets.zlib.link.zlib"
+msgstr "Main website"
+
+msgid "page.datasets.zlib.link.onion"
+msgstr "Tor domain"
+
+msgid "page.datasets.zlib.blog.release1"
+msgstr "Blog post about Release 1"
+
+msgid "page.datasets.zlib.blog.release2"
+msgstr "Blog post about Release 2"
+
+msgid "page.datasets.zlib.historical.title"
+msgstr "Zlib releases (original description pages)"
+
+msgid "page.datasets.zlib.historical.release1.title"
+msgstr "Release 1 (%(date)s)"
+
+msgid "page.datasets.zlib.historical.release1.description1"
+msgstr "The initial mirror was painstakingly obtained over the course of 2021 and 2022. At this point it is slightly outdated: it reflects the state of the collection in June 2021. We will update this in the future. Right now we are focused on getting this first release out."
+
+msgid "page.datasets.zlib.historical.release1.description2"
+msgstr "Since Library Genesis is already preserved with public torrents, and is included in the Z-Library, we did a basic deduplication against Library Genesis in June 2022. For this we used MD5 hashes. There is likely a lot more duplicate content in the library, such as multiple file formats with the same book. This is hard to detect accurately, so we don't. After the deduplication we are left with over 2 million files, totalling just under 7TB."
+
+msgid "page.datasets.zlib.historical.release1.description3"
+msgstr "The collection consists of two parts: a MySQL “.sql.gz” dump of the metadata, and the 72 torrent files of around 50-100GB each. The metadata contains the data as reported by the Z-Library website (title, author, description, filetype), as well as the actual filesize and md5sum that we observed, since sometimes these do not agree. There seem to be ranges of files for which the Z-Library itself has incorrect metadata. We might also have incorrectly downloaded files in some isolated cases, which we will try to detect and fix in the future."
+
+msgid "page.datasets.zlib.historical.release1.description4"
+msgstr "The large torrent files contain the actual book data, with the Z-Library ID as the filename. The file extensions can be reconstructed using the metadata dump."
+
+msgid "page.datasets.zlib.historical.release1.description5"
+msgstr "The collection is a mix of non-fiction and fiction content (not separated out as in Library Genesis). The quality is also widely varying."
+
+msgid "page.datasets.zlib.historical.release1.description6"
+msgstr "This first release is now fully available. Note that the torrent files are only available through our Tor mirror."
+
+msgid "page.datasets.zlib.historical.release2.title"
+msgstr "Release 2 (%(date)s)"
+
+msgid "page.datasets.zlib.historical.release2.description1"
+msgstr "We have gotten all books that were added to the Z-Library between our last mirror and August 2022. We have also gone back and scraped some books that we missed the first time around. All in all, this new collection is about 24TB. Again, this collection is deduplicated against Library Genesis, since there are already torrents available for that collection."
+
+msgid "page.datasets.zlib.historical.release2.description2"
+msgstr "The data is organized similarly to the first release. There is a MySQL “.sql.gz” dump of the metadata, which also includes all the metadata from the first release, thereby superseding it. We also added some new columns:"
+
+msgid "page.datasets.zlib.historical.release2.field.in_libgen"
+msgstr "%(key)s: whether this file is already in Library Genesis, in either the non-fiction or fiction collection (matched by md5)."
+
+msgid "page.datasets.zlib.historical.release2.field.pilimi_torrent"
+msgstr "%(key)s: which torrent this file is in."
+
+msgid "page.datasets.zlib.historical.release2.field.unavailable"
+msgstr "%(key)s: set when we were unable to download the book."
+
+msgid "page.datasets.zlib.historical.release2.description3"
+msgstr "We mentioned this last time, but just to clarify: “filename” and “md5” are the actual properties of the file, whereas “filename_reported” and “md5_reported” are what we scraped from Z-Library. Sometimes these two don't agree with each other, so we included both."
+
+msgid "page.datasets.zlib.historical.release2.description4"
+msgstr "For this release, we changed the collation to “utf8mb4_unicode_ci”, which should be compatible with older versions of MySQL."
+
+msgid "page.datasets.zlib.historical.release2.description5"
+msgstr "The data files are similar to last time, though they are much bigger. We simply couldn't be bothered creating tons of smaller torrent files. “pilimi-zlib2-0-14679999-extra.torrent” contains all the files that we missed in the last release, while the other torrents are all new ID ranges. "
+
+msgid "page.datasets.zlib.historical.release2.description5.update1"
+msgstr "<strong>Update %(date)s:</strong> We made most of our torrents too big, causing torrent clients to struggle. We have removed them and released new torrents."
+
+msgid "page.datasets.zlib.historical.release2.description5.update2"
+msgstr "<strong>Update %(date)s:</strong> There were still too many files, so we wrapped them in tar files and released new torrents again."
+
+msgid "page.datasets.zlib.historical.release2.addendum.title"
+msgstr "Release 2 addendum (%(date)s)"
+
+msgid "page.datasets.zlib.historical.release2.addendum.description1"
+msgstr "This is a single extra torrent file. It does not contain any new information, but it has some data in it that can take a while to compute. That makes it convenient to have, since downloading this torrent is often faster than computing it from scratch. In particular, it contains SQLite indexes for the tar files, for use with <a %(a_href)s>ratarmount</a>."
 
 #: allthethings/page/templates/page/faq.html:5
 #: allthethings/page/templates/page/faq.html:8

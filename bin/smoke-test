@@ -79,6 +79,10 @@ echo "testing ${#pages[@]} pages"
 # take the translations from the command line arguments
 declare -a translations=("${@:-}")
 
+if [[ "${#translations[@]}" -eq 1 && "${translations[0]}" == "" ]]; then
+    translations=()
+fi
+
 # if no translations were provided, get them from the server
 if [ ${#translations[@]} -eq 0 ]; then
     echo "no translations provided, getting them from the server"
@@ -89,7 +93,7 @@ fi
 echo "testing ${#translations[@]} translations: ${translations[*]}"
 
 for translation in "${translations[@]}"; do
-    echo "testing translation $translation"
+    echo "testing translation '$translation'"
 
     for page in "${pages[@]}"; do
         url="http://$translation.localtest.me:8000$page"
