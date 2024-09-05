@@ -357,19 +357,26 @@ def browser_verification_page():
 @cachetools.cached(cache=cachetools.TTLCache(maxsize=30000, ttl=24*60*60), lock=threading.Lock())
 def get_stats_data():
     with engine.connect() as connection:
-        libgenrs_time = connection.execute(select(LibgenrsUpdated.TimeLastModified).order_by(LibgenrsUpdated.ID.desc()).limit(1)).scalars().first()
+        cursor = allthethings.utils.get_cursor_ping_conn(connection)
+
+        cursor.execute('SELECT TimeLastModified FROM libgenrs_updated ORDER BY ID DESC LIMIT 1')
+        libgenrs_time = allthethings.utils.fetch_one_field(cursor)
         libgenrs_date = str(libgenrs_time.date()) if libgenrs_time is not None else ''
-        libgenli_time = connection.execute(select(LibgenliFiles.time_last_modified).order_by(LibgenliFiles.f_id.desc()).limit(1)).scalars().first()
+
+        cursor.execute('SELECT time_last_modified FROM libgenli_files ORDER BY f_id DESC LIMIT 1')
+        libgenli_time = allthethings.utils.fetch_one_field(cursor)
         libgenli_date = str(libgenli_time.date()) if libgenli_time is not None else ''
+
         # OpenLibrary author keys seem randomly distributed, so some random prefix is good enough.
-        openlib_time = connection.execute(select(OlBase.last_modified).where(OlBase.ol_key.like("/authors/OL111%")).order_by(OlBase.last_modified.desc()).limit(1)).scalars().first()
+        cursor.execute("SELECT last_modified FROM ol_base WHERE ol_key LIKE '/authors/OL111%' ORDER BY last_modified DESC LIMIT 1")
+        openlib_time = allthethings.utils.fetch_one_field(cursor)
         openlib_date = str(openlib_time.date()) if openlib_time is not None else ''
-        ia_aacid = connection.execute(select(Ia2AcsmpdfFiles.aacid).order_by(Ia2AcsmpdfFiles.aacid.desc()).limit(1)).scalars().first()
+
+        cursor.execute('SELECT aacid FROM annas_archive_meta__aacid__ia2_acsmpdf_files ORDER BY aacid DESC LIMIT 1')
+        ia_aacid = allthethings.utils.fetch_one_field(cursor)
         ia_date_raw = ia_aacid.split('__')[2][0:8]
         ia_date = f"{ia_date_raw[0:4]}-{ia_date_raw[4:6]}-{ia_date_raw[6:8]}"
 
-        connection.connection.ping(reconnect=True)
-        cursor = connection.connection.cursor(pymysql.cursors.DictCursor)
         # WARNING! Sorting by primary ID does a lexical sort, not numerical. Sorting by zlib3_records.aacid gets records from refreshes. zlib3_files.aacid is most reliable.
         cursor.execute('SELECT annas_archive_meta__aacid__zlib3_records.byte_offset, annas_archive_meta__aacid__zlib3_records.byte_length FROM annas_archive_meta__aacid__zlib3_records JOIN annas_archive_meta__aacid__zlib3_files USING (primary_id) ORDER BY annas_archive_meta__aacid__zlib3_files.aacid DESC LIMIT 1')
         zlib3_record = cursor.fetchone()
@@ -550,8 +557,7 @@ def torrent_group_data_from_file_path(file_path):
 @cachetools.cached(cache=cachetools.TTLCache(maxsize=1024, ttl=30*60), lock=threading.Lock())
 def get_torrents_data():
     with mariapersist_engine.connect() as connection:
-        connection.connection.ping(reconnect=True)
-        cursor = connection.connection.cursor(pymysql.cursors.DictCursor)
+        cursor = allthethings.utils.get_cursor_ping_conn(connection)
         # cursor.execute('SELECT mariapersist_small_files.created, mariapersist_small_files.file_path, mariapersist_small_files.metadata, s.metadata AS scrape_metadata, s.created AS scrape_created FROM mariapersist_small_files LEFT JOIN (SELECT mariapersist_torrent_scrapes.* FROM mariapersist_torrent_scrapes INNER JOIN (SELECT file_path, MAX(created) AS max_created FROM mariapersist_torrent_scrapes GROUP BY file_path) s2 ON (mariapersist_torrent_scrapes.file_path = s2.file_path AND mariapersist_torrent_scrapes.created = s2.max_created)) s USING (file_path) WHERE mariapersist_small_files.file_path LIKE "torrents/managed_by_aa/%" GROUP BY mariapersist_small_files.file_path ORDER BY created ASC, scrape_created DESC LIMIT 50000')
         cursor.execute('SELECT created, file_path, metadata FROM mariapersist_small_files WHERE mariapersist_small_files.file_path LIKE "torrents/%" ORDER BY created, file_path LIMIT 50000')
         small_files = list(cursor.fetchall())
@@ -833,8 +839,7 @@ def torrents_page():
     torrents_data = get_torrents_data()
 
     with mariapersist_engine.connect() as connection:
-        connection.connection.ping(reconnect=True)
-        cursor = connection.connection.cursor(pymysql.cursors.DictCursor)
+        cursor = allthethings.utils.get_cursor_ping_conn(connection)
         cursor.execute('SELECT * FROM mariapersist_torrent_scrapes_histogram WHERE day > DATE_FORMAT(NOW() - INTERVAL 60 DAY, "%Y-%m-%d") AND day < DATE_FORMAT(NOW() - INTERVAL 1 DAY, "%Y-%m-%d") ORDER BY day, seeder_group LIMIT 500')
         histogram = list(cursor.fetchall())
 
@@ -909,8 +914,7 @@ def codes_page():
         except Exception:
             return "Invalid prefix_b64", 404
 
-        connection.connection.ping(reconnect=True)
-        cursor = connection.connection.cursor(pymysql.cursors.DictCursor)
+        cursor = allthethings.utils.get_cursor_ping_conn(connection)
 
         # TODO: Since 'code' and 'aarecord_id' are binary, this might not work with multi-byte UTF-8 chars. Test (and fix) that!
 
@@ -1047,9 +1051,25 @@ def get_zlib_book_dicts(session, key, values):
     if len(values) == 0:
         return []
 
+    cursor = allthethings.utils.get_cursor_ping(session)
     zlib_books = []
     try:
-        zlib_books = session.scalars(select(ZlibBook).where(getattr(ZlibBook, key).in_(values))).unique().all()
+        cursor.execute('SELECT DISTINCT * FROM zlib_book WHERE zlibrary_id IN %(values)s', { 'values': values })
+        zlib_books = cursor.fetchall()
+
+        ids = [str(book['zlibrary_id']) for book in zlib_books]
+        cursor.execute('SELECT * FROM zlib_isbn WHERE zlibrary_id IN %(ids)s', { 'ids': ids })
+        zlib_isbns = cursor.fetchall()
+
+        for book in zlib_books:
+            if 'isbns' not in book or book['isbns'] is None:
+                book['isbns'] = []
+
+            for isbn in zlib_isbns:
+                if isbn['zlibrary_id'] == book['zlibrary_id']:
+                    book['isbns'].append(isbn)
+
+        print(zlib_books)
     except Exception as err:
         print(f"Error in get_zlib_book_dicts when querying {key}; {values}")
         print(repr(err))
@@ -1058,7 +1078,9 @@ def get_zlib_book_dicts(session, key, values):
 
     zlib_book_dicts = []
     for zlib_book in zlib_books:
-        zlib_book_dict = zlib_book.to_dict()
+        # zlib_book_dict = zlib_book.to_dict()
+        zlib_book_dict = zlib_book
+        print(zlib_book_dict)
         zlib_book_dict['stripped_description'] = strip_description(zlib_book_dict['description'])
         zlib_book_dict['language_codes'] = get_bcp47_lang_codes(zlib_book_dict['language'] or '')
         zlib_book_dict['cover_url_guess'] = zlib_cover_url_guess(zlib_book_dict['md5_reported'])
@@ -1072,7 +1094,7 @@ def get_zlib_book_dicts(session, key, values):
             allthethings.utils.add_identifier_unified(zlib_book_dict, 'md5', zlib_book_dict['md5'])
         if zlib_book_dict['md5_reported'] is not None:
             allthethings.utils.add_identifier_unified(zlib_book_dict, 'md5', zlib_book_dict['md5_reported'])
-        allthethings.utils.add_isbns_unified(zlib_book_dict, [record.isbn for record in zlib_book.isbns])
+        allthethings.utils.add_isbns_unified(zlib_book_dict, [record['isbn'] for record in zlib_book['isbns']])
         allthethings.utils.add_isbns_unified(zlib_book_dict, allthethings.utils.get_isbnlike(zlib_book_dict['description']))
 
         zlib_book_dicts.append(add_comments_to_dict(zlib_book_dict, zlib_book_dict_comments))
@@ -1091,8 +1113,7 @@ def get_aac_zlib3_book_dicts(session, key, values):
         raise Exception(f"Unexpected 'key' in get_aac_zlib3_book_dicts: '{key}'")
     aac_zlib3_books = []
     try:
-        session.connection().connection.ping(reconnect=True)
-        cursor = session.connection().connection.cursor(pymysql.cursors.DictCursor)
+        cursor = allthethings.utils.get_cursor_ping(session)
         cursor.execute(f'SELECT annas_archive_meta__aacid__zlib3_records.byte_offset AS record_byte_offset, annas_archive_meta__aacid__zlib3_records.byte_length AS record_byte_length, annas_archive_meta__aacid__zlib3_files.byte_offset AS file_byte_offset, annas_archive_meta__aacid__zlib3_files.byte_length AS file_byte_length, annas_archive_meta__aacid__zlib3_records.primary_id AS primary_id FROM annas_archive_meta__aacid__zlib3_records LEFT JOIN annas_archive_meta__aacid__zlib3_files USING (primary_id) WHERE {aac_key} IN %(values)s', { "values": [str(value) for value in values] })
         
         zlib3_rows = []
@@ -1219,29 +1240,41 @@ def get_ia_record_dicts(session, key, values):
     seen_ia_ids = set()
     ia_entries = []
     ia_entries2 = []
+    cursor = allthethings.utils.get_cursor_ping(session)
     try:
-        base_query = select(AaIa202306Metadata, AaIa202306Files, Ia2AcsmpdfFiles).join(AaIa202306Files, AaIa202306Files.ia_id == AaIa202306Metadata.ia_id, isouter=True).join(Ia2AcsmpdfFiles, Ia2AcsmpdfFiles.primary_id == AaIa202306Metadata.ia_id, isouter=True)
-        base_query2 = select(Ia2Records, AaIa202306Files, Ia2AcsmpdfFiles).join(AaIa202306Files, AaIa202306Files.ia_id == Ia2Records.primary_id, isouter=True).join(Ia2AcsmpdfFiles, Ia2AcsmpdfFiles.primary_id == Ia2Records.primary_id, isouter=True)
+        base_query = ('SELECT DISTINCT m.*, f.*, ia2f.* FROM aa_ia_2023_06_metadata m '
+                          'LEFT JOIN aa_ia_2023_06_files f USING(ia_id) '
+                          'LEFT JOIN annas_archive_meta__aacid__ia2_acsmpdf_files ia2f ON m.ia_id = ia2f.primary_id ')
+        base_query2 = ('SELECT DISTINCT ia2r.*, f.*, ia2f.* FROM annas_archive_meta__aacid__ia2_records ia2r '
+                           'LEFT JOIN aa_ia_2023_06_files f ON f.ia_id = ia2r.primary_id '
+                           'LEFT JOIN annas_archive_meta__aacid__ia2_acsmpdf_files ia2f USING (primary_id) ')
+        column_count_query1 = [4, 4, 5] # aa_ia_2023_06_metadata, aa_ia_2023_06_files, annas_archive_meta__aacid__ia2_acsmpdf_files
+        column_count_query2 = [5, 4, 5] # annas_archive_meta__aacid__ia2_records, aa_ia_2023_06_files, annas_archive_meta__aacid__ia2_acsmpdf_files
+
         if key.lower() in ['md5']:
             # TODO: we should also consider matching on libgen_md5, but we used to do that before and it had bad SQL performance,
             # when combined in a single query, so we'd have to split it up.
-            ia_entries = list(session.execute(
-                base_query.where(AaIa202306Files.md5.in_(values))
-            ).unique().all()) + list(session.execute(
-                base_query.where(Ia2AcsmpdfFiles.md5.in_(values))
-            ).unique().all())
-            ia_entries2 = list(session.execute(
-                base_query2.where(AaIa202306Files.md5.in_(values))
-            ).unique().all()) + list(session.execute(
-                base_query2.where(Ia2AcsmpdfFiles.md5.in_(values))
-            ).unique().all())
+
+            cursor.execute(base_query + 'WHERE f.md5 IN %(values)s', { 'values': values })
+            ia_entries = list(cursor.fetchall())
+
+            cursor.execute(base_query + 'WHERE ia2f.md5 IN %(values)s', { 'values': values })
+            ia_entries += list(cursor.fetchall())
+
+            cursor.execute(base_query2 + 'WHERE f.md5 IN %(values)s', { 'values': values })
+            ia_entries2 = list(cursor.fetchall())
+
+            cursor.execute(base_query2 + 'WHERE ia2f.md5 IN %(values)s', { 'values': values })
+            ia_entries2 += list(cursor.fetchall())
+
+            ia_entries = allthethings.utils.split_columns(ia_entries, column_count_query1)
+            ia_entries2 = allthethings.utils.split_columns(ia_entries2, column_count_query2)
         else:
-            ia_entries = session.execute(
-                base_query.where(getattr(AaIa202306Metadata, key).in_(values))
-            ).unique().all()
-            ia_entries2 = session.execute(
-                base_query2.where(getattr(Ia2Records, key.replace('ia_id', 'primary_id')).in_(values))
-            ).unique().all()
+            cursor.execute(base_query + 'WHERE m.ia_id IN %(values)s', { 'values': values })
+            ia_entries = allthethings.utils.split_columns(list(cursor.fetchall()), column_count_query1)
+
+            cursor.execute(base_query2 + 'WHERE ia2r.primary_id IN %(values)s', { 'values': values })
+            ia_entries2 = allthethings.utils.split_columns(list(cursor.fetchall()), column_count_query2)
     except Exception as err:
         print(f"Error in get_ia_record_dicts when querying {key}; {values}")
         print(repr(err))
@@ -1256,24 +1289,16 @@ def get_ia_record_dicts(session, key, values):
     index = 0
     # Prioritize ia_entries2 first, because their records are newer. This order matters
     # futher below.
-    for ia_record, ia_file, ia2_acsmpdf_file in ia_entries2 + ia_entries:
-        ia_record_dict = ia_record.to_dict()
+    for ia_record_dict, ia_file_dict, ia2_acsmpdf_file_dict in ia_entries2 + ia_entries:
         if ia_record_dict.get('byte_offset') is not None:
             ia2_records_indexes.append(index)
             ia2_records_offsets_and_lengths.append((ia_record_dict['byte_offset'], ia_record_dict['byte_length']))
-        ia_file_dict = None
-        if ia_file is not None:
-            ia_file_dict = ia_file.to_dict()
-        ia2_acsmpdf_file_dict = None
-        if ia2_acsmpdf_file is not None:
-            ia2_acsmpdf_file_dict = ia2_acsmpdf_file.to_dict()
+        if ia2_acsmpdf_file_dict is not None:
             ia2_acsmpdf_files_indexes.append(index)
             ia2_acsmpdf_files_offsets_and_lengths.append((ia2_acsmpdf_file_dict['byte_offset'], ia2_acsmpdf_file_dict['byte_length']))
         ia_entries_combined.append([ia_record_dict, ia_file_dict, ia2_acsmpdf_file_dict])
         index += 1
 
-    session.connection().connection.ping(reconnect=True)
-    cursor = session.connection().connection.cursor(pymysql.cursors.DictCursor)
     for index, line_bytes in enumerate(allthethings.utils.get_lines_from_aac_file(cursor, 'ia2_records', ia2_records_offsets_and_lengths)):
         ia_entries_combined[ia2_records_indexes[index]][0] = orjson.loads(line_bytes)
     for index, line_bytes in enumerate(allthethings.utils.get_lines_from_aac_file(cursor, 'ia2_acsmpdf_files', ia2_acsmpdf_files_offsets_and_lengths)):
