@@ -2032,10 +2032,13 @@ libgenli_elem_descr_output = None
 def libgenli_elem_descr(conn):
     global libgenli_elem_descr_output
     if libgenli_elem_descr_output is None:
-        all_descr = conn.execute(select(LibgenliElemDescr).limit(10000)).all()
+        cursor = allthethings.utils.get_cursor_ping_conn(conn)
+        cursor.execute('SELECT * FROM libgenli_elem_descr LIMIT 10000')
+        all_descr = cursor.fetchall()
+
         output = {}
         for descr in all_descr:
-            output[descr.key] = dict(descr)
+            output[descr['key']] = dict(descr)
         libgenli_elem_descr_output = output
     return libgenli_elem_descr_output
 
