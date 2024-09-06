@@ -1862,14 +1862,16 @@ def get_lgrsnf_book_dicts(session, key, values):
 
     lgrsnf_books = []
     try:
+        cursor = allthethings.utils.get_cursor_ping(session)
+
         # Hack: we explicitly name all the fields, because otherwise some get overwritten below due to lowercasing the column names.
-        lgrsnf_books = session.connection().execute(
-                select(LibgenrsUpdated, LibgenrsDescription.descr, LibgenrsDescription.toc, LibgenrsHashes.crc32, LibgenrsHashes.edonkey, LibgenrsHashes.aich, LibgenrsHashes.sha1, LibgenrsHashes.tth, LibgenrsHashes.torrent, LibgenrsHashes.btih, LibgenrsHashes.sha256, LibgenrsHashes.ipfs_cid, LibgenrsTopics.topic_descr)
-                .join(LibgenrsDescription, LibgenrsUpdated.MD5 == LibgenrsDescription.md5, isouter=True)
-                .join(LibgenrsHashes, LibgenrsUpdated.MD5 == LibgenrsHashes.md5, isouter=True)
-                .join(LibgenrsTopics, (LibgenrsUpdated.Topic == LibgenrsTopics.topic_id) & (LibgenrsTopics.lang == "en"), isouter=True)
-                .where(getattr(LibgenrsUpdated, key).in_(values))
-            ).all()
+        cursor.execute("SELECT lu.*, ld.descr, ld.toc, lh.crc32, lh.edonkey, lh.aich, lh.sha1, lh.tth, lh.torrent, lh.btih, lh.sha256, lh.ipfs_cid, lt.topic_descr "
+                       "FROM libgenrs_updated lu "
+                       "LEFT JOIN libgenrs_description ld ON lu.MD5 = ld.md5 "
+                       "LEFT JOIN libgenrs_hashes lh ON lu.MD5 = lh.md5 "
+                       "LEFT JOIN libgenrs_topics lt ON lu.Topic = lt.topic_id "
+                       "WHERE lt.lang = 'en' AND lu.ID IN %(ids)s", { 'ids': values })
+        lgrsnf_books = cursor.fetchall()
     except Exception as err:
         print(f"Error in get_lgrsnf_book_dicts when querying {key}; {values}")
         print(repr(err))
@@ -1907,7 +1909,7 @@ def get_lgrsnf_book_dicts(session, key, values):
         allthethings.utils.add_identifier_unified(lgrs_book_dict, 'lgrsnf', lgrs_book_dict['id'])
         # .lower() on md5 is okay here, we won't miss any fetches since collation is _ci.
         allthethings.utils.add_identifier_unified(lgrs_book_dict, 'md5', lgrs_book_dict['md5'].lower())
-        allthethings.utils.add_isbns_unified(lgrs_book_dict, lgrsnf_book.Identifier.split(",") + lgrsnf_book.IdentifierWODash.split(","))
+        allthethings.utils.add_isbns_unified(lgrs_book_dict, lgrsnf_book['Identifier'].split(",") + lgrsnf_book['IdentifierWODash'].split(","))
         allthethings.utils.add_isbns_unified(lgrs_book_dict, allthethings.utils.get_isbnlike('\n'.join([lgrs_book_dict.get('descr') or '', lgrs_book_dict.get('locator') or '', lgrs_book_dict.get('toc') or ''])))
         allthethings.utils.add_classification_unified(lgrs_book_dict, 'lgrsnf_topic', lgrs_book_dict.get('topic_descr') or '')
         for name, unified_name in allthethings.utils.LGRS_TO_UNIFIED_IDENTIFIERS_MAPPING.items():
