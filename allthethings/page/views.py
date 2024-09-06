@@ -1937,13 +1937,16 @@ def get_lgrsfic_book_dicts(session, key, values):
 
     lgrsfic_books = []
     try:
+        cursor = allthethings.utils.get_cursor_ping(session)
+
         # Hack: we explicitly name all the fields, because otherwise some get overwritten below due to lowercasing the column names.
-        lgrsfic_books = session.connection().execute(
-                select(LibgenrsFiction, LibgenrsFictionDescription.Descr, LibgenrsFictionHashes.crc32, LibgenrsFictionHashes.edonkey, LibgenrsFictionHashes.aich, LibgenrsFictionHashes.sha1, LibgenrsFictionHashes.tth, LibgenrsFictionHashes.btih, LibgenrsFictionHashes.sha256, LibgenrsFictionHashes.ipfs_cid)
-                .join(LibgenrsFictionDescription, LibgenrsFiction.MD5 == LibgenrsFictionDescription.MD5, isouter=True)
-                .join(LibgenrsFictionHashes, LibgenrsFiction.MD5 == LibgenrsFictionHashes.md5, isouter=True)
-                .where(getattr(LibgenrsFiction, key).in_(values))
-            ).all()
+        cursor.execute('SELECT lf.*, lfd.Descr, lfh.crc32, lfh.edonkey, lfh.aich, lfh.sha1, lfh.tth, lfh.btih, lfh.sha256, lfh.ipfs_cid '
+                       'FROM libgenrs_fiction lf '
+                       'LEFT JOIN libgenrs_fiction_description lfd ON lf.MD5 = lfd.MD5 '
+                       'LEFT JOIN libgenrs_fiction_hashes lfh ON lf.MD5 = lfh.md5 '
+                       'WHERE lf.ID IN %(ids)s',
+                       { 'ids': values })
+        lgrsfic_books = cursor.fetchall()
     except Exception as err:
         print(f"Error in get_lgrsfic_book_dicts when querying {key}; {values}")
         print(repr(err))
@@ -1978,7 +1981,7 @@ def get_lgrsfic_book_dicts(session, key, values):
         allthethings.utils.add_identifier_unified(lgrs_book_dict, 'lgrsfic', lgrs_book_dict['id'])
         # .lower() on md5 is okay here, we won't miss any fetches since collation is _ci.
         allthethings.utils.add_identifier_unified(lgrs_book_dict, 'md5', lgrs_book_dict['md5'].lower())
-        allthethings.utils.add_isbns_unified(lgrs_book_dict, lgrsfic_book.Identifier.split(","))
+        allthethings.utils.add_isbns_unified(lgrs_book_dict, lgrsfic_book['Identifier'].split(","))
         allthethings.utils.add_isbns_unified(lgrs_book_dict, allthethings.utils.get_isbnlike('\n'.join([lgrs_book_dict.get('descr') or '', lgrs_book_dict.get('locator') or ''])))
         for name, unified_name in allthethings.utils.LGRS_TO_UNIFIED_IDENTIFIERS_MAPPING.items():
             if name in lgrs_book_dict:
