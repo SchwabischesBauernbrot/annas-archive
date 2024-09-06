@@ -524,6 +524,7 @@ def get_stats_data():
         'isbndb_date': '2022-09-01',
         'isbn_country_date': '2022-02-11',
         'oclc_date': '2023-10-01',
+        'magzdb_date': '2024-07-29',
     }
 
 def torrent_group_data_from_file_path(file_path):
@@ -544,6 +545,10 @@ def torrent_group_data_from_file_path(file_path):
         group = 'duxiu'
     if 'upload' in file_path:
         group = 'upload'
+    if 'magzdb_records' in file_path: # To not get magzdb from 'upload' collection.
+        group = 'magzdb'
+    if 'nexusstc' in file_path:
+        group = 'nexusstc'
 
     return { 'group': group, 'aac_meta_group': aac_meta_group }
 
@@ -776,6 +781,17 @@ def datasets_worldcat_page():
     try:
         stats_data = get_stats_data()
         return render_template("page/datasets_worldcat.html", header_active="home/datasets", stats_data=stats_data)
+    except Exception as e:
+        if 'timed out' in str(e):
+            return "Error with datasets page, please try again.", 503
+        raise
+
+@page.get("/datasets/magzdb")
+@allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
+def datasets_magzdb_page():
+    try:
+        stats_data = get_stats_data()
+        return render_template("page/datasets_magzdb.html", header_active="home/datasets", stats_data=stats_data)
     except Exception as e:
         if 'timed out' in str(e):
             return "Error with datasets page, please try again.", 503
@@ -5721,9 +5737,16 @@ def get_additional_for_aarecord(aarecord):
             additional['torrent_paths'].append({ "collection": "ia", "torrent_path": f"managed_by_aa/ia/annas-archive-ia-lcpdf-{directory}.tar.torrent", "file_level1": f"annas-archive-ia-lcpdf-{directory}.tar", "file_level2": f"{ia_id}.{extension}" })
         elif ia_file_type == 'ia2_acsmpdf':
             server = 'i'
-            date = aarecord['ia_record']['aa_ia_file']['data_folder'].split('__')[3][0:8]            
+            date = aarecord['ia_record']['aa_ia_file']['data_folder'].split('__')[3][0:8]
+            datetime = aarecord['ia_record']['aa_ia_file']['data_folder'].split('__')[3][0:16]
             if date in ['20240701', '20240702']:
                 server = 'o'
+            elif date == '20240823':
+                server = 'z'
+                if datetime in ['20240823T234037Z', '20240823T234109Z', '20240823T234117Z', '20240823T234126Z', '20240823T234134Z', '20240823T234143Z', '20240823T234153Z', '20240823T234203Z', '20240823T234214Z', '20240823T234515Z', '20240823T234534Z', '20240823T234555Z', '20240823T234615Z', '20240823T234637Z', '20240823T234658Z', '20240823T234720Z']:
+                    server = 'i'
+                elif datetime in ['20240823T234225Z', '20240823T234238Z', '20240823T234250Z', '20240823T234304Z', '20240823T234318Z', '20240823T234333Z', '20240823T234348Z', '20240823T234404Z', '20240823T234805Z', '20240823T234421Z', '20240823T234438Z']:
+                    server = 'w'
             partner_path = make_temp_anon_aac_path(f"{server}/ia2_acsmpdf_files", aarecord['ia_record']['aa_ia_file']['aacid'], aarecord['ia_record']['aa_ia_file']['data_folder'])
             additional['torrent_paths'].append({ "collection": "ia", "torrent_path": f"managed_by_aa/annas_archive_data__aacid/{aarecord['ia_record']['aa_ia_file']['data_folder']}.torrent", "file_level1": aarecord['ia_record']['aa_ia_file']['aacid'], "file_level2": "" })
         else:
@@ -5869,7 +5892,7 @@ def get_additional_for_aarecord(aarecord):
     if (aarecord.get('aac_zlib3_book') is not None) and (aarecord['aac_zlib3_book']['file_aacid'] is not None):
         server = 'u'
         date = aarecord['aac_zlib3_book']['file_data_folder'].split('__')[3][0:8]
-        if date in ['20240807']:
+        if date in ['20240807', '20240823']:
             server = 'o'
         zlib_path = make_temp_anon_aac_path(f"{server}/zlib3_files", aarecord['aac_zlib3_book']['file_aacid'], aarecord['aac_zlib3_book']['file_data_folder'])
         add_partner_servers(zlib_path, 'aa_exclusive' if (len(additional['fast_partner_urls']) == 0) else '', aarecord, additional)

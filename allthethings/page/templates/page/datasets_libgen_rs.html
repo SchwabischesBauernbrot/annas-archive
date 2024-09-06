@@ -16,8 +16,14 @@
 
   <ul class="list-inside mb-4 ml-1">
     <li class="list-disc">{{ gettext('page.datasets.libgen_rs.story.dot_fun') }}</li>
-    <li class="list-disc">{{ gettext('page.datasets.libgen_rs.story.dot_rs') }}</li>
-    <li class="list-disc">{{ gettext('page.datasets.libgen_rs.story.dot_li', a_li=(dict(href="/datasets/libgen_li") | xmlattr), a_scihub=(dict(href="/datasets/scihub") | xmlattr)) }}</li>
+    <li class="list-disc">{{ gettext('page.datasets.libgen_rs.story.dot_rs') }}
+    <!-- TODO:TRANSLATE -->
+    Originally at “http://gen.lib.rus.ec”.
+    </li>
+    <li class="list-disc">{{ gettext('page.datasets.libgen_rs.story.dot_li', a_li=(dict(href="/datasets/libgen_li") | xmlattr), a_scihub=(dict(href="/datasets/scihub") | xmlattr)) }}
+    <!-- TODO:TRANSLATE -->
+    According to this <a href="https://forum.mhut.org/viewtopic.php?p=200772#p200772">forum post</a>, Libgen.li was originally hosted at “http://free-books.dontexist.com”.
+    </li>
     <li class="list-disc">{{ gettext('page.datasets.libgen_rs.story.zlib', a_zlib=(dict(href="/datasets/zlib") | xmlattr)) }}</li>
   </ul>
 
