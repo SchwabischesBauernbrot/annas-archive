@@ -1511,12 +1511,15 @@ def get_ol_book_dicts(session, key, values):
         return []
 
     with engine.connect() as conn:
-        ol_books = conn.execute(select(OlBase).where(OlBase.ol_key.in_([f"/books/{ol_edition}" for ol_edition in values]))).unique().all()
+        cursor = allthethings.utils.get_cursor_ping_conn(conn)
+
+        cursor.execute('SELECT DISTINCT * FROM ol_base WHERE ol_key IN %(ol_key)s', { 'ol_key': [f"/books/{ol_edition}" for ol_edition in values] })
+        ol_books = cursor.fetchall()
 
         ol_book_dicts = []
         for ol_book in ol_books:
             ol_book_dict = {
-                'ol_edition': ol_book.ol_key.replace('/books/', ''),
+                'ol_edition': ol_book['ol_key'].replace('/books/', ''),
                 'edition': dict(ol_book),
             }
             ol_book_dict['edition']['json'] = orjson.loads(ol_book_dict['edition']['json'])
@@ -1530,7 +1533,8 @@ def get_ol_book_dicts(session, key, values):
                 key = ol_book_dict['edition']['json']['works'][0]['key']
                 works_ol_keys.append(key)
         if len(works_ol_keys) > 0:
-            ol_works_by_key = {ol_work.ol_key: ol_work for ol_work in conn.execute(select(OlBase).where(OlBase.ol_key.in_(list(dict.fromkeys(works_ol_keys))))).all()}
+            cursor.execute('SELECT * FROM ol_base WHERE ol_key IN %(ol_key)s', { 'ol_key': list(dict.fromkeys(works_ol_keys)) })
+            ol_works_by_key = {ol_work['ol_key']: ol_work for ol_work in cursor.fetchall()}
             for ol_book_dict in ol_book_dicts:
                 ol_book_dict['work'] = None
                 if 'works' in ol_book_dict['edition']['json'] and len(ol_book_dict['edition']['json']['works']) > 0:
@@ -1559,17 +1563,19 @@ def get_ol_book_dicts(session, key, values):
 
         if len(author_keys) > 0:
             author_keys = list(dict.fromkeys(author_keys))
-            unredirected_ol_authors = {ol_author.ol_key: ol_author for ol_author in conn.execute(select(OlBase).where(OlBase.ol_key.in_(author_keys))).all()}
+            cursor.execute('SELECT * FROM ol_base WHERE ol_key IN %(ol_key)s', { 'ol_key': author_keys })
+            unredirected_ol_authors = {ol_author['ol_key']: ol_author for ol_author in cursor.fetchall()}
             author_redirect_mapping = {}
             for unredirected_ol_author in list(unredirected_ol_authors.values()):
-                if unredirected_ol_author.type == '/type/redirect':
+                if unredirected_ol_author['type'] == '/type/redirect':
                     json = orjson.loads(unredirected_ol_author.json)
                     if 'location' not in json:
                         continue
-                    author_redirect_mapping[unredirected_ol_author.ol_key] = json['location']
+                    author_redirect_mapping[unredirected_ol_author['ol_key']] = json['location']
             redirected_ol_authors = []
             if len(author_redirect_mapping) > 0:
-                redirected_ol_authors = {ol_author.ol_key: ol_author for ol_author in conn.execute(select(OlBase).where(OlBase.ol_key.in_([ol_key for ol_key in author_redirect_mapping.values() if ol_key not in author_keys]))).all()}
+                cursor.execute('SELECT * FROM ol_base WHERE ol_key IN %(ol_key)s', { 'ol_key': [ol_key for ol_key in author_redirect_mapping.values() if ol_key not in author_keys] })
+                redirected_ol_authors = {ol_author['ol_key']: ol_author for ol_author in cursor.fetchall()}
             for ol_book_dict in ol_book_dicts:
                 ol_authors = []
                 for author_ol_key in author_keys_by_ol_edition[ol_book_dict['ol_edition']]:
@@ -1582,13 +1588,13 @@ def get_ol_book_dicts(session, key, values):
                     elif author_ol_key in unredirected_ol_authors:
                         ol_authors.append(unredirected_ol_authors[author_ol_key])
                 for author in ol_authors:
-                    if author.type == '/type/redirect':
+                    if author['type'] == '/type/redirect':
                         # Yet another redirect.. this is too much for now, skipping.
                         continue
-                    if author.type == '/type/delete':
+                    if author['type'] == '/type/delete':
                         # Deleted, not sure how to handle this, skipping.
                         continue
-                    if author.type != '/type/author':
+                    if author['type'] != '/type/author':
                         print(f"Warning: found author without /type/author: {author}")
                         continue
                     author_dict = dict(author)
