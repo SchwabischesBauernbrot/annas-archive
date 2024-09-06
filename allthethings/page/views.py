@@ -1054,7 +1054,7 @@ def get_zlib_book_dicts(session, key, values):
     cursor = allthethings.utils.get_cursor_ping(session)
     zlib_books = []
     try:
-        cursor.execute('SELECT DISTINCT * FROM zlib_book WHERE zlibrary_id IN %(values)s', { 'values': values })
+        cursor.execute(f'SELECT DISTINCT * FROM zlib_book WHERE `{key}` IN %(values)s', { 'values': values })
         zlib_books = cursor.fetchall()
 
         ids = [str(book['zlibrary_id']) for book in zlib_books]
@@ -1270,10 +1270,10 @@ def get_ia_record_dicts(session, key, values):
             ia_entries = allthethings.utils.split_columns(ia_entries, column_count_query1)
             ia_entries2 = allthethings.utils.split_columns(ia_entries2, column_count_query2)
         else:
-            cursor.execute(base_query + 'WHERE m.ia_id IN %(values)s', { 'values': values })
+            cursor.execute(base_query + f'WHERE m.`{key}` IN %(values)s', { 'values': values })
             ia_entries = allthethings.utils.split_columns(list(cursor.fetchall()), column_count_query1)
 
-            cursor.execute(base_query2 + 'WHERE ia2r.primary_id IN %(values)s', { 'values': values })
+            cursor.execute(base_query2 + f'WHERE ia2r.{key} %(values)s', { 'values': values })
             ia_entries2 = allthethings.utils.split_columns(list(cursor.fetchall()), column_count_query2)
     except Exception as err:
         print(f"Error in get_ia_record_dicts when querying {key}; {values}")
@@ -1870,7 +1870,7 @@ def get_lgrsnf_book_dicts(session, key, values):
                        "LEFT JOIN libgenrs_description ld ON lu.MD5 = ld.md5 "
                        "LEFT JOIN libgenrs_hashes lh ON lu.MD5 = lh.md5 "
                        "LEFT JOIN libgenrs_topics lt ON lu.Topic = lt.topic_id "
-                       "WHERE lt.lang = 'en' AND lu.ID IN %(ids)s", { 'ids': values })
+                       f"WHERE lt.lang = 'en' AND lu.`{key}` IN %(ids)s", { 'ids': values })
         lgrsnf_books = cursor.fetchall()
     except Exception as err:
         print(f"Error in get_lgrsnf_book_dicts when querying {key}; {values}")
@@ -1944,7 +1944,7 @@ def get_lgrsfic_book_dicts(session, key, values):
                        'FROM libgenrs_fiction lf '
                        'LEFT JOIN libgenrs_fiction_description lfd ON lf.MD5 = lfd.MD5 '
                        'LEFT JOIN libgenrs_fiction_hashes lfh ON lf.MD5 = lfh.md5 '
-                       'WHERE lf.ID IN %(ids)s',
+                       f'WHERE lf.`{key}` IN %(ids)s',
                        { 'ids': values })
         lgrsfic_books = cursor.fetchall()
     except Exception as err:
