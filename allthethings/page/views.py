@@ -2088,6 +2088,104 @@ def lgli_map_descriptions(descriptions):
     return descrs_mapped
 
 
+def get_lgli_file_dicts_fetch_data(session, key, values):
+    """ Fetches all the needed data from the DB and emulates the SQLAlchemy normalized format
+    """
+
+    cursor = allthethings.utils.get_cursor_ping(session)
+    cursor.execute('SELECT * FROM libgenli_files ls '
+                   f'WHERE `{key}` IN %(values)s', # key is not controlled by the user, so it's fine to use fstrings here
+                   { 'values': values })
+    lgli_files_c = cursor.fetchall()
+    if len(lgli_files_c) > 0:
+        file_ids = [file['f_id'] for file in lgli_files_c]
+
+        # libgenli_files_add_descr 'selectin' join
+        cursor.execute('SELECT `key`, value, value_add1, value_add2, value_add3, f_id FROM libgenli_files_add_descr '
+                       'WHERE f_id IN %(file_ids)s',
+                       { 'file_ids': file_ids })
+        file_add_descr_rows = cursor.fetchall()
+        for file in lgli_files_c:
+            file['add_descrs'] = []
+            for add_descr in file_add_descr_rows:
+                if file['f_id'] == add_descr['f_id']:
+                    file['add_descrs'].append(add_descr)
+
+        # libgenli_editions 'selectin' join
+        # series.issn_add_descrs: (LibgenliSeries.s_id == LibgenliSeriesAddDescr.s_id) & (LibgenliSeriesAddDescr.key == 501)
+        cursor.execute(
+            'SELECT le.*, ls.title AS ls__title, ls.publisher AS ls__publisher, ls.volume AS ls__volume, ls.volume_name AS ls__volume_name, lsad.value AS lsad_value, lef.f_id AS editions_to_file_id '
+            'FROM libgenli_editions le '
+            'INNER JOIN libgenli_editions_to_files lef ON le.e_id = lef.e_id '
+            'LEFT JOIN libgenli_series ls ON ls.s_id = le.issue_s_id '
+            'LEFT JOIN libgenli_series_add_descr lsad ON ls.s_id = lsad.s_id '
+            'WHERE lef.f_id IN %(file_ids)s AND (lsad.`key` IS NULL OR lsad.`key` = 501)',
+            { 'file_ids': file_ids })
+        editions_rows = cursor.fetchall()
+        editions_ids = [edition['e_id'] for edition in editions_rows]
+
+        # no need to fetch editions' add_descr if no 'editions' were found
+        if len(editions_rows) <= 0:
+            editions_add_descr_rows = []
+        else:
+            # ligenli_editions_add_descr 'selectin' join
+            # relationship.primaryjoin: (remote(LibgenliEditionsAddDescr.value) == foreign(LibgenliPublishers.p_id)) & (LibgenliEditionsAddDescr.key == 308)
+            cursor.execute(
+                'SELECT lead.`key`, lead.value, lead.value_add1, lead.value_add2, lead.value_add3, lp.title as publisher_title, e_id '
+                'FROM libgenli_editions_add_descr `lead` '
+                'LEFT JOIN libgenli_publishers lp ON lp.p_id = `lead`.value '
+                'WHERE e_id IN %(editions_ids)s AND `lead`.key = 308',
+                { 'editions_ids': editions_ids })
+            editions_add_descr_rows = cursor.fetchall()
+        for edition in editions_rows:
+            edition['add_descrs'] = []
+            for e_add_descr in editions_add_descr_rows:
+                if edition['e_id'] == e_add_descr['e_id']:
+                    if len(e_add_descr['publisher_title']) > 0:
+                        e_add_descr['publisher'] = [
+                            {
+                                'title': e_add_descr['publisher_title']
+                            }
+                        ]
+                        del e_add_descr['publisher_title']
+                    edition['add_descrs'].append(e_add_descr)
+
+        # normalize all rows into dicts
+        for file_row in lgli_files_c:
+            for add_descr in file_row['add_descrs']:
+                # remove helper f_id field
+                add_descr.pop('f_id')
+
+            file_row['editions'] = []
+            for edition_row in editions_rows:
+                if edition_row['editions_to_file_id'] == file_row['f_id']:
+                    edition_row_copy = edition_row.copy()
+
+                    # make series into dict (assume one) if exists
+                    construct_series = False
+                    if edition_row_copy['ls__title'] is not None:
+                        edition_row_copy['series'] = {}
+                        construct_series = True
+                    else:
+                        edition_row_copy['series'] = None
+
+                    print(edition_row_copy)
+
+                    # looping through the original edition_row instance allows deleting keys from the copy during iteration
+                    for key in edition_row.keys():
+                        if key.startswith('ls__'):
+                            if construct_series:
+                                edition_row_copy['series'][key.replace('ls__', '')] = edition_row_copy[key]
+                            del edition_row_copy[key]
+                        elif key == 'lsad_value' and construct_series:
+                            edition_row_copy['series']['issn_add_descrs'] = [
+                                { 'value': edition_row_copy[key] }
+                            ]
+                            del edition_row_copy[key]
+
+                    file_row['editions'].append(edition_row_copy)
+    return lgli_files_c
+
 
 # See https://libgen.li/community/app.php/article/new-database-structure-published-o%CF%80y6%D0%BB%D0%B8%C4%B8o%D0%B2a%D0%BDa-%D0%BDo%D0%B2a%D1%8F-c%D1%82py%C4%B8%D1%82ypa-6a%D0%B7%C6%85i-%D0%B4a%D0%BD%D0%BD%C6%85ix
 def get_lgli_file_dicts(session, key, values):
@@ -2095,41 +2193,47 @@ def get_lgli_file_dicts(session, key, values):
         return []
 
     description_metadata = libgenli_elem_descr(session.connection())
-
-    lgli_files = session.scalars(
-        select(LibgenliFiles)
-            .where(getattr(LibgenliFiles, key).in_(values))
-            .options(
-                defaultload("add_descrs").load_only("key", "value", "value_add1", "value_add2", "value_add3"),
-                defaultload("editions.add_descrs").load_only("key", "value", "value_add1", "value_add2", "value_add3"),
-                defaultload("editions.series").load_only("title", "publisher", "volume", "volume_name"),
-                defaultload("editions.series.issn_add_descrs").load_only("value"),
-                defaultload("editions.add_descrs.publisher").load_only("title"),
-            )
-    ).all()
+    lgli_files = get_lgli_file_dicts_fetch_data(session, key, values)
 
     lgli_file_dicts = []
     for lgli_file in lgli_files:
-        lgli_file_dict = lgli_file.to_dict()
-        lgli_file_descriptions_dict = [{**descr.to_dict(), 'meta': description_metadata[descr.key]} for descr in lgli_file.add_descrs]
+        lgli_file_dict = lgli_file.copy() # originally: **lgli_file.to_dict()
+
+        # These would not be included in the SQLAlchemy to_dict()
+        # these fields were used to build the normalized (nested) dicts
+        del lgli_file_dict['add_descrs']
+        del lgli_file_dict['editions']
+
+        lgli_file_descriptions_dict = [{**descr, 'meta': description_metadata[descr['key']]} for descr in lgli_file['add_descrs']]
         lgli_file_dict['descriptions_mapped'] = lgli_map_descriptions(lgli_file_descriptions_dict)
         lgli_file_dict['editions'] = []
 
-        for edition in lgli_file.editions:
+        for edition in lgli_file['editions']:
             edition_dict = {
-                **edition.to_dict(),
-                'issue_series_title': edition.series.title if edition.series else '',
-                'issue_series_publisher': edition.series.publisher if edition.series else '',
-                'issue_series_volume_number': edition.series.volume if edition.series else '',
-                'issue_series_volume_name': edition.series.volume_name if edition.series else '',
-                'issue_series_issn': edition.series.issn_add_descrs[0].value if edition.series and edition.series.issn_add_descrs else '',
+                **edition, # originally: **edition.to_dict()
+                'issue_series_title': edition['series']['title'] if edition['series'] else '',
+                'issue_series_publisher': edition['series']['publisher'] if edition['series'] else '',
+                'issue_series_volume_number': edition['series']['volume'] if edition['series'] else '',
+                'issue_series_volume_name': edition['series']['volume_name'] if edition['series'] else '',
+                'issue_series_issn': edition['series']['issn_add_descrs'][0]['value'] if edition['series'] and edition['series']['issn_add_descrs'] else '',
             }
 
+            # for some reason issue_s_id was the first key when using SQLAlchemy
+            # this makes the 'issue_s_id' the first key - then the result can be tested simply by diffing two .json files/responses
+            edition_dict = { 'issue_s_id': edition_dict.pop('issue_s_id'), **edition_dict }
+
+            # These would not be included in the SQLAlchemy to_dict()
+            # these fields were used to build the normalized (nested) dicts
+            del edition_dict['add_descrs']
+            del edition_dict['series']
+            del edition_dict['editions_to_file_id']
+            del edition_dict['lsad_value']
+
             edition_dict['descriptions_mapped'] = lgli_map_descriptions({
-                **descr.to_dict(),
-                'meta': description_metadata[descr.key],
-                'publisher_title': descr.publisher[0].title if len(descr.publisher) > 0 else '',
-            } for descr in edition.add_descrs)
+                **descr,
+                'meta': description_metadata[descr['key']],
+                'publisher_title': descr['publisher'][0]['title'] if len(descr['publisher']) > 0 else '',
+            } for descr in edition['add_descrs'])
             edition_dict['authors_normalized'] = edition_dict['author'].strip()
             if len(edition_dict['authors_normalized']) == 0 and len(edition_dict['descriptions_mapped'].get('author') or []) > 0:
                 edition_dict['authors_normalized'] = ", ".join(author.strip() for author in edition_dict['descriptions_mapped']['author'])
