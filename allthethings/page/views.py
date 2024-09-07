@@ -2131,7 +2131,7 @@ def get_lgli_file_dicts_fetch_data(session, key, values):
             # ligenli_editions_add_descr 'selectin' join
             # relationship.primaryjoin: (remote(LibgenliEditionsAddDescr.value) == foreign(LibgenliPublishers.p_id)) & (LibgenliEditionsAddDescr.key == 308)
             cursor.execute(
-                'SELECT lead.`key`, lead.value, lead.value_add1, lead.value_add2, lead.value_add3, lp.title as publisher_title, e_id '
+                'SELECT `lead`.`key`, `lead`.value, `lead`.value_add1, `lead`.value_add2, `lead`.value_add3, lp.title as publisher_title, e_id '
                 'FROM libgenli_editions_add_descr `lead` '
                 'LEFT JOIN libgenli_publishers lp ON lp.p_id = `lead`.value '
                 'WHERE e_id IN %(editions_ids)s AND `lead`.key = 308',
