@@ -1054,7 +1054,7 @@ def get_zlib_book_dicts(session, key, values):
     cursor = allthethings.utils.get_cursor_ping(session)
     zlib_books = []
     try:
-        cursor.execute(f'SELECT DISTINCT * FROM zlib_book WHERE `{key}` IN %(values)s', { 'values': values })
+        cursor.execute(f'SELECT * FROM zlib_book WHERE `{key}` IN %(values)s', { 'values': values })
         zlib_books = cursor.fetchall()
 
         ids = [str(book['zlibrary_id']) for book in zlib_books]
@@ -1242,10 +1242,10 @@ def get_ia_record_dicts(session, key, values):
     ia_entries2 = []
     cursor = allthethings.utils.get_cursor_ping(session)
     try:
-        base_query = ('SELECT DISTINCT m.*, f.*, ia2f.* FROM aa_ia_2023_06_metadata m '
+        base_query = ('SELECT m.*, f.*, ia2f.* FROM aa_ia_2023_06_metadata m '
                           'LEFT JOIN aa_ia_2023_06_files f USING(ia_id) '
                           'LEFT JOIN annas_archive_meta__aacid__ia2_acsmpdf_files ia2f ON m.ia_id = ia2f.primary_id ')
-        base_query2 = ('SELECT DISTINCT ia2r.*, f.*, ia2f.* FROM annas_archive_meta__aacid__ia2_records ia2r '
+        base_query2 = ('SELECT ia2r.*, f.*, ia2f.* FROM annas_archive_meta__aacid__ia2_records ia2r '
                            'LEFT JOIN aa_ia_2023_06_files f ON f.ia_id = ia2r.primary_id '
                            'LEFT JOIN annas_archive_meta__aacid__ia2_acsmpdf_files ia2f USING (primary_id) ')
         column_count_query1 = [4, 4, 5] # aa_ia_2023_06_metadata, aa_ia_2023_06_files, annas_archive_meta__aacid__ia2_acsmpdf_files
@@ -1513,7 +1513,7 @@ def get_ol_book_dicts(session, key, values):
     with engine.connect() as conn:
         cursor = allthethings.utils.get_cursor_ping_conn(conn)
 
-        cursor.execute('SELECT DISTINCT * FROM ol_base WHERE ol_key IN %(ol_key)s', { 'ol_key': [f"/books/{ol_edition}" for ol_edition in values] })
+        cursor.execute('SELECT * FROM ol_base WHERE ol_key IN %(ol_key)s', { 'ol_key': [f"/books/{ol_edition}" for ol_edition in values] })
         ol_books = cursor.fetchall()
 
         ol_book_dicts = []
