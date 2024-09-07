@@ -10,11 +10,11 @@ import urllib
 import pymysql
 
 from flask import Blueprint, request, g, render_template, make_response, redirect
-from sqlalchemy import select, text
+from sqlalchemy import text
 from sqlalchemy.orm import Session
 from flask_babel import gettext, force_locale, get_locale
 
-from allthethings.extensions import mariapersist_engine, MariapersistAccounts, MariapersistDownloads, MariapersistLists, MariapersistListEntries, MariapersistDonations, MariapersistFastDownloadAccess
+from allthethings.extensions import mariapersist_engine
 from allthethings.page.views import get_aarecords_elasticsearch
 from config.settings import SECRET_KEY, PAYMENT1_ID, PAYMENT1_KEY, PAYMENT1B_ID, PAYMENT1B_KEY
 

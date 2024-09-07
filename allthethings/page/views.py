@@ -25,9 +25,9 @@ import unicodedata
 # import openai
 
 from flask import g, Blueprint, render_template, make_response, redirect, request
-from allthethings.extensions import engine, es, es_aux, mariapersist_engine, ZlibBook, IsbndbIsbns, LibgenliElemDescr, LibgenliFiles, LibgenrsDescription, LibgenrsFiction, LibgenrsFictionDescription, LibgenrsFictionHashes, LibgenrsHashes, LibgenrsTopics, LibgenrsUpdated, OlBase, AaIa202306Metadata, AaIa202306Files, Ia2Records, Ia2AcsmpdfFiles
-from sqlalchemy import select, text
-from sqlalchemy.orm import defaultload, Session
+from allthethings.extensions import engine, es, es_aux, mariapersist_engine
+from sqlalchemy import text
+from sqlalchemy.orm import Session
 from flask_babel import gettext, force_locale, get_locale
 from config.settings import AA_EMAIL, DOWNLOADS_SECRET_KEY, AACID_SMALL_DATA_IMPORTS
 
