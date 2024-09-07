@@ -2452,12 +2452,15 @@ def get_isbndb_dicts(session, canonical_isbn13s):
         return []
 
     isbndb13_grouped = collections.defaultdict(list)
-    for row in session.connection().execute(select(IsbndbIsbns).where(IsbndbIsbns.isbn13.in_(canonical_isbn13s))).all():
+    cursor = allthethings.utils.get_cursor_ping(session)
+    cursor.execute('SELECT * FROM isbndb_isbns WHERE isbn13 IN %(canonical_isbn13s)s', { 'canonical_isbn13s': canonical_isbn13s })
+    for row in cursor.fetchall():
         isbndb13_grouped[row['isbn13']].append(row)
     isbndb10_grouped = collections.defaultdict(list)
     isbn10s = list(filter(lambda x: x is not None, [isbnlib.to_isbn10(isbn13) for isbn13 in canonical_isbn13s]))
     if len(isbn10s) > 0:
-        for row in session.connection().execute(select(IsbndbIsbns).where(IsbndbIsbns.isbn10.in_(isbn10s))).all():
+        cursor.execute('SELECT * FROM isbndb_isbns WHERE isbn10 IN %(isbn10s)s', { 'isbn10s': isbn10s })
+        for row in cursor.fetchall():
             # ISBNdb has a bug where they just chop off the prefix of ISBN-13, which is incorrect if the prefix is anything
             # besides "978"; so we double-check on this.
             if row['isbn13'][0:3] == '978':
