@@ -18,11 +18,11 @@ import random
 
 from flask import Blueprint, request, g, make_response, render_template, send_file
 from flask_cors import cross_origin
-from sqlalchemy import select, text
+from sqlalchemy import text
 from sqlalchemy.orm import Session
 from flask_babel import gettext, get_locale
 
-from allthethings.extensions import es, engine, mariapersist_engine, MariapersistDownloadsHourly, MariapersistSmallFiles
+from allthethings.extensions import es, engine, mariapersist_engine
 from config.settings import PAYMENT1_KEY, PAYMENT1B_KEY, PAYMENT2_URL, PAYMENT2_API_KEY, PAYMENT2_PROXIES, PAYMENT2_HMAC, PAYMENT2_SIG_HEADER, GC_NOTIFY_SIG, HOODPAY_URL, HOODPAY_AUTH, PAYMENT3_DOMAIN, PAYMENT3_KEY
 from allthethings.page.views import get_aarecords_elasticsearch, ES_TIMEOUT_PRIMARY, get_torrents_data
 
