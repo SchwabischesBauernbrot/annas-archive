@@ -1017,7 +1017,7 @@ UNIFIED_CLASSIFICATIONS = {
     "year": { "label": "Year", "description": "Publication year." },
     "duxiu_filegen": { "label": "DuXiu File Generated", "website": "/datasets/duxiu", "description": "Date Anna’s Archive generated the file in the DuXiu collection." },
     "duxiu_meta_scrape": { "label": "DuXiu Source Scrape Date", "website": "/datasets/duxiu", "description": "Date we scraped the DuXiu collection." },
-    "file_created_date": { "label": "File Exiftool Created Date", "website": "/datasets/uploads", "description": "Date of creation from the file’s own metadata." },
+    "file_created_date": { "label": "File Exiftool Created Date", "website": "/datasets/upload", "description": "Date of creation from the file’s own metadata." },
     "ia_file_scrape": { "label": "IA File Scraped", "website": "/datasets/ia", "description": "Date Anna’s Archive scraped the file from the Internet Archive." },
     "ia_source": { "label": "IA 'publicdate' Date", "website": "/datasets/ia", "description": "The 'publicdate' metadata field on the Internet Archive website, which usually indicates when they published the file, usually shortly after scanning." },
     "isbndb_scrape": { "label": "ISBNdb Scrape Date", "website": "/datasets/isbndb", "description": "The date that Anna’s Archive scraped this ISBNdb record." },

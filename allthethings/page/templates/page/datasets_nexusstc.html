@@ -1,13 +1,48 @@
 {% extends "layouts/index.html" %}
 {% import 'macros/shared_links.j2' as a %}
 
-{% block title %}{{ gettext('page.datasets.title') }}{% endblock %}
+{% block title %}{{ gettext('page.datasets.title') }} ▶ Nexus/STC{% endblock %}
 
 {% block body %}
   <div class="mb-4"><a href="/datasets">{{ gettext('page.datasets.title') }}</a> ▶ Nexus/STC</div>
 
   <div class="mb-4 p-2 overflow-hidden bg-black/5 break-words">
     {{ gettext('page.datasets.common.intro', a_archival=(a.faqs_what | xmlattr), a_llm=(a.llm | xmlattr)) }}
+  </div>
+
+  <div class="mb-4 p-2 overflow-hidden bg-black/5 break-words">
+    <div class="text-xs mb-2">Overview from <a href="/datasets">datasets page</a>.</div>
+    <table class="w-full mx-[-8px]">
+      <tr class="even:bg-[#f2f2f2]">
+        <th class="p-2 align-bottom text-left" width="20%">{{ gettext('page.datasets.sources.source.header') }}</th>
+        <th class="p-2 align-bottom text-left" width="40%">{{ gettext('page.datasets.sources.metadata.header') }}</th>
+        <th class="p-2 align-bottom text-left" width="40%">{{ gettext('page.datasets.sources.files.header') }}</th>
+      </tr>
+
+      <tr class="even:bg-[#f2f2f2]">
+        <td class="p-2 align-top">
+          <a class="custom-a underline hover:opacity-60" href="/datasets/nexusstc">
+            Nexus/STC
+          </a>
+        </td>
+        <td class="p-2 align-top">
+          <div class="my-2 first:mt-0 last:mb-0">
+            ✅ Summa database available through IPFS, though can be slow to download or directly interact with.
+          </div>
+          <div class="my-2 first:mt-0 last:mb-0">
+            👩‍💻 Anna’s Archive manages a collection of <a href="/torrents#nexusstc">Nexus/STC metadata</a>, through <a href="https://software.annas-archive.se/john/stc-dump">this code</a>.
+          </div>
+        </td>
+        <td class="p-2 align-top">
+          <div class="my-2 first:mt-0 last:mb-0">
+            ✅ Data can be <a href="https://libstc.cc/#/help/replication">replicated through Iroh</a>.
+          </div>
+          <div class="my-2 first:mt-0 last:mb-0">
+            ❌ No mirroring by Anna’s Archive or partner servers yet.
+          </div>
+        </td>
+      </tr>
+    </table>
   </div>
 
   <p class="mb-4">

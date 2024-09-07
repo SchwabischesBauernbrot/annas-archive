@@ -704,6 +704,11 @@ def datasets_duxiu_page():
             return "Error with datasets page, please try again.", 503
         raise
 
+@page.get("/datasets/uploads")
+@allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
+def datasets_uploads_page():
+    return redirect(f"/datasets/upload", code=302)
+
 @page.get("/datasets/upload")
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
 def datasets_upload_page():
