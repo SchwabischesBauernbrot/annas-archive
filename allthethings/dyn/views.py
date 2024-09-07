@@ -288,10 +288,15 @@ def downloads_stats_total():
     with mariapersist_engine.connect() as mariapersist_conn:
         hour_now = int(time.time() / 3600)
         hour_week_ago = hour_now - 24*31
-        timeseries = mariapersist_conn.execute(select(MariapersistDownloadsHourly.hour_since_epoch, MariapersistDownloadsHourly.count).where(MariapersistDownloadsHourly.hour_since_epoch >= hour_week_ago).limit(hour_week_ago+1)).all()
+        cursor = allthethings.utils.get_cursor_ping_conn(mariapersist_conn)
+        cursor.execute('SELECT hour_since_epoch, count FROM mariapersist_downloads_hourly '
+                       'WHERE hour_since_epoch >= %(hour_week_ago)s '#
+                       'LIMIT %(limit)s',
+                       { 'hour_week_ago': hour_week_ago, 'limit': hour_week_ago + 1 })
+        timeseries = cursor.fetchall()
         timeseries_by_hour = {}
         for t in timeseries:
-            timeseries_by_hour[t.hour_since_epoch] = t.count
+            timeseries_by_hour[t['hour_since_epoch']] = t['count']
         timeseries_x = list(range(hour_week_ago, hour_now))
         timeseries_y = [timeseries_by_hour.get(x, 0) for x in timeseries_x]
         return orjson.dumps({ "timeseries_x": timeseries_x, "timeseries_y": timeseries_y })
