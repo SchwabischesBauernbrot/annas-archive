@@ -249,11 +249,13 @@ def torrents_latest_aac_page(collection):
 @allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
 def small_file_page(file_path):
     with mariapersist_engine.connect() as connection:
-        connection.connection.ping(reconnect=True)
-        file = connection.execute(select(MariapersistSmallFiles.data).where(MariapersistSmallFiles.file_path == file_path).limit(10000)).first()
+        cursor = allthethings.utils.get_cursor_ping_conn(connection)
+        # SQLAlchemy query originally had LIMIT 10000, but was fetching only the first row (.first())??
+        cursor.execute('SELECT data FROM mariapersist_small_files WHERE file_path = %(file_path)s LIMIT 1', { 'file_path': file_path })
+        file = cursor.fetchone()
         if file is None:
             return "File not found", 404
-        return send_file(io.BytesIO(file.data), as_attachment=True, download_name=file_path.split('/')[-1])
+        return send_file(io.BytesIO(file['data']), as_attachment=True, download_name=file_path.split('/')[-1])
 
 @dyn.post("/downloads/increment/<string:md5_input>")
 @allthethings.utils.no_cache()
