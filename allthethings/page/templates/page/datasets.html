@@ -175,6 +175,40 @@
       </td>
     </tr>
 
+    <tr class="even:bg-[#f2f2f2]">
+      <td class="p-2 align-top">
+        <!-- TODO:TRANSLATE -->
+        <a class="custom-a underline hover:opacity-60" href="/datasets/magzdb">MagzDB</a>
+      </td>
+      <td class="p-2 align-top">
+        {{ ngettext('page.datasets.file', 'page.datasets.files', stats_data.stats_by_group.magzdb.count, count=(stats_data.stats_by_group.magzdb.count|numberformat)) }}<br>
+        {{ stats_data.stats_by_group.magzdb.filesize | filesizeformat }}
+      </td>
+      <td class="p-2 align-top whitespace-nowrap">
+        {{ (stats_data.stats_by_group.magzdb.aa_count/(stats_data.stats_by_group.magzdb.count+1)*100.0) | decimalformat }}% / {{ (stats_data.stats_by_group.magzdb.torrent_count/(stats_data.stats_by_group.magzdb.count+1)*100.0) | decimalformat }}%
+      </td>
+      <td class="p-2 align-top whitespace-nowrap">
+        {{ stats_data.magzdb_date }}
+      </td>
+    </tr>
+
+    <tr class="even:bg-[#f2f2f2]">
+      <td class="p-2 align-top">
+        <!-- TODO:TRANSLATE -->
+        <a class="custom-a underline hover:opacity-60" href="/datasets/nexusstc">Nexus/STC</a>
+      </td>
+      <td class="p-2 align-top">
+        {{ ngettext('page.datasets.file', 'page.datasets.files', stats_data.stats_by_group.nexusstc.count, count=(stats_data.stats_by_group.nexusstc.count|numberformat)) }}<br>
+        {{ stats_data.stats_by_group.nexusstc.filesize | filesizeformat }}
+      </td>
+      <td class="p-2 align-top whitespace-nowrap">
+        {{ (stats_data.stats_by_group.nexusstc.aa_count/(stats_data.stats_by_group.nexusstc.count+1)*100.0) | decimalformat }}% / {{ (stats_data.stats_by_group.nexusstc.torrent_count/(stats_data.stats_by_group.nexusstc.count+1)*100.0) | decimalformat }}%
+      </td>
+      <td class="p-2 align-top whitespace-nowrap">
+        {{ stats_data.nexusstc_date }}
+      </td>
+    </tr>
+
     <tr class="even:bg-[#f2f2f2] font-bold">
       <td class="p-2 align-top">
         {{ gettext('page.datasets.overview.total') }}
@@ -403,6 +437,60 @@
       <td class="p-2 align-top" colspan="2">
         <div class="my-2 first:mt-0 last:mb-0">
           {{ gettext('page.datasets.sources.uploads.metadata_and_files', icon='') }}
+        </div>
+      </td>
+    </tr>
+
+    <tr class="even:bg-[#f2f2f2]">
+      <td class="p-2 align-top">
+        <a class="custom-a underline hover:opacity-60" href="/datasets/magzdb">
+          MagzDB
+        </a>
+      </td>
+      <td class="p-2 align-top">
+        <div class="my-2 first:mt-0 last:mb-0">
+          ❌ Appears defunct since July 2023.
+        </div>
+        <div class="my-2 first:mt-0 last:mb-0">
+          ❌ No easily accessible metadata dumps available for their entire collection.
+        </div>
+        <div class="my-2 first:mt-0 last:mb-0">
+          👩‍💻 Anna’s Archive manages a collection of <a href="/torrents#magzdb">MagzDB metadata</a>.
+        </div>
+      </td>
+      <td class="p-2 align-top">
+        <div class="my-2 first:mt-0 last:mb-0">
+          ✅ Since MagzDB was a fork from Libgen.li magazines, a large part is covered by <a href="/torrents#libgen_li_magazines">those torrents</a>.
+        </div>
+        <div class="my-2 first:mt-0 last:mb-0">
+          ❌ No official torrents from MagzDB for their unique files.
+        </div>
+        <div class="my-2 first:mt-0 last:mb-0">
+          👩‍💻 Anna’s Archive manages a collection of magzdb files as part of our <a href="/datasets/upload">upload collection</a> (the ones with “magzdb” in the filename).
+        </div>
+      </td>
+    </tr>
+
+    <tr class="even:bg-[#f2f2f2]">
+      <td class="p-2 align-top">
+        <a class="custom-a underline hover:opacity-60" href="/datasets/nexusstc">
+          Nexus/STC
+        </a>
+      </td>
+      <td class="p-2 align-top">
+        <div class="my-2 first:mt-0 last:mb-0">
+          ✅ Summa database available through IPFS, though can be slow to download or directly interact with.
+        </div>
+        <div class="my-2 first:mt-0 last:mb-0">
+          👩‍💻 Anna’s Archive manages a collection of <a href="/torrents#nexusstc">Nexus/STC metadata</a>, through <a href="https://software.annas-archive.se/john/stc-dump">this code</a>.
+        </div>
+      </td>
+      <td class="p-2 align-top">
+        <div class="my-2 first:mt-0 last:mb-0">
+          ✅ Data can be <a href="https://libstc.cc/#/help/replication">replicated through Iroh</a>.
+        </div>
+        <div class="my-2 first:mt-0 last:mb-0">
+          ❌ No mirroring by Anna’s Archive or partner servers yet.
         </div>
       </td>
     </tr>

@@ -389,6 +389,11 @@ def get_stats_data():
         upload_file_date_raw = upload_file_aacid.split('__')[2][0:8]
         upload_file_date = f"{upload_file_date_raw[0:4]}-{upload_file_date_raw[4:6]}-{upload_file_date_raw[6:8]}"
 
+        cursor.execute('SELECT aacid FROM annas_archive_meta__aacid__nexusstc_records ORDER BY aacid DESC LIMIT 1')
+        nexusstc_aacid = cursor.fetchone()['aacid']
+        nexusstc_date_raw = nexusstc_aacid.split('__')[2][0:8]
+        nexusstc_date = f"{nexusstc_date_raw[0:4]}-{nexusstc_date_raw[4:6]}-{nexusstc_date_raw[6:8]}"
+
         stats_data_es = dict(es.msearch(
             request_timeout=30,
             max_concurrent_searches=10,
@@ -525,6 +530,7 @@ def get_stats_data():
         'isbn_country_date': '2022-02-11',
         'oclc_date': '2023-10-01',
         'magzdb_date': '2024-07-29',
+        'nexusstc_date': nexusstc_date,
     }
 
 def torrent_group_data_from_file_path(file_path):
@@ -792,6 +798,17 @@ def datasets_magzdb_page():
     try:
         stats_data = get_stats_data()
         return render_template("page/datasets_magzdb.html", header_active="home/datasets", stats_data=stats_data)
+    except Exception as e:
+        if 'timed out' in str(e):
+            return "Error with datasets page, please try again.", 503
+        raise
+
+@page.get("/datasets/nexusstc")
+@allthethings.utils.public_cache(minutes=5, cloudflare_minutes=60*3)
+def datasets_nexusstc_page():
+    try:
+        stats_data = get_stats_data()
+        return render_template("page/datasets_nexusstc.html", header_active="home/datasets", stats_data=stats_data)
     except Exception as e:
         if 'timed out' in str(e):
             return "Error with datasets page, please try again.", 503

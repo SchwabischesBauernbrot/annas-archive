@@ -11,19 +11,15 @@
   </div>
 
   <p class="mb-4">
-    Scrape of <a rel="noopener noreferrer nofollow" target="_blank" href="https://magzdb.org/">magzdb.org</a>, an ally of Library Genesis (it’s linked on the libgen.rs homepage) but who didn’t want to provide their files directly.
+    Scrape of <a rel="noopener noreferrer nofollow" target="_blank" href="https://magzdb.org/">magzdb.org</a>, an ally of Library Genesis (it’s linked on the libgen.rs homepage) but who didn’t want to provide their files directly. Seems to be defunct, with the <a href="http://magzdb.org/j/new">last new files uploaded</a> in July 2023 (at the time of writing in September 2024).
   </p>
 
   <p class="mb-4">
-    The content files were obtained by volunteer “p” in late 2023, and has been released as part of the <a href="/datasets/upload">upload collection</a>.
+    According to this <a href="https://forum.mhut.org/viewtopic.php?p=200772#p200772">forum post</a>, MagzDB started in 2012 as a fork of the magazines section of <a href="/datasets/libgen_li">Libgen.li</a> (then “http://free-books.dontexist.com”), and then grew its own collection on top of that. In the same forum thread it is <a href="https://forum.mhut.org/viewtopic.php?p=200945#p200945">mentioned</a> that <a href="https://booktracker.org/viewforum.php?f=1186">this</a> is the original forum for MagzDB.
   </p>
 
   <p class="mb-4">
-    Metadata was scraped by volunteer “ptfall” (for <a href="https://software.annas-archive.se/AnnaArchivist/annas-archive/-/issues/190">this bounty</a>), and has been released on the <a href="/torrents/magzdb">magzdb torrents page</a>, in the <a href="https://annas-archive.se/blog/annas-archive-containers.html">Anna’s Archive Containers format</a>.
-  </p>
-
-  <p class="mb-4">
-    According to this <a href="https://forum.mhut.org/viewtopic.php?p=200772#p200772">forum post</a>, MagzDB started as a fork of the magazines section of <a href="/datasets/libgen_li">Libgen.li</a> (then “http://free-books.dontexist.com”), and then grew its own collection on top of that. In the same forum thread it is <a href="https://forum.mhut.org/viewtopic.php?p=200945#p200945">mentioned</a> that <a href="https://booktracker.org/viewforum.php?f=1186">this</a> is the original forum for MagzDB.
+    The content files were obtained by volunteer “p” in late 2023, and has been released as part of the <a href="/datasets/upload">upload collection</a> (the ones with “magzdb” in the filename). Metadata was scraped by volunteer “ptfall” in July 2024 (for <a href="https://software.annas-archive.se/AnnaArchivist/annas-archive/-/issues/190">this bounty</a>), and has been released on the <a href="/torrents/magzdb">magzdb torrents page</a>, in the <a href="https://annas-archive.se/blog/annas-archive-containers.html">Anna’s Archive Containers format</a>.
   </p>
 
   <p class="font-bold">{{ gettext('page.datasets.common.resources') }}</p>
@@ -32,7 +28,7 @@
     <li class="list-disc">{{ gettext('page.datasets.common.total_filesize', size=(stats_data.stats_by_group.magzdb.filesize | filesizeformat)) }}</li>
     <li class="list-disc">{{ gettext('page.datasets.common.mirrored_file_count', count=(stats_data.stats_by_group.magzdb.aa_count | numberformat), percent=((stats_data.stats_by_group.magzdb.aa_count/stats_data.stats_by_group.magzdb.count*100.0) | decimalformat)) }}</li>
     <li class="list-disc">{{ gettext('page.datasets.common.last_updated', date=stats_data.magzdb_date) }}</li>
-    <li class="list-disc"><a href="/torrents#upload">Metadata torrents by Anna’s Archive</a></li>
+    <li class="list-disc"><a href="/torrents#magzdb">Metadata torrents by Anna’s Archive</a></li>
     <li class="list-disc"><a href="/torrents#upload">Content torrents by Anna’s Archive (the ones with “magzdb” in the filename)</a></li>
     <li class="list-disc"><a href="/db/aac_magzdb/3810648.json">Example record on Anna’s Archive (AAC format)</a></li>
     <li class="list-disc"><a href="/magzdb/3810648">Example record on Anna’s Archive (full page)</a></li>
