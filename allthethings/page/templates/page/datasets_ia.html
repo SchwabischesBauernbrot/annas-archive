@@ -71,7 +71,7 @@
   <ul class="list-inside mb-4 ml-1">
     <li class="list-disc">{{ gettext('page.datasets.common.total_files', count=(stats_data.stats_by_group.ia.count | numberformat)) }}</li>
     <li class="list-disc">{{ gettext('page.datasets.common.total_filesize', size=(stats_data.stats_by_group.ia.filesize | filesizeformat)) }}</li>
-    <li class="list-disc">{{ gettext('page.datasets.common.mirrored_file_count', count=(stats_data.stats_by_group.ia.aa_count | numberformat), percent=((stats_data.stats_by_group.ia.aa_count/stats_data.stats_by_group.ia.count*100.0) | decimalformat)) }}</li>
+    <li class="list-disc">{{ gettext('page.datasets.common.mirrored_file_count', count=(stats_data.stats_by_group.ia.aa_count | numberformat), percent=((stats_data.stats_by_group.ia.aa_count/(stats_data.stats_by_group.ia.count+1)*100.0) | decimalformat)) }}</li>
     <li class="list-disc">{{ gettext('page.datasets.common.last_updated', date=stats_data.ia_date) }}</li>
     <li class="list-disc"><a href="/torrents#ia">{{ gettext('page.datasets.common.aa_torrents') }}</a></li>
     <li class="list-disc"><a href="/db/ia/100insightslesso0000maie.json">{{ gettext('page.datasets.common.aa_example_record') }}</a></li>

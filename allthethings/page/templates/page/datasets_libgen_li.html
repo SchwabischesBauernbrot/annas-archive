@@ -89,7 +89,7 @@
   <ul class="list-inside mb-4 ml-1">
     <li class="list-disc">{{ gettext('page.datasets.common.total_files', count=(stats_data.stats_by_group.lgli.count | numberformat)) }}</li>
     <li class="list-disc">{{ gettext('page.datasets.common.total_filesize', size=(stats_data.stats_by_group.lgli.filesize | filesizeformat)) }}</li>
-    <li class="list-disc">{{ gettext('page.datasets.common.mirrored_file_count', count=(stats_data.stats_by_group.lgli.aa_count | numberformat), percent=((stats_data.stats_by_group.lgli.aa_count/stats_data.stats_by_group.lgli.count*100.0) | decimalformat)) }}</li>
+    <li class="list-disc">{{ gettext('page.datasets.common.mirrored_file_count', count=(stats_data.stats_by_group.lgli.aa_count | numberformat), percent=((stats_data.stats_by_group.lgli.aa_count/(stats_data.stats_by_group.lgli.count+1)*100.0) | decimalformat)) }}</li>
     <li class="list-disc">{{ gettext('page.datasets.common.last_updated', date=stats_data.libgenli_date) }}</li>
     <li class="list-disc"><a href="/torrents#libgen_li_fic">{{ gettext('page.datasets.libgen_li.fiction_torrents') }}</a></li>
     <li class="list-disc"><a href="/torrents#libgen_li_comics">{{ gettext('page.datasets.libgen_li.comics_torrents') }}</a></li>

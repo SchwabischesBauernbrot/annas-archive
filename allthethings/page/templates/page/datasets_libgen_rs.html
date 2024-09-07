@@ -82,7 +82,7 @@
   <ul class="list-inside mb-4 ml-1">
     <li class="list-disc">{{ gettext('page.datasets.common.total_files', count=(stats_data.stats_by_group.lgrs.count | numberformat)) }}</li>
     <li class="list-disc">{{ gettext('page.datasets.common.total_filesize', size=(stats_data.stats_by_group.lgrs.filesize | filesizeformat)) }}</li>
-    <li class="list-disc">{{ gettext('page.datasets.common.mirrored_file_count', count=(stats_data.stats_by_group.lgrs.aa_count | numberformat), percent=((stats_data.stats_by_group.lgrs.aa_count/stats_data.stats_by_group.lgrs.count*100.0) | decimalformat)) }}</li>
+    <li class="list-disc">{{ gettext('page.datasets.common.mirrored_file_count', count=(stats_data.stats_by_group.lgrs.aa_count | numberformat), percent=((stats_data.stats_by_group.lgrs.aa_count/(stats_data.stats_by_group.lgrs.count+1)*100.0) | decimalformat)) }}</li>
     <li class="list-disc">{{ gettext('page.datasets.common.last_updated', date=stats_data.libgenrs_date) }}</li>
     
     <li class="list-disc"><a href="/torrents#libgen_rs_non_fic">{{ gettext('page.datasets.libgen_rs.nonfiction_torrents') }}</a></li>

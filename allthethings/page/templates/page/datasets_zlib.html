@@ -56,11 +56,26 @@
     <li class="list-disc">{{ gettext('page.datasets.zlib.description.three_parts.third_and_incremental', title=('<strong>zlib3</strong>' | safe), a_href=(dict(href="https://annas-archive.se/blog/annas-archive-containers.html") | xmlattr)) }}</li>
   </ul>
 
+  <p class="mb-4">
+    {{ gettext('page.datasets.zlibzh.searchable') }}
+  </p>
+
   <p class="font-bold">{{ gettext('page.datasets.common.resources') }}</p>
   <ul class="list-inside mb-4 ml-1">
-    <li class="list-disc">{{ gettext('page.datasets.common.total_files', count=(stats_data.stats_by_group.zlib.count | numberformat)) }}</li>
-    <li class="list-disc">{{ gettext('page.datasets.common.total_filesize', size=(stats_data.stats_by_group.zlib.filesize | filesizeformat)) }}</li>
-    <li class="list-disc">{{ gettext('page.datasets.common.mirrored_file_count', count=(stats_data.stats_by_group.zlib.aa_count | numberformat), percent=((stats_data.stats_by_group.zlib.aa_count/stats_data.stats_by_group.zlib.count*100.0) | decimalformat)) }}</li>
+    <li class="list-disc">Main collection
+      <ul class="list-inside ml-4">
+        <li class="list-disc">{{ gettext('page.datasets.common.total_files', count=(stats_data.stats_by_group.zlib.count | numberformat)) }}</li>
+        <li class="list-disc">{{ gettext('page.datasets.common.total_filesize', size=(stats_data.stats_by_group.zlib.filesize | filesizeformat)) }}</li>
+        <li class="list-disc">{{ gettext('page.datasets.common.mirrored_file_count', count=(stats_data.stats_by_group.zlib.aa_count | numberformat), percent=((stats_data.stats_by_group.zlib.aa_count/(stats_data.stats_by_group.zlib.count+1)*100.0) | decimalformat)) }}</li>
+      </ul>
+    </li>
+    <li class="list-disc">Chinese collection
+      <ul class="list-inside ml-4">
+        <li class="list-disc">{{ gettext('page.datasets.common.total_files', count=(stats_data.stats_by_group.zlibzh.count | numberformat)) }}</li>
+        <li class="list-disc">{{ gettext('page.datasets.common.total_filesize', size=(stats_data.stats_by_group.zlibzh.filesize | filesizeformat)) }}</li>
+        <li class="list-disc">{{ gettext('page.datasets.common.mirrored_file_count', count=(stats_data.stats_by_group.zlibzh.aa_count | numberformat), percent=((stats_data.stats_by_group.zlibzh.aa_count/(stats_data.stats_by_group.zlibzh.count+1)*100.0) | decimalformat)) }}</li>
+      </ul>
+    </li>
     <li class="list-disc">{{ gettext('page.datasets.common.last_updated', date=stats_data.zlib_date) }}</li>
     <li class="list-disc"><a href="/torrents#zlib">{{ gettext('page.datasets.zlib.aa_torrents') }}</a></li>
     <li class="list-disc"><a href="/db/zlib/1837947.json">{{ gettext('page.datasets.zlib.aa_example_record.original') }}</a></li>

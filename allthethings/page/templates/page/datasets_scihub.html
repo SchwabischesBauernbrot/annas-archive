@@ -91,7 +91,7 @@
   <ul class="list-inside mb-4 ml-1">
     <li class="list-disc">{{ gettext('page.datasets.common.total_files', count=(stats_data.stats_by_group.journals.count | numberformat)) }}</li>
     <li class="list-disc">{{ gettext('page.datasets.common.total_filesize', size=(stats_data.stats_by_group.journals.filesize | filesizeformat)) }}</li>
-    <li class="list-disc">{{ gettext('page.datasets.common.mirrored_file_count', count=(stats_data.stats_by_group.journals.aa_count | numberformat), percent=((stats_data.stats_by_group.journals.aa_count/stats_data.stats_by_group.journals.count*100.0) | decimalformat)) }}</li>
+    <li class="list-disc">{{ gettext('page.datasets.common.mirrored_file_count', count=(stats_data.stats_by_group.journals.aa_count | numberformat), percent=((stats_data.stats_by_group.journals.aa_count/(stats_data.stats_by_group.journals.count+1)*100.0) | decimalformat)) }}</li>
     <li class="list-disc"><a href="/torrents#scihub">{{ gettext('page.datasets.scihub.aa_torrents') }}</a></li>
     <li class="list-disc"><a href="/db/scihub_doi/10.5822/978-1-61091-843-5_15.json">{{ gettext('page.datasets.common.aa_example_record') }}</a></li>
     <li class="list-disc"><a href="https://sci-hub.ru/">{{ gettext('page.datasets.common.main_website', source=gettext('page.datasets.scihub.title')) }}</a></li>

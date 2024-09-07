@@ -358,12 +358,12 @@ def browser_verification_page():
 def get_stats_data():
     with engine.connect() as connection:
         libgenrs_time = connection.execute(select(LibgenrsUpdated.TimeLastModified).order_by(LibgenrsUpdated.ID.desc()).limit(1)).scalars().first()
-        libgenrs_date = str(libgenrs_time.date()) if libgenrs_time is not None else ''
+        libgenrs_date = str(libgenrs_time.date()) if libgenrs_time is not None else 'Unknown'
         libgenli_time = connection.execute(select(LibgenliFiles.time_last_modified).order_by(LibgenliFiles.f_id.desc()).limit(1)).scalars().first()
-        libgenli_date = str(libgenli_time.date()) if libgenli_time is not None else ''
+        libgenli_date = str(libgenli_time.date()) if libgenli_time is not None else 'Unknown'
         # OpenLibrary author keys seem randomly distributed, so some random prefix is good enough.
         openlib_time = connection.execute(select(OlBase.last_modified).where(OlBase.ol_key.like("/authors/OL111%")).order_by(OlBase.last_modified.desc()).limit(1)).scalars().first()
-        openlib_date = str(openlib_time.date()) if openlib_time is not None else ''
+        openlib_date = str(openlib_time.date()) if openlib_time is not None else 'Unknown'
         ia_aacid = connection.execute(select(Ia2AcsmpdfFiles.aacid).order_by(Ia2AcsmpdfFiles.aacid.desc()).limit(1)).scalars().first()
         ia_date_raw = ia_aacid.split('__')[2][0:8]
         ia_date = f"{ia_date_raw[0:4]}-{ia_date_raw[4:6]}-{ia_date_raw[6:8]}"
@@ -389,10 +389,14 @@ def get_stats_data():
         upload_file_date_raw = upload_file_aacid.split('__')[2][0:8]
         upload_file_date = f"{upload_file_date_raw[0:4]}-{upload_file_date_raw[4:6]}-{upload_file_date_raw[6:8]}"
 
-        cursor.execute('SELECT aacid FROM annas_archive_meta__aacid__nexusstc_records ORDER BY aacid DESC LIMIT 1')
-        nexusstc_aacid = cursor.fetchone()['aacid']
-        nexusstc_date_raw = nexusstc_aacid.split('__')[2][0:8]
-        nexusstc_date = f"{nexusstc_date_raw[0:4]}-{nexusstc_date_raw[4:6]}-{nexusstc_date_raw[6:8]}"
+        nexusstc_date = 'Unknown'
+        try:
+            cursor.execute('SELECT aacid FROM annas_archive_meta__aacid__nexusstc_records ORDER BY aacid DESC LIMIT 1')
+            nexusstc_aacid = cursor.fetchone()['aacid']
+            nexusstc_date_raw = nexusstc_aacid.split('__')[2][0:8]
+            nexusstc_date = f"{nexusstc_date_raw[0:4]}-{nexusstc_date_raw[4:6]}-{nexusstc_date_raw[6:8]}"
+        except:
+            pass
 
         stats_data_es = dict(es.msearch(
             request_timeout=30,
