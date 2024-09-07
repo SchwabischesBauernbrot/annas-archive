@@ -976,7 +976,7 @@ LGRS_TO_UNIFIED_CLASSIFICATIONS_MAPPING = {
 }
 
 UNIFIED_IDENTIFIERS = {
-    "md5": { "label": "MD5", "website": "https://en.wikipedia.org/wiki/MD5", "description": "" },
+    "md5": { "shortenvalue": True, "label": "MD5", "website": "https://en.wikipedia.org/wiki/MD5", "description": "" },
     "isbn10": { "label": "ISBN-10", "url": "https://en.wikipedia.org/wiki/Special:BookSources?isbn=%s", "description": "", "website": "https://en.wikipedia.org/wiki/ISBN" },
     "isbn13": { "label": "ISBN-13", "url": "https://en.wikipedia.org/wiki/Special:BookSources?isbn=%s", "description": "", "website": "https://en.wikipedia.org/wiki/ISBN" },
     "doi": { "label": "DOI", "url": "https://doi.org/%s", "description": "Digital Object Identifier", "website": "https://en.wikipedia.org/wiki/Digital_object_identifier" },
@@ -998,10 +998,10 @@ UNIFIED_IDENTIFIERS = {
     "lgli_magz_id": { "label": "Libgen.li magz_id", "description": "Repository ID for the 'magz' repository in Libgen.li. Directly taken from the 'magz_id' field in the 'files' table. Corresponds to the 'thousands folder' torrents.", "website": "/datasets/libgen_li" },
     "filepath": { "label": "Filepath", "description": "Original filepath in source library." },
     "server_path": { "label": "Server Path", "description": "Path on Anna’s Archive partner servers." },
-    "aacid": { "label": "AacId", "website": "/blog/annas-archive-containers.html", "description": "Anna’s Archive Container identifier." },
+    "aacid": { "shortenvalue": True, "label": "AacId", "website": "/blog/annas-archive-containers.html", "description": "Anna’s Archive Container identifier." },
     "magzdb": { "label": "MagzDB Edition ID", "url": "http://magzdb.org/num/%s", "description": "ID of an individual edition of a magazine in MagzDB.", "website": "/datasets/magzdb" },
-    "nexusstc": { "label": "Nexus/STC ID", "url": "https://libstc.cc/#/stc/nid:%s", "description": "ID of an individual edition of a file in Nexus/STC.", "website": "/datasets/nexusstc" },
-    "ipfs_cid": { "label": "IPFS CID", "url": "ipfs://%s", "description": "Content Identifier (CID) of the InterPlanetary File System (IPFS).", "website": "https://ipfs.tech/" },
+    "nexusstc": { "shortenvalue": True, "label": "Nexus/STC", "url": "https://libstc.cc/#/stc/nid:%s", "description": "ID of an individual edition of a file in Nexus/STC.", "website": "/datasets/nexusstc" },
+    "ipfs_cid": { "shortenvalue": True, "label": "IPFS CID", "url": "ipfs://%s", "description": "Content Identifier (CID) of the InterPlanetary File System (IPFS).", "website": "https://ipfs.tech/" },
     "manualslib": { "label": "ManualsLib", "url": "https://www.manualslib.com/manual/%s/manual.html", "description": "File ID in ManualsLib", "website": "https://www.manualslib.com/" },
     "iso": { "label": "ISO", "url": "https://iso.org/standard/%s.html", "description": "ISO standard number.", "website": "https://iso.org/" },
     "british_standard": { "label": "British Standard", "url": "", "description": "British Standards (BS) are the standards produced by the BSI Group.", "website": "https://en.wikipedia.org/wiki/British_Standards" },
